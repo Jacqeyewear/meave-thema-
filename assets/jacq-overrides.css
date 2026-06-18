@@ -474,3 +474,14 @@ body.template-collection .collection-banner-section .banner__box .rte p:last-chi
 .product-card__bottom .swatches > li {
   flex-shrink: 0;
 }
+
+/* Geen blauwe focus-ring rond de checkout-knop (cart page + cart drawer).
+   De ring komt van de globale *:focus-visible outline die getriggerd wordt
+   wanneer de cart automatisch focus op de checkout-knop zet. */
+button[name="checkout"]:focus,
+button[name="checkout"]:focus-visible,
+.additional-checkout-buttons :focus,
+.additional-checkout-buttons :focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
