@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-xl",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-lg md:text-2xl",
+        "padding_top": 72,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact",
+            "heading_size": "title-sm",
+            "heading_tag": "h1",
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "spacing_3jV6gp": {
+          "type": "spacing",
+          "disabled": true,
+          "settings": {
+            "height": 40,
+            "height_mobile": 16
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We horen graag van je! Ons team staat klaar om je te helpen. <br/>Vul het <em>formulier</em> hieronder in om contact met ons op te nemen.</p>",
+            "text_font": "subtitle",
+            "text_size": "subtext-sm",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "spacing_3jV6gp",
+        "text"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "empty-space": {
+      "type": "empty-space",
+      "settings": {
+        "desktop_height": 48,
+        "mobile_height": 44,
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "contact-2": {
+          "type": "contact",
+          "settings": {
+            "heading": "Email",
+            "text": "<p>support@jacqeyewear.nl</p><p>Ma–Vr: 09:00–17:00</p>"
+          }
+        },
+        "media": {
+          "type": "media",
+          "disabled": true,
+          "settings": {
+            "heading": "Follow us"
+          }
+        },
+        "custom_field-1": {
+          "type": "custom_field",
+          "disabled": true,
+          "settings": {
+            "type": "text",
+            "title": "Telefoonnummer",
+            "required": false,
+            "full_width": false,
+            "checked_value": "Yes",
+            "unchecked_value": "No",
+            "radio_options": "",
+            "select_options": ""
+          }
+        },
+        "custom_field-2": {
+          "type": "custom_field",
+          "settings": {
+            "type": "select",
+            "title": "Onderwerp",
+            "required": true,
+            "full_width": false,
+            "checked_value": "Yes",
+            "unchecked_value": "No",
+            "radio_options": "",
+            "select_options": "Bestellingen & Leveringen, Retouren & Ruilen, Betaling & Facturatie, Productinformatie & Voorraad, Acties & Kortingen, Klachten & Schade, Overige vragen"
+          }
+        }
+      },
+      "block_order": [
+        "contact-2",
+        "media",
+        "custom_field-1",
+        "custom_field-2"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#0071e3",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich-text",
+    "empty-space",
+    "contact-form"
+  ]
+}

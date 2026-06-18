@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Herken rond vs ovaal",
+            "body": "<p>Check of je gezicht ongeveer even lang als breed is en of je kaaklijn vooral rond is.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies contrast",
+            "body": "<p>Wil je meer definitie, kies dan vaker hoekige vormen of een duidelijke bovenlijn.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check pasvorm",
+            "body": "<p>Onderkant mag je wangen niet raken bij lachen. Breedte mag niet voorbij je gezicht steken.</p>"
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Rond gezicht herkennen",
+            "toc_label": "Herkennen",
+            "anchor": "rond-herkennen",
+            "body": "<p>Een rond gezicht herken je meestal aan zachte lijnen en minder uitgesproken hoeken. Je jukbeenderen en kaak zijn rond, en de lengte en breedte liggen vaak dicht bij elkaar.</p><h3>Snelle check</h3><ul><li>Kaaklijn voelt rond, niet hoekig.</li><li>Gezicht is ongeveer even lang als breed, of maar iets langer.</li><li>Wangen ogen vaak wat voller.</li></ul><p>Veel mensen zitten tussen rond en ovaal in. Dat is normaal. Gebruik de tips vooral als richting, en kies op het effect dat je wilt.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Snelle keuzehulp (rond gezicht)",
+            "toc_label": "Keuzehulp",
+            "anchor": "keuzehulp-rond",
+            "col1": "Doel",
+            "col2": "Kies vaker",
+            "col3": "Vermijd soms",
+            "rows": "Meer definitie|Rechthoekig, wayfarer, browline|Heel klein en rond\nZachte minimal look|Groter rond, dun metaal|Heel dikke randen als je subtiel wil blijven\nOptisch langer|Browline, hoekig met hogere bovenlijn|Heel lage, kleine glazen",
+            "note": "Richtlijn. Comfort en maat blijven bepalend."
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke monturen passen vaak goed bij een rond gezicht?",
+            "toc_label": "Monturen",
+            "anchor": "monturen-rond-gezicht",
+            "body": "<p>Als je meer structuur wilt, werken monturen met hoekjes of een duidelijke bovenlijn vaak goed. Dat geeft contrast met de zachte vormen van je gezicht.</p><h3>Vormen die vaak balans geven</h3><ul><li><strong>Rechthoekig of hoekig:</strong> voegt lijnen toe, oogt vaak wat slanker.</li><li><strong>Wayfarer:</strong> klassiek, vaak mooi door de lichte hoek en stevige bovenlijn.</li><li><strong>Browline:</strong> extra focus op de bovenkant, kan je gezicht optisch verlengen.</li></ul><h3>Kan rond ook?</h3><p>Ja. Rond kan juist heel stijlvol zijn, vooral als je een zachte, minimalistische look wil. Kies dan liever een iets groter montuur met dunne rand, zodat het niet te klein oogt.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Proportie: de maat is vaak belangrijker dan de vorm",
+            "toc_label": "Proportie",
+            "anchor": "proportie-rond",
+            "body": "<p>Bij een rond gezicht vallen verkeerde proporties sneller op. Te klein maakt je gezicht ronder, te breed kan ‘zweven’ op je neus.</p><ul><li><strong>Breedte:</strong> kies een montuur dat niet breder is dan je gezicht.</li><li><strong>Hoogte:</strong> voorkom dat de onderrand je wangen raakt als je lacht.</li><li><strong>Brug:</strong> een brug die te breed is laat de bril zakken; te smal kan knellen.</li></ul><p>Praktisch: check je huidige maat op het pootje (bijv. 52-18-140) en vergelijk daarmee. <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Lees meer over je brilmaat meten.</a></p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Kleur, materiaal en ‘gewicht’ van het montuur",
+            "toc_label": "Materiaal",
+            "anchor": "materiaal-rond",
+            "body": "<p>Niet alleen vorm, ook materiaal bepaalt hoe ‘sterk’ een montuur oogt. Bij rond kan een iets duidelijker bovenlijn mooi zijn, maar te zwaar kan dominant worden.</p><ul><li><a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\"><strong>Acetaat</strong></a><strong>:</strong> geeft presence. Kies eventueel transparant of dunner als je het subtiel wil houden.</li><li><strong>Metaal/</strong><a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\"><strong>titanium</strong></a><strong>:</strong> lichter en minimaler, vaak heel clean. </li></ul><p>Tip: als je gezicht al zacht is, kan een iets donkerder montuur boven je ogen extra definitie geven.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte fouten bij rond gezicht",
+            "toc_label": "Fouten",
+            "anchor": "fouten-rond",
+            "body": "<ul><li><strong>Te klein montuur:</strong> maakt je gezicht optisch ronder en kan druk geven op de slapen.</li><li><strong>Onderkant raakt wangen:</strong> ziet er onrustig uit en zit vaak niet lekker.</li><li><strong>Te brede brug:</strong> bril zakt en je ogen lijken lager in het glas te staan.</li></ul><p>Als je bril zakt of drukt: vaak is maat/brug de echte oorzaak, niet je gezichtsvorm. <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Lees meer over pasvormproblemen.</a></p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Pasvormcheck in 10 seconden",
+            "anchor": "pasvormcheck",
+            "body": "<ul><li>Bril is niet breder dan je gezicht.</li><li>Onderkant raakt je wangen niet bij lachen.</li><li>Bril zakt niet meteen bij praten of bewegen.</li><li>Pootjes drukken niet op slapen en zitten stabiel achter je oren.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke bril maakt een rond gezicht slanker?",
+            "a": "<p>Vaak werkt een iets hoekiger montuur met een duidelijke bovenlijn. Dat voegt structuur toe. Kies wel een maat die niet breder is dan je gezicht.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik een ronde bril dragen met een rond gezicht?",
+            "a": "<p>Ja. Als je een zachte look wil, kan dat juist heel mooi zijn. Kies liever iets groter en met een dunne rand.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom raakt mijn montuur mijn wangen?",
+            "a": "<p>Dan is het montuur vaak te laag of te klein in hoogte. Een andere maat of vorm met meer glas-hoogte kan dit oplossen.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is belangrijker: gezichtsvorm of maat?",
+            "a": "<p>Maat en brug zijn belangrijker voor comfort en hoe de bril ‘zit’ op je gezicht. Gezichtsvorm helpt vooral bij styling. </p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke stijl past bij een rond gezicht voor werk?",
+            "a": "<p>Vaak werkt een clean, licht hoekig montuur in metaal of dun acetaat. Denk aan rustig kleurgebruik en een duidelijke bovenlijn.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als ik tussen rond en ovaal zit?",
+            "a": "<p>Neem beide adviezen mee en kies op het effect dat je wil. Als je twijfelt, laat pasvorm en proportie de doorslag geven.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "sec-1",
+        "table-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: gezichtsvorm rond",
+        "kicker": "ADVIES",
+        "title": "Bril voor rond gezicht: zo kies je een montuur dat balans geeft",
+        "subtitle": "Herken een rond gezicht en kies in 3 stappen een montuur dat structuur geeft zonder hard te worden.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Heb je een rond gezicht, dan zijn je lijnen meestal zacht, je kaak is minder hoekig en je gezicht is vaak ongeveer even lang als breed. Voor een montuur dat in balans voelt, werkt contrast vaak goed: kies vaker hoekige vormen of een duidelijke bovenlijn. Zo voeg je structuur toe zonder dat het hard wordt.</p><ul><li><strong>Meestal mooi bij rond:</strong> rechthoekig, wayfarer, browline, hoekig met zachte hoeken.</li><li><strong>Let op maat:</strong> kies niet breder dan je gezicht en voorkom dat de onderrand je wangen raakt bij lachen.</li><li><strong>Als je juist zacht wil blijven:</strong> rond kan ook, maar ga dan voor iets groter en dunner, zodat het niet ‘kinderlijk’ oogt.</li></ul><p>Twijfel je? De <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">pasvorm </a>wint altijd. Een bril die knelt of zakt, staat nooit goed.  en bij klachten:<a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\"> hulp bij pasvormproblemen.</a></p>",
+        "howto_title": "Zo kies je een bril voor een rond gezicht",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li>Terug naar overzicht: <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen.</a></li><li>Brilmaat en cijfers: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen</a></li><li>Problemen met afzakken/drukpunten: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</li><li>Materiaal en gewicht: <a href=\"/pages/materialen\" title=\"materialen\">materialen</a>.</li><li>Snelle keuzehulp: <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">welke bril past bij mij?</a></li></ul><p>Andere vormen: <a href=\"/pages/gezichtsvorm-ovaal\" title=\"gezichtsvorm-ovaal\">ovaal</a>, <a href=\"/pages/gezichtsvorm-vierkant\" title=\"gezichtsvorm-vierkant\">vierkant</a>, <a href=\"/pages/gezichtsvorm-hart\" title=\"gezichtsvorm-hart\">hart</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

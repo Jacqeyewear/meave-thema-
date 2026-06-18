@@ -1,0 +1,363 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_yJAVeE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bBf7mi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Het verhaal van <em>Jacq.</em>",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "basic-underline"
+          }
+        },
+        "text_w6MJPP": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<h3>Waarom we bestaan</h3><p>Bij <em>Jacq.</em> vinden we dat een bril geen luxeproduct hoort te zijn. Het is iets dat je dagelijks draagt, letterlijk midden in je gezicht. Toch betaal je bij veel opticiens bedragen waar je portemonnee spontaan tranen van in de ogen krijgt. Dat moet <em>eerlijker</em>, dachten wij. Daarom maken we kwalitatieve, stijlvolle brillen die wél betaalbaar zijn. Geen onnodige tussenstations, geen absurde marges, maar gewoon mooie monturen en glazen voor een prijs die klopt.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "text",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bBf7mi",
+        "text_w6MJPP"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "timeline_EBhFWz": {
+      "type": "timeline",
+      "blocks": {
+        "content_GQAtEc": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/image_2025-09-06_153528131.png",
+            "subheading": "2023",
+            "heading": "<em>De start van Jacq.</em>",
+            "heading_tag": "h2",
+            "text": "<p>Jacq. is geboren uit een simpel idee van twee vrienden die vonden dat een bril niet zo duur hoeft te zijn. Gewoon een goed montuur, fijne glazen en een eerlijke prijs. Zo simpel kan het zijn.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "half_text",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "content_VtqJDr": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/smiling-man-in-formalwear.jpg",
+            "subheading": "2024",
+            "heading": "Steeds meer <em>fans</em>",
+            "heading_tag": "h2",
+            "text": "<p>Wat begon als een klein avontuur, groeide al snel uit tot een community van klanten die net zo enthousiast zijn over Jacq. als wij. De collectie werd uitgebreid en steeds meer mensen ontdekten dat stijlvol en betaalbaar prima samen kunnen gaan.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "text",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "content_cfcwCT": {
+          "type": "content",
+          "settings": {
+            "image": "shopify://shop_images/man-in-suit-on-stairs.jpg",
+            "subheading": "2025",
+            "heading": "<em>Vandaag en morgen</em>",
+            "heading_tag": "h2",
+            "text": "<p>We blijven groeien, maar houden vast aan waar we voor staan: brillen zonder poespas, transparant geprijsd en gemaakt om lang mee te gaan. Dit is pas het begin.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "half_text",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "content_GQAtEc",
+        "content_VtqJDr",
+        "content_cfcwCT"
+      ],
+      "name": "t:sections.timeline.name",
+      "settings": {
+        "image_ratio": "portrait",
+        "image_ratio_mobile": "wide",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "scrolling_banner_3cJ6qJ": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "image_4J7GCU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/image_2025-09-06_153528131.png",
+            "icon": "none",
+            "iwidth": "custom",
+            "icon_width": 24,
+            "heading": "Waarom we bestaan",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "<p>Bij <em>Jacq</em>. vinden we dat een bril geen luxeproduct hoort te zijn. Het is iets dat je dagelijks draagt, letterlijk midden in je gezicht. Toch betaal je bij veel opticiens bedragen waar je portemonnee spontaan tranen van in de ogen krijgt. Dat moet <em>eerlijker</em>, dachten wij. Daarom maken we kwalitatieve, stijlvolle brillen die wél betaalbaar zijn. Geen onnodige tussenstations, geen absurde marges, maar gewoon mooie monturen en glazen voor een prijs die klopt.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "text",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "image_EXkERt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/man-in-suit-on-stairs.jpg",
+            "icon": "none",
+            "iwidth": "custom",
+            "icon_width": 24,
+            "heading": "Wat we <em>beloven</em>",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "<p>We geloven in transparantie en eenvoud. Bij ons weet je precies waar je aan toe bent: tijdloos design, degelijke kwaliteit en service waar je echt iets aan hebt. Bestellen gaat makkelijk, retourneren ook. Geen gedoe, geen kleine lettertjes.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "sketch-underline"
+          }
+        },
+        "image_8fK4GD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/smiling-man-in-formalwear.jpg",
+            "icon": "none",
+            "iwidth": "custom",
+            "icon_width": 24,
+            "heading": "Hoe het <em>begon</em>",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "<p>Jacq. is ontstaan uit een simpele frustratie: waarom kost een bril soms net zoveel als een weekend weg? Wij besloten het anders te doen en een webshop te starten die brillen levert zoals het hoort: eerlijk, duidelijk en met een vleugje eigenwijsheid. We zijn geen stoffige optiekgigant, maar een team dat recht door zee gaat en oog heeft voor wat jij nodig hebt.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "image_3rqQHY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/man-in-suit-bowtie.jpg",
+            "icon": "none",
+            "iwidth": "custom",
+            "icon_width": 24,
+            "heading": "Onze <em>belofte</em>",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "subheading": "",
+            "description": "<p>Bij Jacq. zie je altijd scherp – met je ogen én met je portemonnee. En mocht er toch iets misgaan? Dan lossen we het gewoon op. Want een bril koop je niet alleen voor beter zicht, maar ook voor vertrouwen.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": true,
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "image_4J7GCU",
+        "image_EXkERt",
+        "image_8fK4GD",
+        "image_3rqQHY"
+      ],
+      "name": "t:sections.scrolling-banner.name",
+      "settings": {
+        "image_height": "650px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "items-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "featured_collections_jxPmTf": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_hzb3JU": {
+          "type": "collection",
+          "settings": {
+            "collection": "brillen-op-sterkte",
+            "products": [],
+            "title": ""
+          }
+        },
+        "collection_mz648D": {
+          "type": "collection",
+          "settings": {
+            "collection": "zonnebrillen",
+            "products": [],
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_hzb3JU",
+        "collection_mz648D"
+      ],
+      "name": "t:sections.featured-collections.name",
+      "settings": {
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "<em>Ontdek Jacq.</em>",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "half_text",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_yJAVeE",
+    "timeline_EBhFWz",
+    "scrolling_banner_3cJ6qJ",
+    "featured_collections_jxPmTf"
+  ]
+}

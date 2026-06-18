@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-hub",
+      "blocks": {
+        "ql1": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Welke glazen passen bij mij?",
+            "link": "/pages/welke-glazen-passen-bij-mij"
+          }
+        },
+        "ql2": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Glasindex & dikte",
+            "link": "/pages/glasindex-en-dikte"
+          }
+        },
+        "ql3": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Coatings",
+            "link": "/pages/coatings"
+          }
+        },
+        "ql4": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Blauwlichtfilter",
+            "link": "/pages/blauwlichtfilter"
+          }
+        },
+        "t1": {
+          "type": "topic",
+          "settings": {
+            "title": "Welke glazen passen bij mij?",
+            "text": "Snel kiezen op basis van jouw sterkte, gebruik en wat je storend vindt.",
+            "badge": "3 min",
+            "link": "/pages/welke-glazen-passen-bij-mij",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M9 12l2 2 4-4'/><path d='M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0z'/></svg>"
+          }
+        },
+        "t2": {
+          "type": "topic",
+          "settings": {
+            "title": "Glasindex & dikte (1.56–1.74)",
+            "text": "Wat glasindex betekent, wanneer dunner zin heeft en waar je op moet letten.",
+            "badge": "8 min",
+            "link": "/pages/glasindex-en-dikte",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M7 7h10'/><path d='M5 12h14'/><path d='M7 17h10'/></svg>"
+          }
+        },
+        "t3": {
+          "type": "topic",
+          "settings": {
+            "title": "Coatings (overzicht)",
+            "text": "Anti-reflectie, kraswerend en water/vet-afstotend: wat doet het en wat merk je?",
+            "badge": "8 min",
+            "link": "/pages/coatings",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z'/></svg>"
+          }
+        },
+        "t4": {
+          "type": "topic",
+          "settings": {
+            "title": "Blauwlichtfilter",
+            "text": "Wat het wél en níet doet, en wanneer het voor jou logisch is.",
+            "badge": "8 min",
+            "link": "/pages/blauwlichtfilter",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M4 12h16'/><path d='M12 4v16'/><path d='M7 7l10 10'/><path d='M17 7L7 17'/></svg>"
+          }
+        },
+        "t5": {
+          "type": "topic",
+          "settings": {
+            "title": "Cylinder & as uitgelegd (CYL/AS)",
+            "text": "Astigmatisme in normale taal, inclusief veelgemaakte fouten bij invullen.",
+            "badge": "9 min",
+            "link": "/pages/cylinder-as-uitleg",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M8 3h8l4 4v14H8z'/><path d='M16 3v5h5'/><path d='M10 12h8'/><path d='M10 16h8'/><path d='M10 8h4'/></svg>"
+          }
+        },
+        "t6": {
+          "type": "topic",
+          "settings": {
+            "title": "Anti-reflectie coating",
+            "text": "Minder reflecties, rustiger zicht en mooiere foto’s. Wanneer het echt verschil maakt.",
+            "badge": "7 min",
+            "link": "/pages/anti-reflectie",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M2 12h3'/><path d='M19 12h3'/><path d='M7 12a3.5 3.5 0 1 0 7 0'/><path d='M14 12a3.5 3.5 0 1 0 7 0'/><path d='M11 12h2'/></svg>"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekent glasindex (1.56, 1.60, 1.67, 1.74)?",
+            "a": "<p>Glasindex zegt iets over hoe sterk het materiaal licht buigt. Praktisch vertaalt dat vaak naar hoe dun het glas kan worden bij dezelfde sterkte. Hoe hoger de index, hoe meer potentie om dunner te kiezen, maar comfort en optische kwaliteit blijven belangrijk. </p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke coating is het belangrijkst?",
+            "a": "<p>Als je één coating kiest die veel mensen direct merken, is anti-reflectie vaak de meest ‘zichtbare’ upgrade in dagelijks gebruik. Daarna zijn water/vet-afstotend (minder poetsen) en kraswerend vooral afhankelijk van hoe je je bril gebruikt. </p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "q": "Zijn dunnere glazen altijd beter?",
+            "a": "<p>Nee. Dunner kan mooier zijn en soms lichter ogen, maar het moet ook prettig kijken en bij je montuur passen. Soms is een stap minder dun al perfect.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "q": "Heb ik een blauwlichtfilter nodig?",
+            "a": "<p>Niet per se. Veel mensen kiezen het omdat ze ‘rust’ willen bij schermgebruik, maar het is geen must voor iedereen. Als je twijfelt: start met goede anti-reflectie en kijk daarna of je nog iets mist.</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekenen CYL en AS op mijn recept?",
+            "a": "<p>CYL (cylinder) en AS (as) horen bij astigmatisme. Als je deze waarden verkeerd invult, kan je zicht snel minder scherp voelen. </p>"
+          }
+        },
+        "f6": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke info heb ik nodig om glazen online te bestellen?",
+            "a": "<p>Meestal heb je SPH (sterkte), eventueel CYL/AS, en je PD (pupilafstand) nodig. PD meten kan thuis.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ql1",
+        "ql2",
+        "ql3",
+        "ql4",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "settings": {
+        "aria_label": "Glazen & opties",
+        "kicker": "ADVIES",
+        "title": "Brilglazen kiezen: index, coatings & opties",
+        "subtitle": "Kies wat je écht merkt in het dagelijks dragen: glasindex, coatings en praktische opties uitgelegd.",
+        "primary_cta_label": "Bril op sterkte bestellen",
+        "primary_cta_link": "",
+        "secondary_cta_label": "Welke glazen passen bij mij?",
+        "secondary_cta_link": "/pages/welke-glazen-passen-bij-mij",
+        "show_quicklinks": false,
+        "quicklinks_title": "Snel naar",
+        "card_cta_text": "Lees artikel",
+        "faq_title": "Veelgestelde vragen",
+        "seo_title": "Wat je moet weten over glazen (zonder marketingpraat)",
+        "seo_richtext": "<p>De ‘beste’ brilglazen bestaan niet in één standaard. Wat voor jou werkt hangt vooral af van drie dingen: <strong>je sterkte</strong>, <strong>je draagmoment</strong> (de hele dag of af en toe) en <strong>wat je storend vindt</strong> (reflecties, vet/regen, krassen, dikte).</p><p>Gebruik deze hub als korte route:</p><ul><li>Begin met een keuzehulp: <a href=\"/pages/welke-glazen-passen-bij-mij\">Welke glazen passen bij mij?</a></li><li>Wil je weten wat 1.56/1.60/1.67/1.74 doet voor dikte? <a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li>Last van reflecties of poetsen? Bekijk <a href=\"/pages/coatings\">coatings</a> (anti-reflectie, kraswerend, water/vet-afstotend).</li><li>Recept-termen zoals CYL/AS: <a href=\"/pages/cylinder-as-uitleg\">Cylinder & as uitgelegd</a></li></ul><p>Tip: twijfel je tussen twee opties? Kies wat je in het dagelijks leven het meest merkt. Voor veel mensen zijn dat comfort (goed gekozen index) en minder reflecties (anti-reflectie coating). De rest is afhankelijk van je gebruik.</p><p>Verdieping per coating: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a>, <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend</a>, <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water- & vet-afstotend</a>. </p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

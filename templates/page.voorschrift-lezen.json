@@ -1,0 +1,112 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_KVEifK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QxmYrd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hoe lees ik mijn <em>voorschrift?</em>",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "spacing_KJG6EH": {
+          "type": "spacing",
+          "settings": {
+            "height": 40,
+            "height_mobile": 28
+          }
+        },
+        "liquid_mGXqhN": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style type=\"text/css\">\n.tg  {\n  border-collapse: separate;\n  border-spacing: 0;\n  border-radius: 12px;\n  overflow: hidden;\n}\n.tg td {\n  border-color: black;\n  border-style: solid;\n  border-width: 1px;\n  font-family: Arial, sans-serif;\n  font-size: 14px;\n  padding: 4px 20px;\n  word-break: normal;\n}\n.tg th {\n  border-color: black;\n  border-style: solid;\n  border-width: 1px;\n  font-family: Arial, sans-serif;\n  font-size: 14px;\n  font-weight: normal;\n  padding: 4px 20px;\n  word-break: normal;\n}\n.tg .tg-6djh {\n  background-color: #ffa816;\n  border-color: inherit;\n  text-align: left;\n  vertical-align: top;\n}\n.tg .tg-0pky {\n  border-color: inherit;\n  text-align: left;\n  vertical-align: top;\n}\n/* extra ronde hoeken */\n.tg th:first-child {\n  border-top-left-radius: 12px;\n}\n.tg th:last-child {\n  border-top-right-radius: 12px;\n}\n.tg tr:last-child td:first-child {\n  border-bottom-left-radius: 12px;\n}\n.tg tr:last-child td:last-child {\n  border-bottom-right-radius: 12px;\n}\n</style>\n\n<table class=\"tg\"><thead>\n  <tr>\n    <th class=\"tg-6djh\">Afkortingen</th>\n    <th class=\"tg-6djh\">Betekenis</th>\n  </tr></thead>\n<tbody>\n  <tr>\n    <td class=\"tg-0pky\">OD</td>\n    <td class=\"tg-0pky\">Rechteroog (Oculus Dexter)</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0pky\">OS</td>\n    <td class=\"tg-0pky\">Linkeroog (Oculus Sinister)</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0pky\">OU</td>\n    <td class=\"tg-0pky\">Beide ogen (Oculi Uterque)</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0pky\">ADD</td>\n    <td class=\"tg-0pky\">Additie</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0pky\">SPH</td>\n    <td class=\"tg-0pky\">Sfeer/Sterkte</td>\n  </tr>\n  <tr>\n    <td class=\"tg-0pky\">CYL</td>\n    <td class=\"tg-0pky\">Cilinder</td>\n  </tr>\n</tbody>\n</table>"
+          }
+        },
+        "text_NihYgq": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><em>Wat betekenen de sterktes?</em></h2><p>De sterktes op een voorschrift worden meestal uitgedrukt in stappen van 0.25 dioptrie. Elk oog kan een andere correctie nodig hebben.</p><h3><em>Voor ver kijken (afstandszicht)</em></h3><ul><li><strong>Positieve waardes</strong> (bijv. +2.00) betekenen dat je verziend bent (hyperopie).</li><li><strong>Negatieve waardes</strong> (bijv. -3.00) betekenen dat je bijziend bent (myopie).</li><li><strong>Waarden tussen haakjes</strong> geven een cilindersterkte aan. Dit corrigeert astigmatisme, oftewel een vervormd beeld. De waarde in graden die erbij staat (bijv. 90°) is de as van het astigmatisme.</li></ul><h3><em>Voor dichtbij kijken (leesgedeelte)</em></h3><p>Als het moeilijk wordt om scherp te zien van dichtbij, spreken we van presbyopie. Dan staat er een ADD-waarde op je recept. De ADD-waarde geeft aan hoeveel extra sterkte je glazen nodig hebben om te kunnen lezen. Deze waarde is altijd positief en varieert meestal tussen +0.50 en +3.50.</p><h2><em>Veelvoorkomende oogafwijkingen</em></h2><p>In de optiek zijn de vier meest voorkomende oogafwijkingen:</p><ul><li><strong>Hyperopie</strong> (verziendheid)</li><li><strong>Myopie</strong>(bijziendheid)</li><li><strong>Astigmatisme</strong></li><li><strong>Presbyopie</strong> (ouderdomsverziendheid)</li></ul><h3><em>Hyperopie (verziendheid)</em></h3><p>Als je hyperopie hebt, dan heb je moeite met scherp zien van dichtbij. Voorbeeld van een oogmeting voor iemand met hyperopie:</p><ul><li>OD: +2.50 OS: +3.00</li></ul><p>Het komt vaak voor dat elk oog een individuele sterkte nodig heeft.</p><h3><em>Myopie (bijziendheid)</em></h3><p>Als je myopie hebt, dan heb je wazig zicht in de verte. Voorbeeld van een oogmeting voor iemand met myopie:</p><ul><li>OD: -3.75 OS: -3.25</li></ul><h3><em>Astigmatisme</em></h3><p>Als je astigmatisme hebt, dan heb je een wazig of vervormd zicht op alle afstanden door een afwijkende kromming van het hoornvlies. Astigmatisme kan gepaard gaan met hyperopie en bijziendheid.</p><p>Voorbeelden van oogmetingen voor iemand met hyperopie en astigmatisme:</p><ul><li>OD: +2.50 (+1.25) 90° OS: +3.00 (+0.75) 85°</li><li>of OD: (90°+1.25) +2.50 OS: (85°+0.75) +3.00</li></ul><p>De sterkte tussen haakjes geven de waarde van het astigmatisme aan. De laatste waarde, in graden, geeft de as van het astigmatisme aan. Voorbeelden van oogmetingen voor iemand met myopie en astigmatisme:</p><ul><li>OD: -4.50 (+2.00) 35° OS: -3.75 (+1.25) 65°</li><li>OD: -4.50 (+2.00) 35° OS: -3.75 (+1.25) 65°</li></ul><h3><em>Presbyopie</em></h3><p>Als je ouderdomsverziendheid (presbyopie) hebt, dan heb je moeite met lezen of dichtbij kijken door een verminderde flexibiliteit van de ooglens.</p><p>We voegen dan een vergrootglas toe aan het onderste gedeelte van multifocale glazen om presbyopie te corrigeren. Over het algemeen zal het variëren van 0.50 tot 3.50.</p><p>Voorbeeld van de oogmeting voor iemand met presbyopie en myopie:</p><ul><li>OD: -4.00 toevoegen: 2.00 OS: -3.50 toevoegen: 2.00</li></ul><p>Voorbeeld van een oogmeting voor iemand met hyperopie en presbyopie:</p><ul><li>OD: +2.50 (+0.75) 15° toevoegen: 1.75 OS: +2.25 (+0.50) 75° toevoegen: 1.75</li></ul>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QxmYrd",
+        "spacing_KJG6EH",
+        "liquid_mGXqhN",
+        "text_NihYgq"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_KVEifK"
+  ]
+}

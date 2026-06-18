@@ -1,0 +1,211 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "settings": {
+        "aria_label": "Advies artikel: bril schoonmaken",
+        "kicker": "ADVIES",
+        "title": "Bril schoonmaken",
+        "subtitle": "Zonder krassen, strepen of waas (met simpele routine).",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>De veiligste manier om je bril schoon te maken is: <strong>eerst vuil wegspoelen</strong>, dan <strong>mild reinigen</strong>, en pas daarna <strong>droog wrijven</strong>. Zo voorkom je microkrasjes door stof of zand.</p><ol><li>Spoel je glazen af met lauw water.</li><li>1 druppel milde afwasmiddel (geen crème), zacht verdelen met je vingers.</li><li>Goed afspoelen.</li><li>Droogdeppen met een schone microvezeldoek.</li></ol><p><strong>Niet doen:</strong> keukenpapier, tissue, kleding, of droge doek op droge glazen. Heb je coatings? Zie <a href='/pages/coatings'>coatings</a> en <a href='/pages/anti-reflectie'>anti-reflectie</a>.</p>",
+        "howto_title": "Schoonmaken in 5 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href='/pages/bril-afstellen'>Bril afstellen</a></li><li><a href='/pages/pasvormproblemen'>Pasvormproblemen oplossen</a></li><li><a href='/pages/coatings'>Coatings overzicht</a></li><li><a href='/pages/anti-reflectie'>Anti-reflectie</a></li><li><a href='/pages/kraswerend'>Kraswerend</a></li><li><a href='/pages/water-vet-afstotend'>Water- & vetafstotend</a></li></ul>"
+      },
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 1: spoel eerst (altijd)",
+            "body": "<p>Spoel stof en zand weg met lauw water. Dit is de belangrijkste stap tegen krassen.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 2: reinig met iets milds",
+            "body": "<p>Gebruik een druppel milde afwasmiddel (geen handzeep met moisturizers). Wrijf zacht met je vingers over beide kanten.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 3: spoel grondig na",
+            "body": "<p>Spoel alle zeepresten weg; resten geven waas en vlekken.</p>"
+          }
+        },
+        "howto-4": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 4: droog correct",
+            "body": "<p>Dep droog met een schone microvezeldoek. Niet ‘schuren’. Vervang je doek als hij vettig is.</p>"
+          }
+        },
+        "howto-5": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 5: onderhoud je doek en neuspads",
+            "body": "<p>Was microvezel zonder wasverzachter. Maak ook neusbrug en neuspads schoon; daar zit vaak vet dat terug smeert.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Wel vs niet gebruiken (snelle checklist)",
+            "toc_label": "Wel/niet",
+            "anchor": "wel-niet",
+            "col1": "Product / methode",
+            "col2": "Wel of niet",
+            "col3": "Waarom / tip",
+            "rows": "Lauw water + milde afwasmiddel|Wel|Veilig en effectief voor vet en vlekken\nMicrovezeldoek (schoon)|Wel|Dep/poets licht, doek regelmatig wassen\nBrilreinigingsspray (geschikt voor coatings)|Wel|Handig onderweg; spray eerst, dan microvezel\nKeukenpapier / tissues|Niet|Houtvezels kunnen microkrasjes maken\nKleding (trui, shirt)|Niet|Stof bevat vuil/vet; vaak krassen en strepen\nAlcohol/glasreiniger met ammoniak|Meestal niet|Kan coatings aantasten; gebruik alleen producten voor brillen\nHeet water|Niet|Kan coatings of montuur beïnvloeden\nUltrasoon zonder kennis|Voorzichtig|Kan prima, maar let op montuur/steentjes/schroefjes",
+            "note": "Twijfel je over een product? Gebruik lauw water + mild afwasmiddel als veilige standaard."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Waarom je bril vaak strepen heeft (en hoe je dat voorkomt)",
+            "toc_label": "Strepen",
+            "anchor": "strepen",
+            "body": "<p>Strepen komen meestal door twee dingen: (1) je poetst <strong>droog vuil</strong> over de glazen, of (2) er blijft <strong>vet/zeep</strong> achter. Spoelen en goed naspoelen lost dit bijna altijd op.</p><p>Tip: als je microvezeldoek vettig is, verplaats je het vet in plaats van het weg te halen. Was je doek regelmatig.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Bril schoonmaken met coatings (anti-reflectie, kraswerend, hydrofoob)",
+            "toc_label": "Coatings",
+            "anchor": "coatings-schoonmaken",
+            "body": "<p>Coatings maken je bril comfortabeler, maar vragen wel ‘normaal’ onderhoud: lauw water, mild schoonmaakmiddel, zachte doek.</p><ul><li><strong>Anti-reflectie:</strong> voorkomt reflecties, maar laat vet sneller zien; vaker even spoelen helpt.</li><li><strong>Water-/vetafstotend:</strong> vlekken hechten minder, maar poets nog steeds niet droog.</li><li><strong>Kraswerend:</strong> helpt tegen dagelijkse slijtage, maar maakt je bril niet ‘onkwetsbaar’.</li></ul><p>Meer info: <a href='/pages/coatings'>coatings overzicht</a>, <a href='/pages/anti-reflectie'>anti-reflectie</a>, <a href='/pages/kraswerend'>kraswerend</a>, <a href='/pages/water-vet-afstotend'>water- & vetafstotend</a>.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Snelle schoonmaak onderweg (zonder water)",
+            "toc_label": "Onderweg",
+            "anchor": "onderweg",
+            "body": "<p>Geen kraan in de buurt? Gebruik dan een <strong>brilreinigingsspray</strong> of een schoon, licht vochtig microvezeldoekje.</p><ol><li>Spray op beide zijden (of maak doekje licht vochtig).</li><li>Wrijf zacht, zonder druk.</li><li>Als er zand/stof op zit: liever wachten tot je kunt spoelen.</li></ol>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Neuspads en montuur schoonmaken",
+            "toc_label": "Montuur",
+            "anchor": "montuur",
+            "body": "<p>Vet en make-up zitten vaak op neuspads, brug en achter de oren. Maak dit mee schoon:</p><ul><li>Gebruik lauw water + mild afwasmiddel.</li><li>Een zachte tandenborstel (heel zacht) kan bij randjes helpen.</li><li>Goed naspoelen en drogen.</li></ul><p>Als je bril daarna anders zit (gladder), is dat normaal. Zakt hij ineens af? Zie <a href='/pages/bril-afstellen'>bril afstellen</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte fouten (die krassen veroorzaken)",
+            "toc_label": "Fouten",
+            "anchor": "fouten",
+            "body": "<ul><li>Droog poetsen op droge glazen.</li><li>Keukenpapier of tissues gebruiken.</li><li>Te heet water gebruiken.</li><li>Microvezeldoek nooit wassen (wordt ‘vetdoek’).</li></ul>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer vervangen of laten checken?",
+            "toc_label": "Wanneer",
+            "anchor": "wanneer",
+            "body": "<p>Blijft je bril dof ondanks goed schoonmaken? Dan kunnen er microkrasjes of coating-slijtage zijn.</p><ul><li><strong>Microvezeldoek:</strong> vervangen als hij blijft smeren.</li><li><strong>Coating:</strong> bij duidelijke waas/‘regenboog’ plekken kan het slijtage zijn.</li><li><strong>Pasvorm:</strong> als schoonmaken je bril ‘glad’ maakt en hij zakt af: <a href='/pages/bril-afstellen'>afstellen</a>.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelste fix bij vette vlekken",
+            "anchor": "vette-vlek",
+            "body": "<p>Spoelen + 1 druppel milde afwasmiddel is meestal sneller én beter dan 10x met een doek wrijven.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik mijn bril schoonmaken met alcohol?",
+            "a": "<p>Liever niet. Sommige alcohol-/glasreinigers kunnen coatings aantasten. Gebruik liever lauw water + mild afwasmiddel of een brilreiniger die voor coatings bedoeld is.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom krijg ik altijd strepen?",
+            "a": "<p>Vaak door zeepresten of een vettige microvezeldoek. Spoel beter na en was/vervang je doek.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Mag mijn bril onder de kraan?",
+            "a": "<p>Ja, met lauw water. Vermijd heet water en agressieve schoonmaakmiddelen.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik een ultrasoon reiniger gebruiken?",
+            "a": "<p>Soms wel, maar let op montuur, schroefjes en eventuele decoraties. Als je twijfelt: blijf bij handmatig reinigen.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe vaak moet ik mijn bril schoonmaken?",
+            "a": "<p>Zo vaak als nodig. Voor comfort is even spoelen vaak beter dan vaak droog poetsen.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Mijn bril beslaat vaak. Wat helpt?",
+            "a": "<p>Schone glazen en een goede coating helpen soms. Beslag heeft vaak ook met temperatuur/vocht te maken. Een anti-condens spray kan werken, maar kies een product dat geschikt is voor brillen.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "howto-4",
+        "howto-5",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

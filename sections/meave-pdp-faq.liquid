@@ -1,0 +1,190 @@
+<section class="meave-faq">
+  <div class="meave-faq__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2>{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="meave-faq__intro rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+
+    <div class="meave-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="meave-faq__item" {{ block.shopify_attributes }}>
+          <summary>
+            <span>{{ block.settings.question | escape }}</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="meave-faq__answer rte">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-faq {
+    padding: 78px 20px;
+    background: #f5f5f7;
+    color: #15120f;
+  }
+
+  .meave-faq__inner {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .meave-faq h2 {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(30px, 3.5vw, 46px);
+    letter-spacing: -.04em;
+    line-height: 1.08;
+  }
+
+  .meave-faq__intro {
+    max-width: 570px;
+    margin: 16px auto 36px;
+    color: #5d554c;
+    text-align: center;
+    line-height: 1.65;
+  }
+
+  .meave-faq__intro p {
+    margin: 0;
+  }
+
+  .meave-faq__list {
+    overflow: hidden;
+    border: 1px solid #e5e5ea;
+    border-radius: 18px;
+    background: #fff;
+  }
+
+  .meave-faq__item {
+    border-bottom: 1px solid #e5e5ea;
+  }
+
+  .meave-faq__item:last-child {
+    border-bottom: 0;
+  }
+
+  .meave-faq__item summary {
+    display: flex;
+    min-height: 72px;
+    padding: 20px 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  .meave-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .meave-faq__item summary svg {
+    width: 20px;
+    flex: 0 0 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.6;
+    transition: transform .25s ease;
+  }
+
+  .meave-faq__item[open] summary svg {
+    transform: rotate(45deg);
+  }
+
+  .meave-faq__answer {
+    max-width: 720px;
+    padding: 0 24px 24px;
+    color: #5d554c;
+    line-height: 1.7;
+  }
+
+  .meave-faq__answer p {
+    margin: 0;
+  }
+
+  @media (max-width: 560px) {
+    .meave-faq {
+      padding: 58px 14px;
+    }
+
+    .meave-faq__item summary {
+      min-height: 64px;
+      padding: 18px;
+      font-size: 15px;
+    }
+
+    .meave-faq__answer {
+      padding: 0 18px 20px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave product FAQ",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Product questions"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Introduction",
+      "default": "<p>Everything you need to choose and style your light with confidence.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Where should I use this lamp?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Use it beside mirrors, over bedside tables or anywhere the room needs a softer layer of light.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave product FAQ",
+      "blocks": [
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  }
+}
+{% endschema %}

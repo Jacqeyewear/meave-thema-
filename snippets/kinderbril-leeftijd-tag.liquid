@@ -1,0 +1,104 @@
+{%- doc -%}
+  Renders an age-group pill on kinderbril products.
+
+  Detects the leeftijd-* tag (or fallback signals) and outputs a small
+  pill positioned absolute top-right of its (relatively positioned)
+  parent. Sized and shaped to match the existing .badge sale pills.
+
+  @param {object} product - Shopify product object
+  @param {string} [context] - Reserved for future variants (currently unused)
+
+  @example
+  {% render 'kinderbril-leeftijd-tag', product: product %}
+{%- enddoc -%}
+
+{%- liquid
+  assign tags_lower = product.tags | join: ',' | downcase
+  assign brillen_voor_raw = product.metafields.custom.brillen_voor.value | default: product.metafields.custom.brillen_voor
+  assign brillen_voor = brillen_voor_raw | downcase
+  assign product_type_lower = product.type | downcase
+
+  assign is_kinderbril = false
+  if tags_lower contains 'kinderbril'
+    assign is_kinderbril = true
+  elsif brillen_voor == 'kinderen'
+    assign is_kinderbril = true
+  elsif product_type_lower contains 'kinder'
+    assign is_kinderbril = true
+  endif
+
+  comment
+    DEBUG: temporarily detect by handle for known kinderbril products,
+    so the pill shows even if no tag/metafield/type is set.
+  endcomment
+  assign known_handles = 'finn,nora,nova,liam,ivy,lotte,sara,lina,zoey,yara,june,ella,anna,nina,lily,emma,max,bente,liv,romy,ava,ayla'
+  if known_handles contains product.handle
+    assign is_kinderbril = true
+  endif
+
+  assign leeftijd_label = ''
+  if tags_lower contains 'leeftijd-4-7'
+    assign leeftijd_label = '4–7 jaar'
+  elsif tags_lower contains 'leeftijd-8-12'
+    assign leeftijd_label = '8–12 jaar'
+  elsif tags_lower contains 'leeftijd-13-plus'
+    assign leeftijd_label = '13+ jaar'
+  endif
+
+  comment
+    TEMPORARY PREVIEW FALLBACK — remove this block once CSV with
+    leeftijd-* tags is imported in Shopify admin.
+  endcomment
+  if is_kinderbril and leeftijd_label == blank
+    assign h = product.handle
+    assign map_4_7 = 'ava,bente'
+    assign map_8_12 = 'nora,nova,romy,yara,zoey,nina,lily,lina,june,liv'
+    assign map_13 = 'finn,liam,ivy,lotte,sara,ella,anna,emma,ayla,max'
+    if map_4_7 contains h
+      assign leeftijd_label = '4–7 jaar'
+    elsif map_8_12 contains h
+      assign leeftijd_label = '8–12 jaar'
+    elsif map_13 contains h
+      assign leeftijd_label = '13+ jaar'
+    endif
+  endif
+-%}
+
+{%- if is_kinderbril and leeftijd_label != blank -%}
+<style>
+  .jacq-leeftijd-tag {
+    position: absolute;
+    z-index: 5;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+      inset 0 0.5px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 0 0.5px rgba(255, 255, 255, 0.25),
+      0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #1D1D1F;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .jacq-leeftijd-tag {
+      top: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      font-size: 13px;
+    }
+  }
+</style>
+<span class="jacq-leeftijd-tag" aria-label="Leeftijd {{ leeftijd_label }}">{{ leeftijd_label }}</span>
+{%- endif -%}

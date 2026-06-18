@@ -1,0 +1,193 @@
+<section class="meave-reviews">
+  <div class="meave-reviews__inner">
+    {%- if section.settings.heading != blank -%}
+      <h2>{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="meave-reviews__grid">
+      {%- for block in section.blocks -%}
+        <article class="meave-review{% if forloop.index == 2 %} meave-review--featured{% endif %}" {{ block.shopify_attributes }}>
+          <div class="meave-review__stars" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
+            {%- for star in (1..5) -%}
+              <svg class="{% if star <= block.settings.rating %}is-active{% endif %}" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/>
+              </svg>
+            {%- endfor -%}
+          </div>
+          {%- if block.settings.quote != blank -%}
+            <div class="meave-review__quote rte">{{ block.settings.quote }}</div>
+          {%- endif -%}
+          {%- if block.settings.author != blank -%}
+            <p class="meave-review__author">{{ block.settings.author | escape }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-reviews {
+    padding: 82px 20px;
+    background: #f5f5f7;
+    color: #15120f;
+  }
+
+  .meave-reviews__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .meave-reviews h2 {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: clamp(28px, 3vw, 42px);
+    letter-spacing: -.035em;
+    line-height: 1.1;
+  }
+
+  .meave-reviews__grid {
+    display: grid;
+    align-items: center;
+    gap: 16px;
+    grid-template-columns: 1fr 1.16fr 1fr;
+  }
+
+  .meave-review {
+    display: flex;
+    min-height: 238px;
+    padding: 32px;
+    border-radius: 24px;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .meave-review--featured {
+    min-height: 282px;
+    box-shadow: 0 18px 42px rgba(32, 25, 18, .09);
+  }
+
+  .meave-review__stars {
+    display: flex;
+    margin-bottom: 18px;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .meave-review__stars svg {
+    width: 16px;
+    color: #d9d5cf;
+    fill: currentColor;
+  }
+
+  .meave-review__stars svg.is-active {
+    color: #b8893d;
+  }
+
+  .meave-review__quote {
+    color: #2e2924;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .meave-review__quote p {
+    margin: 0;
+  }
+
+  .meave-review__author {
+    margin: 24px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .meave-reviews__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .meave-review,
+    .meave-review--featured {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .meave-reviews {
+      padding: 58px 14px;
+    }
+
+    .meave-review {
+      padding: 28px 22px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave reviews",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved for easy lighting upgrades"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Review",
+          "default": "<p>The finish looks beautiful and the warm glow made the room feel complete.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Charlotte J."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave reviews",
+      "blocks": [
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        },
+        {
+          "type": "review"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  }
+}
+{% endschema %}

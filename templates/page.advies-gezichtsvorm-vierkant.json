@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Herken je kaaklijn",
+            "body": "<p>Is je kaak duidelijk hoekig en breed? Dan val je vaak richting vierkant.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies contrast of kracht",
+            "body": "<p>Rond/ovaal verzacht. Hoekig oogt krachtig, maar kies dan subtieler.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Probeer op comfort",
+            "body": "<p>Geen druk op slapen, geen knelgevoel achter de oren.</p>"
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Vierkant gezicht herkennen",
+            "toc_label": "Herkennen",
+            "anchor": "vierkant-herkennen",
+            "body": "<p>Een vierkant gezicht wordt vaak gekenmerkt door een sterke, hoekige kaaklijn en duidelijke lijnen. De breedte van voorhoofd, jukbeenderen en kaak kan relatief gelijk zijn.</p><ul><li>Kaaklijn is hoekig en duidelijk zichtbaar.</li><li>Gezicht kan relatief breed ogen.</li><li>Voorhoofd en kaak lijken qua breedte op elkaar.</li></ul>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Snelle keuzehulp (vierkant gezicht)",
+            "toc_label": "Keuzehulp",
+            "anchor": "keuzehulp-vierkant",
+            "col1": "Doel",
+            "col2": "Kies vaker",
+            "col3": "Vermijd soms",
+            "rows": "Zachter|Rond, ovaal, panto|Heel boxy en dik\nStrak/krachtig|Hoekig met zachte hoeken, dunner|Extreem hoekig met dikke rand\nMinimal|Dun metaal, titanium|Te zwaar acetaat als je subtiel wil",
+            "note": "Richtlijn. Pasvorm en maat blijven leidend."
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Monturen die vaak mooi staan bij een vierkant gezicht",
+            "toc_label": "Monturen",
+            "anchor": "monturen-vierkant",
+            "body": "<p>Wil je je look zachter maken, dan werkt contrast vaak goed. Rond en ovaal voegen zachte lijnen toe tegenover je hoekige kaak.</p><h3>Vormen die vaak verzachten</h3><ul><li><strong>Rond:</strong> maakt de look vriendelijker en zachter.</li><li><strong>Ovaal:</strong> subtiele zachtheid, vaak heel draagbaar.</li><li><strong>Panto:</strong> mix van rond en strak, vaak premium en tijdloos.</li></ul><h3>Wil je juist een krachtige look?</h3><p>Hoekig kan zeker. Kies dan vaak een dunnere rand of afgeronde hoeken, zodat het niet te ‘blokkerig’ wordt.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Proportie en breedte: voorkom ‘te boxy’",
+            "toc_label": "Proportie",
+            "anchor": "proportie-vierkant",
+            "body": "<p>Bij een vierkant gezicht kan een te breed of te hoekig montuur snel dominant worden. Gebruik deze regels:</p><ul><li><strong>Breedte:</strong> montuur niet breder dan je gezicht.</li><li><strong>Hoogte:</strong> voldoende hoogte zodat het niet op je wangen rust.</li><li><strong>Randdikte:</strong> als je al veel hoeken hebt, kies dan liever een rand die niet extreem dik is.</li></ul><p>Vergelijk met je huidige cijfers op het pootje (bijv. 52-18-140). Lees <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">hier </a>meer over je brilmaal bepalen.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Materialen die een vierkant gezicht cleaner laten ogen",
+            "toc_label": "Materiaal",
+            "anchor": "materiaal-vierkant",
+            "body": "<p>Wil je zachter en premium, dan kan materiaal veel doen. Dun metaal of titanium oogt lichter en minder hard dan dik acetaat.</p><ul><li><strong>Dun metaal/</strong><a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\"><strong>titanium</strong></a><strong>:</strong> minimal en licht. </li><li><a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\"><strong>Acetaat</strong></a><strong>:</strong> sterker statement. Kies eventueel transparant of dunner als je subtiel wil blijven.</li></ul>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte fouten bij een vierkant gezicht",
+            "toc_label": "Fouten",
+            "anchor": "fouten-vierkant",
+            "body": "<ul><li><strong>Heel boxy + heel dik:</strong> kan je kaak extra hoekig laten ogen.</li><li><strong>Te smal montuur:</strong> kan knellen bij slapen.</li><li><strong>Bril zakt:</strong> brug is vaak te breed of pootjes te los. Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hier </a>meer over pasvormproblemen.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snel advies: let op druk bij slapen",
+            "anchor": "druk-slapen",
+            "body": "<p>Bij een breder/hoekiger gezicht merk je sneller druk bij je slapen. Als je na 10 minuten al druk voelt, is de breedte of pootstand waarschijnlijk niet goed.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke bril maakt een vierkant gezicht zachter?",
+            "a": "<p>Ronde of ovale monturen geven vaak contrast met een hoekige kaaklijn, waardoor je look zachter wordt.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan een vierkante bril bij een vierkant gezicht?",
+            "a": "<p>Ja, vooral als je een krachtige look wilt. Kies dan liever dunner of met afgeronde hoeken om het premium te houden.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke vorm is het meest tijdloos bij vierkant?",
+            "a": "<p>Panto en ovaal zijn vaak veilig: zacht, premium en niet te uitgesproken.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom knelt mijn bril bij mijn slapen?",
+            "a": "<p>Dan is het montuur vaak te smal, of de pootjes staan te strak. Dit is een pasvorm/maat issue. </p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke materialen werken het beste?",
+            "a": "<p>Dun metaal of titanium oogt vaak lichter en minder hard. Acetaat kan ook, maar kies dan niet te dik als je subtiel wilt.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als ik tussen vierkant en rond zit?",
+            "a": "<p>Kies op je doel: wil je zachter, ga ronder. Wil je strakker, ga hoekiger. Laat pasvorm de doorslag geven.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "sec-1",
+        "table-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: gezichtsvorm vierkant",
+        "kicker": "ADVIES",
+        "title": "Bril voor vierkant gezicht: verzachten of juist krachtiger maken",
+        "subtitle": "Sterke kaaklijn? Kies in 3 stappen een montuur dat je look in balans brengt.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Bij een vierkant gezicht zie je vaak een sterke, hoekige kaaklijn en duidelijke lijnen. Voor balans kiezen veel mensen voor contrast: rondere of ovale monturen verzachten de hoeken. Wil je juist een strakke, krachtige look, dan kan hoekig ook, maar kies dan liever dunner of met afgeronde hoeken.</p><ul><li><strong>Meestal mooi bij vierkant:</strong> rond, ovaal, panto, zachte hoeken.</li><li><strong>Voor een strakke look:</strong> hoekig kan, maar voorkom een heel dikke, boxy rand.</li><li><strong>Let op:</strong> pasvorm bij slapen en kaak, zodat het niet knelt.</li></ul><p>Comfort wint altijd. Check maat en brug: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen</a>.</p>",
+        "howto_title": "Zo kies je een bril voor een vierkant gezicht",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li>Terug naar overzicht: <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen</a>.</li><li>Brilmaat en cijfers: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen.</a></li><li>Problemen met afzakken/drukpunten: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen.</a></li><li>Materiaal en gewicht: <a href=\"/pages/materialen\" title=\"materialen\">materialen</a>.</li><li>Snelle keuzehulp:<a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\"> welke bril past bij mij?</a></li></ul><p>Andere vormen: <a href=\"/pages/gezichtsvorm-rond\" title=\"gezichtsvorm-rond\">rond</a>, <a href=\"/pages/gezichtsvorm-ovaal\" title=\"gezichtsvorm-ovaal\">ovaal</a>, <a href=\"/pages/gezichtsvorm-hart\" title=\"gezichtsvorm-hart\">hart</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

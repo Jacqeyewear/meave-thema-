@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Start bij je doel (dun, licht of prijs)",
+            "body": "<p>Wil je vooral dunner uiterlijk, lichter draaggevoel, of de beste prijs/kwaliteit? Je doel bepaalt of ‘hoger index’ het waard is.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check je montuurmaat en vorm",
+            "body": "<p>Grotere of hoekige monturen maken randen sneller dik. Kleiner/ronder maakt glas optisch en cosmetisch vaak dunner. Ken je maat? <a href='/pages/brilmaat-bepalen'>Brilmaat bepalen</a>.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies index + voeg anti-reflectie toe",
+            "body": "<p>Als je dunner gaat, is anti-reflectie meestal logisch: hogere index kan meer reflectie laten zien. <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">Anti-reflectie uitgelegd</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Glasindex in één overzicht (1.56–1.74)",
+            "toc_label": "Index overzicht",
+            "anchor": "index-overzicht",
+            "col1": "Index",
+            "col2": "Wanneer logisch",
+            "col3": "Let op",
+            "rows": "1.56|Basis-keuze bij lage tot gemiddelde sterktes|Bij hogere sterktes kan de rand dikker ogen\n1.60|Veelgekozen ‘allround’ optie|Niet altijd nodig als je montuur klein/ronder is\n1.67|Als dunner uiterlijk prioriteit wordt|Anti-reflectie is extra belangrijk voor een rustige look\n1.74|Als je maximaal dun wilt bij hogere sterktes|Duurder; kies slim montuur voor maximaal effect",
+            "note": "Richtlijnen: dikte hangt óók af van montuurmaat, vorm, PD en sterkte. Zie <a href=\"/pages/welke-glazen-passen-bij-mij\">keuzehulp</a>."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is glasindex?",
+            "toc_label": "Wat is index",
+            "anchor": "wat-is-index",
+            "body": "<p>Glasindex (ook wel brekingsindex) geeft aan hoe sterk het lensmateriaal licht kan buigen. In gewone taal: met een hogere index kun je eenzelfde sterkte vaak bereiken met een dunnere lensvorm. Daarom zie je indexwaarden zoals 1.56, 1.60, 1.67 en 1.74 als opties bij brillenglazen.</p><p>Index is een <em>tool</em>. Het is vooral nuttig als je (1) een hogere sterkte hebt, (2) een groter of hoekiger montuur kiest, of (3) je huidige bril aan de rand dik oogt en je dat minder wilt.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Waar komt ‘dikte’ vandaan? (en waarom de ene bril dikker oogt dan de andere)",
+            "toc_label": "Waarom dik",
+            "anchor": "waarom-dik",
+            "body": "<p>De zichtbare dikte wordt niet door index alleen bepaald. Dit zijn de grootste factoren:</p><ul><li><strong>Montuurmaat:</strong> hoe groter het glasoppervlak, hoe meer randdikte kan ontstaan.</li><li><strong>Vorm:</strong> hoekige vormen hebben vaak ‘uitstekende’ hoeken waar dikte sneller zichtbaar wordt; ronder is vergevingsgezinder.</li><li><strong>Je sterkte en verdeling:</strong> bij min-sterktes zie je randdikte eerder; bij plus-sterktes eerder dikte in het midden.</li><li><strong>Pupilafstand (PD) en centrering:</strong> waar je ogen in het glas zitten beïnvloedt waar dikte uitkomt. PD nodig? <a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten</a>.</li></ul><p>Daarom kan een slim gekozen montuur soms meer ‘dikte-winst’ geven dan een extra indexstap.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke index past bij jou? (praktische keuzehulp)",
+            "toc_label": "Keuzehulp",
+            "anchor": "keuzehulp",
+            "body": "<p>Gebruik dit als beslisroute. Het zijn richtlijnen, geen harde regels:</p><h3>1.56 of 1.60</h3><p>Meestal logisch als je huidige glazen niet opvallend dik zijn, of als je een kleiner/ronder montuur kiest. Dit is vaak de ‘rustige’ keuze qua prijs en dagelijkse performance.</p><h3>1.67</h3><p>Handig als je aan de rand duidelijk dikte ziet (of dat verwacht bij je nieuwe montuur). Je kiest dit vaak om het montuur slanker te laten ogen.</p><h3>1.74</h3><p>Kies dit vooral als ‘zo dun mogelijk’ je belangrijkste doel is bij hogere sterktes. Het effect wordt het grootst als je ook montuurmaat en vorm slim kiest.</p><p>Twijfel je? Begin met je gebruik en je montuur: <a href=\"/pages/welke-glazen-passen-bij-mij\">Welke glazen passen bij mij?</a></p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Montuurkeuze: de snelle manier om dikte te verbergen",
+            "toc_label": "Montuurkeuze",
+            "anchor": "montuurkeuze",
+            "body": "<p>Als je dunner wilt, kijk niet alleen naar index. Dit werkt vaak het best:</p><ul><li><strong>Kies kleiner</strong> (minder glasoppervlak).</li><li><strong>Kies ronder</strong> (minder ‘hoekdikte’).</li><li><strong>Kies een montuur met rand</strong> als je randdikte wilt maskeren (full-rim is vergevingsgezinder).</li></ul><p>Ken je montuurmaten (bijv. 52-18-140)? Dat helpt enorm bij vergelijken. <a href='/pages/brilmaat-bepalen'>Brilmaat bepalen</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Coatings en index: waarom anti-reflectie bijna altijd logisch is",
+            "toc_label": "Coatings",
+            "anchor": "coatings",
+            "body": "<p>Hoe dunner en ‘strakker’ je glas eruit moet zien, hoe belangrijker een goede coating wordt. In de praktijk kiezen veel mensen anti-reflectie omdat:</p><ul><li>het reflecties vermindert (rustiger zicht, rustiger uitstraling in je gezicht),</li><li>glazen optisch ‘helderder’ ogen,</li><li>foto’s en videobellen prettiger worden (minder spiegeling).</li></ul><p>Verdieping: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a>, <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a> en <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend</a>.</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte misverstanden",
+            "toc_label": "Misverstanden",
+            "anchor": "misverstanden",
+            "body": "<ul><li><strong>“Hoger index is altijd beter”:</strong> niet als je het effect nauwelijks ziet (bijv. klein montuur), of als prijs belangrijk is.</li><li><strong>“Dunner = altijd lichter”:</strong> vaak wel, maar comfort hangt ook af van pasvorm en montuurgewicht.</li><li><strong>“Index bepaalt alles”:</strong> montuurmaat, vorm en PD zijn minstens zo bepalend voor de zichtbare dikte.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelle keuze (als je twijfelt tussen 1.60, 1.67 en 1.74)",
+            "anchor": "snelle-keuze",
+            "body": "<ul><li><strong>Kies 1.60</strong> als je montuur niet groot is en je geen duidelijke randdikte verwacht.</li><li><strong>Kies 1.67</strong> als je vooral een slanker uiterlijk wilt zonder ‘maximaal dun’ te hoeven.</li><li><strong>Kies 1.74</strong> als dunste uiterlijk prioriteit #1 is bij hogere sterktes én je montuur daar bij past.</li></ul><p>Wil je het echt op jouw situatie toepassen? Start met <a href=\"/pages/welke-glazen-passen-bij-mij\">de keuzehulp</a>.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is het verschil tussen 1.56 en 1.60?",
+            "a": "<p>Beide zijn veelgebruikte basisopties. 1.60 wordt vaak gekozen als ‘allround’ optie, vooral als je nét wat slanker wilt zonder naar high-index te gaan. Het daadwerkelijke verschil zie je het meest bij hogere sterktes of grotere monturen.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wanneer heeft 1.67 echt zin?",
+            "a": "<p>Meestal als je aan de rand duidelijk dikte ziet (of verwacht) en je bril slanker wilt laten ogen. Combineer met anti-reflectie voor een rustige look. <a href='/pages/coatings/anti-reflectie'>Lees over anti-reflectie</a>.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Wanneer kies ik 1.74?",
+            "a": "<p>Als ‘zo dun mogelijk’ je belangrijkste doel is bij hogere sterktes. Het effect wordt groter met een kleiner/ronder montuur.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Maakt montuurvorm echt zoveel uit?",
+            "a": "<p>Ja. Grotere en hoekige monturen laten randdikte sneller zien. Ronder en kleiner is vergevingsgezinder. <a href='/pages/brilmaat-bepalen'>Maten vergelijken</a>.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Heb ik altijd anti-reflectie nodig?",
+            "a": "<p>Het is niet verplicht, maar vaak wel de coating die het meest ‘direct’ verschil geeft. Zeker als je glazen mooi en rustig wilt laten ogen. <a href='/pages/coatings'>Coatings overzicht</a>.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat moet ik invullen van mijn recept voor goede glazen?",
+            "a": "<p>Je sterkte (SPH) en eventueel CYL/AS bij astigmatisme, plus je PD. <a href='/pages/cylinder-as-uitleg'>CYL/AS uitgelegd</a> en <a href='/pages/pd-meten'>PD meten</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: glasindex en dikte",
+        "kicker": "ADVIES",
+        "title": "Glasindex & dikte: 1.56, 1.60, 1.67 en 1.74",
+        "subtitle": "Wat glasindex betekent, wanneer dunner zin heeft en hoe montuur + coating het verschil maken.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Glasindex (1.56, 1.60, 1.67, 1.74) zegt in de praktijk vooral dit: <strong>hoe hoger de index, hoe meer kans op dunnere glazen</strong> bij dezelfde sterkte. Dat is handig als je huidige glazen aan de rand dik worden, of als je een groter/hoekiger montuur wilt zonder ‘dikke randen’.</p><ul><li><strong>1.56 / 1.60:</strong> vaak een logische, comfortabele keuze bij lage tot gemiddelde sterktes of kleinere monturen.</li><li><strong>1.67:</strong> vaak interessant als je duidelijk dikte aan de rand ziet in je huidige bril of je een slanker profiel wilt.</li><li><strong>1.74:</strong> vooral bedoeld als ‘maximaal dun’ prioriteit #1 is bij hogere sterktes.</li></ul><p>Let op: index is niet het enige dat dikte bepaalt. Ook <strong>montuurmaat</strong>, <strong>vorm</strong>, <strong>pupilafstand</strong> en <strong>hoe je sterkte verdeeld is</strong> maken veel uit. Daarom is de beste route: eerst je montuurmaat begrijpen, dan index kiezen, en daarna coating (bijna altijd anti-reflectie). Zie ook <a href=\"/pages/welke-glazen-passen-bij-mij\">Welke glazen passen bij mij?</a> en <a href=\"/pages/coatings\">coatings</a>.</p>",
+        "howto_title": "Glasindex kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/welke-glazen-passen-bij-mij\">Welke glazen passen bij mij?</a></li><li><a href=\"/pages/coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/cylinder-as-uitleg\">Cylinder & as uitgelegd</a></li><li><a href=\"/pages/blauwlichtfilter\">Blauwlichtfilter</a></li><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li><li><a href=\"/pages/multifocaal-uitleg\" title=\"multifocaal-uitleg\">Multifocale glazen</a></li><li><a href=\"/pages/zonneglazen-op-sterkte\" title=\"zonneglazen-op-sterkte\">Zonnebril op sterkte</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

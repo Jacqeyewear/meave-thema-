@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-xl",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Veelgestelde Vragen",
+            "heading_size": "title-sm",
+            "heading_tag": "h1",
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welkom bij onze veelgestelde vragen. We hebben de meest voorkomende vragen alvast voor je beantwoord.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "empty-space": {
+      "type": "empty-space",
+      "settings": {
+        "desktop_height": 120,
+        "mobile_height": 44,
+        "color_background": "",
+        "gradient_background": ""
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "rich-text-1": {
+          "type": "rich-text",
+          "settings": {
+            "heading": "Retour en verzending",
+            "text": "<p>Hieronder vind je de meest voorkomende vragen over verzending, retourneren en ruilen.</p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "title": "Kan ik mijn bril retourneren?",
+            "text": "<p>Ja, dat kan! Je hebt 100 dagen de tijd om je bril terug te sturen, ongebruikt en in originele verpakking. Retourneren is gratis binnen Nederland.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "title": "Wat zijn de verzendkosten?",
+            "text": "<p>Bij Jacq. betaal je geen verzendkosten binnen Nederland. Je bestelling wordt gratis bij je thuisbezorgd.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "title": "Hoelang duurt het voordat ik mijn bril ontvang?",
+            "text": "<p>We versturen je bestelling zo snel mogelijk. Meestal heb je je bril binnen 7 tot 10 werkdagen in huis. Mocht het lager duren, dan laten we je dat natuurlijk weten.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "title": "Hoe weet ik of mijn retour goed is aangekomen?",
+            "text": "<p>Zodra we je retour hebben ontvangen en verwerkt, krijg je van ons een bevestiging per e-mail. Daarna storten we het bedrag zo snel mogelijk terug op je rekening.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "rich-text-2": {
+          "type": "rich-text",
+          "settings": {
+            "heading": "Bestelling",
+            "text": "<p>Hieronder vind je de meest voorkomende vragen over bestellingen.</p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-6": {
+          "type": "question",
+          "settings": {
+            "title": "Kan ik mijn bestelling nog wijzigen nadat ik heb betaald?",
+            "text": "<p>Dat kan alleen zolang je bestelling nog niet is verzonden. Neem hiervoor zo snel mogelijk contact op met onze klantenservice.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-7": {
+          "type": "question",
+          "settings": {
+            "title": "Hoe weet ik of mijn bestelling is gelukt?",
+            "text": "<p>Na je bestelling ontvang je direct een bevestigingsmail. Heb je die niet ontvangen? Check dan even je spamfolder of neem contact met ons op.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-8": {
+          "type": "question",
+          "settings": {
+            "title": "Krijg ik een track & trace code?",
+            "text": "<p>Ja. Zodra je bril klaar is en ons magazijn verlaat, ontvang je per e-mail een track & trace code. Bestel je een bril met glazen op jouw unieke sterkte? Dan maken we die eerst speciaal voor jou. Je ontvangt de track & trace dus pas nadat de productie is afgerond en je bestelling is verzonden.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "rich-text-3": {
+          "type": "rich-text",
+          "settings": {
+            "heading": "Producten",
+            "text": "<p>Hieronder vind je de meest voorkomende vragen over onze producten.</p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-10": {
+          "type": "question",
+          "settings": {
+            "title": "Van welk materiaal zijn jullie monturen gemaakt?",
+            "text": "<p>Onze monturen zijn gemaakt van duurzame materialen zoals acetaat en metaal. Zo zorgen we voor een comfortabele pasvorm en een bril die lang meegaat.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-11": {
+          "type": "question",
+          "settings": {
+            "title": "Kan ik glazen op sterkte laten zetten in mijn bril?",
+            "text": "<p>Ja, dat kan! Tijdens het bestellen kun je je sterkte doorgeven. We maken de glazen dan speciaal voor jou op maat.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question-12": {
+          "type": "question",
+          "settings": {
+            "title": "Wat doet een blauwlichtfilter?",
+            "text": "<p>Een blauwlichtfilter vermindert het scherpe licht dat van schermen komt, zoals van je laptop of telefoon. Dat kan vermoeide ogen helpen voorkomen en maakt het comfortabeler om lang naar een scherm te kijken.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "question_9TBGYw": {
+          "type": "question",
+          "settings": {
+            "title": "Hoe weet ik welke maat bril bij mij past?",
+            "text": "<p>Bij elke bril vermelden we de maten (bijvoorbeeld 52–18–140). Vergelijk die met de cijfers aan de binnenkant van je huidige brilpoot. Zo weet je zeker of het model goed bij je past.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "heading": "Staat je vraag er niet tussen?",
+            "text": "<p>Neem gerust contact met ons op.</p>",
+            "show_phone": false,
+            "avatar_height": 60,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "rich-text-1",
+        "question-1",
+        "question-2",
+        "question-4",
+        "question-5",
+        "rich-text-2",
+        "question-6",
+        "question-7",
+        "question-8",
+        "rich-text-3",
+        "question-10",
+        "question-11",
+        "question-12",
+        "question_9TBGYw",
+        "contact"
+      ],
+      "settings": {
+        "style": "with-border",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#ffffff",
+        "overlay_opacity": 4,
+        "padding_top": 0,
+        "padding_bottom": 120,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich-text",
+    "empty-space",
+    "faq"
+  ]
+}

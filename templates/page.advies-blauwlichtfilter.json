@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Bepaal je echte probleem (reflectie vs vermoeidheid vs avond)",
+            "body": "<p>Reflecties vragen om anti-reflectie. Vermoeidheid bij schermen gaat vaak om pauzes/knipperen/helderheid. Avondgebruik gaat om dimmen en warmer licht.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Test eerst de gratis fixes",
+            "body": "<p>Zet helderheid lager, gebruik night shift/warm kleurprofiel, en doe 20-20-20 (elke 20 min: 20 sec ver weg kijken). Als dit helpt, heb je minder ‘filter’ nodig.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies dan je coating-combi",
+            "body": "<p>Wil je alsnog blauwlichtfilter: combineer vaak met <a href=\"/pages/anti-reflectie\">anti-reflectie</a>. Voor minder poetsen: <a href=\"/pages/water-vet-afstotend\">water/vet-afstotend</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Blauwlichtfilter vs anti-reflectie (wat merk je echt?)",
+            "toc_label": "Filter vs AR",
+            "anchor": "filter-vs-ar",
+            "col1": "Doel",
+            "col2": "Meest direct",
+            "col3": "Waarom",
+            "rows": "Minder spiegeling/‘glare’|Anti-reflectie|AR vermindert reflecties op het glas zelf\nWarmer schermbeeld|Blauwlichtfilter|Filtert een deel van het blauwe spectrum\nMinder poetsen|Water/vet-afstotend|Vlekken hechten minder en vegen makkelijker weg\nMicrokrasjes beperken|Kraswerend|Helpt tegen dagelijkse slijtage (niet krasvrij)",
+            "note": "Veel mensen kiezen AR als basis. Verdieping: <a href=\"/pages/coatings\">coatings overzicht</a>."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is een blauwlichtcoating (blauwlichtfilter)?",
+            "toc_label": "Wat is het",
+            "anchor": "wat-is-het",
+            "body": "<p>Een blauwlichtcoating is een filterlaag (of lensmateriaal-eigenschap) die een deel van het blauwe licht minder doorlaat. In de praktijk kan dat het beeld iets warmer maken, vooral bij witte achtergronden en LED-verlichting.</p><p>Belangrijk: blauwlichtfilter is iets anders dan anti-reflectie. Anti-reflectie gaat over <em>spiegelingen</em> op je glas; blauwlichtfilter gaat over <em>welke kleur/golflengtes</em> er door het glas heen komen.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer heeft blauwlichtfilter wél zin?",
+            "toc_label": "Wanneer zin",
+            "anchor": "wanneer-zin",
+            "body": "<ul><li><strong>Je vindt schermen ‘hard’ of ‘kil’ aanvoelen</strong> en je wilt een iets warmere weergave.</li><li><strong>Je werkt veel met felle witte achtergronden</strong> en je merkt dat warmer licht prettiger is.</li><li><strong>Je gebruikt ’s avonds laat schermen</strong> en je wilt een extra stap richting warmer licht (naast instellingen).</li></ul><p>Als jouw belangrijkste klacht reflecties zijn (lampen/ramen), is <a href=\"/pages/anti-reflectie\">anti-reflectie</a> meestal de eerste, meest merkbare upgrade.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer is blauwlichtfilter vaak níet de oplossing?",
+            "toc_label": "Wanneer niet",
+            "anchor": "wanneer-niet",
+            "body": "<p>Veel ‘schermklachten’ komen niet door blauw licht zelf, maar door <strong>lang dichtbij focussen</strong>, <strong>minder knipperen</strong> en <strong>droge ogen</strong>. Dan helpen deze dingen vaak meer:</p><ul><li><strong>20-20-20</strong>: elke 20 minuten 20 seconden ver weg kijken.</li><li><strong>Helderheid omlaag</strong> en <strong>night shift</strong> of warm kleurprofiel aan.</li><li><strong>Knipper-check</strong>: bewust knipperen en af en toe ‘volledig’ knipperen.</li></ul><p>Zie blauwlichtfilter dan als comfort-optie, niet als ‘fix’ voor alles.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Blauwlichtfilter + coatings: de slimste combinatie",
+            "toc_label": "Combi",
+            "anchor": "combi",
+            "body": "<p>Als je blauwlichtfilter kiest, is dit in de praktijk vaak de beste volgorde:</p><ol><li><strong>Anti-reflectie</strong> voor minder spiegeling (<a href=\"/pages/anti-reflectie\">lees hier</a>).</li><li><strong>Blauwlichtfilter</strong> als je een warmer schermbeeld prettig vindt.</li><li><strong>Water/vet-afstotend</strong> als je veel poetst (<a href=\"/pages/water-vet-afstotend\">lees hier</a>).</li></ol><p>Overzicht van alle opties: <a href=\"/pages/coatings\">coatings</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Nadelen om rekening mee te houden",
+            "toc_label": "Nadelen",
+            "anchor": "nadelen",
+            "body": "<ul><li><strong>Kleurweergave:</strong> sommige filters geven een warmere tint. Als je kleurkritisch werkt (design/foto), test eerst.</li><li><strong>Look van het glas:</strong> sommige blauwlichtcoatings hebben een lichte reflectiekleur in bepaalde hoeken.</li><li><strong>Verwachtingen:</strong> zie het als ‘comfort’ en niet als medische oplossing.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Eerlijke bottom line",
+            "anchor": "bottom-line",
+            "body": "<p>Wil je het grootste verschil in ‘rust’ en uitstraling? Kies eerst <a href=\"/pages/anti-reflectie\">anti-reflectie</a>. Wil je daarna een warmer schermbeeld en vind je dat prettiger: dan is blauwlichtfilter een logische extra.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is blauwlichtfilter hetzelfde als anti-reflectie?",
+            "a": "<p>Nee. Anti-reflectie vermindert spiegelingen op het glas. Blauwlichtfilter beïnvloedt welke kleur/golflengtes door het glas gaan. Veel mensen halen dit door elkaar.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Helpt blauwlichtfilter tegen vermoeide ogen?",
+            "a": "<p>Soms voelt het prettiger, maar vermoeidheid komt vaak door lang dichtbij kijken en minder knipperen. Test eerst 20-20-20 en lagere helderheid.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Is het handig als ik ’s avonds veel scherm?",
+            "a": "<p>Het kan bijdragen aan een warmer beeld. Maar instellingen zoals night shift en dimmen zijn meestal de grootste winst, met of zonder bril.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Maakt het mijn glazen sneller vies?",
+            "a": "<p>Niet per se. Als je vaak poetst, is <a href='/pages/water-vet-afstotend'>water/vet-afstotend</a> vaak de meest praktische toevoeging.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke coating kies ik als ik maar één ding wil?",
+            "a": "<p>Voor de meeste mensen: <a href='/pages/anti-reflectie'>anti-reflectie</a>. Dat merk je het meest direct.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan blauwlichtfilter samen met hogere glasindex?",
+            "a": "<p>Ja. Index gaat over dikte/optiek. Zie <a href='/pages/glasindex-en-dikte'>glasindex & dikte</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: blauwlichtcoating",
+        "kicker": "ADVIES",
+        "title": "Blauwlichtcoating (blauwlichtfilter): zin of onzin?",
+        "subtitle": "Wat het wél doet, wat het níet doet en wanneer je het echt merkt bij schermen.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p><strong>Blauwlichtcoating (blauwlichtfilter) doet maar één ding zeker:</strong> het laat minder blauw licht door (en maakt je zicht vaak iets warmer). Of dat ‘de moeite waard’ is, hangt vooral af van <strong>jouw klachten</strong> en <strong>hoe je schermen gebruikt</strong>.</p><ul><li><strong>Als je last hebt van reflecties</strong> (lampen, ramen, ‘glare’): begin bijna altijd met <a href=\"/pages/anti-reflectie\">anti-reflectie</a>. Dat merk je het meest.</li><li><strong>Als je ogen moe voelen</strong> bij veel dichtbijwerk: pauzes, knipperen en instellingen (helderheid/night shift) helpen vaak meer dan een filter.</li><li><strong>Als je ‘s avonds schermt</strong>: dimmen + warmere kleurtemperatuur kan helpen om rustiger af te bouwen, met of zonder brilfilter.</li></ul><p>Wil je toch filteren? Zie het als comfort-keuze, niet als ‘must’. Combineer in de praktijk vaak met <a href=\"/pages/anti-reflectie\">anti-reflectie</a> en eventueel <a href=\"/pages/water-vet-afstotend\">water/vet-afstotend</a> om makkelijker schoon te maken.</p>",
+        "howto_title": "Blauwlichtfilter kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/anti-reflectie\">Anti-reflectie</a></li><li><a href=\"/pages/water-vet-afstotend\">Water- & vet-afstotend</a></li><li><a href=\"/pages/kraswerend\">Kraswerend</a></li><li><a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

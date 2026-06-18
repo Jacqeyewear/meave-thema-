@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "meave-careers",
+      "blocks": {
+        "role_social": {
+          "type": "role",
+          "settings": {
+            "title": "Social Media Manager",
+            "employment_type": "Full-time",
+            "location": "Remote / UK",
+            "description": "Own Meave's social channels end to end — plan content, shoot and edit short-form video, grow our community and turn followers into customers."
+          }
+        },
+        "role_designer": {
+          "type": "role",
+          "settings": {
+            "title": "Designer",
+            "employment_type": "Full-time",
+            "location": "Remote / UK",
+            "description": "Shape the Meave brand across product, packaging, campaigns and the store. Strong eye for clean, premium, minimal design essential."
+          }
+        },
+        "role_web": {
+          "type": "role",
+          "settings": {
+            "title": "Web Developer (UX/UI)",
+            "employment_type": "Full-time",
+            "location": "Remote / UK",
+            "description": "Build and improve our Shopify storefront — from UX and page design to custom sections and conversion. Comfortable with Liquid, HTML, CSS and JS."
+          }
+        }
+      },
+      "block_order": ["role_social", "role_designer", "role_web"],
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

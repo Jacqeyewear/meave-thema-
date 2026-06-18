@@ -1,0 +1,151 @@
+{% comment %}
+  Meave – Careers page section. Role cards (blocks) + application form.
+{% endcomment %}
+
+<section class="mvc" data-section-id="{{ section.id }}">
+  <div class="mvc-wrap">
+
+    <header class="mvc-hero">
+      <p class="mvc-eyebrow">{{ section.settings.eyebrow | default: 'Careers at Meave London' }}</p>
+      <h1 class="mvc-title">{{ section.settings.heading | default: 'Help us light up more homes' }}</h1>
+      <p class="mvc-lede">{{ section.settings.intro | default: 'We are a small, fast-moving lighting brand building beautiful wireless products and the shop experience around them. Join a team that cares about craft, design and detail.' }}</p>
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="mvc-roles">
+        {%- for block in section.blocks -%}
+          <article class="mvc-role" {{ block.shopify_attributes }}>
+            <div class="mvc-role__head">
+              <h3 class="mvc-role__title">{{ block.settings.title | escape }}</h3>
+              <div class="mvc-role__tags">
+                {%- if block.settings.employment_type != blank -%}<span class="mvc-tag">{{ block.settings.employment_type }}</span>{%- endif -%}
+                {%- if block.settings.location != blank -%}<span class="mvc-tag mvc-tag--ghost">{{ block.settings.location }}</span>{%- endif -%}
+              </div>
+            </div>
+            {%- if block.settings.description != blank -%}<p class="mvc-role__desc">{{ block.settings.description }}</p>{%- endif -%}
+            <a class="mvc-role__apply" href="#mvc-form" data-role="{{ block.settings.title | escape }}">Apply<span aria-hidden="true"> →</span></a>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="mvc-form" id="mvc-form">
+      <div class="mvc-form__intro">
+        <h2 class="mvc-h2">{{ section.settings.form_heading | default: 'Apply now' }}</h2>
+        <p>{{ section.settings.form_intro | default: 'No perfect match? We still love hearing from talented people — send us your details.' }}</p>
+      </div>
+
+      {%- form 'contact', class: 'mvc-form__fields' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="mvc-form__success">Thanks for applying — we will review your application and be in touch.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="mvc-form__error">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[subject]" value="Job application">
+        <label>Which role?
+          <select name="contact[role]" id="mvc-role-select">
+            {%- for block in section.blocks -%}
+              <option value="{{ block.settings.title | escape }}">{{ block.settings.title | escape }}</option>
+            {%- endfor -%}
+            <option value="Open application">Open application</option>
+          </select>
+        </label>
+        <div class="mvc-row">
+          <label>Name<input type="text" name="contact[name]" required></label>
+          <label>Email<input type="email" name="contact[email]" required></label>
+        </div>
+        <label>Portfolio / LinkedIn / website<input type="text" name="contact[portfolio]"></label>
+        <label>Tell us about yourself<textarea name="contact[body]" rows="4" required></textarea></label>
+        <button type="submit" class="mvc-btn mvc-btn--full">{{ section.settings.submit_label | default: 'Send application' }}</button>
+      {%- endform -%}
+    </div>
+
+  </div>
+
+  <script>
+    (function(){
+      var root = document.querySelector('[data-section-id="{{ section.id }}"]');
+      if (!root) return;
+      var sel = root.querySelector('#mvc-role-select');
+      root.querySelectorAll('.mvc-role__apply').forEach(function(a){
+        a.addEventListener('click', function(){
+          var r = a.getAttribute('data-role');
+          if (sel && r) { for (var i=0;i<sel.options.length;i++){ if(sel.options[i].value===r){ sel.selectedIndex=i; break; } } }
+        });
+      });
+    })();
+  </script>
+</section>
+
+{% stylesheet %}
+  .mvc { --mvc-ink:#111111; --mvc-muted:#767676; --mvc-line:rgba(20,20,20,0.10); --mvc-soft:#f6f5f2; display:block; color:var(--mvc-ink); font-family:inherit; -webkit-font-smoothing:antialiased; }
+  .mvc-wrap { max-width:980px; margin:0 auto; padding:64px 24px 88px; }
+  .mvc-hero { max-width:720px; margin-bottom:48px; }
+  .mvc-eyebrow { margin:0 0 14px; font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--mvc-muted); }
+  .mvc-title { margin:0 0 18px; font-size:clamp(36px,5.5vw,58px); line-height:1.02; font-weight:500; letter-spacing:-.035em; }
+  .mvc-lede { margin:0; font-size:18px; line-height:1.65; color:#555; }
+  .mvc-roles { display:grid; gap:0; margin-bottom:72px; border-top:1px solid var(--mvc-line); }
+  .mvc-role { display:grid; gap:12px; padding:28px 4px; border-bottom:1px solid var(--mvc-line); background:transparent; }
+  .mvc-role__head { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .mvc-role__title { margin:0; font-size:22px; font-weight:500; letter-spacing:-.02em; }
+  .mvc-role__tags { display:flex; gap:8px; flex-wrap:wrap; }
+  .mvc-tag { padding:6px 13px; border-radius:999px; border:1px solid var(--mvc-line); background:transparent; color:var(--mvc-muted); font-size:12px; font-weight:500; }
+  .mvc-tag--ghost { color:var(--mvc-muted); }
+  .mvc-role__desc { margin:0; font-size:15.5px; line-height:1.6; color:var(--mvc-muted); max-width:640px; }
+  .mvc-role__apply { justify-self:start; display:inline-flex; align-items:center; gap:6px; margin-top:2px; font-size:15px; font-weight:500; color:var(--mvc-ink); text-decoration:none; }
+  .mvc-role__apply:hover { gap:10px; }
+  .mvc-h2 { margin:0 0 8px; font-size:clamp(26px,3.2vw,34px); font-weight:500; letter-spacing:-.025em; }
+  .mvc-form { display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:start; padding:44px; background:var(--mvc-soft); border-radius:22px; }
+  .mvc-form__intro p { color:var(--mvc-muted); font-size:15px; line-height:1.65; margin:0; }
+  .mvc-form__fields { display:grid; gap:14px; }
+  .mvc-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .mvc-form label { display:grid; gap:7px; font-size:11px; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:var(--mvc-muted); }
+  .mvc-form input, .mvc-form textarea, .mvc-form select { width:100%; padding:13px 15px; border:1px solid var(--mvc-line); border-radius:11px; background:#fff; font:inherit; font-size:15px; color:var(--mvc-ink); }
+  .mvc-form input:focus, .mvc-form textarea:focus, .mvc-form select:focus { outline:none; border-color:var(--mvc-ink); box-shadow:0 0 0 1px var(--mvc-ink); }
+  .mvc-btn { display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:15px 30px; border:none; border-radius:12px; background:var(--mvc-ink); color:#fff; font:inherit; font-size:15px; font-weight:500; letter-spacing:.01em; cursor:pointer; text-decoration:none; transition:opacity .16s ease; }
+  .mvc-btn:hover { opacity:.88; }
+  .mvc-btn--full { width:100%; margin-top:8px; }
+  .mvc-form__success { grid-column:1/-1; padding:13px 15px; border-radius:11px; background:#eef6f0; color:#1c6b3f; font-size:14px; font-weight:500; }
+  .mvc-form__error { grid-column:1/-1; padding:13px 15px; border-radius:11px; background:#fbecec; color:#a32d2d; font-size:14px; font-weight:500; }
+  @media (max-width:860px){
+    .mvc-form { grid-template-columns:1fr; gap:26px; padding:28px; }
+    .mvc-row { grid-template-columns:1fr; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave – Careers",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Careers at Meave London" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Help us light up more homes" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "We are a small, fast-moving lighting brand building beautiful wireless products and the shop experience around them. Join a team that cares about craft, design and detail." },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Apply now" },
+    { "type": "textarea", "id": "form_intro", "label": "Form intro", "default": "No perfect match? We still love hearing from talented people — send us your details." },
+    { "type": "text", "id": "submit_label", "label": "Submit button", "default": "Send application" }
+  ],
+  "blocks": [
+    {
+      "type": "role",
+      "name": "Role",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Role title", "default": "Role title" },
+        { "type": "text", "id": "employment_type", "label": "Type", "default": "Full-time" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Remote / UK" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Short description of the role and what you will do." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave – Careers",
+      "blocks": [
+        { "type": "role", "settings": { "title": "Social Media Manager", "employment_type": "Full-time", "location": "Remote / UK", "description": "Own Meave's social channels end to end — plan content, shoot and edit short-form video, grow our community and turn followers into customers." } },
+        { "type": "role", "settings": { "title": "Designer", "employment_type": "Full-time", "location": "Remote / UK", "description": "Shape the Meave brand across product, packaging, campaigns and the store. Strong eye for clean, premium, minimal design essential." } },
+        { "type": "role", "settings": { "title": "Web Developer (UX/UI)", "employment_type": "Full-time", "location": "Remote / UK", "description": "Build and improve our Shopify storefront — from UX and page design to custom sections and conversion. Comfortable with Liquid, HTML, CSS and JS." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

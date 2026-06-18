@@ -1,0 +1,141 @@
+{% comment %}
+  Meave – Wholesale / B2B page section.
+  Self-contained, Meave-styled. Includes a Shopify contact form for trade enquiries.
+{% endcomment %}
+
+<section class="mvw" data-section-id="{{ section.id }}">
+  <div class="mvw-wrap">
+
+    <header class="mvw-hero">
+      <p class="mvw-eyebrow">{{ section.settings.eyebrow | default: 'Meave London — Trade' }}</p>
+      <h1 class="mvw-title">{{ section.settings.heading | default: 'Wholesale & partnerships' }}</h1>
+      <p class="mvw-lede">{{ section.settings.intro | default: 'Bring warm, wireless wall lighting to your store, studio or hospitality space. Meave works with retailers, interior designers and hospitality partners across the UK with trade pricing and dedicated support.' }}</p>
+      <a class="mvw-btn" href="#mvw-form">{{ section.settings.cta_label | default: 'Become a stockist' }}</a>
+    </header>
+
+    <div class="mvw-stats">
+      <div class="mvw-stat"><strong>150,000+</strong><span>Happy customers</span></div>
+      <div class="mvw-stat"><strong>Wireless</strong><span>No-wiring install</span></div>
+      <div class="mvw-stat"><strong>2-year</strong><span>Warranty on every light</span></div>
+      <div class="mvw-stat"><strong>UK</strong><span>Fast tracked delivery</span></div>
+    </div>
+
+    <div class="mvw-grid">
+      <article class="mvw-card">
+        <span class="mvw-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 4l9 5.5M5 11v8h14v-8"/></svg></span>
+        <h3>Trade pricing</h3>
+        <p>Competitive wholesale margins with low minimum order quantities so you can test before you scale.</p>
+      </article>
+      <article class="mvw-card">
+        <span class="mvw-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4zM4 7l8 6 8-6"/></svg></span>
+        <h3>Dedicated support</h3>
+        <p>A single point of contact for orders, stock and after-sales — plus marketing assets for your channels.</p>
+      </article>
+      <article class="mvw-card">
+        <span class="mvw-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg></span>
+        <h3>Renter-friendly</h3>
+        <p>Wireless, rechargeable lights that install in seconds — ideal for retail displays and hospitality fit-outs.</p>
+      </article>
+    </div>
+
+    <div class="mvw-steps">
+      <h2 class="mvw-h2">How it works</h2>
+      <ol class="mvw-steps__list">
+        <li><span class="mvw-steps__num">1</span><div><strong>Apply</strong><p>Tell us about your business using the form below.</p></div></li>
+        <li><span class="mvw-steps__num">2</span><div><strong>Get approved</strong><p>We review your application and share the trade catalogue and pricing.</p></div></li>
+        <li><span class="mvw-steps__num">3</span><div><strong>Order & grow</strong><p>Place your first order and we handle the rest, from delivery to support.</p></div></li>
+      </ol>
+    </div>
+
+    <div class="mvw-form" id="mvw-form">
+      <div class="mvw-form__intro">
+        <h2 class="mvw-h2">{{ section.settings.form_heading | default: 'Request trade access' }}</h2>
+        <p>{{ section.settings.form_intro | default: 'Fill in your details and our wholesale team will get back to you within 2 working days.' }}</p>
+      </div>
+
+      {%- form 'contact', class: 'mvw-form__fields' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="mvw-form__success">Thanks — we have received your enquiry and will be in touch soon.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="mvw-form__error">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[subject]" value="Wholesale enquiry">
+        <div class="mvw-row">
+          <label>Company name<input type="text" name="contact[company]" required></label>
+          <label>Contact name<input type="text" name="contact[name]" required></label>
+        </div>
+        <div class="mvw-row">
+          <label>Email<input type="email" name="contact[email]" required></label>
+          <label>Phone<input type="tel" name="contact[phone]"></label>
+        </div>
+        <label>Website / Instagram<input type="text" name="contact[website]"></label>
+        <label>Tell us about your business<textarea name="contact[body]" rows="4" required></textarea></label>
+        <button type="submit" class="mvw-btn mvw-btn--full">{{ section.settings.submit_label | default: 'Send enquiry' }}</button>
+      {%- endform -%}
+    </div>
+
+  </div>
+</section>
+
+{% stylesheet %}
+  .mvw { --mvw-ink:#111111; --mvw-muted:#767676; --mvw-line:rgba(20,20,20,0.10); --mvw-soft:#f6f5f2; display:block; color:var(--mvw-ink); font-family:inherit; -webkit-font-smoothing:antialiased; }
+  .mvw-wrap { max-width:1080px; margin:0 auto; padding:64px 24px 88px; }
+  .mvw-hero { max-width:720px; }
+  .mvw-eyebrow { margin:0 0 14px; font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--mvw-muted); }
+  .mvw-title { margin:0 0 18px; font-size:clamp(36px,5.5vw,58px); line-height:1.02; font-weight:500; letter-spacing:-.035em; }
+  .mvw-lede { margin:0 0 28px; font-size:18px; line-height:1.65; color:#555; }
+  .mvw-btn { display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:15px 30px; border:none; border-radius:12px; background:var(--mvw-ink); color:#fff; font:inherit; font-size:15px; font-weight:500; letter-spacing:.01em; cursor:pointer; text-decoration:none; transition:opacity .16s ease; }
+  .mvw-btn:hover { opacity:.88; }
+  .mvw-btn--full { width:100%; margin-top:8px; }
+  .mvw-stats { display:grid; grid-template-columns:repeat(4,1fr); margin:60px 0; border-top:1px solid var(--mvw-line); border-bottom:1px solid var(--mvw-line); }
+  .mvw-stat { display:grid; gap:6px; padding:26px 18px; border-left:1px solid var(--mvw-line); }
+  .mvw-stat:first-child { border-left:none; }
+  .mvw-stat strong { font-size:26px; font-weight:500; letter-spacing:-.02em; }
+  .mvw-stat span { font-size:13px; color:var(--mvw-muted); }
+  .mvw-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:76px; }
+  .mvw-card { padding:30px 28px; border:1px solid var(--mvw-line); border-radius:18px; background:#fff; }
+  .mvw-card__icon { display:inline-flex; width:46px; height:46px; align-items:center; justify-content:center; border-radius:50%; border:1px solid var(--mvw-line); color:var(--mvw-ink); margin-bottom:18px; }
+  .mvw-card__icon svg { width:22px; height:22px; }
+  .mvw-card h3 { margin:0 0 10px; font-size:18px; font-weight:500; letter-spacing:-.01em; }
+  .mvw-card p { margin:0; font-size:15px; line-height:1.6; color:var(--mvw-muted); }
+  .mvw-h2 { margin:0 0 26px; font-size:clamp(26px,3.2vw,34px); font-weight:500; letter-spacing:-.025em; }
+  .mvw-steps { margin-bottom:76px; }
+  .mvw-steps__list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .mvw-steps__list li { display:flex; gap:14px; }
+  .mvw-steps__num { flex:0 0 auto; width:32px; height:32px; display:grid; place-items:center; border-radius:50%; border:1px solid var(--mvw-line); color:var(--mvw-ink); font-weight:500; font-size:14px; }
+  .mvw-steps__list strong { display:block; font-size:16px; font-weight:500; margin-bottom:4px; }
+  .mvw-steps__list p { margin:0; font-size:14px; color:var(--mvw-muted); line-height:1.55; }
+  .mvw-form { display:grid; grid-template-columns:0.85fr 1.15fr; gap:48px; align-items:start; padding:44px; background:var(--mvw-soft); border-radius:22px; }
+  .mvw-form__intro p { color:var(--mvw-muted); font-size:15px; line-height:1.65; margin:0; }
+  .mvw-form__fields { display:grid; gap:14px; }
+  .mvw-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .mvw-form label { display:grid; gap:7px; font-size:11px; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:var(--mvw-muted); }
+  .mvw-form input, .mvw-form textarea { width:100%; padding:13px 15px; border:1px solid var(--mvw-line); border-radius:11px; background:#fff; font:inherit; font-size:15px; color:var(--mvw-ink); }
+  .mvw-form input:focus, .mvw-form textarea:focus { outline:none; border-color:var(--mvw-ink); box-shadow:0 0 0 1px var(--mvw-ink); }
+  .mvw-form__success { grid-column:1/-1; padding:13px 15px; border-radius:11px; background:#eef6f0; color:#1c6b3f; font-size:14px; font-weight:500; }
+  .mvw-form__error { grid-column:1/-1; padding:13px 15px; border-radius:11px; background:#fbecec; color:#a32d2d; font-size:14px; font-weight:500; }
+  @media (max-width:860px){
+    .mvw-grid, .mvw-steps__list { grid-template-columns:1fr; }
+    .mvw-stats { grid-template-columns:repeat(2,1fr); }
+    .mvw-stat:nth-child(3) { border-left:none; }
+    .mvw-form { grid-template-columns:1fr; gap:26px; padding:28px; }
+    .mvw-row { grid-template-columns:1fr; }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave – Wholesale",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Meave London — Trade" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Wholesale & partnerships" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Bring warm, wireless wall lighting to your store, studio or hospitality space. Meave works with retailers, interior designers and hospitality partners across the UK with trade pricing and dedicated support." },
+    { "type": "text", "id": "cta_label", "label": "Hero button", "default": "Become a stockist" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Request trade access" },
+    { "type": "textarea", "id": "form_intro", "label": "Form intro", "default": "Fill in your details and our wholesale team will get back to you within 2 working days." },
+    { "type": "text", "id": "submit_label", "label": "Submit button", "default": "Send enquiry" }
+  ],
+  "presets": [{ "name": "Meave – Wholesale" }]
+}
+{% endschema %}

@@ -1,0 +1,706 @@
+<section class="jacq-kb jacq-kb--hub" aria-label="{{ section.settings.aria_label | escape }}">
+  <div class="jacq-kb__container">
+
+    <header class="jacq-kb__hero">
+      {% if section.settings.kicker != blank %}
+        <p class="jacq-kb__kicker">{{ section.settings.kicker }}</p>
+      {% endif %}
+      <h1 class="jacq-kb__title">{{ section.settings.title }}</h1>
+      {% if section.settings.subtitle != blank %}
+        <p class="jacq-kb__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      {% if section.settings.primary_cta_label != blank and section.settings.primary_cta_link != blank %}
+        <div class="jacq-kb__ctaRow">
+          <a class="jacq-kb__btn jacq-kb__btn--primary" href="{{ section.settings.primary_cta_link }}">
+            {{ section.settings.primary_cta_label }}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          {% if section.settings.secondary_cta_label != blank and section.settings.secondary_cta_link != blank %}
+            <a class="jacq-kb__btn jacq-kb__btn--link" href="{{ section.settings.secondary_cta_link }}">
+              {{ section.settings.secondary_cta_label }}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </header>
+
+    {% if section.settings.show_quicklinks and section.settings.quicklinks_title != blank %}
+      <div class="jacq-kb__quick">
+        <div class="jacq-kb__sectionLabel">{{ section.settings.quicklinks_title }}</div>
+        <div class="jacq-kb__pillRow">
+          {% for block in section.blocks %}
+            {% if block.type == 'quicklink' %}
+              {% assign href = block.settings.link %}
+              {% if href == blank %}{% assign href = '#' %}{% endif %}
+              <a class="jacq-kb__pill{% if block.settings.link == blank %} jacq-kb__placeholder{% endif %}"
+                 href="{{ href }}" {{ block.shopify_attributes }}>
+                {{ block.settings.label }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="jacq-kb__grid" role="list">
+      {% for block in section.blocks %}
+        {% if block.type == 'topic' %}
+          {% assign href = block.settings.link %}
+          {% if href == blank %}{% assign href = '#' %}{% endif %}
+          <a class="jacq-kb__card{% if block.settings.link == blank %} jacq-kb__placeholder{% endif %}"
+             role="listitem"
+             href="{{ href }}"
+             {{ block.shopify_attributes }}>
+
+            <div class="jacq-kb__cardHeader">
+              <div class="jacq-kb__icon" aria-hidden="true">
+                {% if block.settings.icon_svg != blank %}{{ block.settings.icon_svg }}{% endif %}
+              </div>
+              {% if block.settings.badge != blank %}
+                <span class="jacq-kb__badge">
+                  <svg class="jacq-kb__badgeClock" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  {{ block.settings.badge }}
+                </span>
+              {% endif %}
+            </div>
+
+            <h3 class="jacq-kb__cardTitle">{{ block.settings.title }}</h3>
+            {% if block.settings.text != blank %}
+              <p class="jacq-kb__cardText">{{ block.settings.text }}</p>
+            {% endif %}
+
+            <span class="jacq-kb__cardLink" aria-hidden="true">
+              {{ section.settings.card_cta_text }}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.faq_title != blank %}
+      <div class="jacq-kb__faq">
+        <h2 class="jacq-kb__sectionTitle">{{ section.settings.faq_title }}</h2>
+        <div class="jacq-kb__faqList">
+          {% for block in section.blocks %}
+            {% if block.type == 'faq' %}
+              <details class="jacq-kb__faqItem" {{ block.shopify_attributes }}>
+                <summary class="jacq-kb__faqQuestion">
+                  <span>{{ block.settings.q }}</span>
+                  <svg class="jacq-kb__faqChevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </summary>
+                <div class="jacq-kb__faqAnswer">{{ block.settings.a }}</div>
+              </details>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.seo_title != blank or section.settings.seo_richtext != blank %}
+      <div class="jacq-kb__seo">
+        {% if section.settings.seo_title != blank %}
+          <h2 class="jacq-kb__sectionTitle">{{ section.settings.seo_title }}</h2>
+        {% endif %}
+        {% if section.settings.seo_richtext != blank %}
+          <div class="jacq-kb__seoText">{{ section.settings.seo_richtext }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{%- comment -%} Prevent placeholder links from jumping to the top {%- endcomment -%}
+<script>
+  (function(){
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a.jacq-kb__placeholder');
+      if(!a) return;
+      if(a.getAttribute('href') === '#') e.preventDefault();
+    });
+  })();
+</script>
+
+{%- comment -%} FAQPage JSON-LD (only if faq blocks exist) {%- endcomment -%}
+{%- assign faq_blocks = section.blocks | where: "type", "faq" -%}
+{%- if faq_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for b in faq_blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ b.settings.q | json }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ b.settings.a | strip_html | strip_newlines | json }}
+      }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<style>
+  /* ============================================================
+     JACQ Knowledge Hub — Apple-inspired design
+     ============================================================ */
+
+  .jacq-kb {
+    --kb-max: 1080px;
+    --kb-black: #1d1d1f;
+    --kb-gray: #86868b;
+    --kb-gray-light: #6e6e73;
+    --kb-bg: #f5f5f7;
+    --kb-white: #ffffff;
+    --kb-accent: #0071e3;
+    --kb-accent-hover: #0077ed;
+    --kb-border: #d2d2d7;
+    --kb-radius: 22px;
+    --kb-radius-sm: 14px;
+    --kb-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.06);
+    --kb-shadow-hover: 0 4px 12px rgba(0,0,0,.06), 0 12px 36px rgba(0,0,0,.10);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--kb-black);
+    overflow-x: hidden;
+  }
+
+  .jacq-kb *,
+  .jacq-kb *::before,
+  .jacq-kb *::after {
+    box-sizing: border-box;
+  }
+
+  /* Container */
+  .jacq-kb__container {
+    max-width: var(--kb-max);
+    margin: 0 auto;
+    padding: clamp(40px, 6vw, 80px) 22px;
+  }
+
+  /* ---- Hero ---- */
+  .jacq-kb__hero {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(40px, 5vw, 64px);
+    position: relative;
+    z-index: 1;
+  }
+
+  .jacq-kb__hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;
+    height: 320px;
+    background: radial-gradient(ellipse, rgba(0,113,227,.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .jacq-kb__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--kb-accent);
+    margin: 0 0 12px;
+  }
+
+  .jacq-kb__kicker::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--kb-accent);
+    flex-shrink: 0;
+  }
+
+  .jacq-kb__title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--kb-black);
+  }
+
+  .jacq-kb__subtitle {
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.5;
+    color: var(--kb-gray);
+    margin: 16px 0 0;
+    font-weight: 400;
+  }
+
+  /* ---- CTA Row ---- */
+  .jacq-kb__ctaRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .jacq-kb__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .jacq-kb__btn--primary {
+    background: var(--kb-accent);
+    color: var(--kb-white);
+    padding: 12px 24px;
+    border-radius: 980px;
+    font-weight: 400;
+  }
+
+  .jacq-kb__btn--primary:hover {
+    background: var(--kb-accent-hover);
+    color: var(--kb-white);
+  }
+
+  .jacq-kb__btn--link {
+    color: var(--kb-accent);
+    background: none;
+    padding: 0;
+  }
+
+  .jacq-kb__btn--link:hover {
+    text-decoration: underline;
+    color: var(--kb-accent-hover);
+  }
+
+  /* ---- Section titles ---- */
+  .jacq-kb__sectionTitle {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--kb-black);
+    margin: 0 0 20px;
+  }
+
+  .jacq-kb__sectionLabel {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--kb-gray);
+    margin: 0 0 12px;
+  }
+
+  /* ---- Quick links ---- */
+  .jacq-kb__quick {
+    text-align: center;
+    margin-bottom: clamp(32px, 4vw, 48px);
+  }
+
+  .jacq-kb__pillRow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .jacq-kb__pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 18px;
+    border-radius: 980px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--kb-accent);
+    background: rgba(0, 113, 227, 0.06);
+    border: none;
+    transition: background 0.2s ease;
+  }
+
+  .jacq-kb__pill:hover {
+    background: rgba(0, 113, 227, 0.12);
+    color: var(--kb-accent-hover);
+  }
+
+  /* ---- Topic card grid ---- */
+  .jacq-kb__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 600px) {
+    .jacq-kb__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .jacq-kb__grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+    }
+
+    .jacq-kb__card:nth-child(-n+2) {
+      grid-column: span 3;
+    }
+
+    .jacq-kb__card:nth-child(n+3) {
+      grid-column: span 2;
+    }
+
+    .jacq-kb__card:nth-child(-n+2) .jacq-kb__icon {
+      width: 52px;
+      height: 52px;
+    }
+
+    .jacq-kb__card:nth-child(-n+2) .jacq-kb__icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .jacq-kb__card:nth-child(-n+2) .jacq-kb__cardTitle {
+      font-size: 22px;
+    }
+  }
+
+  /* ---- Topic card ---- */
+  .jacq-kb__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--kb-white);
+    border: 1px solid rgba(0,0,0,.04);
+    border-radius: var(--kb-radius);
+    padding: 28px 24px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--kb-shadow);
+    transition: box-shadow .3s ease, transform .3s ease;
+    cursor: pointer;
+  }
+
+  .jacq-kb__card:hover {
+    box-shadow: var(--kb-shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  .jacq-kb__cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .jacq-kb__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--kb-radius-sm);
+    background: var(--kb-bg);
+    display: grid;
+    place-items: center;
+    color: var(--kb-black);
+    transition: transform .3s ease;
+  }
+
+  .jacq-kb__card:hover .jacq-kb__icon { transform: scale(1.06); }
+
+  .jacq-kb__card:nth-child(6n+1) .jacq-kb__icon { background: rgba(0,122,255,.08); color: #007AFF; }
+  .jacq-kb__card:nth-child(6n+2) .jacq-kb__icon { background: rgba(52,199,89,.08); color: #34C759; }
+  .jacq-kb__card:nth-child(6n+3) .jacq-kb__icon { background: rgba(255,149,0,.08); color: #FF9500; }
+  .jacq-kb__card:nth-child(6n+4) .jacq-kb__icon { background: rgba(88,86,214,.08); color: #5856D6; }
+  .jacq-kb__card:nth-child(6n+5) .jacq-kb__icon { background: rgba(255,45,85,.08); color: #FF2D55; }
+  .jacq-kb__card:nth-child(6n+6) .jacq-kb__icon { background: rgba(90,200,250,.08); color: #32ADE6; }
+
+  .jacq-kb__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .jacq-kb__icon svg path,
+  .jacq-kb__icon svg circle,
+  .jacq-kb__icon svg rect,
+  .jacq-kb__icon svg line,
+  .jacq-kb__icon svg polyline {
+    stroke: currentColor;
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .jacq-kb__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--kb-gray);
+    background: var(--kb-bg);
+    border-radius: 980px;
+    padding: 5px 12px;
+  }
+
+  .jacq-kb__badgeClock {
+    flex-shrink: 0;
+    color: var(--kb-gray);
+  }
+
+  .jacq-kb__cardTitle {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: var(--kb-black);
+  }
+
+  .jacq-kb__cardText {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--kb-gray);
+    margin: 0;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .jacq-kb__cardLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--kb-accent);
+    transition: gap 0.2s ease;
+  }
+
+  .jacq-kb__card:hover .jacq-kb__cardLink {
+    gap: 8px;
+  }
+
+  /* ---- FAQ ---- */
+  .jacq-kb__faq {
+    margin-top: clamp(48px, 6vw, 80px);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jacq-kb__faqList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jacq-kb__faqItem {
+    border-bottom: 1px solid var(--kb-border);
+    padding: 0;
+    background: none;
+  }
+
+  .jacq-kb__faqItem:first-child {
+    border-top: 1px solid var(--kb-border);
+  }
+
+  .jacq-kb__faqQuestion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--kb-black);
+    transition: color 0.2s ease;
+  }
+
+  .jacq-kb__faqQuestion::-webkit-details-marker {
+    display: none;
+  }
+
+  .jacq-kb__faqQuestion::marker {
+    content: '';
+  }
+
+  .jacq-kb__faqQuestion:hover {
+    color: var(--kb-accent);
+  }
+
+  .jacq-kb__faqChevron {
+    flex-shrink: 0;
+    color: var(--kb-gray);
+    transition: transform 0.3s ease;
+  }
+
+  .jacq-kb__faqItem[open] .jacq-kb__faqChevron {
+    transform: rotate(180deg);
+  }
+
+  .jacq-kb__faqAnswer {
+    padding: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--kb-gray-light);
+    font-weight: 400;
+  }
+
+  .jacq-kb__faqAnswer p {
+    margin: 0 0 10px;
+  }
+
+  .jacq-kb__faqAnswer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .jacq-kb__faqAnswer a {
+    color: var(--kb-accent);
+    text-decoration: none;
+  }
+
+  .jacq-kb__faqAnswer a:hover {
+    text-decoration: underline;
+  }
+
+  /* ---- SEO section ---- */
+  .jacq-kb__seo {
+    margin-top: clamp(48px, 6vw, 80px);
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    border-top: 1px solid var(--kb-border);
+  }
+
+  .jacq-kb__seoText {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--kb-gray-light);
+    font-weight: 400;
+  }
+
+  .jacq-kb__seoText p {
+    margin: 0 0 16px;
+  }
+
+  .jacq-kb__seoText p:last-child {
+    margin-bottom: 0;
+  }
+
+  .jacq-kb__seoText a {
+    color: var(--kb-accent);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .jacq-kb__seoText a:hover {
+    text-decoration: underline;
+  }
+
+  .jacq-kb__seoText a:focus-visible {
+    outline: 2px solid var(--kb-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  .jacq-kb__seoText ul {
+    padding-left: 20px;
+    margin: 0 0 16px;
+  }
+
+  .jacq-kb__seoText li {
+    margin-bottom: 6px;
+  }
+
+  .jacq-kb__seoText strong,
+  .jacq-kb__seoText b {
+    font-weight: 600;
+    color: var(--kb-black);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "JACQ — Hub (advies)",
+  "settings": [
+    { "type": "text", "id": "aria_label", "label": "ARIA label", "default": "Advies hub" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "ADVIES" },
+    { "type": "text", "id": "title", "label": "Titel", "default": "Kiezen & pasvorm" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitel", "default": "Vind in 2 minuten een montuur dat goed zit en bij je gezicht past." },
+
+    { "type": "text", "id": "primary_cta_label", "label": "Primary CTA label", "default": "Bekijk brillen" },
+    { "type": "url", "id": "primary_cta_link", "label": "Primary CTA link (optioneel)" },
+
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary CTA label", "default": "Onze brillen op sterkte" },
+    { "type": "url", "id": "secondary_cta_link", "label": "Secondary CTA link (optioneel)" },
+
+    { "type": "checkbox", "id": "show_quicklinks", "label": "Toon quicklinks bovenaan", "default": false },
+    { "type": "text", "id": "quicklinks_title", "label": "Quicklinks titel", "default": "Snel naar" },
+
+    { "type": "text", "id": "card_cta_text", "label": "Card CTA tekst", "default": "Lees artikel" },
+
+    { "type": "text", "id": "faq_title", "label": "FAQ titel", "default": "Veelgestelde vragen" },
+    { "type": "text", "id": "seo_title", "label": "SEO titel", "default": "De juiste pasvorm, simpel en comfortabel" },
+    { "type": "richtext", "id": "seo_richtext", "label": "SEO tekst", "default": "<p>Vul hier optionele SEO-tekst in.</p>" }
+  ],
+  "blocks": [
+    {
+      "type": "quicklink",
+      "name": "Quicklink pill",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Brilmaat bepalen" },
+        { "type": "url", "id": "link", "label": "Link (optioneel)" }
+      ]
+    },
+    {
+      "type": "topic",
+      "name": "Topic card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Titel", "default": "Brilmaat bepalen" },
+        { "type": "textarea", "id": "text", "label": "Tekst", "default": "Zo meet je je maat in 2 minuten." },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "2 min" },
+        { "type": "url", "id": "link", "label": "Link (optioneel)" },
+        { "type": "liquid", "id": "icon_svg", "label": "Icon SVG", "default": "<svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M12 10v6'/><path d='M12 7h.01'/></svg>" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Vraag", "default": "Hoe weet ik zeker dat mijn maat klopt?" },
+        { "type": "richtext", "id": "a", "label": "Antwoord", "default": "<p>Meet je huidige bril (breedte) en check de cijfers aan de binnenkant van het montuur. Twijfel je? Kies liever iets breder dan te smal.</p>" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "JACQ — Hub (advies)" }]
+}
+{% endschema %}

@@ -1,0 +1,215 @@
+{% doc %}
+  Meave lamp wizard – "Lamp samenstellen" button + right-hand slide-out.
+
+  Every lamp+shade combination is its own product (with a COLOR variant for the
+  staaf finish). The shopper:
+    Step 1 (Kleur): picks the staaf colour (Gold / Silver / Black ...).
+    Step 2 (Kap):   sees only the products available in that colour, each with a
+                    different shade, and picks one.
+  On submit the matching variant of the chosen product is added to the cart as a
+  single line item. Variant ids come straight from Shopify — no codes by hand.
+
+  Source the options from a clean collection (e.g. "wizard") that contains only
+  the products that should be switchable together.
+
+  @param {object} block - meave_lamp_wizard block settings
+  @param {object} product - Current lamp product
+  @param {string} product_form_id - Product form id (optional)
+  @example
+  {% render 'meave-lamp-wizard', block: block, product: product, product_form_id: product_form_id %}
+{% enddoc %}
+
+{%- assign sel_variant = product.selected_or_first_available_variant -%}
+{%- assign kap_col = block.settings.kappen_collection -%}
+{%- assign btn_label = block.settings.button_label | default: 'Build your lamp' -%}
+{%- assign has_options = false -%}
+{%- if kap_col != blank and kap_col.products_count > 0 -%}{%- assign has_options = true -%}{%- endif -%}
+
+<meave-lamp-wizard
+  class="mlw"
+  data-current-product-id="{{ product.id }}"
+  data-current-variant-id="{{ sel_variant.id }}"
+  data-form-id="{{ product_form_id }}"
+  data-after-add="{{ block.settings.after_add | default: 'cart' }}"
+  {{ block.shopify_attributes }}
+>
+  <button
+    type="button"
+    class="mlw-trigger{% unless product.available %} mlw-trigger--soldout{% endunless %}"
+    {% if product.available %}data-mlw-open aria-haspopup="dialog"{% else %}disabled aria-disabled="true"{% endif %}
+  >
+    <span class="mlw-trigger__label">
+      {%- if product.available -%}{{ btn_label }}{%- else -%}{{ 'products.product.sold_out' | t | default: 'Sold out' }}{%- endif -%}
+    </span>
+    {%- if product.available -%}
+      <span class="mlw-trigger__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    {%- endif -%}
+  </button>
+
+  <div class="mlw-root" data-mlw-root hidden aria-hidden="true">
+    <div class="mlw-overlay" data-mlw-close tabindex="-1"></div>
+
+    <aside class="mlw-panel" role="dialog" aria-modal="true" aria-label="{{ btn_label | escape }}">
+      <header class="mlw-head">
+        <button type="button" class="mlw-back" data-mlw-back aria-label="Back" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span class="mlw-head__title">{{ btn_label }}</span>
+        <button type="button" class="mlw-close" data-mlw-close aria-label="Close">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+
+      <nav class="mlw-tabs" aria-label="Steps">
+        <button type="button" class="mlw-tab is-active" data-mlw-tab="1">
+          <span class="mlw-tab__num">1</span>
+          <span class="mlw-tab__txt">{{ block.settings.color_step_label | default: 'Colour' }}</span>
+        </button>
+        <span class="mlw-tab__line" aria-hidden="true"></span>
+        <button type="button" class="mlw-tab" data-mlw-tab="2">
+          <span class="mlw-tab__num">2</span>
+          <span class="mlw-tab__txt">{{ block.settings.kap_step_label | default: 'Shade' }}</span>
+        </button>
+        <span class="mlw-tab__line" aria-hidden="true"></span>
+        <button type="button" class="mlw-tab" data-mlw-tab="3">
+          <span class="mlw-tab__num">3</span>
+          <span class="mlw-tab__txt">{{ block.settings.review_step_label | default: 'Summary' }}</span>
+        </button>
+      </nav>
+
+      <div class="mlw-body">
+        {%- comment -%} STEP 1: STAAF COLOUR {%- endcomment -%}
+        <section class="mlw-step is-active" data-mlw-step="1">
+          <div class="mlw-preview" aria-hidden="true"><img data-mlw-preview src="" alt=""></div>
+          <div class="mlw-picker">
+            <div class="mlw-step__intro">
+              <h3 class="mlw-step__title">{{ block.settings.color_heading | default: 'Choose your colour' }}</h3>
+              {%- if block.settings.color_sub != blank -%}<p class="mlw-step__sub">{{ block.settings.color_sub }}</p>{%- endif -%}
+            </div>
+            <div class="mlw-colors" data-mlw-colors role="radiogroup" aria-label="{{ block.settings.color_heading | default: 'Colour' | escape }}"></div>
+          </div>
+        </section>
+
+        {%- comment -%} STEP 2: KAP (products in the chosen colour) {%- endcomment -%}
+        <section class="mlw-step" data-mlw-step="2" hidden>
+          <div class="mlw-preview mlw-preview--sm" aria-hidden="true"><img data-mlw-preview-kap src="" alt=""></div>
+          <div class="mlw-step__intro">
+            <h3 class="mlw-step__title">{{ block.settings.kap_heading | default: 'Choose your shade' }}</h3>
+            {%- if block.settings.kap_sub != blank -%}<p class="mlw-step__sub">{{ block.settings.kap_sub }}</p>{%- endif -%}
+          </div>
+          <div class="mlw-grid" data-mlw-kaps role="radiogroup" aria-label="{{ block.settings.kap_heading | default: 'Shade' | escape }}"></div>
+          {%- unless has_options -%}
+            <p class="mlw-empty">Link a collection of wizard products in the theme editor (block setting “Shades collection”).</p>
+          {%- endunless -%}
+        </section>
+
+        {%- comment -%} STEP 3: OVERVIEW + UPSELLS {%- endcomment -%}
+        <section class="mlw-step" data-mlw-step="3" hidden>
+          <div class="mlw-preview mlw-preview--sm" aria-hidden="true"><img data-mlw-preview-review src="" alt=""></div>
+          <div class="mlw-step__intro">
+            <h3 class="mlw-step__title">{{ block.settings.review_heading | default: 'Your lamp' }}</h3>
+          </div>
+          <div class="mlw-review">
+            <div class="mlw-review__row"><span>{{ block.settings.color_step_label | default: 'Colour' }}</span><strong data-mlw-rv-color>—</strong></div>
+            <div class="mlw-review__row"><span>{{ block.settings.kap_step_label | default: 'Shade' }}</span><strong data-mlw-rv-kap>—</strong></div>
+            <div class="mlw-review__row mlw-review__row--total"><span>{{ block.settings.total_label | default: 'Total' }}</span><strong data-mlw-rv-total>—</strong></div>
+          </div>
+
+          <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
+            <h4 class="mlw-upsell__title">{{ block.settings.upsell_heading | default: 'Complete the look' }}</h4>
+            <div class="mlw-upsell__grid" data-mlw-upsell></div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="mlw-foot">
+        <div class="mlw-summary" aria-live="polite">
+          <span class="mlw-summary__row"><small>{{ block.settings.color_step_label | default: 'Colour' }}</small><strong data-mlw-sum-color>—</strong></span>
+          <span class="mlw-summary__plus" aria-hidden="true">·</span>
+          <span class="mlw-summary__row"><small>{{ block.settings.kap_step_label | default: 'Shade' }}</small><strong data-mlw-sum-kap>—</strong></span>
+        </div>
+        <button type="button" class="mlw-next" data-mlw-next>{{ block.settings.next_label | default: 'Next' }}</button>
+        <button type="button" class="mlw-add" data-mlw-add hidden>
+          <span class="mlw-add__label">{{ block.settings.add_label | default: 'Checkout' }}</span>
+          <span class="mlw-add__spinner" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="mlw-continue" data-mlw-continue hidden>{{ block.settings.continue_label | default: 'Continue shopping' }}</button>
+        <p class="mlw-error" data-mlw-error hidden></p>
+      </footer>
+    </aside>
+  </div>
+
+  {%- comment -%} Fallback colours = variants of the current product (used if the collection is empty) {%- endcomment -%}
+  <script type="application/json" data-mlw-stem>
+  {
+    "image": {{ product.featured_image | image_url: width: 300 | json }},
+    "variants": [
+      {%- for v in product.variants -%}
+      {
+        "id": {{ v.id }},
+        "title": {{ v.title | json }},
+        "available": {{ v.available }},
+        "image": {{ v.image | default: product.featured_image | image_url: width: 300 | json }}
+      }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+
+  {%- if has_options -%}
+    <script type="application/json" data-mlw-products>
+    [
+    {%- for p in kap_col.products -%}
+      {
+        "id": {{ p.id }},
+        "title": {{ p.title | json }},
+        "price": {{ p.price | money | strip_html | json }},
+        "priceRaw": {{ p.price }},
+        "available": {{ p.available }},
+        "image": {{ p.featured_image | image_url: width: 300 | json }},
+        "options": {{ p.options | json }},
+        "variants": [
+          {%- for v in p.variants -%}
+          {
+            "id": {{ v.id }},
+            "title": {{ v.title | json }},
+            "available": {{ v.available }},
+            "image": {{ v.image | default: p.featured_image | image_url: width: 300 | json }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+    ]
+    </script>
+  {%- endif -%}
+
+  {%- assign upsell_col = block.settings.upsell_collection -%}
+  {%- if upsell_col != blank and upsell_col.products_count > 0 -%}
+    {%- assign upsell_limit = block.settings.upsell_limit | default: 4 -%}
+    <script type="application/json" data-mlw-upsell-data>
+    [
+    {%- assign u = 0 -%}
+    {%- for p in upsell_col.products -%}
+      {%- if u >= upsell_limit -%}{%- break -%}{%- endif -%}
+      {%- assign uv = p.selected_or_first_available_variant | default: p.variants.first -%}
+      {%- if u > 0 -%},{%- endif -%}
+      {
+        "variantId": {{ uv.id }},
+        "title": {{ p.title | json }},
+        "price": {{ p.price | money | strip_html | json }},
+        "priceRaw": {{ p.price }},
+        "available": {{ p.available }},
+        "image": {{ p.featured_image | image_url: width: 200 | json }}
+      }
+      {%- assign u = u | plus: 1 -%}
+    {%- endfor -%}
+    ]
+    </script>
+  {%- endif -%}
+
+  <link href="{{ 'meave-lamp-wizard.css' | asset_url }}" rel="stylesheet">
+  <script src="{{ 'meave-lamp-wizard.js' | asset_url }}" defer></script>
+</meave-lamp-wizard>

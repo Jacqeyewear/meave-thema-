@@ -1,0 +1,372 @@
+{% comment %}
+  Section: Jacq Sustainability (Retour + Donatie)
+  Focus: Bold hero, stappen, stats, partnerbadge, CTA — met "Jacq" look (rounded, soft gradients).
+  Compatibel: Alle OS 2.0 thema's incl. Concept.
+{% endcomment %}
+
+{% assign secid = 'jacq-susty-' | append: section.id %}
+
+<section id="{{ secid }}" class="jacq-susty color-{{ section.settings.color_scheme }}">
+  <div class="jacq-wrap">
+    <div class="jacq-hero">
+      <div class="jacq-hero-copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jacq-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jacq-title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.lead != blank -%}
+          <p class="jacq-lead">{{ section.settings.lead }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="jacq-body rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        <div class="jacq-cta-row">
+          {%- if section.settings.cta_label and section.settings.cta_link -%}
+            <a href="{{ section.settings.cta_link }}" class="jacq-btn jacq-btn--primary">{{ section.settings.cta_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta2_label and section.settings.cta2_link -%}
+            <a href="{{ section.settings.cta2_link }}" class="jacq-btn jacq-btn--ghost">{{ section.settings.cta2_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.discount_badge != blank -%}
+            <span class="jacq-badge">{{ section.settings.discount_badge }}</span>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.partner_name != blank or section.settings.partner_logo != blank -%}
+          <div class="jacq-partner">
+            {%- if section.settings.partner_logo -%}
+              <img class="jacq-partner-logo" src="{{ section.settings.partner_logo | image_url: width: 220 }}" alt="{{ section.settings.partner_name | escape }}" loading="lazy">
+            {%- endif -%}
+            <span class="jacq-partner-name">{{ section.settings.partner_name }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.media or section.settings.video_url -%}
+        <div class="jacq-hero-media">
+          {%- if section.settings.video_url -%}
+            <div class="jacq-video">
+              <iframe 
+                title="{{ section.settings.heading | default: 'Duurzaamheid' | escape }}"
+                src="https://www.youtube.com/embed/{{ section.settings.video_url | split: 'v=' | last | split: '&' | first }}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          {%- else -%}
+            <div class="jacq-image">
+              {{ section.settings.media | image_url: width: 1300 | image_tag: loading: 'lazy', alt: section.settings.heading | default: 'Duurzaamheid' }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="jacq-grid">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'step' -%}
+              <div class="jacq-card" {{ block.shopify_attributes }}>
+                <div class="jacq-card-icon" aria-hidden="true">
+                  {%- if block.settings.icon != blank -%}{{ block.settings.icon }}{%- else -%}♻️{%- endif -%}
+                </div>
+                <div class="jacq-card-body">
+                  <h3 class="jacq-card-title">{{ block.settings.title }}</h3>
+                  <p class="jacq-card-text">{{ block.settings.text }}</p>
+                </div>
+              </div>
+
+            {%- when 'stat' -%}
+              <div class="jacq-stat" {{ block.shopify_attributes }}>
+                <div class="jacq-stat-value" data-target="{{ block.settings.value | escape }}">{{ block.settings.value }}</div>
+                <div class="jacq-stat-label">{{ block.settings.label }}</div>
+              </div>
+
+            {%- when 'testimonial' -%}
+              <figure class="jacq-quote" {{ block.shopify_attributes }}>
+                <blockquote>“{{ block.settings.quote }}”</blockquote>
+                <figcaption>— {{ block.settings.author }}</figcaption>
+              </figure>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <style>
+    #{{ secid }}{
+      --jacq-accent: {{ section.settings.accent | default: '#111111' }};
+      --jacq-accent-2: {{ section.settings.accent2 | default: '#6EE7F9' }};
+      --jacq-bg: {{ section.settings.bg_tint | default: '#F7F7F8' }};
+      --jacq-radius: 22px;
+      --jacq-shadow: 0 10px 35px rgba(0,0,0,.08);
+      --jacq-gap: 1rem;
+      position: relative;
+      padding: {{ section.settings.pad_m }}px 16px;
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 600px at 90% -10%, color-mix(in oklab, var(--jacq-accent-2) 22%, transparent), transparent),
+        radial-gradient(900px 500px at -10% 10%, color-mix(in oklab, var(--jacq-accent) 7%, transparent), transparent);
+    }
+    @media (min-width: 990px){
+      #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; }
+    }
+    #{{ secid }} .jacq-wrap{ max-width: 1200px; margin: 0 auto; }
+
+    /* HERO */
+    #{{ secid }} .jacq-hero{
+      display:grid; gap: 1.4rem; align-items:center;
+    }
+    @media (min-width: 990px){
+      #{{ secid }} .jacq-hero{ grid-template-columns: 1.15fr .85fr; gap: 2.4rem; }
+    }
+    #{{ secid }} .jacq-eyebrow{
+      font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; opacity:.75; margin:0 0 .25rem;
+    }
+    #{{ secid }} .jacq-title{
+      margin:0 0 .35rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height:1.05;
+      letter-spacing:-.02em;
+    }
+    #{{ secid }} .jacq-lead{ font-size:1.06rem; opacity:.92; margin:0 0 .6rem; }
+    #{{ secid }} .jacq-body{ margin: 0 0 .9rem; }
+
+    #{{ secid }} .jacq-cta-row{ display:flex; flex-wrap:wrap; gap:.6rem; align-items:center; }
+    #{{ secid }} .jacq-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.45rem;
+      padding:.85rem 1.1rem; border-radius: 999px; font-weight: 700; text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+      border:1px solid transparent;
+    }
+    #{{ secid }} .jacq-btn--primary{
+      color:#fff;
+      background: linear-gradient(135deg, var(--jacq-accent), color-mix(in oklab, var(--jacq-accent) 70%, var(--jacq-accent-2)));
+      box-shadow: var(--jacq-shadow);
+    }
+    #{{ secid }} .jacq-btn--primary:hover{ transform: translateY(-2px); }
+    #{{ secid }} .jacq-btn--ghost{
+      background: color-mix(in oklab, var(--jacq-bg) 70%, #ffffff);
+      border-color: color-mix(in oklab, var(--jacq-accent) 26%, transparent);
+      color: var(--jacq-accent);
+    }
+    #{{ secid }} .jacq-btn--ghost:hover{ transform: translateY(-2px); background:#fff; }
+
+    #{{ secid }} .jacq-badge{
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.5rem .8rem; border-radius:999px; font-size:.86rem; font-weight:700;
+      background: rgba(0,0,0,.06);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06) inset, 0 1px 0 rgba(255,255,255,.6);
+    }
+
+    #{{ secid }} .jacq-partner{ display:flex; align-items:center; gap:.55rem; margin-top:.7rem; opacity:.95; }
+    #{{ secid }} .jacq-partner-logo{ height:28px; width:auto; }
+    #{{ secid }} .jacq-partner-name{ font-weight:600; letter-spacing:.01em; }
+
+    #{{ secid }} .jacq-hero-media{
+      border-radius: calc(var(--jacq-radius) + 6px);
+      overflow:hidden; box-shadow: var(--jacq-shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,.2));
+    }
+    #{{ secid }} .jacq-image img{ display:block; width:100%; height:auto; }
+    #{{ secid }} .jacq-video{ position:relative; padding-top:56.25%; }
+    #{{ secid }} .jacq-video iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+    /* GRID */
+    #{{ secid }} .jacq-grid{
+      margin-top: 1.6rem;
+      display:grid; grid-template-columns: 1fr; gap: 1rem;
+    }
+    @media (min-width: 750px){
+      #{{ secid }} .jacq-grid{ grid-template-columns: repeat(12, 1fr); gap: 1.1rem; }
+      #{{ secid }} .jacq-card{ grid-column: span 4; }
+      #{{ secid }} .jacq-stat{ grid-column: span 3; }
+      #{{ secid }} .jacq-quote{ grid-column: span 6; }
+    }
+
+    /* CARDS (Steps) */
+    #{{ secid }} .jacq-card{
+      display:flex; gap:.8rem; align-items:flex-start;
+      padding: 1rem; border-radius: var(--jacq-radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.55));
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    #{{ secid }} .jacq-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    #{{ secid }} .jacq-card-icon{
+      flex: 0 0 auto; font-size: 1.6rem; line-height: 1;
+      width: 42px; height: 42px; display:grid; place-items:center;
+      border-radius: 14px;
+      background: radial-gradient(70% 80% at 30% 20%, color-mix(in oklab, var(--jacq-accent-2) 35%, #fff), #fff);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,.08) inset;
+    }
+    #{{ secid }} .jacq-card-title{ margin:.1rem 0 .2rem; font-size:1.03rem; letter-spacing:.01em; }
+    #{{ secid }} .jacq-card-text{ opacity:.9; }
+
+    /* STATS */
+    #{{ secid }} .jacq-stat{
+      text-align:center;
+      padding: 1rem; border-radius: var(--jacq-radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--jacq-shadow);
+    }
+    #{{ secid }} .jacq-stat-value{ font-size:1.9rem; font-weight:800; letter-spacing:-.01em; }
+    #{{ secid }} .jacq-stat-label{ opacity:.85; }
+
+    /* QUOTE */
+    #{{ secid }} .jacq-quote{
+      padding: 1rem 1.2rem; border-radius: var(--jacq-radius);
+      background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.02));
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
+
+    /* Dark (inverse) tweaks */
+    .color-inverse #{{ secid }} .jacq-card,
+    .color-inverse #{{ secid }} .jacq-stat,
+    .color-inverse #{{ secid }} .jacq-quote{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.06));
+      border-color: rgba(255,255,255,.14);
+    }
+    .color-inverse #{{ secid }} .jacq-badge{ background: rgba(255,255,255,.14); }
+    .color-inverse #{{ secid }} .jacq-btn--primary{ color:#111; background: linear-gradient(135deg, #fff, color-mix(in oklab, #fff 75%, var(--jacq-accent-2))); }
+  </style>
+
+  <script>
+    (function(){
+      var root = document.getElementById('{{ secid }}');
+      if(!root) return;
+
+      // Count-up voor stats
+      var stats = root.querySelectorAll('.jacq-stat-value[data-target]');
+      var started = false;
+
+      function inView(el){
+        var r = el.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+      }
+
+      function animate(){
+        if(started || stats.length === 0) return;
+        if(!inView(root)) return;
+        started = true;
+
+        stats.forEach(function(el){
+          var raw = el.getAttribute('data-target') || '';
+          var num = parseFloat(raw.replace(/[^0-9.,]/g,'').replace(',','.'));
+          if(isNaN(num)) return;
+          var current = 0, steps = 36, step = num / steps;
+
+          var timer = setInterval(function(){
+            current += step;
+            if(current >= num){ current = num; clearInterval(timer); }
+            el.textContent = raw.replace(/[0-9.,]+/, function(){
+              return new Intl.NumberFormat().format(Math.round(current));
+            });
+          }, 28);
+        });
+      }
+
+      window.addEventListener('scroll', animate, { passive: true });
+      window.addEventListener('load', animate);
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Jacq Retour+Donatie",
+  "tag": "section",
+  "class": "color-scheme",
+  "settings": [
+    { "type": "select", "id": "color_scheme", "label": "Kleurenschema", "default": "default",
+      "options": [
+        { "value": "default", "label": "Standaard" },
+        { "value": "inverse", "label": "Omgekeerd (donker)" }
+      ]
+    },
+
+    { "type": "text", "id": "eyebrow", "label": "Label", "default": "Duurzaamheid" },
+    { "type": "text", "id": "heading", "label": "Titel", "default": "Stuur je bril terug. Krijg 10% korting. Steun de Voedselbank." },
+    { "type": "text", "id": "lead", "label": "Subtitel", "default": "Samen verminderen we afval en helpen we mensen die het nodig hebben." },
+    { "type": "richtext", "id": "body", "label": "Toelichting", "default": "<p>Ben je uitgekeken op je bril? Stuur hem gratis terug. Wij halen de materialen eruit, verkopen ze en doneren de opbrengst aan de Voedselbank. Jij ontvangt 10% korting op je volgende aankoop.</p>" },
+
+    { "type": "text", "id": "discount_badge", "label": "Korting badge", "default": "10% korting op je volgende aankoop" },
+
+    { "type": "text", "id": "cta_label", "label": "CTA 1 label", "default": "Start retour" },
+    { "type": "url",  "id": "cta_link",  "label": "CTA 1 link" },
+    { "type": "text", "id": "cta2_label", "label": "CTA 2 label", "default": "Lees meer" },
+    { "type": "url",  "id": "cta2_link",  "label": "CTA 2 link" },
+
+    { "type": "image_picker", "id": "media", "label": "Afbeelding (alternatief voor video)" },
+    { "type": "text", "id": "video_url", "label": "YouTube URL (optioneel)" },
+
+    { "type": "text", "id": "partner_name", "label": "Partnernaam", "default": "Voedselbank" },
+    { "type": "image_picker", "id": "partner_logo", "label": "Partnerlogo (optioneel)" },
+
+    { "type": "color", "id": "accent",  "label": "Primaire accentkleur", "default": "#111111" },
+    { "type": "color", "id": "accent2", "label": "Secundaire accentkleur", "default": "#6EE7F9" },
+    { "type": "color", "id": "bg_tint", "label": "Achtergrondtint", "default": "#F7F7F8" },
+
+    { "type": "range", "id": "pad_m", "label": "Verticale padding mobiel", "min": 24, "max": 120, "step": 4, "default": 48 },
+    { "type": "range", "id": "pad_d", "label": "Verticale padding desktop", "min": 24, "max": 200, "step": 4, "default": 88 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Stap",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Emoji/icoon", "default": "📦" },
+        { "type": "text", "id": "title", "label": "Titel", "default": "Vraag retour aan" },
+        { "type": "text", "id": "text", "label": "Beschrijving", "default": "Klik op ‘Start retour’ en ontvang je label." }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Stat",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Waarde", "default": "€7.840" },
+        { "type": "text", "id": "label", "label": "Label", "default": "gedoneerd" }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Quote",
+      "limit": 2,
+      "settings": [
+        { "type": "text", "id": "quote", "label": "Quote", "default": "Fijn dat mijn oude bril écht iets goeds doet." },
+        { "type": "text", "id": "author", "label": "Auteur", "default": "Sanne" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jacq Retour+Donatie",
+      "blocks": [
+        { "type": "step", "settings": { "icon": "📦", "title": "Vraag retour aan", "text": "Klik op ‘Start retour’ en ontvang je label." } },
+        { "type": "step", "settings": { "icon": "🛠️", "title": "Wij verwerken", "text": "We demonteren en verkopen de materialen." } },
+        { "type": "step", "settings": { "icon": "🎟️", "title": "Ontvang 10% korting", "text": "Je krijgt automatisch een kortingscode." } },
+        { "type": "step", "settings": { "icon": "🤝", "title": "Doneer aan partner", "text": "Opbrengst gaat naar de Voedselbank." } },
+        { "type": "stat", "settings": { "value": "€8.000", "label": "gedoneerd" } },
+        { "type": "stat", "settings": { "value": "2.300", "label": "brillen verwerkt" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}{% endstylesheet %}
+{% javascript %}{% endjavascript %}

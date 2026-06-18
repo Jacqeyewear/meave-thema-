@@ -1,0 +1,155 @@
+{% comment %}
+  Section: Jacq LP Reassurance
+  Neemt de twijfel van online kopen weg met 3-4 vertrouwenskaarten.
+  Iconen via 'icon-guarantee' snippet, teksten aanpasbaar via blocks.
+{% endcomment %}
+
+{% assign secid = 'jacq-lp-reassurance-' | append: section.id %}
+
+{%- liquid
+  case section.settings.bg
+    when 'dark'
+      assign bgcol = '#111111'
+      assign txtcol = '#ffffff'
+      assign cardbg = '#1c1c1c'
+    when 'light'
+      assign bgcol = '#f7f7f8'
+      assign txtcol = '#1d1d1d'
+      assign cardbg = '#ffffff'
+    else
+      assign bgcol = '#ffffff'
+      assign txtcol = '#1d1d1d'
+      assign cardbg = '#ffffff'
+  endcase
+-%}
+
+<section id="{{ secid }}" class="jacq-lp-reassurance">
+  <div class="wrap">
+    {%- if section.settings.heading != blank or section.settings.sub != blank -%}
+      <header class="head">
+        {%- if section.settings.heading != blank -%}<h2 class="title">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.sub != blank -%}<p class="sub">{{ section.settings.sub }}</p>{%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid">
+        {%- for block in section.blocks -%}
+          <div class="card" {{ block.shopify_attributes }}>
+            <span class="ic" aria-hidden="true">
+              {%- render 'icon-guarantee', icon: block.settings.icon, size: 'lg' -%}
+            </span>
+            {%- if block.settings.title != blank -%}<h3 class="card-title">{{ block.settings.title }}</h3>{%- endif -%}
+            {%- if block.settings.text != blank -%}<p class="card-text">{{ block.settings.text }}</p>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <style>
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#FFA816' }};
+      --bg: {{ bgcol }};
+      --txt: {{ txtcol }};
+      --card: {{ cardbg }};
+      --radius: 22px;
+      --shadow: 0 12px 38px rgba(0,0,0,.06);
+      background: var(--bg);
+      color: var(--txt);
+      padding: {{ section.settings.pad_m }}px 16px;
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{ max-width: 1200px; margin: 0 auto; }
+    #{{ secid }} .head{ text-align: center; max-width: 60ch; margin: 0 auto 1.8rem; }
+    #{{ secid }} .title{ font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 .4rem; letter-spacing: -.01em; }
+    #{{ secid }} .sub{ font-size: 1.02rem; color: color-mix(in oklab, var(--txt) 75%, transparent); margin: 0; }
+
+    #{{ secid }} .grid{
+      display: grid; gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px){ #{{ secid }} .grid{ grid-template-columns: repeat(2, 1fr); gap: 1.1rem; } }
+    @media (min-width: 1000px){ #{{ secid }} .grid{ grid-template-columns: repeat({{ section.blocks.size | at_least: 1 | at_most: 4 }}, 1fr); } }
+
+    #{{ secid }} .card{
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--txt) 10%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.4rem 1.25rem;
+      text-align: left;
+    }
+    #{{ secid }} .ic{
+      display: inline-grid; place-items: center;
+      width: 52px; height: 52px; border-radius: 14px;
+      background: color-mix(in oklab, var(--acc) 16%, transparent);
+      color: var(--acc);
+      margin-bottom: .9rem;
+    }
+    #{{ secid }} .ic .icon{ width: 26px; height: 26px; }
+    #{{ secid }} .card-title{ font-size: 1.1rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+    #{{ secid }} .card-text{ font-size: .96rem; line-height: 1.55; color: color-mix(in oklab, var(--txt) 75%, transparent); margin: 0; }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Jacq LP Vertrouwen",
+    "tag": "section",
+    "class": "jacq-lp-section",
+    "settings": [
+      { "type": "select", "id": "bg", "label": "Achtergrond", "default": "white",
+        "options": [
+          { "value": "white", "label": "Wit" },
+          { "value": "light", "label": "Licht (grijs)" },
+          { "value": "dark", "label": "Donker" }
+        ]
+      },
+      { "type": "color", "id": "accent", "label": "Accentkleur", "default": "#FFA816" },
+      { "type": "text", "id": "heading", "label": "Titel", "default": "Online kopen, zonder risico" },
+      { "type": "text", "id": "sub", "label": "Subtitel", "default": "Je probeert je bril rustig thuis uit. Past hij niet, dan regelen wij het." },
+      { "type": "header", "content": "Ruimte" },
+      { "type": "range", "id": "pad_m", "label": "Verticale ruimte mobiel", "min": 24, "max": 120, "step": 4, "default": 44, "unit": "px" },
+      { "type": "range", "id": "pad_d", "label": "Verticale ruimte desktop", "min": 24, "max": 200, "step": 4, "default": 80, "unit": "px" }
+    ],
+    "blocks": [
+      {
+        "type": "card",
+        "name": "Vertrouwenskaart",
+        "limit": 4,
+        "settings": [
+          { "type": "select", "id": "icon", "label": "Icoon", "default": "calendar",
+            "options": [
+              { "value": "calendar", "label": "Kalender" },
+              { "value": "return", "label": "Retour" },
+              { "value": "shield", "label": "Schild (garantie)" },
+              { "value": "truck", "label": "Vrachtwagen (verzending)" },
+              { "value": "wallet", "label": "Portemonnee" },
+              { "value": "heart", "label": "Hart" },
+              { "value": "gift", "label": "Cadeau" },
+              { "value": "lock", "label": "Slot (veilig)" },
+              { "value": "award", "label": "Medaille" },
+              { "value": "support", "label": "Support" },
+              { "value": "time", "label": "Klok" }
+            ]
+          },
+          { "type": "text", "id": "title", "label": "Titel", "default": "Titel" },
+          { "type": "text", "id": "text", "label": "Tekst", "default": "Korte uitleg in 1 zin." }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Jacq LP Vertrouwen",
+        "blocks": [
+          { "type": "card", "settings": { "icon": "calendar", "title": "100 dagen thuis proefdragen", "text": "Draag je bril rustig in je eigen dagelijks leven en bepaal daarna pas of hij blijft." } },
+          { "type": "card", "settings": { "icon": "return", "title": "Niet goed, geld terug", "text": "Past de bril toch niet bij je? Stuur hem terug en je krijgt je geld retour." } },
+          { "type": "card", "settings": { "icon": "shield", "title": "2 jaar garantie", "text": "Op montuur en glazen, zodat je zorgeloos kunt dragen." } },
+          { "type": "card", "settings": { "icon": "truck", "title": "Gratis verzending in NL", "text": "Je bestelling komt zonder verzendkosten bij je thuis." } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+</section>

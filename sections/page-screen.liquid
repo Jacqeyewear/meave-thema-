@@ -1,0 +1,756 @@
+{% comment %}
+  JACQ — Page: Bril voor schermgebruik (Apple)
+  - Hero overlay aligned with .ja-wrap (no drift)
+  - Mobile gutters hard-fixed (min 20px + safe-area)
+  - Apple clean: hero, split, band, 3 cards, reverse split, checklist, FAQ, CTA
+  - Subtle reveal on scroll
+{% endcomment %}
+
+<section class="jacq-apple ja-screen" data-section-id="{{ section.id }}">
+  <!-- HERO -->
+  <header class="ja-hero">
+    {% if section.settings.hero_image != blank %}
+      <div class="ja-hero__media" aria-hidden="true">
+        {{ section.settings.hero_image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '800, 1200, 1600, 2000, 2400',
+          alt: section.settings.hero_image_alt | escape
+        }}
+      </div>
+    {% endif %}
+
+    <div class="ja-hero__overlay">
+      <div class="ja-wrap">
+        <div class="ja-hero__content ja-reveal">
+          {% if section.settings.hero_eyebrow != blank %}
+            <p class="ja-eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+          {% endif %}
+          <h1 class="ja-h1">{{ section.settings.hero_title | escape }}</h1>
+          {% if section.settings.hero_subtitle != blank %}
+            <p class="ja-lead">{{ section.settings.hero_subtitle | escape }}</p>
+          {% endif %}
+
+          {% if section.settings.hero_cta_label != blank and section.settings.hero_cta_link != blank %}
+            <div class="ja-hero__actions">
+              <a class="ja-btn ja-btn--primary" href="{{ section.settings.hero_cta_link }}">
+                {{ section.settings.hero_cta_label | escape }}
+              </a>
+
+              {% if section.settings.hero_cta2_label != blank and section.settings.hero_cta2_link != blank %}
+                <a class="ja-btn ja-btn--ghost" href="{{ section.settings.hero_cta2_link }}">
+                  {{ section.settings.hero_cta2_label | escape }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO SPLIT -->
+  <section class="ja-wrap ja-two-col ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.intro_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.intro_text }}
+      </div>
+
+      {% if section.settings.mini_points != blank %}
+        <ul class="ja-mini">
+          {{ section.settings.mini_points }}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.intro_image != blank %}
+        {{ section.settings.intro_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 42vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.intro_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- BAND (centered) -->
+  <section class="ja-band ja-block">
+    <div class="ja-wrap ja-center ja-reveal">
+      <h2 class="ja-h2">{{ section.settings.band_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.band_text }}
+      </div>
+
+      <div class="ja-pillrow">
+        {% if section.settings.pill1 != blank %}<span class="ja-pill2">{{ section.settings.pill1 | escape }}</span>{% endif %}
+        {% if section.settings.pill2 != blank %}<span class="ja-pill2">{{ section.settings.pill2 | escape }}</span>{% endif %}
+        {% if section.settings.pill3 != blank %}<span class="ja-pill2">{{ section.settings.pill3 | escape }}</span>{% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 CARDS: what you feel -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-cards__head ja-center">
+      <h2 class="ja-h2">{{ section.settings.cards_title | escape }}</h2>
+      {% if section.settings.cards_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.cards_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-cards__grid">
+      {% for i in (1..3) %}
+        {% capture t_id %}card{{ i }}_title{% endcapture %}
+        {% capture d_id %}card{{ i }}_text{% endcapture %}
+
+        <article class="ja-card">
+          <div class="ja-card__badge">{{ i }}</div>
+          <div class="ja-card__body">
+            <h3 class="ja-h3">{{ section.settings[t_id] | escape }}</h3>
+            <p class="ja-p">{{ section.settings[d_id] | escape }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- SPLIT 2 (reverse on desktop) -->
+  <section class="ja-wrap ja-two-col ja-two-col--reverse ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.s2_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.s2_text }}
+      </div>
+
+      {% if section.settings.s2_bullets != blank %}
+        <ul class="ja-bullets">
+          {{ section.settings.s2_bullets }}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.s2_image != blank %}
+        {{ section.settings.s2_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 42vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.s2_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-center">
+      <h2 class="ja-h2">{{ section.settings.check_title | escape }}</h2>
+      {% if section.settings.check_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.check_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-stepsgrid">
+      {% for i in (1..4) %}
+        {% capture st %}step{{ i }}_title{% endcapture %}
+        {% capture sd %}step{{ i }}_text{% endcapture %}
+        <article class="ja-scard">
+          <div class="ja-scard__num">{{ i }}</div>
+          <h3 class="ja-h3">{{ section.settings[st] | escape }}</h3>
+          <p class="ja-p">{{ section.settings[sd] | escape }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-center ja-faqHead">
+      <h2 class="ja-h2">{{ section.settings.faq_title | escape }}</h2>
+      {% if section.settings.faq_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.faq_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-faq">
+      {% assign has_faq = false %}
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          {% assign has_faq = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_faq %}
+        {% for block in section.blocks %}
+          {% if block.type != 'faq' %}{% continue %}{% endif %}
+          <details class="ja-acc" {{ block.shopify_attributes }}>
+            <summary class="ja-acc__sum">
+              <span class="ja-acc__q">{{ block.settings.q | escape }}</span>
+              <span class="ja-acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="ja-acc__a">
+              {{ block.settings.a }}
+            </div>
+          </details>
+        {% endfor %}
+      {% else %}
+        <p class="ja-sub ja-center">Voeg “FAQ” blocks toe in de editor.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="ja-cta ja-block">
+    <div class="ja-wrap ja-center ja-reveal">
+      <h2 class="ja-h2 ja-h2--cta">{{ section.settings.cta_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.cta_text }}
+      </div>
+
+      {% if section.settings.cta_button_label != blank and section.settings.cta_button_link != blank %}
+        <a class="ja-btn ja-btn--primary" href="{{ section.settings.cta_button_link }}">
+          {{ section.settings.cta_button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- BACK LINK -->
+  {% assign back_url = section.settings.back_link %}
+  {% if back_url == blank %}
+    {% assign back_url = '/pages/onze-brillen-op-sterkte' %}
+  {% endif %}
+  <footer class="ja-wrap ja-sign ja-reveal">
+    <a class="ja-backlink" href="{{ back_url }}">{{ section.settings.back_label | escape }}</a>
+  </footer>
+</section>
+
+<style>
+  .jacq-apple.ja-screen{
+    --ja-max: 1120px;
+    --ja-pad: clamp(18px, 3.2vw, 28px);
+    --ja-gap: clamp(18px, 3.2vw, 48px);
+    --ja-radius: 20px;
+    --ja-bg: #fff;
+    --ja-band: #f5f5f7;
+    --ja-text: rgba(0,0,0,.88);
+    --ja-muted: rgba(0,0,0,.62);
+    --ja-hairline: rgba(0,0,0,.10);
+    background: var(--ja-bg);
+    color: var(--ja-text);
+  }
+  .jacq-apple.ja-screen *{ box-sizing: border-box; }
+
+  .jacq-apple.ja-screen .ja-wrap{
+    max-width: var(--ja-max);
+    margin: 0 auto;
+    padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+    padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+  }
+  .jacq-apple.ja-screen .ja-center{ text-align:center; }
+
+  /* HERO */
+  .jacq-apple.ja-screen .ja-hero{ position:relative; overflow:hidden; background: var(--ja-band); }
+  .jacq-apple.ja-screen .ja-hero__media img{
+    width:100%;
+    height: clamp(440px, 54vw, 720px);
+    object-fit: cover;
+    display:block;
+    transform: scale(1.02);
+  }
+  .jacq-apple.ja-screen .ja-hero__overlay{
+    position:absolute; inset:0;
+    display:grid;
+    align-content:end;
+    padding-bottom: clamp(34px, 5vw, 56px);
+    pointer-events:none;
+  }
+  .jacq-apple.ja-screen .ja-hero__content{ text-align:left; }
+  .jacq-apple.ja-screen .ja-eyebrow{
+    margin:0 0 10px;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+  }
+  .jacq-apple.ja-screen .ja-h1{
+    margin:0 0 12px;
+    font-size: clamp(34px, 5.0vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color:#fff;
+    text-shadow: 0 1px 18px rgba(0,0,0,.38);
+    max-width: 22ch;
+  }
+  .jacq-apple.ja-screen .ja-lead{
+    margin:0;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.86);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+    max-width: 62ch;
+  }
+  .jacq-apple.ja-screen .ja-hero__actions{
+    margin-top: 18px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    pointer-events:auto;
+  }
+
+  .jacq-apple.ja-screen .ja-block{ padding: clamp(54px, 7vw, 92px) 0; }
+
+  /* Two-col */
+  .jacq-apple.ja-screen .ja-two-col{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: var(--ja-gap);
+    align-items:center;
+  }
+  .jacq-apple.ja-screen .ja-two-col--reverse{ grid-template-columns: .95fr 1.05fr; }
+  @media (min-width: 990px){
+    .jacq-apple.ja-screen .ja-two-col--reverse .ja-col--media{ order:1; }
+    .jacq-apple.ja-screen .ja-two-col--reverse .ja-col:not(.ja-col--media){ order:2; }
+  }
+  .jacq-apple.ja-screen .ja-col--media img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius: var(--ja-radius);
+  }
+
+  /* Type */
+  .jacq-apple.ja-screen .ja-h2{
+    margin:0 0 14px;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+  .jacq-apple.ja-screen .ja-h3{
+    margin:0 0 6px;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: rgba(0,0,0,.92);
+  }
+  .jacq-apple.ja-screen .ja-richtext{
+    font-size:16px;
+    line-height: 1.75;
+    color: var(--ja-text);
+    max-width: 72ch;
+  }
+  .jacq-apple.ja-screen .ja-richtext p{ margin:0 0 14px; }
+  .jacq-apple.ja-screen .ja-richtext p:last-child{ margin-bottom:0; }
+  .jacq-apple.ja-screen .ja-richtext--center{ margin:0 auto; }
+  .jacq-apple.ja-screen .ja-sub{
+    margin: 6px auto 0;
+    color: var(--ja-muted);
+    max-width: 62ch;
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-screen .ja-p{
+    margin:0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(0,0,0,.72);
+  }
+
+  /* Mini list */
+  .jacq-apple.ja-screen .ja-mini{
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display:grid;
+    gap: 10px;
+    max-width: 70ch;
+  }
+  .jacq-apple.ja-screen .ja-mini li{
+    padding-left: 18px;
+    position: relative;
+    color: rgba(0,0,0,.78);
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-screen .ja-mini li:before{
+    content:"";
+    width:6px;height:6px;border-radius:99px;background:rgba(0,0,0,.28);
+    position:absolute;left:0;top:.65em;
+  }
+
+  /* Band */
+  .jacq-apple.ja-screen .ja-band{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+    border-bottom: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-screen .ja-pillrow{
+    margin-top: 18px;
+    display:flex;
+    gap: 10px;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+  .jacq-apple.ja-screen .ja-pill2{
+    display:inline-flex;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(255,255,255,.7);
+    font-size: 13px;
+    color: rgba(0,0,0,.70);
+  }
+
+  /* Bullets */
+  .jacq-apple.ja-screen .ja-bullets{
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    max-width: 70ch;
+  }
+  .jacq-apple.ja-screen .ja-bullets li{
+    padding-left: 18px;
+    position: relative;
+    color: rgba(0,0,0,.78);
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-screen .ja-bullets li:before{
+    content:"";
+    width:6px;height:6px;border-radius:99px;background:rgba(0,0,0,.28);
+    position:absolute;left:0;top:.65em;
+  }
+
+  /* Cards */
+  .jacq-apple.ja-screen .ja-cards__head{ margin-bottom: 22px; }
+  .jacq-apple.ja-screen .ja-cards__grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .jacq-apple.ja-screen .ja-card{
+    border: 1px solid var(--ja-hairline);
+    border-radius: var(--ja-radius);
+    background:#fff;
+    overflow:hidden;
+    padding: 16px 16px 18px;
+    display:flex;
+    gap: 14px;
+    align-items:flex-start;
+  }
+  .jacq-apple.ja-screen .ja-card__badge{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(245,245,247,.95);
+    color: rgba(0,0,0,.72);
+    font-weight: 600;
+    flex: 0 0 auto;
+  }
+  .jacq-apple.ja-screen .ja-card__body{ flex: 1 1 auto; }
+
+  /* Checklist cards */
+  .jacq-apple.ja-screen .ja-stepsgrid{
+    margin-top: 22px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .jacq-apple.ja-screen .ja-scard{
+    border: 1px solid var(--ja-hairline);
+    border-radius: var(--ja-radius);
+    background:#fff;
+    padding: 16px 16px 18px;
+  }
+  .jacq-apple.ja-screen .ja-scard__num{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(245,245,247,.95);
+    color: rgba(0,0,0,.72);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* FAQ */
+  .jacq-apple.ja-screen .ja-faqHead{ margin-bottom: 18px; }
+  .jacq-apple.ja-screen .ja-acc{
+    border: 1px solid var(--ja-hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    background:#fff;
+  }
+  .jacq-apple.ja-screen .ja-acc + .ja-acc{ margin-top: 12px; }
+  .jacq-apple.ja-screen .ja-acc__sum{
+    list-style:none;
+    cursor:pointer;
+    padding: 16px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 14px;
+  }
+  .jacq-apple.ja-screen .ja-acc__sum::-webkit-details-marker{ display:none; }
+  .jacq-apple.ja-screen .ja-acc__q{ font-weight: 600; color: rgba(0,0,0,.86); }
+  .jacq-apple.ja-screen .ja-acc__icon{
+    width: 30px; height: 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.14);
+    background: rgba(245,245,247,.92);
+    position: relative;
+    flex: 0 0 auto;
+  }
+  .jacq-apple.ja-screen .ja-acc__icon:before,
+  .jacq-apple.ja-screen .ja-acc__icon:after{
+    content:"";
+    position:absolute;
+    left:50%; top:50%;
+    width: 12px; height: 2px;
+    background: rgba(0,0,0,.55);
+    transform: translate(-50%, -50%);
+  }
+  .jacq-apple.ja-screen .ja-acc__icon:after{ transform: translate(-50%, -50%) rotate(90deg); }
+  .jacq-apple.ja-screen details[open] .ja-acc__icon:after{ transform: translate(-50%, -50%) rotate(0deg); }
+  .jacq-apple.ja-screen .ja-acc__a{
+    padding: 0 16px 16px;
+    color: rgba(0,0,0,.72);
+    line-height: 1.7;
+  }
+  .jacq-apple.ja-screen .ja-acc__a p{ margin: 0 0 12px; }
+  .jacq-apple.ja-screen .ja-acc__a p:last-child{ margin-bottom:0; }
+
+  /* CTA */
+  .jacq-apple.ja-screen .ja-cta{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-screen .ja-h2--cta{ margin-bottom: 10px; }
+
+  /* Buttons */
+  .jacq-apple.ja-screen .ja-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    text-decoration:none;
+    border: 1px solid rgba(0,0,0,.22);
+    color: rgba(0,0,0,.86);
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .jacq-apple.ja-screen .ja-btn:hover{ border-color: rgba(0,0,0,.35); }
+  .jacq-apple.ja-screen .ja-btn--primary{
+    background: rgba(0,0,0,.86);
+    color:#fff;
+    border-color: rgba(0,0,0,.86);
+  }
+  .jacq-apple.ja-screen .ja-btn--primary:hover{ border-color: rgba(0,0,0,1); }
+  .jacq-apple.ja-screen .ja-btn--ghost{
+    background: rgba(255,255,255,.55);
+    color:#fff;
+    border-color: rgba(255,255,255,.35);
+    text-shadow: 0 1px 14px rgba(0,0,0,.25);
+  }
+
+  /* Footer */
+  .jacq-apple.ja-screen .ja-sign{
+    padding: 44px 0 clamp(64px, 7vw, 96px);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-screen .ja-backlink{
+    font-size: 14px;
+    color: rgba(0,0,0,.72);
+    text-decoration:none;
+  }
+  .jacq-apple.ja-screen .ja-backlink:hover{ text-decoration:underline; }
+
+  /* Reveal */
+  .jacq-apple.ja-screen .ja-reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+  .jacq-apple.ja-screen .ja-reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .jacq-apple.ja-screen .ja-reveal{
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 989px){
+    .jacq-apple.ja-screen .ja-two-col,
+    .jacq-apple.ja-screen .ja-two-col--reverse{
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    .jacq-apple.ja-screen .ja-richtext{ max-width: 100%; }
+    .jacq-apple.ja-screen .ja-cards__grid{ grid-template-columns: 1fr; }
+    .jacq-apple.ja-screen .ja-stepsgrid{ grid-template-columns: 1fr; }
+  }
+
+  /* === MOBILE GUTTERS HARD FIX (min 20px) === */
+  @media (max-width: 989px){
+    .jacq-apple.ja-screen .ja-wrap{
+      padding-left: max(20px, env(safe-area-inset-left)) !important;
+      padding-right: max(20px, env(safe-area-inset-right)) !important;
+    }
+  }
+
+  /* === HERO ALIGNMENT HARD FIX (hero = sections) === */
+  .jacq-apple.ja-screen .ja-hero__overlay{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    justify-items: stretch !important;
+  }
+  .jacq-apple.ja-screen .ja-hero__overlay .ja-wrap{
+    width: 100% !important;
+    max-width: var(--ja-max) !important;
+    margin: 0 auto !important;
+    padding-left: max(var(--ja-pad), env(safe-area-inset-left)) !important;
+    padding-right: max(var(--ja-pad), env(safe-area-inset-right)) !important;
+  }
+  .jacq-apple.ja-screen .ja-hero__content,
+  .jacq-apple.ja-screen .ja-hero__content *{
+    text-align: left !important;
+  }
+</style>
+
+<script>
+  (function(){
+    const root = document.querySelector('.jacq-apple.ja-screen[data-section-id="{{ section.id }}"]');
+    if(!root) return;
+
+    const els = root.querySelectorAll('.ja-reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Page – Scherm",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt", "default": "Bril voor schermgebruik" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "JACQ EYEWEAR" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Bril voor schermgebruik" },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Minder reflectie. Meer rust. Gemaakt voor lange dagen." },
+
+    { "type": "text", "id": "hero_cta_label", "label": "Hero CTA label", "default": "Bekijk de collectie" },
+    { "type": "url", "id": "hero_cta_link", "label": "Hero CTA link" },
+    { "type": "text", "id": "hero_cta2_label", "label": "Hero second CTA label", "default": "Welke glazen heb ik nodig?" },
+    { "type": "url", "id": "hero_cta2_link", "label": "Hero second CTA link" },
+
+    { "type": "text", "id": "intro_title", "label": "Intro title", "default": "Waarom je ogen sneller moe worden" },
+    { "type": "richtext", "id": "intro_text", "label": "Intro text", "default": "<p>Schermen vragen continu focuswissels: van dichtbij lezen naar even wegkijken. Combineer dat met kunstlicht en reflecties, en je merkt het sneller dan je denkt.</p><p>Een goede bril voor schermgebruik draait om twee dingen: <strong>rustiger kijken</strong> en <strong>comfort dat je vergeet</strong>.</p>" },
+    { "type": "liquid", "id": "mini_points", "label": "Mini points (<li>…</li>)", "default": "<li>Anti-reflectie helpt bij schittering en lampen</li><li>Blauwlichtfilter kan prettig zijn bij lange avonden</li><li>Juiste PD + centrering = rustiger beeld</li>" },
+    { "type": "image_picker", "id": "intro_image", "label": "Intro image" },
+    { "type": "text", "id": "intro_image_alt", "label": "Intro image alt", "default": "Persoon achter laptop met bril" },
+
+    { "type": "text", "id": "band_title", "label": "Band title", "default": "Wat je wil voelen is simpel" },
+    { "type": "richtext", "id": "band_text", "label": "Band text", "default": "<p>Geen “harde ogen” na je werkdag. Geen storende reflecties in je glas. Gewoon helder zicht, zonder dat je steeds aan je bril denkt.</p>" },
+    { "type": "text", "id": "pill1", "label": "Pill 1", "default": "Anti-reflectie" },
+    { "type": "text", "id": "pill2", "label": "Pill 2", "default": "Blauwlichtfilter (optioneel)" },
+    { "type": "text", "id": "pill3", "label": "Pill 3", "default": "Comfort & pasvorm" },
+
+    { "type": "text", "id": "cards_title", "label": "Cards title", "default": "Dit herkennen de meeste mensen" },
+    { "type": "text", "id": "cards_subtitle", "label": "Cards subtitle", "default": "Als je dit voelt, is je scherm-setup (en je bril) het waard om slim te kiezen." },
+
+    { "type": "text", "id": "card1_title", "label": "Card 1 title", "default": "Vermoeide ogen" },
+    { "type": "text", "id": "card1_text", "label": "Card 1 text", "default": "Aan het einde van de dag voelt kijken “zwaar” of merk je dat je vaker knijpt." },
+
+    { "type": "text", "id": "card2_title", "label": "Card 2 title", "default": "Reflecties en lampen" },
+    { "type": "text", "id": "card2_text", "label": "Card 2 text", "default": "Schittering van plafondlampen of je scherm is zichtbaar in je glazen." },
+
+    { "type": "text", "id": "card3_title", "label": "Card 3 title", "default": "Droogte en focus wisselen" },
+    { "type": "text", "id": "card3_text", "label": "Card 3 text", "default": "Je knippert minder bij schermwerk. Je ogen drogen uit en scherpstellen voelt onrustig." },
+
+    { "type": "text", "id": "s2_title", "label": "Split 2 title", "default": "Wat helpt echt (zonder marketingpraat)" },
+    { "type": "richtext", "id": "s2_text", "label": "Split 2 text", "default": "<p>Bij Jacq houden we het nuchter: je hebt geen 12 “pakketten” nodig. Je hebt vooral een goede basis nodig — en dan voeg je alleen toe wat voor jou verschil maakt.</p>" },
+    { "type": "liquid", "id": "s2_bullets", "label": "Split 2 bullets (<li>…</li>)", "default": "<li><strong>Anti-reflectie</strong> is het belangrijkst bij lampen en schermglans</li><li><strong>Blauwlichtfilter</strong> kan prettig zijn bij lange avonden of gevoeligheid</li><li><strong>Juiste PD</strong> zorgt dat je glazen écht goed gecentreerd staan</li><li><strong>Pasvorm</strong> (gewicht, balans) maakt het verschil op dag 10</li>" },
+    { "type": "image_picker", "id": "s2_image", "label": "Split 2 image" },
+    { "type": "text", "id": "s2_image_alt", "label": "Split 2 image alt", "default": "Close-up brillenglas met reflectie" },
+
+    { "type": "text", "id": "check_title", "label": "Checklist title", "default": "Checklist in 60 seconden" },
+    { "type": "text", "id": "check_subtitle", "label": "Checklist subtitle", "default": "Zo kies je een schermbril waar je ogen blij van worden." },
+
+    { "type": "text", "id": "step1_title", "label": "Step 1 title", "default": "Werkafstand" },
+    { "type": "text", "id": "step1_text", "label": "Step 1 text", "default": "Scherm op armlengte. Bovenkant scherm net onder ooghoogte. Dit scheelt al direct spanning." },
+
+    { "type": "text", "id": "step2_title", "label": "Step 2 title", "default": "Anti-reflectie" },
+    { "type": "text", "id": "step2_text", "label": "Step 2 text", "default": "Zie je lampen of je scherm ‘terug’ in je glas? Anti-reflectie geeft het meeste comfort." },
+
+    { "type": "text", "id": "step3_title", "label": "Step 3 title", "default": "Blauwlichtfilter" },
+    { "type": "text", "id": "step3_text", "label": "Step 3 text", "default": "Optioneel: vooral fijn bij lang gebruik in de avond of als je gevoelig bent voor fel licht." },
+
+    { "type": "text", "id": "step4_title", "label": "Step 4 title", "default": "PD & centrering" },
+    { "type": "text", "id": "step4_text", "label": "Step 4 text", "default": "Een paar millimeter kan merkbaar zijn. Meet rustig of gebruik je recept. Daarna pas ‘afstellen’." },
+
+    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Veelgestelde vragen" },
+    { "type": "text", "id": "faq_subtitle", "label": "FAQ subtitle", "default": "Kort antwoord, zonder gedoe." },
+
+    { "type": "text", "id": "cta_title", "label": "CTA title", "default": "Rustiger schermgevoel, in je eigen tempo" },
+    { "type": "richtext", "id": "cta_text", "label": "CTA text", "default": "<p>Je merkt het pas echt tijdens je normale week. Daarom krijg je bij Jacq <strong>100 dagen bedenktijd</strong>. Zo voel je zelf of je ogen rustiger worden — op jouw scherm, in jouw licht.</p>" },
+    { "type": "text", "id": "cta_button_label", "label": "CTA button label", "default": "Shop brillen op sterkte" },
+    { "type": "url", "id": "cta_button_link", "label": "CTA button link" },
+
+    { "type": "url", "id": "back_link", "label": "Back link (optional)" },
+    { "type": "text", "id": "back_label", "label": "Back link label", "default": "← Terug naar Onze brillen op sterkte" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Vraag" },
+        { "type": "richtext", "id": "a", "label": "Antwoord" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page – Scherm",
+      "blocks": [
+        { "type": "faq", "settings": { "q": "Is een ‘computerbril’ altijd nodig?", "a": "<p>Nee. Veel mensen hebben genoeg aan een goede bril op sterkte met anti-reflectie. Zit je heel veel achter een scherm en merk je vermoeidheid? Dan kan een schermgerichte keuze (coating/filter) wel verschil maken.</p>" } },
+        { "type": "faq", "settings": { "q": "Helpt blauwlicht echt?", "a": "<p>Voor sommige mensen voelt het prettiger, vooral in de avond. Zie het als <strong>comfort-optie</strong>, niet als magie: anti-reflectie en juiste centrering geven meestal de grootste winst.</p>" } },
+        { "type": "faq", "settings": { "q": "Wat is belangrijker: dunne glazen of coating?", "a": "<p>Bij schermgebruik is <strong>anti-reflectie</strong> vaak belangrijker dan extra dun glas. Dunner glas draait meer om uiterlijk/gewicht bij hogere sterktes.</p>" } },
+        { "type": "faq", "settings": { "q": "Waarom is PD zo belangrijk bij schermwerk?", "a": "<p>Omdat je lang in dezelfde kijkhoek zit. Als de centrering net niet klopt, merk je dat sneller (onrustig beeld of sneller ‘moe’ kijken).</p>" } },
+        { "type": "faq", "settings": { "q": "Hoe snel merk ik verschil?", "a": "<p>Vaak binnen een paar dagen. Maar echte zekerheid heb je pas na een normale werkweek. Daarom: rustig testen binnen je 100 dagen bedenktijd.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

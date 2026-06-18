@@ -1,0 +1,393 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "disabled": true,
+          "settings": {
+            "height": 48,
+            "height_mobile": 0
+          }
+        },
+        "breadcrumb": {
+          "type": "breadcrumb",
+          "disabled": true,
+          "settings": {
+            "show_collections_link": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-md"
+          }
+        },
+        "description_Y4XFQf": {
+          "type": "description",
+          "settings": {
+            "text_font": "subtitle",
+            "text_size": "subtext-custom",
+            "text_max_size": 20,
+            "text_line_height": 1.3,
+            "text_letter_spacing": -15,
+            "text_capitalize": false,
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "breadcrumb",
+        "title",
+        "description_Y4XFQf"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": false,
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-center justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#171717",
+        "overlay_opacity": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "custom_liquid_jacqQuizIntro": {
+      "type": "custom-liquid",
+      "name": "JACQ Quiz Intro",
+      "settings": {
+        "liquid": "<style>\n  .jacq-colnav {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    padding: 0;\n    position: relative;\n    width: 100vw;\n    margin-left: calc(50% - 50vw);\n    margin-right: calc(50% - 50vw);\n  }\n\n  .jacq-colnav::before,\n  .jacq-colnav::after {\n    content: '';\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    width: 32px;\n    pointer-events: none;\n    z-index: 2;\n    transition: opacity 0.3s ease;\n  }\n  .jacq-colnav::before {\n    left: 0;\n    background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);\n    opacity: 0;\n  }\n  .jacq-colnav::after {\n    right: 0;\n    background: linear-gradient(to left, #fff 0%, rgba(255,255,255,0) 100%);\n    opacity: 1;\n  }\n  .jacq-colnav.is-scrolled::before { opacity: 1; }\n  .jacq-colnav.is-end::after { opacity: 0; }\n\n  .jacq-colnav-track {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 6px;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n    padding: 20px;\n  }\n  .jacq-colnav-track::-webkit-scrollbar { display: none; }\n  .jacq-colnav-track { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .jacq-colnav-pill {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    padding: 7px 15px;\n    border-radius: 10px;\n    border: none;\n    background: #fff;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);\n    color: #1D1D1F;\n    font-size: 13px;\n    font-weight: 500;\n    letter-spacing: -0.01em;\n    white-space: nowrap;\n    text-decoration: none;\n    flex-shrink: 0;\n    cursor: pointer;\n    -webkit-tap-highlight-color: transparent;\n    opacity: 0;\n    transform: translateY(12px);\n    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),\n                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),\n                background 0.4s cubic-bezier(0.22, 1, 0.36, 1),\n                color 0.4s cubic-bezier(0.22, 1, 0.36, 1),\n                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);\n  }\n\n  .jacq-colnav.is-visible .jacq-colnav-pill {\n    opacity: 1;\n    transform: translateY(0);\n  }\n\n  .jacq-colnav-pill:nth-child(1) { transition-delay: 0s; }\n  .jacq-colnav-pill:nth-child(2) { transition-delay: 0.03s; }\n  .jacq-colnav-pill:nth-child(3) { transition-delay: 0.06s; }\n  .jacq-colnav-pill:nth-child(4) { transition-delay: 0.09s; }\n  .jacq-colnav-pill:nth-child(5) { transition-delay: 0.12s; }\n  .jacq-colnav-pill:nth-child(6) { transition-delay: 0.15s; }\n  .jacq-colnav-pill:nth-child(7) { transition-delay: 0.18s; }\n  .jacq-colnav-pill:nth-child(8) { transition-delay: 0.21s; }\n  .jacq-colnav-pill:nth-child(9) { transition-delay: 0.24s; }\n  .jacq-colnav-pill:nth-child(10) { transition-delay: 0.27s; }\n  .jacq-colnav-pill:nth-child(11) { transition-delay: 0.30s; }\n\n  @keyframes jacqSwipeHint {\n    0%   { transform: translateX(0); }\n    20%  { transform: translateX(-12px); }\n    40%  { transform: translateX(0); }\n    60%  { transform: translateX(-8px); }\n    80%  { transform: translateX(0); }\n    100% { transform: translateX(0); }\n  }\n  .jacq-colnav.is-visible:not(.is-scrolled) .jacq-colnav-track {\n    animation: jacqSwipeHint 1.6s ease-in-out 0.9s 1;\n  }\n\n  .jacq-colnav.is-visible .jacq-colnav-pill:hover {\n    background: #fff;\n    color: #0071E3;\n    transform: translateY(-2px);\n    box-shadow: 0 2px 6px rgba(0,0,0,0.1),\n                0 8px 24px rgba(0,0,0,0.08);\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill:active {\n    transform: scale(0.96);\n    transition-duration: 0.12s;\n  }\n\n  /* Quiz pill */\n  .jacq-colnav-pill--quiz {\n    background: #0071E3;\n    color: #fff;\n    gap: 7px;\n    padding: 7px 14px 7px 12px;\n    box-shadow: 0 1px 3px rgba(0,113,227,0.18),\n                0 6px 16px rgba(0,113,227,0.22);\n    position: relative;\n    overflow: hidden;\n  }\n  .jacq-colnav-pill--quiz svg {\n    width: 16px;\n    height: 16px;\n    flex-shrink: 0;\n    position: relative;\n    z-index: 1;\n  }\n  .jacq-colnav-pill--quiz span {\n    position: relative;\n    z-index: 1;\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--quiz:hover {\n    background: #0077ED;\n    color: #fff;\n    transform: translateY(-2px);\n    box-shadow: 0 2px 6px rgba(0,113,227,0.22),\n                0 10px 24px rgba(0,113,227,0.28);\n  }\n\n  /* Sale pill — alleen rood, geen animatie */\n  .jacq-colnav-pill--sale {\n    background: #E11D48;\n    color: #fff;\n    box-shadow: 0 1px 3px rgba(225,29,72,0.18),\n                0 6px 16px rgba(225,29,72,0.22);\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--sale:hover {\n    background: #F11D52;\n    color: #fff;\n    transform: translateY(-2px);\n    box-shadow: 0 2px 6px rgba(225,29,72,0.22),\n                0 10px 24px rgba(225,29,72,0.28);\n  }\n\n  /* Shimmer animatie alleen voor quiz pill */\n  .jacq-colnav-pill--quiz::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: -75%;\n    width: 50%;\n    height: 100%;\n    background: linear-gradient(\n      105deg,\n      transparent 0%,\n      transparent 30%,\n      rgba(255,255,255,0.4) 50%,\n      transparent 70%,\n      transparent 100%\n    );\n    pointer-events: none;\n  }\n  @keyframes jacqShimmer {\n    0%   { left: -75%; }\n    100% { left: 175%; }\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--quiz::before {\n    animation: jacqShimmer 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.4s infinite;\n  }\n\n  /* Kinder pill — wiebel + ster */\n  .jacq-colnav-pill--kinder {\n    background: #FF5C8A;\n    color: #fff;\n    gap: 6px;\n    padding: 7px 14px 7px 12px;\n    box-shadow: 0 1px 3px rgba(255,92,138,0.18),\n                0 6px 16px rgba(255,92,138,0.25);\n    position: relative;\n  }\n  .jacq-colnav-pill--kinder svg {\n    width: 14px;\n    height: 14px;\n    flex-shrink: 0;\n  }\n  @keyframes jacqKinderFloat {\n    0%, 100% { transform: translateY(0) rotate(-1.5deg); }\n    50% { transform: translateY(-2px) rotate(1.5deg); }\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--kinder {\n    animation: jacqKinderFloat 3.2s ease-in-out infinite;\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--kinder:hover {\n    background: #FF6E97;\n    color: #fff;\n    transform: translateY(-3px) rotate(0deg);\n    box-shadow: 0 2px 6px rgba(255,92,138,0.22),\n                0 10px 24px rgba(255,92,138,0.35);\n  }\n\n  /* Coming soon */\n  .jacq-colnav-pill--soon {\n    color: #86868b;\n    background: #F5F5F7;\n    cursor: default;\n    gap: 5px;\n    box-shadow: none;\n  }\n  .jacq-colnav-pill--soon svg {\n    width: 13px;\n    height: 13px;\n    flex-shrink: 0;\n  }\n  .jacq-colnav.is-visible .jacq-colnav-pill--soon:hover {\n    background: #F5F5F7;\n    color: #86868b;\n    box-shadow: none;\n    transform: translateY(0);\n  }\n\n  .jacq-colnav-pill--optional { display: inline-flex; }\n\n  /* Desktop: pills verspreiden over volledige breedte */\n  @media (min-width: 768px) {\n    .jacq-colnav {\n      padding: 0;\n      width: auto;\n      margin-left: 0;\n      margin-right: 0;\n    }\n    .jacq-colnav::before,\n    .jacq-colnav::after { display: none; }\n    .jacq-colnav.is-visible:not(.is-scrolled) .jacq-colnav-track {\n      animation: none;\n    }\n    .jacq-colnav-track {\n      flex-wrap: nowrap;\n      justify-content: space-between;\n      overflow-x: visible;\n      padding: 20px 0;\n      gap: 0;\n      width: 100%;\n    }\n    .jacq-colnav-pill {\n      font-size: clamp(12px, 0.95vw, 17px);\n      padding: clamp(7px, 0.6vw, 12px) clamp(14px, 1.4vw, 28px);\n    }\n    .jacq-colnav-pill--quiz {\n      padding: clamp(7px, 0.6vw, 12px) clamp(14px, 1.4vw, 28px) clamp(7px, 0.6vw, 12px) clamp(12px, 1.2vw, 24px);\n    }\n    .jacq-colnav-pill--quiz svg {\n      width: clamp(14px, 1.1vw, 20px);\n      height: clamp(14px, 1.1vw, 20px);\n    }\n    .jacq-colnav-pill--kinder {\n      padding: clamp(7px, 0.6vw, 12px) clamp(14px, 1.4vw, 28px) clamp(7px, 0.6vw, 12px) clamp(12px, 1.2vw, 24px);\n    }\n    .jacq-colnav-pill--kinder svg {\n      width: clamp(13px, 1vw, 17px);\n      height: clamp(13px, 1vw, 17px);\n    }\n  }\n\n  @media (min-width: 768px) and (max-width: 1500px) {\n    .jacq-colnav-pill--optional { display: none; }\n  }\n</style>\n\n<div class=\"jacq-colnav\" id=\"jacqColNav\">\n  <div class=\"jacq-colnav-track\" id=\"jacqColNavTrack\">\n    <a href=\"/pages/quiz\" class=\"jacq-colnav-pill jacq-colnav-pill--quiz\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"6.5\" cy=\"12\" r=\"3.5\"/><circle cx=\"17.5\" cy=\"12\" r=\"3.5\"/><path d=\"M10 12h4M2 9l2-1M22 9l-2-1\"/></svg><span>Vind jouw bril</span></a>\n    <a href=\"/collections/brillen-op-sterkte\" class=\"jacq-colnav-pill\">Alle brillen</a>\n    <a href=\"/collections/damesbrillen\" class=\"jacq-colnav-pill\">Damesbrillen</a>\n    <a href=\"/collections/herenbrillen\" class=\"jacq-colnav-pill\">Herenbrillen</a>\n    <a href=\"/collections/multifocale-brillen\" class=\"jacq-colnav-pill\">Multifocaal</a>\n    <a href=\"/collections/leesbrillen\" class=\"jacq-colnav-pill\">Leesbrillen</a>\n    <a href=\"/collections/blauwlichtfilter-brillen\" class=\"jacq-colnav-pill jacq-colnav-pill--optional\">Beeldschermbrillen</a>\n    <a href=\"/collections/kinderbrillen\" class=\"jacq-colnav-pill jacq-colnav-pill--kinder\" id=\"jacqKinderPill\"><svg viewBox=\"0 0 24 24\" fill=\"#FFD93D\" stroke=\"#fff\" stroke-width=\"1.5\" stroke-linejoin=\"round\"><path d=\"M12 3l2.2 5.8 6.3.5-4.8 4.2 1.5 6.2L12 16.5l-5.2 3.2 1.5-6.2L3.5 9.3l6.3-.5z\"/></svg>Kinderbrillen</a>\n    <a href=\"/collections/dames-zonnebrillen\" class=\"jacq-colnav-pill\">Dameszonnebrillen</a>\n    <a href=\"/collections/heren-zonnebrillen\" class=\"jacq-colnav-pill\">Herenzonnebrillen</a>\n    <a href=\"/collections/sale\" class=\"jacq-colnav-pill jacq-colnav-pill--sale\">Sale</a>\n  </div>\n</div>\n\n<script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js\"></script>\n<script>\n(function(){\n  var nav = document.getElementById('jacqColNav');\n  var track = document.getElementById('jacqColNavTrack');\n  var kinderPill = document.getElementById('jacqKinderPill');\n  if (!nav || !track) return;\n\n  if ('IntersectionObserver' in window) {\n    var obs = new IntersectionObserver(function(entries) {\n      entries.forEach(function(e) {\n        if (e.isIntersecting) { nav.classList.add('is-visible'); obs.unobserve(nav); }\n      });\n    }, { threshold: 0.15 });\n    obs.observe(nav);\n  } else {\n    nav.classList.add('is-visible');\n  }\n\n  function updateFades() {\n    var maxScroll = track.scrollWidth - track.clientWidth;\n    if (track.scrollLeft > 4) {\n      nav.classList.add('is-scrolled');\n    } else {\n      nav.classList.remove('is-scrolled');\n    }\n    if (track.scrollLeft >= maxScroll - 4) {\n      nav.classList.add('is-end');\n    } else {\n      nav.classList.remove('is-end');\n    }\n  }\n  track.addEventListener('scroll', updateFades, { passive: true });\n  window.addEventListener('resize', updateFades);\n  updateFades();\n\n  /* Confetti vanuit 4 zijden bij klik op kinder pill */\n  if (kinderPill) {\n    kinderPill.addEventListener('click', function(e) {\n      if (typeof confetti === 'undefined') return;\n      var rect = kinderPill.getBoundingClientRect();\n      var x = (rect.left + rect.width / 2) / window.innerWidth;\n      var y = (rect.top + rect.height / 2) / window.innerHeight;\n      var colors = ['#FF5C8A', '#FFD93D', '#66D9EF', '#A0E55C', '#C77DFF', '#FFA94D'];\n\n      var defaults = {\n        particleCount: 30,\n        startVelocity: 35,\n        ticks: 90,\n        gravity: 0.7,\n        scalar: 0.85,\n        colors: colors,\n        origin: { x: x, y: y }\n      };\n\n      /* Boven */\n      confetti({ ...defaults, angle: 90, spread: 55 });\n      /* Onder */\n      confetti({ ...defaults, angle: 270, spread: 55, gravity: -0.4 });\n      /* Links */\n      confetti({ ...defaults, angle: 180, spread: 55 });\n      /* Rechts */\n      confetti({ ...defaults, angle: 0, spread: 55 });\n    });\n  }\n})();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "collection_list_cetVxc": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_eTErPX": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "50-brillen-heren",
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_-_2025-12-17T170832.120.webp",
+            "title": "€50 brillen",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 9
+          }
+        },
+        "collection_8MxwPg": {
+          "type": "collection",
+          "settings": {
+            "collection": "acetaat-dames",
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_-_2026-01-27T124307.737.webp",
+            "title": "Acetaat",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_KTNgfJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "metaal-dames",
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_-_2026-01-27T130711.686.webp",
+            "title": "Metaal",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_4KcewX": {
+          "type": "collection",
+          "settings": {
+            "collection": "titanium-dames",
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_-_2026-01-27T141532.457.webp",
+            "title": "Titanium",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_fmLazT": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "image": "shopify://shop_images/generated-1772552619552.webp",
+            "title": "Sale",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 9
+          }
+        }
+      },
+      "block_order": [
+        "collection_eTErPX",
+        "collection_8MxwPg",
+        "collection_KTNgfJ",
+        "collection_4KcewX",
+        "collection_fmLazT"
+      ],
+      "disabled": true,
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "columns": 4,
+        "carousel_on_desktop": false,
+        "image_type": "collection",
+        "image_ratio": "wide",
+        "show_products_count": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "settings": {
+            "menu": "",
+            "show_count": true
+          }
+        },
+        "promotion-1": {
+          "type": "promotion",
+          "disabled": true,
+          "settings": {
+            "position": 6,
+            "column_size": "1",
+            "image": "shopify://shop_images/generated-1772473443646_1.webp",
+            "heading": "Gewoon goed.",
+            "content": "<p>Niet tevreden? Geld terug.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary",
+            "button_external": false,
+            "button_icon": false,
+            "content_position": "md:items-center",
+            "text_alignment": "center",
+            "image_mobile": "shopify://shop_images/generated-1772552619552.webp",
+            "content_position_mobile": "items-center",
+            "text_alignment_mobile": "center",
+            "color_text": "#ffffff",
+            "color_button_text": "#171717",
+            "color_button_background": "#ffffff",
+            "color_button_gradient": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 9
+          }
+        },
+        "promotion_cKLn3a": {
+          "type": "promotion",
+          "disabled": true,
+          "settings": {
+            "position": 13,
+            "column_size": "2",
+            "image": "shopify://shop_images/Ontwerp_zonder_titel_3.svg",
+            "heading": "gratis verzending in nederland",
+            "content": "<p>Lekker makkelijk.</p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "secondary",
+            "button_external": false,
+            "button_icon": true,
+            "content_position": "md:items-center",
+            "text_alignment": "center",
+            "image_mobile": "shopify://shop_images/Ontwerp_zonder_titel_3.svg",
+            "content_position_mobile": "items-center",
+            "text_alignment_mobile": "center",
+            "color_text": "#ffffff",
+            "color_button_text": "#171717",
+            "color_button_background": "#ffffff",
+            "color_button_gradient": "",
+            "color_overlay": "#171717",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "promotion-1",
+        "promotion_cKLn3a"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns": 4,
+        "columns_mobile": "2",
+        "pagination": "paginated",
+        "enable_filtering": true,
+        "filter_collapsed": true,
+        "filter_type": "sidebar",
+        "filter_color_swatches": true,
+        "enable_sorting": true,
+        "padding_top": 4,
+        "padding_bottom": 100,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "rich_text_kBBbyn": {
+      "type": "rich-text",
+      "blocks": {
+        "text_W7APnJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Brillen op sterkte en zonnebrillen online kopen bij Jacq Eyewear</strong></p><p>Een bril draag je elke dag, dus hij moet vooral lekker zitten en rustig kijken.<br/>Bij Jacq Eyewear vind je een overzichtelijke collectie brillen (op sterkte en zonder sterkte) en zonnebrillen, in verschillende vormen, maten en kleuren.<br/>Of je nu gaat voor minimalistisch, uitgesproken of tijdloos: je kiest een montuur dat bij je gezicht en stijl past.<br/>Wij zorgen dat het ook in het dagelijks gebruik klopt.</p><p><strong>Standaard glazen inbegrepen, helder en comfortabel</strong></p><p>Elke bril wordt standaard geleverd met 1.56 glazen, inclusief anti-reflectie en kraswerende coating.<br/>Voor de meeste sterktes is dit de meest comfortabele keuze: helder zicht, prettig draaggevoel en geen onnodige upgrades.<br/>Heb je een hogere sterkte en wil je dunnere glazen?<br/>Dan kun je kiezen voor 1.60, 1.67 of 1.74, afhankelijk van wat jij fijn vindt om te dragen en hoe dun je je glazen wilt.</p><p><strong>Eerlijke, logische keuzes zonder pakketten</strong></p><p>We houden het bewust simpel: geen ingewikkelde bundels of verwarrende pakketten, maar alleen opties die echt verschil maken.<br/>Werk je veel achter een scherm, ben je vaak buiten of draag je je bril de hele dag?<br/>Dan draait het om comfort, helderheid en een montuur dat goed is afgesteld.<br/>Zodat je bril niet schuift en je blik rustig blijft.</p><p><strong>Twijfel? Probeer je bril in het echte leven</strong></p><p>Een bril kies je niet alleen online.<br/>Daarom krijg je bij Jacq Eyewear 100 dagen bedenktijd.<br/>Zo kun je in je eigen tempo ervaren of je nieuwe bril echt bij je past.<br/>Op kantoor, op de fiets, tijdens het lezen en alles daartussenin.</p><p><strong>Jouw nieuwe favoriete montuur online bestellen</strong></p><p>Kies je montuur uit de collectie, selecteer je sterkte en rond je bestelling af.<br/>Heb je vragen over je glazenkeuze of welke index het best past bij jouw sterkte?<br/>Dan helpen we je graag op weg, zodat je met vertrouwen je nieuwe bril bestelt.</p>",
+            "text_font": "body",
+            "text_size": "subtext-sm",
+            "text_max_size": 12,
+            "text_line_height": 1.5,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_W7APnJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "#ffffff",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_FjMgFT": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  /* JACQ – cart guarantees (Apple-ish, zelfde idee als sidebar-card) */\n  .cart__sidebar .jacq-cart-guarantee {\n    margin: -8px 0 16px;\n  }\n\n  .jacq-cart-guarantee-inner {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    padding: 14px 18px;\n    border-radius: 24px;\n    background: #ffffff;\n    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);\n    font-family: inherit;\n    border: none;\n  }\n\n  /* === Mobile: slider met 1 slide per view, zonder scrollbar === */\n  .jacq-cart-guarantee-items {\n    display: flex;\n    flex-direction: row;\n    gap: 14px;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding-bottom: 4px;\n  }\n\n  /* Scrollbar verbergen */\n  .jacq-cart-guarantee-items::-webkit-scrollbar {\n    display: none;\n  }\n  .jacq-cart-guarantee-items {\n    -ms-overflow-style: none;  /* IE/Edge */\n    scrollbar-width: none;     /* Firefox */\n  }\n\n  .jacq-cart-guarantee-item {\n    flex: 0 0 100%;            /* precies 1 slide per view */\n    scroll-snap-align: center;\n    display: flex;\n    flex-direction: column;    /* icon boven tekst */\n    align-items: center;       /* alles centreren */\n    text-align: center;\n    gap: 8px;\n  }\n\n  .jacq-cart-guarantee-icon {\n    flex-shrink: 0;\n    color: #0071E3;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .jacq-cart-guarantee-icon svg {\n    width: 22px;\n    height: 22px;\n    display: block;\n  }\n\n  .jacq-cart-guarantee-text-main {\n    font-size: 15px;\n    font-weight: 500;\n    color: #111827;\n  }\n\n  .jacq-cart-guarantee-text-sub {\n    font-size: 13px;\n    color: #6b7280;\n    line-height: 1.45;\n  }\n\n  /* Slider dots (alleen mobile zichtbaar) */\n  .jacq-cart-guarantee-dots {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 6px;\n    margin-top: 2px;\n  }\n\n  .jacq-cart-guarantee-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background-color 0.18s ease, transform 0.18s ease;\n  }\n\n  .jacq-cart-guarantee-dot.is-active {\n    background: #111827;\n    transform: scale(1.1);\n  }\n\n  /* === Desktop: 3 gelijke kolommen, gecentreerd, geen slider/dots === */\n  @media (min-width: 768px) {\n    .jacq-cart-guarantee-inner {\n      padding: 18px 22px;\n    }\n\n    .jacq-cart-guarantee-items {\n      overflow-x: visible;\n      scroll-snap-type: none;\n      gap: 24px;\n      justify-content: space-between;\n    }\n\n    .jacq-cart-guarantee-item {\n      flex: 1 1 0;\n      gap: 6px;\n    }\n\n    /* Alleen op desktop: volgorde aanpassen */\n    .jacq-cart-guarantee-item:nth-child(1) { /* Niet goed, geld terug */\n      order: 2;                     /* MIDDEN */\n    }\n\n    .jacq-cart-guarantee-item:nth-child(2) { /* 100 dagen proefdragen */\n      order: 1;                     /* LINKS */\n    }\n\n    .jacq-cart-guarantee-item:nth-child(3) { /* Klantenservice */\n      order: 3;                     /* RECHTS */\n    }\n\n    /* Dots verbergen op desktop */\n    .jacq-cart-guarantee-dots {\n      display: none;\n    }\n  }\n</style>\n\n<div class=\"jacq-cart-guarantee\">\n  <div class=\"jacq-cart-guarantee-inner\">\n    <div class=\"jacq-cart-guarantee-items\">\n      <!-- Niet goed, geld terug -->\n      <div class=\"jacq-cart-guarantee-item\">\n        <div class=\"jacq-cart-guarantee-icon\">\n          <!-- check icon -->\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n            <path d=\"M5 13.2 9.2 17.5 19 7.5\"\n                  fill=\"none\"\n                  stroke=\"currentColor\"\n                  stroke-width=\"1.8\"\n                  stroke-linecap=\"round\"\n                  stroke-linejoin=\"round\"/>\n          </svg>\n        </div>\n        <div>\n          <div class=\"jacq-cart-guarantee-text-main\">\n            Niet goed, geld terug\n          </div>\n          <div class=\"jacq-cart-guarantee-text-sub\">\n            Niet tevreden? Geld terug.\n          </div>\n        </div>\n      </div>\n\n      <!-- 100 dagen proefdragen -->\n      <div class=\"jacq-cart-guarantee-item\">\n        <div class=\"jacq-cart-guarantee-icon\">\n          <!-- calendar icon -->\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n            <rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2\" ry=\"2\"\n                  fill=\"none\"\n                  stroke=\"currentColor\"\n                  stroke-width=\"1.8\"/>\n            <path d=\"M8 3.5v3M16 3.5v3M4 9h16\"\n                  fill=\"none\"\n                  stroke=\"currentColor\"\n                  stroke-width=\"1.8\"\n                  stroke-linecap=\"round\"/>\n          </svg>\n        </div>\n        <div>\n          <div class=\"jacq-cart-guarantee-text-main\">\n            100 dagen proefdragen\n          </div>\n          <div class=\"jacq-cart-guarantee-text-sub\">\n            100 dagen om je bril uit te proberen.\n          </div>\n        </div>\n      </div>\n\n      <!-- Klantenservice -->\n      <div class=\"jacq-cart-guarantee-item\">\n        <div class=\"jacq-cart-guarantee-icon\">\n          <!-- telefoon / klantenservice icon -->\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n            <path\n              d=\"M6.5 4.5 9 4a1 1 0 0 1 1 .6l1.1 2.6a1 1 0 0 1-.2 1.1l-1.4 1.4a9.5 9.5 0 0 0 4.8 4.8l1.4-1.4a1 1 0 0 1 1.1-.2l2.6 1.1a1 1 0 0 1 .6 1l-.5 2.5a1 1 0 0 1-1 .8A15.5 15.5 0 0 1 4 6.5a1 1 0 0 1 .8-1z\"\n              fill=\"none\"\n              stroke=\"currentColor\"\n              stroke-width=\"1.8\"\n              stroke-linecap=\"round\"\n              stroke-linejoin=\"round\"\n            />\n          </svg>\n        </div>\n        <div>\n          <div class=\"jacq-cart-guarantee-text-main\">\n            Klantenservice\n          </div>\n          <div class=\"jacq-cart-guarantee-text-sub\">\n            Bereikbaar maandag t/m vrijdag 09:00–17:00.\n          </div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Slider dots -->\n    <div class=\"jacq-cart-guarantee-dots\">\n      <span class=\"jacq-cart-guarantee-dot is-active\"></span>\n      <span class=\"jacq-cart-guarantee-dot\"></span>\n      <span class=\"jacq-cart-guarantee-dot\"></span>\n    </div>\n  </div>\n</div>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function () {\n    var root = document.querySelector('.jacq-cart-guarantee');\n    if (!root) return;\n\n    var track = root.querySelector('.jacq-cart-guarantee-items');\n    var slides = Array.prototype.slice.call(\n      root.querySelectorAll('.jacq-cart-guarantee-item')\n    );\n    var dots = Array.prototype.slice.call(\n      root.querySelectorAll('.jacq-cart-guarantee-dot')\n    );\n\n    if (!track || !slides.length || dots.length !== slides.length) return;\n\n    function updateDots() {\n      var center = track.scrollLeft + track.clientWidth / 2;\n      var activeIndex = 0;\n      var minDist = Infinity;\n\n      slides.forEach(function (slide, index) {\n        var slideCenter = slide.offsetLeft + slide.offsetWidth / 2;\n        var dist = Math.abs(slideCenter - center);\n        if (dist < minDist) {\n          minDist = dist;\n          activeIndex = index;\n        }\n      });\n\n      dots.forEach(function (dot, index) {\n        dot.classList.toggle('is-active', index === activeIndex);\n      });\n    }\n\n    // Update bij scroll\n    var ticking = false;\n    track.addEventListener('scroll', function () {\n      if (!ticking) {\n        window.requestAnimationFrame(function () {\n          updateDots();\n          ticking = false;\n        });\n        ticking = true;\n      }\n    });\n\n    // Dots klikken om naar slide te scrollen\n    dots.forEach(function (dot, index) {\n      dot.addEventListener('click', function () {\n        var slide = slides[index];\n        if (!slide) return;\n        track.scrollTo({\n          left: slide.offsetLeft,\n          behavior: 'smooth'\n        });\n      });\n    });\n\n    // Init state\n    updateDots();\n  });\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 68,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_promoBanner": {
+      "type": "custom-liquid",
+      "name": "Promo banner",
+      "settings": {
+        "liquid": "<style>\n  .jacq-promo-banner-card{\n    display:grid;\n    grid-template-columns:auto 1fr;\n    column-gap:clamp(14px,3vw,56px);\n    row-gap:2px;\n    width:100%;\n    padding:16px clamp(18px,3vw,44px);\n    background:linear-gradient(135deg,#ffffff 0%,#fafcfe 100%);\n    border:1px solid rgba(15,23,42,0.06);\n    border-radius:16px;\n    box-shadow:0 1px 2px rgba(15,23,42,0.03),0 12px 32px rgba(15,23,42,0.04);\n    box-sizing:border-box;\n    font-family:-apple-system,BlinkMacSystemFont,'HelveticaNow-Regular','Helvetica Neue',Helvetica,Arial,sans-serif;\n    -webkit-font-smoothing:antialiased;\n    align-items:center;\n  }\n  .jacq-promo-banner-card__title{\n    grid-column:1;\n    grid-row:1;\n    font-size:clamp(20px,2.4vw,28px);\n    font-weight:700;\n    color:#0a0a0a;\n    line-height:1.1;\n    letter-spacing:-0.025em;\n    margin:0;\n  }\n  .jacq-promo-banner-card__subtitle{\n    grid-column:1;\n    grid-row:2;\n    font-size:clamp(12px,1.1vw,15px);\n    color:#52606d;\n    font-weight:400;\n    line-height:1.3;\n    margin:0;\n  }\n  .jacq-promo-banner-card__usps{\n    grid-column:2;\n    grid-row:1 / span 2;\n    align-self:center;\n    justify-self:end;\n    display:flex;\n    align-items:center;\n    gap:clamp(14px,2vw,32px);\n    list-style:none;\n    padding:0;\n    margin:0;\n  }\n  .jacq-promo-banner-card__usp{\n    display:flex;\n    align-items:center;\n    gap:9px;\n    font-size:clamp(12px,0.9vw,13.5px);\n    color:#1a1a1a;\n    font-weight:500;\n    line-height:1.2;\n    white-space:nowrap;\n  }\n  .jacq-promo-banner-card__icon{\n    flex-shrink:0;\n    width:20px;\n    height:20px;\n    color:#0071E3;\n  }\n  @media (max-width:1100px){\n    .jacq-promo-banner-card__usp:nth-child(n+4){display:none;}\n  }\n  @media (max-width:900px){\n    .jacq-promo-banner-card__usp:nth-child(n+3){display:none;}\n  }\n  @media (max-width:768px){\n    .jacq-promo-banner-card{padding:14px 18px;border-radius:14px;column-gap:12px;}\n    .jacq-promo-banner-card__usps{display:none;}\n    .jacq-promo-banner-card__title{font-size:22px;}\n    .jacq-promo-banner-card__subtitle{font-size:13px;}\n  }\n</style>\n\n<div class=\"jacq-promo-banner-card\" aria-label=\"2+1 gratis\">\n  <h2 class=\"jacq-promo-banner-card__title\">2+1 gratis</h2>\n  <p class=\"jacq-promo-banner-card__subtitle\">Een bril voor elke gelegenheid</p>\n  <ul class=\"jacq-promo-banner-card__usps\">\n    <li class=\"jacq-promo-banner-card__usp\">\n      <svg class=\"jacq-promo-banner-card__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 12a9 9 0 1 1-3-6.7L21 8\"/><path d=\"M21 3v5h-5\"/></svg>\n      <span>100 dagen bedenktijd</span>\n    </li>\n    <li class=\"jacq-promo-banner-card__usp\">\n      <svg class=\"jacq-promo-banner-card__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\" stroke-linecap=\"round\" aria-hidden=\"true\"><path d=\"M6 3h12l3 5-9 13L3 8z\"/><path d=\"M11 3 8 8l4 13 4-13-3-5\"/><path d=\"M3 8h18\"/></svg>\n      <span>Vakkundig afgewerkt</span>\n    </li>\n    <li class=\"jacq-promo-banner-card__usp\">\n      <svg class=\"jacq-promo-banner-card__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20.6 12.6 12.6 20.6a2 2 0 0 1-2.8 0L3 13.8V3h10.8l6.8 6.8a2 2 0 0 1 0 2.8z\"/><circle cx=\"7.5\" cy=\"7.5\" r=\"1.4\"/></svg>\n      <span>Eerlijk geprijsd</span>\n    </li>\n    <li class=\"jacq-promo-banner-card__usp\">\n      <svg class=\"jacq-promo-banner-card__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/><path d=\"m9 12 2 2 4-4\"/></svg>\n      <span>2 jaar garantie</span>\n    </li>\n  </ul>\n</div>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 12,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-collection-banner",
+    "custom_liquid_jacqQuizIntro",
+    "custom_liquid_promoBanner",
+    "collection_list_cetVxc",
+    "main-collection",
+    "rich_text_kBBbyn",
+    "custom_liquid_FjMgFT"
+  ]
+}

@@ -1,0 +1,188 @@
+{% comment %}
+  Section: Jacq LP Kwaliteit
+  Laat concreet zien waarom de kwaliteit hoog is. Punten via blocks + productfoto.
+{% endcomment %}
+
+{% assign secid = 'jacq-lp-quality-' | append: section.id %}
+
+{%- liquid
+  case section.settings.bg
+    when 'dark'
+      assign bgcol = '#111111'
+      assign txtcol = '#ffffff'
+    when 'white'
+      assign bgcol = '#ffffff'
+      assign txtcol = '#1d1d1d'
+    else
+      assign bgcol = '#f7f7f8'
+      assign txtcol = '#1d1d1d'
+  endcase
+-%}
+
+<section id="{{ secid }}" class="jacq-lp-quality">
+  <div class="wrap">
+    <div class="media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(min-width: 1000px) 50vw, 100vw',
+            widths: '400, 600, 800, 1000, 1200',
+            alt: section.settings.image_alt | escape
+        }}
+      {%- else -%}
+        <div class="ph">Voeg een detailfoto van het montuur of glas toe</div>
+      {%- endif -%}
+    </div>
+
+    <div class="copy">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="title">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="intro rte">{{ section.settings.intro }}</div>{%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="points">
+          {%- for block in section.blocks -%}
+            <li class="point" {{ block.shopify_attributes }}>
+              <span class="ic" aria-hidden="true">{%- render 'icon-guarantee', icon: block.settings.icon, size: 'md' -%}</span>
+              <span class="point-body">
+                {%- if block.settings.title != blank -%}<strong class="point-title">{{ block.settings.title }}</strong>{%- endif -%}
+                {%- if block.settings.text != blank -%}<span class="point-text">{{ block.settings.text }}</span>{%- endif -%}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <style>
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#FFA816' }};
+      --bg: {{ bgcol }};
+      --txt: {{ txtcol }};
+      --radius: 24px;
+      --shadow: 0 14px 40px rgba(0,0,0,.08);
+      background: var(--bg);
+      color: var(--txt);
+      padding: {{ section.settings.pad_m }}px 16px;
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{
+      max-width: 1200px; margin: 0 auto;
+      display: grid; gap: 1.6rem; align-items: center;
+    }
+    @media (min-width: 1000px){
+      #{{ secid }} .wrap{ grid-template-columns: 1fr 1fr; gap: 2.6rem; }
+      {% if section.settings.image_position == 'right' %}
+      #{{ secid }} .media{ order: 2; }
+      #{{ secid }} .copy{ order: 1; }
+      {% endif %}
+    }
+
+    #{{ secid }} .media{
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #f1f1f3;
+      aspect-ratio: 4 / 3;
+    }
+    #{{ secid }} .media img{ display:block; width:100%; height:100%; object-fit: cover; }
+    #{{ secid }} .ph{
+      display:grid; place-items:center; height:100%;
+      color: rgba(0,0,0,.45); font-size:.95rem; text-align:center; padding:1rem;
+      background: repeating-linear-gradient(45deg, #f3f3f5, #f3f3f5 8px, #f9f9fb 8px, #f9f9fb 16px);
+    }
+
+    #{{ secid }} .eyebrow{
+      text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700;
+      color: var(--acc); margin: 0 0 .5rem;
+    }
+    #{{ secid }} .title{ font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 .7rem; letter-spacing: -.01em; }
+    #{{ secid }} .intro{ font-size: 1.02rem; line-height: 1.6; color: color-mix(in oklab, var(--txt) 80%, transparent); margin: 0 0 1.3rem; }
+    #{{ secid }} .intro p{ margin: 0 0 .5rem; }
+
+    #{{ secid }} .points{ list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+    #{{ secid }} .point{ display: grid; grid-template-columns: auto 1fr; gap: .85rem; align-items: start; }
+    #{{ secid }} .point .ic{
+      display: inline-grid; place-items: center;
+      width: 40px; height: 40px; border-radius: 12px;
+      background: color-mix(in oklab, var(--acc) 16%, transparent);
+      color: var(--acc); flex: none;
+    }
+    #{{ secid }} .point .ic .icon{ width: 20px; height: 20px; }
+    #{{ secid }} .point-body{ display: block; }
+    #{{ secid }} .point-title{ display: block; font-size: 1.04rem; margin-bottom: .15rem; letter-spacing: -.01em; }
+    #{{ secid }} .point-text{ display: block; font-size: .96rem; line-height: 1.55; color: color-mix(in oklab, var(--txt) 75%, transparent); }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Jacq LP Kwaliteit",
+    "tag": "section",
+    "class": "jacq-lp-section",
+    "settings": [
+      { "type": "select", "id": "bg", "label": "Achtergrond", "default": "light",
+        "options": [
+          { "value": "light", "label": "Licht (grijs)" },
+          { "value": "white", "label": "Wit" },
+          { "value": "dark", "label": "Donker" }
+        ]
+      },
+      { "type": "color", "id": "accent", "label": "Accentkleur", "default": "#FFA816" },
+      { "type": "text", "id": "eyebrow", "label": "Label", "default": "De bril zelf" },
+      { "type": "text", "id": "heading", "label": "Titel", "default": "Kwaliteit die je ziet en voelt" },
+      { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Materiaal en specificaties dragen het verhaal. Geen grote woorden, wel doordachte keuzes in elk montuur en elk glas.</p>" },
+      { "type": "header", "content": "Beeld" },
+      { "type": "select", "id": "image_position", "label": "Positie beeld (desktop)", "default": "left",
+        "options": [
+          { "value": "left", "label": "Links" },
+          { "value": "right", "label": "Rechts" }
+        ]
+      },
+      { "type": "image_picker", "id": "image", "label": "Productfoto / detailshot" },
+      { "type": "text", "id": "image_alt", "label": "Alt-tekst afbeelding", "default": "Detail van montuur en glas" },
+      { "type": "header", "content": "Ruimte" },
+      { "type": "range", "id": "pad_m", "label": "Verticale ruimte mobiel", "min": 24, "max": 120, "step": 4, "default": 44, "unit": "px" },
+      { "type": "range", "id": "pad_d", "label": "Verticale ruimte desktop", "min": 24, "max": 200, "step": 4, "default": 88, "unit": "px" }
+    ],
+    "blocks": [
+      {
+        "type": "point",
+        "name": "Kwaliteitspunt",
+        "limit": 6,
+        "settings": [
+          { "type": "select", "id": "icon", "label": "Icoon", "default": "swatchbook",
+            "options": [
+              { "value": "swatchbook", "label": "Materialen" },
+              { "value": "shield", "label": "Schild" },
+              { "value": "eye", "label": "Oog" },
+              { "value": "ruler", "label": "Liniaal (op maat)" },
+              { "value": "star", "label": "Ster" },
+              { "value": "award", "label": "Medaille" },
+              { "value": "lightning", "label": "Coating" },
+              { "value": "wrench", "label": "Vakwerk" },
+              { "value": "trophy", "label": "Trofee" }
+            ]
+          },
+          { "type": "text", "id": "title", "label": "Titel", "default": "Titel" },
+          { "type": "text", "id": "text", "label": "Tekst", "default": "Korte toelichting." }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Jacq LP Kwaliteit",
+        "blocks": [
+          { "type": "point", "settings": { "icon": "swatchbook", "title": "Monturen in titanium, acetaat en metaal", "text": "Lichtgewicht, sterk en comfortabel om de hele dag te dragen." } },
+          { "type": "point", "settings": { "icon": "lightning", "title": "Glazen met anti-reflectie en kraswerende coating", "text": "Standaard ontspiegeld, zodat je helder en rustig kijkt." } },
+          { "type": "point", "settings": { "icon": "eye", "title": "Glasindex tot 1.74 voor dunne glazen", "text": "Enkelvoudig en multifocaal, ook bij een hogere sterkte." } },
+          { "type": "point", "settings": { "icon": "ruler", "title": "Op maat geslepen in ons eigen lens lab", "text": "Elke bril wordt op jouw sterkte geslepen en gecontroleerd." } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+</section>

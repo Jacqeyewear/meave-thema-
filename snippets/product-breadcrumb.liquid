@@ -1,0 +1,48 @@
+{%- doc -%}
+  Renders hierarchical breadcrumb navigation for product pages with desktop-only display.
+
+  Creates a structured navigation path showing the product's location within the site hierarchy.
+
+  @param {object} product - Shopify product object for current page
+  @param {object} block - Section block containing settings and Shopify attributes
+  @param {object} [collection] - Specific collection context (auto-detected if omitted)
+
+  @example
+  {% render 'product-breadcrumb',
+     product: product,
+     block: block
+  %}
+{%- enddoc -%}
+
+<nav class="product__breadcrumb hidden lg:block" role="navigation" aria-label="Breadcrumb" {{ block.shopify_attributes }} style="margin:10px 0 14px;">
+  <ol class="bc__list" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;flex-wrap:wrap;font-size:12px;line-height:1.2;letter-spacing:.01em;color:rgba(0,0,0,.55);">
+    <li class="bc__item" style="display:inline-flex;align-items:center;">
+      <a class="bc__link" href="{{ routes.root_url }}" style="color:inherit;text-decoration:none;">Home</a>
+      <span aria-hidden="true" style="margin:0 10px;opacity:.45;">›</span>
+    </li>
+
+    {%- if block.settings.show_collections_link -%}
+      <li class="bc__item" style="display:inline-flex;align-items:center;">
+        <a class="bc__link" href="{{ routes.collections_url }}" style="color:inherit;text-decoration:none;">
+          {{ 'general.breadcrumbs.collections' | t }}
+        </a>
+        <span aria-hidden="true" style="margin:0 10px;opacity:.45;">›</span>
+      </li>
+    {%- endif -%}
+
+    {%- liquid
+      assign bc_collection = collection
+    -%}
+
+    {%- if bc_collection -%}
+      <li class="bc__item" style="display:inline-flex;align-items:center;">
+        <a class="bc__link" href="{{ bc_collection.url }}" style="color:inherit;text-decoration:none;">{{ bc_collection.title }}</a>
+        <span aria-hidden="true" style="margin:0 10px;opacity:.45;">›</span>
+      </li>
+    {%- endif -%}
+
+    <li class="bc__item" aria-current="page" style="display:inline-flex;align-items:center;">
+      <span class="bc__current" style="color:rgba(0,0,0,.72);font-weight:500;">{{ product.title }}</span>
+    </li>
+  </ol>
+</nav>

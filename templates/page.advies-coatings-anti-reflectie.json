@@ -1,0 +1,177 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check je situatie in 20 seconden",
+            "body": "<p>Storen reflecties je bij schermen, in winkels of ’s avonds in de auto? Dan is AR meestal de logische keuze.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Combineer slim met andere coatings",
+            "body": "<p>Poets je vaak? Dan merk je <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a> extra. Wil je microkrasjes beperken? Bekijk <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend</a>.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Gebruik de juiste schoonmaakroutine",
+            "body": "<p>AR blijft het mooist met lauw water + microvezel. Vermijd droog wrijven met kleding of keukenpapier.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Anti-reflectie in één overzicht",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Vraag",
+            "col2": "Kort antwoord",
+            "col3": "Waarom",
+            "rows": "Maakt AR zicht rustiger?|Vaak wel|Minder reflecties = minder ‘glare’ bij lichtbronnen\nIs AR vooral cosmetisch?|Nee|Je ziet minder spiegeling én vaak prettiger bij lastige verlichting\nHeeft AR onderhoud nodig?|Ja, maar simpel|Goed poetsen voorkomt microkrasjes en houdt het helder",
+            "note": "Wil je eerst je glasopties kiezen (index/dikte)? Zie <a href=\"/glasindex-en-dikte\">glasindex & dikte</a>."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is anti-reflectie coating (AR) precies?",
+            "toc_label": "Wat is AR",
+            "anchor": "wat-is-ar",
+            "body": "<p>Anti-reflectie is een laag op het glas die reflecties aan de voor- en achterkant vermindert. Daardoor komt er meer ‘rust’ in je beeld en zie je minder spiegeling van lampen, ramen en schermen. Je merkt het effect vooral in situaties met meerdere lichtbronnen of tegenlicht.</p><p>AR is meestal de coating die het meest ‘direct’ aanvoelt als upgrade, omdat je zowel het uiterlijk als het kijkcomfort verandert.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer merk je anti-reflectie het meest?",
+            "toc_label": "Wanneer merk je",
+            "anchor": "wanneer-merken",
+            "body": "<ul><li><strong>Schermen en kunstlicht:</strong> minder spiegeling van monitors en plafondlampen.</li><li><strong>Autorijden in de avond:</strong> minder reflecties van koplampen en straatverlichting op je glas.</li><li><strong>Foto’s & videobellen:</strong> je ogen zijn beter zichtbaar; minder ‘glans’ op de glazen.</li></ul><p>Als je primaire doel ‘dunner’ is, kijk dan eerst naar <a href=\"/pages/glasindex-en-dikte\" title=\"glasindex-en-dikte\">glasindex & dikte</a>. AR helpt vooral bij rust en uitstraling.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "AR vs ‘geen coating’: wat zijn de trade-offs?",
+            "toc_label": "Trade-offs",
+            "anchor": "trade-offs",
+            "body": "<p>AR heeft bijna altijd meer voordelen dan nadelen, maar het is goed om realistisch te blijven:</p><ul><li><strong>Je moet iets zorgvuldiger schoonmaken</strong> om het oppervlak lang mooi te houden.</li><li><strong>Niet elke AR is gelijk</strong>: ‘premium’ coatings zijn vaak makkelijker schoon te houden en blijven langer strak.</li></ul><p>Als je vaak poetst of snel vlekken ziet, combineer AR dan met <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a>.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Beste combinatie: anti-reflectie + water/vet-afstotend",
+            "toc_label": "Combinatie",
+            "anchor": "combinatie",
+            "body": "<p>In dagelijks gebruik is dit vaak de ‘sweet spot’: AR voor rust, water/vet-afstotend voor minder poetsen. Kraswerend kan daarbovenop als je intensief gebruikt.</p><p>Bekijk ook het overzicht <a href=\"/pages/coatings\" title=\"coatings\">coatings</a> of ga direct naar <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Onderhoud (kort, maar belangrijk)",
+            "toc_label": "Onderhoud",
+            "anchor": "onderhoud",
+            "body": "<ul><li>Spoel eerst stof/zand weg met lauw water.</li><li>Gebruik een schone microvezeldoek; eventueel een brillenspray. </li><li>Vermijd keukenpapier en kleding (dit geeft sneller microkrasjes).</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelle keuze",
+            "anchor": "snelle-keuze",
+            "body": "<p>Als je vaak schermen gebruikt, veel in kunstlicht bent of ’s avonds rijdt, is anti-reflectie bijna altijd de beste basiscoating. Wil je daarna minder poetsen? Voeg <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a> toe.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is anti-reflectie hetzelfde als ‘anti-glare’?",
+            "a": "<p>In de praktijk worden die termen vaak door elkaar gebruikt voor AR: minder reflecties en minder hinderlijke spiegeling.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Helpt AR bij nacht rijden?",
+            "a": "<p>Veel mensen ervaren minder storende reflecties van koplampen en straatverlichting. Het is geen ‘superpower’, maar vaak wel merkbaar.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Worden mijn glazen sneller vies met AR?",
+            "a": "<p>Niet per se, maar vlekken kunnen zichtbaarder lijken op een heel helder oppervlak. Water/vet-afstotend helpt dan veel. <a href='/coatings/water-vet-afstotend'>Lees meer</a>.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe maak ik AR glazen het best schoon?",
+            "a": "<p>Lauw water, zachte (schone) microvezel en eventueel brillenspray. Vermijd droog wrijven met kleding of keukenpapier.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan AR samen met andere coatings?",
+            "a": "<p>Ja. AR wordt vaak gecombineerd met kraswerend en met water/vet-afstotende toplaag. Zie <a href='/coatings'>coatings overzicht</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: anti-reflectie coating",
+        "kicker": "ADVIES",
+        "title": "Anti-reflectie coating: wat doet het echt?",
+        "subtitle": "Minder reflecties, rustiger zicht en mooier op camera. Wanneer het loont + hoe je het mooi houdt.",
+        "readtime": "7 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p><strong>Anti-reflectie (AR) is de coating die je het snelst merkt.</strong> Het vermindert reflecties op je brillenglazen, waardoor je rustiger kijkt (minder ‘glare’) en je ogen beter zichtbaar zijn van buitenaf. Veel mensen merken het vooral bij schermen, kunstlicht en autorijden in de avond.</p><ul><li><strong>Wat je ziet:</strong> minder spiegeling op het glas, minder ‘lampjes’ in je glazen.</li><li><strong>Wat je voelt:</strong> vaak minder vermoeide ogen bij moeilijke lichtsituaties.</li><li><strong>Wat je aan de buitenkant merkt:</strong> mooier op foto’s/videobellen.</li></ul><p>Wil je daarna nóg minder poetsen? Combineer AR vaak met <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water- & vet-afstotend</a>. Overzicht: <a href=\"/pages/coatings\" title=\"coatings\">coatings</a>.</p>",
+        "howto_title": "Anti-reflectie kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/coatings\" title=\"coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">Water- & vet-afstotend</a></li><li><a href=\"/pages/kraswerend\" title=\"kraswerend\">Kraswerend</a></li><li><a href=\"/pages/glasindex-en-dikte\" title=\"glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/welke-glazen-passen-bij-mij\" title=\"Welke glazen passen bij mij\">Welke glazen passen bij mij?</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

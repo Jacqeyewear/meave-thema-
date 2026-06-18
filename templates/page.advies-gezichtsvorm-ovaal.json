@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Bepaal je doel",
+            "body": "<p>Wil je strak en modern, of juist zacht en klassiek? Bij ovaal kun je kiezen op stijl.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies proportie",
+            "body": "<p>Montuurbreedte niet breder dan je gezicht, en ogen mooi gecentreerd in het glas.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check comfort",
+            "body": "<p>Brug en pootjes moeten stabiel zitten zonder drukpunten.</p>"
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Ovaal gezicht herkennen",
+            "toc_label": "Herkennen",
+            "anchor": "ovaal-herkennen",
+            "body": "<p>Een ovaal gezicht is vaak iets langer dan breed, met zachte lijnen en een kaak die niet heel hoekig is. Het geheel voelt ‘in balans’, waardoor veel monturen goed kunnen staan.</p><ul><li>Lengte is duidelijker dan breedte, maar niet extreem.</li><li>Kaaklijn is zacht, niet heel scherp.</li><li>Jukbeenderen vallen vaak op, zonder dat één punt extreem dominant is.</li></ul>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Snelle keuzehulp (ovaal gezicht)",
+            "toc_label": "Keuzehulp",
+            "anchor": "keuzehulp-ovaal",
+            "col1": "Look",
+            "col2": "Kies vaker",
+            "col3": "Let op",
+            "rows": "Minimal|Dun metaal, titanium|Niet te smal\nKlassiek|Panto, wayfarer|Proportie en breedte\nStatement|Acetaat, iets dikker|Niet te oversized als je rustig wil",
+            "note": "Ovaal heeft veel vrijheid, maar proportie en comfort bepalen of het echt goed voelt."
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke monturen werken vaak goed bij een ovaal gezicht?",
+            "toc_label": "Monturen",
+            "anchor": "monturen-ovaal",
+            "body": "<p>Bij ovaal kun je veel vormen dragen. Daarom is ‘wat past’ vooral: welke stijl wil je neerzetten, en welke proportie werkt het best.</p><h3>Vier stijlroutes die vaak goed werken</h3><ul><li><strong>Clean en minimal:</strong> dun metaal of titanium, rustige kleuren. <a href=\"/pages/materialen\" title=\"materialen\">Lees meer over materialen.</a></li><li><strong>Klassiek:</strong> panto of wayfarer, medium dikte.</li><li><strong>Statement:</strong> acetaat met iets dikkere rand, maar let op breedte.</li><li><strong>Zacht:</strong> rond of ovaal met dunne rand, niet te klein.</li></ul>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Proportie: zo voorkom je dat een montuur ‘te veel’ wordt",
+            "toc_label": "Proportie",
+            "anchor": "proportie-ovaal",
+            "body": "<p>Omdat je veel kunt dragen, is de valkuil vaak te extreem. Gebruik deze checks:</p><ul><li><strong>Breedte:</strong> montuur niet breder dan je gezicht.</li><li><strong>Ogen:</strong> je ogen horen grofweg gecentreerd te staan, niet helemaal aan de rand van het glas.</li><li><strong>Hoogte:</strong> voldoende hoogte zodat de onderrand je wangen niet raakt.</li></ul><p>Als je snel wil vergelijken: check je huidige cijfers op het pootje. Lees <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">hier </a>meer over je brilmaat bepalen</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer je beter niet voor (heel) rond of (heel) hoekig kiest",
+            "toc_label": "Vermijd",
+            "anchor": "vermijd-ovaal",
+            "body": "<p>Het gaat niet om verboden, maar om effect. Wil je een rustige, premium look, dan is ‘te extreem’ vaak minder mooi.</p><ul><li><strong>Extreem smal:</strong> kan streng ogen en zit soms minder stabiel.</li><li><strong>Extreem oversized:</strong> kan je gezicht ‘verstoppen’ en kan sneller op wangen leunen.</li><li><strong>Heel dikke rand:</strong> kan dominant worden, zeker bij lichte outfits.</li></ul>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Pasvormproblemen? Dan gaat het meestal niet om gezichtsvorm",
+            "toc_label": "Pasvorm",
+            "anchor": "pasvorm-ovaal",
+            "body": "<p>Zakt je bril, knelt hij bij je slapen of raakt hij je wangen? Dat is vrijwel altijd een combinatie van maat, brug en pootjes.</p><ul><li>Check maat en brug: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen.</a></li><li>Oplossen van afzakken/drukpunten: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "De snelste check: ogen gecentreerd",
+            "anchor": "ogen-gecentreerd",
+            "body": "<p>Een simpele premium-regel: je ogen horen niet tegen de rand van het glas te staan. Zie je dat je pupillen heel ver naar buiten of boven zitten, dan is de maat of vorm waarschijnlijk niet ideaal.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke bril past het beste bij een ovaal gezicht?",
+            "a": "<p>Er is niet één beste. Ovaal kan veel dragen. Kies vooral op stijl en houd de proporties kloppend.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik een oversized bril dragen met een ovaal gezicht?",
+            "a": "<p>Ja, maar check dat hij niet op je wangen rust en niet breder is dan je gezicht. Als je een rustige look wil, kies minder extreem.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als mijn gezicht ovaal maar smal is?",
+            "a": "<p>Kies dan eerder een smaller montuur en let extra op brugmaat zodat de bril niet zakt.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe voorkom ik dat een montuur te groot oogt?",
+            "a": "<p>Check breedte, glas-hoogte en dat je ogen gecentreerd staan. Vermijd extreem dikke randen als je subtiel wil blijven.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Is materiaal belangrijk voor de look?",
+            "a": "<p>Ja. Metaal en titanium ogen vaak lichter en cleaner, acetaat geeft meer presence. </p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als mijn bril knelt of zakt?",
+            "a": "<p>Dan gaat het meestal om maat/brug/pootjes. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "sec-1",
+        "table-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: gezichtsvorm ovaal",
+        "kicker": "ADVIES",
+        "title": "Bril voor ovaal gezicht: kies op stijl en perfecte proportie",
+        "subtitle": "Ovaal gezicht? Grote vrijheid. Deze gids helpt je de juiste proportie, maat en look te kiezen.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Een ovaal gezicht is meestal iets langer dan breed, met een zachte kaaklijn. Je kunt daardoor veel montuurvormen dragen. De ‘beste’ keuze zit bijna altijd in proportie en pasvorm: kies een montuur dat niet breder is dan je gezicht, en dat prettig op je neusbrug rust.</p><ul><li><strong>Meestal veilig:</strong> panto, wayfarer, rond, rechthoekig, subtiel metaal of acetaat.</li><li><strong>Let extra op:</strong> breedte, brugmaat en de hoogte van het glas, zodat het niet zakt of je wangen raakt.</li><li><strong>Vermijd soms:</strong> extreem smalle of extreem oversized monturen als je een rustige look wil.</li></ul><p>Als je tussen twee maten zit: pak je huidige cijfers (bijv. 52-18-140) als referentie. <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Meer hulp bij brilmaat bepalen.</a></p>",
+        "howto_title": "Zo kies je een bril voor een ovaal gezicht",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li>Terug naar overzicht: <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen</a>.</li><li>Brilmaat en cijfers: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen.</a></li><li>Problemen met afzakken/drukpunten: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen.</a></li><li>Materiaal en gewicht: <a href=\"/pages/materialen\" title=\"materialen\">materialen</a>.</li><li>Snelle keuzehulp:<a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\"> welke bril past bij mij?</a></li></ul><p>Andere vormen: <a href=\"/pages/gezichtsvorm-rond\" title=\"gezichtsvorm-rond\">rond</a>, <a href=\"/pages/gezichtsvorm-vierkant\" title=\"gezichtsvorm-vierkant\">vierkant</a>, <a href=\"/pages/gezichtsvorm-hart\" title=\"gezichtsvorm-hart\">hart</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

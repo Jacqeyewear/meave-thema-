@@ -1,0 +1,525 @@
+{% doc %}
+  Renders an inline Meave lamp builder for choosing an included shade.
+
+  @param {object} block - Lamp builder block settings
+  @param {object} product - Current lamp product
+  @param {string} product_form_id - Product form associated with the selection
+  @example
+  {% render 'meave-shade-wizard',
+    block: block,
+    product: product,
+    product_form_id: product_form_id
+  %}
+{% enddoc %}
+
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+<meave-lamp-builder
+  class="meave-builder"
+  data-form-id="{{ product_form_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="meave-builder__steps" aria-label="{{ block.settings.steps_label | escape }}">
+    <div class="meave-builder__step is-complete">
+      <span class="meave-builder__step-number" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none">
+          <path d="m5.2 10.2 3 3.1 6.7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span>
+        <small>{{ block.settings.finish_step_label | escape }}</small>
+        <strong data-finish-summary>{{ selected_variant.title }}</strong>
+      </span>
+    </div>
+    <span class="meave-builder__step-line" aria-hidden="true"></span>
+    <div class="meave-builder__step is-active">
+      <span class="meave-builder__step-number">2</span>
+      <span>
+        <small>{{ block.settings.shade_step_label | escape }}</small>
+        <strong data-shade-summary>{{ block.settings.shade_1_label | escape }}</strong>
+      </span>
+    </div>
+  </div>
+
+  <div class="meave-builder__heading">
+    <div>
+      <p>{{ block.settings.eyebrow | escape }}</p>
+      <h2>{{ block.settings.heading | escape }}</h2>
+    </div>
+    <span>{{ block.settings.included_label | escape }}</span>
+  </div>
+
+  <div class="meave-builder__options" role="radiogroup" aria-label="{{ block.settings.heading | escape }}">
+    {%- for index in (1..4) -%}
+      {%- liquid
+        assign label_key = 'shade_' | append: index | append: '_label'
+        assign image_key = 'shade_' | append: index | append: '_image'
+        assign color_key = 'shade_' | append: index | append: '_color'
+        assign shade_label = block.settings[label_key]
+        assign shade_image = block.settings[image_key]
+        assign shade_color = block.settings[color_key]
+      -%}
+      {%- if shade_label != blank -%}
+        <label class="meave-builder__option">
+          <input
+            class="meave-builder__radio"
+            type="radio"
+            name="properties[Lampenkap]"
+            value="{{ shade_label | escape }}"
+            form="{{ product_form_id }}"
+            data-shade-choice
+            {% if forloop.first %}checked{% endif %}
+          >
+          <span class="meave-builder__media" style="--shade-color: {{ shade_color }};">
+            {%- if shade_image -%}
+              {{
+                shade_image
+                | image_url: width: 480
+                | image_tag:
+                  class: 'meave-builder__image',
+                  loading: 'lazy',
+                  widths: '160, 240, 320, 480',
+                  sizes: '(max-width: 520px) 38vw, 150px',
+                  alt: shade_label
+              }}
+            {%- else -%}
+              <span class="meave-builder__shade-preview" aria-hidden="true">
+                <span class="meave-builder__shade-top"></span>
+                <span class="meave-builder__shade-bottom"></span>
+                <span class="meave-builder__shade-stem"></span>
+              </span>
+            {%- endif -%}
+            <span class="meave-builder__check" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none">
+                <path d="m5.2 10.2 3 3.1 6.7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </span>
+          <span class="meave-builder__option-copy">
+            <strong>{{ shade_label }}</strong>
+            <small>{{ block.settings.option_caption | escape }}</small>
+          </span>
+        </label>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="meave-builder__result" aria-live="polite">
+    <span class="meave-builder__result-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M12 3v18M7 8h10M8.5 3.5h7l2.5 6H6z" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span>
+      <small>{{ block.settings.result_label | escape }}</small>
+      <strong>
+        <span data-result-finish>{{ selected_variant.title }}</span>
+        <span aria-hidden="true"> + </span>
+        <span data-result-shade>{{ block.settings.shade_1_label | escape }}</span>
+      </strong>
+    </span>
+  </div>
+
+  <script type="application/json" data-product-variants>
+    {{ product.variants | json }}
+  </script>
+</meave-lamp-builder>
+
+{% stylesheet %}
+  .meave-builder {
+    display: block;
+    padding: 20px;
+    border: 1px solid #e7e2d8;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fff 0%, #fbf8f2 100%);
+    color: #1d1d1f;
+    box-shadow: 0 14px 40px rgba(45, 36, 20, 0.06);
+  }
+
+  .meave-builder__steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+    align-items: center;
+    margin-bottom: 22px;
+  }
+
+  .meave-builder__step {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .meave-builder__step-number {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #d7cfbf;
+    border-radius: 999px;
+    background: #fff;
+    color: #8f7650;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .meave-builder__step-number svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .meave-builder__step.is-complete .meave-builder__step-number {
+    border-color: #e1c688;
+    background: #f8e8bc;
+    color: #654a16;
+  }
+
+  .meave-builder__step.is-active .meave-builder__step-number {
+    border-color: #1d1d1f;
+    background: #1d1d1f;
+    color: #fff;
+  }
+
+  .meave-builder__step > span:last-child {
+    min-width: 0;
+    display: grid;
+    gap: 1px;
+  }
+
+  .meave-builder__step small {
+    color: #8b8882;
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .meave-builder__step strong {
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .meave-builder__step-line {
+    height: 1px;
+    margin-inline: 6px;
+    background: #ddd5c7;
+  }
+
+  .meave-builder__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .meave-builder__heading p {
+    margin: 0 0 3px;
+    color: #a27626;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .meave-builder__heading h2 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .meave-builder__heading > span {
+    flex: 0 0 auto;
+    padding: 6px 9px;
+    border-radius: 999px;
+    background: #f2e8d3;
+    color: #71551d;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .meave-builder__options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .meave-builder__option {
+    position: relative;
+    min-width: 0;
+    display: grid;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .meave-builder .meave-builder__radio {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .meave-builder__media {
+    position: relative;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid #e2ddd4;
+    border-radius: 16px;
+    background: #fff;
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .meave-builder__option:hover .meave-builder__media {
+    border-color: #bcae96;
+    transform: translateY(-2px);
+  }
+
+  .meave-builder__option:has(.meave-builder__radio:checked) .meave-builder__media {
+    border-color: #1d1d1f;
+    box-shadow: inset 0 0 0 1px #1d1d1f, 0 8px 22px rgba(37, 30, 18, 0.1);
+  }
+
+  .meave-builder__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .meave-builder__shade-preview {
+    position: relative;
+    width: 72%;
+    height: 76%;
+    display: block;
+  }
+
+  .meave-builder__shade-top,
+  .meave-builder__shade-bottom {
+    position: absolute;
+    left: 50%;
+    display: block;
+    background: var(--shade-color);
+    transform: translateX(-50%);
+  }
+
+  .meave-builder__shade-top {
+    top: 13%;
+    width: 45%;
+    height: 8%;
+    border-radius: 999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .meave-builder__shade-bottom {
+    top: 18%;
+    width: 72%;
+    height: 45%;
+    clip-path: polygon(17% 0, 83% 0, 100% 100%, 0 100%);
+    box-shadow: inset 0 -8px 16px rgba(0, 0, 0, 0.07);
+  }
+
+  .meave-builder__shade-stem {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    width: 2px;
+    height: 28%;
+    display: block;
+    background: #b79a61;
+    transform: translateX(-50%);
+  }
+
+  .meave-builder__check {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #d7d1c6;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    color: transparent;
+  }
+
+  .meave-builder__check svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .meave-builder__option:has(.meave-builder__radio:checked) .meave-builder__check {
+    border-color: #1d1d1f;
+    background: #1d1d1f;
+    color: #fff;
+  }
+
+  .meave-builder__option-copy {
+    min-width: 0;
+    display: grid;
+    gap: 1px;
+    text-align: center;
+  }
+
+  .meave-builder__option-copy strong {
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .meave-builder__option-copy small {
+    color: #8b8882;
+    font-size: 10px;
+  }
+
+  .meave-builder__result {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #f3eee4;
+  }
+
+  .meave-builder__result-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: #fff;
+    color: #8a6828;
+  }
+
+  .meave-builder__result-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .meave-builder__result > span:last-child {
+    min-width: 0;
+    display: grid;
+    gap: 1px;
+  }
+
+  .meave-builder__result small {
+    color: #827d73;
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .meave-builder__result strong {
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  .meave-builder [data-product-variants] {
+    display: none;
+  }
+
+  @media (max-width: 620px) {
+    .meave-builder {
+      padding: 16px;
+      border-radius: 18px;
+    }
+
+    .meave-builder__options {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .meave-builder__heading {
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .meave-builder__steps {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .meave-builder__step-line {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .meave-builder__media {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('meave-lamp-builder')) {
+    class MeaveLampBuilder extends HTMLElement {
+      connectedCallback() {
+        if (this.dataset.initialized === 'true') return;
+        this.dataset.initialized = 'true';
+
+        this.form = document.getElementById(this.dataset.formId);
+        this.finishSummary = this.querySelector('[data-finish-summary]');
+        this.resultFinish = this.querySelector('[data-result-finish]');
+        this.shadeSummary = this.querySelector('[data-shade-summary]');
+        this.resultShade = this.querySelector('[data-result-shade]');
+        this.variantInput = this.form?.querySelector('[name="id"]');
+        this.variants = this.readVariants();
+
+        this.querySelectorAll('[data-shade-choice]').forEach((input) => {
+          input.addEventListener('change', () => this.updateShade(input.value));
+        });
+
+        this.form?.addEventListener('change', () => {
+          requestAnimationFrame(() => this.updateFinish());
+        });
+
+        this.updateFinish();
+      }
+
+      readVariants() {
+        const data = this.querySelector('[data-product-variants]');
+        if (!data) return [];
+        try {
+          return JSON.parse(data.textContent);
+        } catch (error) {
+          return [];
+        }
+      }
+
+      updateShade(value) {
+        if (this.shadeSummary) this.shadeSummary.textContent = value;
+        if (this.resultShade) this.resultShade.textContent = value;
+      }
+
+      updateFinish() {
+        const variantId = String(this.variantInput?.value || '');
+        const variant = this.variants.find((item) => String(item.id) === variantId);
+        if (!variant) return;
+        if (this.finishSummary) this.finishSummary.textContent = variant.title;
+        if (this.resultFinish) this.resultFinish.textContent = variant.title;
+      }
+    }
+
+    customElements.define('meave-lamp-builder', MeaveLampBuilder);
+  }
+{% endjavascript %}

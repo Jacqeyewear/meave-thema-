@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "settings": {
+        "aria_label": "Advies artikel: brilrecept begrijpen",
+        "kicker": "ADVIES",
+        "title": "Brilrecept begrijpen",
+        "subtitle": "SPH, CYL, AS, ADD, PD en prisma uitgelegd met voorbeelden.",
+        "readtime": "11 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Een brilrecept lijkt ingewikkeld, maar je hebt meestal maar een paar velden nodig om te bestellen: <strong>OD/OS</strong> (rechts/links), <strong>SPH</strong> (basissterkte), en soms <strong>CYL</strong> + <strong>AS/AXIS</strong> (astigmatisme). Voor multifocaal komt daar vaak <strong>ADD</strong> bij. <strong>PD</strong> (pupilafstand) staat soms op je recept, soms apart.</p><p><strong>Zo lees je het snel:</strong></p><ul><li><strong>OD</strong> = rechteroog, <strong>OS</strong> = linkeroog.</li><li><strong>SPH</strong> = min (bijziend) of plus (verziend) sterkte.</li><li><strong>CYL</strong> + <strong>AS</strong> = correctie en richting voor astigmatisme.</li><li><strong>ADD</strong> = extra leessterkte (multifocaal/leesdeel).</li></ul><p>De meeste fouten komen door <strong>minteken</strong> vergeten, of <strong>OD/OS</strong> omwisselen. Gebruik de checklist onderaan voordat je bestelt. Wil je CYL/AS extra uitgelegd? Zie <a href='/pages/cylinder-as-uitleg'>CYL & AS uitgelegd</a>.</p>",
+        "howto_title": "Je recept lezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href='/pages/service'>Hub: Meten, bestellen & nazorg</a></li><li><a href='/pages/sterkte-invullen'>Sterkte invullen (stappen)</a></li><li><a href='/pages/pd-meten'>PD meten</a></li><li><a href='/pages/cylinder-as-uitleg'>CYL & AS uitgelegd</a></li><li><a href='/pages/multifocaal-uitleg'>Multifocaal uitgelegd</a></li></ul>"
+      },
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 1: herken OD/OS en de kolommen",
+            "body": "<p>OD = rechts, OS = links. Recepten hebben vaak kolommen voor SPH, CYL, AS (en soms ADD/PRISM). Vul per oog de waarden over.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 2: neem SPH exact over (plus/min)",
+            "body": "<p>SPH is de basissterkte. Het minteken of plusteken hoort erbij. Controleer altijd dat je teken klopt.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 3: is er CYL? Dan hoort AS erbij",
+            "body": "<p>Als CYL ingevuld is, vul je meestal ook AS/AXIS (0–180). Twijfel? Check <a href='/pages/cylinder-as-uitleg'>cylinder & as uitleg</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Receptvelden in één overzicht",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Op je recept",
+            "col2": "Wat het betekent",
+            "col3": "Wat je ermee doet",
+            "rows": "OD / OS|Rechteroog / linkeroog|Vul per oog apart in\nSPH|Basissterkte (min of plus)|Altijd overnemen, incl. teken\nCYL|Astigmatisme-correctie|Alleen invullen als aanwezig\nAS / AXIS|Richting van CYL (0–180)|Invullen als CYL aanwezig is\nADD|Extra leessterkte|Voor multifocaal/leesdeel\nPRISM|Prismacorrectie|Alleen invullen als je dit hebt\nBASE|Richting prisma|Alleen bij PRISM\nPD|Pupilafstand|Soms op recept, anders apart meten",
+            "note": "Niet elk recept heeft alle velden. Neem over wat er op jouw recept staat."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "OD en OS: rechts en links",
+            "toc_label": "OD/OS",
+            "anchor": "od-os",
+            "body": "<p><strong>OD</strong> staat voor je rechteroog, <strong>OS</strong> voor je linkeroog. Soms zie je ook RE/LE. De waarden per oog kunnen verschillen; dat is normaal.</p><p>Tip: schrijf eerst OD en OS onder elkaar over voordat je in een formulier invult. Dat voorkomt omwisselen.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "SPH uitgelegd: min, plus en wat je merkt",
+            "toc_label": "SPH",
+            "anchor": "sph",
+            "body": "<p><strong>SPH</strong> (sfeer) is de basissterkte. Een <strong>min</strong>-waarde corrigeert bijziendheid (veraf wazig), een <strong>plus</strong>-waarde corrigeert verziendheid (dichtbij/comfort). Neem SPH altijd exact over inclusief het teken.</p><p>Veel recepten gebruiken stappen van 0.25 (bijv. −1.25). Als je recept een komma gebruikt, vul je dat in zoals gevraagd.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "CYL en AS/AXIS: astigmatisme in normale taal",
+            "toc_label": "CYL/AS",
+            "anchor": "cyl-as",
+            "body": "<p><strong>CYL</strong> (cilinder) is correctie voor astigmatisme. <strong>AS</strong> of <strong>AXIS</strong> is de richting daarvan in graden (0–180).</p><p>Als CYL een waarde heeft, vul je meestal ook AS in. Staat CYL leeg of 0.00, dan is AS meestal niet van toepassing. Uitgebreid: <a href='/pages/cylinder-as-uitleg'>CYL & AS uitgelegd</a>.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "ADD: wanneer je het nodig hebt (multifocaal/leesdeel)",
+            "toc_label": "ADD",
+            "anchor": "add",
+            "body": "<p><strong>ADD</strong> is de extra leessterkte bovenop je SPH. Je ziet dit vaak bij multifocale glazen of bifocale oplossingen. Zonder ADD kun je meestal geen multifocaal correct invullen.</p><p>Meer context: <a href='/pages/multifocaal-uitleg'>multifocaal uitgelegd</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "PRISM en BASE: alleen als je dit op je recept hebt",
+            "toc_label": "Prisma",
+            "anchor": "prisma",
+            "body": "<p><strong>PRISM</strong> en <strong>BASE</strong> (richting) staan alleen op sommige recepten. Als jij dit niet hebt, laat je deze velden leeg. Als je wél prisma hebt, vul dan exact de waarde en de basisrichting in zoals op je recept.</p><p>Twijfel je of je prisma hebt? Check je recept op woorden als ‘prism’ of ‘Δ’.</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "PD: pupilafstand (en wanneer je het moet meten)",
+            "toc_label": "PD",
+            "anchor": "pd",
+            "body": "<p><strong>PD</strong> (pupilafstand) is de afstand tussen je pupillen. Soms staat PD op je recept, maar vaak krijg je dit apart of moet je het zelf meten.</p><p>Meet PD stap voor stap: <a href='/pages/pd-meten'>PD meten</a>. Als je geen PD hebt en je gokt, is dat één van de snelste manieren om een bril ‘net niet lekker’ te laten kijken.</p>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Voorbeeldrecept (hoe je het overneemt)",
+            "toc_label": "Voorbeeld",
+            "anchor": "voorbeeld",
+            "body": "<p><strong>Voorbeeld:</strong></p><ul><li>OD: SPH −2.00, CYL −0.75, AS 90</li><li>OS: SPH −1.50, CYL −0.50, AS 80</li></ul><p>In het formulier vul je OD en OS apart in, inclusief mintekens. Zonder CYL vul je geen AS in (tenzij het formulier dit vraagt).</p>"
+          }
+        },
+        "sec-8": {
+          "type": "content",
+          "settings": {
+            "heading": "Top 10 invulfouten (en hoe je ze voorkomt)",
+            "toc_label": "Fouten",
+            "anchor": "fouten",
+            "body": "<ol><li>OD/OS omwisselen.</li><li>Minteken vergeten bij SPH of CYL.</li><li>CYL invullen in SPH-veld (of andersom).</li><li>AS vergeten terwijl CYL wel ingevuld is.</li><li>AS-waarde verkeerd lezen (0/8, 6/9) door onduidelijk recept.</li><li>Decimaal verkeerd (−1.25 → −12.5).</li><li>Oud recept gebruiken.</li><li>ADD vergeten bij multifocaal.</li><li>PD gokken in plaats van meten.</li><li>Prisma invullen terwijl je dat niet hebt.</li></ol><p>Praktisch invullen? Zie <a href='/pages/sterkte-invullen'>sterkte invullen</a>.</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Checklist voordat je bestelt",
+            "anchor": "checklist",
+            "body": "<ul><li>OD = rechts, OS = links.</li><li>Min/plus tekens kloppen bij SPH en CYL.</li><li>CYL ingevuld? Dan AS ingevuld (0–180) zoals op recept.</li><li>Multifocaal? ADD ingevuld.</li><li>PD bekend of gemeten: <a href='/pages/pd-meten'>PD meten</a>.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekent SPH op mijn recept?",
+            "a": "<p>SPH is de basissterkte (min of plus). Neem het teken altijd exact over.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekent CYL en AS?",
+            "a": "<p>CYL is astigmatisme-correctie, AS/AXIS is de richting (0–180). Zie <a href='/pages/cylinder-as-uitleg'>CYL & AS uitleg</a>.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Ik heb geen PD op mijn recept. Wat nu?",
+            "a": "<p>Dan meet je PD. Volg <a href='/pages/pd-meten'>PD meten</a>.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is ADD en heb ik dat nodig?",
+            "a": "<p>ADD is extra leessterkte, vooral bij multifocaal. Zie <a href='/pages/multifocaal-uitleg'>multifocaal uitgelegd</a>.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekent ‘PRISM’?",
+            "a": "<p>Prisma corrigeert oogstand. Alleen invullen als het op je recept staat, inclusief base-richting.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik mijn recept gewoon fotograferen en overnemen?",
+            "a": "<p>Ja, zolang het scherp en compleet is. Let extra op mintekens en OD/OS.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "sec-8",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

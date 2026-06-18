@@ -1,0 +1,200 @@
+{% comment %}
+  Section: Jacq LP Verzending & verzorging
+  Het anti-anonieme-webshop blok. Mag visueel het rijkst zijn.
+  Media (afbeelding of video) + feature blocks op een branded achtergrond.
+{% endcomment %}
+
+{% assign secid = 'jacq-lp-shipping-' | append: section.id %}
+
+{%- liquid
+  case section.settings.bg
+    when 'light'
+      assign bgcol = '#f7f7f8'
+      assign txtcol = '#1d1d1d'
+    when 'white'
+      assign bgcol = '#ffffff'
+      assign txtcol = '#1d1d1d'
+    else
+      assign bgcol = '#141414'
+      assign txtcol = '#ffffff'
+  endcase
+-%}
+
+<section id="{{ secid }}" class="jacq-lp-shipping">
+  <div class="wrap">
+    <div class="media">
+      {%- if section.settings.video != blank -%}
+        {{ section.settings.video | video_tag: image_size: '1100x', autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'none' }}
+      {%- elsif section.settings.image != blank -%}
+        {{ section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(min-width: 1000px) 50vw, 100vw',
+            widths: '400, 600, 800, 1000, 1200',
+            alt: section.settings.image_alt | escape
+        }}
+      {%- else -%}
+        <div class="ph">Voeg een unboxing-afbeelding of korte video toe</div>
+      {%- endif -%}
+    </div>
+
+    <div class="copy">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="title">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.intro != blank -%}<div class="intro rte">{{ section.settings.intro }}</div>{%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="features">
+          {%- for block in section.blocks -%}
+            <div class="feature" {{ block.shopify_attributes }}>
+              <span class="ic" aria-hidden="true">{%- render 'icon-guarantee', icon: block.settings.icon, size: 'md' -%}</span>
+              <div class="feature-body">
+                {%- if block.settings.title != blank -%}<h3 class="feature-title">{{ block.settings.title }}</h3>{%- endif -%}
+                {%- if block.settings.text != blank -%}<p class="feature-text">{{ block.settings.text }}</p>{%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <style>
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#FFA816' }};
+      --bg: {{ bgcol }};
+      --txt: {{ txtcol }};
+      --radius: 28px;
+      --shadow: 0 24px 60px rgba(0,0,0,.18);
+      background: var(--bg);
+      color: var(--txt);
+      padding: {{ section.settings.pad_m }}px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    #{{ secid }}::before{
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:
+        radial-gradient(800px 460px at -8% -10%, color-mix(in oklab, var(--acc) 22%, transparent), transparent),
+        radial-gradient(700px 420px at 110% 115%, color-mix(in oklab, var(--acc) 12%, transparent), transparent);
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; gap: 1.8rem; align-items: center;
+    }
+    @media (min-width: 1000px){
+      #{{ secid }} .wrap{ grid-template-columns: 1.05fr .95fr; gap: 3rem; }
+      {% if section.settings.image_position == 'right' %}
+      #{{ secid }} .media{ order: 2; }
+      #{{ secid }} .copy{ order: 1; }
+      {% endif %}
+    }
+
+    #{{ secid }} .media{
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: color-mix(in oklab, var(--acc) 10%, #2a2a2a);
+      aspect-ratio: 5 / 4;
+    }
+    #{{ secid }} .media img,
+    #{{ secid }} .media video{ display:block; width:100%; height:100%; object-fit: cover; }
+    #{{ secid }} .ph{
+      display:grid; place-items:center; height:100%;
+      color: rgba(255,255,255,.6); font-size:.95rem; text-align:center; padding:1rem;
+      background: repeating-linear-gradient(45deg, #2a2a2a, #2a2a2a 8px, #333 8px, #333 16px);
+    }
+
+    #{{ secid }} .eyebrow{
+      text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; font-weight: 700;
+      color: var(--acc); margin: 0 0 .5rem;
+    }
+    #{{ secid }} .title{ font-size: clamp(1.7rem, 3.2vw, 2.5rem); margin: 0 0 .7rem; letter-spacing: -.02em; }
+    #{{ secid }} .intro{ font-size: 1.05rem; line-height: 1.6; color: color-mix(in oklab, var(--txt) 82%, transparent); margin: 0 0 1.5rem; }
+    #{{ secid }} .intro p{ margin: 0 0 .5rem; }
+
+    #{{ secid }} .features{ display: grid; gap: 1.1rem; }
+    #{{ secid }} .feature{ display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+    #{{ secid }} .feature .ic{
+      display: inline-grid; place-items: center;
+      width: 46px; height: 46px; border-radius: 13px;
+      background: color-mix(in oklab, var(--acc) 20%, transparent);
+      color: var(--acc); flex: none;
+    }
+    #{{ secid }} .feature .ic .icon{ width: 22px; height: 22px; }
+    #{{ secid }} .feature-title{ font-size: 1.08rem; margin: 0 0 .2rem; letter-spacing: -.01em; }
+    #{{ secid }} .feature-text{ font-size: .97rem; line-height: 1.55; color: color-mix(in oklab, var(--txt) 78%, transparent); margin: 0; }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Jacq LP Verzending",
+    "tag": "section",
+    "class": "jacq-lp-section",
+    "settings": [
+      { "type": "select", "id": "bg", "label": "Achtergrond", "default": "dark",
+        "options": [
+          { "value": "dark", "label": "Donker (rijk)" },
+          { "value": "light", "label": "Licht (grijs)" },
+          { "value": "white", "label": "Wit" }
+        ]
+      },
+      { "type": "color", "id": "accent", "label": "Accentkleur", "default": "#FFA816" },
+      { "type": "text", "id": "eyebrow", "label": "Label", "default": "Verzending & verzorging" },
+      { "type": "text", "id": "heading", "label": "Titel", "default": "Met zorg gemaakt en verpakt" },
+      { "type": "richtext", "id": "intro", "label": "Intro", "default": "<p>Geen anonieme webshop. Je bril wordt voor jou gemaakt en met aandacht ingepakt, zodat het uitpakken aanvoelt als een cadeau.</p>" },
+      { "type": "header", "content": "Beeld" },
+      { "type": "select", "id": "image_position", "label": "Positie beeld (desktop)", "default": "left",
+        "options": [
+          { "value": "left", "label": "Links" },
+          { "value": "right", "label": "Rechts" }
+        ]
+      },
+      { "type": "image_picker", "id": "image", "label": "Unboxing-afbeelding" },
+      { "type": "text", "id": "image_alt", "label": "Alt-tekst afbeelding", "default": "Zorgvuldig verpakte bril van Jacq" },
+      { "type": "video", "id": "video", "label": "Unboxing-video (heeft voorrang op afbeelding)" },
+      { "type": "header", "content": "Ruimte" },
+      { "type": "range", "id": "pad_m", "label": "Verticale ruimte mobiel", "min": 24, "max": 120, "step": 4, "default": 48, "unit": "px" },
+      { "type": "range", "id": "pad_d", "label": "Verticale ruimte desktop", "min": 24, "max": 200, "step": 4, "default": 96, "unit": "px" }
+    ],
+    "blocks": [
+      {
+        "type": "feature",
+        "name": "Kenmerk",
+        "limit": 5,
+        "settings": [
+          { "type": "select", "id": "icon", "label": "Icoon", "default": "time",
+            "options": [
+              { "value": "time", "label": "Klok (levertijd)" },
+              { "value": "calendar", "label": "Kalender" },
+              { "value": "gift", "label": "Cadeau" },
+              { "value": "box", "label": "Doos" },
+              { "value": "shield", "label": "Schild (hardcase)" },
+              { "value": "wash", "label": "Doekje / schoonmaken" },
+              { "value": "heart", "label": "Hart" },
+              { "value": "truck", "label": "Vrachtwagen" },
+              { "value": "swatchbook", "label": "Materialen" }
+            ]
+          },
+          { "type": "text", "id": "title", "label": "Titel", "default": "Titel" },
+          { "type": "text", "id": "text", "label": "Tekst", "default": "Korte toelichting." }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Jacq LP Verzending",
+        "blocks": [
+          { "type": "feature", "settings": { "icon": "time", "title": "Op maat gemaakt, levertijd 7-10 werkdagen", "text": "Je bril wordt speciaal voor jou geslepen en gemonteerd." } },
+          { "type": "feature", "settings": { "icon": "gift", "title": "Zorgvuldig verpakt", "text": "Met aandacht ingepakt, zodat uitpakken aanvoelt als een cadeau." } },
+          { "type": "feature", "settings": { "icon": "box", "title": "Inclusief hardcase en schoonmaakdoekje", "text": "Alles wat je nodig hebt om je bril veilig te bewaren en schoon te houden." } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+</section>

@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-hub",
+      "blocks": {
+        "ql1": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Brilmaat bepalen",
+            "link": ""
+          }
+        },
+        "ql2": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Gezichtsvorm en montuur",
+            "link": ""
+          }
+        },
+        "ql3": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Pasvormproblemen",
+            "link": ""
+          }
+        },
+        "ql4": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Welke bril past bij mij?",
+            "link": ""
+          }
+        },
+        "t1": {
+          "type": "topic",
+          "settings": {
+            "title": "Brilmaat bepalen",
+            "text": "Zo meet je 52-18-140, framebreedte en S/M/L in 2 minuten.",
+            "badge": "6 min",
+            "link": "shopify://pages/brilmaat-bepalen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><rect x='4' y='7' width='16' height='10' rx='2'/><path d='M7 7v3'/><path d='M10 7v2'/><path d='M13 7v3'/><path d='M16 7v2'/></svg>"
+          }
+        },
+        "t2": {
+          "type": "topic",
+          "disabled": true,
+          "settings": {
+            "title": "Wat betekenen 52-18-140?",
+            "text": "Lensbreedte, brugmaat en pootlengte, en wat je eraan hebt.",
+            "badge": "3 min",
+            "link": "",
+            "icon_svg": "<svg viewBox='0 0 24 24'><circle cx='12' cy='12' r='9'/><path d='M12 10v6'/><path d='M12 7h.01'/></svg>"
+          }
+        },
+        "t3": {
+          "type": "topic",
+          "settings": {
+            "title": "Gezichtsvorm en montuur",
+            "text": "Kies met balans: rond, ovaal, vierkant of hartvormig.",
+            "badge": "7 min",
+            "link": "shopify://pages/gezichtsvorm",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 21c4.5 0 8-3.6 8-8s-3.5-10-8-10-8 5.6-8 10 3.5 8 8 8z'/><path d='M9 11h.01'/><path d='M15 11h.01'/><path d='M9 15c1.2 1 2.3 1.5 3 1.5s1.8-.5 3-1.5'/></svg>"
+          }
+        },
+        "t4": {
+          "type": "topic",
+          "settings": {
+            "title": "Materialen uitgelegd",
+            "text": "Acetaat vs titanium: gewicht, feel en duurzaamheid.",
+            "badge": "7 min",
+            "link": "shopify://pages/materialen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 4l8 5-8 5-8-5 8-5z'/><path d='M4 14l8 5 8-5'/></svg>"
+          }
+        },
+        "t5": {
+          "type": "topic",
+          "settings": {
+            "title": "Pasvormproblemen oplossen",
+            "text": "Afzakken, scheef zitten, drukpunten of wangen raken, dit kun je doen.",
+            "badge": "9 min",
+            "link": "shopify://pages/pasvormproblemen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M4 7h16'/><path d='M4 12h16'/><path d='M4 17h16'/><circle cx='9' cy='7' r='2'/><circle cx='15' cy='12' r='2'/><circle cx='11' cy='17' r='2'/></svg>"
+          }
+        },
+        "t6": {
+          "type": "topic",
+          "settings": {
+            "title": "Welke bril past bij mij?",
+            "text": "Snel kiezen op stijl, vorm en draagmoment.",
+            "badge": "3 min",
+            "link": "shopify://pages/welke-bril-past-bij-mij",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M2 12h3'/><path d='M19 12h3'/><path d='M7 12a3.5 3.5 0 1 0 7 0'/><path d='M14 12a3.5 3.5 0 1 0 7 0'/><path d='M11 12h2'/></svg>"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekenen de cijfers 52-18-140 op een montuur?",
+            "a": "<p>Dit zijn internationale maten (in mm): lensbreedte, brugmaat en pootlengte. Ze helpen je de pasvorm te vergelijken met je huidige bril. Montuurmaten uitgelegd (verwijzing naar pagina: montuurmaten-uitleg).</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als ik tussen twee maten in zit?",
+            "a": "<p>Kies bij twijfel liever iets breder dan te smal. Te smal geeft sneller druk op slapen en wangen. Brilmaat bepalen (verwijzing naar pagina: brilmaat-bepalen).</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "q": "Mijn bril zakt af, komt dat door de maat?",
+            "a": "<p>Vaak is het een combinatie van maat en afstelling. Een te brede brug of te lange pootjes kan afzakken veroorzaken. Pasvormproblemen oplossen (verwijzing naar pagina: pasvormproblemen).</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "q": "Mijn montuur raakt mijn wangen als ik lach. Is dat erg?",
+            "a": "<p>Meestal is het een teken dat de brug te laag zit of het montuur te diep is voor je gezicht. Pasvormproblemen oplossen (verwijzing naar pagina: pasvormproblemen).</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "q": "Heeft gezichtsvorm echt invloed op welke bril mij staat?",
+            "a": "<p>Ja, maar het gaat vooral om balans. Vaak werkt contrast goed (hoekig bij rond en andersom). Gezichtsvorm en montuur (verwijzing naar pagina: gezichtsvorm).</p>"
+          }
+        },
+        "f6": {
+          "type": "faq",
+          "settings": {
+            "q": "Moet ik mijn PD weten om de juiste pasvorm te kiezen?",
+            "a": "<p>PD (pupilafstand) bepaalt vooral de centrering van je glazen, niet of het montuur fysiek past. PD meten (verwijzing naar pagina: pupil-afstand-meten).</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ql1",
+        "ql2",
+        "ql3",
+        "ql4",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "settings": {
+        "aria_label": "Kiezen & pasvorm",
+        "kicker": "ADVIES",
+        "title": "Bril kiezen: maat, pasvorm & gezichtsvorm",
+        "subtitle": "Zo vind je in enkele minuten een montuur dat goed zit, niet afzakt en bij je gezicht past.",
+        "primary_cta_label": "Bekijk brillen op sterkte",
+        "primary_cta_link": "",
+        "secondary_cta_label": "Onze brillen op sterkte",
+        "secondary_cta_link": "",
+        "show_quicklinks": false,
+        "quicklinks_title": "Snel naar",
+        "card_cta_text": "Lees artikel",
+        "faq_title": "Veelgestelde vragen",
+        "seo_title": "De juiste pasvorm, simpel en comfortabel",
+        "seo_richtext": "<p>Een montuur kies je niet alleen op stijl. De beste bril zit zo comfortabel dat je hem vergeet. Gebruik deze hub als korte route: check je maat, kijk naar je gezichtsvorm en doe een snelle pasvorm-check.</p><p><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen</a>.<br/> <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">Gezichtsvorm en montuur.</a> <br/><a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Pasvormproblemen oplossen.</a></p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

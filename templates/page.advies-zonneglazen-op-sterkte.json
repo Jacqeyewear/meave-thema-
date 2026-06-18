@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies je gebruik: rijden, strand, sport of dagelijks",
+            "body": "<p>Voor autorijden wil je meestal een comfortabele tint (vaak categorie 2–3) en minimale reflecties. Voor strand/water kan polarisatie extra verschil maken tegen schittering.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies de ‘functie’: tint + (optioneel) polarisatie",
+            "body": "<p>Tint bepaalt hoe donker en welke kleur. Polarisatie vermindert hinderlijke reflecties (glare). Let op: sommige schermen kunnen met polarisatie anders ogen afhankelijk van hoek.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Maak het ‘mooi en praktisch’: index + coatings",
+            "body": "<p>Bij hogere sterkte helpt een hogere glasindex voor dunnere randen (<a href=\"/pages/glasindex-en-dikte\">lees hier</a>). Combineer vaak met <a href=\"/pages/anti-reflectie\">anti-reflectie</a> en <a href=\"/pages/water-vet-afstotend\">water/vet-afstotend</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Opties in één overzicht",
+            "toc_label": "Opties",
+            "anchor": "opties",
+            "col1": "Optie",
+            "col2": "Wat je merkt",
+            "col3": "Handig als…",
+            "rows": "Tint (cat. 1–3)|Donkerder zicht, meer comfort in zon|Je wilt basis zonnebril op sterkte\nPolarisatie|Minder schittering op weg/water|Je ergert je aan ‘glare’\nSpiegelcoating|Meer ‘look’, kan extra comfort geven|Je wil reflectie aan buitenkant beperken + stijl\nBinnenzijde anti-reflectie|Minder reflecties van achteren|Veel zon achter/naast je (auto, terras)\nWater/vet-afstotend|Minder vlekken, makkelijker poetsen|Je poetst vaak, buitengebruik",
+            "note": "Wil je eerst de basis snappen? Zie <a href=\"/pages/glazen\">Hub: Glazen & opties</a>."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat zijn zonneglazen op sterkte?",
+            "toc_label": "Wat is het",
+            "anchor": "wat-is-het",
+            "body": "<p>Zonneglazen op sterkte zijn brillenglazen met jouw recept (SPH/CYL/AS en eventueel Add) én een zonnefilter/tint. Het doel is hetzelfde als bij een gewone zonnebril: comfortabel kijken in fel licht, maar dan scherp met jouw correctie.</p><p>Je kunt zonneglazen in veel varianten krijgen: effen tint, verloop (gradient), gepolariseerd, en met verschillende coatings. De beste keuze hangt af van jouw situatie: rijden, water, sport of dagelijks.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Tint (donkerte) uitgelegd: categorie en kleur",
+            "toc_label": "Tint",
+            "anchor": "tint",
+            "body": "<p>Tint bepaalt hoe donker het glas is en welke kleurtoon je ziet. Veel mensen kiezen een tint die ‘allround’ werkt voor buiten en terras. Verloopglazen (gradient) zijn vaak prettig als je onderin iets lichter wilt, bijvoorbeeld om dichterbij te kijken zonder dat alles te donker wordt.</p><ul><li><strong>Dagelijks buiten:</strong> vaak categorie 2–3 is populair.</li><li><strong>Zeer fel (bergen/sneeuw/zee):</strong> donkerder kan fijner zijn, maar let op toepasbaarheid bij rijden.</li></ul><p>Kleur is vooral voorkeur: grijs is ‘neutraal’, bruin/amber voelt vaak warmer, groen zit ertussenin. Kies vooral wat jij prettig vindt.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Polarisatie: wanneer merk je het echt?",
+            "toc_label": "Polarisatie",
+            "anchor": "polarisatie",
+            "body": "<p>Polarisatie vermindert hinderlijke reflecties (glare) van horizontale oppervlakken, zoals nat asfalt en water. Als je vaak rijdt in laagstaande zon of veel bij water bent, is dit één van de meest merkbare upgrades.</p><p>Tip: met sommige schermen (telefoon/auto-display) kan een gepolariseerd glas het beeld donkerder maken of van kleur laten veranderen afhankelijk van de kijkhoek. Dat is normaal gedrag van polarisatie.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Dikte & glasindex: zo houd je zonneglazen mooi",
+            "toc_label": "Dikte",
+            "anchor": "dikte",
+            "body": "<p>Zonneglazen kunnen dikker ogen, zeker bij hogere sterktes en bij bepaalde monturen. Met een passende <strong>glasindex</strong> kun je de rand meestal dunner houden. Gebruik <a href=\"/pages/glasindex-en-dikte\">glasindex & dikte</a> als keuzehulp.</p><p>Ook het montuur speelt mee: een goed passend montuur dat niet te breed is, oogt vaak mooier. Twijfel je over maat? Zie <a href=\"/pages/brilmaat-bepalen\">brilmaat bepalen</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Coatings die bij zonneglazen op sterkte vaak het meest opleveren",
+            "toc_label": "Coatings",
+            "anchor": "coatings",
+            "body": "<p>Bij zonneglazen wil je vooral rust en makkelijk onderhoud. Veel gekozen combi:</p><ol><li><a href=\"/pages/anti-reflectie\">Anti-reflectie</a> aan de binnenzijde om reflecties van achteren te verminderen.</li><li><a href=\"/pages/water-vet-afstotend\">Water- & vet-afstotend</a> voor makkelijker schoonmaken.</li><li><a href=\"/pages/kraswerend\">Kraswerend</a> als extra bescherming tegen dagelijkse slijtage.</li></ol><p>Overzicht: <a href=\"/pages/coatings\">coatings</a>.</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke receptwaarden heb je nodig?",
+            "toc_label": "Recept",
+            "anchor": "recept",
+            "body": "<p>Voor zonneglazen op sterkte gebruik je doorgaans dezelfde receptwaarden als voor je normale bril: SPH, eventueel CYL/AS, en soms Add (bij multifocaal).</p><ul><li>Astigmatisme? Lees <a href=\"/pages/cylinder-as-uitleg\">CYL & AS uitgelegd</a>.</li><li>PD nodig? Zie <a href=\"/pages/pd-meten\">PD meten</a>.</li><li>Multifocaal in zonnebril? Zie <a href=\"/pages/multifocaal-uitleg\">multifocaal uitgelegd</a>.</li></ul>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Zonnebril op sterkte voor autorijden: waar let je op?",
+            "toc_label": "Autorijden",
+            "anchor": "autorijden",
+            "body": "<p>Voor autorijden wil je vooral comfortabel zicht zonder ‘te donker’ te gaan, en zo min mogelijk reflecties. Een tint die prettig is bij wisselende omstandigheden (zon/schaduw) voelt vaak het beste. Anti-reflectie aan de binnenzijde kan helpen tegen spiegelingen van achteren, vooral bij laagstaande zon.</p><p>Als je vaak last hebt van schittering op nat wegdek kan polarisatie ook prettig zijn. Test wel even hoe jouw schermen/auto-displays reageren.</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelle keuzehulp",
+            "anchor": "keuzehulp",
+            "body": "<ul><li><strong>Last van glare?</strong> Kies polarisatie.</li><li><strong>Rust en uitstraling?</strong> Start met anti-reflectie (binnenzijde) + water/vet-afstotend.</li><li><strong>Hogere sterkte?</strong> Kies een passende glasindex voor een dunnere rand.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is een zonnebril op sterkte hetzelfde als ‘zonneglazen’?",
+            "a": "<p>Ja. Zonneglazen op sterkte zijn de glazen; ‘zonnebril op sterkte’ is het eindproduct (montuur + glazen).</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is het verschil tussen gepolariseerd en ‘gewone’ zonneglazen?",
+            "a": "<p>Polarisatie vermindert hinderlijke reflecties (glare) op weg en water. Een gewone tint maakt vooral donkerder.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik water/vet-afstotend combineren met polarisatie?",
+            "a": "<p>Ja. Coatings gaan over oppervlak en onderhoud; polarisatie zit in het glas/filter. Zie <a href='/pages/coatings'>coatings</a>.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Krijg ik meer spiegelingen bij zonneglazen?",
+            "a": "<p>Dat kan, vooral reflecties van achteren. Daarom kiezen veel mensen anti-reflectie aan de binnenzijde.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke glasindex heb ik nodig?",
+            "a": "<p>Dat hangt af van je sterkte en het montuur. Gebruik <a href='/pages/glasindex-en-dikte'>glasindex & dikte</a> als richtlijn.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik multifocaal in een zonnebril doen?",
+            "a": "<p>Vaak wel. Zorg dat je Add op je recept hebt. Lees <a href='/pages/multifocaal-uitleg'>multifocaal uitgelegd</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: zonneglazen op sterkte",
+        "kicker": "ADVIES",
+        "title": "Zonneglazen op sterkte",
+        "subtitle": "Kies tint, polarisatie en coatings die passen bij jouw gebruik.",
+        "readtime": "10 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p><strong>Zonneglazen op sterkte</strong> zijn brilglazen met jouw recept én een zonnefilter. Je kiest vooral (1) <strong>tint</strong> (hoe donker/kleur), (2) <strong>polarisatie</strong> (tegen schittering), en (3) <strong>dikte</strong> (glasindex) zodat het mooi in je montuur past.</p><p><strong>Snelle keuze:</strong></p><ul><li><strong>Veel buiten & water/auto?</strong> Overweeg <strong>gepolariseerd</strong> voor minder schittering (zon op weg/water).</li><li><strong>Allround dagelijks?</strong> Kies een tint die past bij gebruik (vaak categorie 2–3) en start met <a href=\"/pages/anti-reflectie\">anti-reflectie</a> aan de binnenzijde voor rust.</li><li><strong>Hogere sterkte?</strong> Check <a href=\"/pages/glasindex-en-dikte\">glasindex & dikte</a> om de rand dunner te houden.</li></ul><p>Praktisch: het grootste comfortverschil komt meestal van <strong>polarisatie</strong> (als je last hebt van glare) en een coating-combi die schoon blijft, zoals <a href=\"/pages/water-vet-afstotend\">water- & vet-afstotend</a>. Wil je alle coatings vergelijken? Zie <a href=\"/pages/coatings\">coatings</a>.</p>",
+        "howto_title": "Zonneglazen kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li><li><a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/anti-reflectie\">Anti-reflectie</a></li><li><a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

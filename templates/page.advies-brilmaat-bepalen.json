@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "ht1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Lees je huidige montuur af",
+            "body": "<p>Zoek aan de binnenkant van het pootje of op de brug naar cijfers zoals 52-18-140. Dat is je beste startpunt om te vergelijken.</p>"
+          }
+        },
+        "ht2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Meet als er geen cijfers staan",
+            "body": "<p>Meet frontbreedte, brugmaat en pootlengte met een liniaal in millimeters. Leg het montuur plat op tafel voor een stabiele meting.</p>"
+          }
+        },
+        "ht3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Doe de pasvormcheck",
+            "body": "<p>Check breedte, wangen, slapen en pootjes. Een klein verschil in cijfers kan toch goed zitten, maar knellen is bijna altijd een teken dat je te klein zit.</p>"
+          }
+        },
+        "c1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat betekenen de cijfers 52-18-140?",
+            "toc_label": "Cijfers op je montuur",
+            "anchor": "cijfers-op-je-montuur",
+            "body": "<p>Op veel monturen staan drie maten in millimeters. Je ziet ze vaak als 52-18-140 of met een klein vierkantje tussen het eerste en tweede getal. Het eerste getal is de lensbreedte, het tweede de brugmaat en het derde de lengte van de pootjes.</p><p>Deze drie cijfers zijn ideaal om een nieuwe bril te kiezen die ongeveer hetzelfde valt als je huidige. Zie het als een slimme shortlist, niet als een garantie. Het ontwerp (vorm, dikte, hoek van de pootjes) beïnvloedt de pasvorm ook.</p><p>Wil je later extra diepte over gezichtsvormen? <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen uitgelegd.</a></p>"
+          }
+        },
+        "t1": {
+          "type": "table",
+          "settings": {
+            "title": "Montuurmaten in één oogopslag",
+            "toc_label": "Montuurmaten",
+            "anchor": "montuurmaten-overzicht",
+            "col1": "Maat",
+            "col2": "Wat is het?",
+            "col3": "Zo meet je het",
+            "rows": "Lensbreedte|Eerste getal, bijvoorbeeld 52|Meet horizontaal over het breedste punt van het glas\nBrugmaat|Tweede getal, bijvoorbeeld 18|Meet de kortste afstand tussen de glazen op het smalste punt\nPootlengte|Derde getal, bijvoorbeeld 140|Meet van scharnier tot uiteinde van het pootje, inclusief de kromming\nGlashoogte|Niet altijd vermeld, wel handig bij multifocaal|Meet van binnenrand onder tot binnenrand boven\nFrontbreedte|Totale breedte van de voorkant|Meet buitenrand tot buitenrand aan de voorkant",
+            "note": "Tip: de drie cijfers op het pootje zijn meestal voldoende om te vergelijken. Frontbreedte en glashoogte meet je vooral als extra check."
+          }
+        },
+        "c2": {
+          "type": "content",
+          "settings": {
+            "heading": "Geen cijfers? Zo meet je je brilmaat zelf",
+            "toc_label": "Zelf meten",
+            "anchor": "brilmaat-zelf-meten",
+            "body": "<p>Heb je nog geen bril, of staan er geen maten in het montuur? Dan kun je zelf meten. Leg een (zonne)bril plat op tafel met de glazen naar beneden. Dat voorkomt schuine metingen.</p><ol><li>Meet de frontbreedte: buitenrand tot buitenrand aan de voorkant.</li><li>Meet de brugmaat: de kortste afstand tussen de glazen op het smalste punt.</li><li>Meet de pootlengte: van scharnier tot uiteinde van het pootje, inclusief de kromming.</li></ol><p>Schrijf je resultaten op in mm en vergelijk daarna met de maten die je bij een montuur ziet staan.</p>"
+          }
+        },
+        "co1": {
+          "type": "callout",
+          "settings": {
+            "title": "Bankpas methode (snelle indicatie)",
+            "anchor": "bankpas-methode",
+            "body": "<p>Wil je snel inschatten welke maat je ongeveer hebt? Gebruik een bankpas als referentie. Een standaard bankpas is 85,6 mm breed. Ga voor een spiegel staan, houd de pas verticaal tegen de brug van je neus en kijk waar de buitenste hoek eindigt ten opzichte van je ooghoek.</p><ul><li>Komt de hoek duidelijk voorbij je ooghoek, dan zit je vaak richting groter.</li><li>Eindigt de hoek rond je ooghoek, dan zit je vaak rond het midden.</li><li>Komt de hoek ruim voor je ooghoek, dan zit je vaak richting kleiner.</li></ul><p>Zie dit als een snelle indicatie. De beste keuze maak je altijd door te vergelijken met montuurmaten en de pasvormcheck.</p>"
+          }
+        },
+        "c3": {
+          "type": "content",
+          "settings": {
+            "heading": "Pasvormcheck: te groot, te klein of precies goed",
+            "toc_label": "Pasvormcheck",
+            "anchor": "pasvormcheck",
+            "body": "<p>Meten is stap één. De echte test is hoe het montuur op je gezicht zit. Gebruik deze checklist:</p><ul><li>Het montuur is niet breder dan je gezicht en steekt niet onnodig ver uit.</li><li>Je voelt geen druk bij je slapen, maar er is ook geen losse ruimte.</li><li>De onderrand raakt je wangen niet als je lacht.</li><li>De pootjes sluiten aan achter je oren, zonder te trekken of te drukken.</li></ul><p>Voelt je bril net niet goed? Dan ligt het soms aan afstelling, niet aan de maat. <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Pasvormproblemen oplossen.</a></p>"
+          }
+        },
+        "c4": {
+          "type": "content",
+          "settings": {
+            "heading": "S, M of L kiezen zonder gokken",
+            "toc_label": "S/M/L kiezen",
+            "anchor": "s-m-l-kiezen",
+            "body": "<p>S, M en L zijn handige labels, maar de millimeters vertellen het echte verhaal. De makkelijkste manier is vergelijken met een bril die nu goed zit. Schrijf je cijfers op (bijvoorbeeld 52-18-140) en zoek een montuur dat daar dichtbij zit.</p><p>Twijfel je tussen twee maten? Kies dan liever net iets ruimer. Een montuur kan vaak een klein beetje afgesteld worden, maar te krap voelt bijna altijd oncomfortabel.</p>"
+          }
+        },
+        "c5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte fouten (en hoe je ze voorkomt)",
+            "toc_label": "Fouten",
+            "anchor": "veelgemaakte-fouten",
+            "body": "<ul><li>Alleen op lensbreedte vergelijken. Een 52 kan toch breder vallen door het ontwerp.</li><li>Meten in centimeters en afronden. Gebruik mm voor vergelijking.</li><li>PD verwarren met montuurmaat. PD is belangrijk voor de centrering van je glazen, niet voor de fysieke pasvorm. <a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten.</a></li></ul>"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "q": "Waar vind ik de brilmaat op mijn montuur?",
+            "a": "<p>Meestal staat de maat aan de binnenkant van een pootje of op de brug. Je ziet vaak drie getallen, zoals 52-18-140.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als er geen cijfers in mijn bril staan?",
+            "a": "<p>Dan kun je zelf meten: frontbreedte, brugmaat en pootlengte. Gebruik mm en vergelijk met monturen die je op het oog mooi vindt.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "q": "Is lensbreedte hetzelfde als totale montuurbreedte?",
+            "a": "<p>Nee. Lensbreedte is één onderdeel. De totale breedte hangt ook af van brugmaat, montuurvorm en hoe het ontwerp naar buiten uitloopt.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "q": "Mijn bril zakt af. Ligt dat aan de maat?",
+            "a": "<p>Vaak is het een combinatie van brugpasvorm en afstelling. Een te brede brug of te lange pootjes kan afzakken veroorzaken.</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke maat is goed bij een smal of breed gezicht?",
+            "a": "<p>Gebruik je huidige bril als referentie als dat kan. Zonder referentie helpt de bankpas methode als snelle indicatie, maar maak de keuze op basis van montuurmaten en pasvormcheck.</p>"
+          }
+        },
+        "f6": {
+          "type": "faq",
+          "settings": {
+            "q": "Moet ik mijn PD weten om de juiste maat te kiezen?",
+            "a": "<p>PD (pupilafstand) is belangrijk voor de centrering van je glazen, niet om te bepalen of het montuur fysiek past.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ht1",
+        "ht2",
+        "ht3",
+        "c1",
+        "t1",
+        "c2",
+        "co1",
+        "c3",
+        "c4",
+        "c5",
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6"
+      ],
+      "settings": {
+        "aria_label": "Brilmaat bepalen",
+        "kicker": "ADVIES",
+        "title": "Brilmaat bepalen: 52-18-140 en S/M/L",
+        "subtitle": "Lees je montuurmaten af of meet ze zelf. Inclusief snelle pasvormcheck, zodat je bril niet knelt of afzakt.",
+        "readtime": "6 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>De snelste manier is aflezen: kijk aan de binnenkant van het pootje of op de brug naar drie getallen, bijvoorbeeld 52-18-140. Dat zijn lensbreedte, brugmaat en pootlengte (in mm). Kies een nieuwe bril die daar dichtbij zit en doe daarna de pasvormcheck.</p><p>Pasvormcheck in 10 seconden:</p><ul><li>Het montuur is niet breder dan je gezicht.</li><li>Geen knelgevoel bij je slapen.</li><li>De onderrand raakt je wangen niet als je lacht.</li><li>De pootjes zitten stevig achter je oren zonder te drukken.</li></ul><p>Heb je geen cijfers? Meet dan de frontbreedte (buitenrand tot buitenrand) en pootlengte met een liniaal in millimeters. Gebruik die meting als referentie wanneer je maten of S/M/L vergelijkt.</p>",
+        "howto_title": "Brilmaat bepalen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<p><a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten.</a><br/><a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">Gezichtsvorm en montuur. </a><br/><a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Pasvormproblemen oplossen. </a></p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

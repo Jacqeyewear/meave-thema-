@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "page_screen_ENCxqF": {
+      "type": "page-screen",
+      "blocks": {
+        "faq_FF7Gcn": {
+          "type": "faq",
+          "settings": {
+            "q": "Is een ‘computerbril’ altijd nodig?",
+            "a": "<p>Nee. Veel mensen hebben genoeg aan een goede bril op sterkte met anti-reflectie. Zit je heel veel achter een scherm en merk je vermoeidheid? Dan kan een schermgerichte keuze (coating/filter) wel verschil maken.</p>"
+          }
+        },
+        "faq_mLgLhT": {
+          "type": "faq",
+          "settings": {
+            "q": "Helpt blauwlicht echt?",
+            "a": "<p>Voor sommige mensen voelt het prettiger, vooral in de avond. Zie het als <strong>comfort-optie</strong>, niet als magie: anti-reflectie en juiste centrering geven meestal de grootste winst.</p>"
+          }
+        },
+        "faq_JczAfy": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is belangrijker: dunne glazen of coating?",
+            "a": "<p>Bij schermgebruik is <strong>anti-reflectie</strong> vaak belangrijker dan extra dun glas. Dunner glas draait meer om uiterlijk/gewicht bij hogere sterktes.</p>"
+          }
+        },
+        "faq_FHaNH8": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom is PD zo belangrijk bij schermwerk?",
+            "a": "<p>Omdat je lang in dezelfde kijkhoek zit. Als de centrering net niet klopt, merk je dat sneller (onrustig beeld of sneller ‘moe’ kijken).</p>"
+          }
+        },
+        "faq_HfVW3i": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe snel merk ik verschil?",
+            "a": "<p>Vaak binnen een paar dagen. Maar echte zekerheid heb je pas na een normale werkweek. Daarom: rustig testen binnen je 100 dagen bedenktijd.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_FF7Gcn",
+        "faq_mLgLhT",
+        "faq_JczAfy",
+        "faq_FHaNH8",
+        "faq_HfVW3i"
+      ],
+      "name": "Page – Scherm",
+      "settings": {
+        "hero_image": "shopify://shop_images/dreamina-2025-12-17-1591-_POSITIVE_PROMPT_Ultra-realistic_heade....jpg",
+        "hero_image_alt": "Bril voor schermgebruik",
+        "hero_eyebrow": "JACQ EYEWEAR",
+        "hero_title": "Bril voor schermgebruik",
+        "hero_subtitle": "Minder reflectie. Meer rust. Gemaakt voor lange dagen.",
+        "hero_cta_label": "Bekijk de collectie",
+        "hero_cta_link": "",
+        "hero_cta2_label": "Welke glazen heb ik nodig?",
+        "hero_cta2_link": "",
+        "intro_title": "Waarom je ogen sneller moe worden",
+        "intro_text": "<p>Schermen vragen continu focuswissels: van dichtbij lezen naar even wegkijken. Combineer dat met kunstlicht en reflecties, en je merkt het sneller dan je denkt.</p><p>Een goede bril voor schermgebruik draait om twee dingen: <strong>rustiger kijken</strong> en <strong>comfort dat je vergeet</strong>.</p>",
+        "mini_points": "<li>Anti-reflectie helpt bij schittering en lampen</li><li>Blauwlichtfilter kan prettig zijn bij lange avonden</li><li>Juiste PD + centrering = rustiger beeld</li>",
+        "intro_image": "shopify://shop_images/image_2025-12-16_170000085.webp",
+        "intro_image_alt": "Persoon achter laptop met bril",
+        "band_title": "Wat je wil voelen is simpel",
+        "band_text": "<p>Geen “harde ogen” na je werkdag. Geen storende reflecties in je glas. Gewoon helder zicht, zonder dat je steeds aan je bril denkt.</p>",
+        "pill1": "Anti-reflectie",
+        "pill2": "Blauwlichtfilter (optioneel)",
+        "pill3": "Comfort & pasvorm",
+        "cards_title": "Dit herkennen de meeste mensen",
+        "cards_subtitle": "Als je dit voelt, is je scherm-setup (en je bril) het waard om slim te kiezen.",
+        "card1_title": "Vermoeide ogen",
+        "card1_text": "Aan het einde van de dag voelt kijken “zwaar” of merk je dat je vaker knijpt.",
+        "card2_title": "Reflecties en lampen",
+        "card2_text": "Schittering van plafondlampen of je scherm is zichtbaar in je glazen.",
+        "card3_title": "Droogte en focus wisselen",
+        "card3_text": "Je knippert minder bij schermwerk. Je ogen drogen uit en scherpstellen voelt onrustig.",
+        "s2_title": "Wat helpt echt (zonder marketingpraat)",
+        "s2_text": "<p>Bij Jacq houden we het nuchter: je hebt geen 12 “pakketten” nodig. Je hebt vooral een goede basis nodig — en dan voeg je alleen toe wat voor jou verschil maakt.</p>",
+        "s2_bullets": "<li><strong>Anti-reflectie</strong> is het belangrijkst bij lampen en schermglans</li><li><strong>Blauwlichtfilter</strong> kan prettig zijn bij lange avonden of gevoeligheid</li><li><strong>Juiste PD</strong> zorgt dat je glazen écht goed gecentreerd staan</li><li><strong>Pasvorm</strong> (gewicht, balans) maakt het verschil op dag 10</li>",
+        "s2_image": "shopify://shop_images/Ontwerp_zonder_titel_-_2025-12-17T165648.443.webp",
+        "s2_image_alt": "Close-up brillenglas met reflectie",
+        "check_title": "Checklist in 60 seconden",
+        "check_subtitle": "Zo kies je een schermbril waar je ogen blij van worden.",
+        "step1_title": "Werkafstand",
+        "step1_text": "Scherm op armlengte. Bovenkant scherm net onder ooghoogte. Dit scheelt al direct spanning.",
+        "step2_title": "Anti-reflectie",
+        "step2_text": "Zie je lampen of je scherm ‘terug’ in je glas? Anti-reflectie geeft het meeste comfort.",
+        "step3_title": "Blauwlichtfilter",
+        "step3_text": "Optioneel: vooral fijn bij lang gebruik in de avond of als je gevoelig bent voor fel licht.",
+        "step4_title": "PD & centrering",
+        "step4_text": "Een paar millimeter kan merkbaar zijn. Meet rustig of gebruik je recept. Daarna pas ‘afstellen’.",
+        "faq_title": "Veelgestelde vragen",
+        "faq_subtitle": "Kort antwoord, zonder gedoe.",
+        "cta_title": "Rustiger schermgevoel, in je eigen tempo",
+        "cta_text": "<p>Je merkt het pas echt tijdens je normale week. Daarom krijg je bij Jacq <strong>100 dagen bedenktijd</strong>. Zo voel je zelf of je ogen rustiger worden — op jouw scherm, in jouw licht.</p>",
+        "cta_button_label": "Shop brillen op sterkte",
+        "cta_button_link": "shopify://collections/brillen-op-sterkte",
+        "back_link": "",
+        "back_label": "← Terug naar Onze brillen op sterkte"
+      }
+    }
+  },
+  "order": [
+    "page_screen_ENCxqF"
+  ]
+}

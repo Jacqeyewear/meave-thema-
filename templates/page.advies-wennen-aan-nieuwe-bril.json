@@ -1,0 +1,211 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "settings": {
+        "aria_label": "Advies artikel: wennen aan nieuwe bril",
+        "kicker": "ADVIES",
+        "title": "Wennen aan een nieuwe bril",
+        "subtitle": "Wat normaal is, hoe lang het duurt en wanneer je moet checken.",
+        "readtime": "10 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Wennen aan een nieuwe bril is normaal, zeker bij nieuwe glazen, een andere sterkte, of een ander montuur. De meeste mensen merken in de eerste dagen vooral <strong>andere diepte</strong>, <strong>randvervorming</strong> of <strong>licht gevoel</strong> bij lopen/trappen. Dat trekt vaak weg als je de bril consequent draagt.</p><p><strong>Vuistregels (praktisch):</strong></p><ul><li><strong>Enkelvoudig:</strong> vaak 1–3 dagen wennen.</li><li><strong>Nieuwe CYL/AS (astigmatisme):</strong> soms 3–7 dagen.</li><li><strong>Multifocaal:</strong> vaak 1–2 weken (soms langer) als je consequent oefent.</li></ul><p><strong>Belangrijk:</strong> aanhoudende hoofdpijn, dubbelzien, of één oog dat ‘niet meedoet’ is geen kwestie van ‘even doorbijten’. Gebruik de checklist hieronder. Twijfel je of je sterkte klopt? Zie <a href='/pages/brilrecept-begrijpen'>brilrecept begrijpen</a> en <a href='/pages/sterkte-invullen'>sterkte invullen</a>.</p>",
+        "howto_title": "Wennen in 5 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href='/pages/service'>Hub: Meten, bestellen & nazorg</a></li><li><a href='/pages/bril-afstellen'>Bril afstellen</a></li><li><a href='/pages/brilrecept-begrijpen'>Brilrecept begrijpen</a></li><li><a href='/pages/sterkte-invullen'>Sterkte invullen</a></li><li><a href='/pages/multifocaal-uitleg'>Multifocaal uitgelegd</a></li></ul>"
+      },
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 1: draag je nieuwe bril consequent",
+            "body": "<p>Wisselen tussen oud en nieuw verlengt gewenning. Draag je nieuwe bril een paar dagen ‘vol’ om je brein te laten aanpassen.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 2: begin bij makkelijke momenten",
+            "body": "<p>Start thuis of buiten wandelen (rustig tempo). Bouw scherm- en leesmomenten op. Bij multifocaal: oefen bewust.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 3: check de pasvorm",
+            "body": "<p>Een scheef of te laag zittend montuur kan klachten geven. Zie <a href='/pages/bril-afstellen'>bril afstellen</a>.</p>"
+          }
+        },
+        "howto-4": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 4: controleer je invoer/recept",
+            "body": "<p>Controleer OD/OS, mintekens en (bij CYL) de as. Hulp: <a href='/pages/brilrecept-begrijpen'>brilrecept begrijpen</a>.</p>"
+          }
+        },
+        "howto-5": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Stap 5: bepaal of het ‘normaal’ is of niet",
+            "body": "<p>Gebruik de ‘normaal vs niet normaal’ lijst. Als je klachten scherp blijven na de wenperiode, laat het beoordelen.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Wat is normaal tijdens gewenning?",
+            "toc_label": "Normaal?",
+            "anchor": "normaal",
+            "col1": "Je merkt…",
+            "col2": "Vaak normaal als…",
+            "col3": "Actie",
+            "rows": "Andere diepte / trappen spannend|Eerste 1–3 dagen, vooral bij nieuw montuur|Rustig oefenen, consequent dragen\n‘Bolle’ randen / vervorming|Bij hogere sterkte of andere index|Geef het dagen, check pasvorm\nHoofdpijn licht|Eerste dagen, neemt af|Hydratatie, pauzes, draag nieuw ‘vol’\nWazig lezen bij multifocaal|Eerste week|Oefenen (kijkpunt), niet ‘zoeken’ met je ogen\nDubbelzien of misselijkheid|Niet normaal als het aanhoudt|Stop en laat het checken",
+            "note": "Klachten die niet afnemen of ‘scherp fout’ voelen: check recept en pasvorm."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Waarom je brein moet wennen aan nieuwe glazen",
+            "toc_label": "Waarom wennen",
+            "anchor": "waarom",
+            "body": "<p>Een bril is niet alleen scherpte: je hersenen gebruiken het beeld om afstand, beweging en balans te sturen. Als je sterkte, cilinder/as, glasdesign of montuur verandert, verandert ook hoe het beeld ‘valt’. Je brein heeft even tijd nodig om dit opnieuw te kalibreren.</p><p>Daarom werkt ‘even doorbijten’ soms wél (bij normale gewenning), maar niet als er een echte mismatch is zoals verkeerde sterkte, verkeerde as, of een montuur dat scheef staat.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Hoe lang duurt wennen? (en wat beïnvloedt het)",
+            "toc_label": "Hoe lang",
+            "anchor": "hoe-lang",
+            "body": "<p>De wenperiode hangt af van je verandering. Grotere sprongen in sterkte of cilinder, of een switch naar multifocaal, vragen meestal meer tijd. Ook de pasvorm speelt mee: als je bril laag zakt of scheef staat, kan je beeld voortdurend veranderen, waardoor je moeilijker went.</p><ul><li><strong>Nieuwe enkelvoudige glazen:</strong> vaak enkele dagen.</li><li><strong>Nieuwe cilinder/as:</strong> vaak tot een week.</li><li><strong>Multifocaal nieuw:</strong> vaak 1–2 weken met oefenen.</li></ul><p>Heb je multifocaal besteld? Zie <a href='/pages/multifocaal-uitleg'>multifocaal uitgelegd</a>.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Wennen aan multifocaal: zo oefen je slim",
+            "toc_label": "Multifocaal",
+            "anchor": "multifocaal",
+            "body": "<p>Bij multifocaal kijk je door verschillende zones in het glas. Dat vraagt gewenning aan je kijkgedrag. De sleutel is <strong>hoofd bewegen</strong> in plaats van alleen je ogen. Start met deze routine:</p><ol><li>Kijk recht vooruit, beweeg je hoofd mee naar het object.</li><li>Lees: houd tekst op comfortabele afstand en zoek niet ‘met je ogen’ naar scherpte.</li><li>Trappen: kijk iets naar beneden met je hoofd, neem rustig de eerste treden.</li></ol><p>Als je na 2 weken consequent dragen nog steeds geen ‘rust’ krijgt, is dat een signaal om te checken.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer is het níet normaal? (rode vlaggen)",
+            "toc_label": "Niet normaal",
+            "anchor": "niet-normaal",
+            "body": "<p>Sommige klachten horen niet bij normale gewenning, zeker als ze constant blijven of toenemen:</p><ul><li>Constante sterke hoofdpijn of misselijkheid.</li><li>Dubbelzien, of één oog dat ‘wegvalt’.</li><li>Één richting is altijd wazig (bijv. alleen veraf of alleen dichtbij) ondanks juiste kijkgedrag.</li><li>Het voelt alsof links/rechts is omgewisseld of alsof de vloer ‘schuin’ staat na meerdere dagen.</li></ul><p>Controleer dan eerst: <a href='/pages/bril-afstellen'>pasvorm</a> en <a href='/pages/brilrecept-begrijpen'>recept</a>. Bij een invulfout: <a href='/pages/sterkte-invullen'>sterkte invullen</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelvoorkomende oorzaken van aanhoudende klachten",
+            "toc_label": "Oorzaken",
+            "anchor": "oorzaken",
+            "body": "<ul><li><strong>Pasvorm:</strong> bril zakt, staat scheef of knelt. Oplossing: <a href='/pages/bril-afstellen'>bril afstellen</a>.</li><li><strong>PD/centratie:</strong> onjuiste PD kan onrust geven. Oplossing: <a href='/pages/pd-meten'>PD meten</a>.</li><li><strong>CYL/AS mismatch:</strong> verkeerde as voelt vaak als ‘scheef’ of ‘raar 3D’. Oplossing: <a href='/pages/cylinder-as-uitleg'>cylinder & as uitleg</a>.</li><li><strong>Verandering in sterkte:</strong> grote stap vraagt meer gewenning, maar moet wel verbeteren met dagen.</li></ul>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Praktische tips voor de eerste week",
+            "toc_label": "Tips",
+            "anchor": "tips",
+            "body": "<ul><li>Draag je nieuwe bril in één stuk (niet afwisselen met oud) voor een eerlijk oordeel.</li><li>Neem korte pauzes bij hoofdpijn, maar zet de bril daarna weer op.</li><li>Oefen lopen/trappen op rustige momenten.</li><li>Maak je glazen schoon als je waas ziet: <a href='/pages/bril-schoonmaken'>bril schoonmaken</a>.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Mini-check: is het pasvorm of gewenning?",
+            "anchor": "mini-check",
+            "body": "<ul><li><strong>Klachten veranderen</strong> als je de bril hoger/strakker zet? → vaak pasvorm.</li><li><strong>Klachten nemen af</strong> per dag bij consistent dragen? → vaak normale gewenning.</li><li><strong>Klachten blijven exact hetzelfde</strong> na 7–14 dagen? → laat het checken.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe lang duurt wennen aan een nieuwe bril?",
+            "a": "<p>Vaak enkele dagen bij enkelvoudig, en 1–2 weken bij multifocaal (met oefenen). Grote wijzigingen kunnen langer voelen, maar het moet wel verbeteren.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Is hoofdpijn normaal?",
+            "a": "<p>Lichte hoofdpijn kan in de eerste dagen voorkomen. Sterke of aanhoudende hoofdpijn is een reden om pasvorm en recept te checken.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom voelt de vloer ‘bol’ of ‘scheef’?",
+            "a": "<p>Dat kan bij verandering in sterkte of cilinder/as. Het hoort af te nemen. Blijft het? Check <a href='/pages/cylinder-as-uitleg'>CYL/AS</a> en <a href='/pages/bril-afstellen'>pasvorm</a>.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Moet ik mijn oude bril afwisselen met mijn nieuwe?",
+            "a": "<p>Liever niet. Afwisselen verlengt de gewenning. Draag de nieuwe bril consequent.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Ik zie met multifocaal niet scherp bij lezen. Wat kan ik doen?",
+            "a": "<p>Oefen met je hoofd meebewegen en kijk door de juiste zone. Zie <a href='/pages/multifocaal-uitleg'>multifocaal uitgelegd</a>. Als het na 2 weken niet verbetert, laat het checken.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan vuil of coating problemen geven?",
+            "a": "<p>Vuil kan waas geven. Reinig goed: <a href='/pages/bril-schoonmaken'>bril schoonmaken</a>. Reflecties ’s avonds? Zie <a href='/pages/coatings'>coatings</a> en <a href='/pages/anti-reflectie'>anti-reflectie</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "howto-4",
+        "howto-5",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

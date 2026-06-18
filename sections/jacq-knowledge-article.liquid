@@ -1,0 +1,879 @@
+<section
+  class="jacq-art"
+  style="--jacq-offset: {{ section.settings.header_offset }}px;"
+  aria-label="{{ section.settings.aria_label | escape }}"
+>
+  <div class="jacq-art__container">
+
+    <header class="jacq-art__hero">
+      {% if section.settings.kicker != blank %}
+        <p class="jacq-art__kicker">{{ section.settings.kicker }}</p>
+      {% endif %}
+
+      <div class="jacq-art__heroTop">
+        <h1 class="jacq-art__title">{{ section.settings.title }}</h1>
+        {% if section.settings.readtime != blank %}
+          <span class="jacq-art__badge" aria-label="Leestijd">
+            <svg class="jacq-art__badgeClock" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6v6l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            {{ section.settings.readtime }}
+          </span>
+        {% endif %}
+      </div>
+
+      {% if section.settings.subtitle != blank %}
+        <p class="jacq-art__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </header>
+
+    {% if section.settings.answer_title != blank or section.settings.answer_richtext != blank %}
+      <div class="jacq-art__card jacq-art__card--answer">
+        {% if section.settings.answer_title != blank %}
+          <div class="jacq-art__cardTitle">{{ section.settings.answer_title }}</div>
+        {% endif %}
+        {% if section.settings.answer_richtext != blank %}
+          <div class="jacq-art__rt jacq-art__rt--answer">{{ section.settings.answer_richtext }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {%- assign howto_blocks = section.blocks | where: "type", "howto_step" -%}
+    {% if howto_blocks.size > 0 %}
+      <div class="jacq-art__howto">
+        <div class="jacq-art__sectionTitle">{{ section.settings.howto_title }}</div>
+        <div class="jacq-art__howtoGrid" role="list">
+          {% for b in howto_blocks %}
+            <div class="jacq-art__howtoStep" role="listitem" {{ b.shopify_attributes }}>
+              <div class="jacq-art__howtoNum">{{ forloop.index }}</div>
+              <div class="jacq-art__howtoText">
+                <div class="jacq-art__howtoHeading">{{ b.settings.title }}</div>
+                <div class="jacq-art__rt jacq-art__rt--compact">{{ b.settings.body }}</div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_toc %}
+      {%- assign toc_blocks = section.blocks | where: "type", "content" -%}
+      {%- assign table_blocks = section.blocks | where: "type", "table" -%}
+      {%- if toc_blocks.size > 0 or table_blocks.size > 0 -%}
+        <nav class="jacq-art__toc" aria-label="Inhoud">
+          <div class="jacq-art__sectionTitle">{{ section.settings.toc_title }}</div>
+          <div class="jacq-art__tocPills">
+            {% for b in toc_blocks %}
+              {% assign anchor = b.settings.anchor | default: b.settings.heading | handleize %}
+              <a class="jacq-art__pill" href="#{{ anchor }}">{{ b.settings.toc_label | default: b.settings.heading }}</a>
+            {% endfor %}
+            {% for b in table_blocks %}
+              {% assign anchor = b.settings.anchor | default: b.settings.title | handleize %}
+              <a class="jacq-art__pill" href="#{{ anchor }}">{{ b.settings.toc_label | default: b.settings.title }}</a>
+            {% endfor %}
+          </div>
+        </nav>
+      {%- endif -%}
+    {% endif %}
+
+    <div class="jacq-art__body">
+      {% for block in section.blocks %}
+        {% case block.type %}
+
+          {% when 'content' %}
+            {% assign anchor = block.settings.anchor | default: block.settings.heading | handleize %}
+            <section class="jacq-art__section" id="{{ anchor }}" {{ block.shopify_attributes }}>
+              <h2 class="jacq-art__h2">{{ block.settings.heading }}</h2>
+              <div class="jacq-art__rt">{{ block.settings.body }}</div>
+            </section>
+
+          {% when 'table' %}
+            {% assign anchor = block.settings.anchor | default: block.settings.title | handleize %}
+            <section class="jacq-art__section" id="{{ anchor }}" {{ block.shopify_attributes }}>
+              <h2 class="jacq-art__h2">{{ block.settings.title }}</h2>
+
+              {% assign rows = block.settings.rows
+  | strip
+  | newline_to_br
+  | replace: '<br>', '<br />'
+  | split: '<br />'
+%}
+              <div class="jacq-art__tableWrap" role="region" aria-label="{{ block.settings.title | escape }}">
+                <table class="jacq-art__table">
+                  <thead>
+                    <tr>
+                      <th>{{ block.settings.col1 }}</th>
+                      <th>{{ block.settings.col2 }}</th>
+                      <th>{{ block.settings.col3 }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in rows %}
+                      {% assign r = row | strip %}
+                      {% if r != blank %}
+                        {% assign cols = r | split: '|' %}
+                        <tr>
+                          <td>{{ cols[0] | strip }}</td>
+                          <td>{{ cols[1] | strip }}</td>
+                          <td>{{ cols[2] | strip }}</td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+              {% if block.settings.note != blank %}
+                <p class="jacq-art__note">{{ block.settings.note }}</p>
+              {% endif %}
+            </section>
+
+          {% when 'callout' %}
+            {% assign anchor = block.settings.anchor | default: block.settings.title | handleize %}
+            <section class="jacq-art__section" id="{{ anchor }}" {{ block.shopify_attributes }}>
+              <div class="jacq-art__callout">
+                <div class="jacq-art__calloutTitle">{{ block.settings.title }}</div>
+                <div class="jacq-art__rt">{{ block.settings.body }}</div>
+              </div>
+            </section>
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {%- assign faq_blocks = section.blocks | where: "type", "faq" -%}
+    {% if faq_blocks.size > 0 %}
+      <section class="jacq-art__faq" id="{{ section.settings.faq_anchor | handleize }}">
+        <div class="jacq-art__sectionTitle">{{ section.settings.faq_title }}</div>
+        <div class="jacq-art__faqList">
+          {% for b in faq_blocks %}
+            <details class="jacq-art__faqItem" {{ b.shopify_attributes }}>
+              <summary>{{ b.settings.q }}</summary>
+              <div class="jacq-art__faqBody">{{ b.settings.a }}</div>
+            </details>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if section.settings.related_title != blank and section.settings.related_richtext != blank %}
+      <div class="jacq-art__related">
+        <div class="jacq-art__sectionTitle">{{ section.settings.related_title }}</div>
+        <div class="jacq-art__rt">{{ section.settings.related_richtext }}</div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{%- if howto_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": {{ section.settings.title | json }},
+  "description": {{ section.settings.subtitle | strip_html | strip_newlines | json }},
+  "step": [
+    {%- for b in howto_blocks -%}
+    {
+      "@type": "HowToStep",
+      "name": {{ b.settings.title | json }},
+      "text": {{ b.settings.body | strip_html | strip_newlines | json }}
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+{%- if faq_blocks.size > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for b in faq_blocks -%}
+    {
+      "@type": "Question",
+      "name": {{ b.settings.q | json }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ b.settings.a | strip_html | strip_newlines | json }}
+      }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<script>
+  (function(){
+    var root = document.querySelector('.jacq-art');
+    if(!root) return;
+
+    function getOffset(){
+      var raw = getComputedStyle(root).getPropertyValue('--jacq-offset').trim();
+      var n = parseInt(raw.replace('px',''), 10);
+      return isNaN(n) ? 0 : n;
+    }
+
+    function onPillClick(e){
+      var a = e.target.closest && e.target.closest('.jacq-art__toc a[href^="#"]');
+      if(!a) return;
+
+      var id = a.getAttribute('href');
+      if(!id || id.length < 2) return;
+
+      var el = document.getElementById(id.slice(1));
+      if(!el) return;
+
+      e.preventDefault();
+      var y = el.getBoundingClientRect().top + window.pageYOffset - getOffset() - 10;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+      history.replaceState(null, '', id);
+    }
+
+    document.addEventListener('click', onPillClick, { passive: false });
+  })();
+</script>
+
+<style>
+  /* ============================================================
+     JACQ Knowledge Article — Apple-inspired design
+     ============================================================ */
+
+  .jacq-art {
+    --max: 1120px;
+    --radius: 22px;
+    --text: #1D1D1F;
+    --sub: #6E6E73;
+    --bg: #FFFFFF;
+    --bg2: #F5F5F7;
+    --border: #D2D2D7;
+    --accent: #0071E3;
+    --accentSoft: rgba(0,113,227,.10);
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.06);
+    --shadow-hover: 0 4px 12px rgba(0,0,0,.06), 0 12px 36px rgba(0,0,0,.10);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .jacq-art *,
+  .jacq-art *::before,
+  .jacq-art *::after {
+    box-sizing: border-box;
+  }
+
+  .jacq-art strong, .jacq-art b { font-weight: 600 !important; }
+
+  /* Container */
+  .jacq-art__container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(32px, 4vw, 64px) 22px;
+  }
+
+  /* ---- Hero ---- */
+  .jacq-art__hero {
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .jacq-art__hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 0;
+    width: 400px;
+    height: 280px;
+    background: radial-gradient(ellipse, rgba(0,113,227,.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .jacq-art__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+
+  .jacq-art__kicker::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .jacq-art__heroTop {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .jacq-art__title {
+    font-size: clamp(30px, 4.1vw, 48px);
+    line-height: 1.05;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    color: var(--text);
+  }
+
+  .jacq-art__subtitle {
+    font-size: clamp(15px, 1.8vw, 19px);
+    color: var(--sub);
+    margin: 12px 0 0;
+    max-width: 88ch;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .jacq-art__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--accent);
+    background: var(--accentSoft);
+    border: none;
+    border-radius: 999px;
+    padding: 6px 14px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .jacq-art__badgeClock {
+    flex-shrink: 0;
+    color: var(--accent);
+  }
+
+  /* ---- Section titles ---- */
+  .jacq-art__sectionTitle {
+    font-size: 20px;
+    letter-spacing: -.015em;
+    color: var(--text);
+    margin: 0 0 14px;
+    font-weight: 700;
+  }
+
+  /* ---- Answer card ---- */
+  .jacq-art__card {
+    border: none;
+    border-radius: var(--radius);
+    background: var(--bg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .jacq-art__card--answer {
+    background: var(--bg);
+    border-left: 3px solid var(--accent);
+  }
+
+  .jacq-art__cardTitle {
+    font-size: 18px;
+    letter-spacing: -.01em;
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* ---- Rich text ---- */
+  .jacq-art__rt {
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 92ch;
+    font-weight: 400;
+  }
+
+  .jacq-art__rt p { margin: 0 0 16px; }
+  .jacq-art__rt ul, .jacq-art__rt ol { margin: 0 0 16px; padding-left: 18px; }
+  .jacq-art__rt li { margin: 7px 0; }
+  .jacq-art__rt a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(0,113,227,.35); }
+  .jacq-art__rt a:hover { border-bottom-color: rgba(0,113,227,.70); }
+
+  /* ---- HowTo ---- */
+  .jacq-art__howto { margin-top: 28px; }
+  .jacq-art__howtoGrid { display: grid; gap: 14px; }
+
+  .jacq-art__howtoStep {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border: none;
+    border-radius: 18px;
+    background: var(--bg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: box-shadow .3s ease, transform .3s ease;
+  }
+
+  .jacq-art__howtoStep:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .jacq-art__howtoNum {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: var(--accentSoft);
+    color: var(--accent);
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    flex: 0 0 auto;
+  }
+
+  .jacq-art__howtoHeading {
+    font-size: 16px;
+    color: var(--text);
+    letter-spacing: -.01em;
+    margin: 0 0 6px;
+    font-weight: 600;
+  }
+
+  .jacq-art__rt--compact { max-width: none; }
+  .jacq-art__rt--compact p { margin: 0; }
+
+  /* ---- TOC ---- */
+  .jacq-art__toc { margin-top: 24px; }
+  .jacq-art__tocPills { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .jacq-art__pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--accent);
+    border: none;
+    background: rgba(0,113,227,.06);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .2s ease, transform .15s ease;
+  }
+
+  .jacq-art__pill:hover {
+    background: rgba(0,113,227,.12);
+    transform: translateY(-1px);
+  }
+
+  .jacq-art__pill:focus-visible {
+    outline: 2px solid rgba(0,113,227,.25);
+    outline-offset: 2px;
+  }
+
+  /* ---- Body ---- */
+  .jacq-art__body { margin-top: 28px; }
+
+  .jacq-art__section {
+    margin-top: 40px;
+    scroll-margin-top: calc(var(--jacq-offset) + 14px);
+  }
+
+  .jacq-art__h2 {
+    font-size: clamp(20px, 2.5vw, 24px);
+    line-height: 1.18;
+    margin: 0 0 14px;
+    letter-spacing: -.015em;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  /* ---- Table ---- */
+  .jacq-art__tableWrap {
+    overflow: auto;
+    border: none;
+    border-radius: 18px;
+    background: var(--bg);
+    box-shadow: var(--shadow);
+  }
+
+  .jacq-art__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 720px;
+  }
+
+  .jacq-art__table th,
+  .jacq-art__table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(210,210,215,.5);
+    vertical-align: top;
+    background: var(--bg);
+  }
+
+  .jacq-art__table th {
+    color: var(--text);
+    background: var(--bg2);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .jacq-art__table td { color: var(--sub); font-weight: 400; }
+  .jacq-art__table td:first-child { color: var(--text); font-weight: 500; }
+  .jacq-art__table tr:last-child td { border-bottom: 0; }
+  .jacq-art__note { margin: 12px 0 0; color: var(--sub); font-size: 13px; font-weight: 400; }
+
+  /* ---- Callout ---- */
+  .jacq-art__callout {
+    border: none;
+    background: var(--bg);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--accent);
+  }
+
+  .jacq-art__calloutTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+
+  /* ---- FAQ ---- */
+  .jacq-art__faq {
+    margin-top: 48px;
+    scroll-margin-top: calc(var(--jacq-offset) + 14px);
+  }
+
+  .jacq-art__faqList { display: grid; gap: 12px; }
+
+  .jacq-art__faqItem {
+    border: none;
+    border-radius: 18px;
+    background: var(--bg);
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+    transition: box-shadow .3s ease;
+  }
+
+  .jacq-art__faqItem[open] {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .jacq-art__faqItem summary {
+    cursor: pointer;
+    list-style: none;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -.01em;
+    color: var(--text);
+    transition: color .2s ease;
+  }
+
+  .jacq-art__faqItem summary:hover { color: var(--accent); }
+  .jacq-art__faqItem summary::-webkit-details-marker { display: none; }
+
+  .jacq-art__faqBody {
+    color: var(--sub);
+    margin-top: 12px;
+    line-height: 1.7;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  .jacq-art__faqBody p { margin: 0 0 12px; }
+
+  /* ---- Related ---- */
+  .jacq-art__related {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ---- Responsive ---- */
+  @media (min-width: 860px) {
+    .jacq-art__howtoGrid { grid-template-columns: repeat(3, 1fr); }
+    .jacq-art__howtoStep { height: 100%; }
+  }
+
+  /* Hub SEO links */
+  .jacq-kb__seoText a {
+    color: #0071E3 !important;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .jacq-kb__seoText a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .jacq-kb__seoText a:focus-visible {
+    outline: 2px solid #0071E3;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "JACQ — Artikel (advies)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "ARIA label",
+      "default": "Advies artikel"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "ADVIES"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titel",
+      "default": "Brilmaat bepalen: 52-18-140 en S/M/L"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitel",
+      "default": "Lees je montuurmaten af of meet ze zelf. Inclusief snelle pasvormcheck, zodat je bril niet knelt of afzakt."
+    },
+    {
+      "type": "text",
+      "id": "readtime",
+      "label": "Leestijd badge",
+      "default": "6 min"
+    },
+    {
+      "type": "range",
+      "id": "header_offset",
+      "label": "Header offset voor anker-links (px)",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 110
+    },
+    {
+      "type": "text",
+      "id": "answer_title",
+      "label": "Snel antwoord titel",
+      "default": "Snel antwoord"
+    },
+    {
+      "type": "richtext",
+      "id": "answer_richtext",
+      "label": "Snel antwoord tekst",
+      "default": "<p>Vul hier je tekst in.</p>"
+    },
+    {
+      "type": "text",
+      "id": "howto_title",
+      "label": "HowTo titel",
+      "default": "Brilmaat bepalen in 3 stappen"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_toc",
+      "label": "Toon inhoudslinks",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "toc_title",
+      "label": "Inhoudslinks titel",
+      "default": "In dit artikel"
+    },
+    {
+      "type": "text",
+      "id": "faq_title",
+      "label": "FAQ titel",
+      "default": "Veelgestelde vragen"
+    },
+    {
+      "type": "text",
+      "id": "faq_anchor",
+      "label": "FAQ anchor label",
+      "default": "veelgestelde-vragen"
+    },
+    {
+      "type": "text",
+      "id": "related_title",
+      "label": "Verder lezen titel",
+      "default": "Verder lezen"
+    },
+    {
+      "type": "richtext",
+      "id": "related_richtext",
+      "label": "Verder lezen tekst",
+      "default": "<p>Vul hier je links in.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "howto_step",
+      "name": "HowTo stap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Stap titel",
+          "default": "Stap titel"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Stap tekst",
+          "default": "<p>Stap tekst.</p>"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content sectie",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Kop (H2)",
+          "default": "Kop"
+        },
+        {
+          "type": "text",
+          "id": "toc_label",
+          "label": "TOC label (kort)",
+          "default": "Sectie"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor (optioneel)",
+          "default": "sectie"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Tekst",
+          "default": "<p>Vul hier je tekst in.</p>"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "name": "Tabel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tabel titel",
+          "default": "Montuurmaten in één oogopslag"
+        },
+        {
+          "type": "text",
+          "id": "toc_label",
+          "label": "TOC label (kort)",
+          "default": "Montuurmaten"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor (optioneel)",
+          "default": "montuurmaten-overzicht"
+        },
+        {
+          "type": "text",
+          "id": "col1",
+          "label": "Kolom 1",
+          "default": "Maat"
+        },
+        {
+          "type": "text",
+          "id": "col2",
+          "label": "Kolom 2",
+          "default": "Wat is het?"
+        },
+        {
+          "type": "text",
+          "id": "col3",
+          "label": "Kolom 3",
+          "default": "Zo meet je het"
+        },
+        {
+          "type": "textarea",
+          "id": "rows",
+          "label": "Rijen (Label|Uitleg|Meten)",
+          "default": "Lensbreedte|Eerste getal, bijvoorbeeld 52|Meet horizontaal over het breedste punt\nBrugmaat|Tweede getal, bijvoorbeeld 18|Meet de kortste afstand\nPootlengte|Derde getal, bijvoorbeeld 140|Meet van scharnier tot uiteinde"
+        },
+        {
+          "type": "textarea",
+          "id": "note",
+          "label": "Kleine noot (optioneel)",
+          "default": "Tip: gebruik de cijfers op het pootje als belangrijkste referentie."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "name": "Callout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titel",
+          "default": "Let op"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor (optioneel)",
+          "default": "let-op"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Tekst",
+          "default": "<p>Callout tekst.</p>"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "q",
+          "label": "Vraag",
+          "default": "Vraag"
+        },
+        {
+          "type": "richtext",
+          "id": "a",
+          "label": "Antwoord",
+          "default": "<p>Antwoord.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JACQ — Artikel (advies)"
+    }
+  ]
+}
+{% endschema %}

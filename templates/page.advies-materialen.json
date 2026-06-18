@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies je prioriteit: comfort, look of ‘hufterproof’",
+            "body": "<p>Schrijf in één zin op wat je belangrijkst vindt: zo licht mogelijk, zo stevig mogelijk, of vooral een bepaalde look.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check je draagmoment",
+            "body": "<p>Draag je de bril de hele dag (werk/autorijden) of vooral af en toe? Bij all-day dragen is gewicht en pasvorm extra belangrijk.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Match materiaal met pasvorm",
+            "body": "<p>Een topmateriaal kan alsnog slecht zitten. Check breedte, brug en drukpunten. Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hier </a>meer over pasvormproblemen</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Acetaat vs metaal vs titanium (snel overzicht)",
+            "toc_label": "Vergelijking",
+            "anchor": "vergelijking-materialen",
+            "col1": "Materiaal",
+            "col2": "Sterk in",
+            "col3": "Let op",
+            "rows": "Acetaat|Look, kleur, ‘presence’|Kan zwaarder aanvoelen; pasvorm moet kloppen zodat hij niet zakt\nMetaal|Minimal, vaak licht, verstelbare neus pads|Afwerking/huidgevoeligheid kan verschillen; pads moeten comfortabel zitten\nTitanium|Zeer licht, comfortabel bij dagelijks dragen|Meestal duurder; check nog steeds maat/brug",
+            "note": "Dit zijn richtlijnen. De pasvorm (maat + brug) blijft bepalend voor comfort."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is acetaat? (en waarom het zo ‘premium’ kan ogen)",
+            "toc_label": "Acetaat",
+            "anchor": "acetaat",
+            "body": "<p>Acetaat is een hoogwaardig kunststof dat vaak wordt gekozen voor brillen met meer ‘presence’. Je ziet het terug in rijke kleuren, gelaagde patronen en een stevige rand die je look duidelijk maakt.</p><h3>Wanneer acetaat meestal een goede keuze is</h3><ul><li>Je wil een statement of een duidelijke bovenlijn.</li><li>Je vindt comfort belangrijk zonder neus pads (veel acetaat monturen hebben een vaste brug).</li><li>Je wil veel kleur- en patroonkeuze.</li></ul><h3>Waar je op moet letten</h3><ul><li><strong>Gewicht:</strong> dik acetaat kan zwaarder aanvoelen bij lang dragen.</li><li><strong>Zakgedrag:</strong> als de brug niet goed matcht, kan een zwaarder montuur sneller zakken.</li></ul><p>Verdieping met keuzehulp en onderhoud: <a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\">acetaat</a>.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Metaal: clean, minimal en vaak heel licht",
+            "toc_label": "Metaal",
+            "anchor": "metaal",
+            "body": "<p>Metalen monturen worden vaak gekozen voor een minimalistische, ‘Apple‑style’ look: dunner profiel, rustig en licht. Veel metalen brillen gebruiken neus pads, waardoor je vaak meer micro‑aanpassing hebt in hoe hoog de bril staat.</p><h3>Wanneer metaal meestal slim is</h3><ul><li>Je wil zo min mogelijk ‘rand’ en een clean silhouet.</li><li>Je wil een bril die licht voelt op je gezicht.</li><li>Je wil meer verstelbaarheid via neus pads.</li></ul><h3>Waar je op moet letten</h3><ul><li><strong>Neus pads:</strong> moeten comfortabel zitten en niet afdrukken achterlaten.</li><li><strong>Afwerking:</strong> coatings kunnen per montuur verschillen; bij gevoelige huid is een goede afwerking extra belangrijk.</li></ul><p>Als je metaal mooi vindt maar het lichtst wil: kijk ook naar <a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\">titanium</a>.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Titanium: licht, comfortabel en gemaakt voor dagelijks dragen",
+            "toc_label": "Titanium",
+            "anchor": "titanium",
+            "body": "<p>Titanium wordt vaak gekozen omdat het extreem licht kan aanvoelen en daardoor populair is bij mensen die hun bril de hele dag dragen. Als je snel last hebt van drukpunten, is het vaak een slimme richting om te overwegen.</p><h3>Wanneer titanium meestal top is</h3><ul><li>Je draagt je bril de hele dag en wil ‘vergeet‑dat‑je‑hem‑draagt’ comfort.</li><li>Je wil een clean, minimal frame dat toch stevig voelt.</li><li>Je wil extra focus op duurzaamheid en comfort.</li></ul><h3>Waar je op moet letten</h3><ul><li><strong>Prijs:</strong> vaak hoger dan standaard metaal of acetaat.</li><li><strong>Pasvorm blijft key:</strong> zelfs het lichtste materiaal zit slecht als de maat niet klopt.</li></ul><p>Verdieping en keuzehulp: <a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\">titanium</a></p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke is het beste voor jou? (kies op gevoel, niet op marketing)",
+            "toc_label": "Kiezen",
+            "anchor": "kies-op-gevoel",
+            "body": "<p>Als je twijfelt tussen twee materialen, laat dan deze twee dingen beslissen:</p><h3>1) Draagmoment</h3><p>Voor all‑day dragen is gewicht en pasvorm vaak belangrijker dan ‘de look’. Voor af en toe dragen kun je vaker voor statement gaan.</p><h3>2) Pasvorm</h3><p>Bril die zakt, knelt of je wangen raakt: dat is meestal maat/brug/pootjes. En bij issues: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</p><p>Wil je een snelle totaalkeuze op stijl + draagmoment: <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">welke bril past bij mij?</a></p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Onderhoud per materiaal (kort en praktisch)",
+            "toc_label": "Onderhoud",
+            "anchor": "onderhoud",
+            "body": "<ul><li><strong>Acetaat:</strong> schoonmaken met lauwwarm water en een zachte doek. Vermijd agressieve middelen.</li><li><strong>Metaal/titanium:</strong> reinig zacht, let op neus pads en schroefjes. Droog na schoonmaken.</li></ul><p>Algemeen: bewaar je bril in een case en gebruik een microvezeldoek voor de glazen.</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Gevoelige huid of irritatie?",
+            "anchor": "gevoelige-huid",
+            "body": "<p>Als je snel irritatie krijgt rond neus of oren, kijk dan extra naar pasvorm (drukpunten) en afwerking. Een lichter montuur helpt vaak, maar een slechte pasvorm blijft irriteren. Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hier </a>meer over pasvormproblemen</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is acetaat beter dan metaal?",
+            "a": "<p>Nee, het is vooral anders. Acetaat is vaak sterker aanwezig qua look en kleur. Metaal is meestal cleaner en vaak lichter. Kies op comfort en stijl.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is het lichtste brilmateriaal?",
+            "a": "<p>Titanium voelt vaak het lichtst, daarna komen veel metalen monturen. Het exacte gevoel hangt ook af van randdikte en pasvorm.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom zakt een acetaat bril sneller?",
+            "a": "<p>Dat gebeurt vooral als de brug niet goed matcht of als het montuur relatief zwaar is. De oplossing is meestal maat/brug, niet ‘acetaat op zich’.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Zijn neus pads beter?",
+            "a": "<p>Ze geven meer verstelbaarheid in hoogte en drukverdeling, maar ze moeten wel comfortabel zijn. Het is een voorkeur en hangt af van je neusbrug.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is beter voor dagelijks dragen?",
+            "a": "<p>Als comfort en gewicht prioriteit zijn, is titanium of licht metaal vaak een goede keuze. Maar pasvorm is doorslaggevend.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe voorkom ik drukpunten?",
+            "a": "<p>Kies de juiste maat en laat de pasvorm checken: geen druk op slapen, geen afdruk op neus, geen contact met wangen. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: brilmateriaal kiezen",
+        "kicker": "ADVIES",
+        "title": "Brilmateriaal kiezen: acetaat, metaal of titanium",
+        "subtitle": "Vergelijk materialen op gewicht, comfort, duurzaamheid en look. Kies wat je echt voelt.",
+        "readtime": "7 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Het beste brilmateriaal hangt vooral af van wat je het meest voelt: <strong>gewicht</strong>, <strong>comfort</strong>, <strong>duurzaamheid</strong> en <strong>look</strong>. Als je snel wil kiezen, gebruik deze vuistregels:</p><ul><li><strong>Wil je een warme, ‘rijke’ look en veel kleurkeuze?</strong> Kies vaak <strong>acetaat. </strong> Het voelt stevig en kan mooi vormvast zijn.</li><li><strong>Wil je een lichte, minimalistische bril?</strong> Kies vaak <strong>metaal</strong> (slank profiel, clean look). Let op comfort bij de neus pads.</li><li><strong>Wil je het lichtst en het meest ‘vergeet-je-dat-je-hem-draagt’ gevoel?</strong> Dan is <strong>titanium</strong> vaak top, zeker bij dagelijks dragen.</li></ul><p>Twijfel je? Kies dan niet op materiaalnaam, maar op effect:</p><ul><li><strong>All-day comfort:</strong> licht (metaal/titanium) en juiste maat/brug. Lees <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">hier </a>meer over je brilmaat bepalen.</li><li><strong>Statement:</strong> acetaat met wat meer randdikte (maar niet te zwaar).</li><li><strong>Gevoelige huid:</strong> ga voor materialen/afwerkingen die vaak vriendelijker zijn voor de huid; bij twijfel: titanium of goed gecoat metaal.</li></ul><p>In dit artikel vergelijk je acetaat, metaal en titanium, plus wanneer een materiaal juist níét handig is. Wil je meteen de verdieping per materiaal: <a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\">acetaat </a>en <a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\">titanium</a>.<a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">/pages/pasvormproblemen</a></p>",
+        "howto_title": "Brilmateriaal kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li>Gezichtsvorm & montuur: <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen</a>.</li><li><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen.</a></li><li>Pasvormproblemen oplossen: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</li><li><a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Welke bril past bij mij?</a></li><li>Verdieping: <a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\">acetaat</a>, <a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\">titanium</a>.</li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

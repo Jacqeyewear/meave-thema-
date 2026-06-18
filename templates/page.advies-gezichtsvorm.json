@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Maak je gezicht vrij (haar naar achteren)",
+            "body": "<p>Kijk recht in de spiegel of maak een selfie. Zet je haar weg zodat je haarlijn, jukbeenderen en kaaklijn zichtbaar zijn.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check 3 punten: voorhoofd, jukbeenderen, kaak",
+            "body": "<p>Waar zit de meeste breedte? Bij je voorhoofd, je jukbeenderen of je kaak? En is je kaak rond of hoekig?</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies voor balans: contrast + proportie",
+            "body": "<p>Een montuur dat contrasteert met je gezichtsvorm geeft vaak balans. Check daarna de maat: niet breder dan je gezicht, en comfortabel op neus en oren.</p>"
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Gezichtsvorm bepalen in 60 seconden",
+            "toc_label": "Gezichtsvorm bepalen",
+            "anchor": "gezichtsvorm-bepalen",
+            "body": "<p>Je gezichtsvorm bepalen hoeft niet ingewikkeld te zijn. Je zoekt vooral naar het dominante kenmerk: rondheid of hoekigheid, en waar de meeste breedte zit. Gebruik één van deze twee methodes:</p><h3>1) De selfie-methode (snelst)</h3><ul><li>Maak een selfie recht van voren met neutrale gezichtsuitdrukking.</li><li>Trek met je vinger (of in je hoofd) de omtrek van je gezicht: haarlijn, jukbeenderen, kaak, kin.</li><li>Vraag jezelf af: is mijn kaak rond of scherp? En waar is mijn gezicht het breedst?</li></ul><h3>2) De meet-methode (iets nauwkeuriger)</h3><ul><li><strong>Voorhoofd:</strong> meet op het breedste punt.</li><li><strong>Jukbeenderen:</strong> meet van jukbeen tot jukbeen.</li><li><strong>Kaak:</strong> meet de breedte van je kaaklijn.</li><li><strong>Gezichtslengte:</strong> haarlijn tot kin.</li></ul><p>Je hebt zelden één perfecte categorie. Veel mensen zitten tussen twee vormen in. Dan helpt het om te kiezen op je doel: wil je je gezicht optisch langer, zachter, slanker of juist sterker laten lijken? Dat bereik je vooral met contrast en proportie.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Montuuradvies per gezichtsvorm (overzicht)",
+            "toc_label": "Overzicht",
+            "anchor": "montuuradvies-per-gezichtsvorm",
+            "col1": "Gezichtsvorm",
+            "col2": "Wat je meestal ziet",
+            "col3": "Montuuradvies (kort)",
+            "rows": "Rond|Zachte lijnen, volle wangen, ongeveer even lang als breed|Kies: hoekig, rechthoekig, wayfarer, browline. Vermijd: heel kleine ronde monturen als je meer structuur wilt\nOvaal|Iets langer dan breed, zachte kaaklijn|Kies: veel vormen werken. Let op: proportie, breedte en brug. Vermijd: extreem smal of overdreven oversized\nVierkant|Hoekige kaak, uitgesproken lijnen|Kies: rond, ovaal, panto, zachte hoeken. Vermijd: heel boxy vierkant als je juist zachter wilt ogen\nHartvormig|Breder voorhoofd, smallere kin|Kies: licht, rond/ovaal, niet top-heavy. Vermijd: heel brede bovenrand als je voorhoofd al dominant is",
+            "note": "Tip: dit is een stylinggids. De beste keuze voelt ook comfortabel op neus, slapen en oren. (verwijzing naar pagina: brilmaat-bepalen)."
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Rond gezicht: meer structuur met hoekige vormen",
+            "toc_label": "Rond",
+            "anchor": "rond-gezicht",
+            "body": "<p>Bij een rond gezicht zijn de lijnen zacht en is de lengte vaak vergelijkbaar met de breedte. Als je een montuur zoekt dat je gezicht optisch wat meer definitie geeft, werken hoekige vormen vaak goed. Denk aan rechthoekig, wayfarer of een browline, omdat die meer lijnen toevoegen.</p><ul><li><strong>Kies vaker:</strong> rechthoekige of vierkante vormen met afgeronde hoeken, browline, wayfarer, iets bredere brug.</li><li><strong>Als je slanker wilt ogen:</strong> ga iets breder dan je jukbeenderen, maar niet breder dan je gezicht.</li><li><strong>Vermijd soms:</strong> hele kleine ronde monturen als je juist meer structuur wilt (ze benadrukken de rondheid).</li></ul><p>Wil je dit heel precies (met voorbeelden en extra tips):<a href=\"/pages/gezichtsvorm-rond\" title=\"gezichtsvorm-rond\"> bril bij ronde gezichtsvorm.</a></p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Ovaal gezicht: veel vrijheid, let op proportie",
+            "toc_label": "Ovaal",
+            "anchor": "ovaal-gezicht",
+            "body": "<p>Een ovaal gezicht wordt vaak als ‘in balans’ gezien. Daardoor kun je veel montuurvormen dragen, van rond tot vierkant. De belangrijkste regel is proportie: kies een montuur dat niet breder is dan je gezicht en dat prettig op je neusbrug rust.</p><ul><li><strong>Kies op stijl:</strong> panto, wayfarer, rond, rechthoekig, subtiel metaal of uitgesproken acetaat.</li><li><strong>Let extra op:</strong> de breedte van het montuur en de brugmaat, zodat het niet zakt of knelt.</li><li><strong>Vermijd soms:</strong> extreem smalle monturen (kunnen streng ogen) of overdreven oversized (kan je gezicht ‘verstoppen’).</li></ul><p>Verdieping met keuzes per look: <a href=\"/pages/gezichtsvorm-ovaal\" title=\"gezichtsvorm-ovaal\">bril bij ovale gezichtsvorm.</a></p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Vierkant gezicht: zachter maken met rond of ovaal",
+            "toc_label": "Vierkant",
+            "anchor": "vierkant-gezicht",
+            "body": "<p>Bij een vierkant gezicht zie je vaker een sterke, hoekige kaaklijn en duidelijke lijnen. Als je een montuur zoekt dat dat verzacht, werken ronde of ovale vormen vaak goed, omdat ze contrast geven met de hoeken van je gezicht.</p><ul><li><strong>Kies vaker:</strong> rond, ovaal, panto, dun metaal of acetaat met zachte hoeken.</li><li><strong>Als je juist sterk en strak wilt:</strong> een hoekig montuur kan ook, maar kies dan liever dunner of met afgeronde hoeken.</li><li><strong>Vermijd soms:</strong> heel boxy, dikke vierkante monturen als je al veel hoekigheid hebt en zachter wilt ogen.</li></ul><p>Meer voorbeelden en do’s/don’ts: <a href=\"/pages/gezichtsvorm-vierkant\" title=\"gezichtsvorm-vierkant\">bril bij vierkante gezichtsvorm.</a></p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Hartvormig gezicht: balans tussen voorhoofd en kin",
+            "toc_label": "Hart",
+            "anchor": "hartvormig-gezicht",
+            "body": "<p>Een hartvormig gezicht is vaak breder bij het voorhoofd en smaller richting kin. Monturen die niet te ‘top-heavy’ zijn, kunnen de balans versterken. Lichtere, ronde of ovale vormen voelen vaak rustig en geven een zachte uitstraling.</p><ul><li><strong>Kies vaker:</strong> ovale of ronde vormen, dun metaal, transparant acetaat, lichte rand.</li><li><strong>Let op:</strong> een bovenrand die niet overdreven breed is, zodat je voorhoofd niet extra wordt benadrukt.</li><li><strong>Vermijd soms:</strong> extreem brede bovenranden of heel zware browlines als je juist subtiel wilt blijven.</li></ul><p>Verdieping inclusief stylingtips: <a href=\"/pages/gezichtsvorm-hart\" title=\"gezichtsvorm-hart\">bril bij hartvormig gezicht</a></p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "De 10-seconden pasvormcheck (altijd doen)",
+            "anchor": "pasvormcheck",
+            "body": "<ul><li>Het montuur is niet breder dan je gezicht.</li><li>De onderrand raakt je wangen niet als je lacht.</li><li>De bril zakt niet direct bij bewegen of praten.</li><li>De pootjes drukken niet op je slapen en zitten stabiel achter je oren.</li></ul><p>Past het niet lekker? Dan is de <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">maat of brugmaat</a> waarschijnlijk belangrijker dan gezichtsvorm. Bij drukpunten of afzakken: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hulp bij pasvormproblemen.</a></p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Drie dingen die vaak belangrijker zijn dan gezichtsvorm",
+            "toc_label": "Belangrijker",
+            "anchor": "belangrijker-dan-gezichtsvorm",
+            "body": "<p>Gezichtsvorm helpt bij stijl, maar dit bepaalt vaak of je bril echt ‘goed’ voelt en er goed uitziet:</p><h3>1) Brilmaat en brug</h3><p>Te smal knelt, te breed zakt. De brug bepaalt of je bril hoog genoeg zit en je ogen mooi gecentreerd blijven. <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Lees meer over je brilmaat bepalen.</a></p><h3>2) Materiaal en gewicht</h3><p>Acetaat voelt anders dan metaal of titanium. Gewicht en flexibiliteit maken veel uit voor draagcomfort. <a href=\"/pages/materialen\" title=\"materialen\">Lees meer over materialen.</a></p><h3>3) Draagmoment</h3><p>Werk je veel achter een scherm, draag je je bril de hele dag, of vooral ’s avonds? Dan wil je een andere balans in comfort en look. <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Lees hoe je kunt ontdekken welke bril bij jou past.</a></p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe weet ik zeker welke gezichtsvorm ik heb?",
+            "a": "<p>Je hoeft het niet 100% zeker te weten. Kies één dominante eigenschap: is je kaak rond of hoekig, en waar zit de meeste breedte? Twijfel je tussen twee vormen, kies dan op je doel en doe de pasvormcheck.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik ook een ‘mix’ van gezichtsvormen hebben?",
+            "a": "<p>Ja. Veel gezichten vallen tussen twee vormen in. Gebruik de tabel als richting, maar laat comfort en proportie de doorslag geven.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Past een ronde bril bij een rond gezicht?",
+            "a": "<p>Dat kan, vooral als je juist een zachte look wilt. Als je meer structuur zoekt, geven hoekige vormen vaak meer balans. Het draait om wat jij mooier vindt en wat goed zit.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Is gezichtsvorm belangrijker dan brilmaat?",
+            "a": "<p>Nee. Maat en brug bepalen of je bril prettig zit en of hij niet zakt of knelt. Gezichtsvorm helpt vooral bij styling. </p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als mijn jukbeenderen hoog zijn en monturen mijn wangen raken?",
+            "a": "<p>Kies een montuur met genoeg glas-/hoogte en een onderrand die hoger of verder naar voren valt, zodat hij je wangen niet raakt bij lachen. Een iets andere maat of brug kan al veel oplossen.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke gezichtsvorm is ‘het beste’ voor brillen?",
+            "a": "<p>Er is geen beste. Elk gezicht kan goed staan met meerdere stijlen. Het gaat om balans, proportie en comfort, plus de look die jij wil neerzetten.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "sec-1",
+        "table-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "sec-6",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Gezichtsvorm en montuuradvies",
+        "kicker": "ADVIES",
+        "title": "Gezichtsvorm & bril kiezen: rond, ovaal, vierkant of hart",
+        "subtitle": "Bepaal je gezichtsvorm in 60 seconden en kies een montuur dat je look in balans brengt.",
+        "readtime": "7 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Gezichtsvorm is een handige start, geen harde regel. De simpelste aanpak: maak een selfie met je haar naar achteren, trek (in gedachten) een lijn langs je gezicht en kijk wat het meest opvalt: een ronde kaak, een hoekige kaak, of juist een zachtere, langere vorm. Kies daarna een montuur dat meestal contrasteert met je gezichtsvorm. Dat geeft vaak de meeste balans.</p><ul><li><strong>Rond gezicht:</strong> kies vaker hoekige vormen (rechthoekig, wayfarer, browline) voor meer structuur. Vermijd hele kleine ronde monturen.</li><li><strong>Vierkant gezicht:</strong> kies vaker rond of ovaal (panto, ronde hoeken) om scherpe lijnen te verzachten. Vermijd hele boxy, dikke vierkante monturen als je juist zachter wil ogen.</li><li><strong>Ovaal gezicht:</strong> je kunt veel vormen dragen; let vooral op proportie (niet breder dan je gezicht) en comfort.</li><li><strong>Hartvormig gezicht:</strong> kies vaker lichte, ronde/ovale vormen of monturen die niet top-heavy zijn. Vermijd extreem brede bovenranden als je voorhoofd al dominant is.</li></ul><p>Twijfel je tussen twee vormen? Ga dan minder op labels en meer op pasvorm: <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">een montuur dat goed zit (brug, breedte en pootjes)</a> maakt altijd het grootste verschil. Voor een snelle totaalcheck op stijl, maat en draagmoment: <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Welke bril past bij mij?</a></p>",
+        "howto_title": "Gezichtsvorm bepalen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Welke bril past bij mij?</a></li><li><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen.</a></li><li><a href=\"/pages/materialen\" title=\"materialen\">Materialen</a></li><li><a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Pasvormproblemen</a></li><li>Verdieping per gezichtsvorm: <a href=\"/pages/gezichtsvorm-rond\" title=\"gezichtsvorm-rond\">rond</a>, <a href=\"/pages/gezichtsvorm-ovaal\" title=\"gezichtsvorm-ovaal\">ovaal</a>, <a href=\"/pages/gezichtsvorm-vierkant\" title=\"gezichtsvorm-vierkant\">vierkant</a>, <a href=\"/pages/gezichtsvorm-hart\" title=\"gezichtsvorm-hart\">hart</a>.</li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

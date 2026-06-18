@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-about-jacq-apple",
+      "settings": {
+        "hero_image": "shopify://shop_images/image_2025-12-16_164854481.png",
+        "hero_image_alt": "Jacq Eyewear lifestyle",
+        "hero_eyebrow": "Over Jacq Eyewear",
+        "hero_title": "Een bril zou geen luxeproduct moeten zijn.",
+        "hero_subtitle": "Wij vonden dat dit anders kon.",
+        "why_title": "Waarom wij dit doen",
+        "why_text": "<p>De brillenwereld staat al jarenlang bekend om extreem hoge marges. Daardoor werd een bril op sterkte voor veel mensen onnodig duur. Terwijl boodschappen, energie en het dagelijks leven steeds meer kosten, vonden wij dat juist dit anders moest kunnen.</p><p>Een bril is geen accessoire voor af en toe. Je draagt hem elke dag. Dan moet hij goed zitten, prettig kijken en logisch geprijsd zijn.</p>",
+        "why_image": "shopify://shop_images/Gemini_Generated_Image_7wrsl77wrsl77wrs_1.jpg",
+        "why_image_alt": "Monturen detail",
+        "belief_title": "Onze overtuiging",
+        "belief_text": "<p>Wij geloven dat je niet hoeft te kiezen tussen stijl, comfort en een eerlijke prijs. Door het proces eenvoudiger te maken en transparant te zijn over keuzes in glas en coatings, houden we de kwaliteit hoog en de prijs logisch.</p>",
+        "what_title": "Wat Jacq Eyewear is",
+        "what_text": "<p><strong>Jacq Eyewear is een Nederlands brillenmerk gespecialiseerd in brillen op sterkte.</strong> Onze monturen zijn ontworpen voor dagelijks gebruik en geschikt voor verschillende glazenindexen. Alle brillen worden standaard geleverd met anti-reflectie en kraswerende coating, zodat je altijd helder en comfortabel kijkt.</p>",
+        "what_image": "shopify://shop_images/Ontwerp_zonder_titel_1_f4d93401-c3c0-4968-8518-4f56cfa868b8.webp",
+        "what_image_alt": "Productfoto montuur",
+        "how_title": "Hoe we werken",
+        "how_text": "<p>Niet meer opties dan nodig, maar wel genoeg om een bril te kiezen die past bij jouw gezicht, kijkgedrag en levensstijl. Of je nu veel achter een scherm zit, vaak autorijdt of je bril de hele dag draagt — wij zorgen dat de bril daarop aansluit.</p>",
+        "how_image": "shopify://shop_images/image_2025-12-16_170000085.png",
+        "how_image_alt": "Bril in dagelijks gebruik",
+        "trust_title": "Je ervaart een bril pas als je hem draagt.",
+        "trust_text": "<p>Daarom krijg je bij Jacq Eyewear <strong>100 dagen bedenktijd</strong>. Zo kun je je bril rustig ervaren in het dagelijks leven en zeker weten dat hij bij je past.</p>",
+        "trust_button_label": "Meer informatie",
+        "trust_button_link": "",
+        "signature": "Jacq Eyewear — eerlijke brillen op sterkte, zonder onnodige marges."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

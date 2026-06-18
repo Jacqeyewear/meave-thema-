@@ -1,0 +1,185 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check balans",
+            "body": "<p>Is je voorhoofd breder dan je kaak en loopt het toe naar een smallere kin? Dan zit je vaak richting hart.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies niet top-heavy",
+            "body": "<p>Ga voor lichte randen en zachte vormen zodat je voorhoofd niet extra nadruk krijgt.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Let op breedte",
+            "body": "<p>Breedte volgt je jukbeenderen en zit stabiel zonder te zakken.</p>"
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Hartvormig gezicht herkennen",
+            "toc_label": "Herkennen",
+            "anchor": "hart-herkennen",
+            "body": "<p>Een hartvormig gezicht is vaak breder aan de bovenkant (voorhoofd) en smaller richting de kin. Soms zie je ook een wat puntigere kin.</p><ul><li>Voorhoofd is relatief breed.</li><li>Kaak is smaller, kin kan puntiger zijn.</li><li>Jukbeenderen zijn vaak zichtbaar.</li></ul>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Snelle keuzehulp (hartvormig gezicht)",
+            "toc_label": "Keuzehulp",
+            "anchor": "keuzehulp-hart",
+            "col1": "Doel",
+            "col2": "Kies vaker",
+            "col3": "Vermijd soms",
+            "rows": "Balans|Rond/ovaal, panto, dun metaal|Extreem brede bovenrand\nSubtiel|Transparant acetaat, licht metaal|Heel dik donker acetaat boven\nStatement|Bovenlijn mag, maar subtiel|Top-heavy als je balans zoekt",
+            "note": "Richtlijn. Pasvorm en maat bepalen comfort en uitstraling."
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Monturen die vaak mooi staan bij een hartvormig gezicht",
+            "toc_label": "Monturen",
+            "anchor": "monturen-hart",
+            "body": "<p>Voor balans kies je vaak een montuur dat niet te zwaar is aan de bovenkant. Zachte vormen en lichtere materialen houden het rustig.</p><h3>Vormen die vaak goed werken</h3><ul><li><strong>Rond of ovaal:</strong> verzacht en houdt de aandacht in het midden van je gezicht.</li><li><strong>Panto:</strong> premium en vriendelijk, vaak mooi bij smallere kinnen.</li><li><strong>Dun metaal:</strong> licht en minimal. Lees <a href=\"/pages/materialen\" title=\"materialen\">hier </a>meer over materialen.</li></ul><h3>Wanneer een bovenlijn wel kan</h3><p>Wil je juist meer statement, dan kan een montuur met bovenlijn ook. Kies dan bij voorkeur niet extreem breed en niet te dik.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Proportie: laat je jukbeenderen de breedte bepalen",
+            "toc_label": "Proportie",
+            "anchor": "proportie-hart",
+            "body": "<p>Bij hartvormig is het verleidelijk om te kiezen op het voorhoofd, maar dat maakt de bovenkant vaak nog dominanter. Een handige richtlijn is: laat de breedte aansluiten bij je jukbeenderen.</p><ul><li><strong>Breedte:</strong> volgt je jukbeenderen, niet je voorhoofd.</li><li><strong>Rand:</strong> liever licht of transparant als je het subtiel wil houden.</li><li><strong>Brug:</strong> voorkomt zakken, zeker bij lichte monturen.</li></ul><p>Check je huidige maat op het pootje (bijv. 52-18-140). Lees <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">hier </a>meer over je brilmaat bepalen.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Materialen en kleuren die rustig en premium ogen",
+            "toc_label": "Materiaal",
+            "anchor": "materiaal-hart",
+            "body": "<p>Als je voorhoofd relatief breed is, helpt het om de bovenrand optisch lichter te houden.</p><ul><li><strong>Transparant of licht </strong><a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\"><strong>acetaat</strong></a><strong>:</strong> minder ‘top-heavy’.</li><li><strong>Dun metaal/</strong><a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\"><strong>titanium</strong></a><strong>:</strong> clean, licht en comfortabel. </li><li><strong>Donkere bovenrand:</strong> kan mooi zijn als statement, maar kies niet te dik als je balans zoekt.</li></ul>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Veelgemaakte fouten bij hartvormig",
+            "toc_label": "Fouten",
+            "anchor": "fouten-hart",
+            "body": "<ul><li><strong>Heel brede bovenrand:</strong> maakt je voorhoofd optisch breder.</li><li><strong>Te zwaar acetaat boven:</strong> kan dominant worden.</li><li><strong>Te brede brug:</strong> bril zakt, ogen lijken lager te staan. Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hier </a>meer over pasvormproblemen</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snel advies: voorkom ‘top-heavy’",
+            "anchor": "top-heavy",
+            "body": "<p>Als je voorhoofd al breder is, voelt een heel dikke bovenrand vaak snel ‘top-heavy’. Kies lichter materiaal, transparant acetaat of dun metaal voor een cleanere balans.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke bril past bij een hartvormig gezicht?",
+            "a": "<p>Vaak werken ronde/ovale vormen en lichte materialen goed, omdat ze niet te top-heavy zijn. Panto is ook vaak een mooie middenweg.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan een browline bij een hartvormig gezicht?",
+            "a": "<p>Dat kan, vooral als je statement wilt. Kies dan wel een subtiele variant en niet extreem breed, zodat het niet te top-heavy wordt.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke kleur montuur is het meest flatterend?",
+            "a": "<p>Lichtere of transparante kleuren houden de bovenkant rustig. Donker kan ook, maar kies dan liever niet te dik als je balans zoekt.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Mijn bril zakt snel, hoe komt dat?",
+            "a": "<p>Vaak is de brug te breed of de pootstand niet goed. Dit is meestal een pasvorm/maat issue.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als ik tussen ovaal en hart zit?",
+            "a": "<p>Gebruik beide adviezen. Kies op je doel: balans boven, of juist statement. Proportie en comfort blijven leidend.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Is gezichtsvorm belangrijker dan pasvorm?",
+            "a": "<p>Nee. Gezichtsvorm helpt bij styling, pasvorm bepaalt comfort en hoe de bril op je gezicht staat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "sec-1",
+        "table-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: gezichtsvorm hart",
+        "kicker": "ADVIES",
+        "title": "Bril voor hartvormig gezicht: kies balans zonder top-heavy look",
+        "subtitle": "Breder voorhoofd en smallere kin? Kies in 3 stappen een montuur dat je gezicht in balans brengt.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Bij een hartvormig gezicht is het voorhoofd vaak wat breder en loopt je gezicht smaller toe naar de kin. Voor balans werken monturen die niet te top-heavy zijn vaak goed. Denk aan lichte, ronde of ovale vormen, of frames met een subtiele bovenrand.</p><ul><li><strong>Meestal mooi bij hart:</strong> rond/ovaal, panto, dun metaal, transparant acetaat.</li><li><strong>Let op:</strong> vermijd extreem brede of zware bovenranden als je voorhoofd al dominant is.</li><li><strong>Proportie:</strong> kies een breedte die je jukbeenderen volgt, niet die van je voorhoofd.</li></ul><p>Twijfel je, begin bij <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">maat </a>en pasvorm. </p>",
+        "howto_title": "Zo kies je een bril voor een hartvormig gezicht",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li>Terug naar overzicht: <a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">gezichtsvormen</a>.</li><li>Brilmaat en cijfers:<a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\"> brilmaat bepalen.</a></li><li>Problemen met afzakken/drukpunten: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</li><li>Materiaal en gewicht: <a href=\"/pages/materialen\" title=\"materialen\">materialen</a>.</li><li>Snelle keuzehulp: <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">welke bril past bij mij?</a></li></ul><p>Andere vormen: <a href=\"/pages/gezichtsvorm-rond\" title=\"gezichtsvorm-rond\">rond</a>, <a href=\"/pages/gezichtsvorm-ovaal\" title=\"gezichtsvorm-ovaal\">ovaal</a>, <a href=\"/pages/gezichtsvorm-vierkant\" title=\"gezichtsvorm-vierkant\">vierkant</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

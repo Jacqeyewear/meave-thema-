@@ -1,0 +1,322 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_D7dEha": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Q9pjXA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Heb je een leesbril nodig? Zo herken je het en kies je goed",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "text",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_ireHAH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Merk je dat kleine letters net wat meer moeite kosten? Je houdt je telefoon iets verder weg, zoekt extra licht of knijpt je ogen half dicht. Grote kans dat je <strong>presbyopie</strong> speelt: een normale verandering waarbij je ooglens rond je veertigste minder flexibel wordt, waardoor dichtbij lezen lastiger gaat. Geen zorgen, het is heel gebruikelijk en goed op te lossen met de juiste glazen.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Q9pjXA",
+        "text_ireHAH"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "center",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "image_with_text_nbQ3fB": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_jKYwBr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Zo herken je het",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_EiEEUB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>De eerste stap is herkennen wat je dagelijks ervaart. Je leest menu’s of berichten niet in één keer scherp, je ogen voelen sneller vermoeid en na lang dichtbij kijken is je zicht even mistig. Moet je teksten op armlengte houden om ze te ontcijferen, dan is dat een klassiek signaal dat je <strong>hulp voor dichtbij</strong> nodig hebt.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_4UNndD": {
+          "type": "button",
+          "settings": {
+            "button_label": "Brillen op sterkte",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_jKYwBr",
+        "text_EiEEUB",
+        "button_4UNndD"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-vinicius-wiesehofer-289347-1130626.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "multicolumn_with_icons_X8ddFy": {
+      "type": "multicolumn-with-icons",
+      "blocks": {
+        "column_FC9FVQ": {
+          "type": "column",
+          "settings": {
+            "icon": "ruler_2",
+            "custom_icon": "",
+            "heading": "<em>Wazig van dichtbij</em>",
+            "text": "<p>Als een menu, boek of appje extra moeite kost of onduidelijk blijft, is dat een duidelijk signaal.<br/></p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "column_7dTa6p": {
+          "type": "column",
+          "settings": {
+            "icon": "alert",
+            "custom_icon": "",
+            "heading": "<em>Regelmatige hoofdpijn</em>",
+            "text": "<p>Veel knijpen of turen om scherp te stellen kan hoofdpijn geven, zeker na werk op korte afstand.</p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "column_w7KQkm": {
+          "type": "column",
+          "settings": {
+            "icon": "eye",
+            "custom_icon": "",
+            "heading": "<em>Vermoeide of gevoelige ogen</em>",
+            "text": "<p>Voelen je ogen na een tijdje lezen moe of pijnlijk, dan werken je oogspieren waarschijnlijk te hard om te compenseren.</p>",
+            "highlighted_text": "underline",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "column_FC9FVQ",
+        "column_7dTa6p",
+        "column_w7KQkm"
+      ],
+      "name": "t:sections.multicolumn-with-icons.name",
+      "settings": {
+        "style": "with-border",
+        "columns": 3,
+        "text_alignment": "left",
+        "heading": "Leesbril checklist",
+        "heading_size": "title-md",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "#fafafa",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "image_with_text_Mne9BV": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zGDR6w": {
+          "type": "heading",
+          "settings": {
+            "heading": "Comfort",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_GrWeWj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Een goed montuur maakt het af. Kies een vorm en maat die prettig zit en je kijkafstand ondersteunt; met de juiste pasvorm voelt lezen weer vanzelfsprekend aan. Vind je comfort in de avond belangrijk, dan kan een <strong>ontspiegeling</strong> veel rust geven bij kunstlicht. Een <strong>blauwlichtfilter</strong> kan subjectief prettig kijken op scherm opleveren, maar zie het vooral als comfortkeuze—niet als medische noodzaak.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_8aJQx4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Brillen op sterkte",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_zGDR6w",
+        "text_GrWeWj",
+        "button_8aJQx4"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-george-milton-7034053.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_D7dEha",
+    "image_with_text_nbQ3fB",
+    "multicolumn_with_icons_X8ddFy",
+    "image_with_text_Mne9BV"
+  ]
+}

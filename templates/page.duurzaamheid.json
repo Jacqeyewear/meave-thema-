@@ -1,0 +1,250 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_xC8qV7": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_CTYWp9": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Duurzaamheidsprogramma",
+            "subheading_size": "subtitle-md",
+            "secondary_color": true
+          }
+        },
+        "heading_Uxf9Cr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Geef je bril een <em>tweede</em> leven",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "scribble",
+            "highlighted_scribble": "basic-underline"
+          }
+        },
+        "text_NGA3Jq": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_CTYWp9",
+        "heading_Uxf9Cr",
+        "text_NGA3Jq"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "transparent_header": false,
+        "image": "shopify://shop_images/pexels-cottonbro-6590930.jpg",
+        "image_height": "700px",
+        "content_width": "medium",
+        "content_position": "md:items-end md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_highlight": "#ffa816",
+        "gradient_highlight": "",
+        "color_button_text": "#171717",
+        "color_button_background": "#ffffff",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 70,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "susty": {
+      "type": "jacq-sustainability",
+      "blocks": {
+        "step1": {
+          "type": "step",
+          "settings": {
+            "icon": "📦",
+            "title": "Vraag retour aan",
+            "text": "Ontvang direct je label."
+          }
+        },
+        "step2": {
+          "type": "step",
+          "settings": {
+            "icon": "🛠️",
+            "title": "Wij verwerken",
+            "text": "We demonteren & sorteren."
+          }
+        },
+        "step3": {
+          "type": "step",
+          "settings": {
+            "icon": "🎟️",
+            "title": "Krijg 10% korting",
+            "text": "Je ontvangt je kortingscode."
+          }
+        },
+        "step4": {
+          "type": "step",
+          "settings": {
+            "icon": "🤝",
+            "title": "Doneer aan partner",
+            "text": "Opbrengst naar Voedselbank."
+          }
+        },
+        "stat1": {
+          "type": "stat",
+          "settings": {
+            "value": "€8.000",
+            "label": "gedoneerd"
+          }
+        },
+        "stat2": {
+          "type": "stat",
+          "settings": {
+            "value": "2.300",
+            "label": "brillen verwerkt"
+          }
+        }
+      },
+      "block_order": [
+        "step1",
+        "step2",
+        "step3",
+        "step4",
+        "stat1",
+        "stat2"
+      ],
+      "settings": {
+        "color_scheme": "default",
+        "eyebrow": "Duurzaamheid",
+        "heading": "Retour & Donatie",
+        "lead": "Eenvoudig retour. Echte impact.",
+        "body": "<p>Ben je uitgekeken op je bril? Stuur hem terug. Wij demonteren, hergebruiken en doneren de opbrengst.</p>",
+        "discount_badge": "10% korting",
+        "cta_label": "Start retour",
+        "cta_link": "/pages/retour",
+        "cta2_label": "Lees meer",
+        "cta2_link": "",
+        "video_url": "https://www.youtube.com/watch?v=0Oilgo5cLB0",
+        "partner_name": "Voedselbank",
+        "accent": "#ffa816",
+        "accent2": "#ffffff",
+        "bg_tint": "#ffffff",
+        "pad_m": 44,
+        "pad_d": 88
+      }
+    },
+    "impact": {
+      "type": "jacq-impact",
+      "blocks": {
+        "ring_BUnqhg": {
+          "type": "ring",
+          "settings": {
+            "label": "Materiaal hergebruikt",
+            "value_pct": 72,
+            "cap_text": "van reststromen",
+            "note": "Frames, schroeven, metalen"
+          }
+        },
+        "kpi_btqmfL": {
+          "type": "kpi",
+          "settings": {
+            "label": "Gedoneerd",
+            "value": "€8.000",
+            "unit": "",
+            "note": "Netto-opbrengst aan Voedselbank"
+          }
+        },
+        "compare_AtQw4m": {
+          "type": "compare",
+          "settings": {
+            "label": "CO₂-intensiteit",
+            "note": "t.o.v. nieuwproductie (indicatief)",
+            "a_label": "Nieuwproductie",
+            "a_pct": 100,
+            "b_label": "Jacq Circulair",
+            "b_pct": 62
+          }
+        }
+      },
+      "block_order": [
+        "ring_BUnqhg",
+        "kpi_btqmfL",
+        "compare_AtQw4m"
+      ],
+      "settings": {
+        "color_scheme": "default",
+        "heading": "Onze impact in cijfers",
+        "sub": "Transparant, tastbaar en up-to-date.",
+        "foot": "<p>Cijfers op basis van interne metingen en marktgemiddelden.</p>",
+        "accent": "#ffa816",
+        "pad_m": 44,
+        "pad_d": 88
+      }
+    },
+    "faq": {
+      "type": "jacq-faq",
+      "blocks": {
+        "q1": {
+          "type": "item",
+          "settings": {
+            "question": "Hoe vraag ik een retourlabel aan?",
+            "answer": "<p>Klik op ‘Start retour’, vul je gegevens in en je ontvangt een label per e-mail.</p>"
+          }
+        },
+        "q2": {
+          "type": "item",
+          "settings": {
+            "question": "Wanneer krijg ik mijn 10% korting?",
+            "answer": "<p>Zodra je retour is verwerkt, sturen we je automatisch een code.</p>"
+          }
+        },
+        "q3": {
+          "type": "item",
+          "settings": {
+            "question": "Wat gebeurt er met mijn bril?",
+            "answer": "<p>We demonteren de bril en verkopen de materialen. De opbrengst doneren we aan de Voedselbank.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "heading": "Veelgestelde vragen"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_xC8qV7",
+    "susty",
+    "impact",
+    "faq"
+  ]
+}

@@ -1,0 +1,156 @@
+{% comment %}
+  JACQ – Brillengids (hub grid)
+  CLEAN VERSION (geen snippet nodig)
+  Plaats dit bestand in: sections/jacq-brillengids.liquid
+  Gebruik samen met het paginasjabloon hieronder: templates/page.brillengids.json
+{% endcomment %}
+
+<section id="jacq-brillengids" class="jacq-brillengids">
+  <div class="page-width">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <header class="jacq-header">
+        {% if section.settings.heading != blank %}
+          <h1 class="jacq-title">{{ section.settings.heading }}</h1>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="jacq-sub">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    {% assign limit = section.settings.limit | default: 6 %}
+    {% assign shown = 0 %}
+
+    {% if section.settings.blog == blank %}
+      {% if request.design_mode %}
+        <div class="jacq-placeholder">
+          Selecteer een <strong>blog</strong> in de instellingen (bijv. “Brillengids”).
+        </div>
+      {% endif %}
+    {% else %}
+      {% assign filters_raw = section.settings.tags | strip | downcase %}
+      {% assign filters = filters_raw | split: ',' %}
+      {% assign use_filter = false %}
+      {% if filters_raw != '' and filters.size > 0 %}
+        {% assign use_filter = true %}
+      {% endif %}
+
+      <div class="jacq-grid" style="--ratio: {{ section.settings.ratio }}; --radius: {% if section.settings.rounded %}16px{% else %}0{% endif %};">
+        {% for a in section.settings.blog.articles %}
+          {% if shown >= limit %}{% break %}{% endif %}
+
+          {% assign show_article = true %}
+          {% if use_filter %}
+            {% assign tag_string = a.tags | join: ',' | downcase %}
+            {% assign match = false %}
+            {% for f in filters %}
+              {% assign f2 = f | strip %}
+              {% if f2 != '' and tag_string contains f2 %}
+                {% assign match = true %}
+              {% endif %}
+            {% endfor %}
+            {% unless match %}{% assign show_article = false %}{% endunless %}
+          {% endif %}
+
+          {% if show_article %}
+            <a class="jacq-card" href="{{ a.url }}" aria-label="{{ a.title | escape }}">
+              <div class="jacq-media">
+                {% if a.image %}
+                  {% assign img = a.image %}
+                  <img
+                    src="{{ img | image_url: width: 960 }}"
+                    srcset="{{ img | image_url: width: 480 }} 480w, {{ img | image_url: width: 720 }} 720w, {{ img | image_url: width: 960 }} 960w, {{ img | image_url: width: 1280 }} 1280w, {{ img | image_url: width: 1600 }} 1600w"
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    alt="{{ img.alt | default: a.title | escape }}"
+                    loading="lazy" width="960" height="1200">
+                {% else %}
+                  <div aria-hidden="true" style="width:100%;height:100%;background:linear-gradient(135deg,#eceff3,#f7f8fa)"></div>
+                {% endif %}
+                <span class="jacq-overlay" aria-hidden="true"></span>
+                <div class="jacq-content">
+                  {% if section.settings.show_tag and a.tags.size > 0 %}
+                    <span class="jacq-tag">{{ a.tags.first }}</span>
+                  {% endif %}
+                  <h3 class="jacq-title-sm">{{ a.title }}</h3>
+                  {% if section.settings.show_meta %}
+                    {% assign words = a.content | strip_html | split: ' ' | size %}
+                    {% assign minutes = words | divided_by: 200 %}
+                    {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+                    <div class="jacq-meta">± {{ minutes }} min leestijd</div>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+            {% assign shown = shown | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if shown == 0 and request.design_mode %}
+        <div class="jacq-placeholder">Geen artikelen gevonden. Controleer je <strong>tags</strong> of verlaag het filter.</div>
+      {% endif %}
+    {% endif %}
+
+    {% if section.settings.cta_label != blank and section.settings.cta_url != blank %}
+      <div class="jacq-cta">
+        <a href="{{ section.settings.cta_url }}" class="jacq-btn">{{ section.settings.cta_label }}</a>
+      </div>
+    {% endif %}
+  </div>
+
+  <style>
+    #shopify-section-{{ section.id }} .jacq-header{max-width:900px;margin:0 auto 1.25rem auto;text-align:center}
+    #shopify-section-{{ section.id }} .jacq-title{font-size:clamp(1.75rem,2.4vw,2.25rem);line-height:1.1;margin:0 0 .5rem 0}
+    #shopify-section-{{ section.id }} .jacq-sub{color:rgba(0,0,0,.68);margin:0 auto 1.25rem auto}
+
+    #shopify-section-{{ section.id }} .jacq-placeholder{background:#f7f8fb;border:1px dashed rgba(0,0,0,.15);padding:16px;border-radius:12px;text-align:center}
+
+    #shopify-section-{{ section.id }} .jacq-grid{display:grid;gap:22px}
+    @media (min-width: 640px){#shopify-section-{{ section.id }} .jacq-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (min-width: 1024px){#shopify-section-{{ section.id }} .jacq-grid{grid-template-columns:repeat(3,1fr)}}
+
+    #shopify-section-{{ section.id }} .jacq-card{position:relative;display:block;border-radius:var(--radius);overflow:hidden;background:#f4f5f6}
+    #shopify-section-{{ section.id }} .jacq-media{position:relative;inset:0;aspect-ratio:var(--ratio);overflow:hidden;border-radius:var(--radius)}
+    #shopify-section-{{ section.id }} .jacq-media>img{width:100%;height:100%;object-fit:cover;display:block}
+    #shopify-section-{{ section.id }} .jacq-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.55) 100%)}
+    #shopify-section-{{ section.id }} .jacq-content{position:absolute;left:12px;right:12px;bottom:12px;color:#fff;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+    #shopify-section-{{ section.id }} .jacq-tag{display:inline-block;background:rgba(255,255,255,.2);backdrop-filter:saturate(120%);padding:2px 8px;border-radius:999px;font-size:.75rem;line-height:1;margin:0 0 6px 0}
+    #shopify-section-{{ section.id }} .jacq-title-sm{font-size:clamp(1rem,1.4vw,1.25rem);line-height:1.15;margin:0}
+    #shopify-section-{{ section.id }} .jacq-meta{opacity:.9;font-size:.85rem;margin-top:6px}
+
+    #shopify-section-{{ section.id }} .jacq-cta{margin-top:24px;text-align:center}
+    #shopify-section-{{ section.id }} .jacq-btn{display:inline-block;padding:12px 18px;border-radius:999px;text-decoration:none;border:1px solid rgba(0,0,0,.15)}
+    #shopify-section-{{ section.id }} .jacq-btn:hover{border-color:rgba(0,0,0,.3)}
+
+    @media (prefers-color-scheme: dark){
+      #shopify-section-{{ section.id }} .jacq-sub{color:rgba(255,255,255,.75)}
+      #shopify-section-{{ section.id }} .jacq-btn{border-color:rgba(255,255,255,.25);color:inherit}
+      #shopify-section-{{ section.id }} .jacq-btn:hover{border-color:rgba(255,255,255,.5)}
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "JACQ – Brillengids",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titel", "default": "Brillengids" },
+    { "type": "textarea", "id": "subheading", "label": "Subtitel", "default": "Korte, heldere gidsen over oogklachten, glazen en pasvorm—door onze opticien." },
+    { "type": "blog", "id": "blog", "label": "Kies blog (bijv. Brillengids)" },
+    { "type": "text", "id": "tags", "label": "Filter op tags (komma-gescheiden)", "info": "Laat leeg om alles te tonen. Voorbeeld: Oogklachten, Brillen kiezen" },
+    { "type": "range", "id": "limit", "label": "Aantal artikelen", "min": 1, "max": 24, "step": 1, "default": 6 },
+    { "type": "checkbox", "id": "show_tag", "label": "Toon categorie/tag", "default": true },
+    { "type": "checkbox", "id": "show_meta", "label": "Toon leestijd", "default": true },
+    { "type": "select", "id": "ratio", "label": "Afbeeldingsverhouding", "options": [
+      {"value": "4/5", "label": "4:5 (aanr.)"},
+      {"value": "1/1", "label": "1:1"},
+      {"value": "16/9", "label": "16:9"}
+    ], "default": "4/5" },
+    { "type": "checkbox", "id": "rounded", "label": "Afgeronde hoeken", "default": true },
+    { "type": "text", "id": "cta_label", "label": "CTA label (optioneel)" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [ { "name": "JACQ – Brillengids" } ]
+}
+{% endschema %}

@@ -1,0 +1,289 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_mBUXaB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_crEyKa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vermoeide, rode of wazige ogen: wat kun je zelf doen?",
+            "heading_size": "title-md",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "squiggle-underline"
+          }
+        },
+        "text_Lwd9jt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Veel achter een scherm? Droge, branderige of wazige ogen komen vaak voor. Hier vind je snelle tips, wanneer je beter laat meten en welke glazen comfort geven.</p><p><br/><em><strong>Let op: Dit is algemeen advies. Bij aanhoudende pijn, lichtflitsen of plots wazig zien: laat je direct checken.</strong></em></p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "text",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_crEyKa",
+        "text_Lwd9jt"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 80,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "image_with_text_tnT8cX": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_YTm7gt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>De grootste boosdoener is langdurig focussen op één afstand. Je knippert minder, de traanfilm droogt sneller uit en lichtreflecties maken het zwaarder voor je ogen. Een oude of net-niet sterkte helpt ook niet mee.</p><p>Begin vandaag nog met de 20-20-20-regel: elke twintig minuten twintig seconden naar iets op zes meter kijken. Knipper bewust wat vaker, stel je scherm op ooghoogte, verhoog het contrast en vermijd schittering. Schone glazen lezen rustiger dan je denkt. Microvezeldoekje, klaar.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_4z9YrV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Brillen op sterkte",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "text_YTm7gt",
+        "button_4z9YrV"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-cottonbro-9063395.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_fbjw6w": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_qmN34w": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Over blauwlicht: het filtert vooral de koelblauwe tint van schermen. Wetenschappelijk bewijs dat het vermoeidheid voorkomt is gemengd, maar veel mensen ervaren wél meer kijkcomfort, vooral ’s avonds. Zie het als een comfortoptie. Ontspiegeling en een harde coating pakken tegelijk schittering en krassen aan voor nog meer rust.<br/></p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_xdWWQ8": {
+          "type": "button",
+          "settings": {
+            "button_label": "Blauwlichtbrillen",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "text_qmN34w",
+        "button_xdWWQ8"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-kampus-7414092.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "text_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "image_with_text_Xph4kx": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_jCEzmk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>De juiste glazen maken een groot verschil. Unifocaal ingesteld op jouw werkafstand geeft rust aan je schermwerk. Wissel je dichtbij en veraf af, dan zijn progressieve glazen handig. Ontspiegeling, hydro/oleofobe lagen en eventueel een blauwlichtfilter tillen het comfort nog een stap hoger.</p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_Q6zmKr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Multifocale brillen",
+            "button_link": "",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        }
+      },
+      "block_order": [
+        "text_jCEzmk",
+        "button_Q6zmKr"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "image": "shopify://shop_images/pexels-danxavier-1239291.jpg",
+        "image_height": "600px",
+        "image_width": "medium",
+        "layout": "image_first",
+        "text_alignment": "left",
+        "content_position": "align-self-center",
+        "image_height_mobile": "auto",
+        "text_alignment_mobile": "left",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_background_2": "",
+        "gradient_background_2": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_mBUXaB",
+    "image_with_text_tnT8cX",
+    "image_with_text_fbjw6w",
+    "image_with_text_Xph4kx"
+  ]
+}

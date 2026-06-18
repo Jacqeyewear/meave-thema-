@@ -1,0 +1,219 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "jacq-lp-hero",
+      "settings": {}
+    },
+    "reassurance": {
+      "type": "jacq-lp-reassurance",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "icon": "calendar",
+            "title": "100 dagen thuis proefdragen",
+            "text": "Draag je bril rustig in je eigen dagelijks leven en bepaal daarna pas of hij blijft."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "icon": "return",
+            "title": "Niet goed, geld terug",
+            "text": "Past de bril toch niet bij je? Stuur hem terug en je krijgt je geld retour."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "title": "2 jaar garantie",
+            "text": "Op montuur en glazen, zodat je zorgeloos kunt dragen."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "icon": "truck",
+            "title": "Gratis verzending in NL",
+            "text": "Je bestelling komt zonder verzendkosten bij je thuis."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "bg": "white",
+        "accent": "#FFA816",
+        "heading": "Online kopen, zonder risico",
+        "sub": "Je probeert je bril rustig thuis uit. Past hij niet, dan regelen wij het.",
+        "pad_m": 44,
+        "pad_d": 80
+      }
+    },
+    "quality": {
+      "type": "jacq-lp-quality",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "swatchbook",
+            "title": "Monturen in titanium, acetaat en metaal",
+            "text": "Lichtgewicht, sterk en comfortabel om de hele dag te dragen."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "lightning",
+            "title": "Glazen met anti-reflectie en kraswerende coating",
+            "text": "Standaard ontspiegeld, zodat je helder en rustig kijkt."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "eye",
+            "title": "Glasindex tot 1.74 voor dunne glazen",
+            "text": "Enkelvoudig en multifocaal, ook bij een hogere sterkte."
+          }
+        },
+        "p4": {
+          "type": "point",
+          "settings": {
+            "icon": "ruler",
+            "title": "Op maat geslepen in ons eigen lens lab",
+            "text": "Elke bril wordt op jouw sterkte geslepen en gecontroleerd."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "bg": "light",
+        "accent": "#FFA816",
+        "eyebrow": "De bril zelf",
+        "heading": "Kwaliteit die je ziet en voelt",
+        "intro": "<p>Materiaal en specificaties dragen het verhaal. Geen grote woorden, wel doordachte keuzes in elk montuur en elk glas.</p>",
+        "image_position": "left",
+        "image_alt": "Detail van montuur en glas",
+        "pad_m": 44,
+        "pad_d": 88
+      }
+    },
+    "shipping": {
+      "type": "jacq-lp-shipping",
+      "blocks": {
+        "f1": {
+          "type": "feature",
+          "settings": {
+            "icon": "time",
+            "title": "Op maat gemaakt, levertijd 7-10 werkdagen",
+            "text": "Je bril wordt speciaal voor jou geslepen en gemonteerd."
+          }
+        },
+        "f2": {
+          "type": "feature",
+          "settings": {
+            "icon": "gift",
+            "title": "Zorgvuldig verpakt",
+            "text": "Met aandacht ingepakt, zodat uitpakken aanvoelt als een cadeau."
+          }
+        },
+        "f3": {
+          "type": "feature",
+          "settings": {
+            "icon": "box",
+            "title": "Inclusief hardcase en schoonmaakdoekje",
+            "text": "Alles wat je nodig hebt om je bril veilig te bewaren en schoon te houden."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "settings": {
+        "bg": "dark",
+        "accent": "#FFA816",
+        "eyebrow": "Verzending & verzorging",
+        "heading": "Met zorg gemaakt en verpakt",
+        "intro": "<p>Geen anonieme webshop. Je bril wordt voor jou gemaakt en met aandacht ingepakt, zodat het uitpakken aanvoelt als een cadeau.</p>",
+        "image_position": "left",
+        "image_alt": "Zorgvuldig verpakte bril van Jacq",
+        "pad_m": 48,
+        "pad_d": 96
+      }
+    },
+    "social_proof": {
+      "type": "jacq-lp-social-proof",
+      "blocks": {
+        "q1": {
+          "type": "quote",
+          "settings": {
+            "text": "Mijn bril paste meteen perfect en de glazen zijn haarscherp. Alles was met zorg verpakt.",
+            "author": "Sanne uit Utrecht"
+          }
+        },
+        "q2": {
+          "type": "quote",
+          "settings": {
+            "text": "Twijfelde over online kopen, maar de 100 dagen proeftijd gaf rust. Top advies en snelle levering.",
+            "author": "Mark uit Rotterdam"
+          }
+        },
+        "q3": {
+          "type": "quote",
+          "settings": {
+            "text": "Voelt als een echte opticien, maar dan gewoon thuis. Heel blij met mijn multifocale bril.",
+            "author": "Esther uit Eindhoven"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "bg": "white",
+        "accent": "#FFA816",
+        "heading": "Wat klanten over Jacq zeggen",
+        "sub": "Echte ervaringen van mensen die hun bril thuis ontvingen.",
+        "rating_text": "Uitstekend beoordeeld",
+        "pad_m": 44,
+        "pad_d": 80
+      }
+    },
+    "final_cta": {
+      "type": "jacq-lp-final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "reassurance",
+    "quality",
+    "shipping",
+    "social_proof",
+    "final_cta"
+  ]
+}

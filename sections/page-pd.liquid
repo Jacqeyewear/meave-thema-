@@ -1,0 +1,1271 @@
+{% comment %}
+  JACQ — Page: Pupilafstand (PD) Meten — Premium SEO-Optimized
+  - Typography-first hero (no image)
+  - Interactive method tabs
+  - Inline SVG eye diagram
+  - 2×2 mistake grid with icons
+  - FAQ accordion with smooth CSS transitions
+  - Floating dark CTA card with decorative logotype
+  - Sticky bottom CTA bar
+  - JSON-LD structured data (BreadcrumbList, FAQPage, HowTo)
+  - Full keyboard accessibility, ARIA labels
+  - Mobile-first responsive
+{% endcomment %}
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jacqeyewear.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Advies", "item": "https://jacqeyewear.nl/pages/advies" },
+    { "@type": "ListItem", "position": 3, "name": "Pupilafstand meten", "item": "https://jacqeyewear.nl/pages/pupil-afstand-meten" }
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat als ik 2 PD-getallen heb, zoals 31/32?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dat zijn je monopupillaire afstanden: de afstand van elk oog apart tot het midden van je neus. Rechts is meestal iets groter dan links. Vul ze gewoon apart in bij het bestellen. Heb je maar één getal, dan is dat je totale PD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ik heb geen recept. Wat nu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gebruik methode 1 (liniaal) of methode 2 (pasje + foto). Beide leveren een nauwkeurige meting op als je de instructies volgt. Meet 3× en neem het gemiddelde voor de beste uitkomst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ik zit tussen twee waardes in. Welke kies ik?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rond af naar het dichtstbijzijnde hele getal. Bij twijfel: kies het kleinste. Bij hogere sterktes (boven ±3.0) is nauwkeurigheid extra belangrijk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat gebeurt er als mijn PD niet klopt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Een onjuiste PD zorgt dat de optische centra van je glazen niet voor je pupillen zitten. Dat kan leiden tot wazig zicht, dubbelzien of hoofdpijn. Bij lage sterktes (onder ±1.5) merk je het nauwelijks; bij hogere sterktes wel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe nauwkeurig moet mijn PD zijn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voor sterktes tot ±2.0 is een afwijking van 1–2 mm meestal geen probleem. Daarboven is precisie belangrijker. Twijfel je? Meet vaker en neem het gemiddelde, of vraag het je opticien."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- JSON-LD: HowTo (Method 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Pupilafstand meten met een liniaal en spiegel",
+  "description": "Meet je pupilafstand (PD) thuis in 60 seconden met een liniaal en spiegel. Nauwkeurig en zonder opticien.",
+  "totalTime": "PT1M",
+  "supply": [
+    { "@type": "HowToSupply", "name": "Liniaal (met millimeters)" },
+    { "@type": "HowToSupply", "name": "Spiegel" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Positie innemen",
+      "text": "Ga recht voor een spiegel staan. Hoofd stil, schouders recht."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Liniaal plaatsen",
+      "text": "Houd een liniaal horizontaal op je neusbrug, net onder je ogen."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Afstand aflezen",
+      "text": "Sluit één oog, zet 0 op het midden van je pupil en lees met het andere oog de afstand tot het midden van je andere pupil (in mm)."
+    }
+  ]
+}
+</script>
+
+<article class="jpd" data-section-id="{{ section.id }}" lang="nl">
+
+  <!-- ═══════════════════════════════════════════════
+       1. HERO — typography-only, no image
+       ═══════════════════════════════════════════════ -->
+  <header class="jpd-hero">
+    <div class="jpd-wrap">
+      <nav class="jpd-breadcrumb jpd-reveal" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/advies">Advies</a></li>
+          <li aria-current="page">Pupilafstand meten</li>
+        </ol>
+      </nav>
+
+      <div class="jpd-hero__content jpd-reveal">
+        <span class="jpd-label"><span class="jpd-label__dot" aria-hidden="true"></span>SERVICE</span>
+        <h1 class="jpd-h1">Pupilafstand meten: 3 methodes die werken</h1>
+        <p class="jpd-lead">De meting die je online het vaakst nodig hebt. Zo meet je 'm thuis betrouwbaar, zonder opticien, in 60 seconden.</p>
+        <div class="jpd-meta">
+          <span>4 min leestijd</span>
+          <span class="jpd-meta__sep" aria-hidden="true">&middot;</span>
+          <span>Bijgewerkt maart 2025</span>
+        </div>
+        <div class="jpd-pills" role="list">
+          <span class="jpd-pill" role="listitem">&#10003; Opticiennauwkeurig</span>
+          <span class="jpd-pill" role="listitem">&#10003; 3 methodes</span>
+          <span class="jpd-pill" role="listitem">&#10003; Geen afspraak nodig</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       2. WHAT IS PD — two-column
+       ═══════════════════════════════════════════════ -->
+  <section class="jpd-section jpd-whatispd">
+    <div class="jpd-wrap jpd-twocol jpd-reveal">
+      <div class="jpd-twocol__text">
+        <h2 class="jpd-h2">Wat is pupilafstand (PD)?</h2>
+        <p>PD staat voor pupilafstand, ook wel pupillaire afstand. Het is de afstand in millimeters tussen het middelpunt van je linker- en rechterpupil. Met de juiste PD worden je glazen precies gecentreerd in het montuur. Dat zorgt voor scherp en comfortabel zicht, zeker bij hogere sterktes.</p>
+        <p>Je kunt je PD thuis meten op drie manieren. Alle drie zijn nauwkeurig als je de instructies goed volgt.</p>
+      </div>
+      <div class="jpd-twocol__media">
+        <!-- Inline SVG: Eye diagram -->
+        <svg class="jpd-eye-svg" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram van pupilafstand meting: twee ogen met meetlijn van 63mm">
+          <defs>
+            <linearGradient id="eyeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#E8F0FE"/>
+              <stop offset="100%" stop-color="#D4E4FC"/>
+            </linearGradient>
+          </defs>
+          <!-- Left eye -->
+          <ellipse cx="95" cy="60" rx="52" ry="32" fill="url(#eyeGrad)" stroke="#B8D4F0" stroke-width="1.5"/>
+          <circle cx="95" cy="60" r="16" fill="#6B8EAE"/>
+          <circle cx="95" cy="60" r="8" fill="#1A1A1A"/>
+          <circle cx="90" cy="55" r="3" fill="rgba(255,255,255,0.6)"/>
+          <!-- Right eye -->
+          <ellipse cx="245" cy="60" rx="52" ry="32" fill="url(#eyeGrad)" stroke="#B8D4F0" stroke-width="1.5"/>
+          <circle cx="245" cy="60" r="16" fill="#6B8EAE"/>
+          <circle cx="245" cy="60" r="8" fill="#1A1A1A"/>
+          <circle cx="240" cy="55" r="3" fill="rgba(255,255,255,0.6)"/>
+          <!-- Measurement line -->
+          <line x1="95" y1="110" x2="245" y2="110" stroke="#0071E3" stroke-width="1.5" stroke-dasharray="6,4"/>
+          <line x1="95" y1="100" x2="95" y2="120" stroke="#0071E3" stroke-width="1.5"/>
+          <line x1="245" y1="100" x2="245" y2="120" stroke="#0071E3" stroke-width="1.5"/>
+          <!-- Center dots -->
+          <circle cx="95" cy="110" r="3" fill="#0071E3"/>
+          <circle cx="245" cy="110" r="3" fill="#0071E3"/>
+          <!-- Label -->
+          <text x="170" y="132" text-anchor="middle" fill="#0071E3" font-size="14" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif">~63 mm</text>
+        </svg>
+      </div>
+    </div>
+    <div class="jpd-wrap jpd-reveal">
+      <div class="jpd-stat-box">
+        <span class="jpd-stat-box__num">63 mm</span>
+        <span class="jpd-stat-box__text">gemiddelde pupilafstand volwassene (range: 55–72 mm)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       3. METHOD SELECTOR — interactive tabs
+       ═══════════════════════════════════════════════ -->
+  <section class="jpd-section jpd-section--alt jpd-methods-section">
+    <div class="jpd-wrap">
+      <!-- Tab navigation -->
+      <div class="jpd-tabs jpd-reveal" role="tablist" aria-label="Meetmethodes">
+        <button class="jpd-tab jpd-tab--active" role="tab" aria-selected="true" aria-controls="jpd-method-1" id="jpd-tab-1" data-tab="1">
+          <span class="jpd-tab__title">Liniaal + spiegel</span>
+          <span class="jpd-tab__time">&plusmn;60 sec</span>
+        </button>
+        <button class="jpd-tab" role="tab" aria-selected="false" aria-controls="jpd-method-2" id="jpd-tab-2" data-tab="2">
+          <span class="jpd-tab__title">Pasje + foto</span>
+          <span class="jpd-tab__time">&plusmn;90 sec</span>
+        </button>
+        <button class="jpd-tab" role="tab" aria-selected="false" aria-controls="jpd-method-3" id="jpd-tab-3" data-tab="3">
+          <span class="jpd-tab__title">Recept</span>
+          <span class="jpd-tab__time">&plusmn;30 sec</span>
+        </button>
+      </div>
+
+      <!-- Method 1 -->
+      <div class="jpd-method jpd-method--active jpd-reveal" role="tabpanel" id="jpd-method-1" aria-labelledby="jpd-tab-1">
+        <h2 class="jpd-h2">Methode 1: Meten met een liniaal en spiegel</h2>
+        <div class="jpd-method__meta">
+          <span class="jpd-difficulty" aria-label="Moeilijkheid: gemiddeld"><span class="jpd-dot jpd-dot--filled" aria-hidden="true"></span><span class="jpd-dot jpd-dot--filled" aria-hidden="true"></span><span class="jpd-dot" aria-hidden="true"></span> Gemiddeld</span>
+          <span class="jpd-needs">Nodig: liniaal, spiegel</span>
+        </div>
+        <div class="jpd-steps">
+          <div class="jpd-step">
+            <span class="jpd-step__num">01</span>
+            <p class="jpd-step__text">Ga recht voor een spiegel staan. Hoofd stil, schouders recht.</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">02</span>
+            <p class="jpd-step__text">Houd een liniaal horizontaal op je neusbrug, net onder je ogen.</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">03</span>
+            <p class="jpd-step__text">Sluit één oog, zet 0 op het midden van je pupil en lees met het andere oog de afstand tot het midden van je andere pupil (in mm).</p>
+          </div>
+        </div>
+        <div class="jpd-protip">
+          <span class="jpd-protip__label">Pro tip</span>
+          <p class="jpd-protip__text">Meet 3× en neem het gemiddelde. 1 mm verschil is volkomen normaal.</p>
+        </div>
+      </div>
+
+      <!-- Method 2 -->
+      <div class="jpd-method" role="tabpanel" id="jpd-method-2" aria-labelledby="jpd-tab-2" hidden>
+        <h2 class="jpd-h2">Methode 2: Meten met een pasje en foto</h2>
+        <div class="jpd-method__meta">
+          <span class="jpd-difficulty" aria-label="Moeilijkheid: gemiddeld"><span class="jpd-dot jpd-dot--filled" aria-hidden="true"></span><span class="jpd-dot jpd-dot--filled" aria-hidden="true"></span><span class="jpd-dot" aria-hidden="true"></span> Gemiddeld</span>
+          <span class="jpd-needs">Nodig: bankpas, camera</span>
+        </div>
+        <div class="jpd-steps">
+          <div class="jpd-step">
+            <span class="jpd-step__num">01</span>
+            <p class="jpd-step__text">Houd een bankpas strak onder je ogen, op exact hetzelfde vlak als je gezicht.</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">02</span>
+            <p class="jpd-step__text">Laat iemand een foto maken, recht van voren. Geen hoek, geen portret-tilt.</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">03</span>
+            <p class="jpd-step__text">Zorg voor goed licht en de camera op ooghoogte.</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">04</span>
+            <p class="jpd-step__text">Meet op de foto pupil-tot-pupil in mm via je foto-editor met raster of liniaal.</p>
+          </div>
+        </div>
+        <div class="jpd-protip">
+          <span class="jpd-protip__label">Pro tip</span>
+          <p class="jpd-protip__text">Zorg dat het pasje écht vlak zit. Zelfs een kleine hoek verstoort de schaal.</p>
+        </div>
+      </div>
+
+      <!-- Method 3 -->
+      <div class="jpd-method" role="tabpanel" id="jpd-method-3" aria-labelledby="jpd-tab-3" hidden>
+        <h2 class="jpd-h2">Methode 3: PD aflezen van je recept</h2>
+        <div class="jpd-method__meta">
+          <span class="jpd-difficulty" aria-label="Moeilijkheid: makkelijk"><span class="jpd-dot jpd-dot--filled" aria-hidden="true"></span><span class="jpd-dot" aria-hidden="true"></span><span class="jpd-dot" aria-hidden="true"></span> Makkelijkst</span>
+          <span class="jpd-needs">Nodig: brilrecept</span>
+        </div>
+        <div class="jpd-steps">
+          <div class="jpd-step">
+            <span class="jpd-step__num">01</span>
+            <p class="jpd-step__text">Kijk op je brilrecept of orderbevestiging van je opticien. Zoek naar 'PD' (soms staat er ook '31/32' of twee losse getallen).</p>
+          </div>
+          <div class="jpd-step">
+            <span class="jpd-step__num">02</span>
+            <p class="jpd-step__text">Vul het getal of de twee getallen precies zo in bij het bestellen.</p>
+          </div>
+        </div>
+        <div class="jpd-infobox">
+          <svg class="jpd-infobox__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#0071E3" stroke-width="1.5"/><path d="M10 9v5M10 6.5v.01" stroke="#0071E3" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <p>Eén getal (bijv. 63) = totale PD. Twee getallen (bijv. 31/32) = links en rechts apart. Beide zijn correct.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       4. COMMON MISTAKES — 2×2 grid
+       ═══════════════════════════════════════════════ -->
+  <section class="jpd-section jpd-mistakes-section">
+    <div class="jpd-wrap">
+      <div class="jpd-reveal">
+        <h2 class="jpd-h2">Veelgemaakte fouten bij PD meten</h2>
+        <p class="jpd-sub">PD meten is eenvoudig, maar kleine afwijkingen maken een groot verschil. Dit zijn de vier fouten die het vaakst leiden tot een onnauwkeurige meting.</p>
+      </div>
+      <div class="jpd-mistakes jpd-reveal">
+        <!-- Mistake A -->
+        <div class="jpd-mistake-card">
+          <div class="jpd-mistake-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="jpd-mistake-card__title">Liniaal scheef houden</h3>
+          <p class="jpd-mistake-card__desc">Scheef = altijd te groot of te klein.</p>
+          <p class="jpd-mistake-card__fix"><span class="jpd-fix-label">Zo doe je het wél:</span> Houd de liniaal écht horizontaal.</p>
+        </div>
+        <!-- Mistake B -->
+        <div class="jpd-mistake-card">
+          <div class="jpd-mistake-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="jpd-mistake-card__title">Hoofd meedraaien</h3>
+          <p class="jpd-mistake-card__desc">Draai je kin of kantel je hoofd, dan verschuift je meetpunt.</p>
+          <p class="jpd-mistake-card__fix"><span class="jpd-fix-label">Zo doe je het wél:</span> Recht vooruit staan, ogen recht vooruit.</p>
+        </div>
+        <!-- Mistake C -->
+        <div class="jpd-mistake-card">
+          <div class="jpd-mistake-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="jpd-mistake-card__title">Iris meten in plaats van pupil</h3>
+          <p class="jpd-mistake-card__desc">Meet altijd pupil-midden tot pupil-midden, niet de rand van je iris.</p>
+          <p class="jpd-mistake-card__fix"><span class="jpd-fix-label">Zo doe je het wél:</span> Richt op het donkere midden van je oog.</p>
+        </div>
+        <!-- Mistake D -->
+        <div class="jpd-mistake-card">
+          <div class="jpd-mistake-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="jpd-mistake-card__title">Foto niet recht van voren</h3>
+          <p class="jpd-mistake-card__desc">Zelfs een lichte hoek maakt je PD meteen onnauwkeurig.</p>
+          <p class="jpd-mistake-card__fix"><span class="jpd-fix-label">Zo doe je het wél:</span> Camera op ooghoogte, gezicht recht naar voren.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       5. FAQ ACCORDION
+       ═══════════════════════════════════════════════ -->
+  <section class="jpd-section jpd-section--alt jpd-faq-section">
+    <div class="jpd-wrap">
+      <div class="jpd-reveal">
+        <h2 class="jpd-h2">Veelgestelde vragen over pupilafstand</h2>
+      </div>
+      <div class="jpd-faq jpd-reveal">
+        <div class="jpd-faq-item">
+          <button class="jpd-faq-q" aria-expanded="false">
+            <span>Wat als ik 2 PD-getallen heb, zoals 31/32?</span>
+            <span class="jpd-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="jpd-faq-a" role="region">
+            <div class="jpd-faq-a__inner">
+              <p>Dat zijn je monopupillaire afstanden: de afstand van elk oog apart tot het midden van je neus. Rechts is meestal iets groter dan links. Vul ze gewoon apart in bij het bestellen. Heb je maar één getal, dan is dat je totale PD.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="jpd-faq-item">
+          <button class="jpd-faq-q" aria-expanded="false">
+            <span>Ik heb geen recept. Wat nu?</span>
+            <span class="jpd-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="jpd-faq-a" role="region">
+            <div class="jpd-faq-a__inner">
+              <p>Gebruik methode 1 (liniaal) of methode 2 (pasje + foto). Beide leveren een nauwkeurige meting op als je de instructies volgt. Meet 3× en neem het gemiddelde voor de beste uitkomst.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="jpd-faq-item">
+          <button class="jpd-faq-q" aria-expanded="false">
+            <span>Ik zit tussen twee waardes in. Welke kies ik?</span>
+            <span class="jpd-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="jpd-faq-a" role="region">
+            <div class="jpd-faq-a__inner">
+              <p>Rond af naar het dichtstbijzijnde hele getal. Bij twijfel: kies het kleinste. Bij hogere sterktes (boven &plusmn;3.0) is nauwkeurigheid extra belangrijk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="jpd-faq-item">
+          <button class="jpd-faq-q" aria-expanded="false">
+            <span>Wat gebeurt er als mijn PD niet klopt?</span>
+            <span class="jpd-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="jpd-faq-a" role="region">
+            <div class="jpd-faq-a__inner">
+              <p>Een onjuiste PD zorgt dat de optische centra van je glazen niet voor je pupillen zitten. Dat kan leiden tot wazig zicht, dubbelzien of hoofdpijn. Bij lage sterktes (onder &plusmn;1.5) merk je het nauwelijks; bij hogere sterktes wel.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="jpd-faq-item">
+          <button class="jpd-faq-q" aria-expanded="false">
+            <span>Hoe nauwkeurig moet mijn PD zijn?</span>
+            <span class="jpd-chevron" aria-hidden="true"></span>
+          </button>
+          <div class="jpd-faq-a" role="region">
+            <div class="jpd-faq-a__inner">
+              <p>Voor sterktes tot &plusmn;2.0 is een afwijking van 1–2 mm meestal geen probleem. Daarboven is precisie belangrijker. Twijfel je? Meet vaker en neem het gemiddelde, of vraag het je opticien.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       6. CLOSING CTA — floating dark card
+       ═══════════════════════════════════════════════ -->
+  <section class="jpd-cta-outer">
+    <div class="jpd-cta-card jpd-reveal">
+      <div class="jpd-cta-card__left">
+        <h2 class="jpd-h2 jpd-h2--white">PD gemeten? Dan is de rest eenvoudig.</h2>
+        <p class="jpd-cta-sub">Brillen op sterkte vanaf &euro;50. Niet goed, geld terug.</p>
+        <div class="jpd-cta-actions">
+          <a href="/collections/brillen-op-sterkte" class="jpd-btn-primary">Bekijk brillen op sterkte &rarr;</a>
+          <a href="/pages/service" class="jpd-btn-secondary">&larr; Terug naar advies</a>
+        </div>
+      </div>
+      <div class="jpd-cta-card__right" aria-hidden="true">
+        <img class="jpd-cta-logo" src="https://jacqeyewear.nl/cdn/shop/files/Logo_01_copy_2.svg?v=1762204480" alt="" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       STICKY BOTTOM CTA BAR
+       ═══════════════════════════════════════════════ -->
+  <div class="jpd-sticky-bar" aria-label="Actie" hidden>
+    <div class="jpd-sticky-bar__inner">
+      <span class="jpd-sticky-bar__text">PD gemeten?</span>
+      <a href="/collections/brillen-op-sterkte" class="jpd-sticky-bar__btn">Bekijk brillen op sterkte &rarr;</a>
+      <button class="jpd-sticky-bar__close" aria-label="Sluiten">&times;</button>
+    </div>
+  </div>
+
+</article>
+
+<style>
+/* ═══════════════════════════════════════════════
+   JACQ PD Page — Premium Design
+   ═══════════════════════════════════════════════ */
+.jpd {
+  --accent: #0071E3;
+  --text: #1A1A1A;
+  --muted: #6B6B6B;
+  --bg: #FFFFFF;
+  --bg-alt: #F8F8F8;
+  --blue-light: #EBF4FF;
+  --radius: 16px;
+  --max-w: 1100px;
+  --pad: clamp(20px, 4vw, 32px);
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.jpd *, .jpd *::before, .jpd *::after { box-sizing: border-box; }
+.jpd p { margin: 0 0 16px; }
+.jpd p:last-child { margin-bottom: 0; }
+
+/* Wrap */
+.jpd-wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* Sections */
+.jpd-section {
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+.jpd-section--alt {
+  background: var(--bg-alt);
+}
+
+/* ── REVEAL ANIMATION ── */
+.jpd-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  will-change: opacity, transform;
+}
+.jpd-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .jpd-reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* ── TYPOGRAPHY ── */
+.jpd-h1 {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.jpd-h2 {
+  margin: 0 0 16px;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.jpd-h2--white { color: #fff; }
+.jpd-lead {
+  margin: 0 0 20px;
+  font-size: clamp(17px, 1.8vw, 20px);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 64ch;
+}
+.jpd-sub {
+  margin: 0 0 32px;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 64ch;
+}
+
+/* ── BREADCRUMB ── */
+.jpd-breadcrumb ol {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.jpd-breadcrumb li { display: flex; align-items: center; }
+.jpd-breadcrumb li + li::before {
+  content: "\00B7";
+  margin: 0 10px;
+  color: var(--muted);
+}
+.jpd-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.jpd-breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+
+/* ── HERO ── */
+.jpd-hero {
+  padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 7vw, 80px);
+}
+/* Force hero content full-width — override any theme grid/column constraints */
+.jpd-hero .jpd-wrap,
+.jpd-hero .jpd-hero__content {
+  width: 100% !important;
+  max-width: var(--max-w) !important;
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.jpd-hero .jpd-hero__content {
+  max-width: none !important;
+  padding: 0 !important;
+}
+.jpd-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.jpd-label__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+.jpd-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.jpd-meta__sep { margin: 0 4px; }
+
+/* Trust pills */
+.jpd-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.jpd-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--blue-light);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ── WHAT IS PD — TWO COLUMN ── */
+.jpd-twocol {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+.jpd-twocol__text {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 60ch;
+}
+.jpd-eye-svg {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.jpd-stat-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--blue-light);
+  border-radius: var(--radius);
+  padding: 20px 28px;
+  margin-top: 32px;
+  max-width: 560px;
+}
+.jpd-stat-box__num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.jpd-stat-box__text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ── METHOD TABS ── */
+.jpd-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.jpd-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 2px solid #D1D1D1;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 0;
+}
+.jpd-tab:hover { border-color: var(--accent); }
+.jpd-tab--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.jpd-tab__time {
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* Method panels */
+.jpd-method {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  display: none;
+}
+.jpd-method--active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.jpd-method[hidden] { display: none; }
+.jpd-method__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 28px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.jpd-difficulty {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.jpd-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #D1D1D1;
+  display: inline-block;
+}
+.jpd-dot--filled { background: var(--accent); }
+.jpd-needs { color: var(--muted); }
+
+/* Steps */
+.jpd-steps {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.jpd-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.jpd-section--alt .jpd-step { background: #fff; }
+.jpd-step__num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+.jpd-step__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  padding-top: 4px;
+}
+
+/* Pro tip */
+.jpd-protip {
+  border-left: 4px solid #F59E0B;
+  background: #FFFBEB;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.jpd-protip__label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #92400E;
+}
+.jpd-protip__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #78350F;
+}
+
+/* Info box (method 3) */
+.jpd-infobox {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--blue-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+.jpd-infobox__icon { flex-shrink: 0; margin-top: 2px; }
+.jpd-infobox p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── MISTAKES GRID ── */
+.jpd-mistakes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.jpd-mistake-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.jpd-mistake-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #FEF2F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.jpd-mistake-card__title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+.jpd-mistake-card__desc {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.jpd-mistake-card__fix {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #16A34A;
+}
+.jpd-fix-label {
+  font-weight: 600;
+}
+
+/* ── FAQ ACCORDION ── */
+.jpd-faq {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.jpd-faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.jpd-faq-item:first-child {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.jpd-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  line-height: 1.4;
+}
+.jpd-faq-q:hover { color: var(--accent); }
+.jpd-faq-q:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Chevron */
+.jpd-chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.jpd-chevron::before,
+.jpd-chevron::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 1px;
+  transition: transform 0.3s ease;
+}
+.jpd-chevron::before {
+  left: 1px;
+  transform: translateY(-50%) rotate(45deg);
+}
+.jpd-chevron::after {
+  right: 1px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+.jpd-faq-q[aria-expanded="true"] .jpd-chevron {
+  transform: rotate(180deg);
+}
+
+/* FAQ answer — CSS max-height transition */
+.jpd-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.jpd-faq-a__inner {
+  padding: 0 0 22px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.jpd-faq-a__inner p { margin: 0; }
+
+/* ── CTA — FLOATING DARK CARD ── */
+.jpd-cta-outer {
+  background: #FFFFFF;
+  padding: 60px 40px;
+}
+.jpd-cta-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #1A1A1A;
+  border-radius: 24px;
+  padding: 56px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  overflow: hidden;
+}
+.jpd-cta-card__left { min-width: 0; }
+.jpd-cta-card__left .jpd-h2 { margin-bottom: 12px; }
+.jpd-cta-sub {
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #A0A0A0;
+}
+.jpd-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.jpd-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.jpd-btn-primary:hover { background: #005BB5; transform: translateY(-1px); }
+.jpd-btn-primary:active { transform: translateY(0); }
+.jpd-btn-secondary {
+  color: rgba(255,255,255,0.55);
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.jpd-btn-secondary:hover { color: #fff; }
+
+/* Decorative logotype */
+.jpd-cta-card__right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jpd-cta-logo {
+  width: clamp(160px, 20vw, 260px);
+  height: auto;
+  filter: brightness(0) invert(1);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── STICKY BOTTOM BAR ── */
+.jpd-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--accent);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+.jpd-sticky-bar.is-visible {
+  transform: translateY(0);
+}
+.jpd-sticky-bar__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.jpd-sticky-bar__text {
+  color: rgba(255,255,255,0.9);
+  font-size: 15px;
+  font-weight: 500;
+}
+.jpd-sticky-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.jpd-sticky-bar__btn:hover { background: #F0F0F0; }
+.jpd-sticky-bar__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+.jpd-sticky-bar__close:hover { background: rgba(255,255,255,0.3); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .jpd-twocol {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .jpd-twocol__media { order: -1; }
+  .jpd-eye-svg { max-width: 280px; }
+  .jpd-mistakes {
+    grid-template-columns: 1fr;
+  }
+  .jpd-tabs {
+    flex-direction: column;
+  }
+  .jpd-tab {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+  .jpd-step {
+    gap: 16px;
+    padding: 20px;
+  }
+  .jpd-step__num {
+    font-size: 24px;
+    min-width: 32px;
+  }
+  .jpd-stat-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  .jpd-sticky-bar__inner { justify-content: space-between; }
+  .jpd-cta-outer { padding: 40px 20px; }
+  .jpd-cta-card {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+    text-align: center;
+  }
+  .jpd-cta-actions {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .jpd-cta-card__right { display: none; }
+}
+
+@media (min-width: 769px) and (max-width: 1099px) {
+  .jpd-twocol {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var root = document.querySelector('.jpd[data-section-id="{{ section.id }}"]');
+  if (!root) return;
+
+  /* ── Intersection Observer: fade-up on scroll ── */
+  var reveals = root.querySelectorAll('.jpd-reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach(function(el) { io.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('is-visible'); });
+  }
+
+  /* ── Tab switching ── */
+  var tabs = root.querySelectorAll('.jpd-tab');
+  var panels = root.querySelectorAll('.jpd-method');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = tab.getAttribute('data-tab');
+
+      tabs.forEach(function(t) {
+        t.classList.remove('jpd-tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('jpd-tab--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      panels.forEach(function(p) {
+        p.classList.remove('jpd-method--active');
+        p.hidden = true;
+      });
+
+      var activePanel = root.querySelector('#jpd-method-' + target);
+      if (activePanel) {
+        activePanel.hidden = false;
+        /* Trigger reflow for animation */
+        void activePanel.offsetWidth;
+        activePanel.classList.add('jpd-method--active');
+      }
+    });
+
+    /* Keyboard: arrow keys for tab navigation */
+    tab.addEventListener('keydown', function(e) {
+      var tabArr = Array.prototype.slice.call(tabs);
+      var idx = tabArr.indexOf(tab);
+      var newIdx = idx;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        newIdx = (idx + 1) % tabArr.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        newIdx = (idx - 1 + tabArr.length) % tabArr.length;
+      }
+
+      if (newIdx !== idx) {
+        tabArr[newIdx].focus();
+        tabArr[newIdx].click();
+      }
+    });
+  });
+
+  /* ── FAQ accordion ── */
+  var faqButtons = root.querySelectorAll('.jpd-faq-q');
+  faqButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var answer = btn.nextElementSibling;
+
+      if (expanded) {
+        answer.style.maxHeight = '0';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        var inner = answer.querySelector('.jpd-faq-a__inner');
+        answer.style.maxHeight = inner.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── Sticky bottom CTA bar ── */
+  var stickyBar = root.querySelector('.jpd-sticky-bar');
+  var stickyClose = root.querySelector('.jpd-sticky-bar__close');
+  var stickyDismissed = false;
+
+  if (stickyBar) {
+    stickyBar.hidden = false;
+
+    function checkScroll() {
+      if (stickyDismissed) return;
+      var scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      if (scrollPercent > 0.6) {
+        stickyBar.classList.add('is-visible');
+      } else {
+        stickyBar.classList.remove('is-visible');
+      }
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          checkScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    if (stickyClose) {
+      stickyClose.addEventListener('click', function() {
+        stickyDismissed = true;
+        stickyBar.classList.remove('is-visible');
+        setTimeout(function() { stickyBar.hidden = true; }, 400);
+      });
+    }
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Page – PD (Premium)",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Page – PD (Premium)"
+    }
+  ]
+}
+{% endschema %}

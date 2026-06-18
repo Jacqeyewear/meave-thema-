@@ -1,0 +1,1017 @@
+{%- comment -%}
+JACQ Lens Wizard – Split screen (Stap 1 met 3 schermen)
+{%- endcomment -%}
+
+{%- assign sel_variant = product.selected_or_first_available_variant -%}
+{%- assign addon_id   = '52163873538384' -%}
+{%- assign img_src    = sel_variant.featured_image | default: product.featured_image -%}
+
+{%- assign is_sunglasses = false -%}
+{%- for col in product.collections -%}
+  {%- if col.handle == 'zonnebrillen' or col.handle == 'zonnebrillen-op-sterkte' or col.handle == 'sunglasses' -%}
+    {%- assign is_sunglasses = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<section id="jacq-lens-wizard-section"
+  data-sunglasses="{{ is_sunglasses }}"
+  data-addon-variant="{{ addon_id | escape }}"
+  data-addon-price="20"
+  data-currency="€"
+  data-available="{{ product.available }}"
+  data-index-variant-comfort="52353684832592"
+  data-index-variant-premium="52353684865360"
+  data-index-variant-luxe="52353684898128"
+  data-multi-variant="52356307648848"
+  data-single-variant="52414810489168"
+  data-polarised-variant="52856902058320"
+  data-photochromic-variant="52856902091088">
+
+  {% assign is_available = product.available %}
+
+  <button
+    {% if is_available %}id="jacq-lens-open"{% endif %}
+    class="jacq-btn{% unless is_available %} jacq-btn--soldout{% endunless %}"
+    type="button"
+    {% if is_available %}
+      aria-controls="jacq-lens-drawer"
+      data-frame-variant-id="{{ sel_variant.id }}"
+      data-frame-price="{{ sel_variant.price | money_without_currency }}"
+    {% else %}
+      aria-disabled="true"
+    {% endif %}
+  >
+    <span class="jacq-btn__wave" aria-hidden="true"></span>
+    <span class="jacq-btn__label">{% if is_available %}Stel je bril samen{% else %}Uitverkocht{% endif %}</span>
+  </button>
+
+  <div class="jacq-drawer" id="jacq-lens-drawer" aria-hidden="true" hidden style="display:none!important">
+
+    <div class="jacq-drawer__left" aria-hidden="true">
+      {% if img_src %}
+        <img loading="lazy" src="{{ img_src | img_url: 'master' }}" alt="{{ product.title | escape }}">
+      {% endif %}
+    </div>
+
+    <div class="jacq-drawer__overlay" data-close></div>
+
+    <aside class="jacq-drawer__panel" role="dialog" aria-modal="true" aria-label="Configureer je glazen">
+      <header class="jacq-drawer__header">
+        {%- comment -%} ✅ AANGEPAST: back button niet hidden zodat jouw JS 'm kan gebruiken {%- endcomment -%}
+        <button class="jacq-back" type="button" aria-label="Terug">←</button>
+
+        <div class="jacq-header-center">
+          <h2 class="jacq-title">Jouw glazen</h2>
+        </div>
+        <button class="jacq-close" type="button" data-close aria-label="Sluiten">×</button>
+      </header>
+
+      <div class="jacq-progress">
+        <nav class="jacq-tabbar" aria-label="Voortgang">
+          <button type="button" class="jacq-tab is-active">1. Glazen</button>
+          <button type="button" class="jacq-tab">2. Opties</button>
+          <button type="button" class="jacq-tab">3. Kijk na</button>
+        </nav>
+      </div>
+
+      <div id="jacq-error" class="jacq-alert" hidden></div>
+
+      <div class="jacq-steps" data-stage="1" data-view="1">
+        <section class="jacq-view" data-view-id="tint" hidden>
+          <h3 class="jacq-h2">
+            <strong>Tintkleur.</strong> <span class="jacq-h2__sub">Kies de kleur van je zonnebrilglazen</span>
+          </h3>
+          <p class="jacq-tint-uv">Alle tintkleuren zijn inclusief UV400 bescherming</p>
+          <div class="jacq-tint-list" role="radiogroup" aria-label="Tintkleur">
+            <button type="button" class="jacq-tint-option" data-tint="Grijs" role="radio" aria-checked="false" tabindex="0">
+              <span class="jacq-tint-swatch" style="background:linear-gradient(to bottom,rgba(60,60,65,0.85) 0%,rgba(90,90,95,0.5) 35%,rgba(140,140,145,0.2) 65%,rgba(200,200,205,0.05) 100%);" aria-hidden="true"></span>
+              <span class="jacq-tint-text">
+                <span class="jacq-tint-name">Grijs</span>
+                <span class="jacq-tint-sub">Klassiek, neutraal</span>
+              </span>
+              <span class="jacq-tint-check" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="jacq-tint-check__mark" d="M6 10l3 3 5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <button type="button" class="jacq-tint-option" data-tint="Bruin" role="radio" aria-checked="false" tabindex="0">
+              <span class="jacq-tint-swatch" style="background:linear-gradient(to bottom,rgba(75,45,15,0.85) 0%,rgba(110,70,25,0.5) 35%,rgba(155,110,55,0.2) 65%,rgba(200,170,110,0.05) 100%);" aria-hidden="true"></span>
+              <span class="jacq-tint-text">
+                <span class="jacq-tint-name">Bruin</span>
+                <span class="jacq-tint-sub">Warm, contrastrijk</span>
+              </span>
+              <span class="jacq-tint-check" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="jacq-tint-check__mark" d="M6 10l3 3 5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <button type="button" class="jacq-tint-option" data-tint="Geel" role="radio" aria-checked="false" tabindex="0">
+              <span class="jacq-tint-swatch" style="background:linear-gradient(to bottom,rgba(160,120,10,0.8) 0%,rgba(190,155,30,0.45) 35%,rgba(220,190,60,0.18) 65%,rgba(240,220,120,0.04) 100%);" aria-hidden="true"></span>
+              <span class="jacq-tint-text">
+                <span class="jacq-tint-name">Geel</span>
+                <span class="jacq-tint-sub">Helder, scherpteverhogend</span>
+              </span>
+              <span class="jacq-tint-check" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="jacq-tint-check__mark" d="M6 10l3 3 5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <button type="button" class="jacq-tint-option" data-tint="Groen" role="radio" aria-checked="false" tabindex="0">
+              <span class="jacq-tint-swatch" style="background:linear-gradient(to bottom,rgba(25,55,25,0.85) 0%,rgba(45,80,40,0.5) 35%,rgba(75,120,70,0.2) 65%,rgba(130,170,125,0.05) 100%);" aria-hidden="true"></span>
+              <span class="jacq-tint-text">
+                <span class="jacq-tint-name">Groen</span>
+                <span class="jacq-tint-sub">Natuurlijk, rustgevend</span>
+              </span>
+              <span class="jacq-tint-check" aria-hidden="true"><svg viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="jacq-tint-check__mark" d="M6 10l3 3 5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="jacq-view" data-view-id="1">
+          <h3 class="jacq-h2">
+            <strong>Glazen.</strong> Wil je ze met of zonder sterkte?
+          </h3>
+          <div class="jacq-cardlist">
+            <label class="jacq-card jacq-card--center">
+              <input type="radio" name="mode" value="Zonder sterkte">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Zonder sterkte</span>
+              </div>
+            </label>
+
+            <label class="jacq-card">
+              <input type="radio" name="mode" value="Leesbril">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Leesbril</span>
+                <span class="jacq-card__price">Gratis</span>
+              </div>
+              <p>Kies een standaard leessterkte. Geen recept nodig.</p>
+            </label>
+
+            <label class="jacq-card">
+              <input type="radio" name="mode" value="Bril op sterkte">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Bril op sterkte</span>
+                <span class="jacq-card__price">Gratis</span>
+              </div>
+              <p>Voer je recept van de opticien in.</p>
+            </label>
+
+            <label class="jacq-card">
+              <input type="radio" name="mode" value="Multifocaal">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Multifocaal</span>
+                <span class="jacq-card__price">+€95</span>
+              </div>
+              <p>Voor ver én dichtbij in één glazenpaar. Staat er ADD op je recept? Dan heb je deze nodig.</p>
+            </label>
+          </div>
+        </section>
+
+        <section class="jacq-view" data-view-id="glastype" hidden>
+          <h3 class="jacq-h2">
+            <strong>Glastype.</strong> Kies het type glas
+          </h3>
+
+          <div class="jacq-cardlist" id="jacq-glastype-list">
+            <label class="jacq-card">
+              <input type="radio" name="glastype" value="Helder">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Helder</span>
+              </div>
+              <p>Klassieke heldere glazen</p>
+            </label>
+            <div class="jacq-gt-expand" data-gt="Helder">
+              <div class="jacq-gt-inner">
+                <div class="jacq-blf-row">
+                  <span class="jacq-blf-label">Blauwlichtfilter <span class="jacq-blf-price">+ €20</span></span>
+                  <button type="button" class="jacq-toggle" role="switch" aria-checked="false" aria-label="Blauwlichtfilter">
+                    <span class="jacq-toggle__track"><span class="jacq-toggle__thumb"></span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <label class="jacq-card">
+              <input type="radio" name="glastype" value="Gepolariseerd">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Gepolariseerd</span>
+                <span class="jacq-card__price">+€30</span>
+              </div>
+              <p>Vermindert verblinding en reflecties</p>
+            </label>
+            <div class="jacq-gt-expand" data-gt="Gepolariseerd">
+              <div class="jacq-gt-inner">
+                <div class="jacq-gt-kleuren">
+                  <p class="jacq-kleuren-label">Kies een kleur</p>
+                  <div class="jacq-swatch-list" role="radiogroup" aria-label="Kleur gepolariseerd">
+                    <button type="button" class="jacq-swatch" data-kleur="Grijs" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#3a3a3a 0%,#5a5a5a 40%,#8a8a8a 70%,rgba(160,160,160,0.55) 100%)"></span>
+                      <span class="jacq-swatch__name">Grijs</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Bruin" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#4a3010 0%,#6a4a1a 40%,#8a6a30 70%,rgba(160,130,70,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Bruin</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Geel" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#8a7010 0%,#aa8a1a 40%,#cca830 70%,rgba(220,190,80,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Geel</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Groen" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#1a3518 0%,#2a4a25 40%,#3a6535 70%,rgba(80,130,75,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Groen</span>
+                    </button>
+                  </div>
+                  <div class="jacq-swatch-error" hidden>Kies een kleur</div>
+                </div>
+                <div class="jacq-blf-row">
+                  <span class="jacq-blf-label">Blauwlichtfilter <span class="jacq-blf-price">+ €20</span></span>
+                  <button type="button" class="jacq-toggle" role="switch" aria-checked="false" aria-label="Blauwlichtfilter">
+                    <span class="jacq-toggle__track"><span class="jacq-toggle__thumb"></span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <label class="jacq-card">
+              <input type="radio" name="glastype" value="Meekleurend">
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Meekleurend</span>
+                <span class="jacq-card__price">+€50</span>
+              </div>
+              <p>Kleurt automatisch donker in de zon</p>
+            </label>
+            <div class="jacq-gt-expand" data-gt="Meekleurend">
+              <div class="jacq-gt-inner">
+                <div class="jacq-gt-kleuren">
+                  <p class="jacq-kleuren-label">Kies een kleur</p>
+                  <div class="jacq-swatch-list" role="radiogroup" aria-label="Meekleurende kleur">
+                    <button type="button" class="jacq-swatch" data-kleur="Grijs" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#3a3a3a 0%,#5a5a5a 40%,#8a8a8a 70%,rgba(160,160,160,0.55) 100%)"></span>
+                      <span class="jacq-swatch__name">Grijs</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Bruin" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#4a3010 0%,#6a4a1a 40%,#8a6a30 70%,rgba(160,130,70,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Bruin</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Geel" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#8a7010 0%,#aa8a1a 40%,#cca830 70%,rgba(220,190,80,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Geel</span>
+                    </button>
+                    <button type="button" class="jacq-swatch" data-kleur="Groen" role="radio" aria-checked="false" tabindex="0">
+                      <span class="jacq-swatch__circle" style="background:linear-gradient(to bottom,#1a3518 0%,#2a4a25 40%,#3a6535 70%,rgba(80,130,75,0.50) 100%)"></span>
+                      <span class="jacq-swatch__name">Groen</span>
+                    </button>
+                  </div>
+                  <div class="jacq-swatch-error" hidden>Kies een kleur</div>
+                </div>
+                <div class="jacq-blf-row">
+                  <span class="jacq-blf-label">Blauwlichtfilter <span class="jacq-blf-price">+ €20</span></span>
+                  <button type="button" class="jacq-toggle" role="switch" aria-checked="false" aria-label="Blauwlichtfilter">
+                    <span class="jacq-toggle__track"><span class="jacq-toggle__thumb"></span></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="jacq-view" data-view-id="2" hidden>
+          <h3 class="jacq-h2">
+            <strong>Voorschrift.</strong> Hoe wil je je sterkte met ons delen?
+          </h3>
+
+          <div class="jacq-cardlist">
+            <label class="jacq-card">
+              <input type="radio" name="rxSource" value="Upload" checked>
+              <span class="jacq-card__badge jacq-card__badge--subtle">Snel & makkelijk</span>
+
+              <div class="jacq-card__head">
+                <div class="jacq-card__titlewrap">
+                  <span class="jacq-card__title">Foto of PDF uploaden</span>
+                </div>
+              </div>
+
+              <p>Upload je recept, dan zetten wij het voor je over.</p>
+            </label>
+
+            <label class="jacq-card">
+              <input type="radio" name="rxSource" value="Handmatig">
+
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Handmatig invullen</span>
+              </div>
+
+              <p>Vul je waarden direct in (±1 minuut).</p>
+            </label>
+
+            <label class="jacq-card">
+              <input type="radio" name="rxSource" value="Later">
+
+              <div class="jacq-card__head">
+                <span class="jacq-card__title">Bestel nu, sterkte later doorgeven</span>
+              </div>
+
+              <p>Geen recept bij de hand? Geen probleem. Rond je bestelling af en stuur je sterkte wanneer het uitkomt via WhatsApp of mail.</p>
+            </label>
+          </div>
+        </section>
+
+        <section class="jacq-view" data-view-id="reading" hidden>
+          <h3 class="jacq-h2">
+            <strong>Leessterkte.</strong> Kies de juiste sterkte voor jou.
+          </h3>
+
+          <div class="jacq-reading">
+            <label class="jacq-toggle-row">
+              <span class="jacq-toggle-label">Zelfde sterkte voor beide ogen</span>
+              <span class="jacq-switch">
+                <input type="checkbox" id="jacq-reading-same" checked>
+                <span class="jacq-switch__track"></span>
+              </span>
+            </label>
+
+            <div class="jacq-reading-selectors" id="jacq-reading-selectors">
+              <div class="jacq-reading-single" id="jacq-reading-single">
+                <div class="jacq-reading-field">
+                  <label class="jacq-reading-field__label" for="jacq-reading-sph">Leessterkte</label>
+                  <div class="jacq-select-wrap">
+                    <button type="button" class="jacq-select-btn">
+                      <span class="jacq-select-label">+1.50</span>
+                      <span class="jacq-select-chevron">▾</span>
+                    </button>
+                    <select class="rx-select" name="reading_sph" id="jacq-reading-sph"></select>
+                    <div class="jacq-select-menu" hidden></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="jacq-reading-dual" id="jacq-reading-dual" hidden>
+                <div class="jacq-reading-eyes">
+                  <div class="jacq-reading-eye">
+                    <div class="rx-head">Rechteroog</div>
+                    <div class="jacq-reading-field">
+                      <div class="jacq-select-wrap">
+                        <button type="button" class="jacq-select-btn">
+                          <span class="jacq-select-label">+1.50</span>
+                          <span class="jacq-select-chevron">▾</span>
+                        </button>
+                        <select class="rx-select" name="reading_sph_od" id="jacq-reading-sph-od"></select>
+                        <div class="jacq-select-menu" hidden></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="jacq-reading-eye">
+                    <div class="rx-head">Linkeroog</div>
+                    <div class="jacq-reading-field">
+                      <div class="jacq-select-wrap">
+                        <button type="button" class="jacq-select-btn">
+                          <span class="jacq-select-label">+1.50</span>
+                          <span class="jacq-select-chevron">▾</span>
+                        </button>
+                        <select class="rx-select" name="reading_sph_os" id="jacq-reading-sph-os"></select>
+                        <div class="jacq-select-menu" hidden></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <details class="jacq-reading-help">
+              <summary class="jacq-reading-help__title">Welke sterkte heb ik nodig?</summary>
+              <div class="jacq-reading-help__body">
+                <p>Kijk op je huidige leesbril, de sterkte staat vaak op het pootje.</p>
+                <p class="jacq-reading-help__subtitle">Indicatie op basis van leeftijd:</p>
+                <table class="jacq-reading-help__table">
+                  <tr><td>40–45 jaar</td><td>+1.00 tot +1.50</td></tr>
+                  <tr><td>45–50 jaar</td><td>+1.50 tot +2.00</td></tr>
+                  <tr><td>50–55 jaar</td><td>+2.00 tot +2.50</td></tr>
+                  <tr><td>55+</td><td>+2.50 tot +3.50</td></tr>
+                </table>
+              </div>
+            </details>
+
+            <p class="jacq-reading-disclaimer">Heb je een recept van de opticien met cilinderwaarden? Kies dan <button type="button" class="jacq-reading-disclaimer__link" id="jacq-switch-to-rx">Bril op sterkte</button> voor het beste resultaat.</p>
+          </div>
+        </section>
+
+        <section class="jacq-view" data-view-id="3-upload" hidden>
+          <h3 class="jacq-h2">
+            <strong>Uploaden.</strong> Voeg een duidelijke foto of PDF toe.
+          </h3>
+
+          <div class="ju" id="jacq-upload-v3">
+            <!-- Drop zone -->
+            <div class="ju-drop" id="ju-drop" role="button" tabindex="0" aria-label="Upload je recept">
+              <div class="ju-drop__inner">
+                <svg class="ju-drop__icon" viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                <div class="ju-drop__text">
+                  <div class="ju-drop__title" id="ju-title">Upload je recept</div>
+                  <div class="ju-drop__sub" id="ju-sub">Sleep je bestand hierheen, of <span class="ju-link">kies bestand</span></div>
+                  <div class="ju-drop__hint">JPG, PNG of PDF</div>
+                </div>
+              </div>
+              <input type="file" name="properties[Voorschrift]" accept="image/*,.pdf,application/pdf" id="ju-input" hidden />
+            </div>
+
+            <!-- File card (hidden until file selected) -->
+            <div class="ju-card" id="ju-card" style="display:none;">
+              <div class="ju-card__thumb" id="ju-thumb"></div>
+              <div class="ju-card__body">
+                <div class="ju-card__row">
+                  <div class="ju-card__name" id="ju-name"></div>
+                  <button type="button" class="ju-card__remove" id="ju-remove" aria-label="Verwijder" style="display:none;">
+                    <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+                  </button>
+                </div>
+                <div class="ju-card__row">
+                  <span class="ju-card__size" id="ju-size"></span>
+                  <span class="ju-card__pct" id="ju-pct"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="jacq-muted">Tip: leg het recept plat en zorg dat alle waarden scherp zichtbaar zijn.</p>
+        </section>
+
+        <section class="jacq-view" data-view-id="3-manual" hidden>
+          <div class="jacq-view__titlebar">
+            <h3 class="jacq-h2">
+              <strong>Voorschrift.</strong> Vul je sterkte in.
+            </h3>
+          </div>
+
+          <p class="jacq-reassurance">
+            Pak je recept erbij. We controleren alles voordat we je glazen maken.
+          </p>
+
+          <div class="rx-grid">
+            <div class="rx-head rx-head--od">Rechteroog</div>
+            <div class="rx-head rx-head--os">
+              <button type="button" class="rx-copy-link" id="jacq-copy-eye" hidden>Zelfde als rechts</button>
+              <span class="rx-head__label">Linkeroog</span>
+            </div>
+
+            <div class="rx-label">
+              Sterkte*
+              <button type="button" class="jacq-info-btn" aria-label="Meer info over Sterkte" aria-expanded="false">i</button>
+              <div class="jacq-info-src" hidden data-title="Sterkte (SPH)">
+                <p>De sterkte staat op je recept als <strong>SPH</strong> of <strong>Sphere</strong>. Dit is het belangrijkste getal en geeft aan hoeveel correctie je ogen nodig hebben.</p>
+                <p>Een <strong>min-waarde</strong> (bijv. -2.50) betekent bijziend. Een <strong>plus-waarde</strong> (bijv. +1.75) betekent verziend.</p>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--od">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_sph"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--os">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_sph"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-section-divider" style="grid-column: 1 / -1;">
+              <span class="rx-section-label">Staat er meer op je recept?</span>
+            </div>
+
+            <div class="rx-label">
+              Cilinder
+              <button type="button" class="jacq-info-btn" aria-label="Meer info over Cilinder" aria-expanded="false">i</button>
+              <div class="jacq-info-src" hidden data-title="Cilinder (CYL)">
+                <p>De cilinder staat op je recept als <strong>CYL</strong> of <strong>Cylinder</strong>. Dit corrigeert astigmatisme — een onregelmatigheid in de vorm van je oog.</p>
+                <p>Staat er geen CYL op je recept? Dan kun je dit leeg laten.</p>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--od">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_cyl"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--os">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_cyl"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-label">
+              As
+              <button type="button" class="jacq-info-btn" aria-label="Meer info over As" aria-expanded="false">i</button>
+              <div class="jacq-info-src" hidden data-title="As (AX)">
+                <p>De as staat op je recept als <strong>AX</strong>, <strong>AXIS</strong> of <strong>As</strong>. Dit getal (0–180) geeft de richting van je astigmatisme aan.</p>
+                <p>De as hoort altijd bij een cilinder — zonder cilinder heb je geen as nodig.</p>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--od">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_ax"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--os">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_ax"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-label jacq-addition" hidden>
+              Additie*
+              <button type="button" class="jacq-info-btn" aria-label="Meer info over Additie" aria-expanded="false">i</button>
+              <div class="jacq-info-src" hidden data-title="Additie (ADD)">
+                <p>De additie staat op je recept als <strong>ADD</strong> of <strong>Addition</strong>. Dit getal geeft de extra sterkte aan voor lezen/dichtbij kijken.</p>
+                <p>Alleen bij multifocale glazen.</p>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--od jacq-addition" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_add"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--os jacq-addition" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_add"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="rx-extras-grid">
+            <div class="rx-section-divider rx-section-divider--optional" style="grid-column: 1 / -1;">
+              <span class="rx-section-label">Aanvullend (optioneel)</span>
+            </div>
+
+            <p class="jacq-reassurance jacq-reassurance--small" style="grid-column: 1 / -1;">
+              Niet verplicht — we nemen contact op als we het nodig hebben.
+            </p>
+
+            <div class="rx-label rx-label--pd">
+              Pupilafstand
+              <button type="button" class="jacq-info-btn" aria-label="Meer info over Pupilafstand" aria-expanded="false">i</button>
+              <div class="jacq-info-src" hidden data-title="Pupilafstand (PD)">
+                <p>De pupilafstand is de afstand tussen je pupillen in millimeters. Dit staat soms op je recept als <strong>PD</strong>.</p>
+                <p>Niet verplicht — als je het niet weet, kunnen we je bril vaak alsnog goed maken.</p>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--pd-single rx-field--both jacq-pd--single">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="pd_single"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--pd-od jacq-pd--dual">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="pd_od"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-field rx-field--pd-os jacq-pd--dual">
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="pd_os"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-pd-group">
+              <label class="rx-radio">
+                <input type="radio" name="pd_mode" id="pd_total" value="total" checked>
+                Totale pupilafstand
+              </label>
+              <label class="rx-radio">
+                <input type="radio" name="pd_mode" id="pd_half" value="half">
+                Halve pupilafstand
+              </label>
+            </div>
+
+            <div class="rx-extras-divider"></div>
+
+            <div class="rx-extras-toggle">
+              <label class="jacq-optin jacq-optin--inline">
+                <input type="checkbox" name="prism_enabled" id="prism_enabled">
+                <span>Prisma toevoegen</span>
+              </label>
+            </div>
+            <div class="rx-subhead jacq-extra jacq-extra--prism" hidden>Horizontaal</div>
+
+            <div class="rx-label jacq-extra jacq-extra--prism" hidden>Sterkte</div>
+            <div class="rx-field rx-field--od jacq-extra jacq-extra--prism" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_prism_h"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+            <div class="rx-field rx-field--os jacq-extra jacq-extra--prism" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_prism_h"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-label jacq-extra jacq-extra--prism" hidden>Basis</div>
+
+<div class="rx-field rx-field--od jacq-extra jacq-extra--prism" hidden>
+  <div class="jacq-select-wrap">
+    <button type="button" class="jacq-select-btn">
+      <span class="jacq-select-label">-</span>
+      <span class="jacq-select-chevron">▾</span>
+    </button>
+    <select class="rx-select" name="od_prism_h_base"></select>
+    <div class="jacq-select-menu" hidden></div>
+  </div>
+</div>
+
+<div class="rx-field rx-field--os jacq-extra jacq-extra--prism" hidden>
+  <div class="jacq-select-wrap">
+    <button type="button" class="jacq-select-btn">
+      <span class="jacq-select-label">-</span>
+      <span class="jacq-select-chevron">▾</span>
+    </button>
+    <select class="rx-select" name="os_prism_h_base"></select>
+    <div class="jacq-select-menu" hidden></div>
+  </div>
+</div>
+
+            <div class="rx-subhead jacq-extra jacq-extra--prism" hidden>Verticaal</div>
+
+            <div class="rx-label jacq-extra jacq-extra--prism" hidden>Sterkte</div>
+            <div class="rx-field rx-field--od jacq-extra jacq-extra--prism" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="od_prism_v"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+            <div class="rx-field rx-field--os jacq-extra jacq-extra--prism" hidden>
+              <div class="jacq-select-wrap">
+                <button type="button" class="jacq-select-btn">
+                  <span class="jacq-select-label">-</span>
+                  <span class="jacq-select-chevron">▾</span>
+                </button>
+                <select class="rx-select" name="os_prism_v"></select>
+                <div class="jacq-select-menu" hidden></div>
+              </div>
+            </div>
+
+            <div class="rx-label jacq-extra jacq-extra--prism" hidden>Basis</div>
+
+<div class="rx-field rx-field--od jacq-extra jacq-extra--prism" hidden>
+  <div class="jacq-select-wrap">
+    <button type="button" class="jacq-select-btn">
+      <span class="jacq-select-label">-</span>
+      <span class="jacq-select-chevron">▾</span>
+    </button>
+    <select class="rx-select" name="od_prism_v_base"></select>
+    <div class="jacq-select-menu" hidden></div>
+  </div>
+</div>
+
+<div class="rx-field rx-field--os jacq-extra jacq-extra--prism" hidden>
+  <div class="jacq-select-wrap">
+    <button type="button" class="jacq-select-btn">
+      <span class="jacq-select-label">-</span>
+      <span class="jacq-select-chevron">▾</span>
+    </button>
+    <select class="rx-select" name="os_prism_v_base"></select>
+    <div class="jacq-select-menu" hidden></div>
+  </div>
+</div>
+          </div>
+
+          <div class="jacq-escape-hatch">
+            <p>Te ingewikkeld?</p>
+            <button type="button" class="jacq-escape-link" id="jacq-escape-to-upload">
+              Upload liever een foto van je recept →
+            </button>
+          </div>
+        </section>
+      </div>
+
+      {%- comment -%} ✅ AANGEPAST: dubbele data-stage="2" block verwijderd (dit brak vaak de flow/animaties) {%- endcomment -%}
+      <div class="jacq-steps" data-stage="2" hidden>
+        <section class="jacq-view" data-view-id="opt-index" hidden>
+          <h3 class="jacq-h2">
+            <strong>Lensdikte.</strong> Welke glazen passen bij jouw sterkte?
+          </h3>
+
+          <div class="jacq-cardlist">
+  <label class="jacq-card">
+    <input type="radio" name="opt_index" value="Basis">
+    <div class="jacq-card__head">
+      <div class="jacq-card__titlewrap">
+        <span class="jacq-card__title">Basis</span>
+        <button
+          type="button"
+          class="jacq-info-btn"
+          aria-label="Meer info over Basis (index 1.56)"
+          aria-expanded="false"
+        >i</button>
+      </div>
+      <span class="jacq-card__price">Gratis</span>
+    </div>
+
+    <div class="jacq-info-src" hidden data-title="Basis (index 1.56)">
+      <p><strong>Wat betekent index?</strong> Hoe hoger de index, hoe dunner de lens kan worden bij dezelfde sterkte.</p>
+      <ul>
+        <li>Allround keuze bij lage sterktes.</li>
+        <li>Bij hogere sterktes of grotere monturen kan de rand wat voller ogen.</li>
+        <li>Beste “simpel & goed” optie.</li>
+      </ul>
+      <p class="jacq-info-foot">De uiteindelijke dikte hangt ook af van montuurmaat/-vorm en pupilafstand.</p>
+    </div>
+
+    <ul class="jacq-card__list">
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Standaardglazen (index 1.56)</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-reflectie</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-kras</li>
+      <li class="jacq-card__note">Aanbevolen bij sterktes tot ongeveer ±2.00.</li>
+    </ul>
+  </label>
+
+  <label class="jacq-card">
+    <input type="radio" name="opt_index" value="Comfort">
+    <div class="jacq-card__head">
+      <div class="jacq-card__titlewrap">
+        <span class="jacq-card__title">Comfort</span>
+        <button
+          type="button"
+          class="jacq-info-btn"
+          aria-label="Meer info over Comfort (index 1.60)"
+          aria-expanded="false"
+        >i</button>
+      </div>
+      <span class="jacq-card__price">+€35</span>
+    </div>
+
+    <div class="jacq-info-src" hidden data-title="Comfort (index 1.60)">
+      <p>Een fijne upgrade als je nét wat dunner en lichter wilt, zonder “overkill”.</p>
+      <ul>
+        <li>Mooi in gemiddelde monturen en sterktes.</li>
+        <li>Net wat strakkere look aan de zijkant.</li>
+        <li>Goede sweet spot voor dagelijks gebruik.</li>
+      </ul>
+      <p class="jacq-info-foot">Tip: hoe groter het montuur, hoe zichtbaarder het verschil kan zijn.</p>
+    </div>
+
+    <ul class="jacq-card__list">
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Dunner en lichter (index 1.60)</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-reflectie voor dagelijks gebruik</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-kras</li>
+      <li class="jacq-card__note">Mooi bij sterktes rond ±2.00 tot ±3.00.</li>
+    </ul>
+  </label>
+
+  <label class="jacq-card jacq-card--premium">
+    <input type="radio" name="opt_index" value="Premium">
+    <span class="jacq-card__badge">Meest gekozen</span>
+    <div class="jacq-card__head">
+      <div class="jacq-card__titlewrap">
+        <span class="jacq-card__title">Premium</span>
+        <button
+          type="button"
+          class="jacq-info-btn"
+          aria-label="Meer info over Premium (index 1.67)"
+          aria-expanded="false"
+        >i</button>
+      </div>
+      <span class="jacq-card__price">+€65</span>
+    </div>
+
+    <div class="jacq-info-src" hidden data-title="Premium (index 1.67)">
+      <p>Voor wie een duidelijk dunnere, strakkere look wil — vooral merkbaar bij hogere sterktes.</p>
+      <ul>
+        <li>Veel gekozen bij middelhoge tot hogere sterktes.</li>
+        <li>Helpt vooral bij randdikte en gewicht.</li>
+        <li>Mooi in zowel kleine als grotere monturen.</li>
+      </ul>
+      <p class="jacq-info-foot">Kort: als je twijfelt en je sterkte is wat hoger, is dit vaak de veiligste keuze.</p>
+    </div>
+
+    <ul class="jacq-card__list">
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Extra dun en licht (index 1.67)</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-reflectie</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-kras</li>
+      <li class="jacq-card__note">
+        Helder en comfortabel zicht.<br>
+        Ideaal bij sterktes ongeveer ±3.00 tot ±6.00.
+      </li>
+    </ul>
+  </label>
+
+  <label class="jacq-card">
+    <input type="radio" name="opt_index" value="Luxe">
+    <div class="jacq-card__head">
+      <div class="jacq-card__titlewrap">
+        <span class="jacq-card__title">Luxe</span>
+        <button
+          type="button"
+          class="jacq-info-btn"
+          aria-label="Meer info over Luxe (index 1.74)"
+          aria-expanded="false"
+        >i</button>
+      </div>
+      <span class="jacq-card__price">+€95</span>
+    </div>
+
+    <div class="jacq-info-src" hidden data-title="Luxe (index 1.74)">
+      <p>De dunste optie. Vooral bedoeld als je de strakste look wilt of bij echt hogere sterktes.</p>
+      <ul>
+        <li>Maximaal cosmetisch dun (randdikte).</li>
+        <li>Fijn als je montuur wat groter is of je sterkte hoog.</li>
+        <li>“Ik wil gewoon de dunste” keuze.</li>
+      </ul>
+      <p class="jacq-info-foot">Meest effect bij hoge sterktes; bij lage sterktes is het verschil vaak klein.</p>
+    </div>
+
+    <ul class="jacq-card__list">
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Ultradunne luxe glazen (index 1.74)</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-reflectie</li>
+      <li><span class="jacq-card__check" style="color:#0071E3;">✓</span> Anti-kras</li>
+      <li class="jacq-card__note">Perfect bij sterktes boven ±6.00 of als je de dunste optie wilt.</li>
+    </ul>
+  </label>
+</div>
+        </section>
+
+      </div>
+
+      <!-- ✅ STAP 3: CONTROLE (foto + witruimte + wrapper voor gelijke breedte) -->
+      <div class="jacq-steps" data-stage="3" hidden>
+        <section class="jacq-view" data-view-id="review" hidden>
+          <h3 class="jacq-h2">
+            <strong>Controle.</strong> Klopt alles?
+          </h3>
+
+          {% assign review_image = sel_variant.featured_image | default: product.featured_image %}
+
+          <div class="jacq-review-media">
+            {% if review_image %}
+              <img
+                id="jacq-review-frame-img"
+                class="jacq-review-frame-img"
+                src="{{ review_image | img_url: '720x' }}"
+                srcset="
+                  {{ review_image | img_url: '360x' }} 360w,
+                  {{ review_image | img_url: '540x' }} 540w,
+                  {{ review_image | img_url: '720x' }} 720w,
+                  {{ review_image | img_url: '900x' }} 900w
+                "
+                sizes="(min-width: 1100px) 720px, (min-width: 768px) 680px, 92vw"
+                width="{{ review_image.width | default: 1200 }}"
+                height="{{ review_image.height | default: 1200 }}"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                alt="{{ product.title | escape }}"
+              >
+            {% endif %}
+          </div>
+
+          <div class="jacq-review-wrap">
+            <div id="jacq-review" class="jacq-reviewlist"></div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="jacq-drawer__footer">
+        <div class="jacq-subtotal">Totaal <strong id="jacq-sub">€0</strong></div>
+        <div class="jacq-footer-right">
+          <button class="jacq-next" type="button">Volgende stap</button>
+        </div>
+        <div class="jacq-klarna" id="jacq-klarna" aria-live="polite">
+          <span class="jacq-klarna__text">3 betalingen van <strong id="jacq-klarna-amt">€ 0,00</strong></span>
+          <span class="jacq-klarna__badge" aria-label="Klarna">Klarna</span>
+        </div>
+      </footer>
+    </aside>
+  </div>
+
+  <link href="{{ 'jacq-lens-wizard.css' | asset_url }}" rel="stylesheet">
+
+  <script>
+    window.__jacqDebug = [];
+    window.addEventListener('error', e => window.__jacqDebug.push(String(e.message)));
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+
+  <script src="{{ 'jacq-lens-wizard.js' | asset_url }}" defer></script>
+
+  <script>
+  // Fallback opener: alleen gebruiken als jacq-lens-wizard.js niet laadt
+  window.addEventListener('DOMContentLoaded', function(){
+    var btn    = document.getElementById('jacq-lens-open');
+    var drawer = document.getElementById('jacq-lens-drawer');
+    if (!btn || !drawer) return;
+
+    // ✅ Cleanup: als drawer dicht is, nooit scroll-lock laten hangen
+    if (drawer.hasAttribute('hidden') || drawer.hidden || drawer.getAttribute('aria-hidden') === 'true') {
+      document.documentElement.classList.remove('jacq-open','jacq-no-scroll');
+      document.documentElement.style.removeProperty('--jacq-scrollbar-comp');
+      document.body.classList.remove('jacq-no-scroll');
+    }
+
+    if (!btn.dataset.jacqBound){
+      btn.dataset.jacqBound = '1';
+      btn.addEventListener('click', function(){
+        if (window.__jacqLensWizardLoaded) return;
+
+        // open
+        drawer.hidden = false;
+        drawer.removeAttribute('hidden');
+        drawer.style.removeProperty('display');
+        drawer.setAttribute('aria-hidden','false');
+        drawer.classList.add('is-open');
+
+        document.documentElement.classList.add('jacq-open','jacq-no-scroll');
+      });
+    }
+
+    document.addEventListener('click', function(e){
+      if (window.__jacqLensWizardLoaded) return;
+      var close = e.target.closest('[data-close]');
+      if (!close) return;
+
+      // close
+      drawer.classList.remove('is-open','is-closing');
+      drawer.setAttribute('aria-hidden','true');
+      drawer.hidden = true;
+      drawer.setAttribute('hidden','');
+      drawer.style.display = 'none';
+
+      document.documentElement.classList.remove('jacq-open','jacq-no-scroll');
+      document.documentElement.style.removeProperty('--jacq-scrollbar-comp');
+      document.body.classList.remove('jacq-no-scroll');
+    });
+  });
+</script>
+</section>

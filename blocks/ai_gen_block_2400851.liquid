@@ -1,0 +1,575 @@
+{% doc %}
+  @prompt
+    een collection list waarrij ik buttons kan toevoegen over de collectie photo 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-collection-list-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-collection-list__grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .ai-collection-list__item-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+
+  .ai-collection-list__image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    aspect-ratio: {{ block.settings.image_ratio }};
+    overflow: hidden;
+  }
+
+  .ai-collection-list__image-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-collection-list__item-{{ ai_gen_id }}:hover .ai-collection-list__image-{{ ai_gen_id }} {
+    transform: scale(1.05);
+  }
+
+  .ai-collection-list__placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-collection-list__placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .ai-collection-list__overlay-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, {{ block.settings.overlay_opacity | divided_by: 100.0 }}) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: {{ block.settings.content_padding }}px;
+    gap: {{ block.settings.content_gap }}px;
+  }
+
+  .ai-collection-list__title-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+  }
+
+  .ai-collection-list__button-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: {{ block.settings.button_padding_vertical }}px {{ block.settings.button_padding_horizontal }}px;
+    background-color: {{ block.settings.button_background }};
+    color: {{ block.settings.button_text_color }};
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: {{ block.settings.button_font_size }}px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: {{ block.settings.button_border_width }}px solid {{ block.settings.button_border_color }};
+  }
+
+  .ai-collection-list__button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_background }};
+    color: {{ block.settings.button_hover_text_color }};
+    transform: translateY(-2px);
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-collection-list__grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_mobile }}, 1fr);
+      gap: {{ block.settings.grid_gap | times: 0.75 }}px;
+    }
+
+    .ai-collection-list__title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size | times: 0.85 }}px;
+    }
+
+    .ai-collection-list__button-{{ ai_gen_id }} {
+      font-size: {{ block.settings.button_font_size | times: 0.9 }}px;
+      padding: {{ block.settings.button_padding_vertical | times: 0.85 }}px {{ block.settings.button_padding_horizontal | times: 0.85 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="ai-collection-list-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-collection-list__grid-{{ ai_gen_id }}">
+    {% for i in (1..6) %}
+      {% liquid
+        assign collection_key = 'collection_' | append: i
+        assign button_text_key = 'button_text_' | append: i
+        assign button_url_key = 'button_url_' | append: i
+        assign show_button_key = 'show_button_' | append: i
+
+        assign collection = block.settings[collection_key]
+        assign button_text = block.settings[button_text_key]
+        assign button_url = block.settings[button_url_key]
+        assign show_button = block.settings[show_button_key]
+      %}
+
+      {% if collection != blank %}
+        <div class="ai-collection-list__item-{{ ai_gen_id }}">
+          <div class="ai-collection-list__image-wrapper-{{ ai_gen_id }}">
+            {% if collection.featured_image %}
+              <img
+                src="{{ collection.featured_image | image_url: width: 800 }}"
+                alt="{{ collection.featured_image.alt | escape }}"
+                width="800"
+                height="800"
+                loading="lazy"
+                class="ai-collection-list__image-{{ ai_gen_id }}"
+              >
+            {% else %}
+              <div class="ai-collection-list__placeholder-{{ ai_gen_id }}">
+                {{ 'collection-1' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+
+            <div class="ai-collection-list__overlay-{{ ai_gen_id }}">
+              {% if block.settings.show_title %}
+                <h3 class="ai-collection-list__title-{{ ai_gen_id }}">
+                  {{ collection.title }}
+                </h3>
+              {% endif %}
+
+              {% if show_button and button_text != blank %}
+                <a
+                  href="{% if button_url != blank %}{{ button_url }}{% else %}{{ collection.url }}{% endif %}"
+                  class="ai-collection-list__button-{{ ai_gen_id }}"
+                >
+                  {{ button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collectie lijst",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop breedte",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Kolommen op desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Kolommen op mobiel",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Ruimte tussen items",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Afbeelding verhouding",
+      "options": [
+        {
+          "value": "1/1",
+          "label": "Vierkant (1:1)"
+        },
+        {
+          "value": "3/4",
+          "label": "Portret (3:4)"
+        },
+        {
+          "value": "4/3",
+          "label": "Landschap (4:3)"
+        },
+        {
+          "value": "16/9",
+          "label": "Breed (16:9)"
+        }
+      ],
+      "default": "1/1"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Hoekafronding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay transparantie",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Content padding",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Ruimte titel/button",
+      "min": 5,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Titel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Toon collectie titel",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Titel grootte",
+      "min": 14,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekst kleur",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Button stijl"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Lettergrootte",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Verticale padding",
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Horizontale padding",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Hoekafronding",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "button_border_width",
+      "label": "Border dikte",
+      "min": 0,
+      "max": 5,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Achtergrond kleur",
+      "default": "#0071e3"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Tekst kleur",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Border kleur",
+      "default": "#0071e3"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Hover achtergrond",
+      "default": "#005bb5"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Hover tekst kleur",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 1"
+    },
+    {
+      "type": "collection",
+      "id": "collection_1",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_1",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_1",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 2"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_2",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_2",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 3"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_3",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_3",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_3",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 4"
+    },
+    {
+      "type": "collection",
+      "id": "collection_4",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_4",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_4",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_4",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 5"
+    },
+    {
+      "type": "collection",
+      "id": "collection_5",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_5",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_5",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_5",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Collectie 6"
+    },
+    {
+      "type": "collection",
+      "id": "collection_6",
+      "label": "Collectie"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_6",
+      "label": "Toon button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text_6",
+      "label": "Button tekst",
+      "default": "Bekijk collectie"
+    },
+    {
+      "type": "url",
+      "id": "button_url_6",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collectie lijst"
+    }
+  ]
+}
+{% endschema %}

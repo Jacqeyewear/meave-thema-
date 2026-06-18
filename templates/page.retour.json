@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+        "heading_size": "title-lg tracking-heading",
+        "heading_alignment": "text-left",
+        "heading_tag": "h1",
+        "text_size": "text-base",
+        "padding_top": 72,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "rich_text_KVEifK": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9kr6yW": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>1. Retourneren & Annuleren</h2><h3>Bedenktijd & retourtermijn</h3><ul><li>Je kunt je bestelling <strong>binnen 100 dagen na levering</strong> zonder opgaaf van redenen retourneren.<br/></li></ul><h3>Voorwaarden voor retour</h3><ul><li>Behandel product, verpakking en materialen zorgvuldig; pak alleen uit voor zover nodig om te beoordelen.<br/></li><li><strong>Retourneer in originele staat en (voor zover redelijkerwijs mogelijk) in de originele verpakking</strong>, inclusief meegeleverde materialen.<br/></li></ul><h3>Zo start je een retour</h3><ol><li>Ga naar onze <a href=\"https://jacqeyewear.nl/pages/contact\" title=\"https://jacqeyewear.nl/pages/contact\"><strong>contactpagina</strong></a> en vul het formulier in. Kies bij het onderwerp <strong>‘Retouren’</strong>.<br/></li><li>Of stuur een e-mail naar <a href=\"mailto:support@jacqeyewear.nl\" title=\"mailto:support@jacqeyewear.nl\"><strong>support@jacqeyewear.nl</strong></a> met je bestelnummer en reden van retour.<br/></li><li>Je ontvangt van ons verdere instructies om de retourzending af te ronden.<br/></li></ol><p>Let op: producten die per ongeluk of onjuist aan ons worden geretourneerd, worden <strong>niet opgeslagen en/of teruggestuurd</strong>.</p><h3>Terugbetaling</h3><ul><li>Na ontvangst van je annulering <strong>restitueren we zo snel mogelijk</strong>, maar in ieder geval <strong>binnen 14 dagen</strong> na ontvangst van de annulering.<br/></li><li>We vergoeden de <strong>aankoopprijs</strong> en de <strong>initiële leveringskosten</strong> (indien van toepassing).<br/></li><li>Terugbetaling gebeurt via dezelfde betaalmethode als waarmee de aankoop is gedaan, tenzij anders overeengekomen.<br/></li></ul><h3>Ruilen</h3><ul><li>Omruilen kan binnen de retourtermijn. Start een ruil via het contactformulier of door een e-mail te sturen naar <a href=\"mailto:support@jacqeyewear.nl\" title=\"mailto:support@jacqeyewear.nl\"><strong>support@jacqeyewear.nl</strong></a>.<br/></li><li>Voor acties met specifieke ruilvoorwaarden (zoals bundel- of multifocaal deals) blijven de actievoorwaarden gelden.</li></ul>",
+            "text_font": "body",
+            "text_size": "subtext-sm",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_9kr6yW"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-page",
+    "rich_text_KVEifK"
+  ]
+}

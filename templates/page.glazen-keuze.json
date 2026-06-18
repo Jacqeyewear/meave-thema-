@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-about-jacq-apple",
+      "disabled": true,
+      "settings": {
+        "hero_image": "shopify://shop_images/image_2025-12-16_164854481.png",
+        "hero_image_alt": "Jacq Eyewear lifestyle",
+        "hero_eyebrow": "Over Jacq Eyewear",
+        "hero_title": "Een bril zou geen luxeproduct moeten zijn.",
+        "hero_subtitle": "Wij vonden dat dit anders kon.",
+        "why_title": "Waarom wij dit doen",
+        "why_text": "<p>De brillenwereld staat al jarenlang bekend om extreem hoge marges. Daardoor werd een bril op sterkte voor veel mensen onnodig duur. Terwijl boodschappen, energie en het dagelijks leven steeds meer kosten, vonden wij dat juist dit anders moest kunnen.</p><p>Een bril is geen accessoire voor af en toe. Je draagt hem elke dag. Dan moet hij goed zitten, prettig kijken en logisch geprijsd zijn.</p>",
+        "why_image": "shopify://shop_images/Gemini_Generated_Image_7wrsl77wrsl77wrs_1.jpg",
+        "why_image_alt": "Monturen detail",
+        "belief_title": "Onze overtuiging",
+        "belief_text": "<p>Wij geloven dat je niet hoeft te kiezen tussen stijl, comfort en een eerlijke prijs. Door het proces eenvoudiger te maken en transparant te zijn over keuzes in glas en coatings, houden we de kwaliteit hoog en de prijs logisch.</p>",
+        "what_title": "Wat Jacq Eyewear is",
+        "what_text": "<p><strong>Jacq Eyewear is een Nederlands brillenmerk gespecialiseerd in brillen op sterkte.</strong> Onze monturen zijn ontworpen voor dagelijks gebruik en geschikt voor verschillende glazenindexen. Alle brillen worden standaard geleverd met anti-reflectie en kraswerende coating, zodat je altijd helder en comfortabel kijkt.</p>",
+        "what_image": "shopify://shop_images/Ontwerp_zonder_titel_1_f4d93401-c3c0-4968-8518-4f56cfa868b8.webp",
+        "what_image_alt": "Productfoto montuur",
+        "how_title": "Hoe we werken",
+        "how_text": "<p>Niet meer opties dan nodig, maar wel genoeg om een bril te kiezen die past bij jouw gezicht, kijkgedrag en levensstijl. Of je nu veel achter een scherm zit, vaak autorijdt of je bril de hele dag draagt — wij zorgen dat de bril daarop aansluit.</p>",
+        "how_image": "shopify://shop_images/image_2025-12-16_170000085.png",
+        "how_image_alt": "Bril in dagelijks gebruik",
+        "trust_title": "Je ervaart een bril pas als je hem draagt.",
+        "trust_text": "<p>Daarom krijg je bij Jacq Eyewear <strong>100 dagen bedenktijd</strong>. Zo kun je je bril rustig ervaren in het dagelijks leven en zeker weten dat hij bij je past.</p>",
+        "trust_button_label": "Meer informatie",
+        "trust_button_link": "",
+        "signature": "Jacq Eyewear — eerlijke brillen op sterkte, zonder onnodige marges."
+      }
+    },
+    "page_glazen_keuze_apple_LfACda": {
+      "type": "page-glazen-keuze-apple",
+      "name": "Page – Glazen",
+      "settings": {
+        "hero_image": "shopify://shop_images/dreamina-2025-12-30-6932-POSITIVE_PROMPT_Amsterdam_IG_post_door....jpg",
+        "hero_image_alt": "Jacq Eyewear",
+        "hero_eyebrow": "JACQ EYEWEAR",
+        "hero_title": "Welke glazen heb ik nodig?",
+        "hero_subtitle": "Helder uitgelegd, zonder technisch gedoe.",
+        "s1_title": "Eenvoudige keuze, beter draagcomfort",
+        "s1_text": "<p>Niet elk glas is beter, het hangt af van je sterkte, comfort en wat je prettig vindt om te dragen. Daarom houden we het bij Jacq overzichtelijk.</p><p>Je kunt altijd beginnen met standaardglas, en alleen opschalen naar dunner glas als dat voor jouw sterkte en comfort echt verschil maakt.</p>",
+        "s1_image": "shopify://shop_images/Ontwerp_zonder_titel_7_1.webp",
+        "s1_image_alt": "Persoon met bril",
+        "band_title": "Welke optie past bij jou?",
+        "band_text": "<p>Zie het zo: hoe hoger de sterkte, hoe vaker dunner glas prettiger draagt. Hieronder zie je de vier opties en wanneer ze meestal worden gekozen.</p>",
+        "cards_title": "Glastypes",
+        "cards_subtitle": "Vier keuzes. Duidelijk verschil.",
+        "g1_title": "Basis",
+        "g1_price": "Gratis",
+        "g1_sub": "Standaardglas",
+        "g1_bullets": "<li>Standaardglazen</li><li>Anti-reflectie</li><li>Anti-kras</li>",
+        "g1_note": "Aanbevolen bij sterktes tot ongeveer ±2.00.",
+        "g2_title": "Comfort",
+        "g2_price": "+€35",
+        "g2_sub": "Dunner en lichter",
+        "g2_bullets": "<li>Dunner en lichter glas</li><li>Anti-reflectie</li><li>Anti-kras</li>",
+        "g2_note": "Mooi bij sterktes rond ±2.00 tot ±3.00.",
+        "g3_title": "Premium",
+        "g3_price": "+€65",
+        "g3_sub": "Extra dun en licht",
+        "g3_bullets": "<li>Extra dun glas</li><li>Anti-reflectie</li><li>Anti-kras</li>",
+        "g3_note": "Ideaal bij sterktes ongeveer ±3.00 tot ±6.00.",
+        "g4_title": "Luxe",
+        "g4_price": "+€95",
+        "g4_sub": "Ultradun glas",
+        "g4_bullets": "<li>Ultradun glas</li><li>Anti-reflectie</li><li>Anti-kras</li>",
+        "g4_note": "Perfect bij sterktes boven ±6.00 of als je de dunste optie wilt.",
+        "s2_title": "Twijfel je? Begin simpel.",
+        "s2_text": "<p>Je kunt altijd starten met standaardglas. Als je een hogere sterkte hebt en dunner glas prettiger vindt, kies je later voor 1.60, 1.67 of 1.74.</p><p>En met 100 dagen bedenktijd heb je de ruimte om het in het dagelijks leven te ervaren.</p>",
+        "s2_image": "shopify://shop_images/Ontwerp_zonder_titel_1_f4d93401-c3c0-4968-8518-4f56cfa868b8.webp",
+        "s2_image_alt": "Close-up bril",
+        "cta_title": "Rustig kiezen",
+        "cta_text": "<p>Je ervaart een bril pas echt als je hem draagt. Daarom krijg je bij Jacq Eyewear<br/><strong>100 dagen bedenktijd</strong>.</p>",
+        "cta_button_label": "Bekijk de collectie",
+        "cta_button_link": "shopify://collections/brillen-op-sterkte",
+        "back_link": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_glazen_keuze_apple_LfACda"
+  ]
+}

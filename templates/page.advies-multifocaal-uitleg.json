@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Check of multifocaal bij je situatie past",
+            "body": "<p>Veel wisselen tussen veraf, scherm en lezen? Dan is multifocaal logisch. Lees je alleen af en toe? Dan is een losse leesbril of enkelvoudig soms genoeg.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Neem je recept over inclusief Add",
+            "body": "<p>Voor multifocaal heb je meestal SPH/CYL/AS én <strong>Add</strong> nodig. Add is de extra leessterkte. Heb je geen Add op je recept, vraag je opticien om de volledige meting.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies montuur + coatings die ‘vergevingsgezind’ zijn",
+            "body": "<p>Een stabiele pasvorm helpt het meest. Start vaak met <a href=\"/pages/anti-reflectie\">anti-reflectie</a>. Wil je minder poetsen: <a href=\"/pages/water-vet-afstotend\">water/vet-afstotend</a>. Overzicht: <a href=\"/pages/coatings\">coatings</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Multifocaal vs enkelvoudig vs leesbril",
+            "toc_label": "Vergelijken",
+            "anchor": "vergelijken",
+            "col1": "Optie",
+            "col2": "Handig als…",
+            "col3": "Let op",
+            "rows": "Multifocaal|Je wisselt vaak tussen veraf, scherm en lezen|Wennen kost tijd; montuur moet stabiel zitten\nEnkelvoudig (veraf)|Je draagt vooral voor afstand/autorijden|Voor lezen heb je vaak extra oplossing nodig\nLeesbril|Je ziet veraf prima en leest soms|Niet ideaal bij constant wisselen",
+            "note": "Multifocaal is vooral een comfort-keuze voor wie veel schakelt. Je wint gemak, maar je moet even wennen."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat zijn multifocale (progressieve) glazen?",
+            "toc_label": "Wat is multifocaal",
+            "anchor": "wat-is-multifocaal",
+            "body": "<p>Multifocale glazen (ook wel progressieve glazen genoemd) hebben meerdere sterktes in één glas. Bovenin kijk je meestal veraf, in het midden zit een ‘tussenzone’ (handig voor computer/keuken/auto-dashboard), en onderin zit de leeszone.</p><p>Omdat de overgang geleidelijk is, zie je geen leeslijn zoals bij bifocaal. Daar staat tegenover dat de randen van het glas vaak wat ‘zachter’ of vervormd kunnen aanvoelen. Dat is normaal en hoort bij hoe progressieve ontwerpen werken.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer kies je multifocaal (en wanneer juist niet)?",
+            "toc_label": "Wanneer kiezen",
+            "anchor": "wanneer-kiezen",
+            "body": "<p><strong>Multifocaal is meestal logisch als:</strong></p><ul><li>je merkt dat lezen dichterbij moet of dat je bril ‘niet meer klopt’ op korte afstand;</li><li>je vaak wisselt tussen telefoon, laptop, gesprek en veraf;</li><li>je één bril wilt voor de hele dag.</li></ul><p><strong>Niet altijd nodig als:</strong></p><ul><li>je alleen af en toe leest (dan kan een leesbril eenvoudiger zijn);</li><li>je verafbril verder prima is en je nauwelijks schakelt;</li><li>je extreem veel schermwerk doet en een aparte computerbril prettiger is.</li></ul>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Add uitgelegd (de ‘lees-toevoeging’)",
+            "toc_label": "Add uitgelegd",
+            "anchor": "add-uitgelegd",
+            "body": "<p>Op veel recepten staat naast SPH/CYL/AS ook <strong>Add</strong>. Dat is de extra sterkte voor dichtbij. Voorbeeld: SPH −1.50 met Add +1.75 betekent dat je leeszone effectief sterker wordt voor dichtbijwerk.</p><p>Je vult Add exact over zoals op je recept staat. Heb je wél moeite met lezen maar staat er geen Add op je recept, vraag dan om een update of om de volledige waarden.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Hoe lang duurt wennen aan multifocaal?",
+            "toc_label": "Wennen",
+            "anchor": "wennen",
+            "body": "<p>Wennen verschilt per persoon. Veel mensen voelen binnen een paar dagen verbetering, maar het kan ook een paar weken duren voordat alles ‘automatisch’ gaat.</p><p>Wat je vaak merkt in het begin:</p><ul><li><strong>Traplopen:</strong> kijk even bewuster door het bovenste deel (veraf) en niet door de leeszone.</li><li><strong>Zijwaarts kijken:</strong> draai je hoofd iets mee in plaats van alleen je ogen naar de rand.</li><li><strong>Scherm:</strong> soms is de tussenzone even zoeken. Zet je scherm iets lager of verder weg als dat helpt.</li></ul><p>Tip: draag multifocaal in de eerste periode zo veel mogelijk aaneengesloten. Steeds wisselen tussen oude bril en nieuwe kan het wennen vertragen.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Montuurkeuze: waarom pasvorm extra belangrijk is",
+            "toc_label": "Montuur",
+            "anchor": "montuur",
+            "body": "<p>Bij multifocaal kijk je door specifieke zones. Als het montuur zakt, scheef staat of niet stabiel zit, krijg je sneller frustratie. Een goede pasvorm is daarom extra belangrijk.</p><ul><li>Kies een montuur dat <strong>niet afzakt</strong> en prettig op de neus zit.</li><li>Te klein of te smal kan de bruikbare zones beperkter laten voelen.</li><li>Twijfel je over maat? Gebruik <a href='/pages/brilmaat-bepalen'>brilmaat bepalen</a> als checklist.</li></ul>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Coatings die bij multifocaal vaak het meeste opleveren",
+            "toc_label": "Coatings",
+            "anchor": "coatings",
+            "body": "<p>Je kunt multifocale glazen combineren met coatings. In praktijk kiezen veel mensen deze volgorde:</p><ol><li><a href=\"/pages/anti-reflectie\">Anti-reflectie</a> voor rustiger zicht en minder spiegeling.</li><li><a href=\"/pages/water-vet-afstotend\">Water- & vet-afstotend</a> als je vaak poetst.</li><li><a href=\"/pages/kraswerend\">Kraswerend</a> als extra bescherming tegen dagelijkse slijtage.</li></ol><p>Zie alle opties in <a href=\"/pages/coatings\">coatings (overzicht)</a>.</p>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Welke metingen heb je nodig om multifocaal goed te bestellen?",
+            "toc_label": "Metingen",
+            "anchor": "metingen",
+            "body": "<p>Minimaal heb je meestal nodig:</p><ul><li>je actuele recept: SPH, eventueel CYL/AS (zie <a href=\"/pages/cylinder-as-uitleg\">CYL & AS uitleg</a>),</li><li><strong>Add</strong> (lees-toevoeging),</li><li><strong>PD</strong> (pupilafstand): <a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten</a>.</li></ul><p>Bij sommige multifocale systemen wordt ook een <strong>inslijphoogte</strong> (montagehoogte) gebruikt. Hoe dat bij jullie bestelling werkt, hangt af van het proces en het montuur. Als je dit niet kunt aanleveren, kies dan een optie waarbij dit wordt gemeten of ondersteund.</p>"
+          }
+        },
+        "sec-8": {
+          "type": "content",
+          "settings": {
+            "heading": "Kosten: waarom multifocaal vaak duurder is",
+            "toc_label": "Kosten",
+            "anchor": "kosten",
+            "body": "<p>Multifocale glazen zijn complexer te ontwerpen en produceren dan enkelvoudige glazen. Prijsverschillen komen vaak door: ontwerpkwaliteit (brede tussenzone), personalisatie, en extra afwerkingen/coatings.</p><p>Tip: als je vooral last hebt van reflecties of vlekken, kun je soms met een goede coating al veel comfort winnen, ongeacht het type glas.</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelle keuzehulp",
+            "anchor": "keuzehulp",
+            "body": "<ul><li>Veel schakelen tussen veraf en dichtbij? <strong>Multifocaal</strong> is meestal de meest logische allround keuze.</li><li>Alleen af en toe lezen? Overweeg <strong>leesbril</strong> of een simpele oplossing.</li><li>Voor maximale rust: start met <a href=\"/pages/anti-reflectie\">anti-reflectie</a> en laat je waarden dubbelchecken.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is multifocaal hetzelfde als progressief?",
+            "a": "<p>Ja. Multifocaal en progressief worden vaak door elkaar gebruikt. Het gaat om één glas met meerdere sterktes zonder zichtbare leeslijn.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe weet ik of ik Add nodig heb?",
+            "a": "<p>Als je recept Add vermeldt, neem je die over. Als je merkt dat dichtbij slechter gaat maar Add ontbreekt, laat je recept updaten.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom voelt de rand van het glas soms ‘raar’?",
+            "a": "<p>Progressieve glazen hebben zones. Aan de zijkanten kan het beeld wat vervormen. Door je hoofd iets mee te draaien, kijk je vaker door het scherpe deel.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik autorijden met multifocaal?",
+            "a": "<p>De meeste mensen wel. Geef jezelf even gewenning, vooral bij dashboard en zijspiegels. Bij twijfel: bouw rustig op.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe voorkom ik dat wennen lang duurt?",
+            "a": "<p>Draag de nieuwe bril in het begin zo veel mogelijk aaneengesloten en wissel niet steeds terug naar je oude bril.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke coating is het belangrijkst?",
+            "a": "<p>Voor veel mensen: <a href='/pages/anti-reflectie'>anti-reflectie</a>. Dat merk je direct in rust en reflecties.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "sec-8",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: multifocaal uitleg",
+        "kicker": "ADVIES",
+        "title": "Multifocaal uitgelegd",
+        "subtitle": "Wat het is, wanneer je het kiest en hoe je sneller went.",
+        "readtime": "10 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Multifocale (progressieve) glazen combineren <strong>veraf</strong>, <strong>tussendoor</strong> (scherm) en <strong>dichtbij</strong> (lezen) in één bril, zonder zichtbare leeslijn. Je kijkt door verschillende zones: bovenin veraf, onderin dichtbij.</p><p><strong>Wanneer kiezen?</strong> Als je merkt dat je vaker je bril afzet om te lezen, je armen ‘te kort’ worden, of je wisselt constant tussen veraf en dichtbij (werk, autorijden, telefoon).</p><p><strong>Waar zit het verschil tussen “goed” en “meh”?</strong> Meestal in 3 dingen: 1) juiste waarden op recept (incl. <strong>Add</strong>), 2) een montuur dat goed en stabiel zit, 3) realistische gewenning: de meeste mensen wennen in dagen tot weken, vooral aan traplopen en zijwaarts kijken.</p><p>Praktisch: kies vaak als basis <a href=\"/pages/anti-reflectie\">anti-reflectie</a> (minder reflecties), en check <a href=\"/pages/glasindex-en-dikte\">glasindex & dikte</a> als je sterkte hoger is.</p>",
+        "howto_title": "Multifocaal kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li><li><a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/cylinder-as-uitleg\">CYL & AS uitgelegd</a></li><li><a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\">PD meten</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

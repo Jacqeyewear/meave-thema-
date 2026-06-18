@@ -1,0 +1,213 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-hub",
+      "blocks": {
+        "ql1": {
+          "type": "quicklink",
+          "settings": {
+            "label": "PD meten",
+            "link": "/pages/pupil-afstand-meten"
+          }
+        },
+        "ql2": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Brilrecept begrijpen",
+            "link": "/pages/brilrecept-begrijpen"
+          }
+        },
+        "ql3": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Sterkte invullen",
+            "link": "/pages/sterkte-invullen"
+          }
+        },
+        "ql4": {
+          "type": "quicklink",
+          "settings": {
+            "label": "Retour & garantie",
+            "link": "/pages/retour-ruil-garantie"
+          }
+        },
+        "t1": {
+          "type": "topic",
+          "settings": {
+            "title": "PD meten (pupilafstand)",
+            "text": "De meting die je online het vaakst nodig hebt. Zo meet je ‘m thuis betrouwbaar.",
+            "badge": "4 min",
+            "link": "/pages/pupil-afstand-meten",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M4 7h16'/><path d='M8 7v10'/><path d='M16 7v10'/><path d='M4 17h16'/></svg>"
+          }
+        },
+        "t2": {
+          "type": "topic",
+          "settings": {
+            "title": "Brilrecept begrijpen",
+            "text": "SPH, CYL, AS en ADD in normale taal, plus waar het vaak misgaat.",
+            "badge": "11 min",
+            "link": "/pages/brilrecept-begrijpen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/><path d='M8 13h8'/><path d='M8 17h8'/></svg>"
+          }
+        },
+        "t3": {
+          "type": "topic",
+          "settings": {
+            "title": "Sterkte invullen (stappen + voorbeelden)",
+            "text": "Vul je recept foutloos in, inclusief min/plus, CYL/AS en eventuele ADD.",
+            "badge": "12 min",
+            "link": "/pages/sterkte-invullen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 20h9'/><path d='M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4 11.5-11.5z'/></svg>"
+          }
+        },
+        "t4": {
+          "type": "topic",
+          "settings": {
+            "title": "Wennen aan je nieuwe bril",
+            "text": "Wat is normaal in de eerste dagen, wanneer moet je actie nemen en wat helpt echt?",
+            "badge": "10 min",
+            "link": "/pages/wennen-aan-nieuwe-bril",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 8v4l3 3'/><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z'/></svg>"
+          }
+        },
+        "t5": {
+          "type": "topic",
+          "settings": {
+            "title": "Bril afstellen",
+            "text": "Scheef, afzakkend of drukkend? Dit kun je veilig zelf doen (en wat niet).",
+            "badge": "9 min",
+            "link": "/pages/bril-afstellen",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M14.7 6.3l3 3'/><path d='M7 20l3-3'/><path d='M12 7l5 5-8 8H4v-5l8-8z'/></svg>"
+          }
+        },
+        "t6": {
+          "type": "topic",
+          "settings": {
+            "title": "Bril schoonmaken",
+            "text": "Snel schoon zonder strepen: do’s, don’ts en hoe je coatings mooi houdt.",
+            "badge": "8 min",
+            "link": "/pages/bril-schoonmaken",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 2v6'/><path d='M7 8h10'/><path d='M6 22h12'/><path d='M8 22V8'/><path d='M16 22V8'/></svg>"
+          }
+        },
+        "t7": {
+          "type": "topic",
+          "settings": {
+            "title": "Autorijden met bril",
+            "text": "Reflecties, licht in het donker en comfort: praktische tips voor onderweg.",
+            "badge": "9 min",
+            "link": "/pages/autorijden",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M5 16l1-5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2l1 5'/><path d='M7 16h10'/><path d='M7 20h2'/><path d='M15 20h2'/></svg>"
+          }
+        },
+        "t8": {
+          "type": "topic",
+          "settings": {
+            "title": "Buiten (zon, wind, stof)",
+            "text": "Wat helpt tegen knijpen, stof/regen en wisselend licht, zonder gedoe.",
+            "badge": "8 min",
+            "link": "/pages/buiten",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M12 4v2'/><path d='M12 18v2'/><path d='M4 12h2'/><path d='M18 12h2'/><path d='M6 6l1.5 1.5'/><path d='M16.5 16.5L18 18'/><path d='M6 18l1.5-1.5'/><path d='M16.5 7.5L18 6'/><path d='M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8z'/></svg>"
+          }
+        },
+        "t9": {
+          "type": "topic",
+          "settings": {
+            "title": "Verzending & levertijd",
+            "text": "Wat kun je verwachten na bestellen, en wat te doen als je pakket vertraagd is.",
+            "badge": "6 min",
+            "link": "/pages/verzending-levertijd",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M3 7h13v10H3z'/><path d='M16 10h4l1 2v5h-5z'/><path d='M7 19a2 2 0 1 0 0 .1'/><path d='M17 19a2 2 0 1 0 0 .1'/></svg>"
+          }
+        },
+        "t10": {
+          "type": "topic",
+          "settings": {
+            "title": "Retour, ruilen & garantie",
+            "text": "Heldere stappen voor retour/ruil en wat onder garantie valt.",
+            "badge": "7 min",
+            "link": "/pages/retour-ruil-garantie",
+            "icon_svg": "<svg viewBox='0 0 24 24'><path d='M3 12a9 9 0 1 0 3-6.7'/><path d='M3 3v6h6'/></svg>"
+          }
+        },
+        "f1": {
+          "type": "faq",
+          "settings": {
+            "q": "Welke gegevens heb ik nodig om online een bril te bestellen?",
+            "a": "<p>Meestal: je sterkte (SPH), eventueel CYL/AS, en je PD (pupilafstand). Soms staat er ook ADD of prisma op je recept. Met <a href='/pages/brilrecept-begrijpen'>Brilrecept begrijpen</a> en <a href='/pages/pupil-afstand-meten'>PD meten</a> heb je de basis compleet.</p>"
+          }
+        },
+        "f2": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat zijn de meest gemaakte fouten bij sterkte invullen?",
+            "a": "<p>De klassiekers: plus/min verwisselen, CYL vergeten, AS buiten bereik, of links/rechts omdraaien. Daarom hebben we een stap-voor-stap pagina met voorbeelden: <a href='/pages/sterkte-invullen'>Sterkte invullen</a>.</p>"
+          }
+        },
+        "f3": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoelang duurt wennen aan een nieuwe bril?",
+            "a": "<p>Dat verschilt per persoon en recept. Lichte gewenning is normaal, maar aanhoudende klachten zijn een signaal om te checken of je recept/instellingen kloppen. Zie: <a href='/pages/wennen-aan-nieuwe-bril'>Wennen aan je nieuwe bril</a>.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik mijn bril zelf afstellen zonder schade?",
+            "a": "<p>Een kleine correctie kan vaak, maar voorkom forceren en hitte op de verkeerde plekken. In <a href='/pages/bril-afstellen'>Bril afstellen</a> leggen we uit wat wél veilig is en wanneer je beter contact opneemt.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ql1",
+        "ql2",
+        "ql3",
+        "ql4",
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8",
+        "t9",
+        "t10",
+        "f1",
+        "f2",
+        "f3",
+        "f4"
+      ],
+      "settings": {
+        "aria_label": "Meten, bestellen en nazorg",
+        "kicker": "SERVICE",
+        "title": "Meten, bestellen & nazorg",
+        "subtitle": "Van brilrecept tot nazorg: meet je PD, vul je sterkte goed in en haal het meeste uit je nieuwe bril.",
+        "primary_cta_label": "",
+        "primary_cta_link": "/pages/onze-brillen-op-sterkte",
+        "secondary_cta_label": "",
+        "secondary_cta_link": "/collections/brillen-op-sterkte",
+        "show_quicklinks": false,
+        "quicklinks_title": "Snel naar",
+        "card_cta_text": "Lees artikel",
+        "faq_title": "Veelgestelde vragen",
+        "seo_title": "Alles wat je nodig hebt om online goed te bestellen",
+        "seo_richtext": "<p>Online een bril op sterkte bestellen is simpel als je drie dingen klopt: <strong>je recept</strong>, <strong>je meting (PD)</strong> en <strong>het invullen</strong>. Gebruik deze hub als checklist.</p><ul><li><a href=\"/pages/brilrecept-begrijpen\">Brilrecept begrijpen</a>: wat betekenen SPH, CYL en AS?</li><li><a href=\"/pages/pupil-afstand-meten\">PD meten</a>: snel en nauwkeurig thuis.</li><li><a href=\"/pages/sterkte-invullen\">Sterkte invullen</a>: stappen + voorbeelden (en fouten voorkomen).</li></ul><p>Na levering helpen de korte guides je met dragen en onderhoud: <a href=\"/pages/wennen-aan-nieuwe-bril\">wennen aan je nieuwe bril</a>, <a href=\"/pages/bril-afstellen\">afstellen</a> en <a href=\"/pages/bril-schoonmaken\">schoonmaken</a>. Voor praktische vragen vind je hier ook <a href=\"/pages/verzending-levertijd\">verzending & levertijd</a> en <a href=\"/pages/retour-ruil-garantie\">retour/ruil/garantie</a>.</p>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,369 @@
+{% comment %}
+  Jacq Eyewear — About Page (Apple-clean style) — Shopify OS 2.0
+  Create template JSON that uses this section.
+{% endcomment %}
+
+<section class="jacq-apple" data-section-id="{{ section.id }}">
+  <!-- HERO -->
+  <header class="ja-hero">
+    {% if section.settings.hero_image != blank %}
+      <div class="ja-hero__media" aria-hidden="true">
+        {{ section.settings.hero_image | image_url: width: 3000 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '1000, 1400, 1800, 2200, 2600, 3000',
+          alt: section.settings.hero_image_alt | escape
+        }}
+      </div>
+    {% endif %}
+
+    <div class="ja-wrap ja-hero__content">
+      <p class="ja-eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+      <h1 class="ja-h1">{{ section.settings.hero_title | escape }}</h1>
+      {% if section.settings.hero_subtitle != blank %}
+        <p class="ja-lead">{{ section.settings.hero_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- WHY (text + image) -->
+  <section class="ja-wrap ja-split ja-block">
+    <div class="ja-split__text">
+      <h2 class="ja-h2">{{ section.settings.why_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.why_text }}
+      </div>
+    </div>
+
+    <div class="ja-split__media">
+      {% if section.settings.why_image != blank %}
+        {{ section.settings.why_image | image_url: width: 1800 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 44vw, 100vw',
+          widths: '700, 1000, 1400, 1800',
+          alt: section.settings.why_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- BELIEF (center band) -->
+  <section class="ja-band ja-block">
+    <div class="ja-wrap ja-center">
+      <h2 class="ja-h2">{{ section.settings.belief_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.belief_text }}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT (image + text) -->
+  <section class="ja-wrap ja-split ja-split--reverse ja-block">
+    <div class="ja-split__text">
+      <h2 class="ja-h2">{{ section.settings.what_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.what_text }}
+      </div>
+    </div>
+
+    <div class="ja-split__media">
+      {% if section.settings.what_image != blank %}
+        {{ section.settings.what_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 40vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.what_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- HOW (image + text) -->
+  <section class="ja-wrap ja-split ja-block">
+    <div class="ja-split__media">
+      {% if section.settings.how_image != blank %}
+        {{ section.settings.how_image | image_url: width: 1800 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 44vw, 100vw',
+          widths: '700, 1000, 1400, 1800',
+          alt: section.settings.how_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+
+    <div class="ja-split__text">
+      <h2 class="ja-h2">{{ section.settings.how_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.how_text }}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST (clean CTA band) -->
+  <section class="ja-cta ja-block">
+    <div class="ja-wrap ja-center">
+      <h2 class="ja-h2 ja-h2--cta">{{ section.settings.trust_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.trust_text }}
+      </div>
+
+      {% if section.settings.trust_button_label != blank and section.settings.trust_button_link != blank %}
+        <a class="ja-btn" href="{{ section.settings.trust_button_link }}">
+          {{ section.settings.trust_button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- SIGNATURE -->
+  <footer class="ja-wrap ja-sign">
+    <p class="ja-sign__text">{{ section.settings.signature | escape }}</p>
+  </footer>
+</section>
+
+<style>
+  /* Apple-clean: typography + whitespace + soft contrast */
+  .jacq-apple{
+    --ja-max: 1120px;
+    --ja-pad: clamp(18px, 3.2vw, 28px);
+    --ja-gap: clamp(18px, 3.2vw, 48px);
+    --ja-radius: 20px;
+    --ja-bg: #ffffff;
+    --ja-band: #f5f5f7;
+    --ja-text: rgba(0,0,0,.88);
+    --ja-muted: rgba(0,0,0,.62);
+    --ja-hairline: rgba(0,0,0,.10);
+    background: var(--ja-bg);
+    color: var(--ja-text);
+  }
+  .jacq-apple *{ box-sizing: border-box; }
+
+  .ja-wrap{
+  max-width: var(--ja-max);
+  margin: 0 auto;
+  padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+  padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+}
+@media (max-width: 749px){
+  .jacq-apple .ja-wrap{
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+}
+
+
+  /* HERO */
+  .ja-hero{
+    position: relative;
+    overflow: hidden;
+    background: var(--ja-band);
+  }
+  .ja-hero__media img{
+    width: 100%;
+    height: clamp(420px, 52vw, 680px);
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+  }
+  .ja-hero__content{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: end;
+    padding-bottom: clamp(34px, 5vw, 56px);
+    pointer-events: none;
+  }
+
+  /* Eyebrow + type scale */
+  .ja-eyebrow{
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+  }
+  .ja-h1{
+    margin: 0 0 12px;
+    font-size: clamp(34px, 5.0vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    text-shadow: 0 1px 18px rgba(0,0,0,.38);
+    max-width: 20ch;
+  }
+  .ja-lead{
+    margin: 0;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.86);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+    max-width: 58ch;
+  }
+
+  /* Blocks spacing */
+  .ja-block{
+    padding: clamp(54px, 7vw, 92px) 0;
+  }
+
+  /* Split sections */
+  .ja-split{
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: var(--ja-gap);
+    align-items: center;
+  }
+  .ja-split--reverse{
+    grid-template-columns: .95fr 1.05fr;
+  }
+  .ja-split__media img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--ja-radius);
+  }
+
+  /* Headings */
+  .ja-h2{
+    margin: 0 0 14px;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ja-text);
+  }
+
+  /* Richtext styling */
+  .ja-richtext{
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ja-text);
+    max-width: 70ch;
+  }
+  .ja-richtext p{ margin: 0 0 14px; color: var(--ja-text); }
+  .ja-richtext p:last-child{ margin-bottom: 0; }
+  .ja-richtext strong{ color: rgba(0,0,0,.92); }
+  .ja-richtext--center{ margin: 0 auto; }
+  .ja-center{ text-align: center; }
+
+  /* Band */
+  .ja-band{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+    border-bottom: 1px solid var(--ja-hairline);
+  }
+
+  /* CTA */
+  .ja-cta{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .ja-h2--cta{ margin-bottom: 10px; }
+  .ja-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.22);
+    color: rgba(0,0,0,.86);
+    text-decoration: none;
+    background: rgba(255,255,255,.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .ja-btn:hover{ border-color: rgba(0,0,0,.35); }
+
+  /* Signature */
+  .ja-sign{
+    padding: 44px 0 clamp(64px, 7vw, 96px);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .ja-sign__text{
+    margin: 0;
+    color: var(--ja-muted);
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 989px){
+    .ja-hero__content{ padding-bottom: 28px; }
+    .ja-split, .ja-split--reverse{
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    .ja-richtext{ max-width: 100%; }
+    .ja-eyebrow, .ja-h1, .ja-lead{ max-width: 100%; }
+  }
+  /* Mobile: force consistent order (text first, image second) */
+@media (max-width: 989px){
+  .jacq-apple .ja-split{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  /* Always show text first, image second on mobile */
+  .jacq-apple .ja-split__text{ order: 1; }
+  .jacq-apple .ja-split__media{ order: 2; }
+
+  /* Add breathing room so it doesn't feel like "double image blocks" */
+  .jacq-apple .ja-split__media{
+    margin-top: 18px;
+  }
+
+  /* Extra separation between consecutive sections */
+  .jacq-apple .ja-block{
+    padding: 44px 0;
+  }
+}
+
+/* Optional: slightly smaller images on mobile so they don't dominate */
+@media (max-width: 749px){
+  .jacq-apple .ja-split__media img{
+    border-radius: 18px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Over ons",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Jacq Eyewear lifestyle" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow (small)", "default": "Over Jacq Eyewear" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Een bril zou geen luxeproduct moeten zijn." },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Wij vonden dat dit anders kon." },
+
+    { "type": "text", "id": "why_title", "label": "Why title", "default": "Waarom wij dit doen" },
+    { "type": "richtext", "id": "why_text", "label": "Why text", "default": "<p>De brillenwereld staat al jarenlang bekend om extreem hoge marges. Daardoor werd een bril op sterkte voor veel mensen onnodig duur. Terwijl boodschappen, energie en het dagelijks leven steeds meer kosten, vonden wij dat juist dit anders moest kunnen.</p><p>Een bril is geen accessoire voor af en toe. Je draagt hem elke dag. Dan moet hij goed zitten, prettig kijken en logisch geprijsd zijn.</p>" },
+    { "type": "image_picker", "id": "why_image", "label": "Why image" },
+    { "type": "text", "id": "why_image_alt", "label": "Why image alt text", "default": "Monturen detail" },
+
+    { "type": "text", "id": "belief_title", "label": "Belief title", "default": "Onze overtuiging" },
+    { "type": "richtext", "id": "belief_text", "label": "Belief text", "default": "<p>Wij geloven dat je niet hoeft te kiezen tussen stijl, comfort en een eerlijke prijs. Door het proces eenvoudiger te maken en transparant te zijn over keuzes in glas en coatings, houden we de kwaliteit hoog en de prijs logisch.</p>" },
+
+    { "type": "text", "id": "what_title", "label": "What title", "default": "Wat Jacq Eyewear is" },
+    { "type": "richtext", "id": "what_text", "label": "What text", "default": "<p><strong>Jacq Eyewear is een Nederlands brillenmerk gespecialiseerd in brillen op sterkte.</strong> Onze monturen zijn ontworpen voor dagelijks gebruik en geschikt voor verschillende glazenindexen. Alle brillen worden standaard geleverd met anti-reflectie en kraswerende coating, zodat je altijd helder en comfortabel kijkt.</p>" },
+    { "type": "image_picker", "id": "what_image", "label": "What image (product shot)" },
+    { "type": "text", "id": "what_image_alt", "label": "What image alt text", "default": "Productfoto montuur" },
+
+    { "type": "text", "id": "how_title", "label": "How title", "default": "Hoe we werken" },
+    { "type": "richtext", "id": "how_text", "label": "How text", "default": "<p>Niet meer opties dan nodig, maar wel genoeg om een bril te kiezen die past bij jouw gezicht, kijkgedrag en levensstijl. Of je nu veel achter een scherm zit, vaak autorijdt of je bril de hele dag draagt — wij zorgen dat de bril daarop aansluit.</p>" },
+    { "type": "image_picker", "id": "how_image", "label": "How image (lifestyle)" },
+    { "type": "text", "id": "how_image_alt", "label": "How image alt text", "default": "Bril in dagelijks gebruik" },
+
+    { "type": "text", "id": "trust_title", "label": "Trust title", "default": "Je merkt een bril pas als je hem draagt." },
+    { "type": "richtext", "id": "trust_text", "label": "Trust text", "default": "<p>Daarom krijg je bij Jacq Eyewear <strong>100 dagen bedenktijd</strong>. Zo kun je je bril rustig ervaren in het dagelijks leven en zeker weten dat hij bij je past.</p>" },
+    { "type": "text", "id": "trust_button_label", "label": "Button label (optional)", "default": "Meer informatie" },
+    { "type": "url", "id": "trust_button_link", "label": "Button link (optional)" },
+
+    { "type": "text", "id": "signature", "label": "Signature line", "default": "Jacq Eyewear — eerlijke brillen op sterkte, zonder onnodige marges." }
+  ],
+  "presets": [
+    { "name": "Over ons" }
+  ]
+}
+{% endschema %}

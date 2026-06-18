@@ -1,0 +1,296 @@
+{%- liquid
+  assign dominated_tags = product.tags | join: ',' | downcase
+  assign is_configurator = false
+  if product.title contains 'Glazen op sterkte' or product.title contains 'Blauwlicht filter' or product.type == 'Configurator' or dominated_tags contains 'configurator'
+    assign is_configurator = true
+  endif
+-%}
+
+{%- if product.metafields.frame.lens_width and is_configurator == false -%}
+
+{%- liquid
+  assign lens_width = product.metafields.frame.lens_width.value | default: product.metafields.frame.lens_width | plus: 0
+  assign bridge = product.metafields.frame.bridge.value | default: product.metafields.frame.bridge | plus: 0
+  assign temple_length = product.metafields.frame.temple_length.value | default: product.metafields.frame.temple_length | plus: 0
+  assign materiaal = product.metafields.custom.materiaal.value | default: product.metafields.custom.materiaal
+  assign vorm = product.metafields.custom.vorm.value | default: product.metafields.custom.vorm
+  assign bridge_arrow_length = bridge | minus: 2
+  assign lens_arrow_length = lens_width | minus: 14
+  assign half_bridge = bridge_arrow_length | divided_by: 2.0
+  assign bridge_start_x = 60.0 | minus: half_bridge
+  assign bridge_end_x = 60.0 | plus: half_bridge
+  assign lens_end_x = bridge_end_x | plus: lens_arrow_length
+  assign bridge_label_x = bridge_start_x | plus: bridge_end_x | divided_by: 2.0
+  assign lens_label_x = bridge_end_x | plus: lens_end_x | divided_by: 2.0
+  assign bridge_start_arrow = bridge_start_x | plus: 1.5
+  assign bridge_end_arrow = bridge_end_x | minus: 1.5
+  assign lens_start_arrow = bridge_end_x | plus: 1.5
+  assign lens_end_arrow = lens_end_x | minus: 1.5
+  assign total_width = product.metafields.frame.total_width.value | default: product.metafields.frame.total_width | plus: 0
+  assign total_start_x = 6
+  assign total_end_x = 114
+  assign total_label_x = 60.0
+  assign total_start_arrow = 7.5
+  assign total_end_arrow = 112.5
+-%}
+
+<style>
+  .jt-nav-wrap{display:flex;justify-content:center;margin-bottom:36px;}
+  .jt-nav{display:inline-flex;position:relative;}
+  .jt-tab{position:relative;z-index:1;padding:12px 24px 14px;border:none;border-bottom:3px solid transparent;background:transparent;font-family:inherit;font-size:15px;font-weight:400;letter-spacing:-0.01em;color:#aeaeb2;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent;transition:color 0.5s cubic-bezier(0.22,1,0.36,1),border-color 0.3s ease;}
+  .jt-tab:hover{color:#86868b;}
+  .jt-tab.is-active{color:#1D1D1F;font-weight:500;border-bottom-color:#0071E3;}
+  .jacq-specs-panel{display:none;opacity:0;transform:translateY(12px) scale(0.99);transition:opacity 0.5s cubic-bezier(0.22,1,0.36,1),transform 0.5s cubic-bezier(0.22,1,0.36,1);}
+  .jacq-specs-panel.is-active{display:block;opacity:1;transform:translateY(0) scale(1);}
+  .jacq-specs-panel.is-leaving{display:block;opacity:0;transform:translateY(-6px) scale(0.99);transition:opacity 0.18s ease-out,transform 0.18s ease-out;}
+  .jacq-specs-panel.is-entering{display:block;opacity:0;transform:translateY(12px) scale(0.99);}
+  .sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .sp-image{background:#f5f5f7;border-radius:20px;overflow:hidden;aspect-ratio:4/3;position:relative;}
+  .sp-image-inner{position:relative;width:100%;height:100%;overflow:hidden;}
+  .sp-table{display:flex;flex-direction:column;}
+  .sp-row{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:12px;transition:background 0.25s cubic-bezier(0.22,1,0.36,1);}
+  .sp-row:hover{background:#f5f5f7;}
+  .sp-label{font-size:14px;font-weight:400;color:#86868b;letter-spacing:-0.01em;}
+  .sp-value{font-size:14px;font-weight:500;color:#1D1D1F;letter-spacing:-0.01em;text-align:right;}
+  .hw-steps{display:flex;flex-direction:column;}
+  .hw-video{position:relative;border-radius:20px;overflow:hidden;background:#fff;margin-bottom:24px;aspect-ratio:16/9;box-shadow:0 1px 3px rgba(0,0,0,0.04),0 8px 24px rgba(0,0,0,0.08),0 20px 48px rgba(0,0,0,0.06);}
+  .hw-video video{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.015);transform-origin:center;background:#fff;}
+  .hw-video::before{content:"";position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:2.5px solid #e5e5ea;border-top-color:#0071E3;border-radius:50%;animation:hw-spin 0.8s linear infinite;z-index:0;}
+  @keyframes hw-spin{to{transform:rotate(360deg);}}
+  .hw-step{display:grid;grid-template-columns:44px 1fr;gap:0 16px;padding-bottom:24px;position:relative;}
+  .hw-step:last-child{padding-bottom:0;}
+  .hw-line{position:absolute;left:21px;top:44px;bottom:0;width:1.5px;background:#e5e5ea;}
+  .hw-step:last-child .hw-line{display:none;}
+  .hw-num{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:500;color:#fff;background:#0071E3;position:relative;z-index:1;flex-shrink:0;}
+  .hw-num--done{background:#1D1D1F;}
+  .hw-content{padding-top:4px;}
+  .hw-step-title{font-size:16px;font-weight:500;color:#1D1D1F;margin-bottom:4px;letter-spacing:-0.02em;}
+  .hw-step-desc{font-size:14px;color:#86868b;line-height:1.55;letter-spacing:-0.01em;}
+  .hw-usps{display:flex;gap:16px;margin-top:12px;}
+  .hw-usp{font-size:13px;color:#86868b;letter-spacing:-0.01em;}
+  .hw-usp-val{font-weight:500;color:#1D1D1F;}
+  .hw-footer{margin-top:24px;padding:20px 24px;background:#fff;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 1px 2px rgba(0,0,0,0.06),0 3px 10px rgba(0,0,0,0.06);}
+  .hw-footer-left{font-size:14px;font-weight:500;color:#1D1D1F;letter-spacing:-0.01em;}
+  .hw-footer-left p{margin:2px 0 0;font-size:12px;font-weight:400;color:#86868b;}
+  .hw-footer-links{display:flex;gap:8px;flex-shrink:0;}
+  .hw-footer-link{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:980px;font-size:13px;font-weight:500;text-decoration:none;white-space:nowrap;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);}
+  .hw-footer-link--wa{background:#ecfdf5;color:#059669;}
+  .hw-footer-link--wa:hover{background:#d1fae5;}
+  .hw-footer-link--contact{background:#0071E3;color:#fff;}
+  .hw-footer-link--contact:hover{background:#005bb5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,113,227,0.3);}
+  .hw-footer-link--contact:active{transform:scale(0.97);}
+  .hw-footer-link svg{width:14px;height:14px;flex-shrink:0;}
+  .gl-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .gl-section-title{font-size:16px;font-weight:500;color:#1D1D1F;margin-bottom:14px;letter-spacing:-0.02em;}
+  .gl-section-desc{font-size:14px;color:#86868b;margin:-6px 0 18px;line-height:1.55;letter-spacing:-0.01em;}
+  .gl-section-label{font-size:11px;font-weight:500;color:#86868b;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:12px;}
+  .gl-divider{height:1px;background:#f0f0f0;margin:18px 0;}
+  .gl-items{display:flex;flex-direction:column;gap:4px;}
+  .gl-item{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;border-radius:12px;transition:background 0.25s cubic-bezier(0.22,1,0.36,1);}
+  .gl-item:hover{background:#f5f5f7;}
+  .gl-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .gl-icon svg{width:15px;height:15px;}
+  .gl-icon--green{background:#ecfdf5;}
+  .gl-icon--blue{background:#EBF3FE;}
+  .gl-item-title{font-size:14px;font-weight:500;color:#1D1D1F;letter-spacing:-0.01em;}
+  .gl-item-desc{font-size:13px;color:#86868b;margin-top:1px;letter-spacing:-0.01em;}
+  .gl-price{color:#0071E3;font-weight:500;font-size:13px;margin-left:6px;}
+  .gl-idx-list{display:flex;flex-direction:column;gap:2px;}
+  .gl-idx-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 16px;border-radius:12px;transition:background 0.25s cubic-bezier(0.22,1,0.36,1);}
+  .gl-idx-row:hover{background:#f5f5f7;}
+  .gl-idx-row--pop{background:#f5f5f7;}
+  .gl-idx-name{font-size:14px;font-weight:500;color:#1D1D1F;letter-spacing:-0.01em;}
+  .gl-idx-detail{font-size:12px;color:#86868b;margin-top:2px;letter-spacing:-0.01em;}
+  .gl-idx-price{font-size:14px;font-weight:500;color:#1D1D1F;white-space:nowrap;}
+  .gl-idx-badge{display:inline-block;font-size:9px;font-weight:600;padding:2px 8px;border-radius:6px;background:rgba(0,113,227,0.08);color:#0071E3;text-transform:uppercase;letter-spacing:0.03em;margin-left:6px;vertical-align:middle;}
+  .gl-note{margin-top:14px;padding:0 16px;font-size:12px;color:#aeaeb2;line-height:1.5;}
+  @media(max-width:768px){
+    #jacq-specs{padding:32px 16px!important;}
+    .jt-tab{padding:10px 16px;font-size:13px;}
+    .sp-grid{grid-template-columns:1fr!important;gap:24px!important;}
+    .sp-row{padding:12px 12px;}
+    .sp-label,.sp-value{font-size:13px;}
+    .hw-step{grid-template-columns:36px 1fr;gap:0 12px;padding-bottom:20px;}
+    .hw-num{width:36px;height:36px;border-radius:10px;font-size:15px;}
+    .hw-line{left:17px;top:36px;}
+    .hw-step-title{font-size:15px;}
+    .hw-step-desc{font-size:13px;}
+    .hw-usps{flex-direction:column;gap:4px;}
+    .hw-usp{font-size:12px;}
+    .hw-footer{flex-direction:column;text-align:center;gap:12px;padding:18px 20px;}
+    .hw-footer-left p{display:none;}
+    .hw-footer-links{width:100%;}
+    .hw-footer-link{flex:1;justify-content:center;padding:12px 16px;}
+    .gl-grid{grid-template-columns:1fr!important;gap:28px!important;}
+    .gl-item{padding:10px 10px;}
+    .gl-icon{width:24px;height:24px;border-radius:6px;}
+    .gl-icon svg{width:13px;height:13px;}
+    .gl-item-title{font-size:13px;}
+    .gl-item-desc{font-size:12px;}
+    .gl-idx-row{padding:12px 12px;}
+    .gl-idx-name{font-size:13px;}
+    .gl-idx-detail{font-size:11px;}
+    .gl-idx-price{font-size:13px;}
+  }
+  @media(max-width:420px){
+    .jt-tab{padding:10px 12px;font-size:12px;}
+    .sp-label,.sp-value{font-size:12px;}
+  }
+</style>
+
+<div id="jacq-specs" style="max-width:1200px;margin:0 auto;padding:48px 40px 64px;">
+
+  <div class="jt-nav-wrap">
+    <div class="jt-nav" id="jtNav">
+      <button class="jt-tab is-active" data-tab="specificaties" type="button">Details</button>
+      <button class="jt-tab" data-tab="hoe-werkt-het" type="button">Hoe bestel ik?</button>
+      <button class="jt-tab" data-tab="glazen-opties" type="button">Glazen</button>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div class="jacq-specs-panel is-active" data-tab="specificaties">
+    <div class="sp-grid">
+      <div class="sp-image">
+        <div class="sp-image-inner">
+          {%- if product.featured_image -%}
+            <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}" loading="lazy" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" style="width:100%;display:block;opacity:0.25;filter:grayscale(1);transform:translateY(-10%);">
+          {%- endif -%}
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="position:absolute;top:0;left:0;width:100%;overflow:visible;transform:translateY(-10%);">
+            <text x="{{ bridge_label_x }}" y="30" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">{{ bridge }} mm</text>
+            <line x1="{{ bridge_start_x }}" y1="34" x2="{{ bridge_end_x }}" y2="34" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>
+            <polygon points="{{ bridge_start_x }},34 {{ bridge_start_arrow }},32.8 {{ bridge_start_arrow }},35.2" fill="#c7c7cc"/>
+            <polygon points="{{ bridge_end_x }},34 {{ bridge_end_arrow }},32.8 {{ bridge_end_arrow }},35.2" fill="#c7c7cc"/>
+            <text x="{{ lens_label_x }}" y="30" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">{{ lens_width }} mm</text>
+            <line x1="{{ bridge_end_x }}" y1="34" x2="{{ lens_end_x }}" y2="34" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>
+            <polygon points="{{ bridge_end_x }},34 {{ lens_start_arrow }},32.8 {{ lens_start_arrow }},35.2" fill="#c7c7cc"/>
+            <polygon points="{{ lens_end_x }},34 {{ lens_end_arrow }},32.8 {{ lens_end_arrow }},35.2" fill="#c7c7cc"/>
+            {%- if total_width > 0 -%}
+              <line x1="{{ total_start_x }}" y1="84" x2="{{ total_end_x }}" y2="84" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>
+              <polygon points="{{ total_start_x }},84 {{ total_start_arrow }},82.8 {{ total_start_arrow }},85.2" fill="#c7c7cc"/>
+              <polygon points="{{ total_end_x }},84 {{ total_end_arrow }},82.8 {{ total_end_arrow }},85.2" fill="#c7c7cc"/>
+              <text x="{{ total_label_x }}" y="91" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">{{ total_width }} mm</text>
+            {%- endif -%}
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="sp-table">
+          <div class="sp-row"><span class="sp-label">Lensbreedte</span><span class="sp-value">{{ lens_width }} mm</span></div>
+          <div class="sp-row"><span class="sp-label">Neusbrug</span><span class="sp-value">{{ bridge }} mm</span></div>
+          {%- if temple_length > 0 -%}<div class="sp-row"><span class="sp-label">Pootlengte</span><span class="sp-value">{{ temple_length }} mm</span></div>{%- endif -%}
+          {%- if total_width > 0 -%}<div class="sp-row"><span class="sp-label">Totale breedte</span><span class="sp-value">{{ total_width }} mm</span></div>{%- endif -%}
+          {%- if materiaal != blank -%}<div class="sp-row"><span class="sp-label">Materiaal</span><span class="sp-value">{{ materiaal | join: ', ' }}</span></div>{%- endif -%}
+          {%- if vorm != blank -%}<div class="sp-row"><span class="sp-label">Vorm</span><span class="sp-value">{{ vorm }}</span></div>{%- endif -%}
+          <div class="sp-row"><span class="sp-label">Inclusief</span><span class="sp-value">Brillenkoker &amp; reinigingsspray</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hoe bestel ik? -->
+  <div class="jacq-specs-panel" data-tab="hoe-werkt-het">
+    <div class="hw-video" id="hwVideoWrap">
+      <video id="hwVideo" data-src="https://raw.githubusercontent.com/Jacqeyewear/vto-models/main/instructie_DEF.mp4" muted loop playsinline preload="none" controls></video>
+    </div>
+    <div class="hw-footer">
+      <div class="hw-footer-left">Hulp nodig bij het bestellen?<p>We helpen je graag verder via WhatsApp of e-mail.</p></div>
+      <div class="hw-footer-links">
+        <a href="https://wa.me/31853696403" target="_blank" rel="noopener" class="hw-footer-link hw-footer-link--wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.56 4.136 1.536 5.872L0 24l6.305-1.654A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.894 0-3.669-.516-5.196-1.41l-.372-.22-3.858 1.012 1.03-3.765-.242-.385A9.778 9.778 0 012.182 12c0-5.414 4.404-9.818 9.818-9.818 5.414 0 9.818 4.404 9.818 9.818 0 5.414-4.404 9.818-9.818 9.818z"/></svg> WhatsApp</a>
+        <a href="https://jacqeyewear.nl/pages/contact" class="hw-footer-link hw-footer-link--contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Neem contact op</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glazen -->
+  <div class="jacq-specs-panel" data-tab="glazen-opties">
+    <div class="gl-grid">
+      <div>
+        <div class="gl-section-title">Altijd inbegrepen</div>
+        <div class="gl-items">
+          <div class="gl-item"><span class="gl-icon gl-icon--green"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8.5l3 3 5-6" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="gl-item-title">Anti-reflectie coating</div><div class="gl-item-desc">Minder reflecties, scherper zicht</div></div></div>
+          <div class="gl-item"><span class="gl-icon gl-icon--green"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8.5l3 3 5-6" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="gl-item-title">Kraswerende coating</div><div class="gl-item-desc">Beschermt bij dagelijks gebruik</div></div></div>
+          <div class="gl-item"><span class="gl-icon gl-icon--green"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8.5l3 3 5-6" stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><div class="gl-item-title">Brillenkoker &amp; spray</div><div class="gl-item-desc">Compleet pakket meegeleverd</div></div></div>
+        </div>
+        <div class="gl-divider"></div>
+        <div class="gl-section-label">Extra opties</div>
+        <div class="gl-items">
+          <div class="gl-item"><span class="gl-icon gl-icon--blue"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4v8M4 8h8" stroke="#0071E3" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><div class="gl-item-title">Blauwlichtfilter <span class="gl-price">+€20</span></div><div class="gl-item-desc">Filtert blauw licht van schermen</div></div></div>
+          <div class="gl-item"><span class="gl-icon gl-icon--blue"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4v8M4 8h8" stroke="#0071E3" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><div class="gl-item-title">Gepolariseerd <span class="gl-price">+€30</span></div><div class="gl-item-desc">Vermindert verblinding en reflecties</div></div></div>
+          <div class="gl-item"><span class="gl-icon gl-icon--blue"><svg viewBox="0 0 16 16" fill="none"><path d="M8 4v8M4 8h8" stroke="#0071E3" stroke-width="1.6" stroke-linecap="round"/></svg></span><div><div class="gl-item-title">Meekleurend <span class="gl-price">+€50</span></div><div class="gl-item-desc">Kleurt automatisch donker in de zon</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="gl-section-title">Glasindex</div>
+        <div class="gl-section-desc">Hoe hoger je sterkte, hoe meer je profiteert van dunnere glazen.</div>
+        <div class="gl-idx-list">
+          <div class="gl-idx-row"><div><div class="gl-idx-name">Standaard</div><div class="gl-idx-detail">Tot &plusmn;2.00 &middot; Index 1.56</div></div><div class="gl-idx-price">Inbegrepen</div></div>
+          <div class="gl-idx-row"><div><div class="gl-idx-name">Comfort</div><div class="gl-idx-detail">&plusmn;2.00 tot &plusmn;3.00 &middot; Index 1.60</div></div><div class="gl-idx-price">+&euro;35</div></div>
+          <div class="gl-idx-row gl-idx-row--pop"><div><div class="gl-idx-name">Premium <span class="gl-idx-badge">Populair</span></div><div class="gl-idx-detail">&plusmn;3.00 tot &plusmn;6.00 &middot; Index 1.67</div></div><div class="gl-idx-price">+&euro;65</div></div>
+          <div class="gl-idx-row"><div><div class="gl-idx-name">Luxe</div><div class="gl-idx-detail">Boven &plusmn;6.00 &middot; Index 1.74</div></div><div class="gl-idx-price">+&euro;95</div></div>
+        </div>
+        <div class="gl-note">Alle glazen inclusief anti-reflectie en kraswerende coating.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('jtNav');
+  if(!nav)return;
+  var tabs=Array.prototype.slice.call(nav.querySelectorAll('.jt-tab'));
+  var switching=false;
+  function loadHwVideo(){
+    var v=document.getElementById('hwVideo');
+    if(!v||v.src)return;
+    var src=v.getAttribute('data-src');
+    if(!src)return;
+    v.src=src;
+    v.load();
+    var play=v.play();
+    if(play&&typeof play.catch==='function')play.catch(function(){});
+  }
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      if(switching)return;
+      var target=tab.getAttribute('data-tab');
+      var current=document.querySelector('#jacq-specs .jacq-specs-panel.is-active');
+      var next=document.querySelector('#jacq-specs .jacq-specs-panel[data-tab="'+target+'"]');
+      if(!next||current===next)return;
+      if(target==='hoe-werkt-het')loadHwVideo();
+      switching=true;
+
+      tabs.forEach(function(t){t.classList.remove('is-active');});
+      tab.classList.add('is-active');
+
+      if(current){
+        current.classList.remove('is-active');
+        current.classList.add('is-leaving');
+      }
+
+      setTimeout(function(){
+        if(current)current.classList.remove('is-leaving');
+
+        next.classList.add('is-entering');
+        next.offsetHeight;
+        next.classList.remove('is-entering');
+        next.classList.add('is-active');
+
+        switching=false;
+      },current?200:0);
+    });
+  });
+})();
+</script>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product Specs Tabs",
+  "class": "product-specs-tabs-section",
+  "settings": []
+}
+{% endschema %}

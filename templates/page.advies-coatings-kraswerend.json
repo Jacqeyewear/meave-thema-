@@ -1,0 +1,177 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Beoordeel je risico (gebruik)",
+            "body": "<p>Leg je je bril vaak neer, gaat hij mee in tas, of poets je veel? Dan heb je het meeste aan kraswerend.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Fix de 2 grootste ‘kras-bronnen’",
+            "body": "<p>1) droog wrijven met kleding/keukenpapier, 2) bril los in tas. Spoel eerst, en gebruik een case.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Combineer slim met comfort-coatings",
+            "body": "<p>Voor dagelijks comfort: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a> en eventueel <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Kraswerend in één overzicht",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Situatie",
+            "col2": "Kraswerend zin?",
+            "col3": "Waarom",
+            "rows": "Veel schoonmaken per dag|Ja|Minder microkrasjes door wrijving\nBril vaak in tas/zak|Ja|Minder slijtage door contact met stof/deeltjes\nBril vrijwel altijd in case|Minder nodig|Je voorkomt al veel schade met goed opbergen",
+            "note": "Kraswerend werkt het best met goed onderhoud. Zie de tips onderaan."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is een kraswerende coating?",
+            "toc_label": "Wat is het",
+            "anchor": "wat-is-het",
+            "body": "<p>Kraswerend is een harde laag die bedoeld is om fijne abrasie (microkrasjes) te verminderen. Het is vooral gemaakt voor dagelijks ‘slijtage-gedrag’: schoonmaken, opbergen, en contact met stof en deeltjes.</p><p>Belangrijk: ‘kraswerend’ is geen ‘krasvrij’. De coating helpt, maar glas blijft gevoelig voor harde deeltjes zoals zand.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer is kraswerend het meest de moeite waard?",
+            "toc_label": "Wanneer zin",
+            "anchor": "wanneer-zin",
+            "body": "<ul><li><strong>Je poetst vaak</strong> (bijv. meerdere keren per dag).</li><li><strong>Je neemt je bril veel mee</strong> (tas, jaszak, werkplek).</li><li><strong>Je wisselt vaak van bril</strong> (zonnebril/bril op sterkte).</li></ul><p>Als je vooral ‘rustiger’ wilt kijken, is <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a> vaak de eerste upgrade. Kraswerend is meer ‘duurzaamheid’.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "De 3 grootste oorzaken van microkrasjes (en hoe je ze voorkomt)",
+            "toc_label": "Oorzaken",
+            "anchor": "oorzaken",
+            "body": "<ol><li><strong>Droog wrijven:</strong> stofdeeltjes werken als schuurpapier. Spoel eerst met lauw water.</li><li><strong>Keukenpapier/shirt:</strong> ruwer dan je denkt. Gebruik microvezel.</li><li><strong>Los in tas:</strong> sleutels, ritsen en stof. Gebruik een case.</li></ol><p></p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Combineren met anti-reflectie en water/vet-afstotend",
+            "toc_label": "Combineren",
+            "anchor": "combineren",
+            "body": "<p>In de praktijk wordt kraswerend vaak gekozen naast comfort-coatings. AR geeft rust, water/vet-afstotend geeft makkelijker schoonmaken. Samen merk je de beste ‘dagelijkse’ upgrade.</p><p>Bekijk: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a> en <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Onderhoud: zo blijft kraswerend écht effectief",
+            "toc_label": "Onderhoud",
+            "anchor": "onderhoud",
+            "body": "<ul><li>Spoel eerst onder lauw water (zeker na buiten/fietsen).</li><li>Gebruik microvezeldoek die je regelmatig wast/vervangt.</li><li>Gebruik een case in tas.</li></ul>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Realistische verwachting",
+            "anchor": "realistische-verwachting",
+            "body": "<p>Kraswerend helpt tegen microkrasjes door dagelijks gebruik. Het voorkomt geen krassen door zand/steentjes of verkeerd poetsen. De grootste winst is: kraswerend + juiste schoonmaakroutine.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is kraswerend nodig als ik al anti-reflectie heb?",
+            "a": "<p>AR is vooral voor reflecties; kraswerend is voor microkrasjes. Veel coatingsystemen combineren dit, maar de ‘doel-functie’ is anders.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik krassen eraf polijsten?",
+            "a": "<p>Bij brillenglazen meestal niet zonder optische kwaliteit te beïnvloeden. Voorkomen werkt beter: spoelen, microvezel, case.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Kraswerend of water/vet-afstotend: wat kies ik eerst?",
+            "a": "<p>Als je vooral last hebt van vlekken en poetsen: water/vet-afstotend. Als je slijtage wilt beperken: kraswerend. Veel mensen combineren beide. <a href='/coatings'>Overzicht</a>.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom ontstaan microkrasjes zo snel?",
+            "a": "<p>Vaak door stofdeeltjes die je ‘meewrijft’. Daarom: eerst spoelen, dan pas afnemen.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Is kraswerend belangrijker bij hoge glasindex?",
+            "a": "<p>Niet per se, maar als je investeert in dunner glas, wil je het vaak ook lang mooi houden. Combineer met <a href='/glasindex-en-dikte'>glasindex & dikte</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: kraswerende coating",
+        "kicker": "ADVIES",
+        "title": "Kraswerende coating: wat beschermt het wel (en niet)?",
+        "subtitle": "Microkrasjes beperken met realistische verwachtingen. Wanneer het loont + de beste routine.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p><strong>Kraswerend betekent: minder microkrasjes door dagelijks gebruik.</strong> Het maakt glazen niet krasvrij, maar helpt vooral tegen fijne slijtage door schoonmaken, opbergen en ‘even snel afvegen’.</p><ul><li><strong>Beste voor:</strong> intensief gebruik, vaak op/af, bril in tas, veel schoonmaken.</li><li><strong>Geen magie:</strong> zand/steentjes of verkeerd poetsen kan nog steeds krassen geven.</li><li><strong>Grootste winst:</strong> kraswerend + goede routine (spoelen, microvezel, case).</li></ul><p>Wil je rustiger zicht en uitstraling? Bekijk <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a>. Wil je minder poetsen? <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water/vet-afstotend</a>. Overzicht: <a href=\"/pages/coatings\" title=\"coatings\">coatings</a>.</p>",
+        "howto_title": "Kraswerend kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/coatings\" title=\"coatings\">Coatings (overzicht)</a></li><li><a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">Anti-reflectie</a></li><li><a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">Water- & vet-afstotend</a></li><li><a href=\"/pages/glasindex-en-dikte\" title=\"glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/welke-glazen-passen-bij-mij\" title=\"Welke glazen passen bij mij\">Welke glazen passen bij mij?</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

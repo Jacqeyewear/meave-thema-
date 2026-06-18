@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies je basis: anti-reflectie of niet",
+            "body": "<p>Als je reflecties storend vindt, veel schermen gebruikt of vaak in de auto zit, is anti-reflectie meestal de logische start. <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">Lees anti-reflectie</a>.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Voeg comfort toe: water/vet-afstotend",
+            "body": "<p>Als je vaak poetst of vlekken snel ziet, merk je water/vet-afstotend het meest in dagelijks gebruik. <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">Lees water/vet-afstotend</a>.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Bescherming: kraswerend (realistische verwachtingen)",
+            "body": "<p>Kraswerend helpt tegen microkrasjes, maar glas blijft glas. Combineer met goede schoonmaakroutine. <a href=\"/pages/kraswerend\" title=\"kraswerend\">Lees kraswerend</a>.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Coatings in één overzicht",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Coating",
+            "col2": "Wat je merkt",
+            "col3": "Wanneer kiezen",
+            "rows": "Anti-reflectie|Minder spiegeling, rustiger zicht, mooier in foto’s|Bijna altijd logisch; zeker bij schermen/auto\nKraswerend|Minder microkrasjes door dagelijks gebruik|Als je je bril intensief gebruikt of vaak meeneemt\nWater/vet-afstotend|Minder vlekken, makkelijker schoonmaken|Als je vaak poetst, regen/fiets, of snel vlekken ziet",
+            "note": "Dit zijn gebruiksrichtlijnen. Combineer coatings met goed onderhoud voor het meeste effect. Zie tips onderaan."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is een coating op brillenglazen?",
+            "toc_label": "Wat is coating",
+            "anchor": "wat-is-coating",
+            "body": "<p>Een coating is een dunne laag op je brillenglas die een specifieke eigenschap verbetert: minder reflectie, meer weerstand tegen microkrasjes of makkelijker schoonmaken. Coatings veranderen niet je sterkte, maar ze bepalen wél hoe comfortabel je glazen aanvoelen in dagelijks gebruik.</p><p>Veel mensen merken coatings vooral in drie situaties: autorijden in het donker (reflecties), schermgebruik (spiegeling/‘glare’), en schoonmaken (vet, vlekken, regen).</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Anti-reflectie coating: de meest ‘zichtbare’ upgrade",
+            "toc_label": "Anti-reflectie",
+            "anchor": "anti-reflectie",
+            "body": "<p>Anti-reflectie vermindert reflecties aan de voor- en achterkant van het glas. Dat geeft vaak een rustiger beeld en laat je ogen beter ‘zichtbaar’ zijn van buitenaf. Het effect merk je vooral bij:</p><ul><li>schermen en kunstlicht (minder spiegeling),</li><li>autorijden in de avond (minder tegenlicht/reflecties),</li><li>foto’s en videobellen (minder glans op je glazen).</li></ul><p>Wil je dieper: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie uitgelegd</a>.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Kraswerend: wat het wél en niet doet",
+            "toc_label": "Kraswerend",
+            "anchor": "kraswerend",
+            "body": "<p>Kraswerend is bedoeld om microkrasjes door dagelijks gebruik te verminderen. Het maakt glas niet ‘krasvrij’. Het helpt vooral als je je bril vaak op/af zet, meeneemt in tas of je glazen regelmatig schoonmaakt.</p><p>De grootste winst zit in combinatie met goede gewoontes: spoelen onder lauw water, zachte doek, en geen shirt/keukenpapier. Verdieping: <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend uitgelegd</a>.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Water- & vet-afstotend: minder poetsen, minder vlekken",
+            "toc_label": "Water/vet",
+            "anchor": "water-vet",
+            "body": "<p>Water- en vet-afstotende lagen zorgen dat vlekken minder snel hechten en makkelijker loslaten. Je merkt dit vooral bij regen, vingerafdrukken en vet van huid/haarproducten. Het is vaak de coating die mensen ‘praktisch’ het fijnst vinden.</p><p>Verdieping: <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water- & vet-afstotend uitgelegd</a>.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Combinaties: wat past bij jouw gebruik?",
+            "toc_label": "Combinaties",
+            "anchor": "combinaties",
+            "body": "<ul><li><strong>Allround (meest gekozen):</strong> anti-reflectie + water/vet-afstotend.</li><li><strong>Intensief gebruik:</strong> anti-reflectie + water/vet-afstotend + kraswerend.</li><li><strong>Budget slim:</strong> anti-reflectie als basis, en later upgraden als je merkt dat je veel poetst.</li></ul><p>Als je nog twijfelt over glasopties zoals index: <a href=\"/pages/glasindex-en-dikte\">glasindex & dikte</a>. En als je eerst wil kiezen op basis van jouw situatie: <a href=\"/pages/welke-glazen-passen-bij-mij\">welke glazen passen bij mij</a>.</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Onderhoud: zo haal je het meeste uit je coatings",
+            "toc_label": "Onderhoud",
+            "anchor": "onderhoud",
+            "body": "<ul><li>Spoel zand/stof eerst weg met lauw water (niet droog wrijven).</li><li>Gebruik een schone microvezeldoek en eventueel een geschikte brillenspray.</li><li>Vermijd keukenpapier, kleding en agressieve schoonmaakmiddelen.</li><li>Berg je bril op in een case als hij in je tas gaat. (verwijzing naar pagina: accessoires)</li></ul><p>Goed onderhoud verlengt de levensduur van elke coating, ongeacht de keuze.</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snelle keuze (1 minuut)",
+            "anchor": "snelle-keuze",
+            "body": "<ul><li><strong>Neem anti-reflectie</strong> als je reflecties storend vindt (meestal yes).</li><li><strong>Neem water/vet-afstotend</strong> als je vaak poetst of snel vlekken ziet.</li><li><strong>Neem kraswerend</strong> als je je bril intensief gebruikt en microkrasjes wilt beperken.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is anti-reflectie altijd de beste keuze?",
+            "a": "<p>Voor veel mensen wel, omdat je het direct ziet en merkt. Als je weinig last hebt van reflecties en vooral op prijs let, kun je het skippen, maar de meeste dragers vinden het comfortabeler met AR.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Maakt water/vet-afstotend echt verschil?",
+            "a": "<p>Ja, vooral in schoonmaken: vlekken hechten minder en poetsen gaat makkelijker. Het is vaak de meest ‘praktische’ coating in dagelijks gebruik.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Is kraswerend hetzelfde als krasvrij?",
+            "a": "<p>Nee. Kraswerend vermindert microkrasjes, maar glas kan nog steeds krassen door zand, harde deeltjes of verkeerd schoonmaken.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Werken coatings ook op zonneglazen op sterkte?",
+            "a": "<p>Meestal wel, maar welke opties beschikbaar zijn hangt af van het type glas. Als je zonneglazen op sterkte overweegt: (verwijzing naar pagina: zonneglazen-op-sterkte).</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat als ik veel schermwerk doe?",
+            "a": "<p>Start met anti-reflectie. Als je daarna nog iets mist, kijk dan pas naar extra opties zoals blauwlichtfilter. <a href='/pages/blauwlichtfilter'>Blauwlichtfilter uitgelegd</a>.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe lang gaan coatings mee?",
+            "a": "<p>Dat hangt sterk af van gebruik en schoonmaken. Met een goede routine gaan coatings langer mooi. Zie onderhoudstips hierboven.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: coatings brillenglazen",
+        "kicker": "ADVIES",
+        "title": "Coatings voor brillenglazen: wat doet wat?",
+        "subtitle": "Anti-reflectie, kraswerend en water/vet-afstotend. Kies wat je écht merkt in dagelijks gebruik.",
+        "readtime": "8 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Coatings zijn dunne lagen op je brillenglas die vooral één ding doen: <strong>het dragen makkelijker maken</strong>. De belangrijkste keuze is meestal <strong>anti-reflectie</strong>, omdat je die direct ziet (minder spiegeling, rustiger zicht en rustiger uitstraling).</p><ul><li><strong>Anti-reflectie:</strong> minder reflecties, rustiger beeld, prettiger bij schermen en autorijden.</li><li><strong>Kraswerend:</strong> helpt tegen microkrasjes door dagelijks gebruik (geen ‘onbreekbaar’ glas).</li><li><strong>Water/vet-afstotend:</strong> minder vlekken, makkelijker schoonmaken, fijner bij regen/poetsen.</li></ul><p>Twijfel je? Kies anti-reflectie als basis, en voeg water/vet-afstotend toe als je vaak poetst of last hebt van vlekken. Kraswerend is vooral relevant bij intensief gebruik en als je je bril vaak op/af zet of meeneemt.</p><p>Verdieping per coating: <a href=\"/pages/anti-reflectie\" title=\"anti-reflectie\">anti-reflectie</a>, <a href=\"/pages/kraswerend\" title=\"kraswerend\">kraswerend</a>, <a href=\"/pages/water-vet-afstotend\" title=\"water-vet-afstotend\">water- & vet-afstotend</a>. En als je nog kiest tussen glasopties: <a href=\"/pages/glasindex-en-dikte\">glasindex & dikte</a>.</p>",
+        "howto_title": "Coatings kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/welke-glazen-passen-bij-mij\">Welke glazen passen bij mij?</a></li><li><a href=\"/pages/blauwlichtfilter\">Blauwlichtfilter</a></li><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

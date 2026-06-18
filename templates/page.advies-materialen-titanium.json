@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Bepaal je draagmoment",
+            "body": "<p>Draag je je bril de hele dag, of vooral af en toe? Bij all-day dragen is gewicht en pasvorm extra belangrijk.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Kies op comfort (niet alleen op ‘materiaal’)",
+            "body": "<p>Check brug, breedte en pootjes: geen druk op slapen en geen afdruk op je neus. Lees hier meer over <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Maak je keuze op look + budget",
+            "body": "<p>Titanium is vaak duurder. Als je de ‘titanium look’ wil, maar budget speelt, kan metaal ook werken.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Titanium vs metaal vs acetaat (snel overzicht)",
+            "toc_label": "Vergelijking",
+            "anchor": "vergelijking",
+            "col1": "Materiaal",
+            "col2": "Sterk in",
+            "col3": "Let op",
+            "rows": "Titanium|Zeer licht, comfortabel bij dagelijks dragen|Vaak duurder; pasvorm blijft bepalend\nMetaal|Minimal look, vaak licht en slank|Neus pads/afwerking moeten comfortabel zijn\nAcetaat|Look, kleur, ‘presence’|Kan zwaarder aanvoelen; brug moet kloppen om zakken te voorkomen",
+            "note": "Richtlijn. De maat + brug maken het grootste verschil."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is een titanium bril?",
+            "toc_label": "Wat is titanium",
+            "anchor": "wat-is-titanium",
+            "body": "<p>Een titanium bril is een montuur waarvan (een groot deel van) het frame uit titanium is gemaakt. In brillen wordt titanium vooral gewaardeerd omdat het in veel ontwerpen <strong>licht</strong> kan aanvoelen en daardoor prettig is bij lang dragen. Het is een materiaal dat vaak wordt gekozen door mensen die hun bril de hele dag op hebben, of die snel drukpunten ervaren.</p><p>Belangrijk: ‘titanium’ op zich garandeert geen perfecte bril. Het ontwerp (randdikte), de brug, neus pads en pootstand bepalen samen of een montuur écht comfortabel is. Daarom combineren we materiaalkeuze altijd met een <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">pasvormcheck</a>.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Voordelen van titanium monturen",
+            "toc_label": "Voordelen",
+            "anchor": "voordelen",
+            "body": "<p>De meeste mensen kiezen titanium omdat het heel comfortabel kan zijn. Dit zijn de voordelen waar je het meeste van merkt in het dagelijks gebruik:</p><ul><li><strong>Licht gevoel:</strong> minder ‘druk’ op neus en oren, vooral bij lang dragen.</li><li><strong>Comfort bij drukpunten:</strong> als je snel last hebt bij slapen of neus, kan een lichter montuur helpen (mits de maat klopt).</li><li><strong>Clean look:</strong> titanium wordt vaak verwerkt in slanke, minimal frames.</li></ul><p>Voor veel mensen is dit de simpele reden: een titanium bril draag je makkelijker de hele dag, zonder dat je hem constant ‘voelt’.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer titanium de beste keuze is (en voor wie)",
+            "toc_label": "Voor wie",
+            "anchor": "voor-wie",
+            "body": "<p>Titanium is meestal een sterke keuze als één van deze situaties herkenbaar is:</p><ul><li><strong>All-day dragen:</strong> werk, autorijden, beeldscherm; je wil comfort van ’s ochtends tot ’s avonds.</li><li><strong>Snel drukpunten:</strong> je voelt vaak afdrukken op je neus of druk bij je slapen.</li><li><strong>Je wil een minimalistische bril:</strong> licht, slank en rustig in je gezicht.</li></ul><p>Twijfel je vooral over de maat? Begin daar. Je kunt het beste materiaal kiezen, maar als de brug te breed is, zakt hij alsnog. Lees daarom ook \"<a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen</a>\".</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Nadelen en valkuilen (eerlijk)",
+            "toc_label": "Nadelen",
+            "anchor": "nadelen",
+            "body": "<p>Titanium is niet automatisch ‘beter’ voor iedereen. Dit zijn de praktische nadelen die je moet weten:</p><ul><li><strong>Prijs:</strong> titanium monturen zijn vaak duurder dan standaard metaal of acetaat.</li><li><strong>Look is vaak subtiel:</strong> als je een statement wil, geeft <a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\">acetaat </a>vaak meer presence. </li><li><strong>Pasvorm blijft alles:</strong> een titanium frame dat te smal is knelt net zo goed. Bij klachten: Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen</a>.</li></ul><p>Zie titanium dus als een ‘comfort-upgrade’, niet als een garantie dat elke bril meteen perfect zit.</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Titanium kiezen: waar let je op in de praktijk?",
+            "toc_label": "Waar op letten",
+            "anchor": "waar-op-letten",
+            "body": "<h3>1) Gewicht vs randdikte</h3><p>Hoe dunner en slanker het ontwerp, hoe lichter het meestal voelt. Een minimal titanium frame kan super comfortabel zijn.</p><h3>2) Neus pads</h3><p>Veel titanium brillen hebben neus pads. Die moeten zacht en stabiel zitten. Als je afdrukken krijgt, is afstelling belangrijk.</p><h3>3) Breedte en brug</h3><p>Check je huidige cijfers (bijv. 52-18-140) en vergelijk. Dit voorkomt miskopen. Meer informatie hierover lees je <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">hier</a>.</p><h3>4) Draagmoment</h3><p>Voor sport/veel beweging wil je vooral stabiliteit. Voor kantoor wil je vaak vooral comfort en een rustige look.</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Onderhoud van titanium brillen",
+            "toc_label": "Onderhoud",
+            "anchor": "onderhoud",
+            "body": "<ul><li>Spoel vuil weg met lauwwarm water en gebruik een zachte microvezeldoek.</li><li>Maak neus pads regelmatig schoon (hier blijft sneller huidvet zitten).</li><li>Bewaar je bril in een case om verbuigen en krasjes te voorkomen.</li></ul>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Alternatieven: wanneer metaal of acetaat beter past",
+            "toc_label": "Alternatieven",
+            "anchor": "alternatieven",
+            "body": "<p>Als titanium niet nodig voelt, zijn er twee logische alternatieven:</p><ul><li><strong>Metaal:</strong> als je vooral de minimal look wil en prijs belangrijker is.</li><li><a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\"><strong>Acetaat</strong></a><strong>:</strong> als je statement, kleur of een stevigere ‘bovenlijn’ wil. </li></ul><p>Voor de totale keuzehulp op stijl + draagmoment: <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">welke bril past bij mij?</a></p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Snel checken in de spiegel",
+            "anchor": "spiegelcheck",
+            "body": "<ul><li>Bril zakt niet direct bij praten of bewegen.</li><li>Geen druk bij slapen na 10 minuten.</li><li>Geen afdruk op je neus (of alleen heel licht) en geen pijn.</li><li>Onderkant raakt je wangen niet bij lachen.</li></ul><p>Als dit niet klopt, is afstelling of maat waarschijnlijk het issue. Lees <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">hier </a>meer over pasvormproblemen.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Is titanium altijd beter dan metaal?",
+            "a": "<p>Nee. Titanium is vaak lichter en wordt vaak gekozen voor comfort, maar een goede metalen bril kan ook heel fijn zitten. Pasvorm en ontwerp zijn doorslaggevend.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Voelt een titanium bril echt lichter?",
+            "a": "<p>Vaak wel, vooral bij slanke ontwerpen. Maar randdikte en pasvorm bepalen uiteindelijk wat jij voelt.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Is titanium goed voor gevoelige huid?",
+            "a": "<p>Titanium wordt vaak aangeraden bij gevoelige huid, maar ook neus pads en afwerking spelen mee. Als je irritatie hebt, check vooral drukpunten en afstelling.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom zakt mijn titanium bril toch?",
+            "a": "<p>Meestal door brugmaat, pootstand of breedte. Dat is een <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvorm</a>/<a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">maat </a>issue, niet het materiaal. </p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Is titanium geschikt voor dagelijks dragen?",
+            "a": "<p>Ja, dat is juist één van de meest voorkomende redenen om titanium te kiezen: licht en comfortabel bij lang dragen.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe onderhoud ik een titanium bril?",
+            "a": "<p>Reinig met lauwwarm water en microvezeldoek, maak neus pads regelmatig schoon en bewaar de bril in een case. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: titanium brillen",
+        "kicker": "ADVIES",
+        "title": "Titanium bril: licht en comfortabel voor elke dag",
+        "subtitle": "Wanneer titanium echt de beste keuze is, waar je op moet letten en hoe je de pasvorm goed krijgt.",
+        "readtime": "7 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Een titanium bril wordt vaak gekozen om één reden: <strong>comfort</strong>. Titanium monturen kunnen heel licht aanvoelen en daardoor prettig zijn als je je bril de hele dag draagt. In 2 minuten kiezen?</p><ul><li><strong>Kies titanium als:</strong> je een licht montuur wil, snel drukpunten hebt, of je bril van ’s ochtends tot ’s avonds draagt.</li><li><strong>Twijfel je tussen metaal en titanium?</strong> Ga voor titanium als je maximale lichtheid en ‘vergeet-gevoel’ zoekt; ga voor metaal als je vooral een minimal look wil en de prijs belangrijker is.</li><li><strong>Let op:</strong> zelfs het beste materiaal zit slecht als de <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">maat</a>/brug niet klopt. Begin daar altijd mee.</li></ul><p>Hieronder lees je wat titanium precies is, wanneer het echt de beste keuze is, welke nadelen je moet kennen, en hoe je voorkomt dat een titanium bril alsnog knelt of zakt. Voor het grote overzicht van alle materialen: lees dit <a href=\"/pages/materialen\" title=\"materialen\">artikel</a>.</p>",
+        "howto_title": "Titanium kiezen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/materialen\" title=\"materialen\">Overzicht materialen</a></li><li><a href=\"/pages/materialen-acetaat\" title=\"materialen-acetaat\">Acetaat uitgelegd</a></li><li><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen</a></li><li><a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">Pasvormproblemen oplossen</a></li><li><a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Welke bril past bij mij?</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

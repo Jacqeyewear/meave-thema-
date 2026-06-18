@@ -1,0 +1,149 @@
+{% comment %}
+  Section: Jacq LP Social proof
+  Trustpilot / WebwinkelKeur badge (afbeelding of embed) + klantcitaten via blocks.
+{% endcomment %}
+
+{% assign secid = 'jacq-lp-social-proof-' | append: section.id %}
+
+{%- liquid
+  case section.settings.bg
+    when 'dark'
+      assign bgcol = '#111111'
+      assign txtcol = '#ffffff'
+      assign cardbg = '#1c1c1c'
+    when 'light'
+      assign bgcol = '#f7f7f8'
+      assign txtcol = '#1d1d1d'
+      assign cardbg = '#ffffff'
+    else
+      assign bgcol = '#ffffff'
+      assign txtcol = '#1d1d1d'
+      assign cardbg = '#f7f7f8'
+  endcase
+-%}
+
+<section id="{{ secid }}" class="jacq-lp-social-proof">
+  <div class="wrap">
+    <header class="head">
+      {%- if section.settings.heading != blank -%}<h2 class="title">{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.sub != blank -%}<p class="sub">{{ section.settings.sub }}</p>{%- endif -%}
+
+      <div class="badge">
+        {%- if section.settings.badge_embed != blank -%}
+          {{ section.settings.badge_embed }}
+        {%- elsif section.settings.badge_image != blank -%}
+          {{ section.settings.badge_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Beoordelingen', class: 'badge-img' }}
+        {%- else -%}
+          <div class="stars" aria-label="Beoordeling">
+            {%- for i in (1..5) -%}{%- render 'icon-guarantee', icon: 'star', size: 'sm' -%}{%- endfor -%}
+            {%- if section.settings.rating_text != blank -%}<span class="stars-text">{{ section.settings.rating_text }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid">
+        {%- for block in section.blocks -%}
+          <figure class="quote" {{ block.shopify_attributes }}>
+            <div class="stars sm" aria-hidden="true">
+              {%- for i in (1..5) -%}{%- render 'icon-guarantee', icon: 'star', size: 'sm' -%}{%- endfor -%}
+            </div>
+            {%- if block.settings.text != blank -%}<blockquote class="quote-text">{{ block.settings.text }}</blockquote>{%- endif -%}
+            {%- if block.settings.author != blank -%}<figcaption class="quote-author">{{ block.settings.author }}</figcaption>{%- endif -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <style>
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#FFA816' }};
+      --bg: {{ bgcol }};
+      --txt: {{ txtcol }};
+      --card: {{ cardbg }};
+      --radius: 20px;
+      --shadow: 0 12px 38px rgba(0,0,0,.06);
+      background: var(--bg);
+      color: var(--txt);
+      padding: {{ section.settings.pad_m }}px 16px;
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{ max-width: 1100px; margin: 0 auto; }
+    #{{ secid }} .head{ text-align: center; margin: 0 auto 1.8rem; max-width: 60ch; }
+    #{{ secid }} .title{ font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 0 0 .4rem; letter-spacing: -.01em; }
+    #{{ secid }} .sub{ font-size: 1.02rem; color: color-mix(in oklab, var(--txt) 75%, transparent); margin: 0 0 1rem; }
+    #{{ secid }} .badge{ display: flex; justify-content: center; }
+    #{{ secid }} .badge .badge-img{ max-width: 280px; height: auto; }
+
+    #{{ secid }} .stars{ display: inline-flex; align-items: center; gap: .15rem; color: var(--acc); }
+    #{{ secid }} .stars .icon{ width: 20px; height: 20px; }
+    #{{ secid }} .stars.sm .icon{ width: 16px; height: 16px; }
+    #{{ secid }} .stars-text{ margin-left: .5rem; font-size: .92rem; font-weight: 600; color: var(--txt); }
+
+    #{{ secid }} .grid{ display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 760px){ #{{ secid }} .grid{ grid-template-columns: repeat({{ section.blocks.size | at_least: 1 | at_most: 3 }}, 1fr); gap: 1.1rem; } }
+
+    #{{ secid }} .quote{
+      margin: 0;
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--txt) 10%, transparent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.3rem 1.25rem;
+    }
+    #{{ secid }} .quote .stars{ margin-bottom: .6rem; }
+    #{{ secid }} .quote-text{ margin: 0 0 .8rem; font-size: 1rem; line-height: 1.55; }
+    #{{ secid }} .quote-author{ font-size: .9rem; font-weight: 600; color: color-mix(in oklab, var(--txt) 70%, transparent); }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Jacq LP Social proof",
+    "tag": "section",
+    "class": "jacq-lp-section",
+    "settings": [
+      { "type": "select", "id": "bg", "label": "Achtergrond", "default": "white",
+        "options": [
+          { "value": "white", "label": "Wit" },
+          { "value": "light", "label": "Licht (grijs)" },
+          { "value": "dark", "label": "Donker" }
+        ]
+      },
+      { "type": "color", "id": "accent", "label": "Accentkleur", "default": "#FFA816" },
+      { "type": "text", "id": "heading", "label": "Titel", "default": "Wat klanten over Jacq zeggen" },
+      { "type": "text", "id": "sub", "label": "Subtitel", "default": "Echte ervaringen van mensen die hun bril thuis ontvingen." },
+      { "type": "header", "content": "Beoordelings-badge" },
+      { "type": "text", "id": "rating_text", "label": "Tekst naast sterren (placeholder)", "default": "Uitstekend beoordeeld" },
+      { "type": "image_picker", "id": "badge_image", "label": "Badge-afbeelding (Trustpilot / WebwinkelKeur)" },
+      { "type": "liquid", "id": "badge_embed", "label": "Of: embed-code (heeft voorrang)", "info": "Plak hier je Trustpilot/WebwinkelKeur widget. Let op: <script>-tags worden door Shopify hier geblokkeerd. Gebruik voor script-widgets de aparte sectie 'Custom Liquid'." },
+      { "type": "header", "content": "Ruimte" },
+      { "type": "range", "id": "pad_m", "label": "Verticale ruimte mobiel", "min": 24, "max": 120, "step": 4, "default": 44, "unit": "px" },
+      { "type": "range", "id": "pad_d", "label": "Verticale ruimte desktop", "min": 24, "max": 200, "step": 4, "default": 80, "unit": "px" }
+    ],
+    "blocks": [
+      {
+        "type": "quote",
+        "name": "Klantcitaat",
+        "limit": 3,
+        "settings": [
+          { "type": "textarea", "id": "text", "label": "Citaat", "default": "Mijn bril paste meteen perfect en de glazen zijn haarscherp. De zorg waarmee alles verpakt was, voelde echt persoonlijk." },
+          { "type": "text", "id": "author", "label": "Naam", "default": "Tevreden klant" }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Jacq LP Social proof",
+        "blocks": [
+          { "type": "quote", "settings": { "text": "Mijn bril paste meteen perfect en de glazen zijn haarscherp. Alles was met zorg verpakt.", "author": "Sanne uit Utrecht" } },
+          { "type": "quote", "settings": { "text": "Twijfelde over online kopen, maar de 100 dagen proeftijd gaf rust. Top advies en snelle levering.", "author": "Mark uit Rotterdam" } },
+          { "type": "quote", "settings": { "text": "Voelt als een echte opticien, maar dan gewoon thuis. Heel blij met mijn multifocale bril.", "author": "Esther uit Eindhoven" } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+</section>

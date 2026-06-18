@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-onze-brillen-op-sterkte-apple",
+      "settings": {
+        "hero_image": "shopify://shop_images/dreamina-2025-12-30-6932-POSITIVE_PROMPT_Amsterdam_IG_post_door....webp",
+        "hero_image_alt": "Lifestyle met bril",
+        "hero_eyebrow": "Jacq Eyewear",
+        "hero_title": "Onze brillen op sterkte",
+        "hero_subtitle": "Elke dag. Dus het moet kloppen.",
+        "s1_title": "Ontworpen om te dragen",
+        "s1_text": "<p>Een bril op sterkte draag je uren achter elkaar. Daarom ontwerpen we onze monturen met focus op pasvorm, balans en comfort, zodat je hem vergeet, in plaats van voelt. Klik <a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\"><strong>hier</strong></a> om erachter te komen welk montuur bij jou past.</p>",
+        "s1_image": "shopify://shop_images/Ontwerp_zonder_titel_-_2025-12-17T170412.634.webp",
+        "s1_image_alt": "Detail shot van montuur op gezicht",
+        "band_title": "Eenvoud die klopt",
+        "band_text": "<p>Geen onnodige complexiteit. Wel comfort, helder zicht en keuzes die echt verschil maken.</p>",
+        "s2_title": "Keuzes die echt verschil maken",
+        "s2_text": "<p>We houden glaskeuze bewust overzichtelijk. Je kiest wat je nodig hebt, zonder pakketten of verrassingen. Lees <a href=\"/pages/welke-glazen-passen-bij-mij\" title=\"Welke glazen passen bij mij\"><strong>hier</strong></a> meer over onze glazen.</p>",
+        "s2_bullets": "<ul><li>Standaard glas (1.56) <br/>zonder extra kosten<br/><a href=\"/pages/pupil-afstand-meten\" title=\"Pupil afstand meten\"><strong>Pupilafstand (PD) meten →</strong><br/></a></li><li></li><li>Extra dunne glazen als optie <br/>(1.60 / 1.67 / 1.74)</li></ul><p></p><ul><li>Standaard anti-reflectie en kraswerende coating</li></ul><p></p><ul><li>Optioneel blauwlichtfilter mogelijk</li></ul>",
+        "s2_image": "shopify://shop_images/Gemini_Generated_Image_lzmodllzmodllzmo_1.webp",
+        "s2_image_alt": "Macro lens detail met reflectie",
+        "cards_title": "In je ritme",
+        "cards_subtitle": "Drie situaties die je elke dag tegenkomt.",
+        "card1_image": "shopify://shop_images/image_2025-12-16_170000085.webp",
+        "card1_alt": "Schermwerk met bril",
+        "card1_title": "Scherm",
+        "card1_text": "<p>Comfort tijdens lange dagen achter je laptop. Lees <a href=\"/pages/schermgebruik\" title=\"Schermgebruik\">hier</a> meer over schermgebruik.</p>",
+        "card2_image": "shopify://shop_images/dreamina-2025-12-17-1591-_POSITIVE_PROMPT_Ultra-realistic_heade....webp",
+        "card2_alt": "Buiten in daglicht met bril",
+        "card2_title": "Buiten",
+        "card2_text": "Helder zicht in wisselend licht en reflecties.",
+        "card3_image": "shopify://shop_images/image_2025-12-16_164854481.webp",
+        "card3_alt": "Onderweg/autorijden met bril",
+        "card3_title": "Onderweg",
+        "card3_text": "<p>Comfort en helder zicht onderweg.</p>",
+        "cta_title": "Ervaren in je eigen ritme",
+        "cta_text": "<p>Je ervaart een bril pas echt als je hem draagt. Daarom krijg je bij Jacq Eyewear <strong>100 dagen bedenktijd</strong>. Zo kun je rustig ervaren of de bril bij je past in het dagelijks leven.</p>",
+        "cta_button_label": "Bekijk de collectie",
+        "cta_button_link": "shopify://collections/brillen-op-sterkte",
+        "signature": "Jacq Eyewear — brillen op sterkte, teruggebracht tot wat echt telt."
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

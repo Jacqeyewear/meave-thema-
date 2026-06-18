@@ -1,0 +1,1212 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_CUkRdx": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_9hWPPX": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Zomer 2026",
+            "heading_size": "title-lg tracking-heading",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "button_PTpamt": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style": "link",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": true
+          }
+        },
+        "liquid_BPRPEH": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .meave-hero-title{\n    margin: 0;\n    font-family: Helvetica, Arial, sans-serif;\n    line-height: 1.02;\n    letter-spacing: -0.03em;\n    text-wrap: normal;\n    max-width: 760px;\n  }\n\n  .meave-hero-title__muted,\n  .meave-hero-title__accent{\n    display: block;\n    font-weight: 700;\n    color: #ffffff;\n    text-shadow: 0 2px 14px rgba(0,0,0,0.28);\n  }\n\n  .meave-hero-title__muted{\n    color: rgba(255,255,255,0.84);\n  }\n\n  .meave-hero-title__accent{\n    font-style: italic;\n    margin-top: 8px;\n  }\n\n  /* Mobile */\n  @media (max-width: 767px){\n    .meave-hero-title{\n      text-align: center;\n      max-width: 100%;\n    }\n\n    .meave-hero-title__muted{\n      font-size: clamp(30px, 8.5vw, 36px);\n      white-space: nowrap;\n    }\n\n    .meave-hero-title__accent{\n      font-size: clamp(34px, 9.2vw, 40px);\n      white-space: nowrap;\n    }\n  }\n\n  /* Laptop / desktop */\n  @media (min-width: 768px){\n    .meave-hero-title{\n      text-align: left;\n      width: max-content;\n      max-width: 100%;\n    }\n\n    .meave-hero-title__muted{\n      font-size: clamp(38px, 4.4vw, 58px);\n      white-space: nowrap;\n    }\n\n    .meave-hero-title__accent{\n      font-size: clamp(44px, 5vw, 66px);\n      white-space: nowrap;\n    }\n  }\n\n  /* Kleinere laptops */\n  @media (min-width: 768px) and (max-width: 1200px){\n    .meave-hero-title__muted{\n      font-size: clamp(34px, 4vw, 50px);\n    }\n\n    .meave-hero-title__accent{\n      font-size: clamp(40px, 4.5vw, 58px);\n    }\n  }\n</style>\n\n<div class=\"meave-hero-title\">\n  <div class=\"meave-hero-title__muted\">Create atmosphere.</div>\n  <div class=\"meave-hero-title__accent\">Everywhere.</div>\n</div>"
+          }
+        },
+        "liquid_7EzEtt": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "liquid": "{%- comment -%} JACQ Trustpilot pill – klikbaar (nieuwe tab) {%- endcomment -%}\n\n<style>\n  .jacq-rating-pill{\n    display:inline-flex;\n    align-items:center;\n    gap:6px !important;\n    padding:4px 8px !important;                 /* ~2x */\n    border-radius:999px;\n\n    background: rgba(255,255,255,0.14) !important;\n    border: 1px solid rgba(255,255,255,0.55) !important;\n\n    backdrop-filter: blur(10px);\n    -webkit-backdrop-filter: blur(10px);\n\n    font-family:'Inter', sans-serif;\n    color:#ffffff !important;\n    max-width: 100%;\n  }\n\n  .jacq-rating-stars{\n    display:inline-flex;\n    gap:2px !important;                         /* ~2x */\n    line-height:0;\n    flex:0 0 auto;\n  }\n\n  .jacq-star-box{\n    width:12px !important;                      /* ~2x */\n    height:12px !important;\n    border-radius:3px !important;\n    background:#00B67A;\n    display:inline-flex;\n    align-items:center;\n    justify-content:center;\n  }\n\n  .jacq-star-box--p20{\n    background: linear-gradient(to right, #00B67A 20%, rgba(255,255,255,0.25) 20%);\n  }\n\n  .jacq-star{\n    width:10px !important;                      /* ~2x */\n    height:10px !important;\n    display:block;\n  }\n\n  .jacq-rating-text{\n    font-size:12px !important;                  /* ~2x */\n    line-height:1.15 !important;\n    font-weight:500;\n    opacity:.95;\n    color:#ffffff !important;\n    white-space: normal;\n    overflow-wrap:anywhere;\n  }\n\n  .jacq-trustpilot{ font-style: italic; }\n\n  @media (min-width: 990px){\n    .jacq-rating-text{\n      font-size:13px !important;                /* desktop iets groter */\n      white-space: nowrap;\n      overflow-wrap: normal;\n    }\n    .jacq-rating-text .jacq-mobile{ display:none !important; }\n    .jacq-rating-text .jacq-desktop{ display:inline !important; }\n  }\n\n  @media (max-width: 989px){\n    .jacq-rating-text .jacq-desktop{ display:none !important; }\n    .jacq-rating-text .jacq-mobile{ display:inline !important; }\n  }\n\n  /* ✅ alleen link reset + klikbaar, verder exact hetzelfde */\n  a.jacq-rating-pill{\n    text-decoration:none;\n    color:inherit;\n    cursor:pointer;\n    -webkit-tap-highlight-color: transparent;\n  }\n  a.jacq-rating-pill:focus-visible{\n    outline:none;\n  }\n</style>\n\n<a\n  class=\"jacq-rating-pill\"\n  href=\"https://nl.trustpilot.com/review/jacqeyewear.nl\"\n  target=\"_blank\"\n  rel=\"noopener noreferrer\"\n  role=\"img\"\n  aria-label=\"Beoordeeld met een 4.3/5 op Trustpilot. lees wat onze klanten zeggen.\"\n>\n  <span class=\"jacq-rating-stars\" aria-hidden=\"true\">\n    {% for i in (1..4) %}\n      <span class=\"jacq-star-box\">\n        <svg class=\"jacq-star\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n          <path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/>\n        </svg>\n      </span>\n    {% endfor %}\n\n    <span class=\"jacq-star-box jacq-star-box--p20\">\n      <svg class=\"jacq-star\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n        <path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/>\n      </svg>\n    </span>\n  </span>\n\n  <span class=\"jacq-rating-text\">\n    <span class=\"jacq-mobile\">Beoordeeld met een 4.3/5 op Trustpilot </span>\n    <span class=\"jacq-desktop\">Beoordeeld met een 4.3/5 op <span class=\"jacq-trustpilot\">Trustpilot</span> · lees wat onze klanten zeggen</span>\n  </span>\n</a>"
+          }
+        },
+        "liquid_KrpVeW": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "liquid": "{% assign jacq_uid = section.id | default: block.id | default: 'global' %}\n\n<style>\n  .jacq-benefits{\n    display: grid;\n    grid-template-columns: 1fr 1fr; /* mobile: 2 naast elkaar */\n    gap: 8px 14px;\n    align-items: center;\n    justify-items: center;\n    justify-content: center;\n    margin: 16px 0 0;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n\n  .jacq-benefit{\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    color: rgba(255,255,255,0.92);\n    font-size: 12px;\n    line-height: 1.15;\n    font-weight: 700;\n    white-space: nowrap;\n  }\n\n  .jacq-benefit__icon{\n    width: 16px;\n    height: 16px;\n    flex: 0 0 16px;\n    display: block;\n    color: rgba(255,255,255,0.95);\n  }\n\n  /* Mobile: toon alleen Garantie + Gratis verzending (verberg Niet goed, geld terug) */\n  @media (max-width: 767px){\n    .jacq-benefit.is-refund{ display: none !important; }\n    .jacq-benefit.is-third{ display: inline-flex !important; } /* third wordt 2e tile */\n  }\n\n  /* Desktop: 3 naast elkaar, links uitlijnen, toon alles */\n  @media (min-width: 768px){\n    .jacq-benefits{\n      grid-template-columns: repeat(3, max-content);\n      justify-content: start;\n      justify-items: start;\n      column-gap: 18px;\n      row-gap: 0;\n      margin-top: 18px;\n    }\n\n    .jacq-benefit{\n      font-size: 14px;\n      line-height: 1.2;\n      gap: 10px;\n    }\n\n    .jacq-benefit__icon{\n      width: 18px;\n      height: 18px;\n      flex: 0 0 18px;\n    }\n  }\n</style>\n\n{% capture jacq_seal_icon %}\n<svg class=\"jacq-benefit__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n  <defs>\n    <mask id=\"jacq-seal-mask-{{ jacq_uid }}\">\n      <rect width=\"24\" height=\"24\" fill=\"black\"></rect>\n      <polygon\n        fill=\"white\"\n        points=\"12.00,2.00 14.12,4.08 17.00,3.34 17.80,6.20 20.66,7.00 19.92,9.88 22.00,12.00 19.92,14.12 20.66,17.00 17.80,17.80 17.00,20.66 14.12,19.92 12.00,22.00 9.88,19.92 7.00,20.66 6.20,17.80 3.34,17.00 4.08,14.12 2.00,12.00 4.08,9.88 3.34,7.00 6.20,6.20 7.00,3.34 9.88,4.08\"\n      />\n      <path\n        d=\"M8.4 12.2 10.6 14.4 15.8 9.4\"\n        fill=\"none\"\n        stroke=\"black\"\n        stroke-width=\"2.1\"\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n      />\n    </mask>\n  </defs>\n  <rect width=\"24\" height=\"24\" fill=\"currentColor\" mask=\"url(#jacq-seal-mask-{{ jacq_uid }})\"></rect>\n</svg>\n{% endcapture %}\n\n<div class=\"jacq-benefits\" role=\"list\">\n  <!-- 1: 2 jaar garantie (altijd zichtbaar) -->\n  <div class=\"jacq-benefit\" role=\"listitem\">\n    {{ jacq_seal_icon }}\n    2 jaar garantie\n  </div>\n\n  <!-- 2: Niet goed, geld terug (desktop only) -->\n  <div class=\"jacq-benefit is-refund\" role=\"listitem\">\n    {{ jacq_seal_icon }}\n    Niet goed, geld terug!\n  </div>\n\n  <!-- 3: Gratis verzending (mobile + desktop) -->\n  <div class=\"jacq-benefit is-third\" role=\"listitem\">\n    {{ jacq_seal_icon }}\n    Gratis verzending\n  </div>\n</div>"
+          }
+        },
+        "liquid_U4xhrr": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .meave-hero-btns {\n    display: flex;\n    gap: 10px;\n  }\n\n  a.meave-btn,\n  a.meave-btn:link,\n  a.meave-btn:visited {\n    margin: 0 !important;\n    color: #ffffff !important;\n    text-decoration: none !important;\n    border: 1px solid rgba(255, 255, 255, 0.25) !important;\n    box-shadow: none !important;\n    background-image: none !important;\n    display: inline-flex !important;\n    align-items: center !important;\n    justify-content: center !important;\n    font-family: Helvetica, Arial, sans-serif !important;\n    font-weight: 600 !important;\n    line-height: 1 !important;\n    border-radius: 999px !important;\n    white-space: nowrap !important;\n    -webkit-tap-highlight-color: transparent !important;\n    transition: background-color 0.2s, border-color 0.2s, transform 0.2s !important;\n    backdrop-filter: blur(8px) !important;\n    -webkit-backdrop-filter: blur(8px) !important;\n  }\n\n  a.meave-btn--primary {\n    background-color: rgba(255, 255, 255, 0.18) !important;\n  }\n\n  a.meave-btn--primary:hover {\n    background-color: rgba(255, 255, 255, 0.28) !important;\n    border-color: rgba(255, 255, 255, 0.4) !important;\n    transform: translateY(-1px) !important;\n  }\n\n  a.meave-btn--secondary {\n    background-color: rgba(255, 255, 255, 0.08) !important;\n  }\n\n  a.meave-btn--secondary:hover {\n    background-color: rgba(255, 255, 255, 0.18) !important;\n    border-color: rgba(255, 255, 255, 0.4) !important;\n    transform: translateY(-1px) !important;\n  }\n\n  a.meave-btn::before,\n  a.meave-btn::after { \n    content: none !important; \n    display: none !important; \n  }\n\n  /* Mobile */\n  @media (max-width: 767px) {\n    .meave-hero-btns {\n      justify-content: center;\n    }\n\n    a.meave-btn {\n      font-size: 13px !important;\n      padding: 11px 20px !important;\n    }\n  }\n\n  /* Desktop */\n  @media (min-width: 768px) {\n    .meave-hero-btns {\n      justify-content: flex-start;\n    }\n\n    a.meave-btn {\n      font-size: 14px !important;\n      padding: 13px 28px !important;\n      min-width: 170px !important;\n    }\n  }\n\n  /* Large desktop */\n  @media (min-width: 1024px) {\n    a.meave-btn {\n      font-size: 15px !important;\n      padding: 14px 32px !important;\n      min-width: 185px !important;\n    }\n  }\n</style>\n\n<div class=\"meave-hero-btns\">\n  <a class=\"meave-btn meave-btn--primary\" href=\"/collections/wall-lights\">Shop Wall Lights</a>\n  <a class=\"meave-btn meave-btn--secondary\" href=\"/collections/accessories\">Shop Accessories</a>\n</div>"
+          }
+        },
+        "liquid_eKYgyD": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "liquid": "<style>\n  .jacq-price-line{\n    font-family: 'Inter', sans-serif;\n    font-size: 12px;  /* mobile */\n    line-height: 1.3;\n    font-weight: 400;\n    margin: 0;\n  }\n\n  @media (min-width: 768px){\n    .jacq-price-line{\n      font-size: 16px; /* desktop */\n      line-height: 1.35;\n    }\n  }\n</style>\n\n<p class=\"jacq-price-line\">Brillen vanaf €50, inclusief glazen op sterkte.</p>"
+          }
+        },
+        "liquid_GMWGaj": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "liquid": "{% assign jacq_uid = section.id | default: block.id | default: 'global' %}\n\n<style>\n  .jacq-icon-text{\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    font-family: 'Inter', sans-serif;\n    font-size: 14px;\n    line-height: 1.2;\n    font-weight: 500;\n    color: #ffffff;\n  }\n\n  .jacq-icon-text__icon{\n    width: 16px;\n    height: 16px;\n    flex: 0 0 16px;\n    display: block;\n  }\n\n  /* Alleen mobiel zichtbaar */\n  @media (min-width: 768px){\n    .jacq-icon-text{\n      display: none !important;\n    }\n  }\n</style>\n\n<div class=\"jacq-icon-text\">\n  <svg class=\"jacq-icon-text__icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n    <defs>\n      <mask id=\"jacq-shield-mask-{{ jacq_uid }}\" maskUnits=\"userSpaceOnUse\">\n        <rect width=\"24\" height=\"24\" fill=\"black\"></rect>\n\n        <path\n          d=\"M12 2.6 19 5.7v6.7c0 5.1-3.2 8.1-7 9.6-3.8-1.5-7-4.5-7-9.6V5.7l7-3.1z\"\n          fill=\"white\"\n        />\n\n        <path\n          d=\"M8.2 12.3 10.6 14.7 15.8 9.5\"\n          fill=\"none\"\n          stroke=\"black\"\n          stroke-width=\"2.6\"\n          stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"\n        />\n      </mask>\n    </defs>\n\n    <rect width=\"24\" height=\"24\" fill=\"currentColor\" mask=\"url(#jacq-shield-mask-{{ jacq_uid }})\"></rect>\n  </svg>\n\n  <span>100-Dagen gratis proefdragen</span>\n</div>"
+          }
+        },
+        "button_dDmjYE": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Shop nu",
+            "button_link": "shopify://collections/brillen-op-sterkte",
+            "button_style": "primary",
+            "button_size": "md",
+            "button_external": false,
+            "button_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_9hWPPX",
+        "button_PTpamt",
+        "liquid_BPRPEH",
+        "liquid_7EzEtt",
+        "liquid_KrpVeW",
+        "liquid_U4xhrr",
+        "liquid_eKYgyD",
+        "liquid_GMWGaj",
+        "button_dDmjYE"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "transparent_header": true,
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_3_2026_02_47_47_PM.png",
+        "image_height": "900px",
+        "content_width": "small",
+        "content_position": "md:items-center md:justify-start",
+        "text_alignment": "left",
+        "image_mobile": "shopify://shop_images/ChatGPT_Image_Jun_3_2026_02_39_14_PM.png",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-end justify-center",
+        "text_alignment_mobile": "center",
+        "color_text": "#ffffff",
+        "color_highlight": "#1d1d1d",
+        "gradient_highlight": "",
+        "color_button_text": "#ffffff",
+        "color_button_background": "#0071e3",
+        "color_button_gradient": "",
+        "color_overlay": "#1d1d1d",
+        "overlay_opacity": 15,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical"
+      }
+    },
+    "ss_hero_pro_aMM6Uq": {
+      "type": "ss-hero-pro",
+      "blocks": {
+        "caption_VMLE9r": {
+          "type": "caption",
+          "disabled": true,
+          "settings": {
+            "caption": "",
+            "caption_custom": false,
+            "caption_font": "josefin_sans_n4",
+            "caption_size": 12,
+            "caption_size_mobile": 12,
+            "caption_advanced": false,
+            "caption_height": 130,
+            "caption_mt": 0,
+            "caption_mt_mobile": 0,
+            "background": false,
+            "caption_bg_opacity": 0.3,
+            "enable_blur": true,
+            "caption_radius": 100,
+            "caption_border_thickness": 1,
+            "caption_padding_horizontal": 12,
+            "caption_padding_horizontal_mobile": 12,
+            "caption_padding_vertical": 6,
+            "caption_padding_vertical_mobile": 6,
+            "caption_color": "#ffffff",
+            "caption_bg_color": "#ffffff",
+            "caption_border_color": "#ffffff"
+          }
+        },
+        "heading_tHX4Yp": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p><em>Kwaliteit</em> met een <em>eerlijke prijs</em></p>",
+            "heading_custom": false,
+            "heading_font": "josefin_sans_n4",
+            "heading_accent_font": "playfair_n4",
+            "heading_size": 38,
+            "heading_size_mobile": 36,
+            "heading_advanced": false,
+            "heading_height": 130,
+            "heading_mt": 8,
+            "heading_mt_mobile": 8,
+            "heading_color": "#ffffff",
+            "heading_accent_color": "#ffffff"
+          }
+        },
+        "review_yW6gAL": {
+          "type": "review",
+          "settings": {
+            "stars_count": 4.5,
+            "stars_size": 16,
+            "stars_size_mobile": 14,
+            "stars_gap": 2,
+            "review": "<p>Rated 4.1/5 by 5,000+ reviews</p>",
+            "review_custom": false,
+            "review_font": "josefin_sans_n4",
+            "review_size": 14,
+            "review_size_mobile": 12,
+            "review_advanced": false,
+            "review_height": 130,
+            "review_mt": 0,
+            "review_mt_mobile": 0,
+            "background": true,
+            "review_bg_opacity": 0.3,
+            "enable_blur": true,
+            "review_radius": 10,
+            "review_border_thickness": 1,
+            "review_padding_horizontal": 12,
+            "review_padding_horizontal_mobile": 12,
+            "review_padding_vertical": 8,
+            "review_padding_vertical_mobile": 8,
+            "review_color": "#ffffff",
+            "review_bg_color": "#ffffff",
+            "review_border_color": "#ffffff",
+            "stars_color": "#ffffff",
+            "stars_bg_color": "#00b67a",
+            "stars_bg_half_color": "#dddddd"
+          }
+        },
+        "text_VitCMj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><a href=\"/collections/brillen-op-sterkte\" title=\"Brillen\">Brillen</a> vanaf €50, inclusief glazen op sterkte.</p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 17,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 20,
+            "text_mt_mobile": 20,
+            "text_color": "#ffffff"
+          }
+        },
+        "feature_9Xde9k": {
+          "type": "feature",
+          "settings": {
+            "icon": "pin_tack",
+            "text": "Feature text"
+          }
+        },
+        "feature_B7pnBc": {
+          "type": "feature",
+          "settings": {
+            "icon": "pin_tack",
+            "text": "Feature text"
+          }
+        },
+        "feature_UdFWLe": {
+          "type": "feature",
+          "settings": {
+            "icon": "pin_tack",
+            "text": "Feature text"
+          }
+        },
+        "button_RB9LkT": {
+          "type": "button",
+          "settings": {
+            "button": "Shop now",
+            "url": "",
+            "open_in_new_tab": false,
+            "button_style": "non_outline",
+            "button_custom": false,
+            "button_font": "josefin_sans_n4",
+            "button_size": 14,
+            "button_size_mobile": 14,
+            "button_advanced": false,
+            "button_height": 100,
+            "button_padding_horizontal": 40,
+            "button_padding_horizontal_mobile": 32,
+            "button_padding_vertical": 20,
+            "button_padding_vertical_mobile": 20,
+            "button_radius": 100,
+            "button_border_thickness": 1,
+            "button_mt": 24,
+            "button_mt_mobile": 24,
+            "button_custom_styling": false,
+            "button_full_width_mobile": false,
+            "button_color": "#ffffff",
+            "button_hover_color": "#ffffff",
+            "button_bg_color": "#0071e3",
+            "button_bg_hover_color": "#55a4f4",
+            "button_border_color": "#1a1a1a",
+            "button_border_hover_color": "#1a1a1a",
+            "button_shadow_color": "#cecece"
+          }
+        },
+        "verified_mwRJb9": {
+          "type": "verified",
+          "settings": {
+            "icon_size": 16,
+            "icon_size_mobile": 16,
+            "icon": "shield_check",
+            "text": "<p>100-Dagen gratis proefdragen</p>",
+            "text_custom": false,
+            "text_font": "josefin_sans_n4",
+            "text_size": 14,
+            "text_size_mobile": 14,
+            "text_advanced": false,
+            "text_height": 150,
+            "text_mt": 16,
+            "text_mt_mobile": 16,
+            "icon_color": "#ffffff",
+            "text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "caption_VMLE9r",
+        "heading_tHX4Yp",
+        "review_yW6gAL",
+        "text_VitCMj",
+        "feature_9Xde9k",
+        "feature_B7pnBc",
+        "feature_UdFWLe",
+        "button_RB9LkT",
+        "verified_mwRJb9"
+      ],
+      "disabled": true,
+      "name": "SS - Hero pro 💎",
+      "settings": {
+        "hero_height": "fixed_height",
+        "hero_fixed_height": 810,
+        "hero_fixed_height_mobile": 630,
+        "content_max_width": 49,
+        "enable_split_layout": false,
+        "content_align": "left",
+        "content_align_mobile": "center",
+        "content_vertical_align": "center",
+        "content_vertical_align_mobile": "end",
+        "features_advanced": false,
+        "features_mt": 20,
+        "features_mt_mobile": 20,
+        "features_gap": 24,
+        "features_gap_mobile": 12,
+        "feature_background": false,
+        "feature_bg_opacity": 0.3,
+        "feature_enable_blur": true,
+        "feature_radius": 100,
+        "feature_border_thickness": 1,
+        "feature_padding_horizontal": 12,
+        "feature_padding_horizontal_mobile": 12,
+        "feature_padding_vertical": 6,
+        "feature_padding_vertical_mobile": 6,
+        "feature_icon_size": 18,
+        "feature_icon_size_mobile": 16,
+        "feature_text_custom": false,
+        "feature_text_font": "josefin_sans_n4",
+        "feature_text_size": 16,
+        "feature_text_size_mobile": 14,
+        "feature_text_height": 150,
+        "feature_icon_color": "#ffffff",
+        "feature_text_color": "#ffffff",
+        "feature_bg_color": "#ffffff",
+        "feature_border_color": "#ffffff",
+        "layout_bg_type": "image",
+        "bg_video_url": "",
+        "bg_overlay": 0.1,
+        "bg_overlay_color": "#121212",
+        "background_style": "solid",
+        "background_color": "#121212",
+        "background_gradient": "radial-gradient(rgba(30, 30, 36, 1), rgba(5, 5, 5, 1) 100%)",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "width": "full",
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
+    "custom_liquid_hjzNNR": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  .meave-usp-bar {\n    background: #1d1d1f;\n    padding: 0;\n    margin: 0;\n    width: 100vw;\n    margin-left: calc(-50vw + 50%);\n    font-family: 'HelveticaNow-Regular', 'Helvetica Now Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  }\n\n  .meave-usp-inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    max-width: none;\n    margin: 0 auto;\n    padding: 0 40px;\n  }\n\n  .meave-usp-item {\n    flex: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 16px 20px;\n    position: relative;\n  }\n\n  .meave-usp-item + .meave-usp-item::before {\n    content: '';\n    position: absolute;\n    left: 0;\n    top: 50%;\n    transform: translateY(-50%);\n    width: 1px;\n    height: 18px;\n    background: rgba(255,255,255,0.2);\n  }\n\n  .meave-usp-text {\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: rgba(255,255,255,0.88);\n    white-space: nowrap;\n  }\n\n  .meave-usp-mobile {\n    display: none;\n  }\n\n  @media (max-width: 767px) {\n    .meave-usp-inner {\n      display: none;\n    }\n\n    .meave-usp-mobile {\n      display: block;\n      text-align: center;\n      padding: 13px 20px;\n    }\n\n    .meave-usp-mobile-text {\n      font-size: 13px;\n      font-weight: 600;\n      letter-spacing: -0.01em;\n      color: rgba(255,255,255,0.88);\n      white-space: nowrap;\n    }\n  }\n\n  @media (min-width: 1024px) {\n    .meave-usp-item {\n      padding: 18px 24px;\n    }\n\n    .meave-usp-text {\n      font-size: 14px;\n    }\n  }\n</style>\n\n<div class=\"meave-usp-bar\">\n  <div class=\"meave-usp-inner\">\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">Free Delivery</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">30-Day Returns</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">2-Year Warranty</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">Tracked Shipping</span>\n    </div>\n  </div>\n\n  <div class=\"meave-usp-mobile\">\n    <span class=\"meave-usp-mobile-text\">Free Delivery · 30-Day Returns · Tracked Shipping</span>\n  </div>\n</div>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_8xQqzt": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  .meave-colnav {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    padding: 0;\n    position: relative;\n    width: 100vw;\n    margin-left: calc(50% - 50vw);\n    margin-right: calc(50% - 50vw);\n  }\n\n  .meave-colnav::before,\n  .meave-colnav::after {\n    content: '';\n    position: absolute;\n    top: 0; bottom: 0;\n    width: 32px;\n    pointer-events: none;\n    z-index: 2;\n    transition: opacity 0.3s ease;\n  }\n  .meave-colnav::before { left: 0; background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%); opacity: 0; }\n  .meave-colnav::after { right: 0; background: linear-gradient(to left, #fff 0%, rgba(255,255,255,0) 100%); opacity: 1; }\n  .meave-colnav.is-scrolled::before { opacity: 1; }\n  .meave-colnav.is-end::after { opacity: 0; }\n\n  .meave-colnav-track {\n    display: flex;\n    flex-wrap: nowrap;\n    gap: 8px;\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n    padding: 22px 20px;\n  }\n  .meave-colnav-track::-webkit-scrollbar { display: none; }\n  .meave-colnav-track { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .meave-colnav-pill {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n    padding: 9px 16px;\n    border-radius: 12px;\n    border: none;\n    background: #fff;\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.9),\n      0 1px 2px rgba(0,0,0,0.06),\n      0 4px 12px -2px rgba(0,0,0,0.08),\n      0 10px 24px -8px rgba(0,0,0,0.06);\n    color: #1D1D1F;\n    font-size: 13px;\n    font-weight: 500;\n    letter-spacing: -0.01em;\n    white-space: nowrap;\n    text-decoration: none;\n    flex-shrink: 0;\n    cursor: pointer;\n    -webkit-tap-highlight-color: transparent;\n    opacity: 0;\n    transform: translateY(14px);\n    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),\n                transform 0.45s cubic-bezier(0.22,1,0.36,1),\n                box-shadow 0.45s cubic-bezier(0.22,1,0.36,1),\n                color 0.35s ease;\n  }\n\n  .meave-colnav-pill svg {\n    width: 16px; height: 16px;\n    flex-shrink: 0;\n    color: #86868b;\n    transition: color 0.35s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1);\n  }\n\n  .meave-colnav.is-visible .meave-colnav-pill { opacity: 1; transform: translateY(0); }\n\n  .meave-colnav-pill:nth-child(1) { transition-delay: 0s; }\n  .meave-colnav-pill:nth-child(2) { transition-delay: 0.04s; }\n  .meave-colnav-pill:nth-child(3) { transition-delay: 0.08s; }\n  .meave-colnav-pill:nth-child(4) { transition-delay: 0.12s; }\n  .meave-colnav-pill:nth-child(5) { transition-delay: 0.16s; }\n  .meave-colnav-pill:nth-child(6) { transition-delay: 0.20s; }\n  .meave-colnav-pill:nth-child(7) { transition-delay: 0.24s; }\n  .meave-colnav-pill:nth-child(8) { transition-delay: 0.28s; }\n\n  @keyframes meaveSwipeHint {\n    0%   { transform: translateX(0); }\n    20%  { transform: translateX(-12px); }\n    40%  { transform: translateX(0); }\n    60%  { transform: translateX(-8px); }\n    80%  { transform: translateX(0); }\n    100% { transform: translateX(0); }\n  }\n  .meave-colnav.is-visible:not(.is-scrolled) .meave-colnav-track {\n    animation: meaveSwipeHint 1.6s ease-in-out 0.9s 1;\n  }\n\n  .meave-colnav.is-visible .meave-colnav-pill:hover {\n    color: #1D1D1F;\n    transform: translateY(-3px);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.9),\n      0 2px 6px rgba(0,0,0,0.08),\n      0 10px 22px -6px rgba(0,0,0,0.12),\n      0 20px 40px -12px rgba(0,0,0,0.12);\n  }\n  .meave-colnav.is-visible .meave-colnav-pill:hover svg {\n    color: #1D1D1F;\n    transform: scale(1.12) rotate(-4deg);\n  }\n  .meave-colnav.is-visible .meave-colnav-pill:active {\n    transform: translateY(-1px) scale(0.97);\n    transition-duration: 0.12s;\n  }\n\n  /* Featured pill — goud, icoon + shimmer + glow */\n  .meave-colnav-pill--featured {\n    background: linear-gradient(135deg, #F4CE6A 0%, #E0A93B 100%);\n    color: #4A3408;\n    gap: 8px;\n    padding: 9px 17px 9px 14px;\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.45),\n      0 2px 6px rgba(193,140,30,0.28),\n      0 8px 20px -4px rgba(193,140,30,0.32);\n    position: relative;\n    overflow: hidden;\n  }\n  .meave-colnav-pill--featured svg { color: #4A3408; position: relative; z-index: 1; }\n  .meave-colnav-pill--featured span { position: relative; z-index: 1; }\n  .meave-colnav.is-visible .meave-colnav-pill--featured:hover {\n    color: #4A3408;\n    transform: translateY(-3px);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.5),\n      0 2px 6px rgba(193,140,30,0.32),\n      0 14px 30px -6px rgba(193,140,30,0.42);\n  }\n  .meave-colnav.is-visible .meave-colnav-pill--featured:hover svg {\n    color: #4A3408;\n    transform: scale(1.15) rotate(0deg);\n  }\n  .meave-colnav-pill--featured::before {\n    content: '';\n    position: absolute;\n    top: 0; left: -75%;\n    width: 50%; height: 100%;\n    background: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%, transparent 100%);\n    pointer-events: none;\n  }\n  @keyframes meaveShimmer { 0% { left: -75%; } 100% { left: 175%; } }\n  .meave-colnav.is-visible .meave-colnav-pill--featured::before {\n    animation: meaveShimmer 2.4s cubic-bezier(0.4,0,0.2,1) 1.4s infinite;\n  }\n\n  /* Sale pill — rood met zachte glow-pulse */\n  .meave-colnav-pill--sale {\n    background: linear-gradient(135deg, #d12626 0%, #b91c1c 100%);\n    color: #fff;\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.15),\n      0 2px 6px rgba(185,28,28,0.25),\n      0 8px 18px -4px rgba(185,28,28,0.3);\n  }\n  .meave-colnav-pill--sale svg { color: #ffd7d7; }\n  .meave-colnav.is-visible .meave-colnav-pill--sale {\n    animation: meaveSaleGlow 2.8s ease-in-out infinite;\n  }\n  @keyframes meaveSaleGlow {\n    0%, 100% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 6px rgba(185,28,28,0.25), 0 8px 18px -4px rgba(185,28,28,0.3); }\n    50% { box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 2px 8px rgba(185,28,28,0.4), 0 10px 26px -2px rgba(185,28,28,0.5); }\n  }\n  .meave-colnav.is-visible .meave-colnav-pill--sale:hover {\n    color: #fff;\n    transform: translateY(-3px);\n    animation: none;\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,0.18),\n      0 2px 6px rgba(185,28,28,0.3),\n      0 14px 30px -6px rgba(185,28,28,0.45);\n  }\n  .meave-colnav.is-visible .meave-colnav-pill--sale:hover svg { color: #fff; }\n\n  .meave-colnav-pill--optional { display: inline-flex; }\n\n  @media (min-width: 768px) {\n    .meave-colnav { padding: 0; width: auto; margin-left: 0; margin-right: 0; }\n    .meave-colnav::before, .meave-colnav::after { display: none; }\n    .meave-colnav.is-visible:not(.is-scrolled) .meave-colnav-track { animation: none; }\n    .meave-colnav-track {\n      flex-wrap: nowrap;\n      justify-content: center;\n      overflow-x: visible;\n      padding: 24px 0;\n      gap: 10px;\n      width: 100%;\n    }\n    .meave-colnav-pill {\n      font-size: clamp(12px, 0.9vw, 15px);\n      padding: clamp(9px, 0.7vw, 13px) clamp(14px, 1.3vw, 24px);\n    }\n    .meave-colnav-pill svg { width: clamp(15px, 1vw, 18px); height: clamp(15px, 1vw, 18px); }\n    .meave-colnav-pill--featured,\n    .meave-colnav-pill--sale {\n      padding: clamp(9px, 0.7vw, 13px) clamp(14px, 1.3vw, 24px);\n    }\n    .meave-colnav-pill--featured { padding-left: clamp(12px, 1.1vw, 20px); }\n  }\n\n  @media (min-width: 768px) and (max-width: 1300px) {\n    .meave-colnav-pill--optional { display: none; }\n  }\n</style>\n\n<div class=\"meave-colnav\" id=\"meaveColNav\">\n  <div class=\"meave-colnav-track\" id=\"meaveColNavTrack\">\n\n    <a href=\"/collections/all\" class=\"meave-colnav-pill meave-colnav-pill--featured\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 18h6\"/><path d=\"M10 21h4\"/><path d=\"M12 3a6 6 0 0 1 4 10.5c-.6.6-1 1.3-1 2.1H9c0-.8-.4-1.5-1-2.1A6 6 0 0 1 12 3z\"/></svg>\n      <span>Shop all</span>\n    </a>\n\n    <a href=\"/collections/wall-lights\" class=\"meave-colnav-pill\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 3v18\"/><path d=\"M5 8h6\"/><path d=\"M11 6l3 4h-6z\"/><path d=\"M9 10v2a2 2 0 0 0 4 0v-2\"/></svg>\n      Wall Lights\n    </a>\n\n    <a href=\"/collections/table-lamps\" class=\"meave-colnav-pill\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 4h6l2 7H7z\"/><path d=\"M12 11v7\"/><path d=\"M8 20h8\"/></svg>\n      Table Lamps\n    </a>\n\n    <a href=\"/collections/ceiling-lights\" class=\"meave-colnav-pill\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3v3\"/><path d=\"M7 6h10l-1.5 6h-7z\"/><path d=\"M10 15a2 2 0 0 0 4 0\"/></svg>\n      Ceiling Lights\n    </a>\n\n    <a href=\"/collections/floor-lamps\" class=\"meave-colnav-pill meave-colnav-pill--optional\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 3h6l1.5 6h-9z\"/><path d=\"M12 9v11\"/><path d=\"M8 20h8\"/></svg>\n      Floor Lamps\n    </a>\n\n    <a href=\"/collections/outdoor-lights\" class=\"meave-colnav-pill\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 4h6l-1 3h-4z\"/><path d=\"M8 7h8l1 13H7z\"/><path d=\"M10 20v-9\"/><path d=\"M14 20v-9\"/></svg>\n      Outdoor\n    </a>\n\n    <a href=\"/collections/accessories\" class=\"meave-colnav-pill\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 3v2\"/><path d=\"M12 19v2\"/><path d=\"M3 12h2\"/><path d=\"M19 12h2\"/><path d=\"M5.6 5.6l1.4 1.4\"/><path d=\"M17 17l1.4 1.4\"/><path d=\"M18.4 5.6L17 7\"/><path d=\"M7 17l-1.4 1.4\"/></svg>\n      Accessories\n    </a>\n\n    <a href=\"/collections/sale\" class=\"meave-colnav-pill meave-colnav-pill--sale\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 5H5v4l10 10 4-4z\"/><circle cx=\"7.5\" cy=\"7.5\" r=\"0.6\" fill=\"currentColor\"/></svg>\n      Sale\n    </a>\n\n  </div>\n</div>\n\n<script>\n(function(){\n  var nav = document.getElementById('meaveColNav');\n  var track = document.getElementById('meaveColNavTrack');\n  if (!nav || !track) return;\n\n  if ('IntersectionObserver' in window) {\n    var obs = new IntersectionObserver(function(entries){\n      entries.forEach(function(e){ if (e.isIntersecting) { nav.classList.add('is-visible'); obs.unobserve(nav); } });\n    }, { threshold: 0.15 });\n    obs.observe(nav);\n  } else {\n    nav.classList.add('is-visible');\n  }\n\n  function updateFades(){\n    var maxScroll = track.scrollWidth - track.clientWidth;\n    track.scrollLeft > 4 ? nav.classList.add('is-scrolled') : nav.classList.remove('is-scrolled');\n    track.scrollLeft >= maxScroll - 4 ? nav.classList.add('is-end') : nav.classList.remove('is-end');\n  }\n  track.addEventListener('scroll', updateFades, { passive: true });\n  window.addEventListener('resize', updateFades);\n  updateFades();\n})();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 16,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "featured_collection_btEa6L": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "wireless-wall-sconces-set-of-2",
+          "curved-wireless-wall-sconce",
+          "wireless-cylindrical-wall-sconces-set-of-2-2-bulbs-free",
+          "glowdrop-wireless-wall-sconces-set-of-2-2-bulbs-free"
+        ],
+        "product_limit": 4,
+        "columns": 4,
+        "carousel_on_desktop": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Our Bestsellers",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 28,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_tUhqNw": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  #jacq-compare {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    margin: 0 auto;\n    padding: 60px 0;\n    max-width: 1600px;\n    background: #ffffff;\n    width: 100vw;\n    margin-left: calc(-50vw + 50%);\n    box-sizing: border-box;\n  }\n  .jacq-compare-header {\n    text-align: center;\n    margin-bottom: 40px;\n    padding: 0 20px;\n  }\n  .jacq-compare-header h2 {\n    font-size: 24px;\n    font-weight: 700;\n    letter-spacing: -0.035em;\n    line-height: 1.08;\n    color: #1D1D1F;\n    margin: 0;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n  .jacq-compare-sub {\n    font-size: 14px;\n    color: #86868b;\n    margin: 8px 0 0;\n    letter-spacing: -0.01em;\n    line-height: 1.5;\n  }\n\n  /* ── Switch toggle ── */\n  .jacq-compare-switch {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: 20px;\n  }\n  .jacq-compare-switch-track {\n    display: inline-flex;\n    background: #F5F5F7;\n    border-radius: 980px;\n    padding: 4px;\n  }\n  .jacq-compare-switch-opt {\n    padding: 8px 20px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: #86868b;\n    border: none;\n    background: none;\n    border-radius: 980px;\n    cursor: pointer;\n    transition: color 0.25s, background 0.25s, box-shadow 0.25s;\n    position: relative;\n    z-index: 1;\n    white-space: nowrap;\n    font-family: inherit;\n  }\n  .jacq-compare-switch-opt.is-active {\n    color: #1D1D1F;\n    background: #ffffff;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);\n  }\n\n  /* ── Card grid / slider ── */\n  .jacq-compare-cards {\n    display: flex;\n    flex-direction: row;\n    gap: 10px;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding: 24px 16px 32px;\n    position: relative;\n  }\n  .jacq-compare-cards::-webkit-scrollbar { display: none; }\n  .jacq-compare-cards { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .jacq-compare-card {\n    border-radius: 24px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    overflow: visible;\n    flex: 0 0 85%;\n    scroll-snap-align: center;\n    min-width: 0;\n    background: #ffffff;\n    box-shadow:\n      0 1px 2px rgba(0,0,0,0.04),\n      0 4px 8px rgba(0,0,0,0.04),\n      0 12px 28px rgba(0,0,0,0.06);\n  }\n\n  /* ── Entrance animation ── */\n  .jacq-anim-ready .jacq-compare-card {\n    opacity: 0;\n    transform: translateY(40px);\n    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),\n                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .jacq-anim-ready .jacq-compare-card:nth-child(2) { transition-delay: 0.1s; }\n  .jacq-anim-ready .jacq-compare-card:nth-child(3) { transition-delay: 0.2s; }\n  .jacq-anim-ready .jacq-compare-card:nth-child(4) { transition-delay: 0.3s; }\n  .jacq-anim-ready .jacq-compare-card.is-visible {\n    opacity: 1;\n    transform: translateY(0);\n  }\n\n  /* ── Card parts ── */\n  .jacq-compare-card-band {\n    border-radius: 24px 24px 0 0;\n    padding: 0 24px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 58px;\n    box-sizing: border-box;\n  }\n  .jacq-compare-card-body {\n    border-radius: 0 0 24px 24px;\n    background: #fff;\n    padding: 24px 24px 28px;\n    display: flex;\n    flex-direction: column;\n    flex: 1;\n  }\n\n  .jacq-compare-card--jacq .jacq-compare-card-band { background: #1D1D1F; }\n  .jacq-compare-card--ha .jacq-compare-card-band { background: #C8102E; }\n  .jacq-compare-card--pearle .jacq-compare-card-band { background: #00A77E; }\n  .jacq-compare-card--ss .jacq-compare-card-band { background: #2D8C3C; }\n\n  .jacq-compare-card-name {\n    font-size: 22px;\n    font-weight: 700;\n    letter-spacing: 0.01em;\n    color: #ffffff;\n  }\n  .jacq-compare-card-logo {\n    height: 34px;\n    width: auto;\n    display: block;\n    object-fit: contain;\n    filter: brightness(0) invert(1);\n  }\n\n  /* ── Badge ── */\n  .jacq-compare-badge {\n    position: absolute;\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    background: #0071E3;\n    color: #ffffff;\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: 0.06em;\n    text-transform: uppercase;\n    padding: 7px 18px;\n    border-radius: 999px;\n    white-space: nowrap;\n    line-height: 1;\n    z-index: 10;\n    box-shadow:\n      0 0 0 1px rgba(0,113,227,0.08),\n      0 2px 4px rgba(0,113,227,0.12),\n      0 4px 12px rgba(0,113,227,0.1),\n      0 0 24px rgba(0,113,227,0.08);\n    animation: jacqBadgePulse 2.4s ease-in-out 2s infinite;\n  }\n  @keyframes jacqBadgePulse {\n    0%, 100% {\n      box-shadow:\n        0 0 0 1px rgba(0,113,227,0.08),\n        0 2px 4px rgba(0,113,227,0.12),\n        0 4px 12px rgba(0,113,227,0.1),\n        0 0 24px rgba(0,113,227,0.08);\n      transform: translate(-50%, -50%) scale(1);\n    }\n    50% {\n      box-shadow:\n        0 0 0 5px rgba(0,113,227,0.1),\n        0 2px 10px rgba(0,113,227,0.3),\n        0 4px 24px rgba(0,113,227,0.25),\n        0 0 48px rgba(0,113,227,0.18);\n      transform: translate(-50%, -50%) scale(1.05);\n    }\n  }\n\n  /* ── Price ── */\n  .jacq-compare-price {\n    display: flex;\n    align-items: baseline;\n    justify-content: center;\n    gap: 8px;\n    margin-bottom: 4px;\n  }\n  .jacq-compare-price-from {\n    font-size: 16px;\n    font-weight: 500;\n    letter-spacing: -0.01em;\n    color: #86868b;\n  }\n  .jacq-compare-price-amount {\n    font-size: 44px;\n    font-weight: 700;\n    letter-spacing: -0.04em;\n    line-height: 1.05;\n    color: #1D1D1F;\n  }\n  .jacq-compare-included {\n    font-size: 13px;\n    font-weight: 500;\n    margin-bottom: 24px;\n    letter-spacing: -0.01em;\n    text-align: center;\n    min-height: 20px;\n  }\n  .jacq-compare-card--jacq .jacq-compare-included { color: #34C759; }\n  .jacq-compare-card--ha .jacq-compare-included { color: #34C759; }\n  .jacq-compare-card--pearle .jacq-compare-included,\n  .jacq-compare-card--ss .jacq-compare-included { color: #86868b; }\n\n  /* ── Divider ── */\n  .jacq-compare-divider {\n    height: 1px;\n    background: rgba(0,0,0,0.06);\n    margin-bottom: 18px;\n  }\n\n  /* ── Features ── */\n  .jacq-compare-features {\n    display: flex;\n    flex-direction: column;\n    flex: 1;\n  }\n  .jacq-compare-row {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n    padding: 12px 0;\n  }\n  .jacq-compare-row + .jacq-compare-row {\n    border-top: 1px solid rgba(0,0,0,0.05);\n  }\n  .jacq-compare-row-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 50%;\n  }\n  .jacq-compare-row-icon svg {\n    width: 14px;\n    height: 14px;\n    stroke-width: 2.2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    fill: none;\n  }\n  .jacq-compare-row-icon--check { background: rgba(52,199,89,0.1); }\n  .jacq-compare-row-icon--check svg { stroke: #34C759; }\n  .jacq-compare-row-icon--cross { background: rgba(255,59,48,0.08); }\n  .jacq-compare-row-icon--cross svg { stroke: #FF3B30; }\n  .jacq-compare-row-icon--paid { background: rgba(255,149,0,0.1); }\n  .jacq-compare-row-icon--paid svg { stroke: #FF9500; }\n  .jacq-compare-row-text {\n    font-size: 14px;\n    font-weight: 400;\n    line-height: 1.4;\n    letter-spacing: -0.01em;\n    color: #1D1D1F;\n    flex: 1;\n  }\n  .jacq-compare-row-extra {\n    font-size: 12px;\n    font-weight: 600;\n    color: #FF9500;\n    white-space: nowrap;\n  }\n\n  /* ── Trustpilot ── */\n  .jacq-compare-trustpilot {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 10px;\n    margin-top: 20px;\n    padding-top: 16px;\n    border-top: 1px solid rgba(0,0,0,0.05);\n  }\n  .jacq-compare-tp-stars {\n    display: inline-flex;\n    gap: 2px;\n    line-height: 0;\n  }\n  .jacq-compare-tp-star-box {\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #00B67A;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .jacq-compare-tp-star-box--empty { background: #dcdce6; }\n  .jacq-compare-tp-star-box--half {\n    background: linear-gradient(to right, #00B67A 50%, #dcdce6 50%);\n  }\n  .jacq-compare-tp-star-box svg {\n    width: 12px;\n    height: 12px;\n    display: block;\n  }\n  .jacq-compare-tp-info {\n    display: flex;\n    flex-direction: column;\n    gap: 1px;\n  }\n  .jacq-compare-tp-score {\n    font-size: 14px;\n    font-weight: 700;\n    color: #1D1D1F;\n    letter-spacing: -0.02em;\n    line-height: 1;\n  }\n  .jacq-compare-tp-label {\n    font-size: 10px;\n    font-weight: 500;\n    color: #86868b;\n    letter-spacing: -0.01em;\n    line-height: 1;\n    font-style: italic;\n  }\n\n  /* ── Confetti canvas ── */\n  .jacq-confetti-canvas {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    pointer-events: none;\n    z-index: 9999;\n  }\n\n  /* ── Dots ── */\n  .jacq-compare-dots {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 6px;\n    margin-top: 24px;\n  }\n  .jacq-compare-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background-color 0.2s, width 0.2s;\n    cursor: pointer;\n  }\n  .jacq-compare-dot.is-active {\n    background: #1D1D1F;\n    width: 18px;\n  }\n\n  /* ── Disclaimer ── */\n  .jacq-compare-disclaimer-wrap {\n    text-align: center;\n    margin-top: 20px;\n    padding: 0 12px;\n  }\n  .jacq-compare-disclaimer-toggle {\n    font-size: 12px;\n    color: #9ca3af;\n    background: none;\n    border: none;\n    cursor: pointer;\n    text-decoration: underline;\n    text-underline-offset: 2px;\n    padding: 0;\n    letter-spacing: -0.01em;\n    font-family: inherit;\n  }\n  .jacq-compare-disclaimer-toggle:hover { color: #6b7280; }\n  .jacq-compare-disclaimer-text {\n    display: none;\n    font-size: 11px;\n    color: #9ca3af;\n    line-height: 1.5;\n    margin-top: 8px;\n    letter-spacing: -0.01em;\n  }\n  .jacq-compare-disclaimer-text.is-open { display: block; }\n\n  /* ── Tablet 768+ ── */\n  @media (min-width: 768px) {\n    #jacq-compare { padding: 80px 40px; width: auto; margin-left: auto; margin-right: auto; }\n    .jacq-compare-header { margin-bottom: 48px; }\n    .jacq-compare-header h2 { font-size: 48px; }\n    .jacq-compare-sub { font-size: 19px; }\n    .jacq-compare-switch-opt { padding: 10px 28px; font-size: 14px; }\n    .jacq-compare-cards {\n      overflow-x: visible;\n      scroll-snap-type: none;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 20px;\n      padding: 20px 0 20px;\n    }\n    .jacq-compare-card {\n      flex: none;\n      width: 100%;\n      box-shadow:\n        0 1px 3px rgba(0,0,0,0.04),\n        0 6px 16px rgba(0,0,0,0.06),\n        0 18px 40px rgba(0,0,0,0.07);\n    }\n    .jacq-compare-card-band { height: 64px; padding: 0 36px; }\n    .jacq-compare-card-body { padding: 28px 36px 36px; }\n    .jacq-compare-price-amount { font-size: 48px; }\n    .jacq-compare-row-text { font-size: 15px; }\n    .jacq-compare-dots { display: none; }\n  }\n\n  /* ── Desktop 1200+ ── */\n  @media (min-width: 1200px) {\n    #jacq-compare { max-width: 1600px; padding: 80px 48px; }\n    .jacq-compare-cards {\n      grid-template-columns: repeat(4, 1fr);\n      gap: 24px;\n      padding: 20px 0 20px;\n    }\n    .jacq-compare-card-band { height: 68px; padding: 0 32px; }\n    .jacq-compare-card-body { padding: 28px 32px 36px; }\n    .jacq-compare-price-amount { font-size: 52px; }\n    .jacq-compare-card {\n      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),\n                  transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),\n                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);\n    }\n    .jacq-compare-card.is-visible:hover {\n      transform: translateY(-8px) scale(1.02);\n      box-shadow:\n        0 28px 56px rgba(0,0,0,0.12),\n        0 10px 24px rgba(0,0,0,0.08);\n      z-index: 2;\n    }\n  }\n\n  /* ── Price explanation accordion ── */\n  .jacq-compare-explain {\n    text-align: center;\n    margin-top: 28px;\n    padding: 0 20px;\n    max-width: 680px;\n    margin-left: auto;\n    margin-right: auto;\n  }\n  .jacq-compare-explain-toggle {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    background: none;\n    border: none;\n    cursor: pointer;\n    font-family: inherit;\n    font-size: 15px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: #6e6e73;\n    padding: 12px 0;\n    transition: color 0.25s;\n  }\n  .jacq-compare-explain-toggle:hover {\n    color: #1D1D1F;\n  }\n  .jacq-compare-explain-chevron {\n    width: 12px;\n    height: 12px;\n    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);\n    flex-shrink: 0;\n  }\n  .jacq-compare-explain-toggle.is-open .jacq-compare-explain-chevron {\n    transform: rotate(180deg);\n  }\n  .jacq-compare-explain-content {\n    overflow: hidden;\n    max-height: 0;\n    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;\n    opacity: 0;\n  }\n  .jacq-compare-explain-content.is-open {\n    opacity: 1;\n  }\n  .jacq-compare-explain-text {\n    font-size: 15px;\n    font-weight: 400;\n    line-height: 1.6;\n    letter-spacing: -0.01em;\n    color: #6e6e73;\n    padding: 4px 0 16px;\n    max-width: 560px;\n    margin: 0 auto;\n  }\n</style>\n\n<div id=\"jacq-compare\">\n  <div class=\"jacq-compare-header\">\n    <h2>Waarom meer betalen?</h2>\n    <div class=\"jacq-compare-sub\">Dezelfde kwaliteit. Een eerlijke prijs.</div>\n    <div class=\"jacq-compare-switch\">\n      <div class=\"jacq-compare-switch-track\">\n        <button class=\"jacq-compare-switch-opt is-active\" data-mode=\"enkelvoudig\">Enkelvoudig</button>\n        <button class=\"jacq-compare-switch-opt\" data-mode=\"multifocaal\">Multifocaal</button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"jacq-compare-cards\" id=\"jacqCompareTrack\">\n\n    <!-- ═══ JACQ ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--jacq\">\n      <div class=\"jacq-compare-badge\">Slimste keuze ✦</div>\n      <div class=\"jacq-compare-card-band\">\n        <img src=\"https://jacqeyewear.nl/cdn/shop/files/Logo_01_copy_2.svg?v=1762204480\" alt=\"JACQ\" class=\"jacq-compare-card-logo\" onerror=\"this.style.display='none';this.nextElementSibling.style.display='block'\"><div class=\"jacq-compare-card-name\" style=\"display:none\">JACQ.</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"150\" data-target-enkel=\"50\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Alles gratis inbegrepen\" data-enkel=\"Alles gratis inbegrepen\">Alles gratis inbegrepen</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--half\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">4.3</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Hans Anders ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--ha\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Hans Anders</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"199\" data-target-enkel=\"150\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Alles gratis inbegrepen\" data-enkel=\"Alles gratis inbegrepen\">Alles gratis inbegrepen</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">3.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Pearle ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--pearle\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Pearle</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"259\" data-target-enkel=\"170\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Incl. anti-kras &amp; ontspiegeling\" data-enkel=\"Incl. anti-kras &amp; ontspiegeling\">Incl. anti-kras &amp; ontspiegeling</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--cross\"><svg viewBox=\"0 0 24 24\"><path d=\"M18 6L6 18M6 6l12 12\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">3.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Specsavers ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--ss\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Specsavers</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"329\" data-target-enkel=\"170\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Incl. anti-kras &amp; ontspiegeling\" data-enkel=\"Incl. anti-kras &amp; ontspiegeling\">Incl. anti-kras &amp; ontspiegeling</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--cross\"><svg viewBox=\"0 0 24 24\"><path d=\"M18 6L6 18M6 6l12 12\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">4.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <div class=\"jacq-compare-dots\" id=\"jacqCompareDots\">\n    <span class=\"jacq-compare-dot is-active\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n  </div>\n\n  <div class=\"jacq-compare-disclaimer-wrap\">\n    <button class=\"jacq-compare-disclaimer-toggle\" id=\"jacqDisclaimerToggle\">Prijsverantwoording *</button>\n    <div class=\"jacq-compare-disclaimer-text\" id=\"jacqDisclaimerText\">Vergelijking op basis van een complete enkelvoudige bril met dunne glazen (index 1.56–1.6), inclusief anti-kras coating en ontspiegeling. Bij alle opticiens is een montuur van &euro;50 gekozen. Hans Anders prijs is inclusief de huidige kortingsactie (geldig t/m 31 maart 2026). Prijzen zijn indicatief en gebaseerd op openbaar beschikbare prijsinformatie per februari 2026. Werkelijke prijzen kunnen afwijken per winkel en configuratie.</div>\n  </div>\n\n  <div class=\"jacq-compare-explain\">\n    <button class=\"jacq-compare-explain-toggle\" id=\"jacqExplainToggle\">\n      Hoe kan JACQ. zo scherp geprijsd zijn?\n      <svg class=\"jacq-compare-explain-chevron\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M2.5 4.5L6 8L9.5 4.5\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      </svg>\n    </button>\n    <div class=\"jacq-compare-explain-content\" id=\"jacqExplainContent\">\n      <p class=\"jacq-compare-explain-text\">Wij hebben geen fysieke winkels en geen dure winkelmedewerkers. Daardoor besparen we flink op kosten en dat voordeel geven we direct aan jou door. Je betaalt dus puur voor je bril, niets meer.</p>\n    </div>\n  </div>\n\n</div>\n\n<!-- canvas-confetti CDN -->\n<script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js\"></script>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function () {\n  var track = document.getElementById('jacqCompareTrack');\n  var dotsWrap = document.getElementById('jacqCompareDots');\n  if (!track || !dotsWrap) return;\n\n  var cards = Array.prototype.slice.call(track.querySelectorAll('.jacq-compare-card'));\n  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.jacq-compare-dot'));\n  var isMobile = window.innerWidth < 768;\n  var counterDone = false;\n  var currentMode = 'enkelvoudig';\n\n  /* ── Animated counter (initial entrance) ── */\n  function animateCounters() {\n    if (counterDone) return;\n    counterDone = true;\n    var els = track.querySelectorAll('[data-target]');\n    var attr = currentMode === 'enkelvoudig' ? 'data-target-enkel' : 'data-target';\n    els.forEach(function (el) {\n      var target = parseInt(el.getAttribute(attr), 10);\n      /* Reset to €0 to guarantee visible animation */\n      el.textContent = '\\u20AC0';\n      var duration = 1200;\n      var start = performance.now();\n      function tick(now) {\n        var progress = Math.min((now - start) / duration, 1);\n        var ease = 1 - Math.pow(1 - progress, 3);\n        var current = Math.round(ease * target);\n        el.textContent = '\\u20AC' + current;\n        if (progress < 1) requestAnimationFrame(tick);\n      }\n      requestAnimationFrame(tick);\n    });\n  }\n\n  /* ── Animate price from current to new value ── */\n  function animateTo(el, target) {\n    var current = parseInt(el.textContent.replace(/[^\\d]/g, ''), 10) || 0;\n    var duration = 600;\n    var start = performance.now();\n    var from = current;\n    function tick(now) {\n      var progress = Math.min((now - start) / duration, 1);\n      var ease = 1 - Math.pow(1 - progress, 3);\n      var val = Math.round(from + (target - from) * ease);\n      el.textContent = '\\u20AC' + val;\n      if (progress < 1) requestAnimationFrame(tick);\n    }\n    requestAnimationFrame(tick);\n  }\n\n  /* ── Confetti celebration (canvas-confetti) ── */\n  function fireConfetti() {\n    if (typeof confetti === 'undefined') return;\n\n    var jacqCard = document.querySelector('.jacq-compare-card--jacq');\n    if (!jacqCard) return;\n    var rect = jacqCard.getBoundingClientRect();\n    var originX = (rect.left + rect.width / 2) / window.innerWidth;\n    var originY = (rect.top + rect.height / 2) / window.innerHeight;\n\n    var defaults = {\n      origin: { x: originX, y: originY },\n      colors: ['#0071E3', '#34C759', '#FFD60A', '#FF9500', '#AF52DE', '#FF375F'],\n      zIndex: 9999,\n      spread: 360,\n      ticks: 100,\n      gravity: 0.6,\n      decay: 0.94,\n      startVelocity: 25,\n      scalar: 1,\n    };\n\n    confetti({ ...defaults, particleCount: 50 });\n    confetti({ ...defaults, particleCount: 20, scalar: 0.6 });\n\n    setTimeout(function () {\n      confetti({ ...defaults, particleCount: 35, startVelocity: 20 });\n      confetti({ ...defaults, particleCount: 15, scalar: 0.5 });\n    }, 200);\n\n    setTimeout(function () {\n      confetti({ ...defaults, particleCount: 20, startVelocity: 15, scalar: 0.8 });\n    }, 400);\n  }\n\n  /* ── Scroll-triggered entrance ── */\n  if ('IntersectionObserver' in window) {\n    track.classList.add('jacq-anim-ready');\n    var observer = new IntersectionObserver(function (entries) {\n      entries.forEach(function (entry) {\n        if (entry.isIntersecting) {\n          var innerCards = entry.target.querySelectorAll('.jacq-compare-card');\n          innerCards.forEach(function (c) { c.classList.add('is-visible'); });\n          observer.unobserve(entry.target);\n          setTimeout(animateCounters, 300);\n          setTimeout(fireConfetti, 1400);\n          if (isMobile) {\n            setTimeout(function () {\n              var cardWidth = cards[0].offsetWidth;\n              var peekAmount = Math.round(cardWidth * 0.3);\n              track.scrollTo({ left: peekAmount, behavior: 'smooth' });\n              setTimeout(function () {\n                track.scrollTo({ left: 0, behavior: 'smooth' });\n              }, 700);\n            }, 1000);\n          }\n        }\n      });\n    }, { threshold: 0.1 });\n    observer.observe(track);\n    setTimeout(function () {\n      cards.forEach(function (c) { c.classList.add('is-visible'); });\n      animateCounters();\n    }, 2000);\n  }\n\n  /* ── Dots / scroll tracking ── */\n  function updateDots() {\n    var center = track.scrollLeft + track.clientWidth / 2;\n    var active = 0, min = Infinity;\n    cards.forEach(function (c, i) {\n      var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - center);\n      if (d < min) { min = d; active = i; }\n    });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === active); });\n  }\n  var scrollTick = false;\n  track.addEventListener('scroll', function () {\n    if (!scrollTick) { requestAnimationFrame(function () { updateDots(); scrollTick = false; }); scrollTick = true; }\n  });\n  dots.forEach(function (d, i) {\n    d.addEventListener('click', function () {\n      var c = cards[i];\n      if (c) track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });\n    });\n  });\n  updateDots();\n\n  /* ── Switch toggle ── */\n  var switchBtns = document.querySelectorAll('.jacq-compare-switch-opt');\n\n  function switchPrices(mode) {\n    if (mode === currentMode) return;\n    currentMode = mode;\n\n    switchBtns.forEach(function (b) {\n      b.classList.toggle('is-active', b.getAttribute('data-mode') === mode);\n    });\n\n    var els = track.querySelectorAll('[data-target]');\n    els.forEach(function (el) {\n      var target = mode === 'enkelvoudig'\n        ? parseInt(el.getAttribute('data-target-enkel'), 10)\n        : parseInt(el.getAttribute('data-target'), 10);\n      animateTo(el, target);\n    });\n\n    var inclEls = track.querySelectorAll('.jacq-compare-included');\n    inclEls.forEach(function (el) {\n      var txt = mode === 'enkelvoudig' ? el.getAttribute('data-enkel') : el.getAttribute('data-multi');\n      if (txt) el.innerHTML = txt;\n    });\n\n    var disclaimerText = document.getElementById('jacqDisclaimerText');\n    if (disclaimerText) {\n      var type = mode === 'enkelvoudig' ? 'enkelvoudige' : 'multifocale';\n      disclaimerText.textContent = 'Vergelijking op basis van een complete ' + type + ' bril met dunne glazen (index 1.56\\u20131.6), inclusief anti-kras coating en ontspiegeling. Bij alle opticiens is een montuur van \\u20AC50 gekozen. Hans Anders prijs is inclusief de huidige kortingsactie (geldig t/m 31 maart 2026). Prijzen zijn indicatief en gebaseerd op openbaar beschikbare prijsinformatie per februari 2026. Werkelijke prijzen kunnen afwijken per winkel en configuratie.';\n    }\n  }\n\n  switchBtns.forEach(function (btn) {\n    btn.addEventListener('click', function () {\n      switchPrices(btn.getAttribute('data-mode'));\n    });\n  });\n\n  /* ── Disclaimer toggle ── */\n  var toggle = document.getElementById('jacqDisclaimerToggle');\n  var text = document.getElementById('jacqDisclaimerText');\n  if (toggle && text) {\n    toggle.addEventListener('click', function () {\n      text.classList.toggle('is-open');\n      toggle.textContent = text.classList.contains('is-open') ? 'Sluiten' : 'Prijsverantwoording *';\n    });\n  }\n\n  /* ── Price explanation toggle ── */\n  var explainToggle = document.getElementById('jacqExplainToggle');\n  var explainContent = document.getElementById('jacqExplainContent');\n  if (explainToggle && explainContent) {\n    explainToggle.addEventListener('click', function () {\n      var isOpen = explainToggle.classList.toggle('is-open');\n      if (isOpen) {\n        explainContent.style.maxHeight = explainContent.scrollHeight + 'px';\n        explainContent.classList.add('is-open');\n      } else {\n        explainContent.style.maxHeight = '0';\n        explainContent.classList.remove('is-open');\n      }\n    });\n  }\n\n});\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "highlight_text_wcPQxJ": {
+      "type": "highlight-text",
+      "blocks": {
+        "heading_gTq3Tb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Niet goed? Geld terug!",
+            "heading_size": "title-sm",
+            "heading_tag": "h2",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        },
+        "text_YX94zL": {
+          "type": "text",
+          "settings": {
+            "text": "<p></p><p></p>",
+            "text_font": "body",
+            "text_size": "subtext-md",
+            "text_max_size": 32,
+            "text_line_height": 1.6,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gTq3Tb",
+        "text_YX94zL"
+      ],
+      "disabled": true,
+      "name": "t:sections.highlight-text.name",
+      "settings": {
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "#ffffff",
+        "color_background": "#0071e3",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "custom_liquid_CirTBi": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  #meave-trust *, #meave-trust *::before, #meave-trust *::after { box-sizing: border-box; }\n\n  #meave-trust {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    background: #ffffff;\n    color: #1D1D1F;\n    padding: 56px 0;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);\n  }\n  #meave-trust.is-visible { opacity: 1; transform: translateY(0); }\n\n  .mtrust-grid { display: flex; flex-direction: column; gap: 28px; }\n  .mtrust-left { display: flex; flex-direction: column; align-items: center; text-align: center; }\n\n  .mtrust-title {\n    font-size: 28px; font-weight: 700; letter-spacing: -0.035em;\n    line-height: 1.1; color: #1D1D1F; margin: 0 0 28px; text-align: center;\n  }\n  .mtrust-title b { color: #C18C1E; font-weight: 700; }\n\n  .mtrust-reviewer { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }\n  .mtrust-avatar {\n    width: 46px; height: 46px; border-radius: 999px; flex-shrink: 0;\n    display: flex; align-items: center; justify-content: center;\n    font-size: 15px; font-weight: 600; color: #4A3408;\n    background: linear-gradient(135deg, #F7DA8A 0%, #E0A93B 100%);\n    box-shadow: 0 2px 8px rgba(193,140,30,0.28);\n  }\n  .mtrust-reviewer-info { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }\n  .mtrust-reviewer-name {\n    display: inline-flex; align-items: center; gap: 5px;\n    font-size: 14px; font-weight: 600; color: #1D1D1F; letter-spacing: -0.01em;\n  }\n  .mtrust-badge { width: 14px; height: 14px; flex-shrink: 0; }\n  .mtrust-meta { display: flex; align-items: center; gap: 10px; }\n  .mtrust-stars { display: inline-flex; gap: 2px; }\n  .mtrust-stars svg { width: 14px; height: 14px; }\n  .mtrust-date { font-size: 12px; color: #86868b; font-weight: 400; }\n\n  .mtrust-review-title {\n    font-size: 17px; font-weight: 600; letter-spacing: -0.02em;\n    line-height: 1.3; color: #1D1D1F; margin: 0 0 12px;\n  }\n  .mtrust-review-text {\n    font-size: 14.5px; line-height: 1.65; color: #6e6e73;\n    letter-spacing: -0.005em; margin: 0; max-width: 460px;\n  }\n\n  .mtrust-photo {\n    width: 100%; border-radius: 18px; overflow: hidden;\n    box-shadow:\n      0 0.5px 1px rgba(0,0,0,0.03),\n      0 6px 16px -8px rgba(0,0,0,0.08),\n      0 16px 36px -14px rgba(0,0,0,0.08);\n  }\n  .mtrust-photo img { display: block; width: 100%; height: auto; }\n\n  @media (min-width: 768px) {\n    #meave-trust { padding: 80px 0; }\n    .mtrust-grid { flex-direction: row; align-items: center; gap: 48px; }\n    .mtrust-left { flex: 0 0 42%; max-width: 42%; }\n    .mtrust-photo { flex: 1 1 0; }\n    .mtrust-title { font-size: 48px; margin-bottom: 36px; }\n    .mtrust-review-title { font-size: 19px; }\n    .mtrust-review-text { font-size: 15px; }\n    .mtrust-photo { border-radius: 22px; }\n  }\n\n  @media (min-width: 1200px) {\n    .mtrust-grid { gap: 64px; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    *, *::before, *::after { transition: none !important; }\n  }\n</style>\n\n<section id=\"meave-trust\" data-meave-trust>\n  <svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n    <defs>\n      <linearGradient id=\"meaveTrustGold\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#F4CE6A\"/>\n        <stop offset=\"100%\" stop-color=\"#E0A93B\"/>\n      </linearGradient>\n    </defs>\n  </svg>\n\n  <div class=\"mtrust-grid\">\n\n    <div class=\"mtrust-left\">\n      <h2 class=\"mtrust-title\">Made for real<br><b>British</b> homes</h2>\n\n      <div class=\"mtrust-reviewer\">\n        <div class=\"mtrust-avatar\" aria-hidden=\"true\">BM</div>\n        <div class=\"mtrust-reviewer-info\">\n          <span class=\"mtrust-reviewer-name\">Brenda M.\n            <svg class=\"mtrust-badge\" viewBox=\"0 0 24 24\" fill=\"#3897F0\" aria-hidden=\"true\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg>\n          </span>\n          <span class=\"mtrust-meta\">\n            <span class=\"mtrust-stars\" aria-label=\"5 out of 5 stars\">\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n            </span>\n            <span class=\"mtrust-date\">8 May 2025</span>\n          </span>\n        </div>\n      </div>\n\n      <h3 class=\"mtrust-review-title\">Lovely lights, easy from start to finish</h3>\n      <p class=\"mtrust-review-text\">My lamps arrived safely and were really easy to put up. Once they were on the wall they added a lovely warmth to the entrance way. Very pleased with them.</p>\n    </div>\n\n    <div class=\"mtrust-photo\">\n      <img src=\"{{ 'meavegirid.jpg' | asset_url }}\" alt=\"MEAVE wireless wall lights styled in modern British homes\" loading=\"lazy\" width=\"1200\" height=\"800\">\n    </div>\n\n  </div>\n</section>\n\n<script>\n(function () {\n  var root = document.querySelector('[data-meave-trust]');\n  if (!root) return;\n  if ('IntersectionObserver' in window) {\n    var obs = new IntersectionObserver(function (entries) {\n      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });\n    }, { threshold: 0.1 });\n    obs.observe(root);\n  } else { root.classList.add('is-visible'); }\n})();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "1775834241b6933450": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2400851_zmKfJp": {
+          "type": "ai_gen_block_2400851",
+          "settings": {
+            "desktop_width_percent": 100,
+            "columns_desktop": 3,
+            "columns_mobile": "2",
+            "grid_gap": 20,
+            "image_ratio": "1/1",
+            "border_radius": 8,
+            "overlay_opacity": 40,
+            "content_padding": 30,
+            "content_gap": 15,
+            "show_title": true,
+            "title_size": 24,
+            "text_color": "#ffffff",
+            "button_font_size": 16,
+            "button_padding_vertical": 12,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 8,
+            "button_border_width": 0,
+            "button_background": "#0071e3",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#0071e3",
+            "button_hover_background": "#005bb5",
+            "button_hover_text_color": "#ffffff",
+            "collection_1": "",
+            "show_button_1": true,
+            "button_text_1": "Bekijk collectie",
+            "button_url_1": "",
+            "collection_2": "",
+            "show_button_2": true,
+            "button_text_2": "Bekijk collectie",
+            "button_url_2": "",
+            "collection_3": "",
+            "show_button_3": true,
+            "button_text_3": "Bekijk collectie",
+            "button_url_3": "",
+            "collection_4": "",
+            "show_button_4": true,
+            "button_text_4": "Bekijk collectie",
+            "button_url_4": "",
+            "collection_5": "",
+            "show_button_5": true,
+            "button_text_5": "Bekijk collectie",
+            "button_url_5": "",
+            "collection_6": "",
+            "show_button_6": true,
+            "button_text_6": "Bekijk collectie",
+            "button_url_6": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2400851_zmKfJp"
+      ],
+      "settings": {}
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "damesbrillen",
+            "title": "Dames",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#a6a6a6",
+            "overlay_opacity": 0
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "herenbrillen",
+            "title": "Heren",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#1d1d1d",
+            "overlay_opacity": 0
+          }
+        },
+        "collection-8": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "Sale",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 0
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "accesoires",
+            "title": "Accessoires",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#ffffff",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection-1",
+        "collection-2",
+        "collection-8",
+        "collection-3"
+      ],
+      "settings": {
+        "columns": 3,
+        "carousel_on_desktop": false,
+        "image_type": "collection",
+        "image_ratio": "portrait",
+        "show_products_count": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "underline",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 16,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_CdBEt6": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  #meave-reviews *, #meave-reviews *::before, #meave-reviews *::after { box-sizing: border-box; }\n\n  #meave-reviews {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    background: #ffffff;\n    color: #1D1D1F;\n    padding: 56px 0;\n    overflow: hidden;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);\n  }\n  #meave-reviews.is-visible { opacity: 1; transform: translateY(0); }\n\n  .mrev-header { text-align: center; margin-bottom: 32px; padding: 0 20px; }\n  .mrev-title {\n    font-size: 28px; font-weight: 700;\n    letter-spacing: -0.035em; line-height: 1.1; color: #1D1D1F; margin: 0;\n  }\n  .mrev-title b { color: #C18C1E; font-weight: 700; }\n  .mrev-sub {\n    font-size: 15px; color: #86868b; margin: 10px 0 0;\n    font-weight: 400; letter-spacing: -0.01em;\n  }\n\n  .mrev-viewport {\n    width: 100vw;\n    margin-left: calc(50% - 50vw);\n    overflow-x: auto;\n    overflow-y: hidden;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding: 30px 0 34px;\n  }\n  .mrev-viewport::-webkit-scrollbar { display: none; }\n  .mrev-viewport { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .mrev-track {\n    display: flex;\n    gap: 16px;\n    padding: 0 calc(50vw - 165px);\n    align-items: center;\n  }\n\n  .mrev-card {\n    flex: 0 0 330px;\n    scroll-snap-align: center;\n    background: #ffffff;\n    border: 0.5px solid rgba(0,0,0,0.05);\n    border-radius: 22px;\n    padding: 30px 26px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    box-shadow:\n      0 0.5px 1px rgba(0,0,0,0.03),\n      0 6px 16px -8px rgba(0,0,0,0.07),\n      0 12px 28px -12px rgba(0,0,0,0.06);\n    transform: scale(0.94);\n    opacity: 0.78;\n    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);\n  }\n  .mrev-card.is-center {\n    transform: scale(1);\n    opacity: 1;\n    box-shadow:\n      0 1px 2px rgba(0,0,0,0.04),\n      0 10px 24px -8px rgba(0,0,0,0.1),\n      0 24px 48px -16px rgba(0,0,0,0.12);\n  }\n\n  .mrev-stars {\n    display: inline-flex;\n    gap: 3px;\n    margin-bottom: 16px;\n  }\n  .mrev-stars svg { width: 16px; height: 16px; display: block; }\n\n  .mrev-text {\n    font-size: 14.5px;\n    line-height: 1.6;\n    color: #1D1D1F;\n    letter-spacing: -0.01em;\n    margin: 0 0 22px;\n    font-weight: 400;\n  }\n\n  .mrev-person { display: flex; flex-direction: column; align-items: center; gap: 11px; }\n  .mrev-avatar {\n    width: 52px; height: 52px; border-radius: 999px;\n    display: flex; align-items: center; justify-content: center;\n    font-size: 17px; font-weight: 600; letter-spacing: 0.01em;\n    color: #4A3408;\n    background: linear-gradient(135deg, #F7DA8A 0%, #E0A93B 100%);\n    box-shadow: 0 2px 8px rgba(193,140,30,0.28);\n  }\n\n  .mrev-person-info { display: flex; flex-direction: column; align-items: center; gap: 2px; }\n  .mrev-name {\n    display: inline-flex; align-items: center; gap: 5px;\n    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;\n    text-transform: uppercase; color: #1D1D1F;\n  }\n  .mrev-verified-badge {\n    width: 13px; height: 13px; flex-shrink: 0;\n    display: inline-flex; align-items: center; justify-content: center;\n  }\n  .mrev-loc {\n    font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; color: #C18C1E;\n  }\n\n  .mrev-dots {\n    display: flex; justify-content: center; align-items: center;\n    gap: 7px; margin-top: 22px;\n  }\n  .mrev-dot {\n    width: 7px; height: 7px; border-radius: 999px; border: none; padding: 0;\n    background: #d2d2d7; cursor: pointer;\n    transition: background-color 0.25s ease, transform 0.25s ease, width 0.25s ease;\n  }\n  .mrev-dot.is-active {\n    background: linear-gradient(135deg, #F4CE6A 0%, #E0A93B 100%);\n    width: 20px;\n  }\n\n  @media (min-width: 768px) {\n    #meave-reviews { padding: 80px 0; }\n    .mrev-header { margin-bottom: 44px; }\n    .mrev-title { font-size: 48px; }\n    .mrev-sub { font-size: 18px; }\n    .mrev-track { padding: 0 calc(50vw - 230px); gap: 22px; }\n    .mrev-card { flex: 0 0 440px; padding: 38px 40px; border-radius: 26px; }\n    .mrev-text { font-size: 16px; line-height: 1.65; }\n    .mrev-stars svg { width: 17px; height: 17px; }\n    .mrev-avatar { width: 58px; height: 58px; font-size: 19px; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    *, *::before, *::after { transition: none !important; }\n  }\n</style>\n\n<section id=\"meave-reviews\" data-meave-reviews>\n  <svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n    <defs>\n      <linearGradient id=\"meaveStarGold\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#F4CE6A\"/>\n        <stop offset=\"100%\" stop-color=\"#E0A93B\"/>\n      </linearGradient>\n    </defs>\n  </svg>\n\n  <div class=\"mrev-header\">\n    <h2 class=\"mrev-title\">Loved in <b>75,000+</b> homes</h2>\n    <p class=\"mrev-sub\">Real reviews from real MEAVE customers.</p>\n  </div>\n\n  <div class=\"mrev-viewport\" id=\"mrevViewport\">\n    <div class=\"mrev-track\" id=\"mrevTrack\">\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Really pleased with these. Warm light and they went up in a few minutes without any fuss. The hallway feels much cosier now.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">SH</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Susan H.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Manchester</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">We rent, so not being able to drill was a problem until I found these. They look fitted but come off cleanly. Handy for us.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">PD</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Paul D.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">London</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"#d2d2d7\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Good for reading in bed and the battery lasts well. Took a little while to arrive but happy with it. Would buy again.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">CW</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Carol W.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Bristol</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Put two by the bathroom mirror. Look smart and no electrician needed, which saved a fair bit. Pleased with them.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">AM</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Andrew M.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Leeds</div>\n          </div>\n        </div>\n      </article>\n\n    </div>\n  </div>\n\n  <div class=\"mrev-dots\" id=\"mrevDots\"></div>\n</section>\n\n<script>\n(function () {\n  var root = document.querySelector('[data-meave-reviews]');\n  if (!root) return;\n\n  if ('IntersectionObserver' in window) {\n    var fade = new IntersectionObserver(function (entries) {\n      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); fade.unobserve(e.target); } });\n    }, { threshold: 0.08 });\n    fade.observe(root);\n  } else { root.classList.add('is-visible'); }\n\n  var viewport = root.querySelector('#mrevViewport');\n  var track = root.querySelector('#mrevTrack');\n  var cards = Array.prototype.slice.call(track.querySelectorAll('.mrev-card'));\n  var dotsWrap = root.querySelector('#mrevDots');\n\n  cards.forEach(function (_, i) {\n    var b = document.createElement('button');\n    b.className = 'mrev-dot' + (i === 0 ? ' is-active' : '');\n    b.setAttribute('aria-label', 'Go to review ' + (i + 1));\n    b.addEventListener('click', function () {\n      var c = cards[i];\n      viewport.scrollTo({ left: c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });\n    });\n    dotsWrap.appendChild(b);\n  });\n  var dots = Array.prototype.slice.call(dotsWrap.children);\n\n  function update() {\n    var center = viewport.scrollLeft + viewport.clientWidth / 2;\n    var active = 0, min = Infinity;\n    cards.forEach(function (c, i) {\n      var cc = c.offsetLeft + c.offsetWidth / 2;\n      var d = Math.abs(cc - center);\n      if (d < min) { min = d; active = i; }\n    });\n    cards.forEach(function (c, i) { c.classList.toggle('is-center', i === active); });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === active); });\n  }\n\n  var ticking = false;\n  viewport.addEventListener('scroll', function () {\n    if (!ticking) { window.requestAnimationFrame(function () { update(); ticking = false; }); ticking = true; }\n  }, { passive: true });\n\n  window.addEventListener('resize', update);\n\n  requestAnimationFrame(function () {\n    var startIndex = window.innerWidth >= 768 ? Math.floor(cards.length / 2) : 0;\n    var c = cards[startIndex];\n    viewport.scrollLeft = c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2;\n    update();\n  });\n})();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "rich_text_BECLQG": {
+      "type": "rich-text",
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "heading": "Waarom meer betalen?",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_width": "large",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 12,
+        "divider": false,
+        "narrow": true,
+        "rounded": false
+      }
+    },
+    "custom_liquid_VUrmXU": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  /* ===== JACQ USP Section ===== */\n  #jacq-usp {\n    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    margin: 16px 0;\n  }\n\n  /* Container */\n  .jacq-usp-inner {\n    border-radius: 24px;\n    background: #ffffff;\n    box-shadow: 0 18px 40px rgba(0,0,0,0.06);\n    border: none;\n    overflow: hidden;\n  }\n\n  /* Mobile: horizontal slider */\n  .jacq-usp-items {\n    display: flex;\n    gap: 0;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n  }\n  .jacq-usp-items::-webkit-scrollbar { display: none; }\n  .jacq-usp-items { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .jacq-usp-item {\n    flex: 0 0 100%;\n    scroll-snap-align: center;\n    padding: 28px 24px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 10px;\n    position: relative;\n  }\n\n  .jacq-usp-icon {\n    width: 44px;\n    height: 44px;\n    border-radius: 50%;\n    background: rgba(0, 113, 227, 0.06);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n  }\n\n  .jacq-usp-icon svg {\n    width: 20px;\n    height: 20px;\n    color: #0071E3;\n    stroke: #0071E3;\n    fill: none;\n    stroke-width: 1.8;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .jacq-usp-name {\n    font-size: 15px;\n    font-weight: 600;\n    color: #111827;\n    letter-spacing: -0.01em;\n    line-height: 1.25;\n  }\n\n  .jacq-usp-desc {\n    font-size: 13px;\n    color: #6b7280;\n    line-height: 1.5;\n    max-width: 26ch;\n  }\n\n  /* Dots */\n  .jacq-usp-dots {\n    display: flex;\n    justify-content: center;\n    gap: 6px;\n    padding: 4px 0 16px;\n  }\n\n  .jacq-usp-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background .2s, width .3s cubic-bezier(.2,.9,.3,1);\n    cursor: pointer;\n  }\n\n  .jacq-usp-dot.is-active {\n    background: #111827;\n    width: 18px;\n  }\n\n  /* ===== Desktop: 2x2 grid with dividers ===== */\n  @media (min-width: 768px) {\n    .jacq-usp-inner {\n      padding: 0;\n    }\n\n    .jacq-usp-items {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 0;\n      overflow: visible;\n      scroll-snap-type: none;\n    }\n\n    .jacq-usp-item {\n      flex: initial;\n      scroll-snap-align: unset;\n      padding: 32px 28px;\n      align-items: center;\n      text-align: center;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    /* Vertical divider: right column items */\n    .jacq-usp-item:nth-child(2),\n    .jacq-usp-item:nth-child(4) {\n      border-left: 1px solid rgba(0,0,0,0.05);\n    }\n\n    /* Horizontal divider: bottom row */\n    .jacq-usp-item:nth-child(3),\n    .jacq-usp-item:nth-child(4) {\n      border-top: 1px solid rgba(0,0,0,0.05);\n    }\n\n    .jacq-usp-text-wrap {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .jacq-usp-desc {\n      max-width: none;\n    }\n\n    .jacq-usp-name {\n      font-size: 16px;\n    }\n\n    .jacq-usp-desc {\n      font-size: 14px;\n    }\n\n    .jacq-usp-dots {\n      display: none;\n    }\n\n    /* Hover */\n    .jacq-usp-item {\n      transition: background .3s;\n    }\n\n    .jacq-usp-item:hover {\n      background: rgba(0,0,0,0.012);\n    }\n  }\n</style>\n\n<div id=\"jacq-usp\">\n\n  <div class=\"jacq-usp-inner\">\n    <div class=\"jacq-usp-items\">\n\n      <!-- 1: Gratis verzending -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M5 18h1a2 2 0 1 0 4 0h4a2 2 0 1 0 4 0h1\"/><path d=\"M16 8h4l2 4v4h-4\"/><rect x=\"1\" y=\"4\" width=\"15\" height=\"12\" rx=\"1\"/><circle cx=\"8\" cy=\"18\" r=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">Gratis verzending</div>\n          <div class=\"jacq-usp-desc\">Op maat gemaakt en binnen 7–10 werkdagen bezorgd. Met track & trace.</div>\n        </div>\n      </div>\n\n      <!-- 2: 100 dagen proefdragen -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">100 dagen proefdragen</div>\n          <div class=\"jacq-usp-desc\">100 dagen om je bril uit te proberen. Niet tevreden? Geld terug.</div>\n        </div>\n      </div>\n\n      <!-- 3: 2 jaar garantie -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">2 jaar garantie</div>\n          <div class=\"jacq-usp-desc\">Fabricagefout? Geld terug of gratis vervanging. Geen gedoe.</div>\n        </div>\n      </div>\n\n      <!-- 4: Veilig betalen -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><rect x=\"1\" y=\"4\" width=\"22\" height=\"16\" rx=\"2\" ry=\"2\"/><path d=\"M1 10h22\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">Veilig betalen</div>\n          <div class=\"jacq-usp-desc\">iDEAL, Klarna, creditcard. Kies wat bij je past.</div>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"jacq-usp-dots\">\n      <span class=\"jacq-usp-dot is-active\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n    </div>\n  </div>\n</div>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function () {\n  var root = document.getElementById('jacq-usp');\n  if (!root) return;\n  var track = root.querySelector('.jacq-usp-items');\n  var slides = Array.prototype.slice.call(root.querySelectorAll('.jacq-usp-item'));\n  var dots = Array.prototype.slice.call(root.querySelectorAll('.jacq-usp-dot'));\n  if (!track || !slides.length || dots.length !== slides.length) return;\n\n  function update() {\n    var center = track.scrollLeft + track.clientWidth / 2;\n    var idx = 0, min = Infinity;\n    slides.forEach(function (s, i) {\n      var d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);\n      if (d < min) { min = d; idx = i; }\n    });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });\n  }\n\n  var t = false;\n  track.addEventListener('scroll', function () {\n    if (!t) { window.requestAnimationFrame(function () { update(); t = false; }); t = true; }\n  });\n  dots.forEach(function (d, i) {\n    d.addEventListener('click', function () {\n      if (slides[i]) track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });\n    });\n  });\n  update();\n});\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "collection_list_iMfN6q": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_qbqPwF": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale-zonnebrillen",
+            "title": "SALE",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#4f4f4f",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_ADmhQF": {
+          "type": "collection",
+          "settings": {
+            "collection": "dames-zonnebrillen",
+            "title": "Dames",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_ArVD3b": {
+          "type": "collection",
+          "settings": {
+            "collection": "heren-zonnebrillen",
+            "title": "Heren",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection_qbqPwF",
+        "collection_ADmhQF",
+        "collection_ArVD3b"
+      ],
+      "disabled": true,
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "columns": 3,
+        "carousel_on_desktop": false,
+        "image_type": "collection",
+        "image_ratio": "portrait",
+        "show_products_count": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "heading": "ZONNEBRILLEN",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Van felle zon tot terraslicht, jij zit goed.</p>",
+        "highlighted_text": "underline",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 8,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "featured_collection_mk6AFf": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "collection": "brillen-op-sterkte",
+        "products": [
+          "rio",
+          "rose",
+          "job",
+          "melle",
+          "nathan",
+          "paris",
+          "benlys",
+          "annabelle"
+        ],
+        "product_limit": 12,
+        "columns": 5,
+        "carousel_on_desktop": true,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "ONZE BESTSELLERS",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "scribble",
+        "highlighted_scribble": "sketch-underline",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 16,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "shop-the-look": {
+      "type": "shop-the-look",
+      "blocks": {
+        "product-1": {
+          "type": "product",
+          "settings": {
+            "product": "job",
+            "color_text": "#ffa816",
+            "vertical": 61,
+            "horizontal": 25,
+            "vertical_mobile": 25,
+            "horizontal_mobile": 25
+          }
+        },
+        "product-2": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "product": "nathan",
+            "color_text": "#ffa816",
+            "vertical": 45,
+            "horizontal": 60,
+            "vertical_mobile": 50,
+            "horizontal_mobile": 65
+          }
+        }
+      },
+      "block_order": [
+        "product-1",
+        "product-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Welke bril past bij <em>jou?</em>",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "scribble",
+        "highlighted_scribble": "basic-underline",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "color_overlay": "#171717",
+        "overlay_opacity": 24,
+        "padding_top": 12,
+        "padding_bottom": 80,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "collection_list_Tx9JVF": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_tgMQmi": {
+          "type": "collection",
+          "settings": {
+            "collection": "damesbrillen",
+            "title": "Brillen op sterkte",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#4f4f4f",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_jmBVex": {
+          "type": "collection",
+          "settings": {
+            "collection": "herenbrillen",
+            "title": "Multifocale brillen",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#4f4f4f",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_KWgnyX": {
+          "type": "collection",
+          "settings": {
+            "collection": "brillen-op-sterkte",
+            "title": "Zonnebrillen op sterkte",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#4f4f4f",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_zrqw3h": {
+          "type": "collection",
+          "settings": {
+            "collection": "herenbrillen",
+            "title": "Beeldschermbrillen",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection_tgMQmi",
+        "collection_jmBVex",
+        "collection_KWgnyX",
+        "collection_zrqw3h"
+      ],
+      "disabled": true,
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "columns": 4,
+        "carousel_on_desktop": false,
+        "image_type": "collection",
+        "image_ratio": "square",
+        "show_products_count": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "scribble",
+        "highlighted_scribble": "squiggle-underline-2",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 16,
+        "padding_bottom": 32,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_9fPeY7": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<valued-widget layout=\"reviews\" size=\"medium\" align=\"center\" theme=\"dark\" amount=\"6\" height=\"default\"></valued-widget>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 16,
+        "padding_bottom": 40,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "featured_collection_aW9Tzt": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.name",
+      "settings": {
+        "collection": "",
+        "products": [
+          "agnes",
+          "elise",
+          "s31237",
+          "roel",
+          "remy",
+          "ben",
+          "senn",
+          "zion"
+        ],
+        "product_limit": 8,
+        "columns": 4,
+        "carousel_on_desktop": false,
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Onze favorieten voor buiten",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-center md:items-center",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_n4LAEk": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  /* ===== JACQ – Handige info (accordion, \"origineel\" look) ===== */\n  .jacq-info{\n    width: 100%;\n    color: #1D1D1D;\n    font-family: inherit;\n  }\n\n  .jacq-info__wrap{\n    width: 100%;\n    margin: 0;\n    padding: 0;\n  }\n\n  .jacq-info__title{\n    margin: 0 0 32px;\n    text-align: center;\n    font-weight: 700;\n    letter-spacing: -0.02em;\n    color: #1D1D1D;\n    font-size: clamp(24px, 5.6vw, 48px);\n    line-height: 1.05;\n  }\n\n  .jacq-info__list{\n    border-top: 0;\n  }\n\n  .jacq-info-item{\n    border-bottom: 1px solid rgba(29,29,29,0.14);\n  }\n  .jacq-info-item:last-child{\n    border-bottom: 0;\n  }\n\n  .jacq-info-trigger{\n    width: 100%;\n    border: 0;\n    background: transparent;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    padding: 28px 0;\n    text-align: left;\n  }\n\n  .jacq-info-label{\n    font-size: 18px;\n    font-weight: 500;\n    line-height: 1.15;\n    color: #1D1D1D;\n  }\n  @media (min-width: 768px){\n    .jacq-info-label{ font-size: 22px; }\n  }\n\n  .jacq-info-icon{\n    width: 22px;\n    height: 22px;\n    flex: 0 0 22px;\n    position: relative;\n    transform: rotate(0deg);\n    transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n  .jacq-info-icon::before,\n  .jacq-info-icon::after{\n    content:\"\";\n    position:absolute;\n    left:50%;\n    top:50%;\n    width: 16px;\n    height: 2px;\n    background: #1D1D1D;\n    transform: translate(-50%, -50%);\n    border-radius: 999px;\n  }\n  .jacq-info-icon::after{\n    width: 2px;\n    height: 16px;\n  }\n\n  .jacq-info-item.is-open .jacq-info-icon{\n    transform: rotate(45deg);\n  }\n\n  .jacq-info-panel{\n    height: 0;\n    overflow: hidden;\n    transition: height 280ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n\n  .jacq-info-panel-inner{\n    padding: 0 0 28px;\n    color: #1D1D1D;\n    font-size: 15px;\n    line-height: 1.6;\n\n    opacity: 0;\n    transform: translateY(-6px);\n    transition:\n      opacity 200ms ease,\n      transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n\n  .jacq-info-item.is-open .jacq-info-panel-inner{\n    opacity: 1;\n    transform: translateY(0);\n  }\n\n  .jacq-info-panel-inner a{\n    color: inherit;\n    text-decoration: underline;\n    text-underline-offset: 2px;\n  }\n\n  @media (max-width: 767px){\n    .jacq-info-trigger{ padding: 24px 0; }\n    .jacq-info-panel-inner{\n      font-size: 14px;\n      padding-bottom: 24px;\n      max-width: 300px;\n    }\n  }\n\n  @media (prefers-reduced-motion: reduce){\n    .jacq-info-icon,\n    .jacq-info-panel,\n    .jacq-info-panel-inner{\n      transition: none !important;\n    }\n  }\n</style>\n\n<div class=\"jacq-info\" data-jacq-info>\n  <div class=\"jacq-info__wrap\">\n    <h2 class=\"jacq-info__title\">Handige info</h2>\n\n    <div class=\"jacq-info__list\">\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Verzendtijd</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Onze brillen worden op maat gemaakt en bijna altijd binnen 7–10 werkdagen bezorgd.<br>\n            Zodra je bestelling is verzonden, ontvang je per e-mail de track &amp; trace.<br>\n            Meer weten? Bekijk <a href=\"https://jacqeyewear.nl/pages/verzending-levertijd\">verzending &amp; levertijd</a>.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Retourneren</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Niet goed? Geld terug.<br>\n            Je hebt 100 dagen bedenktijd. Geen haast dus.<br>\n            Bekijk hoe het werkt bij <a href=\"https://jacqeyewear.nl/pages/retour-ruil-garantie\">retour, ruilen &amp; garantie</a>.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Betalingen</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Je kunt veilig betalen met onder andere iDEAL, Klarna en je creditcard.<br>\n            Zo kies je altijd de manier die bij jou past.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Garantie</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Je krijgt 2 jaar garantie op je bril.<br>\n            Fabricagefout? Dan krijg je je geld terug of een gratis vervanging.<br>\n            Meer weten? Bekijk <a href=\"https://jacqeyewear.nl/pages/retour-ruil-garantie\">retour, ruilen &amp; garantie</a>.\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<script>\n  (function(){\n    var roots = document.querySelectorAll('[data-jacq-info]');\n    if (!roots.length) return;\n\n    roots.forEach(function(root){\n      var items = Array.prototype.slice.call(root.querySelectorAll('.jacq-info-item'));\n\n      items.forEach(function(item){\n        var btn = item.querySelector('.jacq-info-trigger');\n        var panel = item.querySelector('.jacq-info-panel');\n        if (!btn || !panel) return;\n\n        panel.style.height = '0px';\n        panel.setAttribute('aria-hidden','true');\n        btn.setAttribute('aria-expanded','false');\n\n        panel.addEventListener('transitionend', function(e){\n          if (e.propertyName !== 'height') return;\n          if (item.classList.contains('is-open')) panel.style.height = 'auto';\n          else panel.style.height = '0px';\n        });\n\n        btn.addEventListener('click', function(){\n          var isOpen = item.classList.contains('is-open');\n\n          items.forEach(function(other){\n            if (other !== item) closeItem(other);\n          });\n\n          if (isOpen) closeItem(item);\n          else openItem(item);\n        });\n\n        function openItem(it){\n          var b = it.querySelector('.jacq-info-trigger');\n          var p = it.querySelector('.jacq-info-panel');\n          if (!b || !p) return;\n\n          it.classList.add('is-open');\n          b.setAttribute('aria-expanded','true');\n          p.setAttribute('aria-hidden','false');\n\n          p.style.height = '0px';\n          p.offsetHeight;\n          p.style.height = p.scrollHeight + 'px';\n        }\n\n        function closeItem(it){\n          var b = it.querySelector('.jacq-info-trigger');\n          var p = it.querySelector('.jacq-info-panel');\n          if (!b || !p) return;\n\n          it.classList.remove('is-open');\n          b.setAttribute('aria-expanded','false');\n          p.setAttribute('aria-hidden','true');\n\n          p.style.height = (p.style.height === 'auto' ? p.scrollHeight : p.scrollHeight) + 'px';\n          p.offsetHeight;\n          p.style.height = '0px';\n        }\n      });\n    });\n  })();\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_Vrnk4k": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  .jacq-cta-band {\n    margin: 16px 0;\n  }\n  .jacq-cta-inner {\n    display: flex;\n    align-items: stretch;\n    border-radius: 24px;\n    background: #1D1D1F;\n    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);\n    font-family: inherit;\n    border: none;\n    overflow: hidden;\n    position: relative;\n    min-height: 260px;\n  }\n\n  /* ── Gradient glow behind content ── */\n  .jacq-cta-inner::before {\n    content: '';\n    position: absolute;\n    bottom: -30%;\n    left: -10%;\n    width: 60%;\n    height: 80%;\n    background: radial-gradient(ellipse at center, rgba(0,113,227,0.15) 0%, transparent 70%);\n    pointer-events: none;\n    z-index: 0;\n  }\n\n  /* Left — text */\n  .jacq-cta-left {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    padding: 44px 40px;\n    position: relative;\n    z-index: 1;\n  }\n  .jacq-cta-title {\n    font-size: 22px;\n    font-weight: 700;\n    letter-spacing: -0.035em;\n    line-height: 1.06;\n    color: #ffffff;\n    margin: 0 0 12px;\n  }\n  .jacq-cta-sub {\n    font-size: 15px;\n    color: rgba(255, 255, 255, 0.5);\n    line-height: 1.5;\n    margin: 0 0 26px;\n    max-width: none;\n    font-weight: 400;\n    letter-spacing: -0.01em;\n  }\n  .jacq-mobile-br {\n    display: inline;\n  }\n  .jacq-desktop-br {\n    display: none;\n  }\n  .jacq-cta-btn {\n    display: inline-flex;\n    align-items: center;\n    align-self: flex-start;\n    padding: 14px 30px;\n    border-radius: 999px;\n    border: none;\n    background: #0071E3;\n    color: #ffffff;\n    font-size: 15px;\n    font-weight: 400;\n    font-family: inherit;\n    cursor: pointer;\n    text-decoration: none;\n    letter-spacing: -0.01em;\n    transition: transform 0.35s cubic-bezier(0, 0, .15, 1), box-shadow 0.35s, background 0.3s;\n  }\n  .jacq-cta-btn:hover {\n    background: #0077ED;\n    transform: scale(1.04);\n    box-shadow: 0 6px 24px rgba(0, 113, 227, 0.3);\n  }\n  .jacq-cta-btn:active {\n    transform: scale(0.98);\n  }\n  /* Right — huge horizontal logo (desktop) */\n  .jacq-cta-right {\n    flex: 0 0 45%;\n    position: relative;\n    overflow: hidden;\n    display: none;\n  }\n  .jacq-cta-logo {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 130%;\n    max-width: none;\n    height: auto;\n    filter: brightness(0) invert(1);\n    opacity: 1;\n    pointer-events: none;\n  }\n\n  /* ── Mobile ── */\n  @media (max-width: 767px) {\n    .jacq-cta-inner {\n      min-height: auto;\n      flex-direction: column;\n    }\n    .jacq-cta-inner::before {\n      bottom: -20%;\n      left: -20%;\n      width: 80%;\n      height: 70%;\n      background: radial-gradient(ellipse at center, rgba(0,113,227,0.12) 0%, transparent 70%);\n    }\n    .jacq-cta-left {\n      padding: 36px 28px 40px;\n      align-items: flex-start;\n      text-align: left;\n    }\n    .jacq-cta-title {\n      font-size: 28px;\n      line-height: 1.08;\n      margin-bottom: 10px;\n    }\n    .jacq-cta-sub {\n      font-size: 14px;\n      max-width: none;\n      margin-bottom: 24px;\n      line-height: 1.55;\n    }\n    .jacq-cta-btn {\n      padding: 13px 28px;\n      font-size: 14px;\n      align-self: flex-start;\n    }\n  }\n\n  /* ── Large desktop ── */\n  @media (min-width: 1024px) {\n    .jacq-mobile-br {\n      display: none;\n    }\n    .jacq-desktop-br {\n      display: inline;\n    }\n    .jacq-cta-inner {\n      min-height: 300px;\n    }\n    .jacq-cta-left {\n      padding: 56px 56px;\n    }\n    .jacq-cta-right {\n      display: block;\n      flex: 0 0 50%;\n    }\n    .jacq-cta-logo {\n      width: 110%;\n    }\n    .jacq-cta-title {\n      font-size: 52px;\n    }\n    .jacq-cta-sub {\n      font-size: 17px;\n    }\n    .jacq-cta-inner::before {\n      display: none;\n    }\n  }\n</style>\n<div class=\"jacq-cta-band\">\n  <div class=\"jacq-cta-inner\">\n    <div class=\"jacq-cta-left\">\n      <div class=\"jacq-cta-title\">Jouw nieuwe bril<br class=\"jacq-desktop-br\"> begint hier.</div>\n      <div class=\"jacq-cta-sub\">Brillen op sterkte vanaf €50.<br>Duurzame materialen en 100 dagen<br class=\"jacq-mobile-br\"> om verliefd te worden.</div>\n      <a href=\"https://jacqeyewear.nl/collections/brillen-op-sterkte\" class=\"jacq-cta-btn\">Bekijk de collectie</a>\n    </div>\n    <div class=\"jacq-cta-right\">\n      <img class=\"jacq-cta-logo\" src=\"https://jacqeyewear.nl/cdn/shop/files/Logo_01_copy_2.svg?v=1762204480\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\">\n    </div>\n  </div>\n</div>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 32,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_jGLXh7": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  #meave-faq *, #meave-faq *::before, #meave-faq *::after { box-sizing: border-box; }\n\n  #meave-faq {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    background: #ffffff;\n    color: #1D1D1F;\n    padding: 56px 0;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);\n  }\n\n  #meave-faq.is-visible { opacity: 1; transform: translateY(0); }\n\n  .mfaq-wrap { max-width: none; margin: 0 auto; }\n\n  .mfaq-header { text-align: center; margin-bottom: 32px; }\n  .mfaq-title {\n    font-size: 28px; font-weight: 700; letter-spacing: -0.035em;\n    line-height: 1.1; color: #1D1D1F; margin: 0;\n  }\n  .mfaq-sub {\n    font-size: 15px; color: #86868b; margin: 10px 0 0;\n    font-weight: 400; letter-spacing: -0.01em;\n  }\n\n  .mfaq-body { display: flex; flex-direction: column; gap: 12px; }\n\n  .mfaq-nav {\n    display: flex; gap: 0; background: #F5F5F7;\n    border-radius: 12px; padding: 3px; position: relative;\n  }\n\n  .mfaq-nav-btn {\n    display: flex; flex-direction: column; align-items: center; justify-content: center;\n    gap: 4px; flex: 1; padding: 10px 4px;\n    background: transparent; border: none; cursor: pointer; border-radius: 10px;\n    font-family: inherit; font-size: 10px; font-weight: 500;\n    color: #86868b; letter-spacing: 0; text-align: center;\n    transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);\n    position: relative; z-index: 1; -webkit-tap-highlight-color: transparent;\n  }\n  .mfaq-nav-btn:active { transform: scale(0.95); }\n  .mfaq-nav-btn.is-active {\n    color: #1D1D1F; font-weight: 600; background: #fff;\n    box-shadow: 0 0.5px 1px rgba(0,0,0,0.04), 0 6px 14px -6px rgba(0,0,0,0.1);\n  }\n\n  .mfaq-nav-icon {\n    width: 32px; height: 32px; border-radius: 8px; background: transparent;\n    display: flex; align-items: center; justify-content: center; flex: 0 0 32px;\n    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);\n  }\n  .mfaq-nav-icon svg { width: 17px; height: 17px; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }\n  .mfaq-nav-btn.is-active .mfaq-nav-icon { background: rgba(224,169,59,0.16); transform: scale(1.08); }\n  .mfaq-nav-btn.is-active .mfaq-nav-icon svg { stroke: #B07F1E; }\n  .mfaq-nav-label { transition: color 0.4s ease; }\n\n  .mfaq-content {\n    background: #fff; border-radius: 20px; padding: 24px 20px;\n    box-shadow: 0 0.5px 1px rgba(0,0,0,0.03), 0 6px 16px -8px rgba(0,0,0,0.08), 0 14px 32px -12px rgba(0,0,0,0.07);\n  }\n\n  .mfaq-panel { display: none; opacity: 0; }\n  .mfaq-panel.is-active { display: block; animation: mfaqIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }\n  .mfaq-panel.is-leaving { display: block; animation: mfaqOut 0.2s cubic-bezier(0.4, 0, 1, 1) forwards; }\n  @keyframes mfaqIn {\n    0% { opacity: 0; transform: translateY(8px) scale(0.995); }\n    40% { opacity: 1; }\n    100% { opacity: 1; transform: translateY(0) scale(1); }\n  }\n  @keyframes mfaqOut {\n    0% { opacity: 1; transform: translateY(0); }\n    100% { opacity: 0; transform: translateY(-4px); }\n  }\n\n  .mfaq-cat-head { margin-bottom: 12px; }\n  .mfaq-cat-title {\n    font-size: 20px; font-weight: 600; letter-spacing: -0.025em;\n    color: #1D1D1F; margin: 0 0 2px;\n  }\n  .mfaq-cat-desc {\n    font-size: 13px; color: #aeaeb2; margin: 0; font-weight: 400;\n    letter-spacing: -0.005em; line-height: 1.45;\n  }\n\n  .mfaq-item { border-top: 1px solid #f0f0f2; }\n  .mfaq-item:first-child { border-top: none; }\n  .mfaq-item:last-child { margin-bottom: 0; }\n\n  .mfaq-trigger {\n    width: 100%; background: transparent; border: none; cursor: pointer;\n    display: flex; align-items: center; justify-content: space-between; gap: 16px;\n    padding: 16px 0; text-align: left; font-family: inherit;\n  }\n  .mfaq-q {\n    font-size: 14px; font-weight: 500; color: #1D1D1F;\n    letter-spacing: -0.01em; line-height: 1.4; transition: color 0.25s ease;\n  }\n  .mfaq-trigger:hover .mfaq-q { color: #B07F1E; }\n\n  .mfaq-plus {\n    width: 22px; height: 22px; flex: 0 0 22px; border-radius: 50%;\n    background: #F5F5F7; display: flex; align-items: center; justify-content: center;\n    transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);\n  }\n  .mfaq-plus svg {\n    width: 12px; height: 12px; stroke: #c7c7cc; stroke-width: 1.8;\n    stroke-linecap: round; fill: none; transition: stroke 0.4s ease;\n  }\n  .mfaq-trigger:hover .mfaq-plus { background: rgba(224,169,59,0.14); }\n  .mfaq-trigger:hover .mfaq-plus svg { stroke: #B07F1E; }\n  .mfaq-item.is-open .mfaq-plus {\n    background: linear-gradient(135deg, #F4CE6A 0%, #E0A93B 100%);\n    transform: rotate(45deg); box-shadow: 0 2px 8px rgba(193,140,30,0.32);\n  }\n  .mfaq-item.is-open .mfaq-plus svg { stroke: #4A3408; }\n\n  .mfaq-answer { height: 0; overflow: hidden; transition: height 700ms cubic-bezier(0.22, 1, 0.36, 1); }\n  .mfaq-answer-inner {\n    padding: 0 0 20px 0; font-size: 13px; line-height: 1.75; color: #6e6e73;\n    letter-spacing: -0.005em; max-width: 100%; word-break: break-word;\n    opacity: 0; transform: translateY(-3px);\n    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1) 50ms, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);\n  }\n  .mfaq-item.is-open .mfaq-answer-inner { opacity: 1; transform: translateY(0); }\n  .mfaq-answer-inner strong { color: #1D1D1F; font-weight: 600; }\n\n  .mfaq-footer {\n    margin-top: 16px; background: #fff; border-radius: 16px; padding: 20px 24px;\n    display: flex; align-items: center; justify-content: space-between; gap: 16px;\n    box-shadow: 0 0.5px 1px rgba(0,0,0,0.04), 0 6px 16px -8px rgba(0,0,0,0.09);\n  }\n  .mfaq-footer-left { font-size: 14px; font-weight: 500; color: #1D1D1F; letter-spacing: -0.01em; }\n  .mfaq-footer-left p { margin: 2px 0 0; font-size: 12px; font-weight: 400; color: #86868b; }\n  .mfaq-footer-links { display: flex; gap: 8px; flex-shrink: 0; }\n  .mfaq-footer-link {\n    display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;\n    border-radius: 980px; font-family: inherit; font-size: 13px; font-weight: 500;\n    letter-spacing: -0.01em; text-decoration: none; white-space: nowrap;\n    border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .mfaq-footer-link svg { width: 14px; height: 14px; flex-shrink: 0; }\n  .mfaq-footer-link--contact {\n    background: linear-gradient(135deg, #F4CE6A 0%, #E0A93B 100%); color: #4A3408;\n    box-shadow: 0 2px 6px rgba(193,140,30,0.28);\n  }\n  .mfaq-footer-link--contact:hover {\n    transform: translateY(-1px); box-shadow: 0 6px 16px rgba(193,140,30,0.4);\n  }\n  .mfaq-footer-link--contact:active { transform: scale(0.97); }\n\n  @media (max-width: 767px) {\n    .mfaq-footer { flex-direction: column; text-align: center; gap: 12px; padding: 18px 20px; }\n    .mfaq-footer-left p { display: none; }\n    .mfaq-footer-links { width: 100%; }\n    .mfaq-footer-link { flex: 1; justify-content: center; padding: 12px 16px; }\n    .mfaq-nav-label { font-size: 0; line-height: 0; }\n    .mfaq-nav-label::after { content: attr(data-short); font-size: 11px; line-height: 1.2; }\n  }\n\n  @media (min-width: 768px) {\n    #meave-faq { padding: 80px 0; }\n    .mfaq-header { margin-bottom: 48px; }\n    .mfaq-title { font-size: 48px; }\n    .mfaq-sub { font-size: 18px; }\n\n    .mfaq-body { display: grid; grid-template-columns: 240px 1fr; gap: 0 40px; align-items: start; }\n\n    .mfaq-nav {\n      display: flex; flex-direction: column; gap: 4px;\n      position: sticky; top: 32px; background: transparent; padding: 0; border-radius: 0;\n    }\n    .mfaq-nav-btn {\n      flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; padding: 12px 16px;\n      border-radius: 14px; font-size: 14px; text-align: left; box-shadow: none; background: transparent;\n    }\n    .mfaq-nav-btn:hover { background: #F5F5F7; box-shadow: none; }\n    .mfaq-nav-btn.is-active { background: #F5F5F7; color: #1D1D1F; box-shadow: none; }\n    .mfaq-nav-icon { width: 36px; height: 36px; border-radius: 10px; flex: 0 0 36px; transform: none; }\n    .mfaq-nav-icon svg { width: 17px; height: 17px; }\n    .mfaq-nav-btn.is-active .mfaq-nav-icon {\n      background: linear-gradient(135deg, #F4CE6A 0%, #E0A93B 100%);\n      box-shadow: 0 2px 8px rgba(193,140,30,0.28); transform: none;\n    }\n    .mfaq-nav-btn.is-active .mfaq-nav-icon svg { stroke: #4A3408; }\n    .mfaq-nav-label { font-size: 14px; line-height: normal; }\n\n    .mfaq-content { padding: 36px 40px; border-radius: 24px; }\n    .mfaq-cat-title { font-size: 24px; }\n    .mfaq-cat-desc { font-size: 14px; }\n    .mfaq-q { font-size: 16px; }\n    .mfaq-answer-inner { font-size: 14px; max-width: none; padding: 0 0 24px 0; }\n    .mfaq-plus { width: 26px; height: 26px; flex: 0 0 26px; }\n    .mfaq-plus svg { width: 13px; height: 13px; }\n\n    .mfaq-footer { margin-top: 20px; padding: 24px 32px; border-radius: 20px; }\n    .mfaq-footer-left { font-size: 15px; }\n    .mfaq-footer-left p { font-size: 13px; }\n  }\n\n  @media (min-width: 1200px) {\n    .mfaq-body { grid-template-columns: 280px 1fr; gap: 0 56px; }\n    .mfaq-nav-btn { padding: 14px 18px; font-size: 15px; }\n    .mfaq-content { padding: 40px 48px; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    *, *::before, *::after { transition: none !important; animation: none !important; }\n  }\n</style>\n\n<section id=\"meave-faq\" data-meave-faq>\n  <div class=\"mfaq-wrap\">\n\n    <div class=\"mfaq-header\">\n      <h2 class=\"mfaq-title\">Frequently asked questions</h2>\n      <p class=\"mfaq-sub\">Everything you need to know, in plain words.</p>\n    </div>\n\n    <div class=\"mfaq-body\">\n\n      <nav class=\"mfaq-nav\" aria-label=\"FAQ categories\">\n        <button class=\"mfaq-nav-btn is-active\" data-target=\"product\" type=\"button\">\n          <span class=\"mfaq-nav-icon\">\n            <svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"#86868b\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 12h4\"/><path d=\"M6.5 14h3\"/><path d=\"M8 2a4 4 0 0 1 2.5 7.1c-.4.4-.6.9-.6 1.4H6.1c0-.5-.2-1-.6-1.4A4 4 0 0 1 8 2z\"/></svg>\n          </span>\n          <span class=\"mfaq-nav-label\" data-short=\"Product\">Product &amp; setup</span>\n        </button>\n\n        <button class=\"mfaq-nav-btn\" data-target=\"shipping\" type=\"button\">\n          <span class=\"mfaq-nav-icon\">\n            <svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"#86868b\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"4\" width=\"9\" height=\"7\" rx=\"1\"/><path d=\"M10 6.5l3.5 1.5V11.5h-3.5\"/><circle cx=\"3.5\" cy=\"12\" r=\"1.2\"/><circle cx=\"11.5\" cy=\"12\" r=\"1.2\"/></svg>\n          </span>\n          <span class=\"mfaq-nav-label\" data-short=\"Shipping\">Shipping &amp; delivery</span>\n        </button>\n\n        <button class=\"mfaq-nav-btn\" data-target=\"returns\" type=\"button\">\n          <span class=\"mfaq-nav-icon\">\n            <svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"#86868b\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 8a5 5 0 1 1 1.5 3.5\"/><path d=\"M3 5v3h3\"/></svg>\n          </span>\n          <span class=\"mfaq-nav-label\" data-short=\"Returns\">Returns &amp; warranty</span>\n        </button>\n\n        <button class=\"mfaq-nav-btn\" data-target=\"orders\" type=\"button\">\n          <span class=\"mfaq-nav-icon\">\n            <svg viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"#86868b\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"2\" width=\"10\" height=\"12\" rx=\"1.5\"/><path d=\"M6 5.5h4M6 8h4M6 10.5h2\"/></svg>\n          </span>\n          <span class=\"mfaq-nav-label\" data-short=\"Support\">Orders &amp; support</span>\n        </button>\n      </nav>\n\n      <div class=\"mfaq-content\">\n\n        <div class=\"mfaq-panel is-active\" data-panel=\"product\">\n          <div class=\"mfaq-cat-head\">\n            <h3 class=\"mfaq-cat-title\">Product &amp; setup</h3>\n            <p class=\"mfaq-cat-desc\">What you get and how to set it up.</p>\n          </div>\n          <div class=\"mfaq-list\">\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Are the lights wireless?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Yes. Every light runs on a rechargeable bulb, so there's no wiring and no outlet needed. Charge it, mount it, done.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Do I need a professional to install them?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">No. Each light comes with <strong>3M adhesive pads</strong> for a tool-free setup. Screws are also included if you'd prefer a permanent fix. It takes a couple of minutes.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Can I control the brightness and colour?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Yes. The included remote lets you adjust brightness, switch colour temperature and set a timer.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How long does the battery last?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Several days on a single charge with normal use. Recharge with any USB-C cable. Fully charge before first use for the best battery life.</div></div></div>\n          </div>\n        </div>\n\n        <div class=\"mfaq-panel\" data-panel=\"shipping\">\n          <div class=\"mfaq-cat-head\">\n            <h3 class=\"mfaq-cat-title\">Shipping &amp; delivery</h3>\n            <p class=\"mfaq-cat-desc\">When and how your order arrives.</p>\n          </div>\n          <div class=\"mfaq-list\">\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How long does delivery take?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Orders are typically delivered within <strong>3 working days</strong> across the UK. You'll get a tracking link by email as soon as your order ships.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How much is shipping?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Free on every UK order. No minimum spend.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Can I track my order?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Yes. Once your order ships you'll receive a tracked link by email so you can follow it to your door.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">What if my order arrives damaged?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Just email us a photo and we'll sort it straight away, either a free replacement or a refund.</div></div></div>\n          </div>\n        </div>\n\n        <div class=\"mfaq-panel\" data-panel=\"returns\">\n          <div class=\"mfaq-cat-head\">\n            <h3 class=\"mfaq-cat-title\">Returns &amp; warranty</h3>\n            <p class=\"mfaq-cat-desc\">Risk-free, every order.</p>\n          </div>\n          <div class=\"mfaq-list\">\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">What is your return policy?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">You have <strong>30 days from delivery</strong> to return your order for a full refund. Not for you? Email us and we'll start the return, no fuss.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Is there a warranty?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Yes, a <strong>2-year warranty</strong> against manufacturing defects on every light. Something not right? We'll replace it or refund you.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How do I start a return?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">Email us with your order number and we'll send you everything you need.</div></div></div>\n          </div>\n        </div>\n\n        <div class=\"mfaq-panel\" data-panel=\"orders\">\n          <div class=\"mfaq-cat-head\">\n            <h3 class=\"mfaq-cat-title\">Orders &amp; support</h3>\n            <p class=\"mfaq-cat-desc\">Payment, contact and response times.</p>\n          </div>\n          <div class=\"mfaq-list\">\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How can I pay?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">All major cards, plus Apple Pay, Google Pay, PayPal and Shop Pay. Every payment is processed over a secure connection.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">Can I change or cancel my order?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">If it hasn't shipped yet, yes. Email us as soon as you can and we'll do our best to update it.</div></div></div>\n            <div class=\"mfaq-item\"><button class=\"mfaq-trigger\" type=\"button\" aria-expanded=\"false\"><span class=\"mfaq-q\">How do I contact you?</span><span class=\"mfaq-plus\"><svg viewBox=\"0 0 16 16\"><path d=\"M8 3v10M3 8h10\"/></svg></span></button><div class=\"mfaq-answer\" aria-hidden=\"true\"><div class=\"mfaq-answer-inner\">By email, any day of the week. We usually reply within 24 hours.</div></div></div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n\n    <div class=\"mfaq-footer\">\n      <div class=\"mfaq-footer-left\">\n        Still have a question?\n        <p>We're happy to help by email.</p>\n      </div>\n      <div class=\"mfaq-footer-links\">\n        <a href=\"/pages/contact\" class=\"mfaq-footer-link mfaq-footer-link--contact\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"/></svg>\n          Contact us\n        </a>\n      </div>\n    </div>\n\n  </div>\n</section>\n\n<script>\n(function () {\n  var root = document.querySelector('[data-meave-faq]');\n  if (!root) return;\n\n  if ('IntersectionObserver' in window) {\n    var fadeObserver = new IntersectionObserver(function (entries) {\n      entries.forEach(function (entry) {\n        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); fadeObserver.unobserve(entry.target); }\n      });\n    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });\n    fadeObserver.observe(root);\n  } else {\n    root.classList.add('is-visible');\n  }\n\n  var navBtns = Array.prototype.slice.call(root.querySelectorAll('.mfaq-nav-btn'));\n  var panels = Array.prototype.slice.call(root.querySelectorAll('.mfaq-panel'));\n\n  navBtns.forEach(function (btn) {\n    btn.addEventListener('click', function () {\n      var target = btn.getAttribute('data-target');\n      var currentPanel = root.querySelector('.mfaq-panel.is-active');\n      var nextPanel = root.querySelector('.mfaq-panel[data-panel=\"' + target + '\"]');\n      if (currentPanel === nextPanel) return;\n\n      navBtns.forEach(function (b) { b.classList.remove('is-active'); });\n      btn.classList.add('is-active');\n\n      if (currentPanel) {\n        currentPanel.querySelectorAll('.mfaq-item.is-open').forEach(function (it) { closeItem(it); });\n        currentPanel.classList.remove('is-active');\n        currentPanel.classList.add('is-leaving');\n        setTimeout(function () {\n          currentPanel.classList.remove('is-leaving');\n          panels.forEach(function (p) { p.classList.remove('is-active'); });\n          if (nextPanel) {\n            nextPanel.classList.add('is-active');\n            if (window.innerWidth >= 768) {\n              var fi = nextPanel.querySelector('.mfaq-item');\n              if (fi) setTimeout(function () { openItem(fi); }, 200);\n            }\n          }\n        }, 250);\n      } else {\n        panels.forEach(function (p) { p.classList.remove('is-active'); });\n        if (nextPanel) nextPanel.classList.add('is-active');\n      }\n\n      if (window.innerWidth < 768) {\n        var content = root.querySelector('.mfaq-content');\n        if (content) setTimeout(function () { content.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 320);\n      }\n    });\n  });\n\n  root.querySelectorAll('.mfaq-item').forEach(function (item) {\n    var btn = item.querySelector('.mfaq-trigger'), panel = item.querySelector('.mfaq-answer');\n    if (!btn || !panel) return;\n    panel.style.height = '0px';\n    panel.addEventListener('transitionend', function (e) { if (e.propertyName === 'height' && item.classList.contains('is-open')) panel.style.height = 'auto'; });\n    btn.addEventListener('click', function () {\n      var isOpen = item.classList.contains('is-open'), list = item.closest('.mfaq-list');\n      if (list) list.querySelectorAll('.mfaq-item').forEach(function (sib) { if (sib !== item) closeItem(sib); });\n      isOpen ? closeItem(item) : openItem(item);\n    });\n  });\n\n  var fp = root.querySelector('.mfaq-panel.is-active');\n  if (fp && window.innerWidth >= 768) { var fi = fp.querySelector('.mfaq-item'); if (fi) setTimeout(function () { openItem(fi); }, 300); }\n\n  function openItem(it) {\n    var b = it.querySelector('.mfaq-trigger'), p = it.querySelector('.mfaq-answer');\n    if (!b || !p) return;\n    it.classList.add('is-open'); b.setAttribute('aria-expanded', 'true'); p.setAttribute('aria-hidden', 'false');\n    p.style.height = '0px'; p.offsetHeight; p.style.height = p.scrollHeight + 'px';\n  }\n  function closeItem(it) {\n    var b = it.querySelector('.mfaq-trigger'), p = it.querySelector('.mfaq-answer');\n    if (!b || !p) return;\n    it.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); p.setAttribute('aria-hidden', 'true');\n    var h = p.style.height === 'auto' ? p.scrollHeight : parseFloat(p.style.height) || 0;\n    p.style.height = h + 'px'; p.offsetHeight; p.style.height = '0px';\n  }\n})();\n</script>\n\n<script type=\"application/ld+json\">\n{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Are the lights wireless?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes. Every light runs on a rechargeable bulb, so there's no wiring and no outlet needed.\"}},{\"@type\":\"Question\",\"name\":\"Do I need a professional to install them?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"No. Each light comes with 3M adhesive pads for a tool-free setup. Screws are also included for a permanent fix.\"}},{\"@type\":\"Question\",\"name\":\"How long does delivery take?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Orders are typically delivered within 3 working days across the UK, with a tracking link by email.\"}},{\"@type\":\"Question\",\"name\":\"How much is shipping?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Free on every UK order, with no minimum spend.\"}},{\"@type\":\"Question\",\"name\":\"What is your return policy?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"You have 30 days from delivery to return your order for a full refund.\"}},{\"@type\":\"Question\",\"name\":\"Is there a warranty?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, a 2-year warranty against manufacturing defects on every light.\"}},{\"@type\":\"Question\",\"name\":\"How can I pay?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"All major cards, plus Apple Pay, Google Pay, PayPal and Shop Pay, processed over a secure connection.\"}},{\"@type\":\"Question\",\"name\":\"How do I contact you?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"By email, any day of the week. We usually reply within 24 hours.\"}}]}\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    },
+    "custom_liquid_3mhCHU": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "liquid": "<style>\n  .cart__sidebar .meave-cart-guarantee {\n    margin: -8px 0 16px;\n  }\n\n  /* Force section wrapper achtergrond gelijk aan pagina */\n  .meave-cart-guarantee {\n    background: transparent !important;\n  }\n\n  .meave-cart-guarantee-inner {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    padding: 14px 18px;\n    border-radius: 24px;\n    background: #ffffff;\n    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);\n    font-family: inherit;\n    border: none;\n  }\n\n  .meave-cart-guarantee-items {\n    display: flex;\n    flex-direction: row;\n    gap: 14px;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding-bottom: 4px;\n  }\n  .meave-cart-guarantee-items::-webkit-scrollbar { display: none; }\n  .meave-cart-guarantee-items { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .meave-cart-guarantee-item {\n    flex: 0 0 100%;\n    scroll-snap-align: center;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 8px;\n  }\n\n  .meave-cart-guarantee-icon {\n    flex-shrink: 0;\n    color: #E0A93B;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .meave-cart-guarantee-icon svg {\n    width: 22px;\n    height: 22px;\n    display: block;\n  }\n\n  .meave-cart-guarantee-text-main {\n    font-size: 15px;\n    font-weight: 500;\n    color: #111827;\n  }\n\n  .meave-cart-guarantee-text-sub {\n    font-size: 13px;\n    color: #6b7280;\n    line-height: 1.45;\n  }\n\n  .meave-cart-guarantee-dots {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 6px;\n    margin-top: 2px;\n  }\n\n  .meave-cart-guarantee-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background-color 0.18s ease, transform 0.18s ease;\n  }\n\n  .meave-cart-guarantee-dot.is-active {\n    background: #111827;\n    transform: scale(1.1);\n  }\n\n  @media (min-width: 768px) {\n    .meave-cart-guarantee-inner {\n      padding: 18px 22px;\n    }\n\n    .meave-cart-guarantee-items {\n      overflow-x: visible;\n      scroll-snap-type: none;\n      gap: 24px;\n      justify-content: space-between;\n    }\n\n    .meave-cart-guarantee-item {\n      flex: 1 1 0;\n      gap: 6px;\n    }\n\n    .meave-cart-guarantee-item:nth-child(1) { order: 2; }\n    .meave-cart-guarantee-item:nth-child(2) { order: 1; }\n    .meave-cart-guarantee-item:nth-child(3) { order: 3; }\n\n    .meave-cart-guarantee-dots { display: none; }\n  }\n</style>\n\n<div class=\"meave-cart-guarantee\">\n  <div class=\"meave-cart-guarantee-inner\">\n    <div class=\"meave-cart-guarantee-items\">\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 13.2 9.2 17.5 19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">Money-back guarantee</div>\n          <div class=\"meave-cart-guarantee-text-sub\">Not satisfied? Full refund.</div>\n        </div>\n      </div>\n\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2\" ry=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M8 3.5v3M16 3.5v3M4 9h16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">30-day trial</div>\n          <div class=\"meave-cart-guarantee-text-sub\">30 days to try it at home.</div>\n        </div>\n      </div>\n\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6.5 4.5 9 4a1 1 0 0 1 1 .6l1.1 2.6a1 1 0 0 1-.2 1.1l-1.4 1.4a9.5 9.5 0 0 0 4.8 4.8l1.4-1.4a1 1 0 0 1 1.1-.2l2.6 1.1a1 1 0 0 1 .6 1l-.5 2.5a1 1 0 0 1-1 .8A15.5 15.5 0 0 1 4 6.5a1 1 0 0 1 .8-1z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">Customer service</div>\n          <div class=\"meave-cart-guarantee-text-sub\">Available Monday to Friday, 9am–5pm.</div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"meave-cart-guarantee-dots\">\n      <span class=\"meave-cart-guarantee-dot is-active\"></span>\n      <span class=\"meave-cart-guarantee-dot\"></span>\n      <span class=\"meave-cart-guarantee-dot\"></span>\n    </div>\n  </div>\n</div>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function () {\n    var root = document.querySelector('.meave-cart-guarantee');\n    if (!root) return;\n    var track = root.querySelector('.meave-cart-guarantee-items');\n    var slides = Array.prototype.slice.call(root.querySelectorAll('.meave-cart-guarantee-item'));\n    var dots = Array.prototype.slice.call(root.querySelectorAll('.meave-cart-guarantee-dot'));\n    if (!track || !slides.length || dots.length !== slides.length) return;\n\n    function updateDots() {\n      var center = track.scrollLeft + track.clientWidth / 2;\n      var activeIndex = 0;\n      var minDist = Infinity;\n      slides.forEach(function (slide, index) {\n        var slideCenter = slide.offsetLeft + slide.offsetWidth / 2;\n        var dist = Math.abs(slideCenter - center);\n        if (dist < minDist) { minDist = dist; activeIndex = index; }\n      });\n      dots.forEach(function (dot, index) {\n        dot.classList.toggle('is-active', index === activeIndex);\n      });\n    }\n\n    var ticking = false;\n    track.addEventListener('scroll', function () {\n      if (!ticking) {\n        window.requestAnimationFrame(function () { updateDots(); ticking = false; });\n        ticking = true;\n      }\n    });\n    dots.forEach(function (dot, index) {\n      dot.addEventListener('click', function () {\n        var slide = slides[index];\n        if (!slide) return;\n        track.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });\n      });\n    });\n    updateDots();\n  });\n</script>",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 4,
+        "padding_bottom": 56,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_CUkRdx",
+    "ss_hero_pro_aMM6Uq",
+    "custom_liquid_hjzNNR",
+    "custom_liquid_8xQqzt",
+    "featured_collection_btEa6L",
+    "custom_liquid_tUhqNw",
+    "highlight_text_wcPQxJ",
+    "custom_liquid_CirTBi",
+    "1775834241b6933450",
+    "collection-list",
+    "custom_liquid_CdBEt6",
+    "rich_text_BECLQG",
+    "custom_liquid_VUrmXU",
+    "collection_list_iMfN6q",
+    "featured_collection_mk6AFf",
+    "shop-the-look",
+    "collection_list_Tx9JVF",
+    "custom_liquid_9fPeY7",
+    "featured_collection_aW9Tzt",
+    "custom_liquid_n4LAEk",
+    "custom_liquid_Vrnk4k",
+    "custom_liquid_jGLXh7",
+    "custom_liquid_3mhCHU"
+  ]
+}

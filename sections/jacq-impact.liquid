@@ -1,0 +1,394 @@
+{% comment %}
+  Section: Jacq Impact Pro (wit + Jacq oranje #FFA816)
+  - Ring is CSS-only (conic-gradient met inline --deg)
+  - KPI-chip en 'Jacq Circulair' balk in Jacq-oranje
+  - Vergelijking met delta-badge
+{% endcomment %}
+
+{% assign secid = 'jacq-impact-pro-' | append: section.id %}
+
+<section id="{{ secid }}" class="jacq-impact-pro color-{{ section.settings.color_scheme }}">
+  <div class="wrap">
+    <header class="head">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.sub != blank -%}
+        <p class="sub">{{ section.settings.sub }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="grid">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+          {%- when 'ring' -%}
+            <div class="card ring" {{ block.shopify_attributes }}>
+              <div class="ring-wrap" data-cap="{{ block.settings.cap_text | escape }}">
+                <div class="ring-figure" style="--deg: {{ block.settings.value_pct | times: 3.6 }}deg;">
+                  <div class="ring-progress"></div>
+                  <div class="ring-core">
+                    <span class="ring-val">{{ block.settings.value_pct }}%</span>
+                    {%- if block.settings.cap_text != blank -%}
+                      <span class="ring-cap">{{ block.settings.cap_text }}</span>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+              <div class="ring-meta">
+                <h3 class="ring-label">{{ block.settings.label }}</h3>
+                {%- if block.settings.note != blank -%}<p class="ring-note">{{ block.settings.note }}</p>{%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'kpi' -%}
+            <div class="card kpi" {{ block.shopify_attributes }}>
+              <div class="kpi-chip">
+                <span class="kpi-val" data-target="{{ block.settings.value }}">{{ block.settings.value }}</span>
+                <span class="kpi-unit">{{ block.settings.unit }}</span>
+              </div>
+              <div class="kpi-meta">
+                <h3 class="kpi-label">{{ block.settings.label }}</h3>
+                {%- if block.settings.note != blank -%}<p class="kpi-note">{{ block.settings.note }}</p>{%- endif -%}
+              </div>
+            </div>
+
+          {%- when 'compare' -%}
+            <div class="card compare" {{ block.shopify_attributes }}
+                 data-a="{{ block.settings.a_pct }}" data-b="{{ block.settings.b_pct }}">
+              <div class="cmp-head">
+                <h3 class="cmp-label">{{ block.settings.label }}</h3>
+                {%- if block.settings.note != blank -%}<p class="cmp-note">{{ block.settings.note }}</p>{%- endif -%}
+              </div>
+              <div class="cmp-bars">
+                <div class="cmp-row">
+                  <span class="cmp-tag baseline">{{ block.settings.a_label }}</span>
+                  <div class="cmp-bar">
+  <div class="cmp-fill a" style="--w: {{ block.settings.a_pct }}%"></div>
+</div>
+                  <span class="cmp-val">{{ block.settings.a_pct }}%</span>
+                </div>
+                <div class="cmp-row">
+                  <span class="cmp-tag highlight">{{ block.settings.b_label }}</span>
+                  <div class="cmp-bar">
+  <div class="cmp-fill b" style="--w: {{ block.settings.b_pct }}%"></div>
+</div>
+                  <span class="cmp-val">{{ block.settings.b_pct }}%</span>
+                </div>
+                <div class="cmp-delta" aria-live="polite"></div>
+              </div>
+            </div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.foot != blank -%}
+      <footer class="foot rte">{{ section.settings.foot }}</footer>
+    {%- endif -%}
+  </div>
+
+  <style>
+    /* --- Basis --- */
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#FFA816' }}; /* Jacq oranje */
+      --neutral-1: #111111;
+      --neutral-2: #FFA816;
+      --neutral-3: #e5e5e5;
+      --neutral-4: #e5e5e5;
+      --radius: 22px;
+      --shadow: 0 12px 38px rgba(0,0,0,.06);
+      padding: {{ section.settings.pad_m }}px 16px;
+      background: #fff; /* witte sectie */
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{ max-width: 1200px; margin:0 auto; }
+    #{{ secid }} .head{ margin-bottom: 1rem; }
+    #{{ secid }} .title{ font-size: clamp(1.8rem, 3.2vw, 2.4rem); margin: 0 0 .3rem; letter-spacing:-.01em; }
+    #{{ secid }} .sub{ opacity:.92; font-size:1.02rem; }
+
+    /* --- Grid --- */
+    #{{ secid }} .grid{ display:grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 750px){
+      #{{ secid }} .grid{ grid-template-columns: repeat(12, 1fr); gap: 1.1rem; }
+      #{{ secid }} .card.ring{ grid-column: span 6; }
+      #{{ secid }} .card.kpi{ grid-column: span 6; }
+      #{{ secid }} .card.compare{ grid-column: span 12; }
+    }
+
+    /* --- Cards --- */
+    #{{ secid }} .card{
+      border-radius: var(--radius);
+      border: 1px solid var(--neutral-2);
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+
+    /* --- Ring (CSS-only) --- */
+    #{{ secid }} .ring-wrap{ display:grid; place-items:center; }
+    #{{ secid }} .ring-figure{
+      width: 200px; height: 200px; border-radius: 50%;
+      position: relative; display:grid; place-items:center;
+      /* Jacq-oranje progress; hoek via inline --deg */
+      background: conic-gradient(var(--acc) 0deg var(--deg), var(--neutral-4) var(--deg) 360deg);
+    }
+    #{{ secid }} .ring-progress{
+      position:absolute; inset: 0; border-radius: 50%;
+      -webkit-mask: radial-gradient(circle 78px at 50% 50%, transparent 99%, black 100%);
+              mask: radial-gradient(circle 78px at 50% 50%, transparent 99%, black 100%);
+      box-shadow: inset 0 0 0 10px var(--neutral-3);
+    }
+    #{{ secid }} .ring-core{
+      width: 135px; height: 135px; border-radius: 50%;
+      display:grid; place-items:center; text-align:center;
+      background: #fff;
+      border:1px solid #e5e5e5;
+      box-shadow: 0 8px 22px rgba(0,0,0,.05);
+      padding:.4rem;
+    }
+    #{{ secid }} .ring-val{ font-size:1.8rem; font-weight:800; letter-spacing:-.01em; }
+    #{{ secid }} .ring-cap{ font-size:.82rem; opacity:.85; }
+    #{{ secid }} .ring-meta{ margin-top:.8rem; text-align:center; }
+    #{{ secid }} .ring-label{ font-size:1.02rem; margin:.1rem 0 .2rem; }
+    #{{ secid }} .ring-note{ opacity:.9; }
+
+    /* --- KPI --- */
+    #{{ secid }} .kpi-chip{
+      display:inline-flex; align-items:baseline; gap:.35rem;
+      padding:.6rem .9rem; border-radius: 999px;
+      background: var(--acc); color:#fff;           /* ORANJE chip */
+      border:1px solid rgba(255,255,255,.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+    #{{ secid }} .kpi-val{ font-weight:800; font-size:1.4rem; }
+    #{{ secid }} .kpi-unit{ font-weight:700; opacity:.92; }
+    #{{ secid }} .kpi-meta{ margin-top:.5rem; }
+    #{{ secid }} .kpi-label{ font-size:1.02rem; margin:.1rem 0 .2rem; }
+    #{{ secid }} .kpi-note{ opacity:.9; }
+
+    /* --- Vergelijking (animatie op width) --- */
+#{{ secid }} .cmp-head{ margin-bottom:.6rem; }
+#{{ secid }} .cmp-label{ font-size:1.02rem; margin:.1rem 0; }
+#{{ secid }} .cmp-note{ opacity:.9; }
+
+/* --- Vergelijking (animatie op width + hoge specificiteit) --- */
+#{{ secid }} .cmp-row{
+  display:grid;
+  grid-template-columns: 140px 1fr auto;  /* vaste breedte voor labels */
+  gap:.6rem;
+  align-items:center;
+  margin:.5rem 0;
+}
+
+#{{ secid }} .cmp-tag{
+  display:inline-block;
+  min-width:140px;          /* vaste breedte voor uitlijning */
+  text-align:left;
+  padding:.25rem .5rem;
+  border-radius:999px;      /* pill-vorm */
+  border:1px solid #e5e5e5;
+  background:#f6f6f7;
+  font-weight:700;
+  font-size:.9rem;
+}
+#{{ secid }} .cmp-tag.highlight{
+  background: color-mix(in oklab, var(--acc) 18%, #fff);
+  border-color: var(--acc);
+  color:#111;
+}
+#{{ secid }} .cmp-tag.highlight{
+  background: color-mix(in oklab, var(--acc) 18%, #fff);
+  border-color: var(--acc); color: #111;
+}
+#{{ secid }} .cmp-bar{
+  height:12px; border-radius:999px; background:#eee; overflow:hidden; position:relative;
+}
+
+/* Belangrijk: thema kan width/transform overschrijven. Wij forceren width-animatie. */
+#{{ secid }} .card.compare .cmp-fill{
+  height:100%;
+  width:0 !important;                        /* start leeg */
+  transition: width .9s ease .1s !important; /* force animatie op width */
+}
+#{{ secid }} .card.compare.inview .cmp-fill{
+  width: var(--w) !important;                /* vul naar doelbreedte */
+}
+
+/* Kleuren */
+#{{ secid }} .cmp-fill.a{ background:#d1d1d1 !important; }       /* Nieuw = grijs */
+#{{ secid }} .cmp-fill.b{ background:#FFA816 !important; }       /* Jacq = oranje */
+
+#{{ secid }} .cmp-val{ font-weight:700; opacity:.95; }
+#{{ secid }} .cmp-delta{
+  margin-top:.6rem; display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .6rem; border-radius:999px;
+  background: #FFA816;
+  border:1px solid var(--acc); color: #FFF; font-weight:700;
+}
+
+    /* Footer note */
+    #{{ secid }} .foot{ margin-top: .9rem; opacity:.9; }
+/* OVERRIDE: make bars fill + animate, win from theme */
+#{{ secid }} .card.compare .cmp-bar{ position:relative; height:12px; border-radius:999px; background:#eee; overflow:hidden; }
+#{{ secid }} .card.compare .cmp-fill{
+  position:absolute; left:0; top:0; height:100%; display:block;
+  width:0 !important;                           /* start leeg */
+  transition: width .9s ease .1s !important;    /* animatie op width */
+  background:#eee;
+}
+#{{ secid }} .card.compare .cmp-fill.a{ background:#d1d1d1 !important; }   /* Nieuw = grijs */
+#{{ secid }} .card.compare .cmp-fill.b{ background:#FFA816 !important; }   /* Jacq = oranje */
+#{{ secid }} .card.compare.inview .cmp-fill{ width:var(--w) !important; }  /* vul naar doelbreedte */
+  </style>
+
+ <script>
+  (function(){
+    var root = document.getElementById('{{ secid }}');
+    if(!root) return;
+
+    function setDelta(cmp){
+      var a = parseFloat(cmp.getAttribute('data-a') || '0');
+      var b = parseFloat(cmp.getAttribute('data-b') || '0');
+      a = Math.max(0, Math.min(100, a));
+      b = Math.max(0, Math.min(100, b));
+      var diff = a - b;
+      var el = cmp.querySelector('.cmp-delta');
+      if(el) el.textContent = (diff >= 0 ? '−' : '+') + Math.abs(Math.round(diff)) + '% t.o.v. nieuw';
+    }
+
+    var cards = [].slice.call(root.querySelectorAll('.card.compare'));
+
+    // IntersectionObserver om .inview te zetten
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) {
+            e.target.classList.add('inview');
+            setDelta(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      cards.forEach(function(c){ io.observe(c); });
+    }
+
+    // Fallback + “al in beeld” check
+    function ensure(){
+      cards.forEach(function(c){
+        var r = c.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var vis = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0)) / Math.max(1, r.height);
+        if (vis >= 0.2 && !c.classList.contains('inview')) {
+          c.classList.add('inview');
+          setDelta(c);
+        }
+      });
+    }
+    window.addEventListener('load', ensure, {passive:true});
+    window.addEventListener('scroll', ensure, {passive:true});
+    window.addEventListener('resize', ensure);
+
+    // KPI teller (ongewijzigd)
+    function parseNumberLike(raw){
+      var s = (raw || '').toString().trim();
+      if (s.indexOf('.') > -1 && s.indexOf(',') > -1){ s = s.replace(/\./g,'').replace(',', '.'); }
+      else if (s.indexOf('.') > -1 && s.indexOf(',') === -1){ var d = s.replace(/[^\d]/g,''); if(d.length>=4){ s = s.replace(/\./g,''); } }
+      else if (s.indexOf(',') > -1 && s.indexOf('.') === -1){ s = s.replace(',', '.'); }
+      s = s.replace(/[^0-9.]/g,'');
+      var n = parseFloat(s); return isNaN(n)?0:n;
+    }
+    function startCounters(){
+      root.querySelectorAll('.kpi-val[data-target]').forEach(function(el){
+        var raw = el.getAttribute('data-target') || el.textContent || '';
+        var num = parseNumberLike(raw), cur=0, steps=36, step=num/steps;
+        var t = setInterval(function(){
+          cur += step; if(cur>=num){cur=num; clearInterval(t);}
+          el.textContent = raw.replace(/[0-9][0-9.,]*/g, new Intl.NumberFormat().format(Math.round(cur)));
+        },28);
+      });
+    }
+    // Start counters zodra sectie zichtbaar is
+    if ('IntersectionObserver' in window) {
+      var so = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ startCounters(); so.unobserve(root); } });
+      }, { threshold: 0.15 });
+      so.observe(root);
+    } else { startCounters(); }
+  })();
+</script>
+</section>
+
+{% schema %}
+{
+  "name": "Jacq Impact Pro",
+  "tag": "section",
+  "class": "color-scheme",
+  "settings": [
+    { "type": "select", "id": "color_scheme", "label": "Kleurenschema", "default": "default",
+      "options": [
+        { "value": "default", "label": "Standaard" },
+        { "value": "inverse", "label": "Omgekeerd (donker)" }
+      ]
+    },
+    { "type": "text", "id": "heading", "label": "Titel", "default": "Onze impact in cijfers" },
+    { "type": "text", "id": "sub", "label": "Subtitel", "default": "Transparant, tastbaar en up-to-date." },
+    { "type": "richtext", "id": "foot", "label": "Voetnoot / toelichting", "default": "<p>Cijfers op basis van interne metingen en marktgemiddelden.</p>" },
+    { "type": "color", "id": "accent", "label": "Jacq oranje", "default": "#FFA816" },
+    { "type": "range", "id": "pad_m", "label": "Verticale padding mobiel", "min": 24, "max": 120, "step": 4, "default": 44 },
+    { "type": "range", "id": "pad_d", "label": "Verticale padding desktop", "min": 24, "max": 200, "step": 4, "default": 88 }
+  ],
+  "blocks": [
+    {
+      "type": "ring",
+      "name": "Ring meter",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Materiaal hergebruikt" },
+        { "type": "range", "id": "value_pct", "label": "Percentage", "min": 0, "max": 100, "step": 1, "default": 72 },
+        { "type": "text", "id": "cap_text", "label": "Cap-tekst (klein)", "default": "van reststromen" },
+        { "type": "text", "id": "note", "label": "Toelichting", "default": "Frames, schroeven, metalen" }
+      ]
+    },
+    {
+      "type": "kpi",
+      "name": "KPI chip",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Gedoneerd" },
+        { "type": "text", "id": "value", "label": "Waarde", "default": "€8.000" },
+        { "type": "text", "id": "unit", "label": "Eenheid", "default": "-" },
+        { "type": "text", "id": "note", "label": "Toelichting", "default": "Netto-opbrengst aan Voedselbank" }
+      ]
+    },
+    {
+      "type": "compare",
+      "name": "Vergelijking",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Vergelijkingslabel", "default": "CO₂-intensiteit" },
+        { "type": "text", "id": "note", "label": "Toelichting", "default": "t.o.v. nieuwproductie (indicatief)" },
+        { "type": "text", "id": "a_label", "label": "A-label", "default": "Nieuw" },
+        { "type": "range", "id": "a_pct", "label": "A-percentage", "min": 0, "max": 100, "step": 1, "default": 100 },
+        { "type": "text", "id": "b_label", "label": "B-label", "default": "Jacq Circulair" },
+        { "type": "range", "id": "b_pct", "label": "B-percentage", "min": 0, "max": 100, "step": 1, "default": 62 }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Jacq Impact Pro",
+      "blocks": [
+        { "type": "ring", "settings": { "label": "Materiaal hergebruikt", "value_pct": 72, "cap_text": "van reststromen", "note": "Frames, schroeven, metalen" } },
+        { "type": "kpi",  "settings": { "label": "Gedoneerd", "value": "€8.000", "unit": "-", "note": "Netto-opbrengst aan Voedselbank" } },
+        { "type": "compare", "settings": { "label": "CO₂-intensiteit", "note": "t.o.v. nieuwproductie (indicatief)", "a_label": "Nieuw", "a_pct": 100, "b_label": "Jacq Circulair", "b_pct": 62 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

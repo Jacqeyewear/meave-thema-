@@ -1,0 +1,132 @@
+<section class="meave-benefits">
+  <div class="meave-benefits__grid">
+    {%- for block in section.blocks -%}
+      <div class="meave-benefits__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.heading != blank -%}
+          <h2>{{ block.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if block.settings.text != blank -%}
+          <div class="meave-benefits__text rte">{{ block.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-benefits {
+    padding: 56px 20px;
+    border-block: 1px solid #e5e5ea;
+    background: #f5f5f7;
+    color: #15120f;
+  }
+
+  .meave-benefits__grid {
+    display: grid;
+    max-width: 1180px;
+    margin: 0 auto;
+    border: 1px solid #e5e5ea;
+    background: #e5e5ea;
+    gap: 1px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .meave-benefits__item {
+    display: grid;
+    min-height: 132px;
+    padding: 26px;
+    place-content: center;
+    text-align: center;
+    background: #fff;
+  }
+
+  .meave-benefits__item h2 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .meave-benefits__text {
+    color: #5d554c;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .meave-benefits__text p {
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .meave-benefits__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .meave-benefits {
+      padding: 36px 14px;
+    }
+
+    .meave-benefits__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .meave-benefits__item {
+      min-height: 112px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave benefits",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Warm glow"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Soft shades and balanced finishes for layered light.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave benefits",
+      "blocks": [
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        },
+        {
+          "type": "benefit"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "product"
+    ]
+  }
+}
+{% endschema %}

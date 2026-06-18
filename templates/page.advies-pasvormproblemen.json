@@ -1,0 +1,215 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Benoem je klacht in één zin",
+            "body": "<p>Voorbeeld: ‘mijn bril zakt’, ‘hij knelt bij mijn slapen’ of ‘hij raakt mijn wangen als ik lach’.</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Doe de 3 checks: brug, breedte en pootjes",
+            "body": "<p>Check of de brug te breed/smal is, of het montuur te smal/breed is, en of de pootjes goed om je oren vallen.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Pas gericht aan (of laat afstellen)",
+            "body": "<p>Kies de oplossing bij jouw klacht. Als je druk, pijn of vervorming ziet: laat hem afstellen. </p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "Pasvormproblemen: oorzaak en oplossing (snel overzicht)",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Probleem",
+            "col2": "Meestal oorzaak",
+            "col3": "Wat helpt",
+            "rows": "Bril zakt / glijdt af|Brug te breed of pootjes te recht|Kleinere brug/maat of pootjes strakker om oren; check neus pads\nDruk bij slapen|Montuur te smal of pootjes te strak|Grotere breedte of pootjes iets opener; check maat\nPijn/afdruk op neus|Te veel druk op brug/pads|Neus pads anders plaatsen of brugkeuze aanpassen; verdeel druk\nWangen raken montuur|Bril zit te laag of te klein in hoogte|Montuur hoger/andere hoogte; voorkom zakken\nBril staat scheef|Pootjes ongelijk of oorhoogte verschilt|Pootjes gelijk afstellen; micro-afstelling\nAchter oren doet pijn|Pootjes te kort/te strak gebogen|Pootjes aanpassen of ander pootje; betere curve",
+            "note": "Richtlijnen. Pasvorm is maat + afstelling. Begin met je huidige maat als referentie."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Eerst: check of de maat klopt (90% van de ellende)",
+            "toc_label": "Maat checken",
+            "anchor": "maat-checken",
+            "body": "<p>Voor je gaat buigen of afstellen: check of de basis klopt. Een bril die structureel te smal of te breed is, blijft problemen geven.</p><h3>Snelle maatregels</h3><ul><li>Montuur is niet breder dan je gezicht (voorkom ‘zweven’ of druk).</li><li>Onderkant raakt je wangen niet bij lachen.</li><li>Je ogen staan grofweg gecentreerd in het glas (niet tegen de rand).</li></ul><p>Heb je cijfers op het pootje (bijv. 52-18-140)? Gebruik die als referentie voor je volgende montuur. Of lees hoe je je <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat </a>kunt bepalen.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 1: bril zakt of glijdt af",
+            "toc_label": "Bril zakt",
+            "anchor": "bril-zakt",
+            "body": "<p>Een zakkende bril is meestal geen ‘glad gezicht’-probleem, maar een combinatie van brugmaat en pootjes.</p><h3>Meest voorkomende oorzaken</h3><ul><li>Brug te breed: de bril heeft geen ‘grip’ en glijdt naar beneden.</li><li>Pootjes staan te recht: er is te weinig haak achter je oor.</li><li>Neus pads staan te wijd of te glad: druk wordt niet goed verdeeld.</li></ul><h3>Wat je kunt doen</h3><ul><li>Check eerst je maat en brug:<a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\"> brilmaat bepalen</a>.</li><li>Laat pootjes iets strakker om je oren afstellen (micro, niet forceren).</li><li>Bij metalen monturen: neus pads iets dichter (laat dit het liefst afstellen).</li></ul>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 2: druk bij slapen (hoofdpijn-gevoel)",
+            "toc_label": "Druk slapen",
+            "anchor": "druk-slapen",
+            "body": "<p>Druk bij je slapen betekent meestal dat het montuur te smal is, of dat de pootjes te strak naar binnen staan.</p><h3>Snelle test</h3><p>Voel je na 10–15 minuten al druk? Dan is de basisbreedte waarschijnlijk niet goed. Afstellen kan een beetje helpen, maar een te smal montuur blijft een te smal montuur.</p><h3>Wat helpt</h3><ul><li>Kies een bredere maat bij je volgende montuur.</li><li>Laat pootjes iets opener zetten door een opticien (veiligst).</li><li>Check <a href=\"/pages/materialen\" title=\"materialen\">materiaal</a>: dun metaal/titanium kan lichter voelen, maar breedte blijft belangrijk. </li></ul>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 3: afdrukken of pijn op je neus",
+            "toc_label": "Neus pijn",
+            "anchor": "neus-pijn",
+            "body": "<p>Lichte afdrukken zijn niet altijd fout, maar pijn of rode plekken wel. Het gaat om drukverdeling.</p><h3>Oorzaken</h3><ul><li>Te veel gewicht of te veel druk op één punt.</li><li>Neus pads staan verkeerd (te smal/te breed) of verdelen druk niet mooi.</li><li>Brug zit te laag of te hoog waardoor je compenseert.</li></ul><h3>Fix</h3><ul><li>Laat pads afstellen zodat ze vlak en symmetrisch contact maken.</li><li>Als je vaak neusdruk hebt, is een lichter materiaal soms fijner. <a href=\"/pages/materialen-titanium\" title=\"materialen-titanium\">Titanium </a>weegt het minst.</li><li><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Check </a>of je de juiste brugmaat hebt. </li></ul>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 4: montuur raakt je wangen als je lacht",
+            "toc_label": "Wangen",
+            "anchor": "wangen",
+            "body": "<p>Als je wangen het montuur raken, zit de bril meestal te laag of is de glas-hoogte te klein voor jouw gezicht.</p><h3>Oorzaken</h3><ul><li>Bril zakt (brug/pootjes) en komt daardoor op je wangen.</li><li>Montuur is te klein in hoogte of te ‘laag’ ontworpen.</li></ul><h3>Wat helpt</h3><ul><li>Los eerst zakken op: <a href=\"/pages/pasvormproblemen\" title=\"pasvormproblemen\">pasvormproblemen </a>en <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">brilmaat bepalen.</a></li><li>Kies een vorm/maat met net wat meer hoogte of andere brug.</li></ul>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 5: bril staat scheef",
+            "toc_label": "Scheef",
+            "anchor": "scheef",
+            "body": "<p>Een scheve bril is heel normaal: veel mensen hebben een klein verschil in oorhoogte. Het doel is dat je glazen recht staan en de bril stabiel zit.</p><h3>Wat je ziet</h3><ul><li>Eén glas staat hoger.</li><li>De bril draait iets naar één kant.</li></ul><h3>Wat helpt</h3><ul><li>Laat pootjes micro-afstellen zodat de bril weer recht staat.</li><li>Check of één pootje iets wijder/open staat dan de ander (komt vaak door opbergen).</li></ul>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Probleem 6: pijn achter je oren",
+            "toc_label": "Achter oren",
+            "anchor": "achter-oren",
+            "body": "<p>Pijn achter je oren komt meestal door de curve van de pootjes: te strak gebogen of op de verkeerde plek.</p><h3>Oorzaken</h3><ul><li>Pootjes te kort of te scherp gebogen.</li><li>Bril staat te laag, waardoor pootjes trekken.</li></ul><h3>Fix</h3><ul><li>Laat de curve achter het oor aanpassen (veiligst door opticien).</li><li>Controleer ook of de bril niet zakt; dat geeft extra trek achter je oren.</li></ul>"
+          }
+        },
+        "sec-8": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer je niet zelf moet ‘buigen’",
+            "toc_label": "Niet zelf",
+            "anchor": "niet-zelf",
+            "body": "<ul><li>Als je kracht moet zetten om iets te veranderen.</li><li>Als het montuur kraakt of zichtbaar vervormt.</li><li>Als je glazen scheef komen te staan of de scharnieren spanning krijgen.</li></ul><p></p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Pasvormcheck (30 seconden)",
+            "anchor": "pasvormcheck",
+            "body": "<ul><li>Bril zakt niet bij praten of naar beneden kijken.</li><li>Geen druk bij slapen na 10–15 minuten.</li><li>Onderkant raakt wangen niet bij lachen.</li><li>Neus voelt comfortabel, geen pijnlijke afdrukken.</li><li>Glazen staan recht wanneer jij recht kijkt.</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom zakt mijn bril steeds?",
+            "a": "<p>Meestal door brugmaat of pootjes: brug te breed of pootjes te recht. Begin met maat checken. </p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Is een beetje afdruk op mijn neus normaal?",
+            "a": "<p>Lichte afdruk kan voorkomen, maar pijn of rode plekken niet. Dan is drukverdeling of afstelling niet goed.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik mijn bril zelf afstellen?",
+            "a": "<p>Kleine micro-correcties kunnen, maar forceren niet. Bij twijfel: laat afstellen om breuk of scheefstand te voorkomen.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom raakt mijn bril mijn wangen?",
+            "a": "<p>Vaak omdat hij zakt of te laag/te klein is in hoogte. Los eerst zakken op en check daarna de vorm/hoogte.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Hoe weet ik of mijn montuur te smal is?",
+            "a": "<p>Als je druk bij slapen voelt binnen 10–15 minuten of de pootjes zichtbaar naar buiten worden gedrukt, is hij vaak te smal.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat is de beste materiaalkeuze bij drukpunten?",
+            "a": "<p>Lichter kan fijner voelen (bijv. titanium), maar pasvorm blijft leidend.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "sec-8",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: pasvormproblemen bril",
+        "kicker": "ADVIES",
+        "title": "Pasvormproblemen: bril zakt, knelt of staat scheef",
+        "subtitle": "De meest voorkomende bril-problemen, met snelle diagnose en de beste fix per klacht.",
+        "readtime": "9 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p>Een bril die niet lekker zit, heeft bijna altijd één van deze oorzaken: de maat (breedte/brug), de afstelling (pootjes, neus pads) of de hoek waarmee het montuur op je gezicht staat. De snelste manier om het op te lossen is: eerst het probleem benoemen, dan gericht checken.</p><p>Snelle diagnose (kies wat jij herkent):</p><ul><li>Bril zakt of glijdt af: vaak brug te breed of pootjes staan te recht. <a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Hulp bij brilmaat bepalen.</a></li><li>Druk bij slapen: montuur te smal of pootjes te strak gebogen.</li><li>Afdrukken/pijn op neus: neus pads of brug verdelen druk niet goed.</li><li>Wangen raken het montuur bij lachen: montuur is te laag/te klein in hoogte of zit te laag door zakken.</li><li>Bril staat scheef: één pootje is anders gebogen of je oorhoogte verschilt (heel normaal).</li></ul><p>In dit artikel vind je per klacht de meest voorkomende oorzaak en de beste fix. Belangrijk: buig nooit agressief zelf; kleine correcties kunnen, maar bij twijfel is afstellen door een opticien het veiligst.</p>",
+        "howto_title": "Pasvormproblemen oplossen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/brilmaat-bepalen\" title=\"brilmaat-bepalen\">Brilmaat bepalen</a></li><li><a href=\"/pages/materialen\" title=\"materialen\">Materialen (gewicht/comfort)</a></li><li><a href=\"/pages/welke-bril-past-bij-mij\" title=\"Welke bril past bij mij?\">Welke bril past bij mij?</a></li><li><a href=\"/pages/gezichtsvorm\" title=\"gezichtsvorm\">Gezichtsvorm & montuur</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

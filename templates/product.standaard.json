@@ -1,0 +1,572 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "text": "MEAVE LONDON",
+            "text_size": "text-base"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "product-title-md",
+            "title_size_mobile": "product-title-md",
+            "show_price": true,
+            "show_rating": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_size": "text-base"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "show_variant_labels": true,
+            "picker_type": "button",
+            "enable_color_swatches": true,
+            "color_swatch_type": "variant",
+            "size_chart": ""
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 12,
+            "show_inventory_transfer": true,
+            "show_inventory_quantity": "low",
+            "color_scheme": "accent-1"
+          }
+        },
+        "lamp_wizard": {
+          "type": "meave_lamp_wizard",
+          "settings": {
+            "button_label": "Build your lamp",
+            "kappen_collection": "wall-lights-kopie",
+            "color_step_label": "Colour",
+            "color_heading": "Choose your colour",
+            "color_sub": "",
+            "kap_step_label": "Shade",
+            "kap_heading": "Choose your shade",
+            "kap_sub": "",
+            "review_step_label": "Summary",
+            "review_heading": "Your lamp",
+            "total_label": "Total",
+            "upsell_collection": "accessories",
+            "upsell_heading": "Complete the look",
+            "upsell_limit": 4,
+            "next_label": "Next",
+            "add_label": "Checkout",
+            "continue_label": "Continue shopping",
+            "after_add": "checkout"
+          }
+        },
+        "text_delivery": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "icon_width": 20,
+            "text": "Free UK delivery with tracking",
+            "text_size": "text-sm"
+          }
+        },
+        "text_returns": {
+          "type": "text",
+          "settings": {
+            "icon": "return",
+            "icon_width": 20,
+            "text": "30-day returns, no fuss",
+            "text_size": "text-sm"
+          }
+        },
+        "text_warranty": {
+          "type": "text",
+          "settings": {
+            "icon": "shield",
+            "icon_width": 20,
+            "text": "2-year warranty on every light",
+            "text_size": "text-sm"
+          }
+        },
+        "text_setup": {
+          "type": "text",
+          "settings": {
+            "icon": "lightning",
+            "icon_width": 20,
+            "text": "Wireless, renter-friendly setup",
+            "text_size": "text-sm"
+          }
+        },
+        "tab_how": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "lightning",
+            "heading": "How does it work?",
+            "content": "<p>Meave wireless lights are designed for quick room upgrades. Place them beside a mirror, bed, console or artwork to add a soft layer of warm light without a heavy renovation.</p>",
+            "page": "",
+            "liquid": "",
+            "opened": false
+          }
+        },
+        "tab_included": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "box",
+            "heading": "What is included?",
+            "content": "<p>Your order includes the light, shade, setup accessories, care guidance and protective Meave London packaging. Exact contents can be adjusted per product.</p>",
+            "page": "",
+            "liquid": "",
+            "opened": false
+          }
+        },
+        "tab_specs": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Specifications",
+            "content": "<p>Add dimensions, material, finish, bulb type, battery details and shade measurements here so shoppers can check fit before checkout.</p>",
+            "page": "",
+            "liquid": "",
+            "opened": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share",
+            "show_help_desk": true,
+            "help_label": "Need lighting advice?",
+            "help_type": "drawer",
+            "help_page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "variant_picker",
+        "inventory",
+        "lamp_wizard",
+        "text_delivery",
+        "text_returns",
+        "text_warranty",
+        "text_setup",
+        "tab_how",
+        "tab_included",
+        "tab_specs",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "media_size": 62,
+        "gallery_layout": "scroll",
+        "thumbnail_position": "beside",
+        "image_ratio": "adapt_first",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "mobile_layout": "full_width",
+        "image_ratio_mobile": "adapt_first",
+        "mobile_thumbnail": true,
+        "padding_top": 24,
+        "padding_bottom": 56,
+        "divider": false,
+        "full_width": true,
+        "rounded": false
+      }
+    },
+    "meave-benefits": {
+      "type": "meave-pdp-benefits",
+      "blocks": {
+        "brand": {
+          "type": "benefit",
+          "settings": {
+            "heading": "Meave London",
+            "text": "<p>Lighting and furniture accents for calm, finished rooms.</p>"
+          }
+        },
+        "glow": {
+          "type": "benefit",
+          "settings": {
+            "heading": "Warm glow",
+            "text": "<p>Soft shades and balanced finishes for layered light.</p>"
+          }
+        },
+        "styling": {
+          "type": "benefit",
+          "settings": {
+            "heading": "Easy styling",
+            "text": "<p>Pairs naturally with mirrors, consoles, sideboards and bedsides.</p>"
+          }
+        },
+        "ready": {
+          "type": "benefit",
+          "settings": {
+            "heading": "Home ready",
+            "text": "<p>A furniture-shop feel with a lighting-first buying flow.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "brand",
+        "glow",
+        "styling",
+        "ready"
+      ],
+      "settings": {}
+    },
+    "meave-gallery": {
+      "type": "meave-pdp-gallery",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "alt": "Meave light styled at home"
+          }
+        },
+        "image_2": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "alt": "Close product view"
+          }
+        },
+        "image_3": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "alt": "Warm light in a calm interior"
+          }
+        },
+        "image_4": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "alt": "Meave finish and shade detail"
+          }
+        },
+        "image_5": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "alt": "Meave lighting in a finished room"
+          }
+        }
+      },
+      "block_order": [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4",
+        "image_5"
+      ],
+      "settings": {
+        "eyebrow": "Styled at home",
+        "heading": "Made for the rooms you actually live in",
+        "text": "<p>See the product, finish, room scale and glow from every angle before choosing the right light.</p>"
+      }
+    },
+    "meave-reviews": {
+      "type": "meave-pdp-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>",
+            "author": "Charlotte J."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>",
+            "author": "Isabella E."
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>",
+            "author": "George B."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3"
+      ],
+      "settings": {
+        "heading": "Loved for easy lighting upgrades"
+      }
+    },
+    "meave-story": {
+      "type": "meave-pdp-story",
+      "settings": {
+        "image": "",
+        "image_alt": "Meave lighting styled in a calm interior",
+        "heading": "Limitless elegance, considered light",
+        "text": "<p>Warm wall lighting gives entryways, bedrooms and lounge corners the finished feeling usually reserved for styled interiors.</p>",
+        "height": 620
+      }
+    },
+    "meave-comparison": {
+      "type": "meave-pdp-comparison",
+      "blocks": {
+        "warm_light": {
+          "type": "feature",
+          "settings": {
+            "feature": "Warm layered light",
+            "meave": "yes",
+            "others": "no"
+          }
+        },
+        "finishes": {
+          "type": "feature",
+          "settings": {
+            "feature": "Coordinated furniture finishes",
+            "meave": "yes",
+            "others": "no"
+          }
+        },
+        "guidance": {
+          "type": "feature",
+          "settings": {
+            "feature": "Room styling guidance",
+            "meave": "yes",
+            "others": "no"
+          }
+        },
+        "clarity": {
+          "type": "feature",
+          "settings": {
+            "feature": "Shade and finish clarity",
+            "meave": "yes",
+            "others": "no"
+          }
+        }
+      },
+      "block_order": [
+        "warm_light",
+        "finishes",
+        "guidance",
+        "clarity"
+      ],
+      "settings": {
+        "eyebrow": "Meave London",
+        "heading": "Furniture-shop polish, lighting-shop focus",
+        "text": "<p>Every product page makes the light easy to choose: finish, placement, shade style and room mood are all visible before checkout.</p>",
+        "feature_label": "Feature",
+        "brand_label": "Meave",
+        "other_label": "Others"
+      }
+    },
+    "meave-faq": {
+      "type": "meave-pdp-faq",
+      "blocks": {
+        "placement": {
+          "type": "question",
+          "settings": {
+            "question": "Where should I use this light?",
+            "answer": "<p>Use it in hallways, beside mirrors, over bedside tables or anywhere a room needs a softer layer of light.</p>"
+          }
+        },
+        "finish": {
+          "type": "question",
+          "settings": {
+            "question": "How do I choose the right finish?",
+            "answer": "<p>Use brass for warmth, black for contrast, chrome for cooler interiors and mixed metals when the room already has layered hardware.</p>"
+          }
+        },
+        "included": {
+          "type": "question",
+          "settings": {
+            "question": "What information is included?",
+            "answer": "<p>Check the product details above for dimensions, materials, installation notes, delivery timing and warranty information.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "placement",
+        "finish",
+        "included"
+      ],
+      "settings": {
+        "heading": "Product questions",
+        "text": "<p>Everything you need to choose and style your light with confidence.</p>"
+      }
+    },
+    "help-drawer": {
+      "type": "help-drawer",
+      "blocks": {
+        "content_1": {
+          "type": "content",
+          "settings": {
+            "icon": "rocket",
+            "heading": "Shipping and delivery",
+            "text": "<p>Orders are shipped with tracking. Use this drawer to show delivery timing, returns and support details.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#b45309",
+            "color_background": "#fffbeb",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content_2": {
+          "type": "content",
+          "settings": {
+            "icon": "headphone",
+            "heading": "Lighting advice",
+            "text": "<p>Help shoppers choose shade size, finish, placement and bulb temperature for their room.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#0369a1",
+            "color_background": "#f0f9ff",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content_3": {
+          "type": "content",
+          "settings": {
+            "icon": "shield",
+            "heading": "Warranty",
+            "text": "<p>Every light includes a 2-year warranty against manufacturing defects.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#4d7c0f",
+            "color_background": "#f7fee7",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        },
+        "content_4": {
+          "type": "content",
+          "settings": {
+            "icon": "chat_bubble",
+            "heading": "Contact us",
+            "text": "<p>Questions about your order or installation? Contact Meave London and we will help you choose confidently.</p>",
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle",
+            "color_text": "#be123c",
+            "color_background": "#fff1f2",
+            "gradient_background": "",
+            "color_highlight": "#ffddbf",
+            "gradient_highlight": ""
+          }
+        }
+      },
+      "block_order": [
+        "content_1",
+        "content_2",
+        "content_3",
+        "content_4"
+      ],
+      "settings": {
+        "heading": "Need help?",
+        "description": "<p>Questions about finishes, placement or installation? We are happy to help you choose the right light.</p>"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_limit": 8,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Complete the room",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "<p>Pair this light with Meave shades, table lamps and warm interior accents.</p>",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 40,
+        "padding_bottom": 64,
+        "divider": false,
+        "full_width": false,
+        "rounded": true
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "product_limit": 6,
+        "columns": 4,
+        "carousel_on_desktop": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "heading": "Recently Viewed",
+        "heading_size": "title-md",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "divider": false,
+        "full_width": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "meave-benefits",
+    "meave-gallery",
+    "meave-reviews",
+    "meave-story",
+    "meave-comparison",
+    "meave-faq",
+    "help-drawer",
+    "product-recommendations",
+    "recently-viewed"
+  ]
+}

@@ -1,0 +1,530 @@
+{% comment %}
+  Jacq Eyewear — Onze brillen op sterkte (Apple style, consistent with Over Ons)
+  - Same rhythm as page-about-jacq-apple.liquid
+  - Adds 3 image cards
+  - Subtle scroll reveal
+  - No Liquid errors (blank checks everywhere)
+{% endcomment %}
+
+<section class="jacq-apple ja-sterkte" data-section-id="{{ section.id }}">
+  <!-- HERO (same structure as Over Ons) -->
+  <header class="ja-hero">
+    {% if section.settings.hero_image != blank %}
+      <div class="ja-hero__media" aria-hidden="true">
+        {{ section.settings.hero_image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '800, 1200, 1600, 2000, 2400',
+          alt: section.settings.hero_image_alt | escape
+        }}
+      </div>
+    {% endif %}
+
+    <div class="ja-hero__overlay">
+      <div class="ja-wrap ja-hero__content ja-reveal">
+  <div class="ja-hero__text">
+    <p class="ja-eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+    <h1 class="ja-h1">{{ section.settings.hero_title | escape }}</h1>
+    {% if section.settings.hero_subtitle != blank %}
+      <p class="ja-lead">{{ section.settings.hero_subtitle | escape }}</p>
+    {% endif %}
+  </div>
+</div>
+    </div>
+  </header>
+
+  <!-- SPLIT 1: Text left, image right -->
+  <section class="ja-wrap ja-two-col ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.s1_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.s1_text }}
+      </div>
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.s1_image != blank %}
+        {{ section.settings.s1_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 40vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.s1_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- BAND (centered, no image) -->
+  <section class="ja-band ja-block">
+    <div class="ja-wrap ja-center ja-reveal">
+      <h2 class="ja-h2">{{ section.settings.band_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.band_text }}
+      </div>
+    </div>
+  </section>
+
+  <!-- SPLIT 2: Reverse (image left, text right on desktop) -->
+  <section class="ja-wrap ja-two-col ja-two-col--reverse ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.s2_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.s2_text }}
+      </div>
+
+      {% if section.settings.s2_bullets != blank %}
+        <ul class="ja-bullets">
+          {{ section.settings.s2_bullets }}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.s2_image != blank %}
+        {{ section.settings.s2_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 40vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.s2_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- 3 CARDS (image cards you liked) -->
+  <section class="ja-wrap ja-cards ja-block ja-reveal">
+    <div class="ja-cards__head ja-center">
+      <h2 class="ja-h2">{{ section.settings.cards_title | escape }}</h2>
+      {% if section.settings.cards_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.cards_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-cards__grid">
+      {% for i in (1..3) %}
+        {% capture img_id %}card{{ i }}_image{% endcapture %}
+        {% capture alt_id %}card{{ i }}_alt{% endcapture %}
+        {% capture t_id %}card{{ i }}_title{% endcapture %}
+        {% capture d_id %}card{{ i }}_text{% endcapture %}
+
+        <article class="ja-card">
+          {% assign card_img = section.settings[img_id] %}
+          {% if card_img != blank %}
+            <div class="ja-card__media">
+              {{ card_img | image_url: width: 1400 | image_tag:
+                loading: 'lazy',
+                sizes: '(min-width: 990px) 30vw, 100vw',
+                widths: '600, 900, 1200, 1400',
+                alt: section.settings[alt_id] | escape
+              }}
+            </div>
+          {% endif %}
+
+          <div class="ja-card__body">
+            <h3 class="ja-h3">{{ section.settings[t_id] | escape }}</h3>
+            <div class="ja-p rte">{{ section.settings[d_id] }}</div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- FINAL BAND (centered) -->
+  <section class="ja-cta ja-block">
+    <div class="ja-wrap ja-center ja-reveal">
+      <h2 class="ja-h2 ja-h2--cta">{{ section.settings.cta_title | escape }}</h2>
+      <div class="ja-richtext ja-richtext--center">
+        {{ section.settings.cta_text }}
+      </div>
+
+      {% if section.settings.cta_button_label != blank and section.settings.cta_button_link != blank %}
+        <a class="ja-btn" href="{{ section.settings.cta_button_link }}">
+          {{ section.settings.cta_button_label | escape }}
+        </a>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- SIGNATURE -->
+  <footer class="ja-wrap ja-sign ja-reveal">
+    <p class="ja-sign__text">{{ section.settings.signature | escape }}</p>
+  </footer>
+</section>
+
+<style>
+  /* Keep same base look as Over Ons */
+  .jacq-apple.ja-sterkte{
+    --ja-max: 1120px;
+    --ja-pad: clamp(18px, 3.2vw, 28px);
+    --ja-gap: clamp(18px, 3.2vw, 48px);
+    --ja-radius: 20px;
+    --ja-bg: #ffffff;
+    --ja-band: #f5f5f7;
+    --ja-text: rgba(0,0,0,.88);
+    --ja-muted: rgba(0,0,0,.62);
+    --ja-hairline: rgba(0,0,0,.10);
+    background: var(--ja-bg);
+    color: var(--ja-text);
+  }
+  .jacq-apple.ja-sterkte *{ box-sizing: border-box; }
+
+  .jacq-apple.ja-sterkte .ja-wrap{
+    max-width: var(--ja-max);
+    margin: 0 auto;
+    padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+    padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+  }
+  .jacq-apple.ja-sterkte .ja-center{ text-align: center; }
+
+  /* HERO same as Over Ons */
+  .jacq-apple.ja-sterkte .ja-hero{
+    position: relative;
+    overflow: hidden;
+    background: var(--ja-band);
+  }
+  .jacq-apple.ja-sterkte .ja-hero__media img{
+    width: 100%;
+    height: clamp(420px, 52vw, 680px);
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+  }
+  .jacq-apple.ja-sterkte .ja-hero__overlay{
+  position:absolute;
+  inset:0;
+  display:grid;
+  align-content:end;
+  padding-bottom: clamp(34px, 5vw, 56px);
+  padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+  padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+  text-align: left;
+  pointer-events:none;
+}
+  .jacq-apple.ja-sterkte .ja-eyebrow{
+    margin: 0 0 10px;
+    font-size: 13px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+  }
+  .jacq-apple.ja-sterkte .ja-h1{
+    margin: 0 0 12px;
+    font-size: clamp(34px, 5.0vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: #fff;
+    text-shadow: 0 1px 18px rgba(0,0,0,.38);
+    max-width: 20ch;
+  }
+  .jacq-apple.ja-sterkte .ja-lead{
+    margin: 0;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.86);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+    max-width: 58ch;
+  }
+
+  .jacq-apple.ja-sterkte .ja-block{
+    padding: clamp(54px, 7vw, 92px) 0;
+  }
+
+  /* Two column (same pattern as Over Ons) */
+  .jacq-apple.ja-sterkte .ja-two-col{
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: var(--ja-gap);
+    align-items: center;
+  }
+  .jacq-apple.ja-sterkte .ja-two-col--reverse{
+    grid-template-columns: .95fr 1.05fr;
+  }
+  /* Make reverse actually reverse order on desktop */
+  @media (min-width: 990px){
+    .jacq-apple.ja-sterkte .ja-two-col--reverse .ja-col--media{ order: 1; }
+    .jacq-apple.ja-sterkte .ja-two-col--reverse .ja-col:not(.ja-col--media){ order: 2; }
+  }
+
+  .jacq-apple.ja-sterkte .ja-col--media img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--ja-radius);
+  }
+
+  .jacq-apple.ja-sterkte .ja-h2{
+    margin: 0 0 14px;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--ja-text);
+  }
+
+  .jacq-apple.ja-sterkte .ja-richtext{
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ja-text);
+    max-width: 70ch;
+  }
+  .jacq-apple.ja-sterkte .ja-richtext p{ margin: 0 0 14px; }
+  .jacq-apple.ja-sterkte .ja-richtext p:last-child{ margin-bottom: 0; }
+  .jacq-apple.ja-sterkte .ja-richtext--center{ margin: 0 auto; }
+  .jacq-apple.ja-sterkte .ja-sub{
+    margin: 6px auto 0;
+    color: var(--ja-muted);
+    max-width: 60ch;
+    line-height: 1.6;
+  }
+
+  /* Band */
+  .jacq-apple.ja-sterkte .ja-band{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+    border-bottom: 1px solid var(--ja-hairline);
+  }
+
+  /* Bullets */
+  .jacq-apple.ja-sterkte .ja-bullets{
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    max-width: 70ch;
+  }
+  .jacq-apple.ja-sterkte .ja-bullets li{
+    padding-left: 18px;
+    position: relative;
+    color: rgba(0,0,0,.78);
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-sterkte .ja-bullets li:before{
+    content:"";
+    width:6px;height:6px;border-radius:99px;background:rgba(0,0,0,.28);
+    position:absolute;left:0;top:.65em;
+  }
+
+  /* Cards */
+  .jacq-apple.ja-sterkte .ja-cards__head{ margin-bottom: 22px; }
+  .jacq-apple.ja-sterkte .ja-cards__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .jacq-apple.ja-sterkte .ja-card{
+    border: 1px solid var(--ja-hairline);
+    border-radius: var(--ja-radius);
+    overflow: hidden;
+    background: #fff;
+  }
+  .jacq-apple.ja-sterkte .ja-card__media img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  .jacq-apple.ja-sterkte .ja-card__body{ padding: 16px 16px 18px; }
+  .jacq-apple.ja-sterkte .ja-h3{
+    margin: 0 0 6px;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: rgba(0,0,0,.92);
+  }
+  .jacq-apple.ja-sterkte .ja-p{
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(0,0,0,.72);
+  }
+
+  /* CTA band (same feel as Over Ons) */
+  .jacq-apple.ja-sterkte .ja-cta{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-sterkte .ja-h2--cta{ margin-bottom: 10px; }
+  .jacq-apple.ja-sterkte .ja-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.22);
+    color: rgba(0,0,0,.86);
+    text-decoration: none;
+    background: rgba(255,255,255,.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .jacq-apple.ja-sterkte .ja-btn:hover{ border-color: rgba(0,0,0,.35); }
+
+  /* Signature */
+  .jacq-apple.ja-sterkte .ja-sign{
+    padding: 44px 0 clamp(64px, 7vw, 96px);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-sterkte .ja-sign__text{
+    margin: 0;
+    color: var(--ja-muted);
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  /* Reveal motion (subtle Apple-like) */
+  .jacq-apple.ja-sterkte .ja-reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+  .jacq-apple.ja-sterkte .ja-reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .jacq-apple.ja-sterkte .ja-hero__overlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  padding-bottom: clamp(34px, 5vw, 56px);
+  pointer-events: none;
+
+  /* same outer gutters as .ja-wrap */
+  padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+  padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+}
+
+/* This makes the hero content align with the LEFT TEXT COLUMN of your two-col sections */
+@media (min-width: 990px){
+  .jacq-apple.ja-sterkte .ja-hero__content{
+    display: grid;
+    grid-template-columns: 1.05fr .95fr; /* same as .ja-two-col */
+    gap: var(--ja-gap);
+    align-items: end;
+    text-align: left;
+  }
+
+  /* Put eyebrow/h1/lead in column 1 */
+  .jacq-apple.ja-sterkte .ja-hero__content > *{
+    grid-column: 1;
+  }
+}
+
+/* Mobile: keep it simple */
+@media (max-width: 989px){
+  .jacq-apple.ja-sterkte .ja-hero__content{
+    text-align: left;
+  }
+}
+
+  @media (prefers-reduced-motion: reduce){
+    .jacq-apple.ja-sterkte .ja-reveal{
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 989px){
+    .jacq-apple.ja-sterkte .ja-hero__overlay{
+      padding-bottom: 28px;
+    }
+    .jacq-apple.ja-sterkte .ja-two-col,
+    .jacq-apple.ja-sterkte .ja-two-col--reverse{
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    .jacq-apple.ja-sterkte .ja-richtext{ max-width: 100%; }
+    .jacq-apple.ja-sterkte .ja-cards__grid{ grid-template-columns: 1fr; }
+    .jacq-apple.ja-sterkte .ja-card__media img{ height: 200px; }
+  }
+
+  @media (max-width: 749px){
+    .jacq-apple.ja-sterkte .ja-wrap{
+      padding-left: 22px !important;
+      padding-right: 22px !important;
+    }
+  }
+</style>
+
+<script>
+  (function(){
+    const root = document.querySelector('.jacq-apple.ja-sterkte[data-section-id="{{ section.id }}"]');
+    if(!root) return;
+
+    const els = root.querySelectorAll('.ja-reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Page – Sterkte (Apple)",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Jacq Eyewear lifestyle" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Jacq Eyewear" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Onze brillen op sterkte" },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Elke dag. Dus het moet kloppen." },
+
+    { "type": "text", "id": "s1_title", "label": "Split 1 title", "default": "Ontworpen om te dragen" },
+    { "type": "richtext", "id": "s1_text", "label": "Split 1 text", "default": "<p>Een bril op sterkte draag je uren achter elkaar. Daarom ontwerpen we onze monturen met focus op pasvorm, balans en comfort — zodat je hem vergeet, in plaats van voelt.</p>" },
+    { "type": "image_picker", "id": "s1_image", "label": "Split 1 image" },
+    { "type": "text", "id": "s1_image_alt", "label": "Split 1 image alt text", "default": "Detail shot van montuur op gezicht" },
+
+    { "type": "text", "id": "band_title", "label": "Band title", "default": "Eenvoud die klopt" },
+    { "type": "richtext", "id": "band_text", "label": "Band text", "default": "<p>Geen onnodige complexiteit. Wel comfort, helder zicht en keuzes die echt verschil maken.</p>" },
+
+    { "type": "text", "id": "s2_title", "label": "Split 2 title", "default": "Keuzes die echt verschil maken" },
+    { "type": "richtext", "id": "s2_text", "label": "Split 2 text", "default": "<p>We houden glaskeuze bewust overzichtelijk. Je kiest wat je nodig hebt — zonder pakketten of verrassingen.</p>" },
+    { "type": "richtext", "id": "s2_bullets", "label": "Split 2 bullets", "default": "<ul><li>Standaard glas (1.56) zonder extra kosten</li><li>Extra dunne glazen als optie (1.60 / 1.67 / 1.74)</li><li>Standaard anti-reflectie en kraswerende coating</li></ul>" },
+    { "type": "image_picker", "id": "s2_image", "label": "Split 2 image" },
+    { "type": "text", "id": "s2_image_alt", "label": "Split 2 image alt text", "default": "Macro lens detail met reflectie" },
+
+    { "type": "text", "id": "cards_title", "label": "Cards title", "default": "In je ritme" },
+    { "type": "text", "id": "cards_subtitle", "label": "Cards subtitle", "default": "Drie situaties die je elke dag tegenkomt." },
+
+    { "type": "image_picker", "id": "card1_image", "label": "Card 1 image" },
+    { "type": "text", "id": "card1_alt", "label": "Card 1 alt text", "default": "Schermwerk met bril" },
+    { "type": "text", "id": "card1_title", "label": "Card 1 title", "default": "Scherm" },
+    { "type": "richtext", "id": "card1_text", "label": "Card 1 text", "default": "<p>Comfort tijdens lange dagen achter je laptop.</p>" },
+
+    { "type": "image_picker", "id": "card2_image", "label": "Card 2 image" },
+    { "type": "text", "id": "card2_alt", "label": "Card 2 alt text", "default": "Buiten in daglicht met bril" },
+    { "type": "text", "id": "card2_title", "label": "Card 2 title", "default": "Buiten" },
+    { "type": "text", "id": "card2_text", "label": "Card 2 text", "default": "Helder zicht in wisselend licht en reflecties." },
+
+    { "type": "image_picker", "id": "card3_image", "label": "Card 3 image" },
+    { "type": "text", "id": "card3_alt", "label": "Card 3 alt text", "default": "Onderweg/autorijden met bril" },
+    { "type": "text", "id": "card3_title", "label": "Card 3 title", "default": "Onderweg" },
+    { "type": "richtext", "id": "card3_text", "label": "Card 3 text", "default": "<p>Comfort en helder zicht onderweg.</p>" },
+
+    { "type": "text", "id": "cta_title", "label": "CTA title", "default": "Ervaren in je eigen ritme" },
+    { "type": "richtext", "id": "cta_text", "label": "CTA text", "default": "<p>Je ervaart een bril pas echt als je hem draagt. Daarom krijg je bij Jacq Eyewear <strong>100 dagen bedenktijd</strong>. Zo kun je rustig ervaren of de bril bij je past — in het dagelijks leven.</p>" },
+    { "type": "text", "id": "cta_button_label", "label": "Button label (optional)", "default": "Bekijk de collectie" },
+    { "type": "url", "id": "cta_button_link", "label": "Button link (optional)" },
+
+    { "type": "text", "id": "signature", "label": "Signature line", "default": "Jacq Eyewear — brillen op sterkte, teruggebracht tot wat echt telt." }
+  ],
+  "presets": [
+    { "name": "Page – Sterkte (Apple)" }
+  ]
+}
+{% endschema %}

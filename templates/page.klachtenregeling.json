@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "settings": {
+        "aria_label": "Klachtenregeling",
+        "kicker": "KLANTENSERVICE",
+        "title": "Klachtenregeling",
+        "subtitle": "Bij JACQ Eyewear doen we ons best om je de beste ervaring te geven. Toch kan het voorkomen dat iets niet helemaal gaat zoals verwacht. Hieronder lees je hoe je een klacht kunt indienen en hoe wij daarmee omgaan.",
+        "readtime": "2 min",
+        "header_offset": 110,
+        "answer_title": "",
+        "answer_richtext": "",
+        "howto_title": "",
+        "show_toc": true,
+        "toc_title": "Op deze pagina",
+        "faq_title": "",
+        "faq_anchor": "",
+        "related_title": "",
+        "related_richtext": ""
+      },
+      "blocks": {
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Klacht indienen",
+            "toc_label": "Klacht indienen",
+            "anchor": "klacht-indienen",
+            "body": "<p>Heb je een klacht over je bestelling, ons product of onze service? Neem dan eerst contact met ons op. We proberen je klacht zo snel mogelijk op te lossen.</p><p>Je kunt ons bereiken via:</p><ul><li>E-mail: <a href=\"mailto:support@jacqeyewear.nl\">support@jacqeyewear.nl</a></li><li>WhatsApp: <a href=\"https://wa.me/31853696403\">+31 85 369 6403</a></li></ul><p>We streven ernaar om binnen 5 werkdagen inhoudelijk op je klacht te reageren. Mocht er meer tijd nodig zijn, dan laten we je dat binnen deze termijn weten.</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Komen we er niet uit?",
+            "toc_label": "Bemiddeling",
+            "anchor": "komen-we-er-niet-uit",
+            "body": "<p>Leidt ons contact niet tot een oplossing? Dan kun je je geschil aanmelden voor gratis bemiddeling via WebwinkelKeur. Zij helpen bij het vinden van een eerlijke oplossing.</p><p>Je kunt je geschil indienen via: <a href=\"https://www.webwinkelkeur.nl/kennisbank/consumenten/geschil\">webwinkelkeur.nl/kennisbank/consumenten/geschil</a></p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Onafhankelijke geschillencommissie",
+            "toc_label": "Geschillencommissie",
+            "anchor": "onafhankelijke-geschillencommissie",
+            "body": "<p>Mocht de bemiddeling via WebwinkelKeur niet tot een oplossing leiden, dan heb je de mogelijkheid om je klacht te laten behandelen door de door WebwinkelKeur aangestelde onafhankelijke geschillencommissie. De uitspraak van deze commissie is bindend voor beide partijen. Aan het voorleggen van een geschil aan de geschillencommissie zijn kosten verbonden die voor rekening van de consument zijn.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "sec-1",
+        "sec-2",
+        "sec-3"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

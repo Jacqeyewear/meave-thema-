@@ -1,0 +1,1526 @@
+{% comment %}
+  JACQ Eyewear — 3D Virtual Try-On
+  Self-contained Liquid snippet: HTML + CSS + JS
+  Usage: {% render 'virtual-tryon', product: product %}
+  
+  Button: floating overlay on product image (position: absolute)
+  Place this snippet INSIDE the product image wrapper (needs position: relative on parent)
+{% endcomment %}
+
+{% comment %} Only show try-on for products with the "virtual-tryon" tag AND at least one 3D model. Suppressed on kinderbrillen (slot is used for the leeftijd-tag). {% endcomment %}
+{%- assign show_tryon = false -%}
+{%- assign is_kinderbril = false -%}
+{%- for tag in product.tags -%}
+  {%- if tag == 'virtual-tryon' -%}
+    {%- assign show_tryon = true -%}
+  {%- endif -%}
+  {%- if tag == 'kinderbril' -%}
+    {%- assign is_kinderbril = true -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if is_kinderbril -%}
+  {%- assign show_tryon = false -%}
+{%- endif -%}
+
+{%- if show_tryon -%}
+  {%- assign has_3d_model = false -%}
+  {%- for media in product.media -%}
+    {%- if media.media_type == 'model' -%}
+      {%- assign has_3d_model = true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- unless has_3d_model -%}
+    {%- for variant in product.variants -%}
+      {%- if variant.metafields.custom.vto_model_url != blank -%}
+        {%- assign has_3d_model = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endunless -%}
+  {%- unless has_3d_model -%}
+    {%- assign show_tryon = false -%}
+  {%- endunless -%}
+{%- endif -%}
+
+{%- if show_tryon -%}
+
+<style>
+  /* ========================================
+     JACQ Virtual Try-On — Styles
+     ======================================== */
+
+  /* ── Try-On Overlay Button ── */
+  .vto-button {
+    position: absolute;
+    top: auto;
+    right: 8px;
+    bottom: 8px;
+    left: auto;
+    z-index: 20;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px 8px 9px;
+    border: none;
+    border-radius: 980px;
+    background: #1D1D1F;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 6px 20px rgba(0,0,0,0.1);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin: 0;
+    width: auto;
+    pointer-events: all;
+  }
+
+  .vto-button:hover {
+    background: #2C2C2E;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2), 0 10px 28px rgba(0,0,0,0.12);
+  }
+
+  .vto-button:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
+  }
+
+  .vto-button svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: #fff;
+  }
+
+  /* 375px+ (iPhone SE / standaard telefoons) */
+  @media (min-width: 375px) {
+    .vto-button {
+      top: auto;
+      right: 10px;
+      bottom: 10px;
+      padding: 9px 13px 9px 10px;
+      font-size: 12px;
+      gap: 6px;
+    }
+    .vto-button svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  /* 768px+ (tablet / klein desktop) */
+  @media (min-width: 768px) {
+    .vto-button {
+      top: 14px;
+      right: 14px;
+      bottom: auto;
+      padding: 11px 16px 11px 13px;
+      font-size: 13px;
+      gap: 7px;
+    }
+    .vto-button svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  /* 1024px+ (desktop) */
+  @media (min-width: 1024px) {
+    .vto-button {
+      top: 16px;
+      right: 16px;
+      padding: 12px 20px 12px 15px;
+      font-size: 14px;
+      gap: 8px;
+    }
+    .vto-button svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  /* Modal overlay */
+  .vto-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .vto-overlay.vto-active {
+    display: flex;
+  }
+
+  .vto-overlay.vto-visible {
+    opacity: 1;
+  }
+
+  /* Modal */
+  .vto-modal {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    width: 90vw;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95);
+    transition: transform 0.2s ease-out;
+  }
+
+  .vto-overlay.vto-visible .vto-modal {
+    transform: scale(1);
+  }
+
+  /* Close button */
+  .vto-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    padding: 0;
+  }
+
+  .vto-close:hover {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+  }
+
+  /* Camera viewport */
+  .vto-viewport {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 16px;
+    width: calc(100% - 32px);
+  }
+
+  .vto-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1) scale(1.35);
+    transform-origin: center 45%;
+    background: #000;
+  }
+
+  .vto-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform: scale(1.35);
+    transform-origin: center 45%;
+  }
+
+  /* Loading */
+  .vto-status {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .vto-status.vto-hidden {
+    display: none;
+  }
+
+  .vto-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: vto-spin 0.8s linear infinite;
+    margin-bottom: 12px;
+  }
+
+  @keyframes vto-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Tip banner */
+  .vto-tip {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .vto-tip.vto-hidden {
+    opacity: 0;
+  }
+
+  /* No-face warning */
+  .vto-no-face {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #fff;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .vto-no-face.vto-show {
+    opacity: 1;
+  }
+
+  /* Variant thumbnails */
+  .vto-variants {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+
+  .vto-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    border: 2px solid #e5e5e5;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+    background: #f5f5f5;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .vto-thumb:hover {
+    border-color: #999;
+  }
+
+  .vto-thumb.vto-thumb-active {
+    border-color: #1d1d1f;
+  }
+
+  .vto-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vto-variant-name {
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    padding: 0 16px 16px 16px;
+    margin-top: -8px;
+    font-family: inherit;
+  }
+
+  .vto-disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: #aaa;
+    padding: 0 16px 16px 16px;
+    margin-top: -4px;
+    font-family: inherit;
+  }
+
+  .vto-disclaimer strong {
+    color: #1d1d1f;
+  }
+
+  /* Camera error */
+  .vto-error {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+    padding: 24px;
+    line-height: 1.5;
+    z-index: 5;
+  }
+
+  .vto-error.vto-show {
+    display: flex;
+  }
+
+  .vto-error svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+
+  /* Body scroll lock */
+  body.vto-modal-open {
+    overflow: hidden;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    .vto-modal {
+      width: 95vw;
+      max-height: 90vh;
+    }
+
+    .vto-viewport {
+      aspect-ratio: 3 / 4;
+      margin: 12px 12px 0 12px;
+      width: calc(100% - 24px);
+    }
+
+    .vto-variants {
+      padding: 12px;
+      gap: 8px;
+    }
+
+    .vto-thumb {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<!-- Try-On Button (place inside product image wrapper with position: relative) -->
+<button class="vto-button" id="vto-open-btn" type="button" aria-label="Virtueel passen">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+    <circle cx="12" cy="13" r="4"/>
+  </svg>
+  Pas virtueel
+</button>
+
+<!-- Modal -->
+<div class="vto-overlay" id="vto-overlay" role="dialog" aria-modal="true" aria-label="Virtueel passen">
+  <div class="vto-modal" id="vto-modal">
+    <button class="vto-close" id="vto-close-btn" type="button" aria-label="Sluiten">&times;</button>
+
+    <div class="vto-viewport" id="vto-viewport">
+      <video class="vto-video" id="vto-video" autoplay playsinline muted></video>
+      <canvas class="vto-canvas" id="vto-canvas"></canvas>
+
+      <div class="vto-status" id="vto-loading">
+        <div class="vto-spinner"></div>
+        <span>Model laden...</span>
+      </div>
+
+      <div class="vto-error" id="vto-error">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 1l22 22M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v9"/>
+        </svg>
+        <span id="vto-error-msg"></span>
+      </div>
+
+      <div class="vto-tip" id="vto-tip">Houd je gezicht recht voor de camera</div>
+      <div class="vto-no-face" id="vto-no-face">Geen gezicht gedetecteerd</div>
+    </div>
+
+    <div class="vto-variants" id="vto-variants"></div>
+    <div class="vto-variant-name" id="vto-variant-name"></div>
+    <div class="vto-disclaimer"><strong>Let op:</strong> kleuren zijn indicatief. Raadpleeg de productafbeeldingen voor exacte kleuren.</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ========================================
+     Product Data (injected from Liquid)
+     ======================================== */
+
+  // All media in order: type + glbUrl (for models only)
+  var productMedia = [
+    {% for media in product.media %}
+      { type: {{ media.media_type | json }}{% if media.media_type == 'model' %}{% for source in media.sources %}{% if source.format == 'glb' %}, glbUrl: {{ source.url | json }}{% endif %}{% endfor %}{% endif %} },
+    {% endfor %}
+  ];
+
+  // Variants with featured image index in media list
+  var productVariants = [
+    {% for variant in product.variants %}
+      {
+        id: {{ variant.id | json }},
+        title: {{ variant.title | json }},
+        option1: {{ variant.option1 | default: '' | json }},
+        image: {% if variant.featured_image %}{{ variant.featured_image.src | image_url: width: 120 | json }}{% else %}null{% endif %},
+        mediaIdx: {% assign found_idx = -1 %}{% if variant.featured_image %}{% for media in product.media %}{% if media.media_type == 'image' and media.preview_image.src == variant.featured_image.src %}{% assign found_idx = forloop.index0 %}{% break %}{% endif %}{% endfor %}{% endif %}{{ found_idx }}
+      },
+    {% endfor %}
+  ];
+
+  // Variant metafield GLB URLs (GitHub-hosted models)
+  var variantGlbUrls = {
+    {% for variant in product.variants %}
+      {% if variant.metafields.custom.vto_model_url != blank %}
+        {{ variant.id | json }}: {{ variant.metafields.custom.vto_model_url | append: '' | json }},
+      {% endif %}
+    {% endfor %}
+  };
+
+  // Normalize GitHub URLs → media.githubusercontent.com (supports Git LFS)
+  // raw.githubusercontent.com serves only LFS pointer files for LFS-tracked binaries,
+  // while media.githubusercontent.com/media/ serves the actual content.
+  function normalizeGlbUrl(url) {
+    if (typeof url !== 'string' || !url) return url;
+    var out = url;
+    // https://github.com/USER/REPO/blob|raw/BRANCH/PATH → media host
+    var m = out.match(/^https?:\/\/(?:www\.)?github\.com\/([^\/]+)\/([^\/]+)\/(?:blob|raw)\/(.+)$/);
+    if (m) {
+      out = 'https://media.githubusercontent.com/media/' + m[1] + '/' + m[2] + '/' + m[3];
+    } else {
+      // https://raw.githubusercontent.com/USER/REPO/BRANCH/PATH → media host
+      var r = out.match(/^https?:\/\/raw\.githubusercontent\.com\/([^\/]+)\/([^\/]+)\/(.+)$/);
+      if (r) {
+        out = 'https://media.githubusercontent.com/media/' + r[1] + '/' + r[2] + '/' + r[3];
+      }
+    }
+    // Known-repo path correction: Jacqeyewear/vto-models stores GLB files
+    // in the repo root, so strip a stray "/models/" segment from the path.
+    out = out.replace(
+      /(media\.githubusercontent\.com\/media\/Jacqeyewear\/vto-models\/[^\/]+)\/models\//i,
+      '$1/'
+    );
+    return out;
+  }
+
+  // Apply normalization to all metafield URLs up-front
+  Object.keys(variantGlbUrls).forEach(function(key) {
+    variantGlbUrls[key] = normalizeGlbUrl(variantGlbUrls[key]);
+  });
+
+  {% comment %} Parse frame dimensions from product description {% endcomment %}
+  {%- assign vto_lens_width = 0 -%}
+  {%- assign vto_bridge_width = 0 -%}
+  {%- assign vto_body = product.description | strip_html | downcase -%}
+
+  {%- comment %} Extract lens width (Breedte: XX mm) {% endcomment -%}
+  {%- assign vto_parts = vto_body | split: 'breedte:' -%}
+  {%- if vto_parts.size > 1 -%}
+    {%- assign vto_after = vto_parts[1] | strip | split: 'mm' | first | strip -%}
+    {%- assign vto_lens_width = vto_after | plus: 0 -%}
+  {%- endif -%}
+
+  {%- comment %} Extract bridge width (Neusbrug: XX mm) {% endcomment -%}
+  {%- assign vto_parts2 = vto_body | split: 'neusbrug:' -%}
+  {%- if vto_parts2.size > 1 -%}
+    {%- assign vto_after2 = vto_parts2[1] | strip | split: 'mm' | first | strip -%}
+    {%- assign vto_bridge_width = vto_after2 | plus: 0 -%}
+  {%- endif -%}
+
+  {%- comment %} Calculate total frame width: (lens × 2) + bridge {% endcomment -%}
+  {%- if vto_lens_width > 0 and vto_bridge_width > 0 -%}
+    {%- assign vto_frame_width = vto_lens_width | times: 2 | plus: vto_bridge_width -%}
+  {%- else -%}
+    {%- assign vto_frame_width = 140 -%}
+  {%- endif -%}
+
+  var productFrameWidth = {{ vto_frame_width }};
+  console.log('[VTO] Frame width:', productFrameWidth, 'mm (lens:', {{ vto_lens_width }}, 'bridge:', {{ vto_bridge_width }}, ')');
+
+  console.log('[VTO] productMedia:', productMedia.length, '| productVariants:', productVariants.length);
+
+  /* ========================================
+     Configuration — tweak these to fine-tune
+     ======================================== */
+  var CONFIG = {
+    // --- Scale ---
+    scaleMultiplier: 1.1,           // Fine-tune glasses width (1.0 = exact face width)
+    // --- Smoothing (lerp: 0.1=very smooth, 1.0=instant) ---
+    lerpPosition: 0.85,
+    lerpRotation: 0.75,
+    lerpScale:    0.08,
+    // --- System ---
+    noFaceTimeout: 2000,
+    tipDuration: 3000,
+    cameraFOV: 50,
+    cameraZ: 600,
+    glbNormalizedSize: 90,
+    occluderZScale: 0.5,
+    zOffset: 0,                     // Extra Z nudge (negative = closer to face)
+    zDepthFactor: 5,                // Scale-coupled Z depth (higher = closer to face)
+    referenceFrameWidth: 140  // mm — average frame width for scale calibration
+  };
+
+  /* ========================================
+     MediaPipe Face Mesh Triangulation (880 triangles, 468 vertices)
+     Source: tensorflow/tfjs-models face-landmarks-detection
+     ======================================== */
+  var FACE_TRI = [127,34,139,11,0,37,232,231,120,72,37,39,128,121,47,232,121,128,104,69,67,175,171,148,157,154,155,118,50,101,73,39,40,9,151,108,48,115,131,194,204,211,74,40,185,80,42,183,40,92,186,230,229,118,202,212,214,83,18,17,76,61,146,160,29,30,56,157,173,106,204,194,135,214,192,203,165,98,21,71,68,51,45,4,144,24,23,77,146,91,205,50,187,201,200,18,91,106,182,90,91,181,85,84,17,206,203,36,148,171,140,92,40,39,193,189,244,159,158,28,247,246,161,236,3,196,54,68,104,193,168,8,117,228,31,189,193,55,98,97,99,126,47,100,166,79,218,155,154,26,209,49,131,135,136,150,47,126,217,223,52,53,45,51,134,211,170,140,67,69,108,43,106,91,230,119,120,226,130,247,63,53,52,238,20,242,46,70,156,78,62,96,46,53,63,143,34,227,173,155,133,123,117,111,44,125,19,236,134,51,216,206,205,154,153,22,39,37,167,200,201,208,36,142,100,57,212,202,20,60,99,28,158,157,35,226,113,160,159,27,204,202,210,113,225,46,43,202,204,62,76,77,137,123,116,41,38,72,203,129,142,64,98,240,49,102,64,41,73,74,212,216,207,42,74,184,169,170,211,170,149,176,105,66,69,122,6,168,123,147,187,96,77,90,65,55,107,89,90,180,101,100,120,63,105,104,93,137,227,15,86,85,129,102,49,14,87,86,55,8,9,100,47,121,145,23,22,88,89,179,6,122,196,88,95,96,138,172,136,215,58,172,115,48,219,42,80,81,195,3,51,43,146,61,171,175,199,81,82,38,53,46,225,144,163,110,246,33,7,52,65,66,229,228,117,34,127,234,107,108,69,109,108,151,48,64,235,62,78,191,129,209,126,111,35,143,163,161,246,117,123,50,222,65,52,19,125,141,221,55,65,3,195,197,25,7,33,220,237,44,70,71,139,122,193,245,247,130,33,71,21,162,153,158,159,170,169,150,188,174,196,216,186,92,144,160,161,2,97,167,141,125,241,164,167,37,72,38,12,145,159,160,38,82,13,63,68,71,226,35,111,158,153,154,101,50,205,206,92,165,209,198,217,165,167,97,220,115,218,133,112,243,239,238,241,214,135,169,190,173,133,171,208,32,125,44,237,86,87,178,85,86,179,84,85,180,83,84,181,201,83,182,137,93,132,76,62,183,61,76,184,57,61,185,212,57,186,214,207,187,34,143,156,79,239,237,123,137,177,44,1,4,201,194,32,64,102,129,213,215,138,59,166,219,242,99,97,2,94,141,75,59,235,24,110,228,25,130,226,23,24,229,22,23,230,26,22,231,112,26,232,189,190,243,221,56,190,28,56,221,27,28,222,29,27,223,30,29,224,247,30,225,238,79,20,166,59,75,60,75,240,147,177,215,20,79,166,187,147,213,112,233,244,233,128,245,128,114,188,114,217,174,131,115,220,217,198,236,198,131,134,177,132,58,143,35,124,110,163,7,228,110,25,356,389,368,11,302,267,452,350,349,302,303,269,357,343,277,452,453,357,333,332,297,175,152,377,384,398,382,347,348,330,303,304,270,9,336,337,278,279,360,418,262,431,304,408,409,310,415,407,270,409,410,450,348,347,422,430,434,313,314,17,306,307,375,387,388,260,286,414,398,335,406,418,364,367,416,423,358,327,251,284,298,281,5,4,373,374,253,307,320,321,425,427,411,421,313,18,321,405,406,320,404,405,315,16,17,426,425,266,377,400,369,322,391,269,417,465,464,386,257,258,466,260,388,456,399,419,284,332,333,417,285,8,346,340,261,413,441,285,327,460,328,355,371,329,392,439,438,382,341,256,429,420,360,364,394,379,277,343,437,443,444,283,275,440,363,431,262,369,297,338,337,273,375,321,450,451,349,446,342,467,293,334,282,458,461,462,276,353,383,308,324,325,276,300,293,372,345,447,382,398,362,352,345,340,274,1,19,456,248,281,436,427,425,381,256,252,269,391,393,200,199,428,266,330,329,287,273,422,250,462,328,258,286,384,265,353,342,387,259,257,424,431,430,342,353,276,273,335,424,292,325,307,366,447,345,271,303,302,423,266,371,294,455,460,279,278,294,271,272,304,432,434,427,272,407,408,394,430,431,395,369,400,334,333,299,351,417,168,352,280,411,325,319,320,295,296,336,319,403,404,330,348,349,293,298,333,323,454,447,15,16,315,358,429,279,14,15,316,285,336,9,329,349,350,374,380,252,318,402,403,6,197,419,318,319,325,367,364,365,435,367,397,344,438,439,272,271,311,195,5,281,273,287,291,396,428,199,311,271,268,283,444,445,373,254,339,263,466,249,282,334,296,449,347,346,264,447,454,336,296,299,338,10,151,278,439,455,292,407,415,358,371,355,340,345,372,390,249,466,346,347,280,442,443,282,19,94,370,441,442,295,248,419,197,263,255,359,440,275,274,300,383,368,351,412,465,263,467,466,301,368,389,380,374,386,395,378,379,412,351,419,436,426,322,373,390,388,2,164,393,370,462,461,164,0,267,302,11,12,374,373,387,268,12,13,293,300,301,446,261,340,385,384,381,330,266,425,426,423,391,429,355,437,391,327,326,440,457,438,341,382,362,459,457,461,434,430,394,414,463,362,396,369,262,354,461,457,316,403,402,315,404,403,314,405,404,313,406,405,421,418,406,366,401,361,306,408,407,291,409,408,287,410,409,432,436,410,434,416,411,264,368,383,309,438,457,352,376,401,274,275,4,421,428,262,294,327,358,433,416,367,289,455,439,462,370,326,2,326,370,305,460,455,254,449,448,255,261,446,253,450,449,252,451,450,256,452,451,341,453,452,413,464,463,441,413,414,258,442,441,257,443,442,259,444,443,260,445,444,467,342,445,459,458,250,289,392,290,290,328,460,376,433,435,250,290,392,411,416,433,341,463,464,453,464,465,357,465,412,343,412,399,360,363,440,437,399,456,420,456,363,401,435,288,372,383,353,339,255,249,448,261,255,133,243,190,133,155,112,33,246,247,33,130,25,398,384,286,362,398,414,362,463,341,263,359,467,263,249,255,466,467,260,75,60,166,238,239,79,162,127,139,72,11,37,121,232,120,73,72,39,114,128,47,233,232,128,103,104,67,152,175,148,173,157,155,119,118,101,74,73,40,107,9,108,49,48,131,32,194,211,184,74,185,191,80,183,185,40,186,119,230,118,210,202,214,84,83,17,77,76,146,161,160,30,190,56,173,182,106,194,138,135,192,129,203,98,54,21,68,5,51,4,145,144,23,90,77,91,207,205,187,83,201,18,181,91,182,180,90,181,16,85,17,205,206,36,176,148,140,165,92,39,245,193,244,27,159,28,30,247,161,174,236,196,103,54,104,55,193,8,111,117,31,221,189,55,240,98,99,142,126,100,219,166,218,112,155,26,198,209,131,169,135,150,114,47,217,224,223,53,220,45,134,32,211,140,109,67,108,146,43,91,231,230,120,113,226,247,105,63,52,241,238,242,124,46,156,95,78,96,70,46,63,116,143,227,116,123,111,1,44,19,3,236,51,207,216,205,26,154,22,165,39,167,199,200,208,101,36,100,43,57,202,242,20,99,56,28,157,124,35,113,29,160,27,211,204,210,124,113,46,106,43,204,96,62,77,227,137,116,73,41,72,36,203,142,235,64,240,48,49,64,42,41,74,214,212,207,183,42,184,210,169,211,140,170,176,104,105,69,193,122,168,50,123,187,89,96,90,66,65,107,179,89,180,119,101,120,68,63,104,234,93,227,16,15,85,209,129,49,15,14,86,107,55,9,120,100,121,153,145,22,178,88,179,197,6,196,89,88,96,135,138,136,138,215,172,218,115,219,41,42,81,5,195,51,57,43,61,208,171,199,41,81,38,224,53,225,24,144,110,105,52,66,118,229,117,227,34,234,66,107,69,10,109,151,219,48,235,183,62,191,142,129,126,116,111,143,7,163,246,118,117,50,223,222,52,94,19,141,222,221,65,196,3,197,45,220,44,156,70,139,188,122,245,139,71,162,145,153,159,149,170,150,122,188,196,206,216,92,163,144,161,164,2,167,242,141,241,0,164,37,11,72,12,144,145,160,12,38,13,70,63,71,31,226,111,157,158,154,36,101,205,203,206,165,126,209,217,98,165,97,237,220,218,237,239,241,210,214,169,140,171,32,241,125,237,179,86,178,180,85,179,181,84,180,182,83,181,194,201,182,177,137,132,184,76,183,185,61,184,186,57,185,216,212,186,192,214,187,139,34,156,218,79,237,147,123,177,45,44,4,208,201,32,98,64,129,192,213,138,235,59,219,141,242,97,97,2,141,240,75,235,229,24,228,31,25,226,230,23,229,231,22,230,232,26,231,233,112,232,244,189,243,189,221,190,222,28,221,223,27,222,224,29,223,225,30,224,113,247,225,99,60,240,213,147,215,60,20,166,192,187,213,243,112,244,244,233,245,245,128,188,188,114,174,134,131,220,174,217,236,236,198,134,215,177,58,156,143,124,25,110,7,31,228,25,264,356,368,0,11,267,451,452,349,267,302,269,350,357,277,350,452,357,299,333,297,396,175,377,381,384,382,280,347,330,269,303,270,151,9,337,344,278,360,424,418,431,270,304,409,272,310,407,322,270,410,449,450,347,432,422,434,18,313,17,291,306,375,259,387,260,424,335,418,434,364,416,391,423,327,301,251,298,275,281,4,254,373,253,375,307,321,280,425,411,200,421,18,335,321,406,321,320,405,314,315,17,423,426,266,396,377,369,270,322,269,413,417,464,385,386,258,248,456,419,298,284,333,168,417,8,448,346,261,417,413,285,326,327,328,277,355,329,309,392,438,381,382,256,279,429,360,365,364,379,355,277,437,282,443,283,281,275,363,395,431,369,299,297,337,335,273,321,348,450,349,359,446,467,283,293,282,250,458,462,300,276,383,292,308,325,283,276,293,264,372,447,346,352,340,354,274,19,363,456,281,426,436,425,380,381,252,267,269,393,421,200,428,371,266,329,432,287,422,290,250,328,385,258,384,446,265,342,386,387,257,422,424,430,445,342,276,422,273,424,306,292,307,352,366,345,268,271,302,358,423,371,327,294,460,331,279,294,303,271,304,436,432,427,304,272,408,394,430,431,395,369,400,334,333,299,6,351,168,376,352,411,307,325,320,285,295,336,320,319,404,329,330,349,334,293,333,366,323,447,316,15,315,331,358,279,317,14,316,8,285,9,277,329,350,253,374,252,319,318,403,351,6,419,324,318,325,397,367,365,288,435,397,278,344,439,310,272,311,248,195,281,375,273,291,175,396,199,312,311,268,276,283,445,390,373,339,295,282,296,448,449,346,356,264,454,337,336,299,337,338,151,294,278,455,308,292,415,429,358,355,265,340,372,388,390,466,352,346,280,295,442,282,354,19,370,285,441,295,195,248,197,457,440,274,301,300,368,417,351,465,251,301,389,385,380,386,394,395,379,399,412,419,410,436,322,387,373,388,326,2,393,354,370,461,393,164,267,268,302,12,386,374,387,312,268,13,298,293,301,265,446,340,380,385,381,280,330,425,322,426,391,420,429,437,393,391,326,344,440,438,458,459,461,364,434,394,428,396,262,274,354,457,317,316,402,316,315,403,315,314,404,314,313,405,313,421,406,323,366,361,292,306,407,306,291,408,291,287,409,287,432,410,427,434,411,264,368,383,309,438,457,352,376,401,274,275,4,421,428,262,294,327,358,433,416,367,289,455,439,462,370,326,2,326,370,305,460,455,254,449,448,255,261,446,253,450,449,252,451,450,256,452,451,341,453,452,413,464,463,441,413,414,258,442,441,257,443,442,259,444,443,260,445,444,467,342,445,459,458,250,289,392,290,290,328,460,376,433,435,250,290,392,411,416,433,341,463,464,453,464,465,357,465,412,343,412,399,360,363,440,437,399,456,420,456,363,401,435,288,372,383,353,339,255,249,448,261,255];
+
+  /* ========================================
+     State
+     ======================================== */
+  var isOpen = false;
+  var libsLoaded = false;
+  var animFrameId = null;
+  var cameraStream = null;
+  var faceMesh = null;
+  var sendingFrame = false;
+
+  // Three.js
+  var renderer = null;
+  var scene = null;
+  var threeCamera = null;
+  var currentModel = null;
+
+  // Occluder (invisible face mesh that blocks glasses behind head)
+  var occluderMesh = null;
+  var occluderGeometry = null;
+  var occluderIndexSet = false;
+
+  // GLB cache: url -> THREE.Group (original, not clone)
+  var glbCache = {};
+
+  // Smoothed pose values
+  var sm = { x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0, s: 1 };
+  var poseInit = false;
+
+  // GLB model width (measured from bounding box on load)
+  var glassesModelWidth = 1;
+
+  // Face detection state
+  var lastFaceTime = 0;
+  var faceVisible = false;
+  var noFaceShown = false;
+
+  /* ========================================
+     DOM
+     ======================================== */
+  var $ = function(id) { return document.getElementById(id); };
+  var openBtn     = $('vto-open-btn');
+  var overlay     = $('vto-overlay');
+  var modal       = $('vto-modal');
+  var closeBtn    = $('vto-close-btn');
+  var video       = $('vto-video');
+  var canvas      = $('vto-canvas');
+  var viewport    = $('vto-viewport');
+  var loadingEl   = $('vto-loading');
+  var errorEl     = $('vto-error');
+  var errorMsgEl  = $('vto-error-msg');
+  var tipEl       = $('vto-tip');
+  var noFaceEl    = $('vto-no-face');
+  var variantsEl  = $('vto-variants');
+  var varNameEl   = $('vto-variant-name');
+
+  /* ========================================
+     Helpers
+     ======================================== */
+  function showLoading() {
+    loadingEl.classList.remove('vto-hidden');
+    errorEl.classList.remove('vto-show');
+  }
+
+  function hideLoading() {
+    loadingEl.classList.add('vto-hidden');
+  }
+
+  function showError(msg) {
+    hideLoading();
+    errorMsgEl.textContent = msg;
+    errorEl.classList.add('vto-show');
+  }
+
+  function showTip() {
+    tipEl.classList.remove('vto-hidden');
+    setTimeout(function() {
+      tipEl.classList.add('vto-hidden');
+    }, CONFIG.tipDuration);
+  }
+
+  function lerp(current, target, factor) {
+    return current + (target - current) * factor;
+  }
+
+  function lerpAngle(current, target, factor) {
+    var diff = target - current;
+    if (diff > Math.PI) diff -= 2 * Math.PI;
+    if (diff < -Math.PI) diff += 2 * Math.PI;
+    return current + diff * factor;
+  }
+
+  /* ========================================
+     Script Loader
+     ======================================== */
+  function loadScript(src) {
+    return new Promise(function(resolve, reject) {
+      var existing = document.querySelector('script[src="' + src + '"]');
+      if (existing) { resolve(); return; }
+      var s = document.createElement('script');
+      s.src = src;
+      s.crossOrigin = 'anonymous';
+      s.onload = resolve;
+      s.onerror = function() { reject(new Error('Script laden mislukt: ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  /* ========================================
+     Library Loading (lazy, on first open)
+     ======================================== */
+  function loadThreeScripts() {
+    if (window.THREE && window.THREE.GLTFLoader) return Promise.resolve();
+    return loadScript('https://unpkg.com/three@0.128.0/build/three.min.js')
+      .then(function() {
+        return loadScript('https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js');
+      });
+  }
+
+  function loadMediaPipeScripts() {
+    if (window.FaceMesh) return Promise.resolve();
+    return loadScript('https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/face_mesh.js');
+  }
+
+  async function loadLibraries() {
+    if (libsLoaded) return;
+    await Promise.all([loadThreeScripts(), loadMediaPipeScripts()]);
+    libsLoaded = true;
+  }
+
+  /* ========================================
+     Three.js Init
+     ======================================== */
+  function initThreeJS() {
+    if (renderer) return;
+
+    var THREE = window.THREE;
+
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.sortObjects = true;
+
+    scene = new THREE.Scene();
+
+    threeCamera = new THREE.PerspectiveCamera(CONFIG.cameraFOV, 4 / 3, 1, CONFIG.cameraZ * 3);
+    threeCamera.position.set(0, 0, CONFIG.cameraZ);
+
+    // Lighting
+    scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+
+    var keyLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    keyLight.position.set(0.5, 1, 1);
+    scene.add(keyLight);
+
+    var fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+    fillLight.position.set(-0.5, -0.5, 0.5);
+    scene.add(fillLight);
+
+    var leftSideLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    leftSideLight.position.set(-1, 0.3, -0.5);
+    scene.add(leftSideLight);
+
+    var rightSideLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    rightSideLight.position.set(1, 0.3, -0.5);
+    scene.add(rightSideLight);
+
+    // Invisible face occluder
+    occluderGeometry = new THREE.BufferGeometry();
+    var occluderMat = new THREE.MeshBasicMaterial({
+      colorWrite: false,
+      depthWrite: true,
+      depthTest: true,
+      side: THREE.DoubleSide
+    });
+    occluderMesh = new THREE.Mesh(occluderGeometry, occluderMat);
+    occluderMesh.renderOrder = 0;
+    occluderMesh.frustumCulled = false;
+    scene.add(occluderMesh);
+
+    resizeRenderer();
+  }
+
+  function ensureOccluder() {
+    if (occluderMesh && occluderGeometry) return;
+
+    var THREE = window.THREE;
+    occluderGeometry = new THREE.BufferGeometry();
+    var occluderMat = new THREE.MeshBasicMaterial({
+      colorWrite: false,
+      depthWrite: true,
+      depthTest: true,
+      side: THREE.DoubleSide
+    });
+    occluderMesh = new THREE.Mesh(occluderGeometry, occluderMat);
+    occluderMesh.renderOrder = 0;
+    occluderMesh.frustumCulled = false;
+    occluderIndexSet = false;
+    scene.add(occluderMesh);
+  }
+
+  function resizeRenderer() {
+    if (!renderer || !viewport) return;
+    var rect = viewport.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+    renderer.setSize(rect.width, rect.height);
+    threeCamera.aspect = rect.width / rect.height;
+    threeCamera.updateProjectionMatrix();
+  }
+
+  /* ========================================
+     MediaPipe Face Mesh Init
+     ======================================== */
+  function initFaceMesh() {
+    if (faceMesh) return;
+
+    faceMesh = new window.FaceMesh({
+      locateFile: function(file) {
+        return 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4.1633559619/' + file;
+      }
+    });
+
+    faceMesh.setOptions({
+      maxNumFaces: 1,
+      refineLandmarks: true,
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5
+    });
+
+    faceMesh.onResults(onFaceResults);
+    console.log('[VTO] FaceMesh created (WASM loads on first frame)');
+  }
+
+  /* ========================================
+     Variant Thumbnails
+     ======================================== */
+  function findGlbForVariant(variantIndex) {
+    var v = productVariants[variantIndex];
+
+    // Check metafield URL eerst (GitHub-hosted models)
+    if (typeof variantGlbUrls[v.id] === 'string' && variantGlbUrls[v.id]) {
+      return variantGlbUrls[v.id];
+    }
+
+    // Fallback: zoek in Shopify media (bestaande modellen)
+    if (v.mediaIdx < 0) return null;
+
+    var start = v.mediaIdx;
+    var end = productMedia.length;
+    for (var i = 0; i < productVariants.length; i++) {
+      if (i !== variantIndex && productVariants[i].mediaIdx > start && productVariants[i].mediaIdx < end) {
+        end = productVariants[i].mediaIdx;
+      }
+    }
+
+    for (var j = end - 1; j >= start; j--) {
+      if (productMedia[j].type === 'model' && productMedia[j].glbUrl) {
+        return productMedia[j].glbUrl;
+      }
+    }
+    return null;
+  }
+
+  function getFirstGlbUrl() {
+    // Check Shopify media eerst
+    for (var i = 0; i < productMedia.length; i++) {
+      if (productMedia[i].type === 'model' && productMedia[i].glbUrl) {
+        return productMedia[i].glbUrl;
+      }
+    }
+    // Fallback: eerste metafield URL
+    var keys = Object.keys(variantGlbUrls);
+    for (var k = 0; k < keys.length; k++) {
+      if (typeof variantGlbUrls[keys[k]] === 'string' && variantGlbUrls[keys[k]]) {
+        return variantGlbUrls[keys[k]];
+      }
+    }
+    return null;
+  }
+
+  function buildVariantUI() {
+    variantsEl.innerHTML = '';
+
+    var firstGlbUrl = getFirstGlbUrl();
+
+    var entries = [];
+    productVariants.forEach(function(v, idx) {
+      var name = (v.option1 || v.title || '').trim();
+      var glbUrl = findGlbForVariant(idx) || firstGlbUrl;
+
+      if (glbUrl) {
+        entries.push({
+          glbUrl: glbUrl,
+          image: v.image || null,
+          title: name || v.title
+        });
+      }
+    });
+
+    if (entries.length === 0 && firstGlbUrl) {
+      entries.push({ glbUrl: firstGlbUrl, image: null, title: 'Model 1' });
+    }
+
+    if (entries.length === 0) return entries;
+
+    entries.forEach(function(entry, idx) {
+      var btn = document.createElement('button');
+      btn.className = 'vto-thumb' + (idx === 0 ? ' vto-thumb-active' : '');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', entry.title);
+      btn.dataset.glbUrl = entry.glbUrl;
+      btn.dataset.title = entry.title;
+
+      if (entry.image) {
+        var img = document.createElement('img');
+        img.src = entry.image;
+        img.alt = entry.title;
+        img.loading = 'lazy';
+        btn.appendChild(img);
+      } else {
+        btn.textContent = entry.title.charAt(0).toUpperCase();
+        btn.style.cssText = 'display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;color:#666';
+      }
+
+      btn.addEventListener('click', function() {
+        var thumbs = variantsEl.querySelectorAll('.vto-thumb');
+        for (var i = 0; i < thumbs.length; i++) thumbs[i].classList.remove('vto-thumb-active');
+        btn.classList.add('vto-thumb-active');
+        varNameEl.textContent = entry.title;
+        loadGLB(entry.glbUrl);
+      });
+
+      variantsEl.appendChild(btn);
+    });
+
+    varNameEl.textContent = entries[0].title;
+    return entries;
+  }
+
+  /* ========================================
+     GLB Model Loading
+     ======================================== */
+  function trimTempleGeometry(group) {
+    var THREE = window.THREE;
+
+    group.traverse(function(child) {
+      if (!child.isMesh) return;
+
+      var geo = child.geometry;
+      var index = geo.index;
+      var position = geo.attributes.position;
+      if (!index) return;
+
+      geo.computeBoundingBox();
+      var bb = geo.boundingBox;
+      var zMin = bb.min.z;
+      var zMax = bb.max.z;
+      var zRange = zMax - zMin;
+
+      var keepFraction = 0.45;
+      var cutoffZ = zMax - (zRange * keepFraction);
+
+      console.log('[VTO] Trim mesh:', child.name,
+        '| local Z range:', zMin.toFixed(4), 'to', zMax.toFixed(4),
+        '| cutoff:', cutoffZ.toFixed(4));
+
+      var oldIndices = index.array;
+      var newIndices = [];
+
+      for (var i = 0; i < oldIndices.length; i += 3) {
+        var i0 = oldIndices[i];
+        var i1 = oldIndices[i + 1];
+        var i2 = oldIndices[i + 2];
+
+        var z0 = position.getZ(i0);
+        var z1 = position.getZ(i1);
+        var z2 = position.getZ(i2);
+
+        if (z0 > cutoffZ || z1 > cutoffZ || z2 > cutoffZ) {
+          newIndices.push(i0, i1, i2);
+        }
+      }
+
+      console.log('[VTO] Kept', (newIndices.length / 3), 'of', (oldIndices.length / 3), 'triangles');
+
+      geo.setIndex(new THREE.BufferAttribute(new Uint32Array(newIndices), 1));
+      geo.index.needsUpdate = true;
+      geo.computeBoundingBox();
+      geo.computeBoundingSphere();
+    });
+  }
+
+  function loadGLB(url) {
+    if (!scene) return;
+    console.log('[VTO] Loading GLB:', url);
+
+    if (currentModel) {
+      scene.remove(currentModel);
+      currentModel = null;
+    }
+
+    if (glbCache[url]) {
+      glassesModelWidth = glbCache[url].width;
+      currentModel = glbCache[url].group.clone();
+      currentModel.traverse(function(child) {
+        if (child.isMesh) child.renderOrder = 1;
+      });
+      scene.add(currentModel);
+      poseInit = false;
+      emaInitialized = false;
+      console.log('[VTO] GLB loaded from cache, width:', glassesModelWidth.toFixed(4));
+      return;
+    }
+
+    var loader = new window.THREE.GLTFLoader();
+    loader.load(
+      url,
+      function(gltf) {
+        var model = gltf.scene;
+        var THREE = window.THREE;
+
+        var box = new THREE.Box3().setFromObject(model);
+        var center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
+
+        var size = box.getSize(new THREE.Vector3());
+        model.position.y -= size.y * 0.12;
+
+        var xWidth = size.x > 0 ? size.x : Math.max(size.x, size.y, size.z);
+        if (xWidth > 0) {
+          model.scale.multiplyScalar(CONFIG.glbNormalizedSize / xWidth);
+        }
+
+        var frameCorrection = productFrameWidth / CONFIG.referenceFrameWidth;
+        model.scale.multiplyScalar(frameCorrection);
+
+        var scaledBox = new THREE.Box3().setFromObject(model);
+        var scaledSize = scaledBox.getSize(new THREE.Vector3());
+        model.position.z -= scaledSize.z * 0.45;
+
+        var normalizedBox = new THREE.Box3().setFromObject(model);
+        var normalizedSize = normalizedBox.getSize(new THREE.Vector3());
+        glassesModelWidth = normalizedSize.x;
+
+        console.log('[VTO] GLB loaded, size:', size.x.toFixed(3), size.y.toFixed(3), size.z.toFixed(3), '| normalized width:', glassesModelWidth.toFixed(4));
+
+        var group = new THREE.Group();
+        group.add(model);
+
+        trimTempleGeometry(group);
+
+        glbCache[url] = { group: group, width: glassesModelWidth };
+
+        if (currentModel) scene.remove(currentModel);
+        currentModel = group.clone();
+        poseInit = false;
+        emaInitialized = false;
+        currentModel.traverse(function(child) {
+          if (child.isMesh) child.renderOrder = 1;
+        });
+        scene.add(currentModel);
+      },
+      undefined,
+      function(err) {
+        console.error('[VTO] GLB load error:', url, err);
+      }
+    );
+  }
+
+  /* ========================================
+     Face Results → Head Pose → Model Update
+     ======================================== */
+  var emaFaceWidth = 0;
+  var emaInitialized = false;
+
+  function onFaceResults(results) {
+    if (!isOpen) return;
+
+    var landmarks = results.multiFaceLandmarks && results.multiFaceLandmarks[0];
+
+    if (!landmarks) {
+      if (faceVisible) {
+        faceVisible = false;
+        lastFaceTime = Date.now();
+      }
+      if (!noFaceShown && lastFaceTime > 0 && (Date.now() - lastFaceTime) > CONFIG.noFaceTimeout) {
+        noFaceEl.classList.add('vto-show');
+        noFaceShown = true;
+      }
+      if (occluderMesh) occluderMesh.visible = false;
+      return;
+    }
+
+    if (!faceVisible) console.log('[VTO] Face detected, model:', !!currentModel);
+    faceVisible = true;
+    if (noFaceShown) {
+      noFaceEl.classList.remove('vto-show');
+      noFaceShown = false;
+    }
+
+    var THREE = window.THREE;
+
+    function mx(lm) { return { x: 1 - lm.x, y: lm.y, z: lm.z }; }
+
+    var noseBridgeLm   = mx(landmarks[168]);
+    var noseMidLm      = mx(landmarks[6]);
+    var leftTemple     = mx(landmarks[454]);
+    var rightTemple    = mx(landmarks[234]);
+    var foreheadLm     = mx(landmarks[10]);
+    var innerEyeLeftLm  = mx(landmarks[362]);
+    var innerEyeRightLm = mx(landmarks[133]);
+
+    var fovRad = (CONFIG.cameraFOV * Math.PI) / 180;
+    var camZ = threeCamera ? threeCamera.position.z : 1;
+    var visH = 2 * Math.tan(fovRad / 2) * camZ;
+    var visW = visH * (threeCamera ? threeCamera.aspect : 4 / 3);
+
+    function toVec3(lm) {
+      return new THREE.Vector3(
+        (lm.x - 0.5) * visW,
+        -(lm.y - 0.5) * visH,
+        -(lm.z || 0) * visW
+      );
+    }
+
+    var noseVec     = toVec3(noseBridgeLm);
+    var leftVec     = toVec3(leftTemple);
+    var rightVec    = toVec3(rightTemple);
+    var foreheadVec = toVec3(foreheadLm);
+    var innerLeftVec  = toVec3(innerEyeLeftLm);
+    var innerRightVec = toVec3(innerEyeRightLm);
+    var noseMidVec = toVec3(noseMidLm);
+
+    var eyeMidY = (innerLeftVec.y + innerRightVec.y) / 2;
+    var targetX = noseVec.x;
+    var targetY = eyeMidY * 0.4 + noseMidVec.y * 0.6;
+    var targetZ = noseVec.z + CONFIG.zOffset;
+
+    var dx = rightVec.x - leftVec.x;
+    var dy = rightVec.y - leftVec.y;
+    var dz = rightVec.z - leftVec.z;
+    var rawFaceWidth = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+    if (!emaInitialized) {
+      emaFaceWidth = rawFaceWidth;
+      emaInitialized = true;
+    } else {
+      var widthChange = Math.abs(rawFaceWidth - emaFaceWidth) / (emaFaceWidth || 1);
+      var emaFactor = widthChange > 0.06 ? 0.4 : 0.08;
+      emaFaceWidth = emaFaceWidth + (rawFaceWidth - emaFaceWidth) * emaFactor;
+    }
+    var targetS = (emaFaceWidth / glassesModelWidth) * CONFIG.scaleMultiplier;
+
+    var xAxis = new THREE.Vector3().subVectors(rightVec, leftVec).normalize();
+    var upHint = new THREE.Vector3().subVectors(foreheadVec, noseVec).normalize();
+    var zAxis = new THREE.Vector3().crossVectors(xAxis, upHint).normalize();
+    var yAxis = new THREE.Vector3().crossVectors(zAxis, xAxis).normalize();
+
+    targetY -= visH * 0.005;
+
+    var rotMatrix = new THREE.Matrix4().makeBasis(xAxis, yAxis, zAxis);
+    var targetEuler = new THREE.Euler().setFromRotationMatrix(rotMatrix, 'YXZ');
+
+    var targetRX = targetEuler.x;
+    var targetRY = targetEuler.y;
+    var targetRZ = targetEuler.z;
+
+    if (!poseInit) {
+      sm.x = targetX;
+      sm.y = targetY;
+      sm.z = targetZ;
+      sm.rx = targetRX;
+      sm.ry = targetRY;
+      sm.rz = targetRZ;
+      sm.s = targetS;
+      poseInit = true;
+    } else {
+      var lp = CONFIG.lerpPosition;
+      var lr = CONFIG.lerpRotation;
+
+      var posDiff = Math.sqrt(
+        (targetX - sm.x) * (targetX - sm.x) +
+        (targetY - sm.y) * (targetY - sm.y)
+      );
+      var posThreshold = visW * 0.01;
+      var adaptiveLP = posDiff > posThreshold ? Math.min(lp * 1.5, 0.95) : lp;
+
+      sm.x = lerp(sm.x, targetX, adaptiveLP);
+      sm.y = lerp(sm.y, targetY, adaptiveLP);
+      sm.z = lerp(sm.z, targetZ, adaptiveLP);
+
+      var rotDiff = Math.abs(targetRY - sm.ry);
+      var rotThreshold = 0.03;
+      var adaptiveLR = rotDiff > rotThreshold ? Math.min(lr * 1.5, 0.9) : lr;
+
+      sm.rx = lerpAngle(sm.rx, targetRX, adaptiveLR);
+      sm.ry = lerpAngle(sm.ry, targetRY, adaptiveLR);
+      sm.rz = lerpAngle(sm.rz, targetRZ, adaptiveLR);
+
+      sm.s = lerp(sm.s, targetS, 0.15);
+    }
+
+    if (currentModel) {
+      currentModel.position.set(sm.x, sm.y, sm.z);
+      currentModel.rotation.order = 'YXZ';
+      currentModel.rotation.set(sm.rx, sm.ry, sm.rz, 'YXZ');
+      currentModel.scale.setScalar(sm.s);
+    }
+
+    // Update invisible face occluder mesh
+    if (occluderMesh && occluderGeometry) {
+      var THREE = window.THREE;
+      var positions = new Float32Array(468 * 3);
+      var zScale = visW * CONFIG.occluderZScale;
+
+      for (var i = 0; i < 468; i++) {
+        var lm = landmarks[i];
+        var lx = 1 - lm.x;
+        positions[i * 3]     = (lx - 0.5) * visW;
+        positions[i * 3 + 1] = -(lm.y - 0.5) * visH;
+        positions[i * 3 + 2] = -(lm.z || 0) * zScale;
+      }
+
+      occluderGeometry.setAttribute('position',
+        new THREE.BufferAttribute(positions, 3));
+
+      if (!occluderIndexSet) {
+        occluderGeometry.setIndex(FACE_TRI);
+        occluderIndexSet = true;
+      }
+
+      occluderGeometry.attributes.position.needsUpdate = true;
+      occluderGeometry.computeVertexNormals();
+      occluderMesh.visible = true;
+    }
+  }
+
+  /* ========================================
+     Render Loop (also drives face detection)
+     ======================================== */
+  function renderLoop() {
+    if (!isOpen) return;
+
+    if (faceMesh && video.readyState >= 2 && !sendingFrame) {
+      sendingFrame = true;
+      faceMesh.send({ image: video }).then(function() {
+        sendingFrame = false;
+      }).catch(function() {
+        sendingFrame = false;
+      });
+    }
+
+    if (renderer && scene && threeCamera) {
+      renderer.render(scene, threeCamera);
+    }
+    animFrameId = requestAnimationFrame(renderLoop);
+  }
+
+  /* ========================================
+     Camera
+     ======================================== */
+  async function startCamera() {
+    try {
+      cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 960 } }
+      });
+      video.srcObject = cameraStream;
+      await new Promise(function(resolve) {
+        video.onloadedmetadata = function() { video.play(); resolve(); };
+      });
+    } catch (err) {
+      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+        showError('Cameratoegang geweigerd. Wijzig dit in je browserinstellingen.');
+      } else {
+        showError('Camera niet beschikbaar. Sta cameratoegang toe in je browserinstellingen.');
+      }
+      throw err;
+    }
+  }
+
+  function stopCamera() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach(function(t) { t.stop(); });
+      cameraStream = null;
+    }
+    video.srcObject = null;
+  }
+
+  /* ========================================
+     Three.js Cleanup
+     ======================================== */
+  function disposeModel(obj) {
+    if (!obj) return;
+    obj.traverse(function(child) {
+      if (child.geometry) child.geometry.dispose();
+      if (child.material) {
+        if (Array.isArray(child.material)) {
+          child.material.forEach(function(m) { m.dispose(); });
+        } else {
+          child.material.dispose();
+        }
+      }
+    });
+  }
+
+  function cleanupScene() {
+    if (currentModel && scene) {
+      scene.remove(currentModel);
+      currentModel = null;
+    }
+    if (occluderMesh && scene) {
+      scene.remove(occluderMesh);
+      occluderMesh = null;
+    }
+    if (occluderGeometry) {
+      occluderGeometry.dispose();
+      occluderGeometry = null;
+    }
+    occluderIndexSet = false;
+  }
+
+  function fullDispose() {
+    cleanupScene();
+    Object.keys(glbCache).forEach(function(url) {
+      disposeModel(glbCache[url].group);
+    });
+    glbCache = {};
+    if (renderer) {
+      renderer.dispose();
+      renderer = null;
+    }
+    scene = null;
+    threeCamera = null;
+  }
+
+  /* ========================================
+     Open / Close Modal
+     ======================================== */
+  async function openModal() {
+    if (isOpen) return;
+    isOpen = true;
+
+    // Reset pose state
+    poseInit = false;
+    emaInitialized = false;
+    faceVisible = false;
+    noFaceShown = false;
+    lastFaceTime = 0;
+
+    // Reset UI
+    noFaceEl.classList.remove('vto-show');
+    errorEl.classList.remove('vto-show');
+    tipEl.classList.remove('vto-hidden');
+
+    // Show modal with animation
+    overlay.classList.add('vto-active');
+    void overlay.offsetWidth;
+    overlay.classList.add('vto-visible');
+    document.body.classList.add('vto-modal-open');
+
+    showLoading();
+
+    console.log('[VTO] Media:', productMedia.length, '| Variants:', productVariants.length);
+
+    var entries = buildVariantUI();
+    console.log('[VTO] Variant entries built:', entries ? entries.length : 0);
+
+    // Step 1: Start camera
+    try {
+      await startCamera();
+    } catch (err) {
+      console.error('[VTO] Camera error:', err);
+      hideLoading();
+      return;
+    }
+
+    // Step 2: Load libraries and init 3D rendering
+    try {
+      await loadLibraries();
+
+      initThreeJS();
+      ensureOccluder();
+      initFaceMesh();
+      resizeRenderer();
+
+      if (entries && entries.length > 0) {
+        loadGLB(entries[0].glbUrl);
+      } else {
+        var fallbackUrl = getFirstGlbUrl();
+        if (fallbackUrl) loadGLB(fallbackUrl);
+      }
+
+      hideLoading();
+      showTip();
+
+      renderLoop();
+
+    } catch (err) {
+      console.error('[VTO] Library/3D init error:', err);
+      hideLoading();
+      showError('3D laden mislukt: ' + (err.message || err));
+    }
+  }
+
+  function closeModal() {
+    if (!isOpen) return;
+    isOpen = false;
+
+    overlay.classList.remove('vto-visible');
+
+    setTimeout(function() {
+      overlay.classList.remove('vto-active');
+      document.body.classList.remove('vto-modal-open');
+
+      if (animFrameId) {
+        cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+
+      stopCamera();
+      cleanupScene();
+
+      noFaceEl.classList.remove('vto-show');
+      tipEl.classList.add('vto-hidden');
+    }, 200);
+  }
+
+  /* ========================================
+     Event Listeners
+     ======================================== */
+  // Move overlay to document.body so parent transforms don't break position:fixed
+  document.body.appendChild(overlay);
+
+  // Move button into product image area — must be on a non-scrolling container
+  // so it stays visible when swiping through slides.
+  // The slider itself has overflow-x:auto, so absolute-positioned children
+  // inside it scroll with the slides. Attach to the slider's PARENT instead.
+  (function() {
+    var wrapper = null;
+    var btn = openBtn;
+    if (!btn) return;
+
+    // Find the horizontally-scrolling slider (slider-element custom element
+    // with class .slider). Its parent is a stable, non-scrolling wrapper.
+    var slider = document.querySelector('slider-element.slider')
+              || document.querySelector('.slider.slider--mobile')
+              || document.querySelector('.slider.slider--tablet')
+              || document.querySelector('.slider.slider--desktop');
+
+    // Fallback: find via product__media-list and step up to its slider parent
+    if (!slider) {
+      var list = document.querySelector('.product__media-list');
+      if (list) slider = list.closest('slider-element, .slider') || list.parentElement;
+    }
+
+    if (slider && slider.parentElement) {
+      wrapper = slider.parentElement;
+    }
+
+    // Last-resort fallbacks (unchanged)
+    if (!wrapper) {
+      wrapper = document.querySelector('.product__media-gallery')
+              || document.querySelector('.product__media-wrapper')
+              || document.querySelector('.product-media-container')
+              || document.querySelector('.product__media.card.media')
+              || document.querySelector('.product__media-item')
+              || document.querySelector('.product__media');
+    }
+
+    if (wrapper) {
+      var style = window.getComputedStyle(wrapper);
+      if (style.position === 'static') {
+        wrapper.style.position = 'relative';
+      }
+      wrapper.appendChild(btn);
+    }
+  })();
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) closeModal();
+  });
+
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      if (isOpen) resizeRenderer();
+    }, 100);
+  });
+
+})();
+</script>
+
+{%- endif -%}
+{% comment %} Tag "virtual-tryon" op product → knop verschijnt {% endcomment %}

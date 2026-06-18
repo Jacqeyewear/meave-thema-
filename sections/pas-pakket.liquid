@@ -1,0 +1,4470 @@
+{% comment %}
+  JACQ — Pas pakket (try-at-home selector)
+  Customer picks 4 unique frames; the cart receives a single
+  'paspakket' product (€20) with the 4 selections as line-item
+  properties. The merchant ships those frames; the €20 is later
+  refunded as a discount when a real pair is purchased.
+
+  Section settings:
+    - paspakket_product: the Shopify product representing the
+      €20 try-on package (variant_id is read from product.variants[0])
+    - heading / subtitle / cta_label
+{% endcomment %}
+
+<style>
+  .paspakket {
+    --pp-text: #1D1D1F;
+    --pp-muted: #6e6e73;
+    --pp-subtle: #86868b;
+    --pp-bg: #ffffff;
+    --pp-card: #ffffff;
+    --pp-image-bg: #F5F5F7;
+    --pp-border: rgba(0,0,0,0.06);
+    --pp-brand: #0071E3;
+    --pp-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 3px 10px rgba(0,0,0,0.05),
+      0 10px 28px rgba(0,0,0,0.06);
+    --pp-shadow-hover:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 4px 14px rgba(0,0,0,0.07),
+      0 14px 36px rgba(0,0,0,0.08);
+    --pp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+    background: var(--pp-bg);
+    color: var(--pp-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 0 clamp(40px, 6vw, 72px);
+  }
+
+  .paspakket *, .paspakket *::before, .paspakket *::after { box-sizing: border-box; }
+
+  /* Hide the theme's 1px cutout divider that appears below the sticky header */
+  .header__cutout { display: none !important; }
+
+  /* Fill the body background behind rounded section corners with white */
+  html, body { background: #ffffff !important; }
+
+  .pp-wrap {
+    max-width: min(1680px, calc(100vw - 24px));
+    margin: 0 auto;
+    padding-inline: clamp(16px, 2vw, 32px);
+  }
+
+  /* ── Header ── */
+  .pp-header {
+    text-align: left;
+    margin-bottom: clamp(12px, 2vw, 18px);
+    padding: clamp(16px, 2.5vw, 24px) 0 0;
+  }
+  /* Match the collection-page banner styling but capped to a more
+     restrained size on the paspakket hero. */
+  .pp-header__title {
+    font-size: clamp(30px, 4.6vw, 46px);
+    font-weight: var(--font-heading-weight, 700);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin: 0 0 12px;
+  }
+  .pp-header__sub {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--pp-muted);
+    max-width: 540px;
+    margin: 0;
+    letter-spacing: -0.005em;
+    line-height: 1.5;
+  }
+  .pp-header__sub + .pp-header__sub--alt {
+    margin-top: 4px;
+  }
+  .pp-howto-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 0 0;
+    padding: 10px 18px;
+    background: rgba(0,113,227,0.08);
+    color: var(--pp-brand);
+    border: 0;
+    border-radius: 980px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: background 220ms var(--pp-ease), transform 220ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-howto-trigger:hover { background: rgba(0,113,227,0.14); transform: translateY(-1px); }
+  .pp-howto-trigger:active { transform: scale(0.97); }
+  .pp-howto-trigger svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* Slots header (basket title + count) — hidden on mobile, shown in desktop hero */
+  .pp-slots-header { display: none; }
+
+  /* Desktop hero: title left, basket floats top-right (absolute).
+     On scroll past hero, JS toggles .is-stuck so the basket switches
+     to fixed-top-centered (the original sticky behaviour) and the rest
+     of the page (pills, filters, products) keeps the original full
+     width — nothing else is constrained by the hero. */
+  @media (min-width: 1024px) {
+    .pp-wrap {
+      position: relative;
+    }
+    .pp-header {
+      padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 2.5vw, 32px);
+      padding-right: clamp(440px, 40vw, 600px);
+      min-height: 280px;
+      margin-bottom: 0;
+    }
+    /* Desktop: match the visual weight of the collection banner —
+       large but not gigantic. */
+    .pp-header__title {
+      font-size: clamp(38px, 3.6vw, 52px);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      margin-bottom: 14px;
+    }
+    .pp-header__sub {
+      font-size: clamp(15px, 1.2vw, 16px);
+      line-height: 1.5;
+      max-width: 540px;
+    }
+    /* Second sentence sits below the first and gets enough width to
+       stay on a single line on big screens. On medium / narrow
+       viewports it wraps naturally. */
+    .pp-header__sub--alt {
+      font-size: clamp(14px, 1.05vw, 15.5px);
+      max-width: min(820px, 100%);
+      color: var(--pp-subtle);
+      margin-top: 4px !important;
+    }
+    /* Initial state: absolute-positioned top-right of .pp-wrap.
+       !important is used to win over the base sticky rules declared
+       later in the stylesheet (same specificity, source-order
+       cascade). */
+    .pp-slots-wrap {
+      position: absolute !important;
+      top: clamp(36px, 5vw, 72px) !important;
+      right: clamp(16px, 2vw, 32px) !important;
+      left: auto !important;
+      width: clamp(420px, 38vw, 560px) !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 22px 22px 22px !important;
+      border-radius: 22px !important;
+      box-shadow:
+        0 4px 18px rgba(0,0,0,0.05),
+        0 1px 3px rgba(0,0,0,0.04) !important;
+      z-index: 6;
+    }
+    /* Scrolled past hero: fixed at top, horizontally centered — matches
+       the old centered sticky-bar look. */
+    .pp-slots-wrap.is-stuck {
+      position: fixed !important;
+      top: calc(var(--sticky-header-height, var(--header-height, 0px)) - 4px) !important;
+      right: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      width: 640px !important;
+      max-width: calc(100% - 16px) !important;
+      padding: 12px 16px 14px !important;
+      border-radius: 0 0 22px 22px !important;
+      box-shadow:
+        0 -8px 0 0 #ffffff,
+        0 8px 24px rgba(0,0,0,0.08),
+        0 2px 6px rgba(0,0,0,0.05) !important;
+    }
+    .pp-slots-wrap.is-stuck.is-hidden-scrolling {
+      transform: translateX(-50%) translateY(-110%) !important;
+    }
+    /* Disable the hover-expand while pinned in hero */
+    .pp-slots-wrap:not(.is-stuck):hover {
+      width: clamp(420px, 38vw, 560px) !important;
+      padding: 22px 22px 22px !important;
+      box-shadow:
+        0 8px 24px rgba(0,0,0,0.08),
+        0 2px 6px rgba(0,0,0,0.05) !important;
+    }
+    .pp-slots-wrap:not(.is-stuck):hover .pp-slots { max-width: 100% !important; gap: 12px !important; }
+    .pp-slots-wrap:not(.is-stuck):hover .pp-slots > * { max-width: 136px !important; }
+    /* "Jouw paspakket" mini-header only inside the hero card */
+    .pp-slots-wrap:not(.is-stuck) .pp-slots-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 4px 14px;
+    }
+    .pp-slots-header__title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--pp-text);
+      letter-spacing: -0.018em;
+    }
+    .pp-slots-header__count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--pp-text-muted);
+      background: var(--pp-image-bg);
+      padding: 4px 10px;
+      border-radius: 980px;
+      letter-spacing: 0;
+    }
+  }
+
+  /* ── Slots row ── */
+  .pp-slots-wrap {
+    position: sticky;
+    top: calc(var(--sticky-header-height, var(--header-height, 0px)) - 4px);
+    z-index: 5;
+    width: 640px;
+    max-width: calc(100% - 16px);
+    margin: 0 auto clamp(14px, 2vw, 20px);
+    padding: 12px 16px 14px;
+    background: #ffffff;
+    border-radius: 0 0 22px 22px;
+    box-shadow: 0 -8px 0 0 #ffffff;
+    transform: translateY(0);
+    opacity: 1;
+    transition:
+      transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+      width 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      padding 620ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 620ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+    transform-origin: top center;
+  }
+  .pp-slots-wrap.is-hidden-scrolling {
+    transform: translateY(-110%);
+    opacity: 0;
+    transition:
+      transform 460ms cubic-bezier(0.4, 0, 0.6, 1),
+      opacity 260ms cubic-bezier(0.4, 0, 1, 1);
+  }
+  /* Desktop hover: expand the bar so the selected frames become more
+     prominent. Only on devices that actually have a hover-capable
+     pointer — never on touch. Symmetric easing on enter AND leave
+     so the bar settles back as gently as it expands. */
+  @media (hover: hover) and (pointer: fine) {
+    .pp-slots-wrap:hover {
+      width: 820px;
+      padding: 22px 28px 26px;
+      box-shadow:
+        0 -8px 0 0 #ffffff,
+        0 14px 36px rgba(0, 0, 0, 0.10),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+    .pp-slots-wrap:hover .pp-slots {
+      max-width: 760px;
+      gap: 18px;
+    }
+    .pp-slots-wrap:hover .pp-slots > * {
+      max-width: 180px;
+    }
+    .pp-slots,
+    .pp-slots > * {
+      transition:
+        max-width 680ms cubic-bezier(0.22, 1, 0.36, 1),
+        gap 680ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+  .pp-slots {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+  .pp-slots > * { flex: 1 1 0; max-width: 136px; }
+  @media (max-width: 720px) {
+    .pp-slots { max-width: min(480px, 100%); }
+    .pp-slots > * { max-width: 108px; }
+  }
+
+  /* Hide the small 1/2/3/4 numerals — the row already reads as four slots */
+  .pp-slot__num { display: none; }
+  @media (max-width: 720px) {
+    /* Mobile basket: a clean rounded card with title + 2x2 grid of
+       slots and CTA. All four slots are visible at once — no scroll. */
+    .pp-slots-wrap {
+      position: static;
+      top: auto;
+      padding: 16px 14px 16px;
+      margin: 4px 0 clamp(20px, 4vw, 32px);
+      transform: none !important;
+      transition: none;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.04),
+        0 6px 18px rgba(0,0,0,0.05);
+      width: 100%;
+      max-width: 100%;
+    }
+    .pp-slots-header {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 2px 12px;
+    }
+    .pp-slots-header__title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--pp-text);
+      letter-spacing: -0.012em;
+    }
+    .pp-slots-header__count {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--pp-text-muted);
+      background: var(--pp-image-bg);
+      padding: 3px 9px;
+      border-radius: 980px;
+      letter-spacing: 0;
+    }
+    .pp-slots {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+    }
+    .pp-slots > * {
+      max-width: 100%;
+      width: auto;
+    }
+    .pp-slot {
+      flex: none;
+      aspect-ratio: 1 / 1;
+    }
+    .pp-cta-bar { margin-top: 14px; }
+    .pp-cta { width: 100%; }
+  }
+
+  .pp-slot {
+    position: relative;
+    background: var(--pp-image-bg);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 280ms var(--pp-ease), transform 280ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+    border: 0;
+  }
+  .pp-slot:focus-visible {
+    outline: 2px solid var(--pp-brand);
+    outline-offset: -2px;
+  }
+  .pp-slot:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10), inset 0 0 0 0.5px rgba(0, 0, 0, 0.10);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pp-slot:hover {
+      transform: scale(1.12);
+      z-index: 2;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14), inset 0 0 0 0.5px rgba(0, 0, 0, 0.10);
+    }
+  }
+  .pp-slot.is-drop-target {
+    box-shadow: 0 0 0 2px var(--pp-brand);
+  }
+  .pp-slot.is-filled {
+    background: #ffffff;
+    box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .pp-slot.is-filled:hover {
+      box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.10);
+    }
+  }
+
+  .pp-slot__num {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    z-index: 2;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pp-subtle);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pp-slot__media {
+    flex: 1 1 100%;
+    background: var(--pp-image-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  .pp-slot__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center;
+    padding: 0 !important;
+    display: block;
+  }
+  .pp-slot__placeholder {
+    color: var(--pp-subtle);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    text-align: center;
+    padding: 0 8px;
+  }
+  .pp-slot__placeholder svg {
+    display: block;
+    margin: 0 auto;
+    color: var(--pp-subtle);
+    width: 26px;
+    height: 26px;
+  }
+  .pp-slot__info {
+    padding: 8px 12px 10px;
+    background: #fff;
+  }
+  .pp-slot__title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--pp-text);
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pp-slot__variant {
+    font-size: 11px;
+    color: var(--pp-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .pp-slot__remove {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 3;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.30);
+    color: #fff;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(8px) saturate(160%);
+    backdrop-filter: blur(8px) saturate(160%);
+    opacity: 0;
+    transform: scale(0.85);
+    transition:
+      background 200ms var(--pp-ease),
+      opacity 220ms var(--pp-ease),
+      transform 220ms var(--pp-ease);
+  }
+  .pp-slot.is-filled .pp-slot__remove {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .pp-slot__remove:hover { background: rgba(0,0,0,0.55); }
+  @media (hover: hover) and (pointer: fine) {
+    /* Only show the X on hover on desktop (cleaner card resting state) */
+    .pp-slot.is-filled .pp-slot__remove { opacity: 0; transform: scale(0.85); }
+    .pp-slot.is-filled:hover .pp-slot__remove { opacity: 1; transform: scale(1); }
+  }
+  .pp-slot:not(.is-filled) .pp-slot__remove { display: none; }
+  .pp-slot__info { display: none !important; }
+  .pp-slot.is-filled .pp-slot__placeholder { display: none; }
+
+  /* ── Progress + CTA bar ── */
+  .pp-cta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .pp-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+  .pp-progress__bar {
+    width: 100%;
+    max-width: 320px;
+    height: 5px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .pp-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: var(--pp-brand);
+    border-radius: 999px;
+    transition: width 380ms var(--pp-ease);
+  }
+  .pp-progress__count {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--pp-muted);
+    letter-spacing: -0.005em;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .pp-cta {
+    appearance: none;
+    background: var(--pp-brand);
+    color: #fff;
+    border: none;
+    border-radius: 980px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 10px 24px;
+    min-height: 40px;
+    cursor: pointer;
+    box-shadow:
+      0 1px 2px rgba(0,113,227,0.20),
+      0 6px 18px rgba(0,113,227,0.30);
+    transition: background 220ms var(--pp-ease), transform 220ms var(--pp-ease), box-shadow 220ms var(--pp-ease), opacity 220ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-cta:hover { background: #0077ED; transform: translateY(-1px); }
+  .pp-cta:active { transform: scale(0.98); }
+  .pp-cta:disabled,
+  .pp-cta.is-inert {
+    opacity: 0.5;
+    pointer-events: none;
+    transform: none;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20);
+  }
+  .pp-cta.is-loading {
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* ── Colorful preset pill row (above attribute filters) ── */
+  .pp-colnav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    /* Per CSS spec: setting overflow-x: auto forces overflow-y to
+       become auto too (a quirk that clips hover shadows). We use
+       clip-padding instead: a generous bottom padding gives the pill
+       hover shadow room to breathe inside the scroll container. */
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    margin: clamp(32px, 5vw, 56px) 0 clamp(14px, 2vw, 20px);
+    padding: 16px 0 28px;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+  }
+  /* On screens wide enough to show every pill without overflow, let
+     each pill grow so the row stretches from the left edge ('Filters
+     verbergen' button) to the right edge ('Aanbevolen' sort). Below
+     that we fall back to a scrollable row at natural width. */
+  @media (min-width: 1024px) {
+    .pp-colnav-pill { flex: 1 1 auto; min-width: 0; }
+  }
+  .pp-colnav::-webkit-scrollbar { display: none; }
+  .pp-colnav { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .pp-colnav-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 980px;
+    border: 0.5px solid rgba(0,0,0,0.08);
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    color: var(--pp-text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      background 220ms var(--pp-ease),
+      color 220ms var(--pp-ease),
+      transform 220ms var(--pp-ease),
+      box-shadow 220ms var(--pp-ease);
+  }
+  .pp-colnav-pill:hover {
+    transform: translateY(-1px);
+    color: var(--pp-brand);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 14px rgba(0,0,0,0.06);
+  }
+  .pp-colnav-pill:active { transform: scale(0.97); }
+  .pp-colnav-pill.is-active {
+    background: var(--pp-brand);
+    color: #fff;
+    border-color: var(--pp-brand);
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 4px 12px rgba(0,113,227,0.20);
+  }
+  .pp-colnav-pill.is-active:hover { color: #fff; background: #0077ED; }
+
+  .pp-colnav-pill--quiz {
+    background: var(--pp-brand);
+    color: #fff;
+    border-color: var(--pp-brand);
+    padding: 9px 18px 9px 14px;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.16);
+    position: relative;
+    overflow: hidden;
+  }
+  .pp-colnav-pill--quiz svg { width: 16px; height: 16px; flex-shrink: 0; position: relative; z-index: 1; }
+  .pp-colnav-pill--quiz span { position: relative; z-index: 1; }
+  .pp-colnav-pill--quiz::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%, transparent 100%);
+    pointer-events: none;
+    animation: pp-shimmer 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.4s infinite;
+  }
+  @keyframes pp-shimmer {
+    0% { left: -75%; }
+    100% { left: 175%; }
+  }
+  .pp-colnav-pill--quiz:hover {
+    background: #0077ED;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,113,227,0.18), 0 6px 14px rgba(0,113,227,0.16);
+  }
+
+  .pp-colnav-pill--kinder {
+    background: #FF5C8A;
+    color: #fff;
+    border-color: #FF5C8A;
+    padding: 9px 18px 9px 14px;
+    box-shadow: 0 1px 2px rgba(255,92,138,0.18), 0 4px 10px rgba(255,92,138,0.18);
+  }
+  .pp-colnav-pill--kinder svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .pp-colnav-pill--kinder:hover {
+    background: #FF6E97;
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(255,92,138,0.22), 0 6px 14px rgba(255,92,138,0.22);
+  }
+  .pp-colnav-pill--kinder.is-active {
+    background: #FF5C8A;
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(255,92,138,0.22);
+  }
+
+  .pp-colnav-pill--sale {
+    background: #E11D48;
+    color: #fff;
+    border-color: #E11D48;
+    box-shadow: 0 1px 2px rgba(225,29,72,0.18), 0 4px 10px rgba(225,29,72,0.16);
+  }
+  .pp-colnav-pill--sale:hover {
+    background: #F11D52;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(225,29,72,0.22), 0 6px 14px rgba(225,29,72,0.20);
+  }
+  .pp-colnav-pill--sale.is-active {
+    background: #E11D48;
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(225,29,72,0.22);
+  }
+
+  /* ── Toolbar (search / mobile filter btn / sort) ── */
+  .pp-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: clamp(16px, 2.4vw, 24px) 0 clamp(14px, 2vw, 20px);
+  }
+  .pp-toolbar__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+  }
+
+  /* ── Two-column shop layout (sidebar + main) ── */
+  .pp-shop {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(16px, 2.4vw, 24px);
+    align-items: start;
+  }
+  @media (min-width: 1024px) {
+    .pp-shop {
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+    }
+  }
+  @media (min-width: 1280px) {
+    .pp-shop {
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+    }
+  }
+
+  .pp-sidebar {
+    align-self: start;
+  }
+  @media (min-width: 1024px) {
+    .pp-sidebar {
+      position: sticky;
+      top: 24px;
+    }
+  }
+  /* Sidebar toggle: 'Filters verbergen' / 'Filters tonen' on desktop */
+  .pp-sidebar-toggle {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .pp-sidebar-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      appearance: none;
+      background: var(--pp-brand);
+      color: #fff;
+      border: 0;
+      border-radius: 980px;
+      padding: 14px 26px;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 6px 16px rgba(0,113,227,0.20);
+      transition: background 220ms var(--pp-ease), transform 220ms var(--pp-ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pp-sidebar-toggle:hover { background: #0077ED; transform: translateY(-1px); }
+    .pp-sidebar-toggle:active { transform: scale(0.98); }
+    .pp-sidebar-toggle svg { width: 18px; height: 18px; flex-shrink: 0; }
+  }
+
+  .pp-sort-label {
+    font-size: 15px;
+    color: var(--pp-text);
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 639px) {
+    .pp-sort-label { display: none; }
+  }
+  .pp-sort-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  .pp-sort-trigger {
+    appearance: none;
+    background: var(--pp-brand);
+    color: #fff;
+    border: 0;
+    border-radius: 980px;
+    padding: 12px 44px 12px 22px;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    min-width: 180px;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 6px 16px rgba(0,113,227,0.20);
+    transition: background 220ms var(--pp-ease), transform 220ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+  .pp-sort-trigger:hover { background: #0077ED; transform: translateY(-1px); }
+  .pp-sort-trigger:active { transform: scale(0.98); }
+  .pp-sort-trigger::after {
+    content: '';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-65%) rotate(45deg);
+    border-right: 1.8px solid #fff;
+    border-bottom: 1.8px solid #fff;
+    transition: transform 240ms var(--pp-ease);
+    pointer-events: none;
+  }
+  .pp-sort-wrap.is-open .pp-sort-trigger::after {
+    transform: translateY(-30%) rotate(-135deg);
+  }
+  .pp-sort-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 30;
+    min-width: 280px;
+    background: var(--pp-brand);
+    color: #fff;
+    border-radius: 22px;
+    padding: 18px 18px 14px;
+    box-shadow:
+      0 1px 3px rgba(0,113,227,0.30),
+      0 18px 42px rgba(0,113,227,0.30);
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+      opacity 280ms var(--pp-ease),
+      transform 320ms var(--pp-ease),
+      visibility 0s linear 320ms;
+  }
+  .pp-sort-wrap.is-open .pp-sort-panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+    transition:
+      opacity 280ms var(--pp-ease),
+      transform 320ms var(--pp-ease),
+      visibility 0s linear 0s;
+  }
+  .pp-sort-panel__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin: 0 0 12px;
+  }
+  .pp-sort-panel__heading::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .pp-sort-panel__opt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    padding: 9px 0;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    text-align: left;
+    cursor: pointer;
+    letter-spacing: -0.005em;
+    transition: color 180ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-sort-panel__opt:hover { color: #fff; }
+  .pp-sort-panel__opt.is-active { color: rgba(255,255,255,0.55); font-weight: 500; }
+  .pp-sort-panel__opt.is-active::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.85);
+  }
+
+  .pp-main {
+    min-width: 0;
+  }
+
+  /* ── Old .pp-filters kept for backwards compatibility (unused now) ── */
+  .pp-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: clamp(16px, 2.4vw, 24px) 0 clamp(14px, 2vw, 20px);
+  }
+  .pp-search {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0 0 24px;
+  }
+  .pp-search__input {
+    width: 100%;
+    appearance: none;
+    background: var(--pp-image-bg);
+    border: 0;
+    border-radius: 10px;
+    padding: 7px 12px 7px 32px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-text);
+    letter-spacing: -0.005em;
+    box-shadow: none;
+    transition: background 200ms var(--pp-ease), box-shadow 200ms var(--pp-ease);
+  }
+  .pp-search__input:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 0 0 1.5px rgba(0,113,227,0.45);
+  }
+  .pp-search__input::-webkit-search-cancel-button {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><circle cx='8' cy='8' r='7' fill='%23d1d1d6'/><path d='M5.5 5.5l5 5M10.5 5.5l-5 5' stroke='white' stroke-width='1.5' stroke-linecap='round'/></svg>") center/contain no-repeat;
+    cursor: pointer;
+  }
+  .pp-search__icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    color: var(--pp-subtle);
+    pointer-events: none;
+  }
+  .pp-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .pp-pill {
+    appearance: none;
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.08);
+    border-radius: 980px;
+    padding: 6px 14px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-text);
+    cursor: pointer;
+    letter-spacing: -0.005em;
+    transition: background 200ms var(--pp-ease), color 200ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-pill:hover { background: var(--pp-image-bg); }
+  .pp-pill.is-active {
+    background: var(--pp-text);
+    color: #fff;
+    border-color: var(--pp-text);
+  }
+  .pp-sort {
+    appearance: none;
+    background: var(--pp-brand);
+    border: 0;
+    border-radius: 980px;
+    padding: 14px 38px 14px 26px;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 6px 16px rgba(0,113,227,0.20);
+    transition: background 220ms var(--pp-ease), transform 220ms var(--pp-ease);
+  }
+  .pp-sort:hover { background: #0077ED; transform: translateY(-1px); }
+  .pp-sort:active { transform: scale(0.98); }
+
+  /* ── Attribute filters (kleur, vorm, materiaal, voor, pasvorm) ── */
+  .pp-attr-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .pp-attr {
+    position: relative;
+  }
+  .pp-attr__btn {
+    appearance: none;
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.08);
+    border-radius: 980px;
+    padding: 6px 28px 6px 14px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-text);
+    cursor: pointer;
+    letter-spacing: -0.005em;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M5 6.5L8 9.5L11 6.5' stroke='%231D1D1F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+    transition: background 200ms var(--pp-ease), color 200ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+  }
+  .pp-attr__btn:hover { background-color: var(--pp-image-bg); }
+  .pp-attr.is-active .pp-attr__btn {
+    background-color: var(--pp-text);
+    color: #fff;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M5 6.5L8 9.5L11 6.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  }
+  .pp-attr__count {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.25);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .pp-attr__panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 20;
+    min-width: 220px;
+    max-width: 320px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: rgba(255,255,255,0.96);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 16px;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.08),
+      0 12px 32px rgba(0,0,0,0.16);
+    padding: 8px 6px;
+    display: none;
+  }
+  .pp-attr.is-open .pp-attr__panel { display: block; }
+
+  /* Custom accordion filters in the sidebar. We avoid the theme's
+     .details/.details__summary classes — they inject their own pseudo
+     content and layout. Our own .pp-attr__btn / .pp-attr__panel
+     give us full control of look + animation. */
+  .pp-sidebar .pp-attr__panel {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-4px);
+    padding-top: 0;
+    padding-bottom: 0;
+    transition:
+      max-height 760ms cubic-bezier(0.32, 0.72, 0, 1),
+      opacity 520ms cubic-bezier(0.32, 0.72, 0, 1),
+      transform 700ms cubic-bezier(0.32, 0.72, 0, 1),
+      padding 660ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .pp-sidebar .pp-attr.is-open > .pp-attr__panel {
+    max-height: 800px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-bottom: 18px;
+  }
+  .pp-sidebar .pp-attr__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  /* Desktop sidebar: vertical accordion (no floating dropdowns) */
+  @media (min-width: 1024px) {
+    .pp-sidebar .pp-attr-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 40px;
+    }
+    .pp-sidebar .pp-attr {
+      width: 100%;
+      border-bottom: 0.5px solid var(--pp-border);
+      position: relative;
+    }
+    .pp-sidebar .pp-attr:first-child {
+      border-top: 0.5px solid var(--pp-border);
+      padding-top: 12px;
+    }
+    .pp-sidebar .pp-attr:first-child .pp-attr__btn {
+      padding-top: 24px;
+    }
+    .pp-sidebar .pp-attr__btn {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 16px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--pp-text);
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background-image: none;
+      letter-spacing: -0.01em;
+      cursor: pointer;
+      outline: none;
+    }
+    .pp-sidebar .pp-attr__btn:hover { background: transparent; color: var(--pp-brand); }
+    .pp-sidebar .pp-attr.is-active .pp-attr__btn {
+      background: transparent;
+      color: var(--pp-text);
+    }
+    .pp-sidebar .pp-attr__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pp-sidebar .pp-attr__icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .pp-sidebar .pp-attr__right {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pp-sidebar .pp-attr__count {
+      background: var(--pp-image-bg);
+      color: var(--pp-text-muted);
+      margin-right: 0;
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .pp-sidebar .pp-attr__chev {
+      width: 14px;
+      height: 14px;
+      transition: transform 560ms cubic-bezier(0.32, 0.72, 0, 1);
+      color: var(--pp-text-muted);
+    }
+    .pp-sidebar .pp-attr.is-open .pp-attr__chev { transform: rotate(180deg); }
+    /* Desktop panel: inline (not absolute), but the smooth-animation
+       rules from the base .pp-attr__panel still apply (max-height,
+       opacity, transform). */
+    .pp-sidebar .pp-attr__panel {
+      position: static;
+      box-shadow: none;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border-radius: 0;
+      max-width: none;
+      min-width: 0;
+    }
+    .pp-sidebar .pp-attr__opt {
+      padding: 7px 0;
+      cursor: pointer;
+    }
+    .pp-sidebar .pp-attr__opt-count {
+      color: var(--pp-subtle);
+      font-weight: 400;
+      font-size: 13px;
+      margin-left: 2px;
+    }
+    .pp-sidebar .pp-mobile-filters-close,
+    .pp-sidebar .pp-mobile-filters-apply {
+      display: none !important;
+    }
+  }
+
+  /* Color swatch grid (Kleur attribute) */
+  .pp-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(34px, 1fr));
+    gap: 10px;
+    padding: 4px 2px 8px;
+  }
+  .pp-swatch {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-swatch__dot {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow:
+      inset 0 -3px 6px rgba(0,0,0,0.10),
+      inset 0 3px 5px rgba(255,255,255,0.20),
+      0 1px 2px rgba(0,0,0,0.10);
+    transition: transform 220ms var(--pp-ease), box-shadow 220ms var(--pp-ease);
+  }
+  .pp-swatch__dot--bordered { box-shadow:
+    inset 0 -3px 6px rgba(0,0,0,0.06),
+    inset 0 3px 5px rgba(255,255,255,0.20),
+    inset 0 0 0 1px rgba(0,0,0,0.10),
+    0 1px 2px rgba(0,0,0,0.06);
+  }
+  .pp-swatch:hover .pp-swatch__dot { transform: scale(1.06); }
+  .pp-swatch.is-checked .pp-swatch__dot {
+    box-shadow:
+      inset 0 0 0 2px #fff,
+      0 0 0 1.5px var(--pp-text);
+    transform: scale(1.04);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Sidebar collapsed state (when toggled off) */
+  .pp-shop.is-sidebar-hidden .pp-sidebar { display: none; }
+  @media (min-width: 1024px) {
+    .pp-shop.is-sidebar-hidden { grid-template-columns: 1fr; }
+  }
+  .pp-attr__opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--pp-text);
+    letter-spacing: -0.005em;
+    transition: background 150ms var(--pp-ease);
+  }
+  .pp-attr__opt:hover { background: var(--pp-image-bg); }
+  .pp-attr__opt input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid rgba(0,0,0,0.18);
+    background: #fff;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: inline-grid;
+    place-content: center;
+    margin: 0;
+    padding: 0;
+    transition: background 150ms var(--pp-ease), border-color 150ms var(--pp-ease);
+  }
+  .pp-attr__opt input:checked {
+    background: var(--pp-brand);
+    border-color: var(--pp-brand);
+  }
+  .pp-attr__opt input:checked::before {
+    content: '';
+    width: 9px;
+    height: 5px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+
+  .pp-clear {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--pp-brand);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 4px;
+    letter-spacing: -0.005em;
+  }
+  .pp-clear:hover { text-decoration: underline; }
+
+  /* ── Mobile filters popup ── */
+  .pp-mobile-filters-toggle {
+    display: none;
+    appearance: none;
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.08);
+    border-radius: 980px;
+    padding: 8px 14px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-text);
+    cursor: pointer;
+    align-items: center;
+    gap: 6px;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    transition: background 200ms var(--pp-ease), transform 200ms var(--pp-ease);
+    position: relative;
+  }
+  .pp-mobile-filters-toggle:hover { background: var(--pp-image-bg); }
+  .pp-mobile-filters-toggle:active { transform: scale(0.97); }
+  .pp-mobile-filters-toggle svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .pp-mobile-filters-toggle__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pp-brand);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    margin-left: 2px;
+  }
+
+  @media (max-width: 1023px) {
+    .pp-mobile-filters-toggle { display: inline-flex; }
+    .pp-sidebar { display: none; }
+    .pp-clear { display: none; }
+    body.pp-mobile-filters-open { overflow: hidden; }
+    body.pp-mobile-filters-open .pp-sidebar {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: #fff;
+      padding: 56px 20px 100px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      animation: pp-slide-up 320ms var(--pp-ease);
+    }
+    body.pp-mobile-filters-open .pp-sidebar::before {
+      content: 'Filters';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.92);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 0.5px solid var(--pp-border);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--pp-text);
+      z-index: 1;
+    }
+    body.pp-mobile-filters-open .pp-sidebar__heading { display: none; }
+    body.pp-mobile-filters-open .pp-attr-row {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+    body.pp-mobile-filters-open .pp-attr {
+      width: 100%;
+    }
+    body.pp-mobile-filters-open .pp-attr__btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: var(--pp-image-bg);
+      border: 0;
+      background-image: none;
+      box-shadow: none;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--pp-text);
+      text-align: left;
+      letter-spacing: -0.012em;
+    }
+    body.pp-mobile-filters-open .pp-attr__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    body.pp-mobile-filters-open .pp-attr__icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    body.pp-mobile-filters-open .pp-attr__right {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    body.pp-mobile-filters-open .pp-attr__count {
+      background: rgba(0,0,0,0.06);
+      color: var(--pp-text-muted);
+      padding: 1px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin: 0;
+    }
+    body.pp-mobile-filters-open .pp-attr__chev {
+      width: 16px;
+      height: 16px;
+      color: var(--pp-text-muted);
+      transition: transform 480ms cubic-bezier(0.32, 0.72, 0, 1);
+    }
+    body.pp-mobile-filters-open .pp-attr.is-open .pp-attr__chev {
+      transform: rotate(180deg);
+    }
+    /* Use the same smooth expansion as the base accordion. The base
+       `.pp-attr__panel` rules (overflow:hidden, max-height:0 +
+       transitions) already cover the closed state — here we just
+       provide the inline (non-floating) layout. */
+    body.pp-mobile-filters-open .pp-attr__panel {
+      position: static;
+      box-shadow: none;
+      background: transparent;
+      border-radius: 0;
+      padding: 0 6px;
+      max-width: none;
+      min-width: 0;
+    }
+    body.pp-mobile-filters-open .pp-attr.is-open > .pp-attr__panel {
+      padding: 4px 6px 14px;
+    }
+    body.pp-mobile-filters-open .pp-attr.is-open .pp-attr__btn {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    .pp-mobile-filters-toggle { display: none !important; }
+  }
+
+  .pp-mobile-filters-close {
+    display: none;
+  }
+  body.pp-mobile-filters-open .pp-mobile-filters-close {
+    display: flex;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 10000;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    color: var(--pp-text);
+    font-size: 18px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pp-mobile-filters-apply {
+    display: none;
+  }
+  body.pp-mobile-filters-open .pp-mobile-filters-apply {
+    display: flex;
+    position: fixed;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    z-index: 10000;
+    gap: 8px;
+  }
+  body.pp-mobile-filters-open .pp-mobile-filters-apply > button {
+    flex: 1 1 0;
+    appearance: none;
+    border: none;
+    border-radius: 980px;
+    padding: 12px 16px;
+    min-height: 44px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body.pp-mobile-filters-open .pp-mobile-filters-apply__clear {
+    background: var(--pp-image-bg);
+    color: var(--pp-text);
+  }
+  body.pp-mobile-filters-open .pp-mobile-filters-apply__done {
+    background: var(--pp-brand);
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 6px 18px rgba(0,113,227,0.30);
+  }
+
+  @keyframes pp-slide-up {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ── Product grid ── */
+  .pp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: clamp(12px, 2vw, 18px);
+  }
+  @media (min-width: 1024px) {
+    .pp-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .pp-shop.is-sidebar-hidden .pp-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .pp-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+  }
+
+  .pp-card {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 280ms var(--pp-ease);
+    cursor: pointer;
+    position: relative;
+  }
+  .pp-card[draggable="true"] { -webkit-user-drag: element; }
+  .pp-card:hover .pp-card__media img { transform: scale(1.025); }
+  .pp-card.is-selected .pp-card__media {
+    box-shadow:
+      0 0 0 2px var(--pp-brand),
+      0 0 0 4px rgba(0, 113, 227, 0.10);
+  }
+  .pp-card.is-hidden { display: none; }
+
+  .pp-card__media {
+    aspect-ratio: 1 / 1;
+    background: var(--pp-image-bg);
+    overflow: hidden;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    transition: box-shadow 240ms var(--pp-ease);
+    position: relative;
+  }
+  .pp-card__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    background: #E11D48;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    padding: 6px 12px;
+    border-radius: 980px;
+    box-shadow: 0 1px 2px rgba(225,29,72,0.20), 0 4px 12px rgba(225,29,72,0.18);
+    pointer-events: none;
+  }
+  .pp-card__price--sale { color: #E11D48; }
+  .pp-card__price--compare {
+    color: var(--pp-muted);
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .pp-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms var(--pp-ease);
+  }
+
+  .pp-card__info {
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pp-card__title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .pp-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--pp-text);
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .pp-card__price {
+    font-size: 13px;
+    color: var(--pp-muted);
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+
+  /* Hidden 'Voeg toe' button — entire card is the click target now */
+  .pp-card__add {
+    display: none !important;
+  }
+
+  /* Quick-add (+) button on the card. Picks the default variant
+     without opening the modal. Only on hover-capable pointers and
+     touch — hides itself when the card is already in the pakket. */
+  .pp-card__quick {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255,255,255,0.92);
+    color: var(--pp-text);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-4px) scale(0.92);
+    transition:
+      opacity 240ms var(--pp-ease),
+      transform 240ms var(--pp-ease),
+      background 200ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-card__quick svg { width: 16px; height: 16px; }
+  @media (hover: hover) and (pointer: fine) {
+    .pp-card:hover .pp-card__quick {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @media (hover: none) {
+    .pp-card__quick { opacity: 1; transform: none; }
+  }
+  .pp-card__quick:hover { background: #fff; transform: scale(1.06); }
+  .pp-card__quick:active { transform: scale(0.94); }
+  .pp-card.is-selected .pp-card__quick,
+  .pp-card.is-disabled .pp-card__quick { display: none; }
+
+  /* Fly-to-slot ghost — clone of the chosen frame's image that
+     animates from the source (modal or card) toward the empty slot. */
+  .pp-fly-ghost {
+    position: fixed;
+    z-index: 10002;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.22);
+    pointer-events: none;
+    will-change: transform, opacity;
+    transition:
+      transform 720ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 720ms cubic-bezier(0.4, 0, 1, 1);
+  }
+
+  /* Slot pop-in once filled by an add action. */
+  @keyframes pp-slot-pop {
+    0%   { transform: scale(0.6); opacity: 0; }
+    55%  { transform: scale(1.10); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .pp-slot.is-popping .pp-slot__media img {
+    animation: pp-slot-pop 480ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-slot.is-popping {
+    animation: pp-slot-flash 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes pp-slot-flash {
+    0%   { box-shadow: 0 0 0 0 rgba(0,113,227,0.45); }
+    40%  { box-shadow: 0 0 0 6px rgba(0,113,227,0.18); }
+    100% { box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.06); }
+  }
+
+  .pp-card__variants {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .pp-card__var {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 1px solid rgba(0,0,0,0.12);
+  }
+
+  /* Pagination */
+  .pp-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .pp-pagination__btn {
+    appearance: none;
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.10);
+    border-radius: 10px;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 12px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--pp-text);
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: background 200ms var(--pp-ease), color 200ms var(--pp-ease), border-color 200ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+  .pp-pagination__btn:hover:not(:disabled) { background: var(--pp-image-bg); }
+  .pp-pagination__btn.is-active {
+    background: var(--pp-text);
+    color: #fff;
+    border-color: var(--pp-text);
+  }
+  .pp-pagination__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .pp-pagination__ellipsis {
+    color: var(--pp-muted);
+    padding: 0 4px;
+    font-size: 14px;
+  }
+  .pp-product-count {
+    text-align: center;
+    color: var(--pp-muted);
+    font-size: 12px;
+    margin: 12px 0 0;
+    letter-spacing: -0.005em;
+  }
+  .pp-card.pp-card--page-hidden { display: none; }
+
+  /* ── Empty grid ── */
+  .pp-empty {
+    text-align: center;
+    padding: 48px 16px;
+    color: var(--pp-muted);
+    font-size: 14px;
+  }
+
+  /* ── Variant picker modal ── */
+  .pp-variant-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.36);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 420ms,
+      backdrop-filter 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-variant-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s,
+      backdrop-filter 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-variant-modal {
+    background: rgba(255,255,255,0.96);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    backdrop-filter: blur(28px) saturate(180%);
+    border-radius: 24px;
+    padding: 24px 24px 22px;
+    box-shadow:
+      inset 0 0.5px 0 rgba(255,255,255,0.6),
+      0 1px 3px rgba(0,0,0,0.10),
+      0 18px 48px rgba(0,0,0,0.22);
+    max-width: 560px;
+    width: 100%;
+    /* Big enough so both tabs fit without scrolling on a typical
+       viewport; on shorter windows it caps to viewport height. */
+    height: min(820px, calc(100vh - 32px));
+    text-align: center;
+    position: relative;
+    transform: scale(0.92) translateY(14px);
+    opacity: 0;
+    transition:
+      transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .pp-variant-overlay.is-active .pp-variant-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  .pp-variant-modal__title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--pp-text);
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+  .pp-modal-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+  /* Both tab panels share one flexible top region so the modal
+     looks identical regardless of which tab is active. Tabs, hint
+     and variant list always sit at the bottom; the panel above
+     them expands to fill whatever space is left. */
+  .pp-modal-body > .pp-tab-panel {
+    display: none;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .pp-modal-body > .pp-tab-panel.is-active {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .pp-variant-modal .pp-carousel {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    aspect-ratio: auto;
+    margin: 0 0 4px;
+  }
+  .pp-variant-modal .pp-dim {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    margin: 0 0 4px;
+    text-align: left;
+  }
+  .pp-variant-modal .pp-dim__diagram {
+    /* Keep the same proportions + transform as the product page so
+       all arrows (including the bottom total-width pijl) render
+       inside the visible area. flex:0 1 auto = honour the aspect
+       ratio first, only shrink if there isn't enough room. */
+    flex: 0 1 auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .pp-variant-modal .pp-dim__table {
+    flex: 0 0 auto;
+  }
+  .pp-variant-modal .pp-dim__row {
+    padding: 6px 12px;
+  }
+  .pp-modal-cta {
+    appearance: none;
+    background: var(--pp-brand);
+    color: #fff;
+    border: 0;
+    border-radius: 980px;
+    padding: 12px 24px;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 28px;
+    box-shadow: 0 1px 2px rgba(0,113,227,0.20), 0 6px 18px rgba(0,113,227,0.28);
+    transition: background 200ms var(--pp-ease), transform 200ms var(--pp-ease), opacity 200ms var(--pp-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pp-modal-cta:hover { background: #0077ED; transform: translateY(-1px); }
+  .pp-modal-cta:active { transform: scale(0.98); }
+  .pp-modal-cta:disabled { opacity: 0.5; pointer-events: none; }
+  .pp-variant-modal .pp-variant-list { margin-bottom: 6px; }
+  /* Dimensions diagram + spec table inside variant modal */
+  .pp-dim {
+    margin: 6px 0 18px;
+    text-align: left;
+  }
+  .pp-dim__diagram {
+    background: #f5f5f7;
+    border-radius: 16px;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .pp-dim__diagram img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    filter: grayscale(1);
+    transform: translateY(-10%);
+  }
+  .pp-dim__diagram svg {
+    /* Width-only sizing — SVG keeps its intrinsic 1:1 (from viewBox),
+       so its rendered height equals its width. That makes arrows at
+       y=34 and y=84 of the viewBox land in the same relative spots
+       as on the product page. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible;
+    transform: translateY(-10%);
+  }
+  .pp-dim__table {
+    display: flex;
+    flex-direction: column;
+  }
+  .pp-dim__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: background 200ms var(--pp-ease);
+  }
+  .pp-dim__row:hover { background: #f5f5f7; }
+  .pp-dim__row + .pp-dim__row { border-top: 0.5px solid rgba(0,0,0,0.05); }
+  .pp-dim__label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #86868b;
+    letter-spacing: -0.01em;
+  }
+  .pp-dim__value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-text);
+    letter-spacing: -0.01em;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .pp-variant-modal__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    color: var(--pp-text);
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .pp-variant-modal__hint {
+    font-size: 13px;
+    color: var(--pp-muted);
+    margin: 10px 0 10px;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+  .pp-variant-modal .pp-tabs { flex: 0 0 auto; }
+  .pp-variant-modal .pp-variant-list { flex: 0 0 auto; }
+
+  /* Tabs */
+  .pp-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 16px;
+    background: var(--pp-image-bg);
+    border-radius: 12px;
+    padding: 4px;
+  }
+  .pp-tabs__btn {
+    flex: 1 1 0;
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-radius: 9px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--pp-muted);
+    cursor: pointer;
+    letter-spacing: -0.005em;
+    transition: background 200ms var(--pp-ease), color 200ms var(--pp-ease);
+  }
+  .pp-tabs__btn:hover { color: var(--pp-text); }
+  .pp-tabs__btn.is-active {
+    background: #fff;
+    color: var(--pp-text);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .pp-tab-panel { display: none; }
+  .pp-tab-panel.is-active { display: block; }
+
+  /* Carousel */
+  .pp-carousel {
+    position: relative;
+    background: var(--pp-image-bg);
+    border-radius: 16px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .pp-carousel__track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pp-carousel__track::-webkit-scrollbar { display: none; }
+  .pp-carousel__track { scrollbar-width: none; -ms-overflow-style: none; }
+  .pp-carousel__slide {
+    flex: 0 0 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pp-carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .pp-carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: var(--pp-text);
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background 200ms var(--pp-ease), opacity 200ms var(--pp-ease);
+  }
+  .pp-carousel__nav svg { width: 16px; height: 16px; }
+  .pp-carousel__nav:hover { background: #fff; }
+  .pp-carousel__nav:disabled { opacity: 0.35; cursor: default; }
+  .pp-carousel__nav--prev { left: 10px; }
+  .pp-carousel__nav--next { right: 10px; }
+  .pp-carousel__dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 2;
+  }
+  .pp-carousel__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(29,29,31,0.30);
+    cursor: pointer;
+    transition: background 200ms var(--pp-ease), transform 200ms var(--pp-ease);
+  }
+  .pp-carousel__dot.is-active {
+    background: var(--pp-text);
+    transform: scale(1.2);
+  }
+
+  .pp-variant-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .pp-variant-list .pp-variant-option {
+    flex: 0 0 86px;
+    max-width: 86px;
+  }
+  .pp-variant-option {
+    appearance: none;
+    border: none;
+    background: #fff;
+    border-radius: 14px;
+    padding: 8px 6px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--pp-text);
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    transition: box-shadow 200ms var(--pp-ease), transform 200ms var(--pp-ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .pp-variant-option:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 8px 18px rgba(0,0,0,0.08); }
+  .pp-variant-option.is-active {
+    box-shadow: 0 0 0 2px var(--pp-brand), 0 1px 2px rgba(0,113,227,0.20), 0 4px 12px rgba(0,113,227,0.18);
+  }
+
+  /* Carousel slide is clickable to open fullscreen */
+  .pp-carousel__slide { cursor: zoom-in; }
+
+  /* Fullscreen photo viewer */
+  .pp-fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 10001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.92);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 220ms var(--pp-ease);
+    padding: 40px 16px;
+  }
+  .pp-fullscreen.is-active { display: flex; opacity: 1; }
+  .pp-fullscreen__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pp-fullscreen__img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+  .pp-fullscreen__close,
+  .pp-fullscreen__nav {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    transition: background 200ms var(--pp-ease);
+  }
+  .pp-fullscreen__close:hover,
+  .pp-fullscreen__nav:hover { background: rgba(255,255,255,0.22); }
+  .pp-fullscreen__close { top: 16px; right: 16px; font-size: 22px; line-height: 1; }
+  .pp-fullscreen__nav svg { width: 20px; height: 20px; }
+  .pp-fullscreen__nav--prev { left: 16px; top: 50%; transform: translateY(-50%); }
+  .pp-fullscreen__nav--next { right: 16px; top: 50%; transform: translateY(-50%); }
+  .pp-fullscreen__nav:disabled { opacity: 0.3; cursor: default; }
+  .pp-variant-option img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--pp-image-bg);
+  }
+  .pp-variant-option__title {
+    font-size: 11px;
+    color: var(--pp-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  /* ── Toast ── */
+  .pp-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(29,29,31,0.92);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 980px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 10000;
+    opacity: 0;
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    transition: opacity 240ms var(--pp-ease), transform 240ms var(--pp-ease);
+    pointer-events: none;
+  }
+  .pp-toast.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Mobile floating "back to basket" — Apple liquid glass ───────
+     Only renders on mobile (≤720px) since the basket is sticky on
+     desktop. Stays hidden until the basket card scrolls out of
+     view, then floats in at top-right. */
+  .pp-mini-basket {
+    display: none;
+  }
+  @media (max-width: 720px) {
+    .pp-mini-basket {
+      position: fixed;
+      /* Sit just under the site header (uses Shopify theme's
+         sticky-header-height token, falls back to a sensible offset). */
+      top: calc(var(--sticky-header-height, var(--header-height, 60px)) + env(safe-area-inset-top, 0px) + 10px);
+      right: 12px;
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px 8px 14px;
+      background: rgba(255, 255, 255, 0.32);
+      -webkit-backdrop-filter: blur(36px) saturate(200%);
+      backdrop-filter: blur(36px) saturate(200%);
+      border: 0.5px solid rgba(255, 255, 255, 0.6);
+      border-radius: 980px;
+      color: var(--pp-text);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      box-shadow:
+        inset 0 0.5px 0 rgba(255, 255, 255, 0.7),
+        0 8px 24px rgba(0, 0, 0, 0.10),
+        0 2px 6px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(-12px) scale(0.94);
+      pointer-events: none;
+      transition:
+        opacity 320ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 380ms cubic-bezier(0.32, 0.72, 0, 1);
+      -webkit-tap-highlight-color: transparent;
+    }
+    @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+      .pp-mini-basket { background: rgba(255, 255, 255, 0.96); }
+    }
+    .pp-mini-basket.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .pp-mini-basket:active { transform: translateY(0) scale(0.96); }
+    .pp-mini-basket__count {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .pp-mini-basket svg { color: var(--pp-brand); flex-shrink: 0; }
+  }
+
+  /* ── "Zo werkt thuis passen" modal ── */
+  .pp-howto-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.36);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 380ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 380ms,
+      backdrop-filter 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-howto-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      opacity 360ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0s,
+      backdrop-filter 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-howto-modal {
+    background: rgba(255,255,255,0.94);
+    -webkit-backdrop-filter: blur(36px) saturate(180%);
+    backdrop-filter: blur(36px) saturate(180%);
+    border-radius: 28px;
+    padding: 40px 36px 28px;
+    box-shadow:
+      inset 0 0.5px 0 rgba(255,255,255,0.7),
+      0 0 0 0.5px rgba(0,0,0,0.04),
+      0 30px 80px rgba(0,0,0,0.18),
+      0 8px 24px rgba(0,0,0,0.06);
+    max-width: 440px;
+    width: 100%;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.94) translateY(14px);
+    opacity: 0;
+    transition:
+      transform 440ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .pp-howto-overlay.is-active .pp-howto-modal {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  .pp-howto-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: rgba(0,0,0,0.06);
+    color: var(--pp-text-muted);
+    border-radius: 50%;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 200ms var(--pp-ease), color 200ms var(--pp-ease), transform 200ms var(--pp-ease);
+  }
+  .pp-howto-close:hover { background: rgba(0,0,0,0.10); color: var(--pp-text); }
+  .pp-howto-close:active { transform: scale(0.92); }
+  .pp-howto-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    color: var(--pp-text);
+    margin: 0 0 6px;
+    line-height: 1.08;
+    padding-right: 32px;
+  }
+  .pp-howto-lead {
+    font-size: 14.5px;
+    color: var(--pp-muted);
+    margin: 0 0 28px;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+  }
+  .pp-howto-lead__sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--pp-subtle);
+    white-space: nowrap;
+    letter-spacing: -0.008em;
+  }
+  .pp-howto-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  /* Subtle vertical rail connecting the step numbers (centered on the
+     24px bubble — center x = 12, rail half-width 0.75 -> left 11.25). */
+  .pp-howto-steps::before {
+    content: '';
+    position: absolute;
+    left: 11.25px;
+    top: 18px;
+    bottom: 18px;
+    width: 1.5px;
+    background: rgba(0,113,227,0.18);
+    border-radius: 2px;
+  }
+  .pp-howto-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 10px 0;
+    position: relative;
+  }
+  .pp-howto-step__num {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--pp-brand);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    margin-top: 1px;
+  }
+  .pp-howto-step__title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--pp-text);
+    letter-spacing: -0.014em;
+    margin-bottom: 2px;
+    line-height: 1.25;
+  }
+  .pp-howto-step__body {
+    font-size: 13.5px;
+    color: var(--pp-muted);
+    line-height: 1.45;
+    letter-spacing: -0.003em;
+  }
+  .pp-howto-foot {
+    margin: 0 -8px;
+    padding: 18px 8px 4px;
+    border-top: 0.5px solid rgba(0,0,0,0.08);
+    font-size: 12.5px;
+    color: var(--pp-subtle);
+    text-align: center;
+    letter-spacing: -0.003em;
+    line-height: 1.4;
+  }
+
+  /* Mobile polish for the hero + howto modal */
+  @media (max-width: 720px) {
+    .pp-header {
+      padding: clamp(20px, 4vw, 28px) 0 0;
+    }
+    .pp-header__title {
+      font-size: clamp(26px, 7.5vw, 34px);
+      letter-spacing: -0.028em;
+      line-height: 1.08;
+    }
+    .pp-header__sub {
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .pp-howto-trigger {
+      margin: 16px 0 0 0;
+      padding: 11px 18px;
+      font-size: 13.5px;
+    }
+    .pp-howto-overlay { padding: 12px; align-items: flex-end; }
+    .pp-howto-modal {
+      padding: 32px 22px 22px;
+      border-radius: 24px 24px 22px 22px;
+      max-width: 100%;
+      transform: translateY(40px);
+    }
+    .pp-howto-overlay.is-active .pp-howto-modal {
+      transform: translateY(0);
+    }
+    .pp-howto-title { font-size: 24px; padding-right: 32px; }
+    .pp-howto-lead { font-size: 14px; margin-bottom: 22px; }
+    .pp-howto-steps { margin-bottom: 20px; }
+    .pp-howto-steps li { padding: 8px 0; gap: 14px; }
+    .pp-howto-step__title { font-size: 14.5px; }
+    .pp-howto-step__body { font-size: 13px; }
+    .pp-howto-foot { font-size: 12px; padding-top: 16px; }
+  }
+  @media (max-width: 420px) {
+    .pp-howto-modal { padding: 28px 18px 18px; border-radius: 22px; }
+    .pp-howto-title { font-size: 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .paspakket *, .paspakket *::before, .paspakket *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<section class="paspakket" data-paspakket>
+  <div class="pp-wrap">
+    <div class="pp-header">
+      <h1 class="pp-header__title">{{ section.settings.heading | default: 'Vind rustig de bril die bij je past.' }}</h1>
+      {%- assign pp_sub_raw = section.settings.subtitle | default: 'Kies vier brillen, pas ze thuis en betaal pas wanneer je zeker bent. De &euro;20 voor je paspakket krijg je terug als korting bij aankoop.' -%}
+      {%- comment -%}
+        Normalize semicolons → period+space + capitalize the next word
+        so legacy theme-editor overrides like
+          "Voor €20 sturen we ze toe; bij aankoop ..."
+        render cleanly as two short sentences.
+      {%- endcomment -%}
+      {%- assign pp_sub_raw = pp_sub_raw | replace: '; b', '. B' | replace: '; o', '. O' | replace: '; w', '. W' | replace: '; d', '. D' | replace: '; e', '. E' | replace: '; n', '. N' | replace: '; v', '. V' | replace: '; g', '. G' | replace: '; m', '. M' | replace: '; ', '. ' -%}
+      {%- assign pp_sub = pp_sub_raw | replace_first: '. ', '.||BR||' | replace: '||BR||', '</p><p class="pp-header__sub pp-header__sub--alt">' -%}
+      <p class="pp-header__sub">{{ pp_sub }}</p>
+      <button type="button" class="pp-howto-trigger" id="pp-howto-trigger" aria-haspopup="dialog" aria-controls="pp-howto-overlay">
+        Zo werkt thuis passen
+      </button>
+    </div>
+
+    <div class="pp-slots-wrap">
+      <div class="pp-slots-header">
+        <span class="pp-slots-header__title">Jouw paspakket</span>
+        <span class="pp-slots-header__count" id="pp-slots-count">0/4</span>
+      </div>
+      <div class="pp-slots" id="pp-slots">
+        {% for i in (1..4) %}
+          <div class="pp-slot" data-slot-index="{{ forloop.index0 }}" role="button" tabindex="0" aria-label="Slot {{ forloop.index }}">
+            <span class="pp-slot__num">{{ forloop.index }}</span>
+            <button type="button" class="pp-slot__remove" aria-label="Verwijder uit selectie">&times;</button>
+            <div class="pp-slot__media">
+              <div class="pp-slot__placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="6" cy="13" r="3.5"/>
+                  <circle cx="18" cy="13" r="3.5"/>
+                  <path d="M9.5 13h5"/>
+                </svg>
+              </div>
+            </div>
+            <div class="pp-slot__info">
+              <div class="pp-slot__title"></div>
+              <div class="pp-slot__variant"></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="pp-cta-bar">
+        <button type="button" class="pp-cta is-inert" id="pp-cta">
+          {{ section.settings.cta_label | default: 'Voeg pas pakket toe' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="pp-colnav" id="pp-colnav">
+      <a href="/pages/quiz?from=paspakket" class="pp-colnav-pill pp-colnav-pill--quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6.5" cy="12" r="3.5"/><circle cx="17.5" cy="12" r="3.5"/><path d="M10 12h4M2 9l2-1M22 9l-2-1"/>
+        </svg>
+        <span>Vind jouw bril</span>
+      </a>
+      <button type="button" class="pp-colnav-pill is-active" data-preset="all">Alle brillen</button>
+      <button type="button" class="pp-colnav-pill" data-preset="damesbrillen">Damesbrillen</button>
+      <button type="button" class="pp-colnav-pill" data-preset="herenbrillen">Herenbrillen</button>
+      <button type="button" class="pp-colnav-pill" data-preset="multifocaal">Multifocaal</button>
+      <button type="button" class="pp-colnav-pill" data-preset="leesbrillen">Leesbrillen</button>
+      <button type="button" class="pp-colnav-pill" data-preset="beeldschermbrillen">Beeldschermbrillen</button>
+      <button type="button" class="pp-colnav-pill pp-colnav-pill--kinder" data-preset="kinderbrillen">
+        <svg viewBox="0 0 24 24" fill="#FFD93D" stroke="#fff" stroke-width="1.5" stroke-linejoin="round">
+          <path d="M12 3l2.2 5.8 6.3.5-4.8 4.2 1.5 6.2L12 16.5l-5.2 3.2 1.5-6.2L3.5 9.3l6.3-.5z"/>
+        </svg>
+        Kinderbrillen
+      </button>
+      <button type="button" class="pp-colnav-pill" data-preset="dameszonnebrillen">Dameszonnebrillen</button>
+      <button type="button" class="pp-colnav-pill" data-preset="herenzonnebrillen">Herenzonnebrillen</button>
+      <button type="button" class="pp-colnav-pill pp-colnav-pill--sale" data-preset="sale">Sale</button>
+    </div>
+
+    <div class="pp-toolbar">
+      <button type="button" class="pp-sidebar-toggle" id="pp-sidebar-toggle" aria-expanded="true" aria-controls="pp-sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h12M4 12h8M4 18h4"/>
+          <circle cx="20" cy="6" r="1.6" fill="currentColor"/>
+          <circle cx="16" cy="12" r="1.6" fill="currentColor"/>
+          <circle cx="12" cy="18" r="1.6" fill="currentColor"/>
+        </svg>
+        <span class="pp-sidebar-toggle__label">Filters verbergen</span>
+      </button>
+      <button type="button" class="pp-mobile-filters-toggle" id="pp-mobile-filters-toggle" aria-label="Open filters">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2.5 4h11M4 8h8M6 12h4"/>
+        </svg>
+        <span>Filters</span>
+        <span class="pp-mobile-filters-toggle__count" id="pp-mobile-filters-count" hidden></span>
+      </button>
+      <div class="pp-toolbar__right">
+        <button type="button" class="pp-clear" id="pp-clear" hidden>Wis filters</button>
+        <span class="pp-sort-label">Sorteren op:</span>
+        <div class="pp-sort-wrap" id="pp-sort-wrap">
+          <button type="button" class="pp-sort-trigger" id="pp-sort-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="pp-sort-trigger__label" id="pp-sort-trigger-label">Aanbevolen</span>
+          </button>
+          <div class="pp-sort-panel" id="pp-sort-panel" role="listbox" aria-label="Sorteren">
+            <div class="pp-sort-panel__heading">Sorteren op</div>
+            <button type="button" class="pp-sort-panel__opt is-active" role="option" data-sort="default">Aanbevolen</button>
+            <button type="button" class="pp-sort-panel__opt" role="option" data-sort="title-asc">Alfabetisch: A&ndash;Z</button>
+            <button type="button" class="pp-sort-panel__opt" role="option" data-sort="title-desc">Alfabetisch: Z&ndash;A</button>
+            <button type="button" class="pp-sort-panel__opt" role="option" data-sort="price-asc">Prijs: laag naar hoog</button>
+            <button type="button" class="pp-sort-panel__opt" role="option" data-sort="price-desc">Prijs: hoog naar laag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pp-shop">
+      <aside class="pp-sidebar" id="pp-sidebar" aria-label="Filters">
+        <label class="pp-search" for="pp-search">
+          <svg class="pp-search__icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="7" cy="7" r="5"/>
+            <path d="M11 11l3 3"/>
+          </svg>
+          <input type="search" id="pp-search" class="pp-search__input" placeholder="Zoek een bril…" autocomplete="off" aria-label="Zoek een bril">
+        </label>
+        <div class="pp-attr-row" id="pp-attr-row">
+          <!-- Attribute groups injected by JS (kleur, vorm, materiaal, voor, pasvorm) -->
+        </div>
+        <button type="button" class="pp-mobile-filters-close" id="pp-mobile-filters-close" aria-label="Sluit filters">&times;</button>
+        <div class="pp-mobile-filters-apply">
+          <button type="button" class="pp-mobile-filters-apply__clear" id="pp-mobile-filters-clear">Wis</button>
+          <button type="button" class="pp-mobile-filters-apply__done" id="pp-mobile-filters-done">Toon resultaten</button>
+        </div>
+      </aside>
+
+      <main class="pp-main">
+        <div class="pp-grid" id="pp-grid"></div>
+        <p class="pp-empty" id="pp-empty" hidden>Geen brillen gevonden voor dit filter.</p>
+        <nav class="pp-pagination" id="pp-pagination" aria-label="Pagina navigatie" hidden></nav>
+        <p class="pp-product-count" id="pp-product-count" aria-live="polite"></p>
+      </main>
+    </div>
+  </div>
+
+  <!-- Variant picker modal -->
+  <div class="pp-variant-overlay" id="pp-variant-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-variant-title">
+    <div class="pp-variant-modal">
+      <button type="button" class="pp-variant-modal__close" id="pp-variant-close" aria-label="Sluiten">&times;</button>
+      <h3 class="pp-variant-modal__title" id="pp-variant-title">Kies een kleur</h3>
+
+      <div class="pp-modal-body">
+        <!-- Photos tab (carousel) -->
+        <div class="pp-tab-panel is-active" data-tab-panel="photos">
+          <div class="pp-carousel" id="pp-carousel">
+            <button type="button" class="pp-carousel__nav pp-carousel__nav--prev" id="pp-carousel-prev" aria-label="Vorige foto">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L6 8l4-4"/></svg>
+            </button>
+            <div class="pp-carousel__track" id="pp-carousel-track"></div>
+            <button type="button" class="pp-carousel__nav pp-carousel__nav--next" id="pp-carousel-next" aria-label="Volgende foto">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
+            </button>
+            <div class="pp-carousel__dots" id="pp-carousel-dots"></div>
+          </div>
+        </div>
+
+        <!-- Info tab — dimensions diagram + spec table -->
+        <div class="pp-tab-panel" data-tab-panel="info" hidden>
+          <div class="pp-dim" id="pp-dim">
+            <div class="pp-dim__diagram">
+              <img id="pp-dim-img" alt="" loading="lazy">
+              <svg id="pp-dim-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+            </div>
+            <div class="pp-dim__table" id="pp-dim-table"></div>
+          </div>
+        </div>
+
+        <!-- Tabs (below the photos) -->
+        <div class="pp-tabs" role="tablist">
+          <button type="button" class="pp-tabs__btn is-active" data-tab="photos" role="tab" aria-selected="true">Foto's</button>
+          <button type="button" class="pp-tabs__btn" data-tab="info" role="tab" aria-selected="false">Maten &amp; info</button>
+        </div>
+
+        <p class="pp-variant-modal__hint" id="pp-variant-hint">Kies een kleur</p>
+        <div class="pp-variant-list" id="pp-variant-list"></div>
+      </div>
+
+      <button type="button" class="pp-modal-cta" id="pp-modal-cta">Voeg toe aan pakket</button>
+    </div>
+  </div>
+
+  <!-- Fullscreen photo viewer -->
+  <div class="pp-fullscreen" id="pp-fullscreen" role="dialog" aria-modal="true" aria-label="Foto in volledig scherm">
+    <div class="pp-fullscreen__inner">
+      <button type="button" class="pp-fullscreen__nav pp-fullscreen__nav--prev" id="pp-fullscreen-prev" aria-label="Vorige foto">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12L6 8l4-4"/></svg>
+      </button>
+      <img class="pp-fullscreen__img" id="pp-fullscreen-img" alt="">
+      <button type="button" class="pp-fullscreen__nav pp-fullscreen__nav--next" id="pp-fullscreen-next" aria-label="Volgende foto">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>
+      </button>
+      <button type="button" class="pp-fullscreen__close" id="pp-fullscreen-close" aria-label="Sluiten">&times;</button>
+    </div>
+  </div>
+
+  <!-- "Zo werkt thuis passen" explanation modal -->
+  <div class="pp-howto-overlay" id="pp-howto-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-howto-title" aria-hidden="true">
+    <div class="pp-howto-modal">
+      <button type="button" class="pp-howto-close" id="pp-howto-close" aria-label="Sluiten">
+        <svg viewBox="0 0 14 14" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M2 2l10 10M12 2L2 12"/>
+        </svg>
+      </button>
+      <h3 class="pp-howto-title" id="pp-howto-title">Thuis passen</h3>
+      <p class="pp-howto-lead">In vier stappen jouw bril.<br><span class="pp-howto-lead__sub">&euro;20 borg, levering en retour gratis.</span></p>
+      <ol class="pp-howto-steps">
+        <li>
+          <span class="pp-howto-step__num">1</span>
+          <div>
+            <div class="pp-howto-step__title">Kies vier monturen</div>
+            <div class="pp-howto-step__body">Voeg ze toe aan je paspakket.</div>
+          </div>
+        </li>
+        <li>
+          <span class="pp-howto-step__num">2</span>
+          <div>
+            <div class="pp-howto-step__title">Pas ze thuis</div>
+            <div class="pp-howto-step__body">Vijf dagen, jouw spiegel.</div>
+          </div>
+        </li>
+        <li>
+          <span class="pp-howto-step__num">3</span>
+          <div>
+            <div class="pp-howto-step__title">Stuur retour</div>
+            <div class="pp-howto-step__body">Gratis via PostNL, label zit erbij.</div>
+          </div>
+        </li>
+        <li>
+          <span class="pp-howto-step__num">4</span>
+          <div>
+            <div class="pp-howto-step__title">Bestel je favoriet</div>
+            <div class="pp-howto-step__body">&euro;20 korting bij aankoop.</div>
+          </div>
+        </li>
+      </ol>
+      <p class="pp-howto-foot">De &euro;20 borg krijg je terug als korting zodra je een bril bestelt.</p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <!-- Mobile-only floating "back to basket" button — Apple-style liquid
+       glass. Shows current N/4 count, taps scroll back to the basket
+       card. Appears once the basket scrolls out of view. -->
+  <button type="button" class="pp-mini-basket" id="pp-mini-basket" aria-label="Terug naar je paspakket">
+    <span class="pp-mini-basket__count"><span id="pp-mini-basket-count">0</span>/4</span>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M6 14l6-6 6 6"/>
+    </svg>
+  </button>
+
+  <div class="pp-toast" id="pp-toast"></div>
+</section>
+
+<script>
+  /* Product data injected from Liquid. Each (collection, product)
+     pair is emitted; the JS dedupes by id. Metafields drive the
+     attribute filters (kleur, vorm, materiaal, brillen_voor,
+     pasvorm) — same source the quiz uses. */
+  window.PASPAKKET_DATA = {
+    paspakketVariantId: {%- if section.settings.paspakket_product != blank and section.settings.paspakket_product.variants.first -%}
+      {{ section.settings.paspakket_product.variants.first.id | json }}
+    {%- else -%}52976738238800{%- endif -%},
+    icons: {
+      kleuren:   {{ 'kleur.svg'         | asset_url | json }},
+      vorm:      {{ 'brillenvorm.svg'   | asset_url | json }},
+      materiaal: {{ 'materiaal.svg'     | asset_url | json }},
+      voor:      {{ 'brillen-voor.svg'  | asset_url | json }},
+      pasvorm:   {{ 'montuurbreedte.svg'| asset_url | json }}
+    },
+    rawProducts: [
+      {%- assign first_block = true -%}
+      {%- comment -%}
+        Shopify caps `collection.products` at 50 per collection when
+        used outside a paginate block. To make sure every bril +
+        zonnebril + kinderbril ends up in PASPAKKET_DATA we iterate
+        every relevant collection (parents + gender / category sub-
+        collections); the JS dedupes by product.id so overlapping
+        items aren't loaded twice.
+
+        If a handle below doesn't exist in your store, the block
+        skips it via `{% if coll %}` — safe to leave in the list.
+      {%- endcomment -%}
+      {%- assign collection_handles = 'brillen-op-sterkte,dames-brillen,heren-brillen,leesbrillen,multifocaal,beeldschermbrillen,zonnebrillen,dames-zonnebrillen,heren-zonnebrillen,kinderbrillen,kinder' | split: ',' -%}
+      {%- for collection_handle in collection_handles -%}
+        {%- assign coll = collections[collection_handle] -%}
+        {%- if coll == blank or coll.products_count == 0 -%}{%- continue -%}{%- endif -%}
+        {%- for product in coll.products -%}
+          {%- unless first_block -%},{%- endunless -%}
+          {%- assign first_block = false -%}
+          {%- assign type_label = 'bril' -%}
+          {%- if collection_handle contains 'zonne' -%}{%- assign type_label = 'zonnebril' -%}{%- endif -%}
+          {%- if collection_handle == 'kinderbrillen' or collection_handle == 'kinder' -%}{%- assign type_label = 'kinderbril' -%}{%- endif -%}
+          {%- assign lens_w  = product.metafields.frame.lens_width.value    | default: product.metafields.frame.lens_width    | default: 0 | plus: 0 -%}
+          {%- assign bridge_w = product.metafields.frame.bridge.value       | default: product.metafields.frame.bridge       | default: 0 | plus: 0 -%}
+          {%- assign temple_l = product.metafields.frame.temple_length.value | default: product.metafields.frame.temple_length | default: 0 | plus: 0 -%}
+          {%- assign total_w = product.metafields.frame.total_width.value   | default: product.metafields.frame.total_width   | default: 0 | plus: 0 -%}
+          {
+            "id": {{ product.id | json }},
+            "title": {{ product.title | json }},
+            "handle": {{ product.handle | json }},
+            "url": {{ product.url | json }},
+            "price": {{ product.price | money_without_currency | json }},
+            "priceNum": {{ product.price | divided_by: 100.0 | json }},
+            "compareAtPrice": {%- if product.compare_at_price and product.compare_at_price > product.price -%}{{ product.compare_at_price | divided_by: 100.0 | json }}{%- else -%}null{%- endif -%},
+            "tags": {{ product.tags | join: ',' | downcase | json }},
+            "image": {{ product.featured_image | image_url: width: 600 | json }},
+            "images": [
+              {%- for img in product.images limit: 12 -%}
+                { "src": {{ img | image_url: width: 800 | json }}, "alt": {{ img.alt | default: '' | json }} }
+                {%- unless forloop.last -%},{%- endunless -%}
+              {%- endfor -%}
+            ],
+            "type": {{ type_label | json }},
+            "frame": {
+              "lensWidth": {{ lens_w | json }},
+              "bridge": {{ bridge_w | json }},
+              "templeLength": {{ temple_l | json }},
+              "totalWidth": {{ total_w | json }}
+            },
+            "voor": [
+              {%- if product.metafields.custom.brillen_voor.value -%}
+                {%- for item in product.metafields.custom.brillen_voor.value -%}
+                  {%- if item.label.value != blank -%}{{ item.label.value | json }}
+                  {%- elsif item.name.value != blank -%}{{ item.name.value | json }}
+                  {%- elsif item.title.value != blank -%}{{ item.title.value | json }}
+                  {%- elsif item.system.handle -%}{{ item.system.handle | json }}
+                  {%- else -%}{{ item | json }}{%- endif -%}
+                  {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+              {%- endif -%}
+            ],
+            "vorm": [
+              {%- if product.metafields.custom.vorm.value -%}
+                {%- for item in product.metafields.custom.vorm.value -%}
+                  {%- if item.label.value != blank -%}{{ item.label.value | json }}
+                  {%- elsif item.name.value != blank -%}{{ item.name.value | json }}
+                  {%- elsif item.title.value != blank -%}{{ item.title.value | json }}
+                  {%- elsif item.system.handle -%}{{ item.system.handle | json }}
+                  {%- else -%}{{ item | json }}{%- endif -%}
+                  {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+              {%- endif -%}
+            ],
+            "materiaal": [
+              {%- if product.metafields.custom.materiaal.value -%}
+                {%- for item in product.metafields.custom.materiaal.value -%}
+                  {%- if item.label.value != blank -%}{{ item.label.value | json }}
+                  {%- elsif item.name.value != blank -%}{{ item.name.value | json }}
+                  {%- elsif item.title.value != blank -%}{{ item.title.value | json }}
+                  {%- elsif item.system.handle -%}{{ item.system.handle | json }}
+                  {%- else -%}{{ item | json }}{%- endif -%}
+                  {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+              {%- endif -%}
+            ],
+            "pasvorm": {{ product.metafields.custom.pasvorm | json }},
+            "kleuren": [
+              {%- assign seen_colors = '' -%}
+              {%- assign first_color = true -%}
+              {%- for v in product.variants -%}
+                {%- assign color_val = v.metafields.custom.kleur | default: v.title -%}
+                {%- assign color_key = color_val | downcase | append: '|' -%}
+                {%- unless seen_colors contains color_key -%}
+                  {%- assign seen_colors = seen_colors | append: color_key -%}
+                  {%- unless first_color -%},{%- endunless -%}
+                  {%- assign first_color = false -%}
+                  {{ color_val | json }}
+                {%- endunless -%}
+              {%- endfor -%}
+            ],
+            "variants": [
+              {%- for v in product.variants -%}
+                {%- assign v_kleur = v.metafields.custom.kleur | default: v.title -%}
+                {
+                  "id": {{ v.id | json }},
+                  "title": {{ v.title | json }},
+                  "kleur": {{ v_kleur | json }},
+                  "image": {%- if v.image -%}{{ v.image | image_url: width: 800 | json }}{%- else -%}null{%- endif -%}
+                }{%- unless forloop.last -%},{%- endunless -%}
+              {%- endfor -%}
+            ]
+          }
+        {%- endfor -%}
+      {%- endfor -%}
+    ]
+  };
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var data = window.PASPAKKET_DATA || { rawProducts: [], paspakketVariantId: null };
+
+  // Dedupe rawProducts by id (a product may appear in both a
+  // gender collection and brillen-op-sterkte). Last write wins for
+  // metafields; first occurrence wins for type/order.
+  var productMap = Object.create(null);
+  var productOrder = [];
+  (data.rawProducts || []).forEach(function (row) {
+    if (productMap[row.id]) return;
+    productMap[row.id] = row;
+    productOrder.push(row);
+  });
+  var products = productOrder;
+
+  var STORAGE_KEY = 'jacq-paspakket-v1';
+  var MAX_SLOTS = 4;
+
+  // Attribute filter definitions — order = display order.
+  var ATTR_DEFS = [
+    { key: 'kleuren',   label: 'Kleur' },
+    { key: 'vorm',      label: 'Vorm' },
+    { key: 'materiaal', label: 'Materiaal' },
+    { key: 'voor',      label: 'Voor' },
+    { key: 'pasvorm',   label: 'Pasvorm' }
+  ];
+
+  // Build value lists per attribute (deduped, sorted, case-insensitive).
+  function attrValues(p, key) {
+    var v = p[key];
+    if (v == null) return [];
+    if (Array.isArray(v)) return v.filter(function (x) { return x != null && String(x).trim() !== ''; }).map(String);
+    var s = String(v).trim();
+    return s ? [s] : [];
+  }
+  function buildAttrOptions() {
+    var seen = {};
+    ATTR_DEFS.forEach(function (def) { seen[def.key] = Object.create(null); });
+    products.forEach(function (p) {
+      ATTR_DEFS.forEach(function (def) {
+        attrValues(p, def.key).forEach(function (val) {
+          var k = val.toLowerCase();
+          if (!seen[def.key][k]) seen[def.key][k] = val;
+        });
+      });
+    });
+    var out = {};
+    ATTR_DEFS.forEach(function (def) {
+      out[def.key] = Object.values(seen[def.key]).sort(function (a, b) {
+        return a.localeCompare(b, 'nl', { sensitivity: 'base' });
+      });
+    });
+    return out;
+  }
+  var attrOptions = buildAttrOptions();
+  // Selected values per attribute (Set semantics via plain object).
+  var activeAttrs = {};
+  ATTR_DEFS.forEach(function (def) { activeAttrs[def.key] = Object.create(null); });
+
+  var root = document.querySelector('[data-paspakket]');
+  if (!root) return;
+
+  // Load / save selection
+  var selection = []; // array of {productId, variantId, productHandle, productTitle, variantTitle, image}
+  try {
+    var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+    if (Array.isArray(saved)) selection = saved.slice(0, MAX_SLOTS);
+  } catch (e) {}
+
+  function saveSelection() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(selection)); } catch (e) {}
+  }
+
+  function $(sel, ctx) { return (ctx || root).querySelector(sel); }
+  function $$(sel, ctx) { return Array.prototype.slice.call((ctx || root).querySelectorAll(sel)); }
+
+  // ─── Slot rendering ───
+  var slots = $$('.pp-slot');
+
+  function renderSlots() {
+    slots.forEach(function (slot, i) {
+      var item = selection[i];
+      var media = $('.pp-slot__media', slot);
+      var titleEl = $('.pp-slot__title', slot);
+      var variantEl = $('.pp-slot__variant', slot);
+      var oldImg = media.querySelector('img');
+      if (oldImg) oldImg.remove();
+
+      if (item) {
+        slot.classList.add('is-filled');
+        var img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.productTitle;
+        img.loading = 'lazy';
+        media.appendChild(img);
+        titleEl.textContent = item.productTitle;
+        variantEl.textContent = item.variantTitle && item.variantTitle !== 'Default Title' ? item.variantTitle : '';
+      } else {
+        slot.classList.remove('is-filled');
+        titleEl.textContent = '';
+        variantEl.textContent = '';
+      }
+    });
+
+    // CTA enable state
+    var cta = $('#pp-cta');
+    var n = selection.length;
+    if (cta) cta.classList.toggle('is-inert', n < MAX_SLOTS);
+
+    // Basket header count "n/4"
+    var countEl = $('#pp-slots-count');
+    if (countEl) countEl.textContent = n + '/' + MAX_SLOTS;
+    var miniBasketCount = $('#pp-mini-basket-count');
+    if (miniBasketCount) miniBasketCount.textContent = String(n);
+
+    // Card highlights
+    $$('.pp-card').forEach(function (card) {
+      var pid = card.getAttribute('data-product-id');
+      var has = selection.some(function (s) { return String(s.productId) === pid; });
+      card.classList.toggle('is-selected', has);
+      var btn = $('.pp-card__add', card);
+      if (btn) btn.textContent = has ? '✓ Geselecteerd' : 'Voeg toe';
+      // Disable when 4 selected and this card isn't already selected
+      card.classList.toggle('is-disabled', !has && selection.length >= MAX_SLOTS);
+    });
+
+    saveSelection();
+  }
+
+  function addSelection(item) {
+    if (selection.length >= MAX_SLOTS) {
+      toast('Je hebt al ' + MAX_SLOTS + ' brillen gekozen.');
+      return false;
+    }
+    if (selection.some(function (s) { return s.productId === item.productId; })) {
+      toast('Deze bril zit al in je pakket.');
+      return false;
+    }
+    var targetSlotIndex = selection.length;
+    selection.push(item);
+    renderSlots();
+    // Pop animation on the slot that just got filled.
+    var slotEl = slots[targetSlotIndex];
+    if (slotEl) {
+      slotEl.classList.remove('is-popping');
+      // Force reflow so the animation re-triggers if added twice in
+      // quick succession.
+      void slotEl.offsetWidth;
+      slotEl.classList.add('is-popping');
+      setTimeout(function () { slotEl.classList.remove('is-popping'); }, 700);
+    }
+    return targetSlotIndex;
+  }
+
+  // Animate a ghost element from a source rect to the empty slot
+  // that will receive the bril. Returns a promise that resolves
+  // once the ghost finishes its trip (so callers can defer the
+  // commit until the visual arrives).
+  function flyToSlot(sourceEl, imageSrc, slotIndex) {
+    return new Promise(function (resolve) {
+      var slotEl = slots[slotIndex];
+      if (!sourceEl || !slotEl || !imageSrc) return resolve();
+      var srcRect = sourceEl.getBoundingClientRect();
+      var dstRect = slotEl.getBoundingClientRect();
+      if (!srcRect.width || !dstRect.width) return resolve();
+      var ghost = document.createElement('div');
+      ghost.className = 'pp-fly-ghost';
+      ghost.style.top = srcRect.top + 'px';
+      ghost.style.left = srcRect.left + 'px';
+      ghost.style.width = srcRect.width + 'px';
+      ghost.style.height = srcRect.height + 'px';
+      ghost.style.backgroundImage = "url(" + imageSrc.replace(/"/g, '\\"') + ")";
+      document.body.appendChild(ghost);
+      // Force reflow before mutating transform so transition fires.
+      void ghost.offsetWidth;
+      var dx = (dstRect.left + dstRect.width / 2) - (srcRect.left + srcRect.width / 2);
+      var dy = (dstRect.top + dstRect.height / 2) - (srcRect.top + srcRect.height / 2);
+      var scale = Math.min(dstRect.width / srcRect.width, dstRect.height / srcRect.height) * 0.92;
+      ghost.style.transform = 'translate(' + dx + 'px, ' + dy + 'px) scale(' + scale + ')';
+      ghost.style.opacity = '0.3';
+      setTimeout(function () {
+        if (ghost.parentNode) ghost.parentNode.removeChild(ghost);
+        resolve();
+      }, 740);
+    });
+  }
+
+  // Adds a bril to the pakket with the fly-to-slot ghost animation.
+  // sourceEl is the visual element the ghost should originate from.
+  function addWithFlyAnimation(sourceEl, item) {
+    if (selection.length >= MAX_SLOTS) {
+      toast('Je hebt al ' + MAX_SLOTS + ' brillen gekozen.');
+      return false;
+    }
+    if (selection.some(function (s) { return s.productId === item.productId; })) {
+      toast('Deze bril zit al in je pakket.');
+      return false;
+    }
+    var slotIndex = selection.length;
+    flyToSlot(sourceEl, item.image, slotIndex).then(function () {
+      addSelection(item);
+    });
+    return true;
+  }
+
+  function removeFromSlot(index) {
+    if (index < 0 || index >= selection.length) return;
+    selection.splice(index, 1);
+    renderSlots();
+  }
+
+  // ─── Slot click handlers ───
+  slots.forEach(function (slot, i) {
+    var removeBtn = $('.pp-slot__remove', slot);
+    if (removeBtn) {
+      removeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        removeFromSlot(i);
+      });
+    }
+    slot.addEventListener('click', function (e) {
+      // Don't double-trigger if remove button was the actual target
+      if (e.target.closest('.pp-slot__remove')) return;
+      var item = selection[i];
+      if (!item) return;
+      // Re-open the variant picker for this product (instead of
+      // navigating away to the PDP) and jump straight to the
+      // variant the customer already chose.
+      var product = productMap[item.productId];
+      if (!product) {
+        product = products.find(function (p) { return p.id === item.productId; });
+      }
+      if (!product) return;
+      openVariantPicker(product);
+      var variantIdx = (product.variants || []).findIndex(function (v) {
+        return v.id === item.variantId;
+      });
+      if (variantIdx > 0) selectVariant(variantIdx);
+    });
+    // Drop target
+    slot.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      slot.classList.add('is-drop-target');
+    });
+    slot.addEventListener('dragleave', function () {
+      slot.classList.remove('is-drop-target');
+    });
+    slot.addEventListener('drop', function (e) {
+      e.preventDefault();
+      slot.classList.remove('is-drop-target');
+      var pid = e.dataTransfer.getData('text/x-paspakket-product-id');
+      if (pid) {
+        var p = products.find(function (x) { return String(x.id) === pid; });
+        if (p) handleProductSelect(p);
+      }
+    });
+  });
+
+  // ─── Variant picker ───
+  var variantOverlay = $('#pp-variant-overlay');
+  var variantList = $('#pp-variant-list');
+  var variantTitle = $('#pp-variant-title');
+  var variantHint = $('#pp-variant-hint');
+
+  // Build the same SVG arrow diagram as product-specs-tabs.liquid.
+  function renderDimDiagram(svg, frame) {
+    if (!svg) return;
+    var lensWidth = Number(frame.lensWidth) || 0;
+    var bridge = Number(frame.bridge) || 0;
+    var totalWidth = Number(frame.totalWidth) || 0;
+    if (lensWidth <= 0 && bridge <= 0) { svg.innerHTML = ''; return; }
+    var bridgeArrowLength = bridge - 2;
+    var lensArrowLength = lensWidth - 14;
+    var halfBridge = bridgeArrowLength / 2;
+    var bridgeStartX = 60 - halfBridge;
+    var bridgeEndX = 60 + halfBridge;
+    var lensEndX = bridgeEndX + lensArrowLength;
+    var bridgeLabelX = (bridgeStartX + bridgeEndX) / 2;
+    var lensLabelX = (bridgeEndX + lensEndX) / 2;
+    var bridgeStartArrow = bridgeStartX + 1.5;
+    var bridgeEndArrow = bridgeEndX - 1.5;
+    var lensStartArrow = bridgeEndX + 1.5;
+    var lensEndArrow = lensEndX - 1.5;
+    var totalStartX = 6, totalEndX = 114, totalLabelX = 60;
+    var totalStartArrow = 7.5, totalEndArrow = 112.5;
+    var parts = [
+      '<text x="' + bridgeLabelX + '" y="30" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">' + bridge + ' mm</text>',
+      '<line x1="' + bridgeStartX + '" y1="34" x2="' + bridgeEndX + '" y2="34" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>',
+      '<polygon points="' + bridgeStartX + ',34 ' + bridgeStartArrow + ',32.8 ' + bridgeStartArrow + ',35.2" fill="#c7c7cc"/>',
+      '<polygon points="' + bridgeEndX + ',34 ' + bridgeEndArrow + ',32.8 ' + bridgeEndArrow + ',35.2" fill="#c7c7cc"/>',
+      '<text x="' + lensLabelX + '" y="30" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">' + lensWidth + ' mm</text>',
+      '<line x1="' + bridgeEndX + '" y1="34" x2="' + lensEndX + '" y2="34" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>',
+      '<polygon points="' + bridgeEndX + ',34 ' + lensStartArrow + ',32.8 ' + lensStartArrow + ',35.2" fill="#c7c7cc"/>',
+      '<polygon points="' + lensEndX + ',34 ' + lensEndArrow + ',32.8 ' + lensEndArrow + ',35.2" fill="#c7c7cc"/>'
+    ];
+    if (totalWidth > 0) {
+      parts.push(
+        '<line x1="' + totalStartX + '" y1="84" x2="' + totalEndX + '" y2="84" stroke="#c7c7cc" stroke-width="0.4" stroke-dasharray="1.2,0.8"/>',
+        '<polygon points="' + totalStartX + ',84 ' + totalStartArrow + ',82.8 ' + totalStartArrow + ',85.2" fill="#c7c7cc"/>',
+        '<polygon points="' + totalEndX + ',84 ' + totalEndArrow + ',82.8 ' + totalEndArrow + ',85.2" fill="#c7c7cc"/>',
+        '<text x="' + totalLabelX + '" y="91" text-anchor="middle" fill="#86868b" font-size="4.5" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-weight="500">' + totalWidth + ' mm</text>'
+      );
+    }
+    svg.innerHTML = parts.join('');
+  }
+
+  // Carousel state
+  var carouselSlideIndex = 0;
+  var carouselImages = [];
+  // Per-variant carousel: each variant's "featured image" marks the
+  // start of that variant's photos inside the product gallery. So a
+  // variant's photo set is the contiguous slice of product.images
+  // from its featured-image position up to (but not including) the
+  // featured image of the NEXT variant. This matches the convention
+  // the user uses when uploading photos in Shopify admin.
+  function imgSrc(img) { return img && (typeof img === 'string' ? img : img.src) || ''; }
+  // Variant.image and product.images come back from Shopify at
+  // different widths, so their raw URLs never match by string. We
+  // normalise by stripping the query string and any _NNxNN size
+  // suffix so the featured-image lookup can find the right slot in
+  // the gallery.
+  function normalizeImgUrl(url) {
+    if (!url) return '';
+    var s = String(url).split('?')[0].split('#')[0];
+    s = s.replace(/_(small|medium|large|grande|master|original|\d+x|x\d+|\d+x\d+)\.(jpg|jpeg|png|webp|gif)(?=$)/i, '.$2');
+    return s;
+  }
+  function buildVariantImages(product, variantIndex) {
+    var variants = product.variants || [];
+    var v = variants[variantIndex] || null;
+    var images = product.images || [];
+    var srcs = images.map(imgSrc).filter(Boolean);
+
+    if (!v) {
+      return srcs.length ? srcs : [product.image].filter(Boolean);
+    }
+    if (!srcs.length) {
+      return [v.image || product.image].filter(Boolean);
+    }
+
+    // Walk the gallery in order, recording at which index each
+    // variant's featured image appears. Compare on normalised URLs
+    // so a width-mismatch doesn't break the lookup.
+    var srcsNorm = srcs.map(normalizeImgUrl);
+    var variantStartIdx = variants.map(function (vv) {
+      if (!vv || !vv.image) return -1;
+      return srcsNorm.indexOf(normalizeImgUrl(vv.image));
+    });
+    var startIdx = variantStartIdx[variantIndex];
+
+    if (startIdx < 0) {
+      // This variant's featured image isn't in the gallery — fall
+      // back to just its pinned image (or the product default).
+      return [(v && v.image) || product.image].filter(Boolean);
+    }
+
+    // The slice ends at the NEXT variant's featured-image index that
+    // appears later in the gallery. If none, take everything until
+    // the end.
+    var endIdx = srcs.length;
+    for (var i = 0; i < variants.length; i++) {
+      if (i === variantIndex) continue;
+      var other = variantStartIdx[i];
+      if (other > startIdx && other < endIdx) endIdx = other;
+    }
+    var slice = srcs.slice(startIdx, endIdx);
+    return slice.length ? slice : [v.image || product.image].filter(Boolean);
+  }
+  function renderCarousel(product, variantIndex) {
+    var track = $('#pp-carousel-track');
+    var dots = $('#pp-carousel-dots');
+    if (!track || !dots) return;
+    carouselImages = buildVariantImages(product, variantIndex || 0);
+    track.innerHTML = carouselImages.map(function (src) {
+      return '<div class="pp-carousel__slide"><img src="' + src + '" alt="' + escapeHtml(product.title) + '" loading="lazy"></div>';
+    }).join('');
+    dots.innerHTML = carouselImages.map(function (_, i) {
+      return '<button type="button" class="pp-carousel__dot' + (i === 0 ? ' is-active' : '') + '" data-slide="' + i + '" aria-label="Foto ' + (i + 1) + '"></button>';
+    }).join('');
+    carouselSlideIndex = 0;
+    track.scrollLeft = 0;
+    syncCarouselUI();
+  }
+  function syncCarouselUI() {
+    var track = $('#pp-carousel-track');
+    if (!track) return;
+    var slides = track.children.length;
+    $('#pp-carousel-prev').disabled = carouselSlideIndex <= 0;
+    $('#pp-carousel-next').disabled = carouselSlideIndex >= slides - 1;
+    $$('#pp-carousel-dots .pp-carousel__dot').forEach(function (d, i) {
+      d.classList.toggle('is-active', i === carouselSlideIndex);
+    });
+  }
+  function goToSlide(i) {
+    var track = $('#pp-carousel-track');
+    if (!track) return;
+    var slides = track.children.length;
+    carouselSlideIndex = Math.max(0, Math.min(slides - 1, i));
+    track.scrollTo({ left: carouselSlideIndex * track.clientWidth, behavior: 'smooth' });
+    syncCarouselUI();
+  }
+  $('#pp-carousel-prev').addEventListener('click', function () { goToSlide(carouselSlideIndex - 1); });
+  $('#pp-carousel-next').addEventListener('click', function () { goToSlide(carouselSlideIndex + 1); });
+  $('#pp-carousel-dots').addEventListener('click', function (e) {
+    var dot = e.target.closest('.pp-carousel__dot');
+    if (!dot) return;
+    goToSlide(parseInt(dot.getAttribute('data-slide'), 10) || 0);
+  });
+  $('#pp-carousel-track').addEventListener('scroll', function () {
+    var track = $('#pp-carousel-track');
+    var idx = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+    if (idx !== carouselSlideIndex) {
+      carouselSlideIndex = idx;
+      syncCarouselUI();
+    }
+  }, { passive: true });
+
+  // Tab switching
+  $$('.pp-tabs__btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var tab = btn.getAttribute('data-tab');
+      $$('.pp-tabs__btn').forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-selected', String(active));
+      });
+      $$('.pp-tab-panel').forEach(function (p) {
+        var active = p.getAttribute('data-tab-panel') === tab;
+        p.classList.toggle('is-active', active);
+        p.hidden = !active;
+      });
+    });
+  });
+
+  function openVariantPicker(product) {
+    variantTitle.textContent = product.title;
+    variantHint.textContent = 'Kies een kleur';
+
+    // Reset to photos tab on each open.
+    $$('.pp-tabs__btn').forEach(function (b) {
+      var isPhotos = b.getAttribute('data-tab') === 'photos';
+      b.classList.toggle('is-active', isPhotos);
+      b.setAttribute('aria-selected', String(isPhotos));
+    });
+    $$('.pp-tab-panel').forEach(function (p) {
+      var isPhotos = p.getAttribute('data-tab-panel') === 'photos';
+      p.classList.toggle('is-active', isPhotos);
+      p.hidden = !isPhotos;
+    });
+
+    // Build the photo carousel from the product's image gallery
+    // (scoped to the default variant).
+    renderCarousel(product, 0);
+
+    // Dimensions panel (same fields as product-specs-tabs.liquid 'Details' tab).
+    var dimImg = $('#pp-dim-img');
+    var dimSvg = $('#pp-dim-svg');
+    var dimTable = $('#pp-dim-table');
+    var frame = product.frame || {};
+    var hasDims = (Number(frame.lensWidth) > 0 || Number(frame.bridge) > 0);
+    if (hasDims) {
+      dimImg.src = product.image || '';
+      dimImg.alt = product.title;
+      renderDimDiagram(dimSvg, frame);
+      var rows = [];
+      if (frame.lensWidth)    rows.push(['Lensbreedte',   frame.lensWidth + ' mm']);
+      if (frame.bridge)       rows.push(['Neusbrug',      frame.bridge + ' mm']);
+      if (frame.templeLength) rows.push(['Pootlengte',    frame.templeLength + ' mm']);
+      if (frame.totalWidth)   rows.push(['Totale breedte', frame.totalWidth + ' mm']);
+      dimTable.innerHTML = rows.map(function (r) {
+        return '<div class="pp-dim__row"><span class="pp-dim__label">' + escapeHtml(r[0]) + '</span><span class="pp-dim__value">' + escapeHtml(r[1]) + '</span></div>';
+      }).join('');
+    } else {
+      dimTable.innerHTML = '<div class="pp-dim__row"><span class="pp-dim__label">Geen afmetingen beschikbaar voor deze bril.</span></div>';
+    }
+
+    variantList.innerHTML = '';
+    activeVariantIndex = 0;
+    product.variants.forEach(function (v, idx) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pp-variant-option' + (idx === 0 ? ' is-active' : '');
+      btn.setAttribute('data-variant-index', String(idx));
+      btn.innerHTML =
+        '<img src="' + (v.image || product.image) + '" alt="' + escapeHtml(v.title) + '" loading="lazy">' +
+        '<span class="pp-variant-option__title">' + escapeHtml(v.title) + '</span>';
+      btn.addEventListener('click', function () {
+        selectVariant(idx);
+      });
+      variantList.appendChild(btn);
+    });
+    variantOverlay.classList.add('is-active');
+    variantOverlay.setAttribute('aria-hidden', 'false');
+  }
+
+  // ─── Variant preview (carousel jump + highlight, no commit) ───
+  var activeProduct = null;
+  var activeVariantIndex = 0;
+  function selectVariant(idx) {
+    if (!activeProduct || !activeProduct.variants) return;
+    activeVariantIndex = Math.max(0, Math.min(activeProduct.variants.length - 1, idx));
+    $$('.pp-variant-option').forEach(function (b, i) {
+      b.classList.toggle('is-active', i === activeVariantIndex);
+    });
+    // Rebuild the carousel so only THIS variant's photos are shown.
+    renderCarousel(activeProduct, activeVariantIndex);
+  }
+  // Wrap openVariantPicker to remember the active product
+  var __openVariantPicker = openVariantPicker;
+  openVariantPicker = function (product) {
+    activeProduct = product;
+    activeVariantIndex = 0;
+    __openVariantPicker(product);
+  };
+
+  // ─── 'Voeg toe' CTA at the bottom of the modal ───
+  var modalCta = $('#pp-modal-cta');
+  if (modalCta) {
+    modalCta.addEventListener('click', function () {
+      if (!activeProduct || !activeProduct.variants || !activeProduct.variants[activeVariantIndex]) return;
+      var v = activeProduct.variants[activeVariantIndex];
+      var newItem = {
+        productId: activeProduct.id,
+        variantId: v.id,
+        productHandle: activeProduct.handle,
+        productTitle: activeProduct.title,
+        variantTitle: v.title,
+        image: v.image || activeProduct.image
+      };
+      // If this product is already in the pakket (re-opened from a
+      // filled slot), swap its variant in place instead of refusing
+      // with a 'zit al in je pakket' toast.
+      var existingIdx = selection.findIndex(function (s) {
+        return s.productId === activeProduct.id;
+      });
+      if (existingIdx >= 0) {
+        selection[existingIdx] = newItem;
+        renderSlots();
+        closeVariantPicker();
+        return;
+      }
+      if (selection.length >= MAX_SLOTS) {
+        toast('Je hebt al ' + MAX_SLOTS + ' brillen gekozen.');
+        return;
+      }
+      // Start the fly animation from the active carousel slide, then
+      // immediately close the modal so the ghost is visible flying
+      // out of a fading backdrop into the empty slot.
+      var track = $('#pp-carousel-track');
+      var sourceImg = track ? track.querySelector('img') : null;
+      addWithFlyAnimation(sourceImg, newItem);
+      closeVariantPicker();
+    });
+  }
+
+  // ─── Fullscreen photo viewer ───
+  var fsOverlay = $('#pp-fullscreen');
+  var fsImg = $('#pp-fullscreen-img');
+  var fsPrev = $('#pp-fullscreen-prev');
+  var fsNext = $('#pp-fullscreen-next');
+  var fsIndex = 0;
+  function openFullscreen(i) {
+    fsIndex = Math.max(0, Math.min(carouselImages.length - 1, i));
+    fsImg.src = carouselImages[fsIndex] || '';
+    syncFsNav();
+    fsOverlay.classList.add('is-active');
+  }
+  function closeFullscreen() { fsOverlay.classList.remove('is-active'); }
+  function syncFsNav() {
+    fsPrev.disabled = fsIndex <= 0;
+    fsNext.disabled = fsIndex >= carouselImages.length - 1;
+  }
+  function fsGo(delta) {
+    var next = fsIndex + delta;
+    if (next < 0 || next >= carouselImages.length) return;
+    fsIndex = next;
+    fsImg.src = carouselImages[fsIndex] || '';
+    syncFsNav();
+  }
+  fsPrev.addEventListener('click', function () { fsGo(-1); });
+  fsNext.addEventListener('click', function () { fsGo(1); });
+  $('#pp-fullscreen-close').addEventListener('click', closeFullscreen);
+  fsOverlay.addEventListener('click', function (e) {
+    if (e.target === fsOverlay || e.target.classList.contains('pp-fullscreen__inner')) closeFullscreen();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!fsOverlay.classList.contains('is-active')) return;
+    if (e.key === 'Escape') closeFullscreen();
+    else if (e.key === 'ArrowLeft') fsGo(-1);
+    else if (e.key === 'ArrowRight') fsGo(1);
+  });
+  $('#pp-carousel-track').addEventListener('click', function (e) {
+    var slide = e.target.closest('.pp-carousel__slide');
+    if (!slide) return;
+    var slides = Array.prototype.slice.call($('#pp-carousel-track').children);
+    openFullscreen(slides.indexOf(slide));
+  });
+
+  function closeVariantPicker() {
+    variantOverlay.classList.remove('is-active');
+    variantOverlay.setAttribute('aria-hidden', 'true');
+  }
+
+  $('#pp-variant-close').addEventListener('click', closeVariantPicker);
+  variantOverlay.addEventListener('click', function (e) {
+    if (e.target === variantOverlay) closeVariantPicker();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && variantOverlay.classList.contains('is-active')) closeVariantPicker();
+  });
+
+  // ─── "Zo werkt thuis passen" modal ───
+  var howtoOverlay = $('#pp-howto-overlay');
+  var howtoTrigger = $('#pp-howto-trigger');
+  if (howtoOverlay && howtoTrigger) {
+    var openHowto = function () {
+      howtoOverlay.classList.add('is-active');
+      howtoOverlay.setAttribute('aria-hidden', 'false');
+    };
+    var closeHowto = function () {
+      howtoOverlay.classList.remove('is-active');
+      howtoOverlay.setAttribute('aria-hidden', 'true');
+    };
+    howtoTrigger.addEventListener('click', openHowto);
+    var howtoClose = $('#pp-howto-close');
+    if (howtoClose) howtoClose.addEventListener('click', closeHowto);
+    howtoOverlay.addEventListener('click', function (e) {
+      if (e.target === howtoOverlay) closeHowto();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && howtoOverlay.classList.contains('is-active')) closeHowto();
+    });
+  }
+
+  // ─── Product handling ───
+  function handleProductSelect(product) {
+    if (selection.some(function (s) { return s.productId === product.id; })) {
+      // Already selected — remove
+      var idx = selection.findIndex(function (s) { return s.productId === product.id; });
+      if (idx >= 0) removeFromSlot(idx);
+      return;
+    }
+    if (selection.length >= MAX_SLOTS) {
+      toast('Je pakket is al vol (' + MAX_SLOTS + ' brillen).');
+      return;
+    }
+    // Always open the modal so the customer sees the dimensions
+    // diagram + variant picker, even for single-variant products.
+    openVariantPicker(product);
+  }
+
+  // ─── Product grid rendering ───
+  var grid = $('#pp-grid');
+  var emptyEl = $('#pp-empty');
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderGrid() {
+    grid.innerHTML = '';
+    products.forEach(function (p) {
+      var card = document.createElement('div');
+      card.className = 'pp-card';
+      card.setAttribute('data-product-id', p.id);
+      card.setAttribute('data-product-type', p.type);
+      card.setAttribute('data-price', p.priceNum);
+      card.setAttribute('data-title', p.title);
+      card.setAttribute('data-tags', p.tags || '');
+      if (p.compareAtPrice != null) card.setAttribute('data-compare-at-price', p.compareAtPrice);
+      ATTR_DEFS.forEach(function (def) {
+        var vals = attrValues(p, def.key).map(function (v) { return v.toLowerCase(); });
+        card.setAttribute('data-attr-' + def.key, vals.join('|'));
+      });
+      card.setAttribute('draggable', 'true');
+      var onSale = p.compareAtPrice != null && p.compareAtPrice > p.priceNum;
+      var korting = onSale ? Math.round(p.compareAtPrice - p.priceNum) : 0;
+      var compareDisplay = onSale ? (p.compareAtPrice % 1 === 0 ? p.compareAtPrice.toFixed(0) : p.compareAtPrice.toFixed(2)) : '';
+      card.innerHTML =
+        '<div class="pp-card__media">' +
+          (onSale ? '<span class="pp-card__badge">€' + korting + ',- Korting</span>' : '') +
+          '<button type="button" class="pp-card__quick" aria-label="Snel toevoegen aan pas-pakket" title="Snel toevoegen">' +
+            '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg>' +
+          '</button>' +
+          (p.image ? '<img src="' + p.image + '" data-default-src="' + p.image + '" alt="' + escapeHtml(p.title) + '" loading="lazy">' : '') +
+        '</div>' +
+        '<div class="pp-card__info">' +
+          '<div class="pp-card__title-row">' +
+            '<div class="pp-card__title">' + escapeHtml(p.title) + '</div>' +
+            '<div class="pp-card__price' + (onSale ? ' pp-card__price--sale' : '') + '">' +
+              '€' + escapeHtml(p.price) +
+              (onSale ? ' <s class="pp-card__price--compare">€' + escapeHtml(compareDisplay) + '</s>' : '') +
+            '</div>' +
+          '</div>' +
+          '<button type="button" class="pp-card__add">Voeg toe</button>' +
+        '</div>';
+
+      // Quick-add: skip the modal, use the product's first variant
+      // and animate it straight into the next empty slot.
+      var quickBtn = card.querySelector('.pp-card__quick');
+      if (quickBtn) {
+        quickBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (!p.variants || !p.variants.length) return;
+          if (selection.some(function (s) { return s.productId === p.id; })) {
+            toast('Deze bril zit al in je pakket.');
+            return;
+          }
+          if (selection.length >= MAX_SLOTS) {
+            toast('Je pakket is al vol (' + MAX_SLOTS + ' brillen).');
+            return;
+          }
+          var v = p.variants[0];
+          var item = {
+            productId: p.id,
+            variantId: v.id,
+            productHandle: p.handle,
+            productTitle: p.title,
+            variantTitle: v.title,
+            image: v.image || p.image
+          };
+          var sourceImg = card.querySelector('.pp-card__media img');
+          addWithFlyAnimation(sourceImg, item);
+        });
+      }
+
+      // Click anywhere else on the card to open the variant picker
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.pp-card__quick')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        handleProductSelect(p);
+      });
+
+      // Drag-and-drop
+      card.addEventListener('dragstart', function (e) {
+        e.dataTransfer.setData('text/x-paspakket-product-id', String(p.id));
+        e.dataTransfer.effectAllowed = 'copy';
+      });
+
+      grid.appendChild(card);
+    });
+    renderSlots(); // refresh selected/disabled states
+  }
+
+  // ─── Filter + sort + search ───
+  var activeType = 'all';
+  var activeSort = 'default';
+  var searchTerm = '';
+  var activePreset = 'all';
+
+  function activeAttrSet(key) {
+    return Object.keys(activeAttrs[key]);
+  }
+  function totalActiveAttrs() {
+    return ATTR_DEFS.reduce(function (n, def) { return n + activeAttrSet(def.key).length; }, 0);
+  }
+
+  function matchesType(card) {
+    if (activeType === 'all') return true;
+    return card.getAttribute('data-product-type') === activeType;
+  }
+  function matchesAttrs(card) {
+    for (var i = 0; i < ATTR_DEFS.length; i++) {
+      var def = ATTR_DEFS[i];
+      var selected = activeAttrSet(def.key);
+      if (selected.length === 0) continue;
+      var cardVals = (card.getAttribute('data-attr-' + def.key) || '').split('|');
+      var hit = false;
+      for (var j = 0; j < selected.length; j++) {
+        if (cardVals.indexOf(selected[j]) !== -1) { hit = true; break; }
+      }
+      if (!hit) return false;
+    }
+    return true;
+  }
+  function normalizeSearch(s) {
+    return String(s || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '');
+  }
+  function matchesSearch(card) {
+    if (!searchTerm) return true;
+    var t = normalizeSearch(card.getAttribute('data-title') || '');
+    return t.indexOf(searchTerm) !== -1;
+  }
+  function matchesPreset(card) {
+    if (activePreset === 'all') return true;
+    var type = card.getAttribute('data-product-type') || '';
+    var voor = (card.getAttribute('data-attr-voor') || '').toLowerCase().split('|');
+    var tags = (card.getAttribute('data-tags') || '').toLowerCase();
+    var compareAt = parseFloat(card.getAttribute('data-compare-at-price'));
+    var price = parseFloat(card.getAttribute('data-price'));
+    var isUnisex = voor.indexOf('unisex') !== -1 || voor.length === 0 || (voor.length === 1 && voor[0] === '');
+    switch (activePreset) {
+      case 'damesbrillen':       return type === 'bril' && (voor.indexOf('dames') !== -1 || isUnisex);
+      case 'herenbrillen':       return type === 'bril' && (voor.indexOf('heren') !== -1 || isUnisex);
+      case 'multifocaal':        return type === 'bril';
+      case 'leesbrillen':        return type === 'bril';
+      case 'beeldschermbrillen': return type === 'bril';
+      case 'kinderbrillen':      return type === 'kinderbril';
+      case 'dameszonnebrillen':  return type === 'zonnebril' && (voor.indexOf('dames') !== -1 || isUnisex);
+      case 'herenzonnebrillen':  return type === 'zonnebril' && (voor.indexOf('heren') !== -1 || isUnisex);
+      case 'sale':               return !isNaN(compareAt) && !isNaN(price) && compareAt > price;
+      default:                   return true;
+    }
+  }
+
+  function updateCardImages() {
+    var activeColors = activeAttrSet('kleuren'); // already lowercased keys
+    $$('.pp-card').forEach(function (card) {
+      var img = card.querySelector('.pp-card__media img');
+      if (!img) return;
+      var defaultSrc = img.getAttribute('data-default-src');
+      if (activeColors.length === 0) {
+        if (defaultSrc && img.src !== defaultSrc) img.src = defaultSrc;
+        return;
+      }
+      var pid = card.getAttribute('data-product-id');
+      var p = productMap[pid];
+      if (!p || !p.variants) return;
+      var match = null;
+      for (var i = 0; i < p.variants.length; i++) {
+        var v = p.variants[i];
+        var vColor = String(v.kleur || v.title || '').toLowerCase();
+        if (v.image && activeColors.indexOf(vColor) !== -1) { match = v; break; }
+      }
+      if (match) {
+        if (img.src !== match.image) img.src = match.image;
+      } else if (defaultSrc && img.src !== defaultSrc) {
+        img.src = defaultSrc;
+      }
+    });
+  }
+
+  // Pagination state + helpers
+  var PRODUCTS_PER_PAGE = 24;
+  var currentPage = 1;
+
+  function scrollToGridTop() {
+    var grid = $('#pp-grid');
+    if (!grid) return;
+    var rect = grid.getBoundingClientRect();
+    window.scrollTo({ top: window.pageYOffset + rect.top - 80, behavior: 'smooth' });
+  }
+
+  function renderPaginationControls(totalPages) {
+    var nav = $('#pp-pagination');
+    if (!nav) return;
+    nav.innerHTML = '';
+    if (totalPages <= 1) { nav.hidden = true; return; }
+    nav.hidden = false;
+
+    function btn(label, page, opts) {
+      opts = opts || {};
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pp-pagination__btn' + (opts.active ? ' is-active' : '');
+      b.textContent = label;
+      if (opts.disabled) b.disabled = true;
+      b.addEventListener('click', function () {
+        if (opts.disabled) return;
+        currentPage = page;
+        applyFilterAndSort();
+        scrollToGridTop();
+      });
+      return b;
+    }
+
+    function ellipsis() {
+      var s = document.createElement('span');
+      s.className = 'pp-pagination__ellipsis';
+      s.textContent = '…';
+      return s;
+    }
+
+    nav.appendChild(btn('‹', currentPage - 1, { disabled: currentPage === 1 }));
+
+    var pages = [];
+    pages.push(1);
+    for (var i = currentPage - 1; i <= currentPage + 1; i++) {
+      if (i > 1 && i < totalPages) pages.push(i);
+    }
+    if (totalPages > 1) pages.push(totalPages);
+    pages = pages.filter(function (v, i, a) { return a.indexOf(v) === i; }).sort(function (a, b) { return a - b; });
+
+    var prev = 0;
+    pages.forEach(function (p) {
+      if (p - prev > 1) nav.appendChild(ellipsis());
+      nav.appendChild(btn(String(p), p, { active: p === currentPage }));
+      prev = p;
+    });
+
+    nav.appendChild(btn('›', currentPage + 1, { disabled: currentPage === totalPages }));
+  }
+
+  function paginate(visibleCards) {
+    var totalPages = Math.max(1, Math.ceil(visibleCards.length / PRODUCTS_PER_PAGE));
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+
+    var start = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    var end = start + PRODUCTS_PER_PAGE;
+    visibleCards.forEach(function (c, i) {
+      c.classList.toggle('pp-card--page-hidden', i < start || i >= end);
+    });
+
+    var countEl = $('#pp-product-count');
+    if (countEl) {
+      if (visibleCards.length === 0) {
+        countEl.textContent = '';
+      } else {
+        var shownStart = start + 1;
+        var shownEnd = Math.min(end, visibleCards.length);
+        countEl.textContent = shownStart + '–' + shownEnd + ' van ' + visibleCards.length + ' brillen';
+      }
+    }
+
+    renderPaginationControls(totalPages);
+  }
+
+  function resetPagination() { currentPage = 1; }
+
+  function applyFilterAndSort() {
+    var cards = $$('.pp-card');
+    cards.forEach(function (c) {
+      var show = matchesPreset(c) && matchesType(c) && matchesAttrs(c) && matchesSearch(c);
+      c.classList.toggle('is-hidden', !show);
+    });
+    var visible = cards.filter(function (c) { return !c.classList.contains('is-hidden'); });
+    visible.sort(function (a, b) {
+      if (activeSort === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+      if (activeSort === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+      if (activeSort === 'title-asc' || activeSort === 'title') return a.dataset.title.localeCompare(b.dataset.title, 'nl');
+      if (activeSort === 'title-desc') return b.dataset.title.localeCompare(a.dataset.title, 'nl');
+      return 0;
+    });
+    if (activeSort !== 'default') {
+      visible.forEach(function (c) { grid.appendChild(c); });
+    }
+    emptyEl.hidden = visible.length > 0;
+
+    // Pagination
+    paginate(visible);
+
+    updateCardImages();
+
+    // Update attribute pill counts + active states.
+    ATTR_DEFS.forEach(function (def) {
+      var n = activeAttrSet(def.key).length;
+      var attrEl = root.querySelector('[data-attr-key="' + def.key + '"]');
+      if (!attrEl) return;
+      attrEl.classList.toggle('is-active', n > 0);
+      var countEl = attrEl.querySelector('.pp-attr__count');
+      if (countEl) {
+        countEl.textContent = n > 0 ? n : '';
+        countEl.hidden = n === 0;
+      }
+    });
+    var clearBtn = $('#pp-clear');
+    if (clearBtn) clearBtn.hidden = totalActiveAttrs() === 0;
+    if (typeof syncMobileFilterCount === 'function') syncMobileFilterCount();
+  }
+
+  // Type pills.
+  $$('#pp-type-pills .pp-pill').forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      $$('#pp-type-pills .pp-pill').forEach(function (p) { p.classList.toggle('is-active', p === pill); });
+      activeType = pill.getAttribute('data-type');
+      resetPagination();
+      applyFilterAndSort();
+    });
+  });
+
+  // Preset colour pills (homepage style — quick presets above attribute filters).
+  $$('#pp-colnav .pp-colnav-pill[data-preset]').forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      resetPagination();
+      $$('#pp-colnav .pp-colnav-pill[data-preset]').forEach(function (p) { p.classList.toggle('is-active', p === pill); });
+      activePreset = pill.getAttribute('data-preset');
+      applyFilterAndSort();
+    });
+  });
+
+  // Attribute dropdowns.
+  // One swatch per canonical colour. All variants of e.g. grey
+  // (lichtgrijs / donkergrijs / gunmetal) share one swatch and
+  // toggle all variants together when clicked.
+  var CANONICAL_COLORS = [
+    { key: 'zwart',  label: 'Zwart',  hex: '#1d1d1f', match: ['zwart'] },
+    { key: 'wit',    label: 'Wit',    hex: '#ffffff', match: ['wit', 'transparant', 'transparent'] },
+    { key: 'grijs',  label: 'Grijs',  hex: '#9aa0a6', match: ['grijs', 'lichtgrijs', 'donkergrijs', 'gunmetal'] },
+    { key: 'zilver', label: 'Zilver', hex: '#c8cdd3', match: ['zilver'] },
+    { key: 'bruin',  label: 'Bruin',  hex: '#8b4513', match: ['bruin', 'donkerbruin', 'havana'] },
+    { key: 'beige',  label: 'Beige',  hex: '#d8c19a', match: ['beige'] },
+    { key: 'blauw',  label: 'Blauw',  hex: '#2c4a8a', match: ['blauw', 'lichtblauw', 'donkerblauw'] },
+    { key: 'groen',  label: 'Groen',  hex: '#2e6e44', match: ['groen', 'lichtgroen', 'donkergroen'] },
+    { key: 'rood',   label: 'Rood',   hex: '#9b1c1c', match: ['rood', 'donkerrood'] },
+    { key: 'roze',   label: 'Roze',   hex: '#e89bbf', match: ['roze', 'lichtroze'] },
+    { key: 'paars',  label: 'Paars',  hex: '#7c3aed', match: ['paars'] },
+    { key: 'oranje', label: 'Oranje', hex: '#d2691e', match: ['oranje'] },
+    { key: 'geel',   label: 'Geel',   hex: '#d5b933', match: ['geel'] },
+    { key: 'goud',   label: 'Goud',   hex: '#c9a14a', match: ['goud', 'gold', 'rosegoud'] }
+  ];
+
+  function canonicalForRawValue(val) {
+    var v = val.toLowerCase();
+    for (var i = 0; i < CANONICAL_COLORS.length; i++) {
+      var c = CANONICAL_COLORS[i];
+      for (var j = 0; j < c.match.length; j++) {
+        if (v.indexOf(c.match[j]) !== -1) return c;
+      }
+    }
+    return null;
+  }
+
+  function renderAttrFilters() {
+    var row = $('#pp-attr-row');
+    if (!row) return;
+    row.innerHTML = '';
+    var icons = (data.icons || {});
+    ATTR_DEFS.forEach(function (def) {
+      var values = attrOptions[def.key] || [];
+      if (values.length === 0) return;
+
+      // Custom accordion (div + button) so the open/close animation
+      // isn't blocked by the native <details> UA behaviour. We avoid
+      // the theme's .details / .details__summary classes so the theme
+      // stylesheet (which injects pseudo content + its own layout)
+      // can't interfere — we control the look fully.
+      var det = document.createElement('div');
+      det.className = 'pp-attr';
+      det.setAttribute('data-attr-key', def.key);
+      det.setAttribute('data-filter', '');
+
+      var summary = document.createElement('button');
+      summary.type = 'button';
+      summary.setAttribute('aria-expanded', 'false');
+      summary.className = 'pp-attr__btn';
+      summary.addEventListener('click', function () {
+        var isOpen = det.hasAttribute('open');
+        if (isOpen) {
+          det.removeAttribute('open');
+          summary.setAttribute('aria-expanded', 'false');
+          det.classList.remove('is-open');
+        } else {
+          det.setAttribute('open', '');
+          summary.setAttribute('aria-expanded', 'true');
+          det.classList.add('is-open');
+        }
+      });
+      var iconHtml = icons[def.key]
+        ? '<img class="pp-attr__icon" src="' + icons[def.key] + '" alt="" width="20" height="20" loading="lazy">'
+        : '';
+      summary.innerHTML =
+        '<span class="pp-attr__label">' +
+          iconHtml + escapeHtml(def.label) +
+        '</span>' +
+        '<span class="pp-attr__right">' +
+          '<span class="pp-attr__count" hidden></span>' +
+          '<svg class="pp-attr__chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+        '</span>';
+      det.appendChild(summary);
+
+      var content = document.createElement('div');
+      content.className = 'pp-attr__panel';
+
+      var isColor = def.key === 'kleuren' || def.key === 'kleur';
+
+      if (isColor) {
+        // Group raw values by canonical colour
+        var canonicalsPresent = [];
+        var canonicalToVariants = {};
+        values.forEach(function (val) {
+          var canon = canonicalForRawValue(val);
+          if (!canon) return;
+          if (!canonicalToVariants[canon.key]) {
+            canonicalToVariants[canon.key] = [];
+            canonicalsPresent.push(canon);
+          }
+          canonicalToVariants[canon.key].push(val.toLowerCase());
+        });
+
+        // Use the theme's swatches markup so .color-swatch CSS applies
+        var ul = document.createElement('ul');
+        ul.className = 'swatches swatches--round flex items-center flex-wrap gap-4';
+        canonicalsPresent.forEach(function (canon, idx) {
+          var variants = canonicalToVariants[canon.key];
+          var li = document.createElement('li');
+          var inputId = 'pp-swatch-' + def.key + '-' + idx;
+          li.innerHTML =
+            '<input class="sr-only" type="checkbox" id="' + inputId + '">' +
+            '<label class="color-swatch block relative" for="' + inputId + '" ' +
+              'style="--swatch-background: ' + canon.hex + ';" ' +
+              'title="' + canon.label + '">' +
+              '<span class="sr-only">' + canon.label + '</span>' +
+            '</label>';
+          var input = li.querySelector('input');
+          input.addEventListener('change', function () {
+            variants.forEach(function (v) {
+              if (input.checked) activeAttrs[def.key][v] = true;
+              else delete activeAttrs[def.key][v];
+            });
+            resetPagination();
+            applyFilterAndSort();
+          });
+          ul.appendChild(li);
+        });
+        content.appendChild(ul);
+      } else {
+        values.forEach(function (val) {
+          var lbl = document.createElement('label');
+          lbl.className = 'pp-attr__opt';
+          var count = attrCounts && attrCounts[def.key] ? (attrCounts[def.key][val.toLowerCase()] || 0) : 0;
+          lbl.innerHTML =
+            '<input type="checkbox" value="' + escapeHtml(val.toLowerCase()) + '">' +
+            '<span class="pp-attr__opt-text">' + escapeHtml(val) +
+              (count > 0 ? ' <span class="pp-attr__opt-count">(' + count + ')</span>' : '') +
+            '</span>';
+          var input = lbl.querySelector('input');
+          input.addEventListener('change', function () {
+            var key = val.toLowerCase();
+            if (input.checked) activeAttrs[def.key][key] = true;
+            else delete activeAttrs[def.key][key];
+            resetPagination();
+            applyFilterAndSort();
+          });
+          content.appendChild(lbl);
+        });
+      }
+      det.appendChild(content);
+
+      row.appendChild(det);
+    });
+  }
+
+  // Build per-attribute counts (how many products carry each value)
+  var attrCounts = {};
+  ATTR_DEFS.forEach(function (def) {
+    attrCounts[def.key] = {};
+    products.forEach(function (p) {
+      attrValues(p, def.key).forEach(function (v) {
+        var k = v.toLowerCase();
+        attrCounts[def.key][k] = (attrCounts[def.key][k] || 0) + 1;
+      });
+    });
+  });
+
+  // Close any open dropdown on outside click / Escape.
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.pp-attr')) {
+      $$('.pp-attr.is-open').forEach(function (w) { w.classList.remove('is-open'); });
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      $$('.pp-attr.is-open').forEach(function (w) { w.classList.remove('is-open'); });
+    }
+  });
+
+  // Clear-all.
+  function clearAllAttrs() {
+    ATTR_DEFS.forEach(function (def) { activeAttrs[def.key] = Object.create(null); });
+    $$('.pp-attr__opt input').forEach(function (i) { i.checked = false; });
+    $$('.pp-swatch input').forEach(function (i) { i.checked = false; });
+    $$('.pp-swatch.is-checked').forEach(function (l) { l.classList.remove('is-checked'); });
+    resetPagination();
+    applyFilterAndSort();
+  }
+  var clearBtn = $('#pp-clear');
+  if (clearBtn) clearBtn.addEventListener('click', clearAllAttrs);
+
+  // Desktop sidebar toggle: 'Filters verbergen' / 'Filters tonen'.
+  var sidebarToggleBtn = $('#pp-sidebar-toggle');
+  var shopEl = $('.pp-shop');
+  if (sidebarToggleBtn && shopEl) {
+    sidebarToggleBtn.addEventListener('click', function () {
+      var nowHidden = shopEl.classList.toggle('is-sidebar-hidden');
+      sidebarToggleBtn.setAttribute('aria-expanded', String(!nowHidden));
+      var labelEl = sidebarToggleBtn.querySelector('.pp-sidebar-toggle__label');
+      if (labelEl) labelEl.textContent = nowHidden ? 'Filters tonen' : 'Filters verbergen';
+    });
+  }
+
+  // Mobile filters popup.
+  function openMobileFilters() {
+    document.body.classList.add('pp-mobile-filters-open');
+  }
+  function closeMobileFilters() {
+    document.body.classList.remove('pp-mobile-filters-open');
+    $$('.pp-attr.is-open').forEach(function (w) { w.classList.remove('is-open'); });
+  }
+  var mfToggle = $('#pp-mobile-filters-toggle');
+  var mfClose  = $('#pp-mobile-filters-close');
+  var mfDone   = $('#pp-mobile-filters-done');
+  var mfClear  = $('#pp-mobile-filters-clear');
+  var mfCount  = $('#pp-mobile-filters-count');
+  if (mfToggle) mfToggle.addEventListener('click', openMobileFilters);
+  if (mfClose)  mfClose.addEventListener('click', closeMobileFilters);
+  if (mfDone)   mfDone.addEventListener('click', closeMobileFilters);
+  if (mfClear)  mfClear.addEventListener('click', clearAllAttrs);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('pp-mobile-filters-open')) closeMobileFilters();
+  });
+
+  // Sync mobile filter count badge.
+  function syncMobileFilterCount() {
+    if (!mfCount) return;
+    var n = totalActiveAttrs();
+    mfCount.textContent = n;
+    mfCount.hidden = n === 0;
+  }
+
+  // ─── Custom sort dropdown ───
+  var sortWrap = $('#pp-sort-wrap');
+  var sortTrigger = $('#pp-sort-trigger');
+  var sortPanel = $('#pp-sort-panel');
+  var sortLabel = $('#pp-sort-trigger-label');
+  if (sortWrap && sortTrigger && sortPanel) {
+    function closeSortPanel() {
+      sortWrap.classList.remove('is-open');
+      sortTrigger.setAttribute('aria-expanded', 'false');
+    }
+    function openSortPanel() {
+      sortWrap.classList.add('is-open');
+      sortTrigger.setAttribute('aria-expanded', 'true');
+    }
+    sortTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (sortWrap.classList.contains('is-open')) closeSortPanel();
+      else openSortPanel();
+    });
+    $$('.pp-sort-panel__opt', sortPanel).forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activeSort = btn.getAttribute('data-sort') || 'default';
+        $$('.pp-sort-panel__opt', sortPanel).forEach(function (b) {
+          b.classList.toggle('is-active', b === btn);
+        });
+        if (sortLabel) sortLabel.textContent = btn.textContent.trim();
+        closeSortPanel();
+        resetPagination();
+        applyFilterAndSort();
+      });
+    });
+    document.addEventListener('click', function (e) {
+      if (!sortWrap.contains(e.target)) closeSortPanel();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && sortWrap.classList.contains('is-open')) closeSortPanel();
+    });
+  }
+
+  var searchInput = $('#pp-search');
+  if (searchInput) {
+    var searchTimer = null;
+    searchInput.addEventListener('input', function (e) {
+      clearTimeout(searchTimer);
+      var v = normalizeSearch((e.target.value || '').trim());
+      searchTimer = setTimeout(function () {
+        searchTerm = v;
+        resetPagination();
+        applyFilterAndSort();
+      }, 120);
+    });
+  }
+
+  // ─── Toast ───
+  var toastEl = $('#pp-toast');
+  var toastTimer = null;
+  function toast(msg) {
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      toastEl.classList.remove('is-visible');
+    }, 2400);
+  }
+
+  // ─── CTA: add paspakket to cart ───
+  $('#pp-cta').addEventListener('click', function () {
+    if (selection.length < MAX_SLOTS) {
+      toast('Kies eerst ' + MAX_SLOTS + ' brillen.');
+      return;
+    }
+    if (!data.paspakketVariantId) {
+      toast('Pas-pakket product is nog niet ingesteld in de section settings.');
+      console.error('[paspakket] section.settings.paspakket_product is not configured.');
+      return;
+    }
+    var btn = this;
+    btn.classList.add('is-loading');
+    btn.textContent = 'Toevoegen…';
+
+    var props = {};
+    selection.forEach(function (s, i) {
+      var n = i + 1;
+      props['Bril ' + n] = s.productTitle + (s.variantTitle && s.variantTitle !== 'Default Title' ? ' — ' + s.variantTitle : '');
+      // Hidden properties (leading underscore) — used by main-cart.liquid
+      // to render the "Inhoud paspakket" modal with images.
+      if (s.image) props['_Bril ' + n + ' image'] = s.image;
+      if (s.productHandle) props['_Bril ' + n + ' handle'] = s.productHandle;
+      if (s.variantTitle && s.variantTitle !== 'Default Title') props['_Bril ' + n + ' kleur'] = s.variantTitle;
+      if (s.productTitle) props['_Bril ' + n + ' title'] = s.productTitle;
+    });
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        items: [{
+          id: data.paspakketVariantId,
+          quantity: 1,
+          properties: props
+        }]
+      })
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error('Cart add failed: ' + r.status);
+        return r.json();
+      })
+      .then(function () {
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+        window.location.href = '/cart';
+      })
+      .catch(function (err) {
+        console.error('[paspakket] add to cart error', err);
+        btn.classList.remove('is-loading');
+        btn.textContent = '{{ section.settings.cta_label | default: "Voeg pas pakket toe" }}';
+        toast('Toevoegen mislukt — probeer opnieuw.');
+      });
+  });
+
+  // ─── Hide sticky slot bar on FAST scroll-down only, show on scroll-up ───
+  // Hysteresis: we accumulate scroll distance in the current direction
+  // and only flip the bar once that travel exceeds a threshold. This
+  // smooths over tiny jitter so the bar doesn't pop in/out on every
+  // wheel tick or trackpad nudge.
+  // Mobile-only floating "back to basket" pill.
+  // Toggles visibility based on whether the basket card is out of
+  // viewport; tapping scrolls smoothly back to it.
+  var miniBasket = $('#pp-mini-basket');
+  var miniBasketTarget = $('.pp-slots-wrap');
+  if (miniBasket && miniBasketTarget) {
+    var miniIsMobile = function () { return window.matchMedia('(max-width: 720px)').matches; };
+    var miniVisible = false;
+    function updateMiniBasket() {
+      if (!miniIsMobile()) {
+        if (miniVisible) { miniBasket.classList.remove('is-visible'); miniVisible = false; }
+        return;
+      }
+      var r = miniBasketTarget.getBoundingClientRect();
+      var shouldShow = r.bottom < 20; // basket has scrolled off-screen
+      if (shouldShow !== miniVisible) {
+        miniBasket.classList.toggle('is-visible', shouldShow);
+        miniVisible = shouldShow;
+      }
+    }
+    miniBasket.addEventListener('click', function () {
+      var r = miniBasketTarget.getBoundingClientRect();
+      var targetY = window.scrollY + r.top - 12;
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+    });
+    window.addEventListener('scroll', updateMiniBasket, { passive: true });
+    window.addEventListener('resize', updateMiniBasket, { passive: true });
+    updateMiniBasket();
+  }
+
+  var slotsWrap = $('.pp-slots-wrap');
+  if (slotsWrap) {
+    var lastY = window.scrollY;
+    var lastT = performance.now();
+    var ticking = false;
+    var pinnedTop = 80;          // always shown when scrolled this close to top
+    var fastDownVelocity = 1.4;  // px/ms — must exceed this to start counting
+    var downTravel = 0;          // px scrolled down at >= fastDownVelocity
+    var upTravel = 0;            // px scrolled up
+    var hideAfterPx = 60;        // require this much fast-down travel to hide
+    var showAfterPx = 16;        // require this much up travel to show again
+    var isHidden = false;
+
+    // Desktop only: detect when the hero scrolls past so the basket can
+    // switch from "absolute in hero (right)" to "fixed top-centered".
+    var heroEl = document.querySelector('.pp-header');
+    var isDesktop = function () { return window.matchMedia('(min-width: 1024px)').matches; };
+    function updateStuck() {
+      if (!heroEl || !isDesktop()) {
+        slotsWrap.classList.remove('is-stuck');
+        return;
+      }
+      var headerH = (function () {
+        var v = getComputedStyle(document.documentElement).getPropertyValue('--sticky-header-height') ||
+                getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '0';
+        return parseInt(v, 10) || 0;
+      })();
+      var heroBottom = heroEl.getBoundingClientRect().bottom;
+      // Stick once the hero's bottom passes above the sticky header line.
+      slotsWrap.classList.toggle('is-stuck', heroBottom < headerH + 8);
+    }
+    window.addEventListener('resize', updateStuck, { passive: true });
+    updateStuck();
+
+    function updateSlotBar() {
+      var y = window.scrollY;
+      var t = performance.now();
+      var dt = Math.max(1, t - lastT);
+      var dy = y - lastY;
+      var v = dy / dt; // px/ms; positive = down
+
+      updateStuck();
+
+      if (y < pinnedTop) {
+        if (isHidden) {
+          isHidden = false;
+          slotsWrap.classList.remove('is-hidden-scrolling');
+        }
+        downTravel = 0;
+        upTravel = 0;
+      } else if (dy > 0) {
+        // Scrolling down — only count it if it's a genuinely fast move.
+        if (v >= fastDownVelocity) {
+          downTravel += dy;
+          upTravel = 0;
+          if (!isHidden && downTravel >= hideAfterPx) {
+            isHidden = true;
+            slotsWrap.classList.add('is-hidden-scrolling');
+          }
+        } else {
+          // Calm downward scroll — bleed off any accumulated fast travel
+          // so a later slow scroll doesn't trigger a stale hide.
+          downTravel = Math.max(0, downTravel - dy);
+        }
+      } else if (dy < 0) {
+        upTravel += -dy;
+        downTravel = 0;
+        if (isHidden && upTravel >= showAfterPx) {
+          isHidden = false;
+          slotsWrap.classList.remove('is-hidden-scrolling');
+        }
+      }
+
+      lastY = y;
+      lastT = t;
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateSlotBar);
+    }, { passive: true });
+  }
+
+  // ─── Boot ───
+  renderAttrFilters();
+  renderGrid();
+  applyFilterAndSort();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Pas pakket",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Pagina inhoud"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titel",
+      "default": "Pas pakket"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Ondertitel",
+      "default": "Kies 4 brillen die je thuis wil passen. Voor €20 sturen we ze toe; bij aankoop van een nieuwe bril krijg je deze als korting terug."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Knop tekst",
+      "default": "Voeg pas pakket toe"
+    },
+    {
+      "type": "header",
+      "content": "Cart product"
+    },
+    {
+      "type": "paragraph",
+      "content": "Kies het product dat het pas-pakket vertegenwoordigt (€20 fee). De 4 gekozen brillen worden als line-item properties bij dit product gevoegd."
+    },
+    {
+      "type": "product",
+      "id": "paspakket_product",
+      "label": "Pas pakket product"
+    }
+  ],
+  "presets": [
+    { "name": "Pas pakket" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,205 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "jacq-knowledge-article",
+      "blocks": {
+        "howto-1": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Lees je recept: OD en OS apart",
+            "body": "<p>OD = rechteroog, OS = linkeroog. Vul per oog SPH/CYL/AS precies over. Twijfel je? Bekijk (verwijzing naar pagina: brilrecept-begrijpen).</p>"
+          }
+        },
+        "howto-2": {
+          "type": "howto_step",
+          "settings": {
+            "title": "CYL aanwezig? Dan AS verplicht (bijna altijd)",
+            "body": "<p>Als CYL een waarde heeft (niet leeg/0.00), hoort daar een AS bij (0–180). Staat CYL leeg of 0.00, dan is AS meestal niet nodig.</p>"
+          }
+        },
+        "howto-3": {
+          "type": "howto_step",
+          "settings": {
+            "title": "Voorkom de 10 meest gemaakte fouten",
+            "body": "<p>Check vooral: minteken, OD/OS, AS 0/180, en getallen zoals 6 vs 9. Zie de foutlijst onderaan.</p>"
+          }
+        },
+        "table-1": {
+          "type": "table",
+          "settings": {
+            "title": "CYL & AS in één overzicht",
+            "toc_label": "Snel overzicht",
+            "anchor": "snel-overzicht",
+            "col1": "Op recept",
+            "col2": "Wat het betekent",
+            "col3": "Wat je invult",
+            "rows": "CYL −0.75|Astigmatisme-correctie|CYL: −0.75\nAS 90|Richting in graden|AS: 90\nCYL leeg/0.00|Geen cilinder nodig|Laat CYL leeg of 0.00 (zoals gevraagd)\nAS leeg|Vaak omdat er geen CYL is|Alleen relevant als CYL bestaat",
+            "note": "Let op: sommige recepten zijn in plus-cilinder of min-cilinder notatie. Als je recept al CYL/AS toont, kun je het meestal 1-op-1 overnemen."
+          }
+        },
+        "sec-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Wat is astigmatisme (en waarom staan CYL & AS op je recept)?",
+            "toc_label": "Wat is astigmatisme",
+            "anchor": "wat-is-astigmatisme",
+            "body": "<p>Astigmatisme betekent dat het oog (hoornvlies of lens) niet in elke richting even ‘rond’ is. Daardoor kan het beeld in één richting scherper zijn dan in een andere. De correctie hiervoor heet <strong>cilinder</strong> (CYL). Omdat die correctie een richting heeft, staat er ook een <strong>as</strong> (AS/AXIS) bij.</p><p>In praktijk merk je dit vaak als: wazigheid op afstand of dichtbij, schaduwrandjes rond letters, of vermoeidheid bij lezen/schermen (maar klachten kunnen ook andere oorzaken hebben).</p>"
+          }
+        },
+        "sec-2": {
+          "type": "content",
+          "settings": {
+            "heading": "CYL uitgelegd: de ‘hoeveelheid’ astigmatisme-correctie",
+            "toc_label": "CYL uitgelegd",
+            "anchor": "cyl-uitgelegd",
+            "body": "<p><strong>CYL</strong> is een getal (vaak met een minteken) dat aangeeft hoeveel cilinder-correctie nodig is. Voorbeelden: −0.50, −1.25, −2.00. Hoe groter de absolute waarde, hoe sterker de cilinder.</p><p><strong>Belangrijk:</strong> het <em>minteken</em> is onderdeel van de waarde. −1.25 is iets anders dan +1.25. Neem het exact over zoals het op je recept staat.</p>"
+          }
+        },
+        "sec-3": {
+          "type": "content",
+          "settings": {
+            "heading": "AS uitgelegd: de richting in graden (0–180)",
+            "toc_label": "AS uitgelegd",
+            "anchor": "as-uitgelegd",
+            "body": "<p><strong>AS</strong> (axis) is de richting van de cilinder in graden van 0 tot 180. Veel voorkomende waarden zijn 10, 20, 90, 160, 180. Het is geen ‘sterkte’, maar een <strong>positie</strong>.</p><p>Een handige onthoudregel: <strong>AS verandert de richting, CYL de hoeveelheid</strong>. Als je CYL invult maar AS vergeet of verkeerd zet, kan het beeld vervormd of onscherp aanvoelen.</p>"
+          }
+        },
+        "sec-4": {
+          "type": "content",
+          "settings": {
+            "heading": "Wanneer is AS nodig (en wanneer niet)?",
+            "toc_label": "Wanneer AS",
+            "anchor": "wanneer-as",
+            "body": "<ul><li><strong>CYL ingevuld?</strong> Dan heb je meestal ook AS nodig.</li><li><strong>CYL leeg of 0.00?</strong> Dan is AS meestal niet van toepassing (sommige recepten laten AS dan ook leeg).</li></ul><p>Als jouw bestelformulier AS verplicht maakt terwijl jouw recept geen CYL heeft, vul dan de instructie van het formulier/lab aan (bijv. 0 of 180) of neem contact op. (verwijzing naar pagina: contact)</p>"
+          }
+        },
+        "sec-5": {
+          "type": "content",
+          "settings": {
+            "heading": "Voorbeelden: zo schrijf je het correct over",
+            "toc_label": "Voorbeelden",
+            "anchor": "voorbeelden",
+            "body": "<p><strong>Voorbeeld 1</strong> (rechteroog): SPH −2.00, CYL −1.25, AS 90 → je vult exact dat in.</p><p><strong>Voorbeeld 2</strong> (linkeroog): SPH −1.50, CYL 0.00, AS leeg → je vult CYL 0.00 (of laat leeg), en AS laat je leeg/0 volgens het formulier.</p><p>Twijfel je of je recept ‘plus-cilinder’ of ‘min-cilinder’ is? Als je recept al CYL en AS toont, is 1-op-1 overnemen meestal correct. Als je recept anders is opgemaakt, kijk bij (verwijzing naar pagina: brilrecept-begrijpen).</p>"
+          }
+        },
+        "sec-6": {
+          "type": "content",
+          "settings": {
+            "heading": "Top 10 fouten bij CYL/AS invullen (en hoe je ze voorkomt)",
+            "toc_label": "Fouten voorkomen",
+            "anchor": "fouten-voorkomen",
+            "body": "<ol><li><strong>OD/OS omwisselen</strong> (rechts/links): check bovenaan je recept.</li><li><strong>Minteken vergeten</strong> bij CYL (of SPH): vergelijk teken per veld.</li><li><strong>AS vergeten</strong> terwijl CYL wel ingevuld is.</li><li><strong>AS verkeerd lezen</strong> (bijv. 6/9 of 0/8): zoom in of vraag een duidelijke foto.</li><li><strong>AS 0 vs 180</strong>: sommige systemen tonen 0 als 180 (zelfde lijn). Volg je recept.</li><li><strong>CYL in SPH zetten</strong> of andersom: check kolomkoppen.</li><li><strong>Decimaal verkeerd</strong> (−1.25 wordt −12.5): controleer komma/punt.</li><li><strong>CYL leeg laten</strong> terwijl er wel een waarde staat.</li><li><strong>AS afronden</strong> ‘omdat het dichtbij is’: neem exact over.</li><li><strong>Oud recept gebruiken</strong>: pak je meest recente meting.</li></ol><p>Wil je ook je PD goed invullen? (verwijzing naar pagina: pd-meten)</p>"
+          }
+        },
+        "sec-7": {
+          "type": "content",
+          "settings": {
+            "heading": "Past het bij klachten? Wanneer moet je extra checken",
+            "toc_label": "Wanneer checken",
+            "anchor": "wanneer-checken",
+            "body": "<p>Als je nieuwe bril ‘vreemd’ kijkt (scheef, golvend, hoofdpijn) kan dat komen door een fout in CYL/AS, maar ook door gewenning, PD, of de pasvorm van het montuur. Check eerst: CYL/AS exact overgenomen + PD correct. Daarna: pasvorm. (verwijzing naar pagina: brilmaat-bepalen) (verwijzing naar pagina: pasvormproblemen)</p>"
+          }
+        },
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "title": "Checklist voordat je bestelt",
+            "anchor": "checklist",
+            "body": "<ul><li>OD/OS klopt (rechts/links)?</li><li>Mintekens kloppen bij SPH en CYL?</li><li>CYL ingevuld? Dan AS ingevuld (0–180) zoals op recept?</li><li>Geen CYL op recept? Dan AS niet forceren (volg formulier/lab).</li></ul>"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "q": "Wat betekent AS 180 en is dat hetzelfde als 0?",
+            "a": "<p>Het gaat om een richting op een halve cirkel (0–180). In sommige contexten worden 0 en 180 als dezelfde lijn gezien. Volg altijd wat er op je recept staat en wat het bestelformulier vraagt.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "q": "Ik heb wel CYL maar geen AS op mijn recept. Wat nu?",
+            "a": "<p>Meestal hoort er een AS bij. Soms staat die elders of is de print onduidelijk. Vraag je opticien om de as-waarde of gebruik het meest complete recept.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "q": "Moet ik AS invullen als CYL 0.00 is?",
+            "a": "<p>Meestal niet. Als het formulier toch een waarde eist, volg de instructie van het formulier/lab of neem contact op. (verwijzing naar pagina: contact)</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "q": "Waarom zijn letters ‘schaduwig’ met verkeerde CYL/AS?",
+            "a": "<p>Omdat de cilinder-correctie een richting heeft. Als die richting niet klopt, krijg je soms ghosting of vervorming.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "q": "Is CYL hetzelfde als ‘cylinder’ in het Engels?",
+            "a": "<p>Ja. CYL = cylinder. AS/AX = axis.</p>"
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "q": "Kan ik CYL/AS schatten als ik het niet weet?",
+            "a": "<p>Nee. Dit zijn precieze waarden. Gebruik je recept of vraag een duidelijke meting op.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "howto-1",
+        "howto-2",
+        "howto-3",
+        "table-1",
+        "sec-1",
+        "sec-2",
+        "sec-3",
+        "sec-4",
+        "sec-5",
+        "sec-6",
+        "sec-7",
+        "callout-1",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6"
+      ],
+      "settings": {
+        "aria_label": "Advies artikel: cylinder en as uitleg",
+        "kicker": "ADVIES",
+        "title": "Cylinder & as uitgelegd (CYL/AS)",
+        "subtitle": "Astigmatisme in normale taal, met voorbeelden en foutencheck voordat je bestelt.",
+        "readtime": "9 min",
+        "header_offset": 110,
+        "answer_title": "Snel antwoord",
+        "answer_richtext": "<p><strong>CYL</strong> en <strong>AS</strong> horen bij <strong>astigmatisme</strong> (een ‘cilinder’ in je correctie). Als er op je recept bij CYL een waarde staat (bijv. −1.25), dan is <strong>AS</strong> (axis) de richting daarvan in graden (0–180), bijv. <strong>AS 90</strong>.</p><ul><li><strong>CYL =</strong> hoeveel correctie voor astigmatisme.</li><li><strong>AS =</strong> de richting (0–180°) waarop die cilinder staat.</li><li><strong>Geen CYL?</strong> Dan is AS meestal niet van toepassing.</li></ul><p>De grootste fout bij online bestellen is niet ‘een klein verschil’, maar <strong>cijfers verwisselen</strong> (OD/OS, plus/min, of AS-waarde). Gebruik de checklist hieronder en vergelijk met je recept voordat je bestelt.</p>",
+        "howto_title": "CYL/AS invullen in 3 stappen",
+        "show_toc": true,
+        "toc_title": "In dit artikel",
+        "faq_title": "Veelgestelde vragen",
+        "faq_anchor": "veelgestelde-vragen",
+        "related_title": "Verder lezen",
+        "related_richtext": "<ul><li><a href=\"/pages/glazen-opties\" title=\"Glazen & opties (hub2)\">Hub: Glazen & opties</a></li><li><a href=\"/pages/glasindex-en-dikte\">Glasindex & dikte</a></li><li><a href=\"/pages/blauwlichtfilter\">Blauwlichtfilter</a></li><li><a href=\"/pages/coatings\">Coatings (overzicht)</a></li></ul>"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

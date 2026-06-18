@@ -1,0 +1,35 @@
+{% comment %}
+  JACQ: voeg pending child items toe op de cart-pagina.
+  Child-items (lensindex, blauwlicht, multifocaal, etc.) worden opgeslagen in
+  sessionStorage door de wizard en hier alsnog aan de cart toegevoegd, zodat er
+  maar 1 product_added_to_cart event afvuurt op de productpagina.
+{% endcomment %}
+
+<script>
+(function(){
+  if (window.location.pathname !== '/cart') return;
+  var pending;
+  try {
+    pending = sessionStorage.getItem('jacq_pending_children');
+    if (!pending) return;
+    sessionStorage.removeItem('jacq_pending_children');
+  } catch(e) { return; }
+
+  var items;
+  try { items = JSON.parse(pending); } catch(e) { return; }
+  if (!items || !items.length) return;
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ items: items })
+  })
+  .then(function(res){
+    if (!res.ok) throw new Error('Child items toevoegen mislukt: ' + res.status);
+    window.location.reload();
+  })
+  .catch(function(err){
+    console.error('[JACQ] Pending children failed:', err);
+  });
+})();
+</script>

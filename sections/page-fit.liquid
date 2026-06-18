@@ -1,0 +1,921 @@
+{% comment %}
+  JACQ — Page: Past deze bril bij mij?
+  - Apple clean layout
+  - Hero overlay aligned with .ja-wrap (no centering drift)
+  - Mobile gutters hard-fixed (min 20px + safe-area)
+  - Sections: How to choose, Fit-notes, Quick measure, 100 days, FAQ, CTA
+  - Subtle scroll reveal
+{% endcomment %}
+
+<section class="jacq-apple ja-fit" data-section-id="{{ section.id }}">
+  <!-- HERO -->
+  <header class="ja-hero">
+    {% if section.settings.hero_image != blank %}
+      <div class="ja-hero__media" aria-hidden="true">
+        {{ section.settings.hero_image | image_url: width: 2400 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '800, 1200, 1600, 2000, 2400',
+          alt: section.settings.hero_image_alt | escape
+        }}
+      </div>
+    {% endif %}
+
+    <div class="ja-hero__overlay">
+      <div class="ja-wrap">
+        <div class="ja-hero__content ja-reveal">
+          {% if section.settings.hero_eyebrow != blank %}
+            <p class="ja-eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+          {% endif %}
+          <h1 class="ja-h1">{{ section.settings.hero_title | escape }}</h1>
+          {% if section.settings.hero_subtitle != blank %}
+            <p class="ja-lead">{{ section.settings.hero_subtitle | escape }}</p>
+          {% endif %}
+
+          {% if section.settings.hero_cta_label != blank and section.settings.hero_cta_link != blank %}
+            <div class="ja-hero__actions">
+              <a class="ja-btn ja-btn--primary" href="{{ section.settings.hero_cta_link }}">
+                {{ section.settings.hero_cta_label | escape }}
+              </a>
+
+              {% if section.settings.hero_cta2_label != blank and section.settings.hero_cta2_link != blank %}
+                <a class="ja-btn ja-btn--ghost" href="{{ section.settings.hero_cta2_link }}">
+                  {{ section.settings.hero_cta2_label | escape }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO SPLIT -->
+  <section class="ja-wrap ja-two-col ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.intro_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.intro_text }}
+      </div>
+
+      {% if section.settings.intro_points != blank %}
+        <ul class="ja-mini">
+          {{ section.settings.intro_points }}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.intro_image != blank %}
+        {{ section.settings.intro_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 42vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.intro_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- 3 CHECKS (cards) -->
+  <section class="ja-band ja-block">
+    <div class="ja-wrap ja-center ja-reveal">
+      <h2 class="ja-h2">{{ section.settings.cards_title | escape }}</h2>
+      {% if section.settings.cards_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.cards_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-wrap ja-reveal">
+      <div class="ja-cards">
+        {% for i in (1..3) %}
+          {% capture t %}card{{ i }}_title{% endcapture %}
+          {% capture d %}card{{ i }}_text{% endcapture %}
+          {% capture p %}card{{ i }}_points{% endcapture %}
+
+          <article class="ja-card">
+            <div class="ja-card__top">
+              <span class="ja-pill">{{ section.settings.card_badge_prefix | escape }} {{ i }}</span>
+              {% capture meta %}card{{ i }}_meta{% endcapture %}
+              {% if section.settings[meta] != blank %}
+                <span class="ja-time">{{ section.settings[meta] | escape }}</span>
+              {% endif %}
+            </div>
+
+            <h3 class="ja-h3">{{ section.settings[t] | escape }}</h3>
+            <p class="ja-p">{{ section.settings[d] | escape }}</p>
+
+            {% if section.settings[p] != blank %}
+              <ul class="ja-bullets">
+                {{ section.settings[p] }}
+              </ul>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- FIT NOTES SPLIT -->
+  <section class="ja-wrap ja-two-col ja-two-col--reverse ja-block ja-reveal">
+    <div class="ja-col">
+      <h2 class="ja-h2">{{ section.settings.fitnotes_title | escape }}</h2>
+      <div class="ja-richtext">
+        {{ section.settings.fitnotes_text }}
+      </div>
+
+      <div class="ja-fitgrid">
+        {% for i in (1..4) %}
+          {% capture ft %}fn{{ i }}_title{% endcapture %}
+          {% capture fd %}fn{{ i }}_text{% endcapture %}
+          <div class="ja-fititem">
+            <div class="ja-fititem__dot" aria-hidden="true"></div>
+            <div>
+              <div class="ja-fititem__t">{{ section.settings[ft] | escape }}</div>
+              <div class="ja-fititem__d">{{ section.settings[fd] | escape }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ja-col ja-col--media">
+      {% if section.settings.fitnotes_image != blank %}
+        {{ section.settings.fitnotes_image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          sizes: '(min-width: 990px) 42vw, 100vw',
+          widths: '600, 900, 1200, 1600',
+          alt: section.settings.fitnotes_image_alt | escape
+        }}
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- QUICK MEASURE -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-center">
+      <h2 class="ja-h2">{{ section.settings.measure_title | escape }}</h2>
+      {% if section.settings.measure_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.measure_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-stepsgrid">
+      {% for i in (1..4) %}
+        {% capture st %}m{{ i }}_title{% endcapture %}
+        {% capture sd %}m{{ i }}_text{% endcapture %}
+        <article class="ja-scard">
+          <div class="ja-scard__num">{{ i }}</div>
+          <h3 class="ja-h3">{{ section.settings[st] | escape }}</h3>
+          <p class="ja-p">{{ section.settings[sd] | escape }}</p>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.measure_note != blank %}
+      <div class="ja-note">
+        <div class="ja-note__icon" aria-hidden="true"></div>
+        <div class="ja-note__text">{{ section.settings.measure_note | escape }}</div>
+      </div>
+    {% endif %}
+  </section>
+
+  <!-- 100 DAYS -->
+  <section class="ja-cta ja-block">
+    <div class="ja-wrap ja-reveal">
+      <div class="ja-ctaBox">
+        <div class="ja-ctaBox__left">
+          <h2 class="ja-h2 ja-h2--cta">{{ section.settings.trial_title | escape }}</h2>
+          <div class="ja-richtext">
+            {{ section.settings.trial_text }}
+          </div>
+
+          {% if section.settings.trial_points != blank %}
+            <ul class="ja-mini ja-mini--light">
+              {{ section.settings.trial_points }}
+            </ul>
+          {% endif %}
+        </div>
+
+        <div class="ja-ctaBox__right">
+          {% if section.settings.trial_button_label != blank and section.settings.trial_button_link != blank %}
+            <a class="ja-btn ja-btn--primary ja-btn--wide" href="{{ section.settings.trial_button_link }}">
+              {{ section.settings.trial_button_label | escape }}
+            </a>
+          {% endif %}
+
+          {% if section.settings.trial_button2_label != blank and section.settings.trial_button2_link != blank %}
+            <a class="ja-btn ja-btn--soft ja-btn--wide" href="{{ section.settings.trial_button2_link }}">
+              {{ section.settings.trial_button2_label | escape }}
+            </a>
+          {% endif %}
+
+          {% if section.settings.trial_small != blank %}
+            <p class="ja-small">{{ section.settings.trial_small | escape }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-center ja-faqHead">
+      <h2 class="ja-h2">{{ section.settings.faq_title | escape }}</h2>
+      {% if section.settings.faq_subtitle != blank %}
+        <p class="ja-sub">{{ section.settings.faq_subtitle | escape }}</p>
+      {% endif %}
+    </div>
+
+    <div class="ja-faq">
+      {% assign has_faq = false %}
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          {% assign has_faq = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if has_faq %}
+        {% for block in section.blocks %}
+          {% if block.type != 'faq' %}{% continue %}{% endif %}
+          <details class="ja-acc" {{ block.shopify_attributes }}>
+            <summary class="ja-acc__sum">
+              <span class="ja-acc__q">{{ block.settings.q | escape }}</span>
+              <span class="ja-acc__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="ja-acc__a">
+              {{ block.settings.a }}
+            </div>
+          </details>
+        {% endfor %}
+      {% else %}
+        <p class="ja-sub ja-center">Voeg “FAQ” blocks toe in de editor.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- CTA (final) -->
+  <section class="ja-wrap ja-block ja-reveal">
+    <div class="ja-final">
+      <div class="ja-final__copy">
+        <h2 class="ja-h2">{{ section.settings.final_title | escape }}</h2>
+        <div class="ja-richtext">
+          {{ section.settings.final_text }}
+        </div>
+      </div>
+
+      <div class="ja-final__actions">
+        {% if section.settings.final_button_label != blank and section.settings.final_button_link != blank %}
+          <a class="ja-btn ja-btn--primary ja-btn--wide" href="{{ section.settings.final_button_link }}">
+            {{ section.settings.final_button_label | escape }}
+          </a>
+        {% endif %}
+        {% if section.settings.final_button2_label != blank and section.settings.final_button2_link != blank %}
+          <a class="ja-btn ja-btn--soft ja-btn--wide" href="{{ section.settings.final_button2_link }}">
+            {{ section.settings.final_button2_label | escape }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK LINK -->
+  {% assign back_url = section.settings.back_link %}
+  {% if back_url == blank %}
+    {% assign back_url = '/pages/onze-brillen-op-sterkte' %}
+  {% endif %}
+  <footer class="ja-wrap ja-sign ja-reveal">
+    <a class="ja-backlink" href="{{ back_url }}">{{ section.settings.back_label | escape }}</a>
+  </footer>
+</section>
+
+<style>
+  .jacq-apple.ja-fit{
+    --ja-max: 1120px;
+    --ja-pad: clamp(18px, 3.2vw, 28px);
+    --ja-gap: clamp(18px, 3.2vw, 48px);
+    --ja-radius: 20px;
+    --ja-bg: #fff;
+    --ja-band: #f5f5f7;
+    --ja-text: rgba(0,0,0,.88);
+    --ja-muted: rgba(0,0,0,.62);
+    --ja-hairline: rgba(0,0,0,.10);
+    background: var(--ja-bg);
+    color: var(--ja-text);
+  }
+  .jacq-apple.ja-fit *{ box-sizing: border-box; }
+
+  .jacq-apple.ja-fit .ja-wrap{
+    max-width: var(--ja-max);
+    margin: 0 auto;
+    padding-left: max(var(--ja-pad), env(safe-area-inset-left));
+    padding-right: max(var(--ja-pad), env(safe-area-inset-right));
+  }
+  .jacq-apple.ja-fit .ja-center{ text-align:center; }
+
+  /* HERO */
+  .jacq-apple.ja-fit .ja-hero{ position:relative; overflow:hidden; background: var(--ja-band); }
+  .jacq-apple.ja-fit .ja-hero__media img{
+    width:100%;
+    height: clamp(440px, 54vw, 720px);
+    object-fit: cover;
+    display:block;
+    transform: scale(1.02);
+  }
+  .jacq-apple.ja-fit .ja-hero__overlay{
+    position:absolute; inset:0;
+    display:grid;
+    align-content:end;
+    padding-bottom: clamp(34px, 5vw, 56px);
+    pointer-events:none;
+  }
+  .jacq-apple.ja-fit .ja-hero__content{ text-align:left; }
+
+  .jacq-apple.ja-fit .ja-eyebrow{
+    margin:0 0 10px;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.78);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+  }
+  .jacq-apple.ja-fit .ja-h1{
+    margin:0 0 12px;
+    font-size: clamp(34px, 5.0vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color:#fff;
+    text-shadow: 0 1px 18px rgba(0,0,0,.38);
+    max-width: 22ch;
+  }
+  .jacq-apple.ja-fit .ja-lead{
+    margin:0;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.86);
+    text-shadow: 0 1px 18px rgba(0,0,0,.32);
+    max-width: 62ch;
+  }
+
+  .jacq-apple.ja-fit .ja-hero__actions{
+    margin-top: 18px;
+    display:flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    pointer-events:auto;
+  }
+
+  .jacq-apple.ja-fit .ja-block{ padding: clamp(54px, 7vw, 92px) 0; }
+
+  /* Two-col */
+  .jacq-apple.ja-fit .ja-two-col{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: var(--ja-gap);
+    align-items:center;
+  }
+  .jacq-apple.ja-fit .ja-two-col--reverse{ grid-template-columns: .95fr 1.05fr; }
+  @media (min-width: 990px){
+    .jacq-apple.ja-fit .ja-two-col--reverse .ja-col--media{ order:1; }
+    .jacq-apple.ja-fit .ja-two-col--reverse .ja-col:not(.ja-col--media){ order:2; }
+  }
+  .jacq-apple.ja-fit .ja-col--media img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius: var(--ja-radius);
+  }
+
+  /* Typography */
+  .jacq-apple.ja-fit .ja-h2{
+    margin:0 0 14px;
+    font-size: clamp(24px, 2.6vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+  .jacq-apple.ja-fit .ja-h3{
+    margin:0 0 6px;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: rgba(0,0,0,.92);
+  }
+  .jacq-apple.ja-fit .ja-richtext{
+    font-size:16px;
+    line-height: 1.75;
+    color: var(--ja-text);
+    max-width: 72ch;
+  }
+  .jacq-apple.ja-fit .ja-richtext p{ margin:0 0 14px; }
+  .jacq-apple.ja-fit .ja-richtext p:last-child{ margin-bottom:0; }
+  .jacq-apple.ja-fit .ja-sub{
+    margin: 6px auto 0;
+    color: var(--ja-muted);
+    max-width: 62ch;
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-fit .ja-p{
+    margin:0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(0,0,0,.72);
+  }
+  .jacq-apple.ja-fit .ja-small{
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: rgba(0,0,0,.60);
+    line-height: 1.6;
+  }
+
+  /* Band */
+  .jacq-apple.ja-fit .ja-band{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+    border-bottom: 1px solid var(--ja-hairline);
+  }
+
+  /* Mini list */
+  .jacq-apple.ja-fit .ja-mini{
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display:grid;
+    gap: 10px;
+    max-width: 70ch;
+  }
+  .jacq-apple.ja-fit .ja-mini li{
+    padding-left: 18px;
+    position: relative;
+    color: rgba(0,0,0,.78);
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-fit .ja-mini li:before{
+    content:"";
+    width:6px;height:6px;border-radius:99px;background:rgba(0,0,0,.28);
+    position:absolute;left:0;top:.65em;
+  }
+  .jacq-apple.ja-fit .ja-mini--light li{ color: rgba(0,0,0,.72); }
+  .jacq-apple.ja-fit .ja-mini--light li:before{ background: rgba(0,0,0,.22); }
+
+  /* Cards */
+  .jacq-apple.ja-fit .ja-cards{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 22px;
+    align-items: stretch;
+  }
+  .jacq-apple.ja-fit .ja-card{
+    background:#fff;
+    border: 1px solid var(--ja-hairline);
+    border-radius: var(--ja-radius);
+    padding: 18px 18px 16px;
+    overflow:hidden;
+  }
+  .jacq-apple.ja-fit .ja-card__top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .jacq-apple.ja-fit .ja-pill{
+    display:inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(255,255,255,.75);
+    font-size: 12px;
+    color: rgba(0,0,0,.72);
+  }
+  .jacq-apple.ja-fit .ja-time{
+    font-size: 12px;
+    color: rgba(0,0,0,.55);
+  }
+
+  /* Bullets */
+  .jacq-apple.ja-fit .ja-bullets{
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .jacq-apple.ja-fit .ja-bullets li{
+    padding-left: 18px;
+    position: relative;
+    color: rgba(0,0,0,.78);
+    line-height: 1.6;
+  }
+  .jacq-apple.ja-fit .ja-bullets li:before{
+    content:"";
+    width:6px;height:6px;border-radius:99px;background:rgba(0,0,0,.28);
+    position:absolute;left:0;top:.65em;
+  }
+
+  /* Fit notes grid */
+  .jacq-apple.ja-fit .ja-fitgrid{
+    margin-top: 18px;
+    display:grid;
+    gap: 12px;
+  }
+  .jacq-apple.ja-fit .ja-fititem{
+    display:flex;
+    gap: 12px;
+    padding: 14px 14px;
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: 16px;
+    background: rgba(245,245,247,.55);
+  }
+  .jacq-apple.ja-fit .ja-fititem__dot{
+    width: 10px; height: 10px; border-radius: 99px;
+    background: rgba(0,0,0,.32);
+    margin-top: 6px;
+    flex: 0 0 auto;
+  }
+  .jacq-apple.ja-fit .ja-fititem__t{
+    font-weight: 600;
+    color: rgba(0,0,0,.86);
+    margin-bottom: 2px;
+  }
+  .jacq-apple.ja-fit .ja-fititem__d{
+    color: rgba(0,0,0,.62);
+    line-height: 1.55;
+    font-size: 14px;
+  }
+
+  /* Steps grid */
+  .jacq-apple.ja-fit .ja-stepsgrid{
+    margin-top: 22px;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .jacq-apple.ja-fit .ja-scard{
+    border: 1px solid var(--ja-hairline);
+    border-radius: var(--ja-radius);
+    background:#fff;
+    padding: 16px 16px 18px;
+  }
+  .jacq-apple.ja-fit .ja-scard__num{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(245,245,247,.95);
+    color: rgba(0,0,0,.72);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .jacq-apple.ja-fit .ja-note{
+    margin-top: 18px;
+    display:flex;
+    gap: 12px;
+    align-items:flex-start;
+    padding: 16px 16px;
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: 16px;
+    background: rgba(245,245,247,.55);
+  }
+  .jacq-apple.ja-fit .ja-note__icon{
+    width: 12px; height: 12px;
+    border-radius: 99px;
+    background: rgba(0,0,0,.28);
+    margin-top: 4px;
+    flex: 0 0 auto;
+  }
+  .jacq-apple.ja-fit .ja-note__text{
+    color: rgba(0,0,0,.70);
+    line-height: 1.65;
+    font-size: 14px;
+  }
+
+  /* Trial CTA */
+  .jacq-apple.ja-fit .ja-cta{
+    background: var(--ja-band);
+    border-top: 1px solid var(--ja-hairline);
+    border-bottom: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-fit .ja-ctaBox{
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: calc(var(--ja-radius) + 6px);
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: clamp(18px, 3vw, 26px);
+    display:grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 18px;
+    align-items:center;
+  }
+  .jacq-apple.ja-fit .ja-h2--cta{ margin-bottom: 10px; }
+  .jacq-apple.ja-fit .ja-ctaBox__right{
+    display:grid;
+    gap: 10px;
+    justify-items: stretch;
+  }
+  .jacq-apple.ja-fit .ja-btn--wide{ width:100%; }
+
+  /* Final CTA */
+  .jacq-apple.ja-fit .ja-final{
+    border: 1px solid rgba(0,0,0,.10);
+    border-radius: calc(var(--ja-radius) + 6px);
+    padding: clamp(18px, 3vw, 26px);
+    background: #fff;
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 18px;
+    align-items:center;
+  }
+  .jacq-apple.ja-fit .ja-final__actions{
+    display:grid;
+    gap: 10px;
+  }
+
+  /* Buttons */
+  .jacq-apple.ja-fit .ja-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    text-decoration:none;
+    border: 1px solid rgba(0,0,0,.22);
+    color: rgba(0,0,0,.86);
+    background: rgba(255,255,255,.65);
+  }
+  .jacq-apple.ja-fit .ja-btn:hover{ border-color: rgba(0,0,0,.35); }
+  .jacq-apple.ja-fit .ja-btn--primary{
+    background: rgba(0,0,0,.86);
+    color:#fff;
+    border-color: rgba(0,0,0,.86);
+  }
+  .jacq-apple.ja-fit .ja-btn--primary:hover{ border-color: rgba(0,0,0,1); }
+  .jacq-apple.ja-fit .ja-btn--ghost{
+    background: rgba(255,255,255,.18);
+    color:#fff;
+    border-color: rgba(255,255,255,.35);
+    text-shadow: 0 1px 14px rgba(0,0,0,.25);
+  }
+  .jacq-apple.ja-fit .ja-btn--soft{
+    background: rgba(255,255,255,.72);
+    color: rgba(0,0,0,.86);
+    border-color: rgba(0,0,0,.16);
+  }
+
+  /* FAQ */
+  .jacq-apple.ja-fit .ja-faqHead{ margin-bottom: 18px; }
+  .jacq-apple.ja-fit .ja-acc{
+    border: 1px solid var(--ja-hairline);
+    border-radius: 16px;
+    overflow: hidden;
+    background:#fff;
+  }
+  .jacq-apple.ja-fit .ja-acc + .ja-acc{ margin-top: 12px; }
+  .jacq-apple.ja-fit .ja-acc__sum{
+    list-style:none;
+    cursor:pointer;
+    padding: 16px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 14px;
+  }
+  .jacq-apple.ja-fit .ja-acc__sum::-webkit-details-marker{ display:none; }
+  .jacq-apple.ja-fit .ja-acc__q{ font-weight: 600; color: rgba(0,0,0,.86); }
+  .jacq-apple.ja-fit .ja-acc__icon{
+    width: 30px; height: 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.14);
+    background: rgba(245,245,247,.92);
+    position: relative;
+    flex: 0 0 auto;
+  }
+  .jacq-apple.ja-fit .ja-acc__icon:before,
+  .jacq-apple.ja-fit .ja-acc__icon:after{
+    content:"";
+    position:absolute;
+    left:50%; top:50%;
+    width: 12px; height: 2px;
+    background: rgba(0,0,0,.55);
+    transform: translate(-50%, -50%);
+  }
+  .jacq-apple.ja-fit .ja-acc__icon:after{ transform: translate(-50%, -50%) rotate(90deg); }
+  .jacq-apple.ja-fit details[open] .ja-acc__icon:after{ transform: translate(-50%, -50%) rotate(0deg); }
+  .jacq-apple.ja-fit .ja-acc__a{
+    padding: 0 16px 16px;
+    color: rgba(0,0,0,.72);
+    line-height: 1.7;
+  }
+  .jacq-apple.ja-fit .ja-acc__a p{ margin: 0 0 12px; }
+  .jacq-apple.ja-fit .ja-acc__a p:last-child{ margin-bottom:0; }
+
+  /* Footer */
+  .jacq-apple.ja-fit .ja-sign{
+    padding: 44px 0 clamp(64px, 7vw, 96px);
+    border-top: 1px solid var(--ja-hairline);
+  }
+  .jacq-apple.ja-fit .ja-backlink{
+    font-size: 14px;
+    color: rgba(0,0,0,.72);
+    text-decoration:none;
+  }
+  .jacq-apple.ja-fit .ja-backlink:hover{ text-decoration:underline; }
+
+  /* Reveal */
+  .jacq-apple.ja-fit .ja-reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+  }
+  .jacq-apple.ja-fit .ja-reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .jacq-apple.ja-fit .ja-reveal{
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 989px){
+    .jacq-apple.ja-fit .ja-two-col,
+    .jacq-apple.ja-fit .ja-two-col--reverse{
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+    .jacq-apple.ja-fit .ja-richtext{ max-width: 100%; }
+    .jacq-apple.ja-fit .ja-cards{ grid-template-columns: 1fr; }
+    .jacq-apple.ja-fit .ja-stepsgrid{ grid-template-columns: 1fr; }
+    .jacq-apple.ja-fit .ja-ctaBox{ grid-template-columns: 1fr; }
+    .jacq-apple.ja-fit .ja-final{ grid-template-columns: 1fr; }
+  }
+
+  /* === MOBILE GUTTERS HARD FIX (min 20px) === */
+  @media (max-width: 989px){
+    .jacq-apple.ja-fit .ja-wrap{
+      padding-left: max(20px, env(safe-area-inset-left)) !important;
+      padding-right: max(20px, env(safe-area-inset-right)) !important;
+    }
+  }
+
+  /* === HERO ALIGNMENT HARD FIX (hero = sections) === */
+  .jacq-apple.ja-fit .ja-hero__overlay{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    justify-items: stretch !important;
+  }
+  .jacq-apple.ja-fit .ja-hero__overlay .ja-wrap{
+    width: 100% !important;
+    max-width: var(--ja-max) !important;
+    margin: 0 auto !important;
+    padding-left: max(var(--ja-pad), env(safe-area-inset-left)) !important;
+    padding-right: max(var(--ja-pad), env(safe-area-inset-right)) !important;
+  }
+  .jacq-apple.ja-fit .ja-hero__content,
+  .jacq-apple.ja-fit .ja-hero__content *{
+    text-align: left !important;
+  }
+</style>
+
+<script>
+  (function(){
+    const root = document.querySelector('.jacq-apple.ja-fit[data-section-id="{{ section.id }}"]');
+    if(!root) return;
+
+    const els = root.querySelectorAll('.ja-reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Page – Past het?",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt", "default": "Hoe weet ik of een bril bij mij past?" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "JACQ EYEWEAR" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Hoe weet ik of een bril bij mij past?" },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle", "default": "Gezicht, fit-notes en 100 dagen bedenktijd. Zo kies je zonder twijfel." },
+    { "type": "text", "id": "hero_cta_label", "label": "Hero CTA label", "default": "Bekijk de collectie" },
+    { "type": "url", "id": "hero_cta_link", "label": "Hero CTA link" },
+    { "type": "text", "id": "hero_cta2_label", "label": "Hero second CTA label", "default": "Lees onze fit-notes" },
+    { "type": "url", "id": "hero_cta2_link", "label": "Hero second CTA link" },
+
+    { "type": "text", "id": "intro_title", "label": "Intro title", "default": "De snelle versie: het moet kloppen op 3 punten" },
+    { "type": "richtext", "id": "intro_text", "label": "Intro text", "default": "<p>Een bril kan er online fantastisch uitzien, maar het gaat om hoe hij <strong>valt</strong>. Daarom maken we het bij Jacq simpel: we checken vorm, maat en gevoel.</p><p>Met de stappen hieronder weet je in een minuut of een montuur waarschijnlijk jouw match is.</p>" },
+    { "type": "liquid", "id": "intro_points", "label": "Intro points (<li>…</li>)", "default": "<li><strong>Proportie</strong>: past de breedte bij je gezicht?</li><li><strong>Neus & wangen</strong>: raakt hij niet, en zit hij stabiel?</li><li><strong>Look</strong>: ogen mooi in het midden, niet ‘op’ het glas</li>" },
+    { "type": "image_picker", "id": "intro_image", "label": "Intro image" },
+    { "type": "text", "id": "intro_image_alt", "label": "Intro image alt", "default": "Model met bril" },
+
+    { "type": "text", "id": "cards_title", "label": "Cards title", "default": "Zo check je of het jouw match is" },
+    { "type": "text", "id": "cards_subtitle", "label": "Cards subtitle", "default": "Kies de methode die je het prettigst vindt. Alle drie geven je snel zekerheid." },
+    { "type": "text", "id": "card_badge_prefix", "label": "Card badge prefix", "default": "Check" },
+
+    { "type": "text", "id": "card1_title", "label": "Card 1 title", "default": "Gezicht & proportie" },
+    { "type": "text", "id": "card1_text", "label": "Card 1 text", "default": "Kijk naar breedte, hoogte en waar je ogen in het montuur vallen." },
+    { "type": "liquid", "id": "card1_points", "label": "Card 1 bullets (<li>…</li>)", "default": "<li>Ogen ongeveer in het midden van het glas</li><li>Montuurbreedte voelt ‘in balans’ met je jukbeenderen</li><li>Bovenrand volgt je wenkbrauwlijn (niet erdoorheen)</li>" },
+    { "type": "text", "id": "card1_meta", "label": "Card 1 meta (rechtsboven)", "default": "± 30 sec" },
+
+    { "type": "text", "id": "card2_title", "label": "Card 2 title", "default": "Fit-notes (de beste shortcut)" },
+    { "type": "text", "id": "card2_text", "label": "Card 2 text", "default": "We zeggen eerlijk hoe een model valt: smal, normaal of breed — en wat je voelt op je neus." },
+    { "type": "liquid", "id": "card2_points", "label": "Card 2 bullets (<li>…</li>)", "default": "<li>‘Smaller fit’ = strakker bij bredere gezichten</li><li>‘Roomy’ = meer ruimte bij wangen/slapen</li><li>Tip: vergelijk met een bril die je al fijn vindt</li>" },
+    { "type": "text", "id": "card2_meta", "label": "Card 2 meta (rechtsboven)", "default": "± 20 sec" },
+
+    { "type": "text", "id": "card3_title", "label": "Card 3 title", "default": "Even meten (zonder gedoe)" },
+    { "type": "text", "id": "card3_text", "label": "Card 3 text", "default": "Meten is niet sexy, maar het werkt. Vooral als je tussen 2 maten in zit." },
+    { "type": "liquid", "id": "card3_points", "label": "Card 3 bullets (<li>…</li>)", "default": "<li>Meet de breedte van je favoriete bril</li><li>Check of je huidige bril je wangen raakt</li><li>Twijfel? Kies ‘veilig’: iets ruimer zit vaak relaxter</li>" },
+    { "type": "text", "id": "card3_meta", "label": "Card 3 meta (rechtsboven)", "default": "± 60 sec" },
+
+    { "type": "text", "id": "fitnotes_title", "label": "Fit-notes title", "default": "Fit-notes: wat bedoelen we precies?" },
+    { "type": "richtext", "id": "fitnotes_text", "label": "Fit-notes text", "default": "<p>Fit-notes zijn onze korte ‘real life’ omschrijving van hoe een montuur valt. Niet technisch, wél bruikbaar. Zo weet je vooraf of iets snug of roomy voelt.</p><p>Dit zijn de 4 dingen waar je het meest aan hebt:</p>" },
+    { "type": "image_picker", "id": "fitnotes_image", "label": "Fit-notes image" },
+    { "type": "text", "id": "fitnotes_image_alt", "label": "Fit-notes image alt", "default": "Detail van montuur op gezicht" },
+
+    { "type": "text", "id": "fn1_title", "label": "Fit-note 1 title", "default": "Breedte (smal / normaal / breed)" },
+    { "type": "text", "id": "fn1_text", "label": "Fit-note 1 text", "default": "Hoe het montuur voelt over je slapen en jukbeenderen. Dit bepaalt 80% van ‘past het?’." },
+    { "type": "text", "id": "fn2_title", "label": "Fit-note 2 title", "default": "Neusbrug (hoog / normaal / laag)" },
+    { "type": "text", "id": "fn2_text", "label": "Fit-note 2 text", "default": "Waar hij op je neus landt. Te hoog = zichtlijn raar. Te laag = glijdt sneller." },
+    { "type": "text", "id": "fn3_title", "label": "Fit-note 3 title", "default": "Wangen (raakt wel/niet)" },
+    { "type": "text", "id": "fn3_text", "label": "Fit-note 3 text", "default": "Lach even. Als je wangen het montuur duwen, voelt het snel irritant." },
+    { "type": "text", "id": "fn4_title", "label": "Fit-note 4 title", "default": "Look (eyes-centered)" },
+    { "type": "text", "id": "fn4_text", "label": "Fit-note 4 text", "default": "Je ogen mooi gecentreerd in het glas geeft de meest ‘kloppende’ uitstraling." },
+
+    { "type": "text", "id": "measure_title", "label": "Measure title", "default": "Mini-check: past je huidige bril als referentie?" },
+    { "type": "text", "id": "measure_subtitle", "label": "Measure subtitle", "default": "Gebruik je favoriete bril als benchmark — sneller dan gokken." },
+    { "type": "text", "id": "m1_title", "label": "Measure 1 title", "default": "Pak je fijnste bril" },
+    { "type": "text", "id": "m1_text", "label": "Measure 1 text", "default": "De bril die je het liefst draagt (comfort + look). Die is jouw referentie." },
+    { "type": "text", "id": "m2_title", "label": "Measure 2 title", "default": "Check breedte & wangen" },
+    { "type": "text", "id": "m2_text", "label": "Measure 2 text", "default": "Lach. Raakt hij je wangen? Zit hij strak bij je slapen? Noteer dat." },
+    { "type": "text", "id": "m3_title", "label": "Measure 3 title", "default": "Vergelijk met fit-notes" },
+    { "type": "text", "id": "m3_text", "label": "Measure 3 text", "default": "Zoek ‘smal/normaal/breed’ en ‘neusbrug’ in de producttekst en match met jouw gevoel." },
+    { "type": "text", "id": "m4_title", "label": "Measure 4 title", "default": "Twijfel? ga één stap ruimer" },
+    { "type": "text", "id": "m4_text", "label": "Measure 4 text", "default": "Een tikje ruimer voelt vaak relaxter (zeker voor een hele dag dragen)." },
+    { "type": "text", "id": "measure_note", "label": "Measure note", "default": "Pro-tip: je hoeft niet perfect te meten. Je wil vooral voorkomen dat hij te strak zit of je wangen raakt." },
+
+    { "type": "text", "id": "trial_title", "label": "100 dagen title", "default": "100 dagen bedenktijd (zodat je het echt voelt)" },
+    { "type": "richtext", "id": "trial_text", "label": "100 dagen text", "default": "<p>Online kiezen is één ding. Een bril pas je écht in je eigen week: werk, koffie, fietsen, avondlicht. Daarom krijg je 100 dagen om te ervaren of het jouw bril is.</p>" },
+    { "type": "liquid", "id": "trial_points", "label": "100 dagen bullets (<li>…</li>)", "default": "<li>Je merkt binnen een week of de pasvorm klopt</li><li>Je ziet in daglicht of de look ‘echt jij’ is</li><li>Je voelt of het gewicht en de balans goed zijn</li>" },
+    { "type": "text", "id": "trial_button_label", "label": "100 dagen button 1 label", "default": "Bekijk monturen" },
+    { "type": "url", "id": "trial_button_link", "label": "100 dagen button 1 link" },
+    { "type": "text", "id": "trial_button2_label", "label": "100 dagen button 2 label", "default": "Welke glazen heb ik nodig?" },
+    { "type": "url", "id": "trial_button2_link", "label": "100 dagen button 2 link" },
+    { "type": "text", "id": "trial_small", "label": "100 dagen small text", "default": "Twijfel je tussen 2 modellen? Kies je favoriet + ‘veilige’ tweede. Je beslist later." },
+
+    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Veelgestelde vragen" },
+    { "type": "text", "id": "faq_subtitle", "label": "FAQ subtitle", "default": "Kort antwoord, zonder gedoe." },
+
+    { "type": "text", "id": "final_title", "label": "Final title", "default": "Klaar om te kiezen zonder twijfel?" },
+    { "type": "richtext", "id": "final_text", "label": "Final text", "default": "<p>Pak je referentiebril, check de fit-notes, en gebruik je 100 dagen bedenktijd als zekerheid. Zo wordt online kiezen gewoon… makkelijk.</p>" },
+    { "type": "text", "id": "final_button_label", "label": "Final button label", "default": "Shop brillen op sterkte" },
+    { "type": "url", "id": "final_button_link", "label": "Final button link" },
+    { "type": "text", "id": "final_button2_label", "label": "Final button 2 label", "default": "PD meten" },
+    { "type": "url", "id": "final_button2_link", "label": "Final button 2 link" },
+
+    { "type": "url", "id": "back_link", "label": "Back link (optional)" },
+    { "type": "text", "id": "back_label", "label": "Back link label", "default": "← Terug naar Onze brillen op sterkte" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Vraag" },
+        { "type": "richtext", "id": "a", "label": "Antwoord" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page – Past het?",
+      "blocks": [
+        { "type": "faq", "settings": { "q": "Wat als ik tussen twee maten in zit?", "a": "<p>Kies bij twijfel iets ruimer. Te strak voel je meteen. Iets ruimer voelt vaak prettiger (zeker bij langere dagen).</p>" } },
+        { "type": "faq", "settings": { "q": "Hoe weet ik of hij mijn wangen raakt?", "a": "<p>Lach breed. Als het montuur omhoog duwt of je wangen het glas raken, is hij meestal te laag of te groot in hoogte.</p>" } },
+        { "type": "faq", "settings": { "q": "Wat zijn ‘fit-notes’ precies?", "a": "<p>Onze korte omschrijving van de fit in het echt: breedte, neusbrug, ruimte bij wangen en de look. Geen jargon, wel bruikbaar.</p>" } },
+        { "type": "faq", "settings": { "q": "Kan ik online écht goed kiezen?", "a": "<p>Ja—met fit-notes + je referentiebril kom je heel ver. En de 100 dagen bedenktijd is er voor de laatste 10% zekerheid.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

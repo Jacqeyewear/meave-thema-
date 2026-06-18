@@ -1,0 +1,260 @@
+{% comment %}
+  Section: Jacq Hero Type
+  Uniek, typografisch hero zonder CTA/video. Rotating keywords + collage media, Jacq-style gradients.
+  Compatibel met OS 2.0 (incl. Concept).
+{% endcomment %}
+
+{% assign secid = 'jacq-hero-type-' | append: section.id %}
+
+<section id="{{ secid }}" class="jacq-hero-type color-{{ section.settings.color_scheme }}">
+  <div class="wrap">
+
+    <div class="copy">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      {%- comment -%}
+        Titel met woord-rotator: vaste tekst + blokwoorden die verticaal cyclen
+      {%- endcomment -%}
+      <h1 class="title">
+        {{ section.settings.heading_before }}
+        <span class="rotator" aria-live="polite">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'word' -%}
+              <span class="rotator-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </span>
+        {{ section.settings.heading_after }}
+      </h1>
+
+      {%- if section.settings.lead != blank -%}
+        <p class="lead">{{ section.settings.lead }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="media">
+      <div class="panel main">
+        {%- if section.settings.main_image -%}
+          {{ section.settings.main_image | image_url: width: 1400 | image_tag: loading: 'lazy', alt: section.settings.main_image_alt | escape }}
+        {%- else -%}
+          <div class="ph">Voeg hoofdafbeelding toe</div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.side_image -%}
+        <div class="panel side side-a">
+          {{ section.settings.side_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: 'Detail' }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.side_image_2 -%}
+        <div class="panel side side-b">
+          {{ section.settings.side_image_2 | image_url: width: 800 | image_tag: loading: 'lazy', alt: 'Detail' }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="chips">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'badge' -%}
+              <span class="chip" {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <style>
+    /* Layout */
+    #{{ secid }}{
+      --acc: {{ section.settings.accent | default: '#111111' }};
+      --acc2: {{ section.settings.accent2 | default: '#6EE7F9' }};
+      --bg: {{ section.settings.bg_tint | default: '#F7F7F8' }};
+      --radius: 26px;
+      --shadow: 0 14px 40px rgba(0,0,0,.08);
+      padding: {{ section.settings.pad_m }}px 16px;
+      background:
+        radial-gradient(1200px 600px at 110% -20%, color-mix(in oklab, var(--acc2) 22%, transparent), transparent),
+        radial-gradient(900px 500px at -15% 5%, color-mix(in oklab, var(--acc) 7%, transparent), transparent),
+        radial-gradient(30px 30px at 10% 90%, color-mix(in oklab, var(--acc2) 10%, transparent), transparent);
+      position: relative;
+      overflow: hidden;
+      /* fijn raster voor textuur */
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(0,0,0,.05) 1px, transparent 0),
+        radial-gradient(1200px 600px at 110% -20%, color-mix(in oklab, var(--acc2) 22%, transparent), transparent),
+        radial-gradient(900px 500px at -15% 5%, color-mix(in oklab, var(--acc) 7%, transparent), transparent);
+      background-size:
+        12px 12px, auto, auto;
+      background-blend-mode: normal, normal, normal;
+    }
+    @media (min-width: 990px){ #{{ secid }}{ padding: {{ section.settings.pad_d }}px 24px; } }
+
+    #{{ secid }} .wrap{
+      max-width: 1200px; margin:0 auto;
+      display: grid; gap: 1.6rem; align-items: center;
+    }
+    @media (min-width: 1100px){
+      #{{ secid }} .wrap{ grid-template-columns: 1.05fr .95fr; gap: 2.2rem; }
+    }
+
+    /* Copy */
+    #{{ secid }} .eyebrow{
+      text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; opacity: .75; margin: 0 0 .25rem;
+    }
+    #{{ secid }} .title{
+      margin: 0 0 .35rem;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 1.03; letter-spacing: -.02em;
+    }
+    #{{ secid }} .lead{
+      font-size: 1.06rem; opacity: .94; margin: 0 0 .6rem;
+    }
+
+    /* Rotator */
+    #{{ secid }} .rotator{
+      display: inline-grid;
+      vertical-align: baseline;
+      height: 1em;
+      overflow: hidden;
+      margin: 0 .15em;
+      border-radius: .2em;
+      padding: .02em .05em;
+      background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.03));
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .color-inverse #{{ secid }} .rotator{ background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.16); }
+    #{{ secid }} .rotator-item{ grid-row: 1; grid-column: 1; }
+    #{{ secid }} .rotator{
+      --count: {{ section.blocks | where: 'type', 'word' | size | default: 1 }};
+      position: relative;
+    }
+    #{{ secid }} .rotator-item{
+      animation: rslide calc(var(--count) * 2.2s) steps(var(--count)) infinite;
+    }
+    @keyframes rslide {
+      0%   { transform: translateY(0%); }
+      100% { transform: translateY(calc(-100% * (var(--count) - 1))); }
+    }
+
+    /* Media collage (geen video) */
+    #{{ secid }} .media{
+      position: relative;
+      border-radius: calc(var(--radius) + 6px);
+      padding: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.45));
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--shadow);
+      min-height: 360px;
+      overflow: hidden;
+    }
+    #{{ secid }} .panel{
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      background: #f9f9fb;
+    }
+    #{{ secid }} .panel.main{
+      aspect-ratio: 16 / 9;
+    }
+    #{{ secid }} .panel.main img{ display:block; width:100%; height:auto; }
+
+    #{{ secid }} .panel.side{
+      position: absolute;
+      width: 40%; max-width: 320px;
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.6));
+    }
+    #{{ secid }} .side-a{ left: -2%; bottom: 8%; aspect-ratio: 4 / 5; }
+    #{{ secid }} .side-b{ right: -1%; top: 6%; aspect-ratio: 1 / 1; }
+
+    #{{ secid }} .ph{
+      display:grid; place-items:center; height:100%;
+      color: rgba(0,0,0,.45); font-size:.95rem;
+      background: repeating-linear-gradient(45deg, #f3f3f5, #f3f3f5 8px, #f9f9fb 8px, #f9f9fb 16px);
+    }
+
+    /* Badges */
+    #{{ secid }} .chips{
+      position: absolute; inset: auto 10px 10px 10px;
+      display:flex; gap:.5rem; flex-wrap:wrap;
+    }
+    #{{ secid }} .chip{
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.4rem .7rem; border-radius:999px; font-size:.86rem; font-weight:700;
+      background:#fff; border:1px solid rgba(0,0,0,.08);
+      box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 4px 14px rgba(0,0,0,.06) inset;
+    }
+    .color-inverse #{{ secid }} .chip{ background: rgba(255,255,255,.9); color:#111; }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Jacq Hero Type",
+    "tag": "section",
+    "class": "color-scheme",
+    "settings": [
+      { "type": "select", "id": "color_scheme", "label": "Kleurenschema", "default": "default",
+        "options": [
+          { "value": "default", "label": "Standaard" },
+          { "value": "inverse", "label": "Omgekeerd (donker)" }
+        ]
+      },
+
+      { "type": "text", "id": "eyebrow", "label": "Label", "default": "Jacq Circulair" },
+
+      { "type": "text", "id": "heading_before", "label": "Titel (voor rotator)", "default": "Geef je bril" },
+      { "type": "text", "id": "heading_after",  "label": "Titel (na rotator)",  "default": "een tweede leven" },
+
+      { "type": "text", "id": "lead", "label": "Subtitel", "default": "Duurzaam design, echte impact." },
+
+      { "type": "image_picker", "id": "main_image", "label": "Hoofdafbeelding" },
+      { "type": "text", "id": "main_image_alt", "label": "Alt-tekst hoofdafbeelding", "default": "Jacq product" },
+      { "type": "image_picker", "id": "side_image", "label": "Sticker afbeelding A" },
+      { "type": "image_picker", "id": "side_image_2", "label": "Sticker afbeelding B" },
+
+      { "type": "color", "id": "accent",  "label": "Accentkleur 1", "default": "#111111" },
+      { "type": "color", "id": "accent2", "label": "Accentkleur 2", "default": "#6EE7F9" },
+      { "type": "color", "id": "bg_tint", "label": "Achtergrondtint", "default": "#F7F7F8" },
+
+      { "type": "range", "id": "pad_m", "label": "Verticale padding mobiel", "min": 24, "max": 120, "step": 4, "default": 48 },
+      { "type": "range", "id": "pad_d", "label": "Verticale padding desktop", "min": 24, "max": 200, "step": 4, "default": 88 }
+    ],
+    "blocks": [
+      {
+        "type": "word",
+        "name": "Rotator woord",
+        "limit": 6,
+        "settings": [
+          { "type": "text", "id": "text", "label": "Woord", "default": "circulair" }
+        ]
+      },
+      {
+        "type": "badge",
+        "name": "Badge",
+        "limit": 6,
+        "settings": [
+          { "type": "text", "id": "label", "label": "Badge tekst", "default": "Gemaakt om lang mee te gaan" }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Jacq Hero Type",
+        "blocks": [
+          { "type": "word",  "settings": { "text": "circulair" } },
+          { "type": "word",  "settings": { "text": "bewust" } },
+          { "type": "word",  "settings": { "text": "duurzaam" } },
+          { "type": "badge", "settings": { "label": "Repareerbaar" } },
+          { "type": "badge", "settings": { "label": "Materialen hergebruikt" } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+</section>
