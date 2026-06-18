@@ -1,4 +1,11 @@
 {%- if request.page_type != 'cart' and settings.cart_type == 'drawer' -%}
+  {%- style -%}
+    /* No blue focus ring/border around the cart drawer checkout button */
+    .cart-drawer button[name="checkout"]:focus,
+    .cart-drawer button[name="checkout"]:focus-visible {
+      outline: none !important;
+    }
+  {%- endstyle -%}
   <script src="{{ 'cart.aio.min.js' | asset_url }}" defer></script>
   {%- if linklists.gift-wrapping.links != blank and linklists.gift-wrapping.links.first.type == 'product_link' -%}
     <script src="{{ 'gift-wrapping.aio.min.js' | asset_url }}" defer="defer"></script>

@@ -1344,6 +1344,12 @@ body.template-cart .page-container {
   background: var(--wp-blue-hover);
   border-color: var(--wp-blue-hover);
 }
+/* No blue focus ring/border around the checkout button */
+.template-cart .cart__sidebar .button.button--primary:focus,
+.template-cart .cart__sidebar .button.button--primary:focus-visible {
+  outline: none !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10) !important;
+}
 
 /* Trust badges row in sidebar (no border, just icons + label) */
 .jacq-wp-trust {
@@ -2084,6 +2090,8 @@ body.template-cart .page-container {
   }
   .jacq-wp-mobile-checkout__cta:hover,
   .jacq-wp-mobile-checkout__cta:focus-visible { background: var(--wp-blue-hover); }
+  .jacq-wp-mobile-checkout__cta:focus,
+  .jacq-wp-mobile-checkout__cta:focus-visible { outline: none !important; }
   /* When there's no accelerated button (no Apple Pay / G Pay available), make CTA full-width */
   .jacq-wp-mobile-checkout:not(:has(.jacq-wp-mobile-checkout__accelerated)) .jacq-wp-mobile-checkout__cta {
     width: 100%;
