@@ -22,6 +22,16 @@
   %}
 {%- enddoc -%}
 
+{%- comment -%} Selected variant swatch uses the Apple-blue accent instead of black {%- endcomment -%}
+{% style %}
+  .variant-picker .swatches--variant :checked + .color-swatch::after {
+    --tw-shadow-color: rgb(0, 113, 227) !important;
+    --tw-shadow-colored: 0 0 0 2px rgb(0, 113, 227) !important;
+    --tw-shadow: 0 0 0 2px rgb(0, 113, 227) !important;
+    box-shadow: 0 0 0 2px rgb(0, 113, 227) !important;
+  }
+{% endstyle %}
+
 {%- unless product.has_only_default_variant -%}
   {%- liquid
     case block.settings.picker_type
