@@ -275,36 +275,37 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 14px 0 20px;
 }
 .mlw-bundle__opt {
   position: relative;
   display: grid;
   justify-items: center;
-  gap: 3px;
-  padding: 15px 8px 13px;
-  border: none;
+  gap: 2px;
+  padding: 17px 8px 14px;
+  border: 1px solid var(--mlw-line-soft);
   border-radius: 16px;
-  background: var(--mlw-soft);
+  background: #fff;
   font: inherit;
   cursor: pointer;
-  transition: background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
+.mlw-bundle__opt:hover { border-color: rgba(0, 0, 0, 0.12); }
 .mlw-bundle__opt:active { transform: scale(0.98); }
-.mlw-bundle__opt.is-on { background: #fff; box-shadow: 0 0 0 2px var(--mlw-blue), 0 6px 18px rgba(0, 0, 0, 0.06); }
+.mlw-bundle__opt.is-on { border-color: transparent; box-shadow: 0 0 0 2px var(--mlw-blue); }
 .mlw-bundle__main { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-.mlw-bundle__price { font-size: 13px; color: var(--mlw-muted); }
+.mlw-bundle__price { font-size: 12.5px; color: var(--mlw-muted); }
 .mlw-bundle__tag {
   position: absolute;
-  top: -9px; left: 50%; transform: translateX(-50%);
+  top: -8px; left: 50%; transform: translateX(-50%);
   white-space: nowrap;
-  padding: 2px 9px;
+  padding: 2px 8px;
   border-radius: 999px;
   background: var(--mlw-blue);
   color: #fff;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 /* Step 3 — shipping reassurance under the summary */
@@ -314,18 +315,14 @@
 .mlw-trust { margin: 0 0 2px; text-align: center; font-size: 11.5px; color: var(--mlw-muted); letter-spacing: 0.01em; }
 .mlw-trust[hidden] { display: none; }
 
-/* Upsell "Recommended" tag */
+/* Upsell "Recommended" label (inline, subtle) */
 .mlw-up__rec {
-  position: absolute;
-  top: 10px; left: 10px;
-  z-index: 1;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(0, 113, 227, 0.1);
-  color: var(--mlw-blue);
+  display: inline-block;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mlw-blue);
 }
 
 /* Step 3 — USP row (mirrors the cart trust badges) */
