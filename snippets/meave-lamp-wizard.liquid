@@ -110,16 +110,44 @@
             <h3 class="mlw-step__title">{{ block.settings.review_heading | default: 'Your lamp' }}</h3>
           </div>
 
-          {%- comment -%} Cart-style line items: lamp + any chosen upsells, then the total {%- endcomment -%}
+          {%- comment -%} Bundle quantity tiers — buy more, save more (auto-discount on lamps) {%- endcomment -%}
+          <div class="mlw-bundle" data-mlw-bundle role="group" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
+            <button type="button" class="mlw-bundle__opt is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
+              <span class="mlw-bundle__main">2 lamps</span>
+              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+            </button>
+            <button type="button" class="mlw-bundle__opt" data-mlw-qty="2" data-mlw-disc="0.25" aria-pressed="false">
+              <span class="mlw-bundle__tag">Save 25%</span>
+              <span class="mlw-bundle__main">4 lamps</span>
+              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+            </button>
+            <button type="button" class="mlw-bundle__opt" data-mlw-qty="3" data-mlw-disc="0.4" aria-pressed="false">
+              <span class="mlw-bundle__tag">Save 40%</span>
+              <span class="mlw-bundle__main">6 lamps</span>
+              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+            </button>
+          </div>
+
+          {%- comment -%} Cart-style line items: lamp + any chosen upsells, then totals {%- endcomment -%}
           <div class="mlw-summary-card">
             <div class="mlw-lines" data-mlw-lines></div>
             <div class="mlw-totals">
-              <div class="mlw-totals__row">
+              <div class="mlw-totals__row mlw-totals__row--minor" data-mlw-discount-row hidden>
+                <span>{{ block.settings.discount_label | default: 'Bundle discount' }}</span>
+                <strong class="mlw-totals__save" data-mlw-discount>—</strong>
+              </div>
+              <div class="mlw-totals__row mlw-totals__row--minor">
+                <span>{{ block.settings.shipping_label | default: 'Shipping' }}</span>
+                <strong class="mlw-free">{{ block.settings.free_shipping_label | default: 'Free' }}</strong>
+              </div>
+              <div class="mlw-totals__row mlw-totals__row--total">
                 <span>{{ block.settings.total_label | default: 'Total' }}</span>
                 <strong data-mlw-rv-total>—</strong>
               </div>
             </div>
           </div>
+
+          <p class="mlw-ship-note">{{ block.settings.ship_note | default: 'Ships within 24 hours · Free UK delivery' }}</p>
 
           {%- comment -%} USP row — mirrors the cart {%- endcomment -%}
           <ul class="mlw-usps" aria-label="Why shop with us">
@@ -145,6 +173,7 @@
       </div>
 
       <footer class="mlw-foot">
+        <p class="mlw-trust" data-mlw-trust>{{ block.settings.trust_line | default: 'Free UK delivery · 30-day returns · 2-year warranty' }}</p>
         <button type="button" class="mlw-next" data-mlw-next>{{ block.settings.next_label | default: 'Next' }}</button>
         <button type="button" class="mlw-add" data-mlw-add hidden>
           <span class="mlw-add__label">{{ block.settings.add_label | default: 'Checkout' }}</span>

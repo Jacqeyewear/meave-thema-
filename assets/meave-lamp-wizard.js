@@ -59,6 +59,12 @@
       this.upsellWrap = this.querySelector('[data-mlw-upsell-wrap]');
       this.upsellGrid = this.querySelector('[data-mlw-upsell]');
       this.linesEl   = this.querySelector('[data-mlw-lines]');
+      this.bundleEl  = this.querySelector('[data-mlw-bundle]');
+      this.bundleOpts = Array.prototype.slice.call(this.querySelectorAll('[data-mlw-qty]'));
+      this.discountRow = this.querySelector('[data-mlw-discount-row]');
+      this.discountEl = this.querySelector('[data-mlw-discount]');
+      this.trustEl   = this.querySelector('[data-mlw-trust]');
+      this.addLabelEl = this.querySelector('.mlw-add__label');
       this.sumColor  = this.querySelector('[data-mlw-sum-color]');
       this.sumKap    = this.querySelector('[data-mlw-sum-kap]');
       this.summaryEl = this.querySelector('.mlw-summary');
@@ -70,6 +76,9 @@
       this.lastFocus = null;
       this.afterAdd = this.dataset.afterAdd || 'cart';
       this.selectedUpsells = [];
+      this.qty = 1;
+      this.disc = 0;
+      this.addLabelBase = this.addLabelEl ? this.addLabelEl.textContent.trim() : 'Checkout';
 
       if (this.root && this.root.parentNode !== document.body) {
         document.body.appendChild(this.root);
@@ -138,6 +147,16 @@
       if (this.nextBtn) this.nextBtn.addEventListener('click', function () { self.next(); });
       if (this.addBtn)  this.addBtn.addEventListener('click', function () { self.addToCart({ btn: self.addBtn }); });
       if (this.continueBtn) this.continueBtn.addEventListener('click', function () { self.addToCart({ stay: true, btn: self.continueBtn }); });
+
+      this.bundleOpts.forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          self.qty = parseInt(opt.getAttribute('data-mlw-qty'), 10) || 1;
+          self.disc = parseFloat(opt.getAttribute('data-mlw-disc')) || 0;
+          self.bundleOpts.forEach(function (o) { o.classList.remove('is-on'); o.setAttribute('aria-pressed', 'false'); });
+          opt.classList.add('is-on'); opt.setAttribute('aria-pressed', 'true');
+          self.updateReview();
+        });
+      });
 
       this.tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
@@ -239,12 +258,13 @@
       if (this.upsellWrap) this.upsellWrap.hidden = false;
       var frag = document.createDocumentFragment();
       var self = this;
-      this.upsells.forEach(function (u) {
+      this.upsells.forEach(function (u, idx) {
         var card = document.createElement('button');
         card.type = 'button';
         card.className = 'mlw-up' + (self.selectedUpsells.indexOf(String(u.variantId)) >= 0 ? ' is-on' : '');
         card.setAttribute('data-mlw-up', String(u.variantId));
         card.innerHTML =
+          (idx === 0 ? '<span class="mlw-up__rec">Recommended</span>' : '') +
           '<span class="mlw-up__media">' + (u.image ? '<img loading="lazy" alt="" src="' + u.image + '">' : '') +
             '<span class="mlw-up__badge" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>' +
           '</span>' +
@@ -337,6 +357,7 @@
       if (this.addBtn)  this.addBtn.hidden = !onLast;
       if (this.continueBtn) this.continueBtn.hidden = !onLast;
       if (this.summaryEl) this.summaryEl.style.display = onLast ? 'none' : '';
+      if (this.trustEl) this.trustEl.hidden = onLast;
     }
 
     /* ---------- selection / summary ---------- */
@@ -350,11 +371,39 @@
       if (this.sumColor) this.sumColor.textContent = this.getColorLabel() || '—';
       if (this.sumKap) this.sumKap.textContent = this.getKapTitle() || '—';
     }
+    sampleMoney() {
+      var p = this.productById[String(this.getKapId())];
+      return (p && p.price) || (this.products[0] && this.products[0].price) || '';
+    }
+    amounts() {
+      var p = this.productById[String(this.getKapId())];
+      var unit = p ? (p.priceRaw || 0) : 0;
+      var lampSub = unit * this.qty;
+      var disc = Math.round(lampSub * this.disc);
+      var upsell = 0;
+      var self = this;
+      this.upsells.forEach(function (u) { if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) upsell += (u.priceRaw || 0); });
+      return { p: p, unit: unit, lampSub: lampSub, disc: disc, upsell: upsell, total: lampSub - disc + upsell };
+    }
     updateReview() {
-      if (this.rvColor) this.rvColor.textContent = this.getColorLabel() || '—';
-      if (this.rvKap) this.rvKap.textContent = this.getKapTitle() || '—';
-      if (this.rvTotal) this.rvTotal.textContent = this.totalStr();
-      this.renderLines();
+      var a = this.amounts();
+      var sample = this.sampleMoney();
+      if (this.discountRow) this.discountRow.hidden = a.disc <= 0;
+      if (this.discountEl) this.discountEl.textContent = '−' + moneyFmt(a.disc, sample);
+      if (this.rvTotal) this.rvTotal.textContent = moneyFmt(a.total, sample);
+      if (this.addLabelEl && a.p) this.addLabelEl.textContent = this.addLabelBase + ' · ' + moneyFmt(a.total, sample);
+      this.updateBundlePrices(a, sample);
+      this.renderLines(a, sample);
+    }
+    updateBundlePrices(a, sample) {
+      a = a || this.amounts(); sample = sample || this.sampleMoney();
+      var unit = a.unit;
+      this.bundleOpts.forEach(function (opt) {
+        var q = parseInt(opt.getAttribute('data-mlw-qty'), 10) || 1;
+        var d = parseFloat(opt.getAttribute('data-mlw-disc')) || 0;
+        var el = opt.querySelector('[data-mlw-bundle-price]');
+        if (el) el.textContent = moneyFmt(Math.round(unit * q * (1 - d)), sample);
+      });
     }
     escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
     escHtml(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -368,14 +417,16 @@
         '<span class="mlw-line__price">' + this.escHtml(price) + '</span>' +
       '</div>';
     }
-    renderLines() {
+    renderLines(a, sample) {
       if (!this.linesEl) return;
+      a = a || this.amounts(); sample = sample || this.sampleMoney();
       var html = '';
-      var p = this.productById[String(this.getKapId())];
+      var p = a.p;
       if (p) {
         var v = this.variantFor(p, this.getColorKey());
         var img = (v && v.image) || p.image || this.colorImage();
-        html += this.lineHTML(img, p.title, '', p.price);
+        var sub = this.qty > 1 ? (this.qty + ' × ' + p.price) : '';
+        html += this.lineHTML(img, p.title, sub, moneyFmt(a.lampSub, sample));
       }
       var self = this;
       this.upsells.forEach(function (u) {
@@ -384,14 +435,6 @@
         }
       });
       this.linesEl.innerHTML = html;
-    }
-    totalStr() {
-      var p = this.productById[String(this.getKapId())];
-      var sum = p ? (p.priceRaw || 0) : 0;
-      var self = this;
-      this.upsells.forEach(function (u) { if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) sum += (u.priceRaw || 0); });
-      var sample = (p && p.price) || (this.products[0] && this.products[0].price) || '';
-      return moneyFmt(sum, sample);
     }
 
     validate(step, quiet) {
@@ -413,7 +456,7 @@
       var variantId = this.resolvedVariantId();
       if (!variantId) { this.showError('This combination is not available. Choose a different colour or shade.'); return; }
 
-      var items = [{ id: variantId, quantity: 1 }];
+      var items = [{ id: variantId, quantity: this.qty }];
       this.selectedUpsells.forEach(function (id) { items.push({ id: id, quantity: 1 }); });
 
       var self = this;

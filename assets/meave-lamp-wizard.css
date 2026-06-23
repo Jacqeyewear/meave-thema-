@@ -246,11 +246,75 @@
   padding: 18px;
   background: transparent;
   border-top: 1px solid var(--mlw-line-soft);
+  display: grid;
+  gap: 10px;
 }
 .mlw-totals__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-.mlw-totals__row span { font-size: 15px; font-weight: 400; color: var(--mlw-muted); letter-spacing: -0.01em; }
-.mlw-totals__row strong { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
-.mlw-totals__note { margin: 6px 0 0; font-size: 12px; color: var(--mlw-muted); line-height: 1.4; }
+.mlw-totals__row[hidden] { display: none; }
+.mlw-totals__row--minor span { font-size: 14px; font-weight: 400; color: var(--mlw-muted); letter-spacing: -0.01em; }
+.mlw-totals__row--minor strong { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
+.mlw-totals__row--total { padding-top: 12px; border-top: 1px solid var(--mlw-line-soft); }
+.mlw-totals__row--total span { font-size: 15px; font-weight: 500; color: var(--mlw-ink); letter-spacing: -0.01em; }
+.mlw-totals__row--total strong { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
+.mlw-totals__save, .mlw-free { color: #1a8a55; }
+
+/* Step 3 — bundle quantity tiers (buy more, save more) */
+.mlw-bundle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.mlw-bundle__opt {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 15px 8px 13px;
+  border: none;
+  border-radius: 16px;
+  background: var(--mlw-soft);
+  font: inherit;
+  cursor: pointer;
+  transition: background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+.mlw-bundle__opt:active { transform: scale(0.98); }
+.mlw-bundle__opt.is-on { background: #fff; box-shadow: 0 0 0 2px var(--mlw-blue), 0 6px 18px rgba(0, 0, 0, 0.06); }
+.mlw-bundle__main { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+.mlw-bundle__price { font-size: 13px; color: var(--mlw-muted); }
+.mlw-bundle__tag {
+  position: absolute;
+  top: -9px; left: 50%; transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--mlw-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Step 3 — shipping reassurance under the summary */
+.mlw-ship-note { margin: -10px 0 20px; text-align: center; font-size: 12.5px; color: var(--mlw-muted); }
+
+/* Footer trust line (steps 1 & 2) */
+.mlw-trust { margin: 0 0 2px; text-align: center; font-size: 11.5px; color: var(--mlw-muted); letter-spacing: 0.01em; }
+.mlw-trust[hidden] { display: none; }
+
+/* Upsell "Recommended" tag */
+.mlw-up__rec {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--mlw-blue);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 
 /* Step 3 — USP row (mirrors the cart trust badges) */
 .mlw-usps {
@@ -574,6 +638,10 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   .mlw-preview--sm { height: clamp(140px, 22vh, 190px); margin-bottom: 14px; }
   .mlw-colors { grid-template-columns: repeat(3, 1fr); gap: 16px 12px; }
   .mlw-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 10px; }
+  .mlw-bundle { gap: 8px; margin-bottom: 16px; }
+  .mlw-bundle__opt { padding: 12px 6px 11px; border-radius: 14px; }
+  .mlw-bundle__main { font-size: 13px; }
+  .mlw-bundle__price { font-size: 12px; }
   .mlw-line { padding: 12px 14px; gap: 12px; }
   .mlw-line__media { width: 52px; height: 52px; }
   .mlw-line__name { font-size: 13.5px; }
