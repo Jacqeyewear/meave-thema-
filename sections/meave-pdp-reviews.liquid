@@ -21,6 +21,22 @@
           {%- if block.settings.quote != blank -%}
             <div class="meave-review__quote rte">{{ block.settings.quote }}</div>
           {%- endif -%}
+          {%- if block.settings.image != blank -%}
+            <figure class="meave-review__photo">
+              {{- block.settings.image
+                | image_url: width: 720
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '320,480,640,720',
+                  sizes: '(min-width: 990px) 360px, 86vw',
+                  alt: block.settings.image_alt
+              -}}
+              <span class="meave-review__photoTag" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg>
+                Customer photo
+              </span>
+            </figure>
+          {%- endif -%}
           {%- if block.settings.author != blank -%}
             <div class="meave-review__author">
               <span class="meave-review__avatar" aria-hidden="true">{{ block.settings.author | strip | slice: 0 | upcase }}</span>
@@ -133,6 +149,48 @@
     margin: 0;
   }
 
+  .meave-review__photo {
+    position: relative;
+    overflow: hidden;
+    margin: 22px 0 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+    background: #f0ece6;
+  }
+
+  .meave-review__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .meave-review:hover .meave-review__photo img {
+    transform: scale(1.04);
+  }
+
+  .meave-review__photoTag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(21, 18, 15, .62);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .02em;
+    backdrop-filter: blur(6px);
+  }
+
+  .meave-review__photoTag svg {
+    width: 13px;
+    height: 13px;
+  }
+
   .meave-review__author {
     display: flex;
     margin-top: 28px;
@@ -241,6 +299,18 @@
           "id": "author",
           "label": "Author",
           "default": "Charlotte J."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Customer photo",
+          "info": "Optional. A photo the customer shared of the product."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Photo alternative text",
+          "default": "Customer photo of the Meave light"
         }
       ]
     }
