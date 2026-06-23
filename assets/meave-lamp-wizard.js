@@ -65,6 +65,13 @@
       this.discountEl = this.querySelector('[data-mlw-discount]');
       this.trustEl   = this.querySelector('[data-mlw-trust]');
       this.addLabelEl = this.querySelector('.mlw-add__label');
+      this.lcEl = this.querySelector('[data-mlw-lc]');
+      this.lcImg = this.querySelector('[data-mlw-lc-img]');
+      this.lcName = this.querySelector('[data-mlw-lc-name]');
+      this.lcWas = this.querySelector('[data-mlw-lc-was]');
+      this.lcNow = this.querySelector('[data-mlw-lc-now]');
+      this.bulbDisc = this.lcEl ? (parseFloat(this.lcEl.getAttribute('data-bulb-disc')) || 0.5) : 0.5;
+      this.bulbCode = this.lcEl ? (this.lcEl.getAttribute('data-bulb-code') || '') : '';
       this.sumColor  = this.querySelector('[data-mlw-sum-color]');
       this.sumKap    = this.querySelector('[data-mlw-sum-kap]');
       this.summaryEl = this.querySelector('.mlw-summary');
@@ -78,6 +85,8 @@
       this.selectedUpsells = [];
       this.qty = 1;
       this.disc = 0;
+      this._bulbOfferTaken = false;
+      this._pendingBtn = null;
       this.addLabelBase = this.addLabelEl ? this.addLabelEl.textContent.trim() : 'Checkout';
 
       if (this.root && this.root.parentNode !== document.body) {
@@ -147,6 +156,11 @@
       if (this.nextBtn) this.nextBtn.addEventListener('click', function () { self.next(); });
       if (this.addBtn)  this.addBtn.addEventListener('click', function () { self.addToCart({ btn: self.addBtn }); });
       if (this.continueBtn) this.continueBtn.addEventListener('click', function () { self.addToCart({ stay: true, btn: self.continueBtn }); });
+
+      var lcAdd = this.querySelector('[data-mlw-lc-add]');
+      var lcSkip = this.querySelector('[data-mlw-lc-skip]');
+      if (lcAdd) lcAdd.addEventListener('click', function () { self.acceptBulbOffer(); });
+      if (lcSkip) lcSkip.addEventListener('click', function () { self.declineBulbOffer(); });
 
       this.bundleOpts.forEach(function (opt) {
         opt.addEventListener('click', function () {
@@ -460,6 +474,14 @@
       var variantId = this.resolvedVariantId();
       if (!variantId) { this.showError('This combination is not available. Choose a different colour or shade.'); return; }
 
+      // Last-chance: checking out without the recommended bulbs -> offer them at a discount
+      var bulb = this.bulbUpsell();
+      if (!opts.skipLastChance && !opts.stay && bulb && this.selectedUpsells.indexOf(String(bulb.variantId)) < 0) {
+        this._pendingBtn = opts.btn || this.addBtn;
+        this.showLastChance(bulb);
+        return;
+      }
+
       var items = [{ id: variantId, quantity: this.qty }];
       this.selectedUpsells.forEach(function (id) { items.push({ id: id, quantity: 1 }); });
 
@@ -476,10 +498,45 @@
         .then(function () { self.onAdded(mode); })
         .catch(function (err) { if (btn) btn.classList.remove('is-loading'); self.showError(err && err.message ? err.message : 'Something went wrong. Please try again.'); });
     }
+    bulbUpsell() {
+      if (!this.upsells || !this.upsells.length) return null;
+      var bulb = this.upsells.filter(function (u) { return /bulb/i.test(u.title || ''); })[0];
+      return bulb || this.upsells[0];
+    }
+    showLastChance(bulb) {
+      if (!this.lcEl) return;
+      var sample = this.sampleMoney() || bulb.price;
+      var now = Math.round((bulb.priceRaw || 0) * (1 - this.bulbDisc));
+      if (this.lcImg && bulb.image) this.lcImg.src = bulb.image;
+      if (this.lcName) this.lcName.textContent = bulb.title || '';
+      if (this.lcWas) this.lcWas.textContent = bulb.price || '';
+      if (this.lcNow) this.lcNow.textContent = moneyFmt(now, sample);
+      this.lcEl.hidden = false;
+      void this.lcEl.offsetWidth;
+      this.lcEl.classList.add('is-open');
+    }
+    hideLastChance() {
+      if (!this.lcEl) return;
+      this.lcEl.classList.remove('is-open');
+      var el = this.lcEl;
+      window.setTimeout(function () { el.hidden = true; }, 220);
+    }
+    acceptBulbOffer() {
+      var bulb = this.bulbUpsell();
+      if (bulb && this.selectedUpsells.indexOf(String(bulb.variantId)) < 0) this.selectedUpsells.push(String(bulb.variantId));
+      this._bulbOfferTaken = true;
+      this.hideLastChance();
+      this.addToCart({ btn: this._pendingBtn || this.addBtn, skipLastChance: true });
+    }
+    declineBulbOffer() {
+      this.hideLastChance();
+      this.addToCart({ btn: this._pendingBtn || this.addBtn, skipLastChance: true });
+    }
     onAdded(mode) {
       mode = mode || this.afterAdd;
-      if (mode === 'checkout') { window.location.assign('/checkout'); return; }
-      if (mode === 'cart') { window.location.assign('/cart'); return; }
+      var disc = (this._bulbOfferTaken && this.bulbCode) ? ('?discount=' + encodeURIComponent(this.bulbCode)) : '';
+      if (mode === 'checkout') { window.location.assign('/checkout' + disc); return; }
+      if (mode === 'cart') { window.location.assign('/cart' + disc); return; }
       var self = this;
       if (this.addBtn) this.addBtn.classList.remove('is-loading');
       if (this.continueBtn) this.continueBtn.classList.remove('is-loading');

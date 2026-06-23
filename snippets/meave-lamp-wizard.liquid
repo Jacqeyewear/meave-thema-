@@ -106,25 +106,6 @@
             <h3 class="mlw-step__title">{{ block.settings.review_heading | default: 'Your lamp' }}</h3>
           </div>
 
-          {%- comment -%} Bundle quantity tiers — buy more, save more (auto-discount on lamps) {%- endcomment -%}
-          <div class="mlw-bundle" data-mlw-bundle role="radiogroup" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
-            <button type="button" class="mlw-bundle__row is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
-              <span class="mlw-bundle__radio" aria-hidden="true"></span>
-              <span class="mlw-bundle__label">2 lamps</span>
-              <span class="mlw-bundle__prices"><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
-            </button>
-            <button type="button" class="mlw-bundle__row" data-mlw-qty="2" data-mlw-disc="0.15" aria-pressed="false">
-              <span class="mlw-bundle__radio" aria-hidden="true"></span>
-              <span class="mlw-bundle__label">4 lamps <span class="mlw-bundle__tag">Save 15%</span></span>
-              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
-            </button>
-            <button type="button" class="mlw-bundle__row" data-mlw-qty="3" data-mlw-disc="0.25" aria-pressed="false">
-              <span class="mlw-bundle__radio" aria-hidden="true"></span>
-              <span class="mlw-bundle__label">6 lamps <span class="mlw-bundle__tag">Save 25%</span></span>
-              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
-            </button>
-          </div>
-
           {%- comment -%} Cart-style line items: lamp + any chosen upsells, then totals {%- endcomment -%}
           <div class="mlw-summary-card">
             <div class="mlw-lines" data-mlw-lines></div>
@@ -145,6 +126,25 @@
           </div>
 
           <p class="mlw-ship-note">{{ block.settings.ship_note | default: 'Ships within 24 hours' }}</p>
+
+          {%- comment -%} Bundle quantity tiers — buy more, save more (auto-discount on lamps) {%- endcomment -%}
+          <div class="mlw-bundle" data-mlw-bundle role="radiogroup" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
+            <button type="button" class="mlw-bundle__row is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">2 lamps</span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
+            </button>
+            <button type="button" class="mlw-bundle__row" data-mlw-qty="2" data-mlw-disc="0.15" aria-pressed="false">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">4 lamps <span class="mlw-bundle__tag">Save 15%</span></span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
+            </button>
+            <button type="button" class="mlw-bundle__row" data-mlw-qty="3" data-mlw-disc="0.25" aria-pressed="false">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">6 lamps <span class="mlw-bundle__tag">Save 25%</span></span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
+            </button>
+          </div>
 
           {%- comment -%} Upsells — directly under the overview {%- endcomment -%}
           <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
@@ -180,6 +180,29 @@
         <button type="button" class="mlw-continue" data-mlw-continue hidden>{{ block.settings.continue_label | default: 'Continue shopping' }}</button>
         <p class="mlw-error" data-mlw-error hidden></p>
       </footer>
+
+      {%- comment -%} Last-chance offer when checking out without the bulbs {%- endcomment -%}
+      <div class="mlw-lc" data-mlw-lc hidden
+        data-bulb-disc="{{ block.settings.bulb_offer_disc | default: '0.5' }}"
+        data-bulb-code="{{ block.settings.bulb_offer_code | default: 'BULB50' }}">
+        <div class="mlw-lc__card" role="dialog" aria-modal="true" aria-label="{{ block.settings.bulb_offer_heading | default: 'Add rechargeable bulbs?' }}">
+          <span class="mlw-lc__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.5.4.9 1 1 1.7l.1.5h5l.1-.5c.1-.7.5-1.3 1-1.7A6 6 0 0 0 12 3z"/></svg>
+          </span>
+          <h3 class="mlw-lc__title">{{ block.settings.bulb_offer_heading | default: 'Add rechargeable bulbs?' }}</h3>
+          <p class="mlw-lc__text">{{ block.settings.bulb_offer_text | default: 'Your wireless lamp needs rechargeable bulbs to light up. Add them now for 50% off — only here.' }}</p>
+          <div class="mlw-lc__product">
+            <span class="mlw-lc__media"><img data-mlw-lc-img src="" alt=""></span>
+            <span class="mlw-lc__info">
+              <span class="mlw-lc__name" data-mlw-lc-name></span>
+              <span class="mlw-lc__prices"><span class="mlw-lc__was" data-mlw-lc-was></span><span class="mlw-lc__now" data-mlw-lc-now></span></span>
+            </span>
+            <span class="mlw-lc__save">-50%</span>
+          </div>
+          <button type="button" class="mlw-lc__add" data-mlw-lc-add>{{ block.settings.bulb_offer_add | default: 'Add bulbs & checkout' }}</button>
+          <button type="button" class="mlw-lc__skip" data-mlw-lc-skip>{{ block.settings.bulb_offer_skip | default: 'No thanks, continue without' }}</button>
+        </div>
+      </div>
     </aside>
   </div>
 
