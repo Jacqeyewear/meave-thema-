@@ -220,93 +220,12 @@
             "image": "shopify://shop_images/r8.jpg",
             "image_alt": "Customer photo of the Meave light"
           }
-        },
-        "review_4": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>Installation was genuinely tool-free. Stuck them either side of the bed and they haven't moved in months.</p>",
-            "author": "Sophie M."
-          }
-        },
-        "review_5": {
-          "type": "review",
-          "settings": {
-            "rating": 4,
-            "quote": "<p>Lovely warm light and a really elegant shape. Slightly smaller than I pictured, but they look great in the hallway.</p>",
-            "author": "Daniel K."
-          }
-        },
-        "review_6": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>The brass finish is gorgeous and feels far from cheap. Guests always ask where they're from.</p>",
-            "author": "Priya R."
-          }
-        },
-        "review_7": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>Battery life is better than expected and recharging is simple. Perfect for a rented flat with no wiring.</p>",
-            "author": "Thomas B."
-          }
-        },
-        "review_8": {
-          "type": "review",
-          "settings": {
-            "rating": 4,
-            "quote": "<p>Great for adding a cosy layer in the evening. I'd love a slightly longer remote range, but happy overall.</p>",
-            "author": "Hannah W."
-          }
-        },
-        "review_9": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>Transformed a dark corner of the living room. Honestly looks like a proper hard-wired fitting.</p>",
-            "author": "Olivia S."
-          }
-        },
-        "review_10": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>The set of two was ideal for our alcoves. Simple, classy and no electrician needed.</p>",
-            "author": "James P."
-          }
-        },
-        "review_11": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>Soft, flattering glow and the shade quality is lovely. Already planning a pair for the bedroom.</p>",
-            "author": "Emma L."
-          }
-        },
-        "review_12": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "quote": "<p>Easy to reposition until the spacing looked right. Really pleased with how finished the wall feels now.</p>",
-            "author": "Lucy A."
-          }
         }
       },
       "block_order": [
         "review_1",
         "review_2",
-        "review_3",
-        "review_4",
-        "review_5",
-        "review_6",
-        "review_7",
-        "review_8",
-        "review_9",
-        "review_10",
-        "review_11",
-        "review_12"
+        "review_3"
       ],
       "settings": {
         "heading": "Loved for easy lighting upgrades"

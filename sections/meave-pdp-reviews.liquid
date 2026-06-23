@@ -1,3 +1,29 @@
+{%- liquid
+  assign mv_reviews = "5~Charlotte J.~March 2026~The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.|5~Isabella E.~March 2026~Exactly the light I wanted above my console table. It looks more expensive than expected.|5~George B.~February 2026~A simple change that made the bedroom feel considered. The proportions sit beautifully next to framed art.|5~Sophie M.~February 2026~Installation was genuinely tool-free. I stuck them either side of the bed and they have not moved since.|5~Priya R.~February 2026~The brass finish is gorgeous and feels far from cheap. Guests always ask where they are from.|5~Thomas B.~January 2026~Battery life is better than expected and recharging is simple. Perfect for a rented flat.|5~Olivia S.~January 2026~Transformed a dark corner of the living room. Honestly looks like a proper hard-wired fitting.|5~James P.~January 2026~The set of two was ideal for our alcoves. Simple, classy and no electrician needed.|5~Emma L.~December 2025~Soft, flattering glow and the shade quality is lovely. Already planning a pair for the bedroom.|5~Lucy A.~December 2025~Easy to reposition until the spacing looked right. Really pleased with how finished the wall feels.|5~Nathan R.~December 2025~Warm light without any harsh glare. The remote makes it effortless in the evenings.|5~Amelia C.~November 2025~Beautiful quality for the price. They look like a designer piece in our hallway.|5~Freya H.~November 2025~Perfect bedside lighting. The dimmable warm glow is exactly what we hoped for.|5~Oliver T.~November 2025~Looks stunning either side of the mirror and took five minutes to put up.|4~Daniel K.~February 2026~Lovely warm light and an elegant shape. Slightly smaller than I pictured, but great in the hallway.|4~Hannah W.~January 2026~Great for a cosy evening layer. I would love a slightly longer remote range, but happy overall.|4~Megan F.~January 2026~Looks high-end and was simple to fit. Took off a star as I would like one brighter setting.|4~Ryan D.~December 2025~Really pleased with these. Would have liked a paper wall template included for spacing.|4~Chloe V.~December 2025~Elegant and well made. The shade is a touch more cream than white in person.|4~Adam S.~November 2025~Good quality and easy setup. The charging cable is a little short but not a deal breaker.|4~Grace N.~November 2025~Lovely glow and very easy to live with. A second brightness level would make it perfect.|4~Leo M.~October 2025~Smart-looking sconces. Pairing the remote took a moment but it works reliably now.|3~Ben C.~January 2026~Nice light, though the remote range is shorter than I would like across a big room.|3~Zoe P.~December 2025~Good value and easy to set up. The printed instructions were a little basic.|3~Harry L.~December 2025~Pretty much as expected. Slightly smaller than they looked in the photos.|3~Ella J.~November 2025~Warm glow is lovely; I just wish the battery lasted a bit longer between charges.|3~Sam W.~October 2025~They look great on the wall. The adhesive needed a firmer press than I expected to hold.|2~Ruth A.~January 2026~The lights themselves are lovely, but delivery took nearly three weeks, longer than stated.|2~Mark T.~December 2025~Happy with the sconces, however one box arrived a little dented by the courier.|2~Fiona G.~November 2025~Took a while to arrive and the tracking was not very clear. The product itself is great.|1~Paul R.~December 2025~Delivery was much slower than I expected, almost a month. The lamps are lovely now they are finally up.|1~Karen D.~November 2025~Courier left it with a neighbour without telling me. Frustrating shipping, though the product is good." | split: "|"
+  assign c5 = 0
+  assign c4 = 0
+  assign c3 = 0
+  assign c2 = 0
+  assign c1 = 0
+  for r in mv_reviews
+    assign rf = r | split: "~"
+    case rf[0]
+      when "5"
+        assign c5 = c5 | plus: 1
+      when "4"
+        assign c4 = c4 | plus: 1
+      when "3"
+        assign c3 = c3 | plus: 1
+      when "2"
+        assign c2 = c2 | plus: 1
+      when "1"
+        assign c1 = c1 | plus: 1
+    endcase
+  endfor
+  assign mv_total = mv_reviews.size
+  assign mv_modal_id = 'MeaveReviews-' | append: section.id
+-%}
+
 <section class="meave-reviews">
   <div class="meave-reviews__inner">
     <div class="meave-reviews__head">
@@ -78,8 +104,113 @@
         </article>
       {%- endfor -%}
     </div>
+
+    <div class="meave-reviews__actions">
+      <button type="button" class="meave-reviews__all" data-mvrev-open aria-haspopup="dialog" aria-controls="{{ mv_modal_id }}">
+        Read all {{ section.settings.rating_count | escape | remove: 'Based on ' | default: 'reviews' }}
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mvrev-modal" id="{{ mv_modal_id }}" role="dialog" aria-modal="true" aria-label="Customer reviews" hidden>
+    <div class="mvrev-modal__overlay" data-mvrev-close></div>
+    <div class="mvrev-modal__panel" role="document">
+      <div class="mvrev-modal__head">
+        <div class="mvrev-modal__headTop">
+          <div class="mvrev-modal__score">
+            <span class="mvrev-modal__scoreNum">{{ section.settings.rating_average | escape }}</span>
+            <span class="mvrev-modal__scoreStars" aria-hidden="true">
+              {%- for star in (1..5) -%}
+                <svg viewBox="0 0 24 24"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
+              {%- endfor -%}
+            </span>
+            <span class="mvrev-modal__scoreCount">{{ section.settings.rating_count | escape }}</span>
+          </div>
+          <button type="button" class="mvrev-modal__close" data-mvrev-close aria-label="Close reviews">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="mvrev-modal__tabs" role="tablist">
+          <button type="button" class="mvrev-modal__tab is-active" data-mvrev-filter="all">All <span>{{ mv_total }}</span></button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="5">5 ★ <span>{{ c5 }}</span></button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="4">4 ★ <span>{{ c4 }}</span></button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="3">3 ★ <span>{{ c3 }}</span></button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="2">2 ★ <span>{{ c2 }}</span></button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="1">1 ★ <span>{{ c1 }}</span></button>
+        </div>
+      </div>
+      <ul class="mvrev-modal__list" data-mvrev-list>
+        {%- for r in mv_reviews -%}
+          {%- assign rf = r | split: "~" -%}
+          {%- assign rnum = rf[0] | plus: 0 -%}
+          <li class="mvrev-item" data-rating="{{ rf[0] }}">
+            <div class="mvrev-item__top">
+              <span class="mvrev-item__avatar" aria-hidden="true">{{ rf[1] | strip | slice: 0 | upcase }}</span>
+              <span class="mvrev-item__who">
+                <span class="mvrev-item__name">{{ rf[1] | escape }}</span>
+                <span class="mvrev-item__verified">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
+                  Verified buyer
+                </span>
+              </span>
+              <span class="mvrev-item__date">{{ rf[2] | escape }}</span>
+            </div>
+            <div class="mvrev-item__stars" role="img" aria-label="{{ rf[0] }} out of 5">
+              {%- for star in (1..5) -%}
+                <svg class="{% if star <= rnum %}is-active{% endif %}" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
+              {%- endfor -%}
+            </div>
+            <p class="mvrev-item__text">{{ rf[3] | escape }}</p>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ mv_modal_id }}');
+    if (!root) return;
+    var section = root.closest('.shopify-section') || document;
+    var openers = section.querySelectorAll('[data-mvrev-open]');
+    var closers = root.querySelectorAll('[data-mvrev-close]');
+    var tabs = root.querySelectorAll('[data-mvrev-filter]');
+    var items = root.querySelectorAll('.mvrev-item');
+    var list = root.querySelector('[data-mvrev-list]');
+
+    function open() {
+      root.hidden = false;
+      document.documentElement.style.overflow = 'hidden';
+      requestAnimationFrame(function () { root.classList.add('is-open'); });
+    }
+    function close() {
+      root.classList.remove('is-open');
+      document.documentElement.style.overflow = '';
+      setTimeout(function () { root.hidden = true; }, 260);
+    }
+    function filter(val) {
+      items.forEach(function (it) {
+        it.style.display = (val === 'all' || it.getAttribute('data-rating') === val) ? '' : 'none';
+      });
+      if (list) list.scrollTop = 0;
+    }
+
+    openers.forEach(function (b) { b.addEventListener('click', open); });
+    closers.forEach(function (b) { b.addEventListener('click', close); });
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        tabs.forEach(function (x) { x.classList.remove('is-active'); });
+        t.classList.add('is-active');
+        filter(t.getAttribute('data-mvrev-filter'));
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !root.hidden) close();
+    });
+  })();
+</script>
 
 {% stylesheet %}
   .meave-reviews {
@@ -421,6 +552,299 @@
       flex-basis: 86%;
       padding: 30px 26px 26px;
     }
+  }
+
+  /* Read-all button */
+  .meave-reviews__actions {
+    margin-top: 36px;
+    text-align: center;
+  }
+
+  .meave-reviews__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 26px;
+    border: 1px solid rgba(21, 18, 15, .14);
+    border-radius: 999px;
+    background: #fff;
+    color: #1d1a16;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease, border-color .3s ease;
+  }
+
+  .meave-reviews__all svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .meave-reviews__all:hover {
+    transform: translateY(-2px);
+    border-color: rgba(21, 18, 15, .26);
+    box-shadow: 0 12px 28px rgba(32, 25, 18, .12);
+  }
+
+  /* Modal */
+  .mvrev-modal[hidden] {
+    display: none;
+  }
+
+  .mvrev-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .mvrev-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(21, 18, 15, .5);
+    opacity: 0;
+    transition: opacity .26s ease;
+  }
+
+  .mvrev-modal.is-open .mvrev-modal__overlay {
+    opacity: 1;
+  }
+
+  .mvrev-modal__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 720px;
+    max-height: 88vh;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    transform: translateY(24px);
+    opacity: 0;
+    transition: transform .3s cubic-bezier(.22, 1, .36, 1), opacity .26s ease;
+  }
+
+  .mvrev-modal.is-open .mvrev-modal__panel {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  @media (min-width: 700px) {
+    .mvrev-modal {
+      align-items: center;
+      padding: 24px;
+    }
+
+    .mvrev-modal__panel {
+      border-radius: 24px;
+      max-height: 84vh;
+    }
+  }
+
+  .mvrev-modal__head {
+    padding: 24px 26px 0;
+    border-bottom: 1px solid rgba(21, 18, 15, .08);
+  }
+
+  .mvrev-modal__headTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .mvrev-modal__score {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  .mvrev-modal__scoreNum {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -.03em;
+    line-height: 1;
+  }
+
+  .mvrev-modal__scoreStars {
+    display: inline-flex;
+    gap: 2px;
+  }
+
+  .mvrev-modal__scoreStars svg {
+    width: 16px;
+    color: #b8893d;
+    fill: currentColor;
+  }
+
+  .mvrev-modal__scoreCount {
+    width: 100%;
+    color: #6b635a;
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+
+  .mvrev-modal__close {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #f1efec;
+    color: #1d1a16;
+    cursor: pointer;
+    transition: background .2s ease;
+  }
+
+  .mvrev-modal__close:hover {
+    background: #e7e3de;
+  }
+
+  .mvrev-modal__close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .mvrev-modal__tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+    padding-bottom: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .mvrev-modal__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mvrev-modal__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid rgba(21, 18, 15, .12);
+    border-radius: 999px;
+    background: #fff;
+    color: #4a443d;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+
+  .mvrev-modal__tab span {
+    color: #9a948b;
+    font-weight: 500;
+  }
+
+  .mvrev-modal__tab.is-active {
+    border-color: #1d1a16;
+    background: #1d1a16;
+    color: #fff;
+  }
+
+  .mvrev-modal__tab.is-active span {
+    color: rgba(255, 255, 255, .7);
+  }
+
+  .mvrev-modal__list {
+    margin: 0;
+    padding: 8px 26px 26px;
+    list-style: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mvrev-item {
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(21, 18, 15, .07);
+  }
+
+  .mvrev-item:last-child {
+    border-bottom: 0;
+  }
+
+  .mvrev-item__top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  .mvrev-item__avatar {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border-radius: 50%;
+    background: #f1ece4;
+    color: #9a712e;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .mvrev-item__who {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1 1 auto;
+  }
+
+  .mvrev-item__name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #1d1a16;
+  }
+
+  .mvrev-item__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #5d6b50;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .mvrev-item__verified svg {
+    width: 12px;
+    height: 12px;
+    color: #6f8a55;
+  }
+
+  .mvrev-item__date {
+    color: #9a948b;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .mvrev-item__stars {
+    display: flex;
+    gap: 3px;
+    margin: 12px 0 8px;
+  }
+
+  .mvrev-item__stars svg {
+    width: 14px;
+    color: #e4dfd8;
+    fill: currentColor;
+  }
+
+  .mvrev-item__stars svg.is-active {
+    color: #b8893d;
+  }
+
+  .mvrev-item__text {
+    margin: 0;
+    color: #4a443d;
+    font-size: 14.5px;
+    line-height: 1.6;
   }
 {% endstylesheet %}
 
