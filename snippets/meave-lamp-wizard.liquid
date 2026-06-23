@@ -38,14 +38,10 @@
     class="mlw-trigger{% unless product.available %} mlw-trigger--soldout{% endunless %}"
     {% if product.available %}data-mlw-open aria-haspopup="dialog"{% else %}disabled aria-disabled="true"{% endif %}
   >
+    {%- if product.available -%}<span class="mlw-trigger__wave" aria-hidden="true"></span>{%- endif -%}
     <span class="mlw-trigger__label">
       {%- if product.available -%}{{ btn_label }}{%- else -%}{{ 'products.product.sold_out' | t | default: 'Sold out' }}{%- endif -%}
     </span>
-    {%- if product.available -%}
-      <span class="mlw-trigger__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    {%- endif -%}
   </button>
 
   <div class="mlw-root" data-mlw-root hidden aria-hidden="true">
