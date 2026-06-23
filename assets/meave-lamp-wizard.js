@@ -375,7 +375,7 @@
       if (p) {
         var v = this.variantFor(p, this.getColorKey());
         var img = (v && v.image) || p.image || this.colorImage();
-        html += this.lineHTML(img, p.title, this.getColorLabel(), p.price);
+        html += this.lineHTML(img, p.title, '', p.price);
       }
       var self = this;
       this.upsells.forEach(function (u) {
