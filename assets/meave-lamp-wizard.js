@@ -390,6 +390,10 @@
       var p = this.productById[String(this.getKapId())];
       return (p && p.price) || (this.products[0] && this.products[0].price) || '';
     }
+    upsellQty(id) {
+      var bulb = this.bulbUpsell();
+      return (bulb && String(bulb.variantId) === String(id)) ? this.qty : 1;
+    }
     amounts() {
       var p = this.productById[String(this.getKapId())];
       var unit = p ? (p.priceRaw || 0) : 0;
@@ -397,7 +401,7 @@
       var disc = Math.round(lampSub * this.disc);
       var upsell = 0;
       var self = this;
-      this.upsells.forEach(function (u) { if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) upsell += (u.priceRaw || 0); });
+      this.upsells.forEach(function (u) { if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) upsell += (u.priceRaw || 0) * self.upsellQty(u.variantId); });
       return { p: p, unit: unit, lampSub: lampSub, disc: disc, upsell: upsell, total: lampSub - disc + upsell };
     }
     updateReview() {
@@ -449,7 +453,9 @@
       var self = this;
       this.upsells.forEach(function (u) {
         if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) {
-          html += self.lineHTML(u.image, u.title, '', u.price);
+          var uq = self.upsellQty(u.variantId);
+          var usub = uq > 1 ? (uq + ' × ' + u.price) : '';
+          html += self.lineHTML(u.image, u.title, usub, moneyFmt((u.priceRaw || 0) * uq, sample));
         }
       });
       this.linesEl.innerHTML = html;
@@ -482,8 +488,9 @@
         return;
       }
 
+      var self0 = this;
       var items = [{ id: variantId, quantity: this.qty }];
-      this.selectedUpsells.forEach(function (id) { items.push({ id: id, quantity: 1 }); });
+      this.selectedUpsells.forEach(function (id) { items.push({ id: id, quantity: self0.upsellQty(id) }); });
 
       var self = this;
       var btn = opts.btn || this.addBtn;
@@ -506,10 +513,12 @@
     showLastChance(bulb) {
       if (!this.lcEl) return;
       var sample = this.sampleMoney() || bulb.price;
-      var now = Math.round((bulb.priceRaw || 0) * (1 - this.bulbDisc));
+      var qty = this.qty;
+      var full = (bulb.priceRaw || 0) * qty;
+      var now = Math.round(full * (1 - this.bulbDisc));
       if (this.lcImg && bulb.image) this.lcImg.src = bulb.image;
-      if (this.lcName) this.lcName.textContent = bulb.title || '';
-      if (this.lcWas) this.lcWas.textContent = bulb.price || '';
+      if (this.lcName) this.lcName.textContent = (bulb.title || '') + (qty > 1 ? ' × ' + qty : '');
+      if (this.lcWas) this.lcWas.textContent = moneyFmt(full, sample);
       if (this.lcNow) this.lcNow.textContent = moneyFmt(now, sample);
       this.lcEl.hidden = false;
       void this.lcEl.offsetWidth;
