@@ -10,6 +10,7 @@
   --mlw-muted: #6b6b6b;
   --mlw-line: #e7e7e7;
   --mlw-soft: #f5f4f2;
+  --mlw-blue: #0071e3;
   --mlw-radius: 12px;
   font-family: inherit;
 }
@@ -191,9 +192,10 @@
 /* Step 3 — cart-style summary card (line items + total) */
 .mlw-summary-card {
   margin-bottom: 18px;
-  border: 1px solid var(--mlw-line);
-  border-radius: var(--mlw-radius);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
   background: var(--mlw-bg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
 .mlw-lines { display: flex; flex-direction: column; }
@@ -234,11 +236,11 @@
 .mlw-totals {
   padding: 16px;
   background: var(--mlw-soft);
-  border-top: 1.5px solid var(--mlw-ink);
+  border-top: 1px solid var(--mlw-line);
 }
-.mlw-totals__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.mlw-totals__row span { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
-.mlw-totals__row strong { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.mlw-totals__row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.mlw-totals__row span { font-size: 15px; font-weight: 400; color: var(--mlw-muted); letter-spacing: -0.01em; }
+.mlw-totals__row strong { font-size: 22px; font-weight: 500; letter-spacing: -0.02em; }
 .mlw-totals__note { margin: 6px 0 0; font-size: 12px; color: var(--mlw-muted); line-height: 1.4; }
 
 /* Step 3 — USP row (mirrors the cart trust badges) */
@@ -309,7 +311,7 @@
   transition: border-color 150ms ease;
 }
 .mlw-up:hover { border-color: #bdbdbd; }
-.mlw-up.is-on { border-color: var(--mlw-ink); box-shadow: none; }
+.mlw-up.is-on { border-color: var(--mlw-blue); box-shadow: 0 0 0 1px var(--mlw-blue); }
 .mlw-up__media {
   position: relative;
   flex: 0 0 auto;
@@ -331,7 +333,7 @@
   color: var(--mlw-ink);
 }
 .mlw-up__badge svg { width: 15px; height: 15px; }
-.mlw-up.is-on .mlw-up__badge { background: var(--mlw-ink); border-color: var(--mlw-ink); color: #fff; }
+.mlw-up.is-on .mlw-up__badge { background: var(--mlw-blue); border-color: var(--mlw-blue); color: #fff; }
 .mlw-up.is-on .mlw-up__badge svg { transform: rotate(45deg); }
 .mlw-up__info { min-width: 0; display: grid; gap: 3px; padding-right: 28px; }
 .mlw-up__name { font-size: 15px; font-weight: 500; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
@@ -382,10 +384,10 @@
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
 .mlw-color:hover .mlw-color__media { transform: translateY(-2px); border-color: #bdbdbd; }
-.mlw-color__input:focus-visible + .mlw-color__media { outline: 2px solid var(--mlw-ink); outline-offset: 3px; }
+.mlw-color__input:focus-visible + .mlw-color__media { outline: 2px solid var(--mlw-blue); outline-offset: 3px; }
 .mlw-color__input:checked + .mlw-color__media {
-  border-color: var(--mlw-ink);
-  box-shadow: none;
+  border-color: var(--mlw-blue);
+  box-shadow: 0 0 0 1px var(--mlw-blue);
 }
 .mlw-color__img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mlw-color__name { font-size: 13px; font-weight: 500; text-align: center; line-height: 1.25; }
@@ -420,10 +422,10 @@
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 .mlw-option:hover .mlw-option__media { transform: translateY(-2px); border-color: #bdbdbd; }
-.mlw-option__input:focus-visible + .mlw-option__media { outline: 2px solid var(--mlw-ink); outline-offset: 3px; }
+.mlw-option__input:focus-visible + .mlw-option__media { outline: 2px solid var(--mlw-blue); outline-offset: 3px; }
 .mlw-option__input:checked + .mlw-option__media {
-  border-color: var(--mlw-ink);
-  box-shadow: none;
+  border-color: var(--mlw-blue);
+  box-shadow: 0 0 0 1px var(--mlw-blue);
 }
 .mlw-option__img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .mlw-option__check {
@@ -439,7 +441,7 @@
 }
 .mlw-option__check svg { width: 15px; height: 15px; }
 .mlw-option__input:checked + .mlw-option__media .mlw-option__check {
-  border-color: var(--mlw-ink); background: var(--mlw-ink); color: #fff;
+  border-color: var(--mlw-blue); background: var(--mlw-blue); color: #fff;
 }
 .mlw-option__note {
   position: absolute;
