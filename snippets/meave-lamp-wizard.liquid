@@ -105,17 +105,40 @@
           {%- endunless -%}
         </section>
 
-        {%- comment -%} STEP 3: OVERVIEW + UPSELLS {%- endcomment -%}
+        {%- comment -%} STEP 3: OVERVIEW + UPSELLS — cart-style summary {%- endcomment -%}
         <section class="mlw-step" data-mlw-step="3" hidden>
-          <div class="mlw-preview mlw-preview--sm" aria-hidden="true"><img data-mlw-preview-review src="" alt=""></div>
+          <div class="mlw-preview" aria-hidden="true"><img data-mlw-preview-review src="" alt=""></div>
           <div class="mlw-step__intro">
             <h3 class="mlw-step__title">{{ block.settings.review_heading | default: 'Your lamp' }}</h3>
           </div>
-          <div class="mlw-review">
-            <div class="mlw-review__row"><span>{{ block.settings.color_step_label | default: 'Colour' }}</span><strong data-mlw-rv-color>—</strong></div>
-            <div class="mlw-review__row"><span>{{ block.settings.kap_step_label | default: 'Shade' }}</span><strong data-mlw-rv-kap>—</strong></div>
-            <div class="mlw-review__row mlw-review__row--total"><span>{{ block.settings.total_label | default: 'Total' }}</span><strong data-mlw-rv-total>—</strong></div>
+
+          {%- comment -%} Cart-style line items: lamp + any chosen upsells, then the total {%- endcomment -%}
+          <div class="mlw-summary-card">
+            <div class="mlw-lines" data-mlw-lines></div>
+            <div class="mlw-totals">
+              <div class="mlw-totals__row">
+                <span>{{ block.settings.total_label | default: 'Total' }}</span>
+                <strong data-mlw-rv-total>—</strong>
+              </div>
+              <p class="mlw-totals__note">{{ block.settings.tax_note | default: 'Tax included. Shipping calculated at checkout.' }}</p>
+            </div>
           </div>
+
+          {%- comment -%} USP row — mirrors the cart {%- endcomment -%}
+          <ul class="mlw-usps" aria-label="Why shop with us">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4.5L21 8v8.5L12 21l-9-4.5z"/><path d="M3 8l9 4.5L21 8"/><path d="M12 12.5V21"/></svg>
+              <span>Free UK delivery</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M8 3.5v3M16 3.5v3M3.5 10h17"/></svg>
+              <span>30-day returns</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg>
+              <span>2-year warranty</span>
+            </li>
+          </ul>
 
           <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
             <h4 class="mlw-upsell__title">{{ block.settings.upsell_heading | default: 'Complete the look' }}</h4>

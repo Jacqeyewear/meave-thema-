@@ -185,42 +185,80 @@
 /* Smaller preview used on step 2 & 3 (top-aligned, not a centred group) */
 .mlw-preview--sm { height: clamp(150px, 24vh, 220px); margin-bottom: 18px; }
 
-/* Step 3 — review summary (premium) */
-.mlw-review {
-  margin-bottom: 24px;
+/* Step 3 — full preview on top */
+.mlw-step[data-mlw-step="3"] .mlw-preview { margin-bottom: 18px; }
+
+/* Step 3 — cart-style summary card (line items + total) */
+.mlw-summary-card {
+  margin-bottom: 18px;
   border: 1px solid var(--mlw-line);
   border-radius: var(--mlw-radius);
   background: var(--mlw-bg);
   overflow: hidden;
 }
-.mlw-review__row {
+.mlw-lines { display: flex; flex-direction: column; }
+.mlw-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 15px 18px;
+  gap: 14px;
+  padding: 14px 16px;
 }
-.mlw-review__row + .mlw-review__row { border-top: 1px solid var(--mlw-line); }
-.mlw-review__row span {
-  color: var(--mlw-muted);
-  font-size: 11px;
+.mlw-line + .mlw-line { border-top: 1px solid var(--mlw-line); }
+.mlw-line__media {
+  flex: 0 0 auto;
+  width: 60px; height: 60px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--mlw-soft);
+  overflow: hidden;
+}
+.mlw-line__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.mlw-line__info { flex: 1 1 auto; min-width: 0; display: grid; gap: 3px; }
+.mlw-line__name {
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.09em;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.mlw-line__sub {
+  font-size: 11px;
+  color: var(--mlw-muted);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
-.mlw-review__row strong {
-  font-size: 15px;
-  font-weight: 500;
-  text-align: right;
-  letter-spacing: -0.01em;
-}
-.mlw-review__row--total {
+.mlw-line__price { flex: 0 0 auto; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.mlw-totals {
+  padding: 16px;
   background: var(--mlw-soft);
   border-top: 1.5px solid var(--mlw-ink);
-  padding: 18px;
 }
-.mlw-review__row--total span { color: var(--mlw-ink); }
-.mlw-review__row--total strong { font-size: 20px; }
+.mlw-totals__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.mlw-totals__row span { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
+.mlw-totals__row strong { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+.mlw-totals__note { margin: 6px 0 0; font-size: 12px; color: var(--mlw-muted); line-height: 1.4; }
+
+/* Step 3 — USP row (mirrors the cart trust badges) */
+.mlw-usps {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 4px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.mlw-usps li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7px;
+}
+.mlw-usps svg { width: 26px; height: 26px; color: var(--mlw-ink); }
+.mlw-usps span { font-size: 11px; font-weight: 500; color: var(--mlw-muted); line-height: 1.3; }
 
 /* Step 3 — continue shopping (secondary) */
 .mlw-continue {
@@ -339,7 +377,7 @@
   place-items: center;
   overflow: hidden;
   border: 1.5px solid var(--mlw-line);
-  border-radius: 50%;
+  border-radius: var(--mlw-radius);
   background: var(--mlw-soft);
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }

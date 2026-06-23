@@ -58,6 +58,7 @@
       this.rvTotal   = this.querySelector('[data-mlw-rv-total]');
       this.upsellWrap = this.querySelector('[data-mlw-upsell-wrap]');
       this.upsellGrid = this.querySelector('[data-mlw-upsell]');
+      this.linesEl   = this.querySelector('[data-mlw-lines]');
       this.sumColor  = this.querySelector('[data-mlw-sum-color]');
       this.sumKap    = this.querySelector('[data-mlw-sum-kap]');
       this.summaryEl = this.querySelector('.mlw-summary');
@@ -352,6 +353,36 @@
       if (this.rvColor) this.rvColor.textContent = this.getColorLabel() || '—';
       if (this.rvKap) this.rvKap.textContent = this.getKapTitle() || '—';
       if (this.rvTotal) this.rvTotal.textContent = this.totalStr();
+      this.renderLines();
+    }
+    escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
+    escHtml(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    lineHTML(img, title, sub, price) {
+      return '<div class="mlw-line">' +
+        '<span class="mlw-line__media">' + (img ? '<img loading="lazy" alt="" src="' + this.escAttr(img) + '">' : '') + '</span>' +
+        '<span class="mlw-line__info">' +
+          '<span class="mlw-line__name">' + this.escHtml(title) + '</span>' +
+          (sub ? '<span class="mlw-line__sub">' + this.escHtml(sub) + '</span>' : '') +
+        '</span>' +
+        '<span class="mlw-line__price">' + this.escHtml(price) + '</span>' +
+      '</div>';
+    }
+    renderLines() {
+      if (!this.linesEl) return;
+      var html = '';
+      var p = this.productById[String(this.getKapId())];
+      if (p) {
+        var v = this.variantFor(p, this.getColorKey());
+        var img = (v && v.image) || p.image || this.colorImage();
+        html += this.lineHTML(img, p.title, this.getColorLabel(), p.price);
+      }
+      var self = this;
+      this.upsells.forEach(function (u) {
+        if (self.selectedUpsells.indexOf(String(u.variantId)) >= 0) {
+          html += self.lineHTML(u.image, u.title, '', u.price);
+        }
+      });
+      this.linesEl.innerHTML = html;
     }
     totalStr() {
       var p = this.productById[String(this.getKapId())];
