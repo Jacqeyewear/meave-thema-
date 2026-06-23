@@ -117,7 +117,7 @@
         "tab_how": {
           "type": "collapsible_tab",
           "settings": {
-            "icon": "lightning",
+            "icon": "none",
             "heading": "How does it work?",
             "content": "<p>Meave wireless lights are designed for quick room upgrades. Place them beside a mirror, bed, console or artwork to add a soft layer of warm light without a heavy renovation.</p>",
             "page": "",
@@ -128,7 +128,7 @@
         "tab_included": {
           "type": "collapsible_tab",
           "settings": {
-            "icon": "box",
+            "icon": "none",
             "heading": "What is included?",
             "content": "<p>Your order includes the light, shade, setup accessories, care guidance and protective Meave London packaging. Exact contents can be adjusted per product.</p>",
             "page": "",
@@ -139,7 +139,7 @@
         "tab_specs": {
           "type": "collapsible_tab",
           "settings": {
-            "icon": "ruler",
+            "icon": "none",
             "heading": "Specifications",
             "content": "<p>Add dimensions, material, finish, bulb type, battery details and shade measurements here so shoppers can check fit before checkout.</p>",
             "page": "",
@@ -159,7 +159,6 @@
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "description",
         "variant_picker",
@@ -171,8 +170,7 @@
         "text_setup",
         "tab_how",
         "tab_included",
-        "tab_specs",
-        "share"
+        "tab_specs"
       ],
       "settings": {
         "enable_sticky_info": true,
