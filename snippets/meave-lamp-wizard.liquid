@@ -120,7 +120,6 @@
                 <span>{{ block.settings.total_label | default: 'Total' }}</span>
                 <strong data-mlw-rv-total>—</strong>
               </div>
-              <p class="mlw-totals__note">{{ block.settings.tax_note | default: 'Tax included. Shipping calculated at checkout.' }}</p>
             </div>
           </div>
 
@@ -142,6 +141,7 @@
 
           <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
             <h4 class="mlw-upsell__title">{{ block.settings.upsell_heading | default: 'Complete the look' }}</h4>
+            <p class="mlw-upsell__sub">{{ block.settings.upsell_sub | default: 'Most shoppers add rechargeable bulbs to complete their setup.' }}</p>
             <div class="mlw-upsell__grid" data-mlw-upsell></div>
           </div>
         </section>
