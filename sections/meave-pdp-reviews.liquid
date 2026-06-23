@@ -1,12 +1,16 @@
 <section class="meave-reviews">
   <div class="meave-reviews__inner">
-    {%- if section.settings.heading != blank -%}
-      <h2>{{ section.settings.heading | escape }}</h2>
-    {%- endif -%}
+    <div class="meave-reviews__head">
+      <p class="meave-reviews__eyebrow">Reviews</p>
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
 
     <div class="meave-reviews__grid">
       {%- for block in section.blocks -%}
         <article class="meave-review" {{ block.shopify_attributes }}>
+          <span class="meave-review__quoteMark" aria-hidden="true">&rdquo;</span>
           <div class="meave-review__stars" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
             {%- for star in (1..5) -%}
               <svg class="{% if star <= block.settings.rating %}is-active{% endif %}" viewBox="0 0 24 24" aria-hidden="true">
@@ -18,7 +22,10 @@
             <div class="meave-review__quote rte">{{ block.settings.quote }}</div>
           {%- endif -%}
           {%- if block.settings.author != blank -%}
-            <p class="meave-review__author">{{ block.settings.author | escape }}</p>
+            <div class="meave-review__author">
+              <span class="meave-review__avatar" aria-hidden="true">{{ block.settings.author | strip | slice: 0 | upcase }}</span>
+              <span class="meave-review__name">{{ block.settings.author | escape }}</span>
+            </div>
           {%- endif -%}
         </article>
       {%- endfor -%}
@@ -28,7 +35,7 @@
 
 {% stylesheet %}
   .meave-reviews {
-    padding: 96px 20px;
+    padding: 110px 20px;
     background: #faf9f7;
     color: #15120f;
   }
@@ -38,43 +45,69 @@
     margin: 0 auto;
   }
 
+  .meave-reviews__head {
+    margin: 0 auto 52px;
+    text-align: center;
+  }
+
+  .meave-reviews__eyebrow {
+    margin: 0 0 16px;
+    color: #9a712e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
   .meave-reviews h2 {
     max-width: 720px;
-    margin: 0 auto 48px;
-    text-align: center;
-    font-size: clamp(28px, 3vw, 42px);
-    letter-spacing: -.04em;
-    line-height: 1.1;
+    margin: 0 auto;
+    font-size: clamp(30px, 3.4vw, 48px);
+    letter-spacing: -.045em;
+    line-height: 1.06;
     text-wrap: balance;
   }
 
   .meave-reviews__grid {
     display: grid;
     align-items: stretch;
-    gap: 20px;
+    gap: 24px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .meave-review {
+    position: relative;
     display: flex;
-    padding: 38px 34px;
-    border: 1px solid rgba(21, 18, 15, .06);
-    border-radius: 24px;
+    overflow: hidden;
+    padding: 40px 36px 34px;
+    border-radius: 26px;
     background: #fff;
     flex-direction: column;
     text-align: left;
-    box-shadow: 0 1px 2px rgba(32, 25, 18, .04);
-    transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1);
+    box-shadow: 0 1px 2px rgba(32, 25, 18, .04), 0 18px 44px rgba(32, 25, 18, .06);
+    transition: transform .45s cubic-bezier(.22, 1, .36, 1), box-shadow .45s cubic-bezier(.22, 1, .36, 1);
   }
 
   .meave-review:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 48px rgba(32, 25, 18, .1);
+    transform: translateY(-5px);
+    box-shadow: 0 28px 60px rgba(32, 25, 18, .12);
+  }
+
+  .meave-review__quoteMark {
+    position: absolute;
+    top: 6px;
+    right: 26px;
+    color: rgba(184, 137, 61, .16);
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
   }
 
   .meave-review__stars {
     display: flex;
-    margin-bottom: 22px;
+    position: relative;
+    margin-bottom: 20px;
     gap: 4px;
   }
 
@@ -89,9 +122,10 @@
   }
 
   .meave-review__quote {
+    position: relative;
     color: #2e2924;
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.6;
     flex: 1 1 auto;
   }
 
@@ -100,19 +134,36 @@
   }
 
   .meave-review__author {
-    margin: 26px 0 0;
-    padding-top: 22px;
+    display: flex;
+    margin-top: 28px;
+    padding-top: 24px;
     border-top: 1px solid rgba(21, 18, 15, .08);
-    font-size: 12px;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .meave-review__avatar {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(140deg, #b8893d, #8a6326);
+    color: #fff;
+    place-items: center;
+    font-size: 15px;
     font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+  }
+
+  .meave-review__name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .01em;
   }
 
   @media (max-width: 900px) {
     .meave-reviews__grid {
       grid-template-columns: 1fr;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
     }
   }
@@ -123,7 +174,7 @@
     }
 
     .meave-review {
-      padding: 30px 26px;
+      padding: 32px 28px 28px;
     }
   }
 {% endstylesheet %}

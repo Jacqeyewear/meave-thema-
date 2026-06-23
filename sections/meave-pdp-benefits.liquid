@@ -2,13 +2,15 @@
   <div class="meave-benefits__grid">
     {%- for block in section.blocks -%}
       <div class="meave-benefits__item" {{ block.shopify_attributes }}>
-        <span class="meave-benefits__mark" aria-hidden="true"></span>
-        {%- if block.settings.heading != blank -%}
-          <h2>{{ block.settings.heading | escape }}</h2>
-        {%- endif -%}
-        {%- if block.settings.text != blank -%}
-          <div class="meave-benefits__text rte">{{ block.settings.text }}</div>
-        {%- endif -%}
+        <span class="meave-benefits__index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        <div class="meave-benefits__body">
+          {%- if block.settings.heading != blank -%}
+            <h2>{{ block.settings.heading | escape }}</h2>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="meave-benefits__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
       </div>
     {%- endfor -%}
   </div>
@@ -16,61 +18,62 @@
 
 {% stylesheet %}
   .meave-benefits {
-    padding: 64px 20px;
-    background: #faf9f7;
+    padding: 80px 20px;
+    background: #fff;
     color: #15120f;
   }
 
   .meave-benefits__grid {
     display: grid;
-    max-width: 1180px;
+    max-width: 1200px;
     margin: 0 auto;
-    gap: 16px;
+    column-gap: 0;
+    row-gap: 40px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .meave-benefits__item {
     position: relative;
-    display: flex;
-    min-height: 150px;
-    padding: 32px 26px;
-    border: 1px solid rgba(21, 18, 15, .06);
-    border-radius: 20px;
-    background: #fff;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    box-shadow: 0 1px 2px rgba(32, 25, 18, .04);
-    transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1);
+    padding: 4px 36px;
   }
 
-  .meave-benefits__item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(32, 25, 18, .08);
+  /* Hairline divider between columns */
+  .meave-benefits__item + .meave-benefits__item::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    width: 1px;
+    background: rgba(21, 18, 15, .1);
   }
 
-  .meave-benefits__mark {
+  .meave-benefits__item:first-child {
+    padding-left: 0;
+  }
+
+  .meave-benefits__index {
     display: block;
-    width: 26px;
-    height: 3px;
-    margin-bottom: 18px;
-    border-radius: 99px;
-    background: linear-gradient(90deg, #b8893d, #9a712e);
+    margin-bottom: 20px;
+    color: #b8893d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    font-variant-numeric: tabular-nums;
   }
 
   .meave-benefits__item h2 {
-    margin: 0 0 9px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: .1em;
-    line-height: 1.2;
-    text-transform: uppercase;
+    margin: 0 0 12px;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1.25;
   }
 
   .meave-benefits__text {
     color: #6b635a;
-    font-size: 14.5px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   .meave-benefits__text p {
@@ -79,27 +82,32 @@
 
   @media (max-width: 900px) {
     .meave-benefits__grid {
+      row-gap: 36px;
+      column-gap: 32px;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .meave-benefits__item {
+      padding: 4px 0;
+    }
+
+    .meave-benefits__item + .meave-benefits__item::before {
+      display: none;
     }
   }
 
   @media (max-width: 560px) {
     .meave-benefits {
-      padding: 40px 16px;
+      padding: 52px 18px;
     }
 
     .meave-benefits__grid {
-      gap: 12px;
+      row-gap: 30px;
       grid-template-columns: 1fr;
     }
 
-    .meave-benefits__item {
-      min-height: 0;
-      padding: 24px 22px;
-    }
-
-    .meave-benefits__mark {
-      margin-bottom: 14px;
+    .meave-benefits__index {
+      margin-bottom: 12px;
     }
   }
 {% endstylesheet %}
