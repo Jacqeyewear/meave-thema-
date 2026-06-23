@@ -2,6 +2,7 @@
   <div class="meave-benefits__grid">
     {%- for block in section.blocks -%}
       <div class="meave-benefits__item" {{ block.shopify_attributes }}>
+        <span class="meave-benefits__mark" aria-hidden="true"></span>
         {%- if block.settings.heading != blank -%}
           <h2>{{ block.settings.heading | escape }}</h2>
         {%- endif -%}
@@ -15,9 +16,8 @@
 
 {% stylesheet %}
   .meave-benefits {
-    padding: 56px 20px;
-    border-block: 1px solid #e5e5ea;
-    background: #f5f5f7;
+    padding: 64px 20px;
+    background: #faf9f7;
     color: #15120f;
   }
 
@@ -25,34 +25,52 @@
     display: grid;
     max-width: 1180px;
     margin: 0 auto;
-    border: 1px solid #e5e5ea;
-    background: #e5e5ea;
-    gap: 1px;
+    gap: 16px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .meave-benefits__item {
-    display: grid;
-    min-height: 132px;
-    padding: 26px;
-    place-content: center;
-    text-align: center;
+    position: relative;
+    display: flex;
+    min-height: 150px;
+    padding: 32px 26px;
+    border: 1px solid rgba(21, 18, 15, .06);
+    border-radius: 20px;
     background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(32, 25, 18, .04);
+    transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  .meave-benefits__item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(32, 25, 18, .08);
+  }
+
+  .meave-benefits__mark {
+    display: block;
+    width: 26px;
+    height: 3px;
+    margin-bottom: 18px;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #b8893d, #9a712e);
   }
 
   .meave-benefits__item h2 {
-    margin: 0 0 8px;
+    margin: 0 0 9px;
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: .06em;
+    letter-spacing: .1em;
     line-height: 1.2;
     text-transform: uppercase;
   }
 
   .meave-benefits__text {
-    color: #5d554c;
-    font-size: 14px;
-    line-height: 1.5;
+    color: #6b635a;
+    font-size: 14.5px;
+    line-height: 1.55;
   }
 
   .meave-benefits__text p {
@@ -67,15 +85,21 @@
 
   @media (max-width: 560px) {
     .meave-benefits {
-      padding: 36px 14px;
+      padding: 40px 16px;
     }
 
     .meave-benefits__grid {
+      gap: 12px;
       grid-template-columns: 1fr;
     }
 
     .meave-benefits__item {
-      min-height: 112px;
+      min-height: 0;
+      padding: 24px 22px;
+    }
+
+    .meave-benefits__mark {
+      margin-bottom: 14px;
     }
   }
 {% endstylesheet %}
