@@ -192,46 +192,6 @@
         "rounded": false
       }
     },
-    "meave-benefits": {
-      "type": "meave-pdp-benefits",
-      "blocks": {
-        "brand": {
-          "type": "benefit",
-          "settings": {
-            "heading": "Meave London",
-            "text": "<p>Lighting and furniture accents for calm, finished rooms.</p>"
-          }
-        },
-        "glow": {
-          "type": "benefit",
-          "settings": {
-            "heading": "Warm glow",
-            "text": "<p>Soft shades and balanced finishes for layered light.</p>"
-          }
-        },
-        "styling": {
-          "type": "benefit",
-          "settings": {
-            "heading": "Easy styling",
-            "text": "<p>Pairs naturally with mirrors, consoles, sideboards and bedsides.</p>"
-          }
-        },
-        "ready": {
-          "type": "benefit",
-          "settings": {
-            "heading": "Home ready",
-            "text": "<p>A furniture-shop feel with a lighting-first buying flow.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "brand",
-        "glow",
-        "styling",
-        "ready"
-      ],
-      "settings": {}
-    },
     "meave-gallery": {
       "type": "meave-pdp-gallery",
       "blocks": {
@@ -557,7 +517,6 @@
   },
   "order": [
     "main-product",
-    "meave-benefits",
     "meave-gallery",
     "meave-reviews",
     "meave-story",
