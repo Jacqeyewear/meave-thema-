@@ -33,7 +33,7 @@
               <svg class="is-active" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
             {%- endfor -%}
           </div>
-          <span class="meave-reviews__scoreCount">Based on {{ mv_total }} reviews</span>
+          <span class="meave-reviews__scoreCount">{{ section.settings.rating_count | escape }}</span>
         </div>
         <div class="meave-reviews__bars">
           {%- assign pcts = section.settings.pct_5 | append: ',' | append: section.settings.pct_4 | append: ',' | append: section.settings.pct_3 | append: ',' | append: section.settings.pct_2 | append: ',' | append: section.settings.pct_1 | split: ',' -%}
@@ -98,7 +98,7 @@
 
     <div class="meave-reviews__actions">
       <button type="button" class="meave-reviews__all" data-mvrev-open aria-haspopup="dialog" aria-controls="{{ mv_modal_id }}">
-        Read all {{ mv_total }} reviews
+        View all reviews
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </div>
@@ -116,7 +116,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
               {%- endfor -%}
             </span>
-            <span class="mvrev-modal__scoreCount">Based on {{ mv_total }} reviews</span>
+            <span class="mvrev-modal__scoreCount">{{ section.settings.rating_count | escape }}</span>
           </div>
           <button type="button" class="mvrev-modal__close" data-mvrev-close aria-label="Close reviews">
             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
@@ -896,6 +896,12 @@
       "id": "rating_average",
       "label": "Average rating",
       "default": "4.4"
+    },
+    {
+      "type": "text",
+      "id": "rating_count",
+      "label": "Review count label",
+      "default": "Based on 1,000+ reviews"
     },
     {
       "type": "range",
