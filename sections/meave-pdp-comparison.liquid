@@ -15,30 +15,30 @@
     <div class="meave-comparison__table" role="table" aria-label="{{ section.settings.heading | escape }}">
       <div class="meave-comparison__row meave-comparison__row--head" role="row">
         <div role="columnheader">{{ section.settings.feature_label | escape }}</div>
-        <div role="columnheader">{{ section.settings.brand_label | escape }}</div>
+        <div role="columnheader" class="meave-comparison__cell--brand">{{ section.settings.brand_label | escape }}</div>
         <div role="columnheader">{{ section.settings.other_label | escape }}</div>
       </div>
       {%- for block in section.blocks -%}
         <div class="meave-comparison__row" role="row" {{ block.shopify_attributes }}>
           <div role="cell">{{ block.settings.feature | escape }}</div>
-          <div role="cell">
+          <div role="cell" class="meave-comparison__cell meave-comparison__cell--brand">
             <span class="meave-comparison__mark meave-comparison__mark--{{ block.settings.meave }}">
               {%- if block.settings.meave == 'yes' -%}
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>
                 <span class="visually-hidden">Yes</span>
               {%- else -%}
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
                 <span class="visually-hidden">No</span>
               {%- endif -%}
             </span>
           </div>
-          <div role="cell">
+          <div role="cell" class="meave-comparison__cell">
             <span class="meave-comparison__mark meave-comparison__mark--{{ block.settings.others }}">
               {%- if block.settings.others == 'yes' -%}
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"/></svg>
                 <span class="visually-hidden">Yes</span>
               {%- else -%}
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h12"/></svg>
                 <span class="visually-hidden">No</span>
               {%- endif -%}
             </span>
@@ -51,7 +51,7 @@
 
 {% stylesheet %}
   .meave-comparison {
-    padding: 88px 20px;
+    padding: 96px 20px;
     background: #fff;
     color: #15120f;
   }
@@ -61,28 +61,29 @@
     max-width: 1120px;
     margin: 0 auto;
     align-items: center;
-    gap: 68px;
+    gap: 72px;
     grid-template-columns: .85fr 1.15fr;
   }
 
   .meave-comparison__eyebrow {
-    margin: 0 0 10px;
+    margin: 0 0 14px;
     color: #9a712e;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: .12em;
+    letter-spacing: .14em;
     text-transform: uppercase;
   }
 
   .meave-comparison h2 {
-    margin: 0 0 20px;
+    margin: 0 0 22px;
     font-size: clamp(30px, 3.4vw, 48px);
     letter-spacing: -.04em;
     line-height: 1.06;
+    text-wrap: balance;
   }
 
   .meave-comparison__text {
-    color: #5d554c;
+    color: #6b635a;
     font-size: 16px;
     line-height: 1.7;
   }
@@ -92,43 +93,57 @@
   }
 
   .meave-comparison__table {
+    position: relative;
     overflow: hidden;
-    border: 1px solid #e5e5ea;
-    border-radius: 18px;
-    box-shadow: 0 14px 34px rgba(32, 25, 18, .08);
+    border: 1px solid rgba(21, 18, 15, .07);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(32, 25, 18, .04), 0 22px 50px rgba(32, 25, 18, .08);
   }
 
   .meave-comparison__row {
     display: grid;
-    grid-template-columns: 1.5fr .75fr .75fr;
+    grid-template-columns: 1.6fr .7fr .7fr;
   }
 
   .meave-comparison__row > div {
     display: grid;
-    min-height: 58px;
+    min-height: 62px;
     padding: 14px;
-    border-bottom: 1px solid #e8e3de;
+    border-bottom: 1px solid rgba(21, 18, 15, .06);
     place-items: center;
     text-align: center;
   }
 
   .meave-comparison__row > div:first-child {
-    background: #f7f2ec;
     place-items: center start;
     text-align: left;
+    font-size: 15px;
     font-weight: 600;
   }
 
+  /* Highlighted Meave column running the full height */
+  .meave-comparison__cell--brand {
+    background: #faf8f4;
+    box-shadow: inset 1px 0 0 rgba(184, 137, 61, .18), inset -1px 0 0 rgba(184, 137, 61, .18);
+  }
+
   .meave-comparison__row--head > div {
-    font-size: 13px;
+    min-height: 56px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: .06em;
+    letter-spacing: .1em;
     text-transform: uppercase;
   }
 
-  .meave-comparison__row--head > div:nth-child(2) {
+  .meave-comparison__row--head > div:first-child {
+    color: #8a8178;
+  }
+
+  .meave-comparison__row--head .meave-comparison__cell--brand {
     color: #fff;
     background: #15120f;
+    box-shadow: none;
   }
 
   .meave-comparison__row:last-child > div {
@@ -137,8 +152,8 @@
 
   .meave-comparison__mark {
     display: grid;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     place-items: center;
   }
@@ -149,38 +164,47 @@
     stroke: currentColor;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-width: 2;
+    stroke-width: 2.4;
   }
 
   .meave-comparison__mark--yes {
-    color: #506a50;
-    background: #e9f0e7;
+    color: #fff;
+    background: linear-gradient(180deg, #b8893d, #9a712e);
+    box-shadow: 0 4px 10px rgba(154, 113, 46, .28);
   }
 
   .meave-comparison__mark--no {
-    color: #9f4d3c;
-    background: #f8eae6;
+    color: #b3aaa0;
+    background: #f0ece6;
   }
 
   @media (max-width: 900px) {
     .meave-comparison__inner {
       grid-template-columns: 1fr;
-      gap: 36px;
+      gap: 40px;
     }
   }
 
   @media (max-width: 560px) {
     .meave-comparison {
-      padding: 62px 14px;
+      padding: 64px 16px;
     }
 
     .meave-comparison__row {
-      grid-template-columns: 1.35fr .72fr .72fr;
+      grid-template-columns: 1.4fr .7fr .7fr;
     }
 
     .meave-comparison__row > div {
       padding: 12px 8px;
-      font-size: 12px;
+    }
+
+    .meave-comparison__row > div:first-child {
+      font-size: 13.5px;
+    }
+
+    .meave-comparison__mark {
+      width: 26px;
+      height: 26px;
     }
   }
 {% endstylesheet %}
