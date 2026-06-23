@@ -314,6 +314,7 @@
     goTo(step, silent) {
       step = Math.min(TOTAL_STEPS, Math.max(1, step));
       this.step = step; this.render();
+      if (step === TOTAL_STEPS) this.updateReview();
       if (this.body) this.body.scrollTop = 0;
       if (!silent) this.clearError();
     }
