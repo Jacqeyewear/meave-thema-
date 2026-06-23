@@ -70,6 +70,8 @@
       this.lcName = this.querySelector('[data-mlw-lc-name]');
       this.lcWas = this.querySelector('[data-mlw-lc-was]');
       this.lcNow = this.querySelector('[data-mlw-lc-now]');
+      this.lcAddBtn = this.querySelector('[data-mlw-lc-add]');
+      this.lcSkipBtn = this.querySelector('[data-mlw-lc-skip]');
       this.bulbDisc = this.lcEl ? (parseFloat(this.lcEl.getAttribute('data-bulb-disc')) || 0.5) : 0.5;
       this.bulbCode = this.lcEl ? (this.lcEl.getAttribute('data-bulb-code') || '') : '';
       this.sumColor  = this.querySelector('[data-mlw-sum-color]');
@@ -157,10 +159,8 @@
       if (this.addBtn)  this.addBtn.addEventListener('click', function () { self.addToCart({ btn: self.addBtn }); });
       if (this.continueBtn) this.continueBtn.addEventListener('click', function () { self.addToCart({ stay: true, btn: self.continueBtn }); });
 
-      var lcAdd = this.querySelector('[data-mlw-lc-add]');
-      var lcSkip = this.querySelector('[data-mlw-lc-skip]');
-      if (lcAdd) lcAdd.addEventListener('click', function () { self.acceptBulbOffer(); });
-      if (lcSkip) lcSkip.addEventListener('click', function () { self.declineBulbOffer(); });
+      if (this.lcAddBtn) this.lcAddBtn.addEventListener('click', function () { self.acceptBulbOffer(); });
+      if (this.lcSkipBtn) this.lcSkipBtn.addEventListener('click', function () { self.declineBulbOffer(); });
 
       this.bundleOpts.forEach(function (opt) {
         opt.addEventListener('click', function () {
