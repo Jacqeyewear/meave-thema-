@@ -107,20 +107,21 @@
           </div>
 
           {%- comment -%} Bundle quantity tiers — buy more, save more (auto-discount on lamps) {%- endcomment -%}
-          <div class="mlw-bundle" data-mlw-bundle role="group" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
-            <button type="button" class="mlw-bundle__opt is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
-              <span class="mlw-bundle__main">2 lamps</span>
-              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+          <div class="mlw-bundle" data-mlw-bundle role="radiogroup" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
+            <button type="button" class="mlw-bundle__row is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">2 lamps</span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
             </button>
-            <button type="button" class="mlw-bundle__opt" data-mlw-qty="2" data-mlw-disc="0.15" aria-pressed="false">
-              <span class="mlw-bundle__tag">Save 15%</span>
-              <span class="mlw-bundle__main">4 lamps</span>
-              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+            <button type="button" class="mlw-bundle__row" data-mlw-qty="2" data-mlw-disc="0.15" aria-pressed="false">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">4 lamps <span class="mlw-bundle__tag">Save 15%</span></span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
             </button>
-            <button type="button" class="mlw-bundle__opt" data-mlw-qty="3" data-mlw-disc="0.25" aria-pressed="false">
-              <span class="mlw-bundle__tag">Save 25%</span>
-              <span class="mlw-bundle__main">6 lamps</span>
-              <span class="mlw-bundle__price" data-mlw-bundle-price>—</span>
+            <button type="button" class="mlw-bundle__row" data-mlw-qty="3" data-mlw-disc="0.25" aria-pressed="false">
+              <span class="mlw-bundle__radio" aria-hidden="true"></span>
+              <span class="mlw-bundle__label">6 lamps <span class="mlw-bundle__tag">Save 25%</span></span>
+              <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
             </button>
           </div>
 

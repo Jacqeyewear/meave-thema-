@@ -403,8 +403,11 @@
       this.bundleOpts.forEach(function (opt) {
         var q = parseInt(opt.getAttribute('data-mlw-qty'), 10) || 1;
         var d = parseFloat(opt.getAttribute('data-mlw-disc')) || 0;
-        var el = opt.querySelector('[data-mlw-bundle-price]');
-        if (el) el.textContent = moneyFmt(Math.round(unit * q * (1 - d)), sample);
+        var full = unit * q;
+        var priceEl = opt.querySelector('[data-mlw-bundle-price]');
+        var wasEl = opt.querySelector('[data-mlw-bundle-was]');
+        if (priceEl) priceEl.textContent = moneyFmt(Math.round(full * (1 - d)), sample);
+        if (wasEl) wasEl.textContent = d > 0 ? moneyFmt(full, sample) : '';
       });
     }
     escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }

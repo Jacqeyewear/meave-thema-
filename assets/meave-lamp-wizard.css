@@ -273,40 +273,60 @@
 /* Step 3 — bundle quantity tiers (buy more, save more) */
 .mlw-bundle {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin: 14px 0 20px;
 }
-.mlw-bundle__opt {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 2px;
-  padding: 17px 8px 14px;
+.mlw-bundle__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
   border: 1px solid var(--mlw-line-soft);
-  border-radius: 16px;
+  border-radius: 14px;
   background: #fff;
   font: inherit;
+  text-align: left;
   cursor: pointer;
-  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 120ms ease;
 }
-.mlw-bundle__opt:hover { border-color: rgba(0, 0, 0, 0.12); }
-.mlw-bundle__opt:active { transform: scale(0.98); }
-.mlw-bundle__opt.is-on { border-color: transparent; box-shadow: 0 0 0 2px var(--mlw-blue); }
-.mlw-bundle__main { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
-.mlw-bundle__price { font-size: 12.5px; color: var(--mlw-muted); }
+.mlw-bundle__row:hover { border-color: rgba(0, 0, 0, 0.14); }
+.mlw-bundle__row:active { transform: scale(0.995); }
+.mlw-bundle__row.is-on { border-color: transparent; box-shadow: 0 0 0 2px var(--mlw-blue); }
+.mlw-bundle__radio {
+  flex: 0 0 auto;
+  width: 20px; height: 20px;
+  position: relative;
+  border-radius: 50%;
+  border: 1.5px solid #cfcfd4;
+  transition: border-color 150ms ease;
+}
+.mlw-bundle__row.is-on .mlw-bundle__radio { border-color: var(--mlw-blue); }
+.mlw-bundle__row.is-on .mlw-bundle__radio::after {
+  content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--mlw-blue);
+}
+.mlw-bundle__label {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
 .mlw-bundle__tag {
-  position: absolute;
-  top: -8px; left: 50%; transform: translateX(-50%);
-  white-space: nowrap;
+  display: inline-block;
   padding: 2px 8px;
   border-radius: 999px;
-  background: var(--mlw-blue);
-  color: #fff;
-  font-size: 9.5px;
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--mlw-blue);
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
+.mlw-bundle__prices { flex: 0 0 auto; display: inline-flex; align-items: baseline; gap: 8px; }
+.mlw-bundle__was { font-size: 13px; color: var(--mlw-muted); text-decoration: line-through; }
+.mlw-bundle__price { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
 
 /* Step 3 — shipping reassurance under the summary */
 .mlw-ship-note { margin: -10px 0 20px; text-align: center; font-size: 12.5px; color: var(--mlw-muted); }
@@ -647,10 +667,11 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   .mlw-preview--sm { height: clamp(140px, 22vh, 190px); margin-bottom: 14px; }
   .mlw-colors { grid-template-columns: repeat(3, 1fr); gap: 16px 12px; }
   .mlw-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 10px; }
-  .mlw-bundle { gap: 8px; margin-bottom: 16px; }
-  .mlw-bundle__opt { padding: 12px 6px 11px; border-radius: 14px; }
-  .mlw-bundle__main { font-size: 13px; }
-  .mlw-bundle__price { font-size: 12px; }
+  .mlw-bundle { gap: 8px; margin: 12px 0 16px; }
+  .mlw-bundle__row { padding: 13px 14px; gap: 11px; }
+  .mlw-bundle__label { font-size: 14px; }
+  .mlw-bundle__price { font-size: 14px; }
+  .mlw-bundle__was { font-size: 12px; }
   .mlw-line { padding: 12px 14px; gap: 12px; }
   .mlw-line__media { width: 52px; height: 52px; }
   .mlw-line__name { font-size: 13.5px; }
