@@ -7,6 +7,31 @@
       {%- endif -%}
     </div>
 
+    {%- if section.settings.show_summary -%}
+      <div class="meave-reviews__summary">
+        <div class="meave-reviews__score">
+          <span class="meave-reviews__scoreNum">{{ section.settings.rating_average | escape }}</span>
+          <div class="meave-reviews__scoreStars" role="img" aria-label="{{ section.settings.rating_average | escape }} out of 5">
+            {%- for star in (1..5) -%}
+              <svg class="is-active" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
+            {%- endfor -%}
+          </div>
+          <span class="meave-reviews__scoreCount">{{ section.settings.rating_count | escape }}</span>
+        </div>
+        <div class="meave-reviews__bars">
+          {%- assign pcts = section.settings.pct_5 | append: ',' | append: section.settings.pct_4 | append: ',' | append: section.settings.pct_3 | append: ',' | append: section.settings.pct_2 | append: ',' | append: section.settings.pct_1 | split: ',' -%}
+          {%- for pct in pcts -%}
+            <div class="meave-reviews__bar">
+              <span class="meave-reviews__barLabel">{{ 5 | minus: forloop.index0 }}</span>
+              <svg class="meave-reviews__barStar" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
+              <span class="meave-reviews__barTrack"><span class="meave-reviews__barFill" style="width: {{ pct }}%;"></span></span>
+              <span class="meave-reviews__barPct">{{ pct }}%</span>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
     <div class="meave-reviews__grid">
       {%- for block in section.blocks -%}
         <article class="meave-review" {{ block.shopify_attributes }}>
@@ -39,7 +64,15 @@
           {%- if block.settings.author != blank -%}
             <div class="meave-review__author">
               <span class="meave-review__avatar" aria-hidden="true">{{ block.settings.author | strip | slice: 0 | upcase }}</span>
-              <span class="meave-review__name">{{ block.settings.author | escape }}</span>
+              <span class="meave-review__who">
+                <span class="meave-review__name">{{ block.settings.author | escape }}</span>
+                {%- if block.settings.verified -%}
+                  <span class="meave-review__verified">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
+                    Verified buyer
+                  </span>
+                {%- endif -%}
+              </span>
             </div>
           {%- endif -%}
         </article>
@@ -81,6 +114,106 @@
     letter-spacing: -.045em;
     line-height: 1.06;
     text-wrap: balance;
+  }
+
+  /* Aggregate rating summary */
+  .meave-reviews__summary {
+    display: grid;
+    max-width: 640px;
+    margin: -16px auto 48px;
+    padding: 30px 36px;
+    align-items: center;
+    gap: 36px;
+    grid-template-columns: auto 1fr;
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(32, 25, 18, .05);
+  }
+
+  .meave-reviews__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding-right: 36px;
+    border-right: 1px solid rgba(21, 18, 15, .08);
+  }
+
+  .meave-reviews__scoreNum {
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1;
+  }
+
+  .meave-reviews__scoreStars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .meave-reviews__scoreStars svg {
+    width: 16px;
+    color: #b8893d;
+    fill: currentColor;
+  }
+
+  .meave-reviews__scoreCount {
+    color: #6b635a;
+    font-size: 12.5px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .meave-reviews__bars {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .meave-reviews__bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .meave-reviews__barLabel {
+    width: 10px;
+    color: #6b635a;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .meave-reviews__barStar {
+    width: 12px;
+    height: 12px;
+    color: #c9c2b8;
+    fill: currentColor;
+  }
+
+  .meave-reviews__barTrack {
+    position: relative;
+    flex: 1 1 auto;
+    height: 7px;
+    border-radius: 99px;
+    background: #ece8e1;
+    overflow: hidden;
+  }
+
+  .meave-reviews__barFill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #c69748, #9a712e);
+  }
+
+  .meave-reviews__barPct {
+    width: 34px;
+    color: #6b635a;
+    font-size: 11.5px;
+    font-weight: 500;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
   }
 
   .meave-reviews__grid {
@@ -201,11 +334,32 @@
     font-weight: 700;
   }
 
+  .meave-review__who {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
   .meave-review__name {
     font-size: 13.5px;
     font-weight: 600;
     letter-spacing: .01em;
     color: #1d1a16;
+  }
+
+  .meave-review__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #5d6b50;
+    font-size: 11.5px;
+    font-weight: 500;
+  }
+
+  .meave-review__verified svg {
+    width: 13px;
+    height: 13px;
+    color: #6f8a55;
   }
 
   @media (max-width: 900px) {
@@ -231,12 +385,30 @@
     }
   }
 
+  @media (max-width: 640px) {
+    .meave-reviews__summary {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      padding: 26px 24px;
+    }
+
+    .meave-reviews__score {
+      padding: 0 0 22px;
+      border-right: 0;
+      border-bottom: 1px solid rgba(21, 18, 15, .08);
+    }
+  }
+
   @media (max-width: 560px) {
     .meave-reviews {
       padding: 64px 16px;
     }
 
     .meave-reviews__head {
+      margin-bottom: 32px;
+    }
+
+    .meave-reviews__summary {
       margin-bottom: 36px;
     }
 
@@ -262,6 +434,78 @@
       "id": "heading",
       "label": "Heading",
       "default": "Loved for easy lighting upgrades"
+    },
+    {
+      "type": "header",
+      "content": "Rating summary"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_summary",
+      "label": "Show rating summary",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "rating_average",
+      "label": "Average rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "rating_count",
+      "label": "Review count label",
+      "default": "Based on 1,247 reviews"
+    },
+    {
+      "type": "range",
+      "id": "pct_5",
+      "label": "5 star %",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 94
+    },
+    {
+      "type": "range",
+      "id": "pct_4",
+      "label": "4 star %",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "pct_3",
+      "label": "3 star %",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "pct_2",
+      "label": "2 star %",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "pct_1",
+      "label": "1 star %",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 0
     }
   ],
   "blocks": [
@@ -269,6 +513,12 @@
       "type": "review",
       "name": "Review",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show verified buyer badge",
+          "default": true
+        },
         {
           "type": "range",
           "id": "rating",
