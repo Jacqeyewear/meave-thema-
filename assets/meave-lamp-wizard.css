@@ -272,30 +272,31 @@
 
 /* Step 3 — bundle quantity tiers (buy more, save more) */
 .mlw-bundle {
-  display: grid;
-  gap: 10px;
   margin: 14px 0 20px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 10px 28px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 .mlw-bundle__row {
   display: flex;
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--mlw-line-soft);
-  border-radius: 14px;
-  background: #fff;
+  padding: 15px 16px;
+  border: none;
+  background: transparent;
   font: inherit;
   text-align: left;
   cursor: pointer;
-  transition: border-color 150ms ease, box-shadow 150ms ease, transform 120ms ease;
+  transition: background 150ms ease;
 }
-.mlw-bundle__row:hover { border-color: rgba(0, 0, 0, 0.14); }
-.mlw-bundle__row:active { transform: scale(0.995); }
-.mlw-bundle__row.is-on { border-color: transparent; box-shadow: 0 0 0 2px var(--mlw-blue); }
+.mlw-bundle__row + .mlw-bundle__row { border-top: 1px solid var(--mlw-line-soft); }
+.mlw-bundle__row:hover { background: rgba(0, 0, 0, 0.015); }
+.mlw-bundle__row.is-on { background: rgba(0, 113, 227, 0.05); }
 .mlw-bundle__radio {
   flex: 0 0 auto;
-  width: 20px; height: 20px;
+  width: 19px; height: 19px;
   position: relative;
   border-radius: 50%;
   border: 1.5px solid #cfcfd4;
@@ -311,22 +312,22 @@
   align-items: center;
   gap: 8px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 .mlw-bundle__tag {
   display: inline-block;
   padding: 2px 8px;
   border-radius: 999px;
-  background: rgba(0, 113, 227, 0.1);
-  color: var(--mlw-blue);
+  background: rgba(26, 138, 85, 0.12);
+  color: #1a8a55;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 .mlw-bundle__prices { flex: 0 0 auto; display: inline-flex; align-items: baseline; gap: 8px; }
 .mlw-bundle__was { font-size: 13px; color: var(--mlw-muted); text-decoration: line-through; }
-.mlw-bundle__price { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.mlw-bundle__price { font-size: 15px; font-weight: 500; letter-spacing: -0.01em; }
 
 /* Step 3 — shipping reassurance under the summary */
 .mlw-ship-note { margin: -10px 0 20px; text-align: center; font-size: 12.5px; color: var(--mlw-muted); }
@@ -667,7 +668,7 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   .mlw-preview--sm { height: clamp(140px, 22vh, 190px); margin-bottom: 14px; }
   .mlw-colors { grid-template-columns: repeat(3, 1fr); gap: 16px 12px; }
   .mlw-grid { grid-template-columns: repeat(2, 1fr); gap: 12px 10px; }
-  .mlw-bundle { gap: 8px; margin: 12px 0 16px; }
+  .mlw-bundle { margin: 12px 0 16px; }
   .mlw-bundle__row { padding: 13px 14px; gap: 11px; }
   .mlw-bundle__label { font-size: 14px; }
   .mlw-bundle__price { font-size: 14px; }
