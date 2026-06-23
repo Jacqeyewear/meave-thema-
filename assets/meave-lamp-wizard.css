@@ -220,7 +220,7 @@
   width: 60px; height: 60px;
   display: grid; place-items: center;
   border-radius: 10px;
-  background: var(--mlw-soft);
+  background: transparent;
   overflow: hidden;
 }
 .mlw-line__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -299,7 +299,7 @@
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 6px;
+  padding: 10px 2px 18px;
   margin: 0 -2px;
   scrollbar-width: none;
 }
@@ -492,7 +492,8 @@
   flex-direction: column;
   gap: 12px;
   padding: 16px 22px calc(18px + env(safe-area-inset-bottom));
-  border-top: 1px solid var(--mlw-line);
+  border-top: none;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.05);
   background: var(--mlw-bg);
 }
 .mlw-summary {
