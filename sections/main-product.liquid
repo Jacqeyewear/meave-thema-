@@ -75,6 +75,26 @@
     letter-spacing: 0;
   }
 
+  /* Keep the title and price flush to the left edge */
+  #shopify-section-{{ section.id }} .product__title,
+  #shopify-section-{{ section.id }} .product__title.with-price {
+    grid-template-columns: 1fr !important;
+    justify-content: start !important;
+    justify-items: start !important;
+    align-items: start !important;
+    text-align: left !important;
+  }
+
+  #shopify-section-{{ section.id }} .product__title h1,
+  #shopify-section-{{ section.id }} .product__title .product__price,
+  #shopify-section-{{ section.id }} .product__title .product__rating {
+    grid-column: 1 / -1 !important;
+    justify-self: start !important;
+    place-self: start !important;
+    width: 100%;
+    text-align: left !important;
+  }
+
   #shopify-section-{{ section.id }} .product__price {
     color: #1d1d1f;
   }
