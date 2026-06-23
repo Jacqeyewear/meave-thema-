@@ -1345,9 +1345,12 @@ body.template-cart .page-container {
   border-color: var(--wp-blue-hover);
 }
 /* No blue focus ring/border around the checkout button */
+.template-cart button[name="checkout"]:focus,
+.template-cart button[name="checkout"]:focus-visible,
 .template-cart .cart__sidebar .button.button--primary:focus,
 .template-cart .cart__sidebar .button.button--primary:focus-visible {
   outline: none !important;
+  outline-color: transparent !important;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10) !important;
 }
 
@@ -1661,7 +1664,7 @@ body.template-cart .page-container {
    to Warby-Parker's serif-style elegance (regular weight, centered). */
 .template-cart .jacq-wp-cart-title {
   font-size: clamp(28px, 3vw, 38px) !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   letter-spacing: -0.035em !important;
   text-transform: none !important;
   line-height: 1.05 !important;
