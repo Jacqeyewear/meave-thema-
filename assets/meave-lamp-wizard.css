@@ -34,14 +34,15 @@
   background: var(--mlw-blue);
   color: #fff;
   font: inherit;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 16.5px;
+  font-weight: 600;
   letter-spacing: -0.01em;
   cursor: pointer;
-  transition: background 160ms ease, transform 140ms ease;
+  box-shadow: 0 8px 22px rgba(0, 113, 227, 0.28);
+  transition: background 160ms ease, transform 140ms ease, box-shadow 160ms ease;
 }
-.mlw-trigger:hover { background: var(--mlw-blue-hover); }
-.mlw-trigger:active { transform: scale(.995); }
+.mlw-trigger:hover { background: var(--mlw-blue-hover); box-shadow: 0 10px 28px rgba(0, 113, 227, 0.34); transform: translateY(-1px); }
+.mlw-trigger:active { transform: scale(.995); box-shadow: 0 6px 16px rgba(0, 113, 227, 0.26); }
 .mlw-trigger__icon { display: inline-flex; transition: transform 160ms ease; }
 .mlw-trigger:hover .mlw-trigger__icon { transform: translateX(3px); }
 .mlw-trigger--soldout { background: #c4c2bd; cursor: not-allowed; }
