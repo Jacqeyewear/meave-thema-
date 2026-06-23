@@ -207,11 +207,13 @@
       }
       root.hidden = false;
       document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('mvrev-open');
       requestAnimationFrame(function () { root.classList.add('is-open'); });
     }
     function close() {
       root.classList.remove('is-open');
       document.documentElement.style.overflow = '';
+      document.body.classList.remove('mvrev-open');
       setTimeout(function () { root.hidden = true; }, 260);
     }
     function filter(val) {
@@ -627,11 +629,15 @@
   .mvrev-modal__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(21, 18, 15, .42);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(21, 18, 15, .38);
     opacity: 0;
     transition: opacity .26s ease;
+  }
+
+  /* Blur the page content behind the modal (reliable fallback for backdrop-filter) */
+  body.mvrev-open > *:not(.mvrev-modal):not(script):not(style) {
+    filter: blur(7px);
+    transition: filter .3s ease;
   }
 
   .mvrev-modal.is-open .mvrev-modal__overlay {
