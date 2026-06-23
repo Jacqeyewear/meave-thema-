@@ -64,17 +64,15 @@
 
       <nav class="mlw-tabs" aria-label="Steps">
         <button type="button" class="mlw-tab is-active" data-mlw-tab="1">
-          <span class="mlw-tab__num">1</span>
+          <span class="mlw-tab__num">1.</span>
           <span class="mlw-tab__txt">{{ block.settings.color_step_label | default: 'Colour' }}</span>
         </button>
-        <span class="mlw-tab__line" aria-hidden="true"></span>
         <button type="button" class="mlw-tab" data-mlw-tab="2">
-          <span class="mlw-tab__num">2</span>
+          <span class="mlw-tab__num">2.</span>
           <span class="mlw-tab__txt">{{ block.settings.kap_step_label | default: 'Shade' }}</span>
         </button>
-        <span class="mlw-tab__line" aria-hidden="true"></span>
         <button type="button" class="mlw-tab" data-mlw-tab="3">
-          <span class="mlw-tab__num">3</span>
+          <span class="mlw-tab__num">3.</span>
           <span class="mlw-tab__txt">{{ block.settings.review_step_label | default: 'Summary' }}</span>
         </button>
       </nav>
@@ -148,11 +146,6 @@
       </div>
 
       <footer class="mlw-foot">
-        <div class="mlw-summary" aria-live="polite">
-          <span class="mlw-summary__row"><small>{{ block.settings.color_step_label | default: 'Colour' }}</small><strong data-mlw-sum-color>—</strong></span>
-          <span class="mlw-summary__plus" aria-hidden="true">·</span>
-          <span class="mlw-summary__row"><small>{{ block.settings.kap_step_label | default: 'Shade' }}</small><strong data-mlw-sum-kap>—</strong></span>
-        </div>
         <button type="button" class="mlw-next" data-mlw-next>{{ block.settings.next_label | default: 'Next' }}</button>
         <button type="button" class="mlw-add" data-mlw-add hidden>
           <span class="mlw-add__label">{{ block.settings.add_label | default: 'Checkout' }}</span>

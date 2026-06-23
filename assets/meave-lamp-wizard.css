@@ -6,13 +6,16 @@
 .mlw,
 .mlw-root {
   --mlw-bg: #ffffff;
-  --mlw-ink: #111111;
-  --mlw-muted: #6b6b6b;
+  --mlw-ink: #1d1d1f;
+  --mlw-muted: #6e6e73;
   --mlw-line: #e7e7e7;
-  --mlw-soft: #f5f4f2;
+  --mlw-line-soft: rgba(0, 0, 0, 0.06);
+  --mlw-soft: #f5f5f7;
   --mlw-blue: #0071e3;
   --mlw-blue-hover: #0077ed;
-  --mlw-radius: 12px;
+  --mlw-radius: 14px;
+  --mlw-radius-card: 18px;
+  --mlw-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
   font-family: inherit;
 }
 .mlw { display: block; }
@@ -113,44 +116,47 @@
   letter-spacing: -0.01em;
 }
 
-/* ---- Stepper ---- */
+/* ---- Stepper (JACQ-style text tabs with blue underline) ---- */
 .mlw-tabs {
   flex: 0 0 auto;
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 20px;
+  align-items: stretch;
+  gap: 0;
+  padding: 0 20px;
   border-bottom: 1px solid var(--mlw-line);
 }
 .mlw-tab {
+  flex: 1 1 0;
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 0;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px 0 16px;
   border: none;
   background: none;
   font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--mlw-muted);
   cursor: pointer;
+  white-space: nowrap;
+  transition: color 160ms ease;
 }
-.mlw-tab__num {
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  border: 1.5px solid #d7d7d7;
-  border-radius: 50%;
-  background: #fff;
-  font-size: 12.5px;
-  font-weight: 500;
-  transition: all 160ms ease;
-}
-.mlw-tab__txt { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
-.mlw-tab.is-active { color: var(--mlw-ink); }
-.mlw-tab.is-active .mlw-tab__num,
-.mlw-tab.is-done .mlw-tab__num { border-color: var(--mlw-blue); background: var(--mlw-blue); color: #fff; }
+.mlw-tab__num { font-variant-numeric: tabular-nums; }
+.mlw-tab.is-active,
 .mlw-tab.is-done { color: var(--mlw-ink); }
-.mlw-tab__line { flex: 1 1 auto; min-width: 10px; height: 1.5px; background: var(--mlw-line); border-radius: 2px; }
+.mlw-tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--mlw-blue);
+}
 
 /* ---- Body ---- */
 .mlw-body {
@@ -176,11 +182,11 @@
   height: clamp(190px, 34vh, 300px);
   display: grid;
   place-items: center;
-  padding: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 18px;
+  background: var(--mlw-soft);
+  border: 1px solid var(--mlw-line-soft);
+  border-radius: var(--mlw-radius-card);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
   overflow: hidden;
 }
 .mlw-preview img { max-width: 78%; max-height: 100%; object-fit: contain; display: block; }
@@ -195,10 +201,10 @@
 /* Step 3 — cart-style summary card (line items + total) */
 .mlw-summary-card {
   margin-bottom: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border: 1px solid var(--mlw-line-soft);
+  border-radius: var(--mlw-radius-card);
   background: var(--mlw-bg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--mlw-shadow);
   overflow: hidden;
 }
 .mlw-lines { display: flex; flex-direction: column; }
@@ -306,16 +312,16 @@
   align-items: center;
   gap: 14px;
   padding: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  border: 1px solid var(--mlw-line-soft);
+  border-radius: var(--mlw-radius-card);
   background: var(--mlw-bg);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
   font: inherit;
   text-align: left;
   cursor: pointer;
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
-.mlw-up:hover { border-color: rgba(0, 113, 227, 0.4); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08); transform: translateY(-1px); }
+.mlw-up:hover { border-color: rgba(0, 113, 227, 0.4); box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08); transform: translateY(-1px); }
 .mlw-up.is-on { border-color: var(--mlw-blue); box-shadow: 0 0 0 1px var(--mlw-blue); }
 .mlw-up__media {
   position: relative;
@@ -553,7 +559,7 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
 @media (max-width: 600px) {
   .mlw-panel { width: 100%; }
   .mlw-body { padding: 20px 18px 12px; }
-  .mlw-tabs { padding: 16px 18px; }
+  .mlw-tabs { padding: 0 18px; }
   .mlw-head { padding: 14px 14px; }
   .mlw-step__title { font-size: 20px; }
   .mlw-colors { grid-template-columns: repeat(3, 1fr); gap: 20px 14px; }
