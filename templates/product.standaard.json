@@ -12,15 +12,6 @@
     "main-product": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "icon": "none",
-            "icon_width": 20,
-            "text": "MEAVE LONDON",
-            "text_size": "text-base"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -78,45 +69,10 @@
             "after_add": "checkout"
           }
         },
-        "text_delivery": {
-          "type": "text",
-          "settings": {
-            "icon": "truck",
-            "icon_width": 20,
-            "text": "Free UK delivery with tracking",
-            "text_size": "text-sm"
-          }
-        },
-        "text_returns": {
-          "type": "text",
-          "settings": {
-            "icon": "return",
-            "icon_width": 20,
-            "text": "30-day returns, no fuss",
-            "text_size": "text-sm"
-          }
-        },
-        "text_warranty": {
-          "type": "text",
-          "settings": {
-            "icon": "shield",
-            "icon_width": 20,
-            "text": "2-year warranty on every light",
-            "text_size": "text-sm"
-          }
-        },
-        "text_setup": {
-          "type": "text",
-          "settings": {
-            "icon": "lightning",
-            "icon_width": 20,
-            "text": "Wireless, renter-friendly setup",
-            "text_size": "text-sm"
-          }
-        },
         "tab_how": {
           "type": "collapsible_tab",
           "settings": {
+            "style": "with-border",
             "icon": "none",
             "heading": "How does it work?",
             "content": "<p>Meave wireless lights are designed for quick room upgrades. Place them beside a mirror, bed, console or artwork to add a soft layer of warm light without a heavy renovation.</p>",
@@ -128,6 +84,7 @@
         "tab_included": {
           "type": "collapsible_tab",
           "settings": {
+            "style": "with-border",
             "icon": "none",
             "heading": "What is included?",
             "content": "<p>Your order includes the light, shade, setup accessories, care guidance and protective Meave London packaging. Exact contents can be adjusted per product.</p>",
@@ -139,22 +96,13 @@
         "tab_specs": {
           "type": "collapsible_tab",
           "settings": {
+            "style": "with-border",
             "icon": "none",
             "heading": "Specifications",
             "content": "<p>Add dimensions, material, finish, bulb type, battery details and shade measurements here so shoppers can check fit before checkout.</p>",
             "page": "",
             "liquid": "",
             "opened": false
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share",
-            "show_help_desk": true,
-            "help_label": "Need lighting advice?",
-            "help_type": "drawer",
-            "help_page": ""
           }
         }
       },
@@ -194,35 +142,35 @@
         "image_1": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_5.png",
             "alt": "Meave light styled at home"
           }
         },
         "image_2": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_21_51_PM.png",
             "alt": "Close product view"
           }
         },
         "image_3": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_21_PM_3.png",
             "alt": "Warm light in a calm interior"
           }
         },
         "image_4": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_22_PM_6.png",
             "alt": "Meave finish and shade detail"
           }
         },
         "image_5": {
           "type": "image",
           "settings": {
-            "image": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_7.png",
             "alt": "Meave lighting in a finished room"
           }
         }
@@ -248,7 +196,9 @@
           "settings": {
             "rating": 5,
             "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>",
-            "author": "Charlotte J."
+            "author": "Charlotte J.",
+            "image": "shopify://shop_images/r10.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         },
         "review_2": {
@@ -256,7 +206,9 @@
           "settings": {
             "rating": 5,
             "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>",
-            "author": "Isabella E."
+            "author": "Isabella E.",
+            "image": "shopify://shop_images/r9.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         },
         "review_3": {
@@ -264,7 +216,9 @@
           "settings": {
             "rating": 5,
             "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>",
-            "author": "George B."
+            "author": "George B.",
+            "image": "shopify://shop_images/r8.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         }
       },
@@ -280,7 +234,7 @@
     "meave-story": {
       "type": "meave-pdp-story",
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_7.png",
         "image_alt": "Meave lighting styled in a calm interior",
         "heading": "Limitless elegance, considered light",
         "text": "<p>Warm wall lighting gives entryways, bedrooms and lounge corners the finished feeling usually reserved for styled interiors.</p>",
