@@ -1,26 +1,17 @@
 {%- liquid
-  assign mv_reviews = "5~Charlotte J.~March 2026~The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.|5~Isabella E.~March 2026~Exactly the light I wanted above my console table. It looks more expensive than expected.|5~George B.~February 2026~A simple change that made the bedroom feel considered. The proportions sit beautifully next to framed art.|5~Sophie M.~February 2026~Installation was genuinely tool-free. I stuck them either side of the bed and they have not moved since.|5~Priya R.~February 2026~The brass finish is gorgeous and feels far from cheap. Guests always ask where they are from.|5~Thomas B.~January 2026~Battery life is better than expected and recharging is simple. Perfect for a rented flat.|5~Olivia S.~January 2026~Transformed a dark corner of the living room. Honestly looks like a proper hard-wired fitting.|5~James P.~January 2026~The set of two was ideal for our alcoves. Simple, classy and no electrician needed.|5~Emma L.~December 2025~Soft, flattering glow and the shade quality is lovely. Already planning a pair for the bedroom.|5~Lucy A.~December 2025~Easy to reposition until the spacing looked right. Really pleased with how finished the wall feels.|5~Nathan R.~December 2025~Warm light without any harsh glare. The remote makes it effortless in the evenings.|5~Amelia C.~November 2025~Beautiful quality for the price. They look like a designer piece in our hallway.|5~Freya H.~November 2025~Perfect bedside lighting. The dimmable warm glow is exactly what we hoped for.|5~Oliver T.~November 2025~Looks stunning either side of the mirror and took five minutes to put up.|4~Daniel K.~February 2026~Lovely warm light and an elegant shape. Slightly smaller than I pictured, but great in the hallway.|4~Hannah W.~January 2026~Great for a cosy evening layer. I would love a slightly longer remote range, but happy overall.|4~Megan F.~January 2026~Looks high-end and was simple to fit. Took off a star as I would like one brighter setting.|4~Ryan D.~December 2025~Really pleased with these. Would have liked a paper wall template included for spacing.|4~Chloe V.~December 2025~Elegant and well made. The shade is a touch more cream than white in person.|4~Adam S.~November 2025~Good quality and easy setup. The charging cable is a little short but not a deal breaker.|4~Grace N.~November 2025~Lovely glow and very easy to live with. A second brightness level would make it perfect.|4~Leo M.~October 2025~Smart-looking sconces. Pairing the remote took a moment but it works reliably now.|3~Ben C.~January 2026~Nice light, though the remote range is shorter than I would like across a big room.|3~Zoe P.~December 2025~Good value and easy to set up. The printed instructions were a little basic.|3~Harry L.~December 2025~Pretty much as expected. Slightly smaller than they looked in the photos.|3~Ella J.~November 2025~Warm glow is lovely; I just wish the battery lasted a bit longer between charges.|3~Sam W.~October 2025~They look great on the wall. The adhesive needed a firmer press than I expected to hold.|2~Ruth A.~January 2026~The lights themselves are lovely, but delivery took nearly three weeks, longer than stated.|2~Mark T.~December 2025~Happy with the sconces, however one box arrived a little dented by the courier.|2~Fiona G.~November 2025~Took a while to arrive and the tracking was not very clear. The product itself is great.|1~Paul R.~December 2025~Delivery was much slower than I expected, almost a month. The lamps are lovely now they are finally up.|1~Karen D.~November 2025~Courier left it with a neighbour without telling me. Frustrating shipping, though the product is good." | split: "|"
-  assign c5 = 0
-  assign c4 = 0
-  assign c3 = 0
-  assign c2 = 0
-  assign c1 = 0
-  for r in mv_reviews
-    assign rf = r | split: "~"
-    case rf[0]
-      when "5"
-        assign c5 = c5 | plus: 1
-      when "4"
-        assign c4 = c4 | plus: 1
-      when "3"
-        assign c3 = c3 | plus: 1
-      when "2"
-        assign c2 = c2 | plus: 1
-      when "1"
-        assign c1 = c1 | plus: 1
-    endcase
-  endfor
-  assign mv_total = mv_reviews.size
+  assign mv_names = "Charlotte J.,Isabella E.,George B.,Sophie M.,Priya R.,Thomas B.,Olivia S.,James P.,Emma L.,Lucy A.,Nathan R.,Amelia C.,Freya H.,Oliver T.,Daniel K.,Hannah W.,Megan F.,Ryan D.,Chloe V.,Adam S.,Grace N.,Leo M.,Ben C.,Zoe P.,Harry L.,Ella J.,Sam W.,Ruth A.,Mark T.,Fiona G.,Paul R.,Karen D.,Sarah H.,Jack M.,Alice B.,Henry C.,Niamh O.,William T.,Holly S.,Aaron P.,Maya K.,Ethan R.,Poppy L.,Joseph N.,Ava M.,Lewis G.,Isla F.,Connor B." | split: ","
+  assign mv_dates = "March 2026,February 2026,January 2026,December 2025,November 2025,October 2025,September 2025,August 2025,July 2025,June 2025,May 2025,April 2025" | split: ","
+  assign q5 = "The finish adds a quiet, elegant touch and the shade gives a warm evening glow.|Exactly the light I wanted above my console table and it looks far more expensive than it was.|A simple change that made the bedroom feel considered. It sits beautifully next to framed art.|Installation was genuinely tool-free. I stuck them either side of the bed and they have not moved.|The brass finish is gorgeous and feels far from cheap. Guests always ask where they are from.|Battery life is better than expected and recharging is simple. Perfect for a rented flat.|Transformed a dark corner of the living room. Honestly looks like a proper hard-wired fitting.|The set of two was ideal for our alcoves. Simple, classy and no electrician needed.|Soft, flattering glow and the shade quality is lovely. Already planning a pair for the bedroom.|Easy to reposition until the spacing looked right. So pleased with how finished the wall feels.|Warm light without any harsh glare, and the remote makes it effortless in the evenings.|Beautiful quality for the price. They look like a designer piece in our hallway.|Perfect bedside lighting. The dimmable warm glow is exactly what we hoped for.|Looks stunning either side of the mirror and took five minutes to put up.|Such a clever idea: all the charm of a sconce with none of the wiring hassle.|The light is warm and cosy, ideal for winding down at the end of the day.|Sturdier than I expected and the shade feels premium. Very happy with the purchase.|Added instant character to a plain hallway. Neighbours have already asked about them.|Charging lasts ages and the light is the perfect warmth. Could not be happier.|Elegant, understated and beautifully made. Exactly the finishing touch the room needed.|No drilling, no mess, and they look completely permanent on the wall.|The remote and timer are so handy. They come on softly every evening like clockwork.|Gorgeous in our bedroom. The glow is flattering and calm, never clinical.|I was nervous about stick-on lights but these feel solid and look high-end.|Brightened up the stairway perfectly. The warm tone makes the whole space feel inviting.|Lovely craftsmanship and a really cosy light. Would happily buy another set.|They frame the mirror beautifully and the light is perfect for getting ready.|So easy that I did the whole thing myself in minutes. Looks fantastic.|The shade diffuses the light beautifully: soft, warm and never glary.|Genuinely impressed by the quality. Feels like a luxury fitting at a fair price." | split: "|"
+  assign q4 = "Lovely warm light and an elegant shape. Slightly smaller than I pictured, but great in the hallway.|Great for a cosy evening layer. I would love a slightly longer remote range, but happy overall.|Looks high-end and was simple to fit. Took off a star as I would like one brighter setting.|Really pleased with these. Would have liked a paper wall template included for spacing.|Elegant and well made. The shade is a touch more cream than white in person.|Good quality and easy setup. The charging cable is a little short but not a deal breaker.|Lovely glow and very easy to live with. A second brightness level would make it perfect.|Smart-looking sconces. Pairing the remote took a moment but it works reliably now.|Really nice light and finish. I just wish the battery indicator was a bit clearer.|Looks great on the wall. Took a little patience to get both perfectly level.|Warm and cosy as described. Would have liked a slightly bigger shade for my space.|Happy with these overall: stylish and practical for a rental.|Good value and they look lovely lit. The off setting could be easier to find on the remote.|Nicely made and easy to fit. A warmer bulb option would have been the cherry on top.|Pleased with the look. Charging every few weeks is fine but worth knowing in advance.|Solid little lights with a lovely glow. Instructions could be a little more detailed.|They look far pricier than they are. Only minor niggle is the remote feels a bit light.|Great addition to the bedroom. Took one star off only because delivery took a little while." | split: "|"
+  assign q3 = "Nice light, though the remote range is shorter than I would like across a big room.|Good value and easy to set up. The printed instructions were a little basic.|Pretty much as expected. Slightly smaller than they looked in the photos.|Warm glow is lovely; I just wish the battery lasted a bit longer between charges.|They look great on the wall. The adhesive needed a firmer press than I expected to hold.|Decent lights for the price. The shade is nice but a little thinner than I imagined.|Happy enough: they do the job, though I expected a slightly brighter output.|Look good but took some fiddling to get the spacing even. Fine once up.|The light is pleasant. I wish the remote was backlit for using in the dark.|Reasonable quality. Recharging more often than I hoped, but the look makes up for it." | split: "|"
+  assign q2 = "The lights themselves are lovely, but delivery took nearly three weeks, longer than stated.|Happy with the sconces, however one box arrived a little dented by the courier.|Took a while to arrive and the tracking was not very clear. The product itself is great.|Product is good but shipping was slow and I had to chase an update on my order.|Lovely lights, let down only by a delayed delivery that arrived later than promised.|The sconces are great; the courier just left them outside in the rain, which was a shame." | split: "|"
+  assign q1 = "Delivery was much slower than I expected, almost a month. The lamps are lovely now they are finally up.|Courier left it with a neighbour without telling me. Frustrating shipping, though the product is good.|Waited far too long for dispatch and updates were slow. The lights are nice, the delivery was not.|Shipping took ages and tracking barely worked. Happy with the sconces once they eventually arrived." | split: "|"
+  assign n5 = 150
+  assign n4 = 90
+  assign n3 = 18
+  assign n2 = 8
+  assign n1 = 4
+  assign mv_total = n5 | plus: n4 | plus: n3 | plus: n2 | plus: n1
   assign mv_modal_id = 'MeaveReviews-' | append: section.id
 -%}
 
@@ -42,7 +33,7 @@
               <svg class="is-active" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
             {%- endfor -%}
           </div>
-          <span class="meave-reviews__scoreCount">{{ section.settings.rating_count | escape }}</span>
+          <span class="meave-reviews__scoreCount">Based on {{ mv_total }} reviews</span>
         </div>
         <div class="meave-reviews__bars">
           {%- assign pcts = section.settings.pct_5 | append: ',' | append: section.settings.pct_4 | append: ',' | append: section.settings.pct_3 | append: ',' | append: section.settings.pct_2 | append: ',' | append: section.settings.pct_1 | split: ',' -%}
@@ -107,7 +98,7 @@
 
     <div class="meave-reviews__actions">
       <button type="button" class="meave-reviews__all" data-mvrev-open aria-haspopup="dialog" aria-controls="{{ mv_modal_id }}">
-        Read all {{ section.settings.rating_count | escape | remove: 'Based on ' | default: 'reviews' }}
+        Read all {{ mv_total }} reviews
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </div>
@@ -125,44 +116,74 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
               {%- endfor -%}
             </span>
-            <span class="mvrev-modal__scoreCount">{{ section.settings.rating_count | escape }}</span>
+            <span class="mvrev-modal__scoreCount">Based on {{ mv_total }} reviews</span>
           </div>
           <button type="button" class="mvrev-modal__close" data-mvrev-close aria-label="Close reviews">
             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
           </button>
         </div>
         <div class="mvrev-modal__tabs" role="tablist">
-          <button type="button" class="mvrev-modal__tab is-active" data-mvrev-filter="all">All <span>{{ mv_total }}</span></button>
-          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="5">5 ★ <span>{{ c5 }}</span></button>
-          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="4">4 ★ <span>{{ c4 }}</span></button>
-          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="3">3 ★ <span>{{ c3 }}</span></button>
-          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="2">2 ★ <span>{{ c2 }}</span></button>
-          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="1">1 ★ <span>{{ c1 }}</span></button>
+          <button type="button" class="mvrev-modal__tab is-active" data-mvrev-filter="all">All reviews</button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="5">5 ★</button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="4">4 ★</button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="3">3 ★</button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="2">2 ★</button>
+          <button type="button" class="mvrev-modal__tab" data-mvrev-filter="1">1 ★</button>
         </div>
       </div>
       <ul class="mvrev-modal__list" data-mvrev-list>
-        {%- for r in mv_reviews -%}
-          {%- assign rf = r | split: "~" -%}
-          {%- assign rnum = rf[0] | plus: 0 -%}
-          <li class="mvrev-item" data-rating="{{ rf[0] }}">
-            <div class="mvrev-item__top">
-              <span class="mvrev-item__avatar" aria-hidden="true">{{ rf[1] | strip | slice: 0 | upcase }}</span>
-              <span class="mvrev-item__who">
-                <span class="mvrev-item__name">{{ rf[1] | escape }}</span>
-                <span class="mvrev-item__verified">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
-                  Verified buyer
+        {%- assign rating_list = "5,4,3,2,1" | split: "," -%}
+        {%- assign count_list = "150,90,18,8,4" | split: "," -%}
+        {%- assign g = 0 -%}
+        {%- for ridx in (0..4) -%}
+          {%- assign rv = rating_list[ridx] -%}
+          {%- assign cv = count_list[ridx] | plus: 0 -%}
+          {%- liquid
+            case rv
+              when "5"
+                assign qpool = q5
+                assign gold = "★★★★★"
+                assign offstars = ""
+              when "4"
+                assign qpool = q4
+                assign gold = "★★★★"
+                assign offstars = "☆"
+              when "3"
+                assign qpool = q3
+                assign gold = "★★★"
+                assign offstars = "☆☆"
+              when "2"
+                assign qpool = q2
+                assign gold = "★★"
+                assign offstars = "☆☆☆"
+              when "1"
+                assign qpool = q1
+                assign gold = "★"
+                assign offstars = "☆☆☆☆"
+            endcase
+          -%}
+          {%- for i in (1..cv) -%}
+            {%- assign qi = forloop.index0 | modulo: qpool.size -%}
+            {%- assign nidx = g | modulo: mv_names.size -%}
+            {%- assign didx = g | modulo: mv_dates.size -%}
+            {%- assign g = g | plus: 1 -%}
+            {%- assign aname = mv_names[nidx] -%}
+            <li class="mvrev-item" data-rating="{{ rv }}">
+              <div class="mvrev-item__top">
+                <span class="mvrev-item__avatar" aria-hidden="true">{{ aname | strip | slice: 0 | upcase }}</span>
+                <span class="mvrev-item__who">
+                  <span class="mvrev-item__name">{{ aname | escape }}</span>
+                  <span class="mvrev-item__verified">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
+                    Verified buyer
+                  </span>
                 </span>
-              </span>
-              <span class="mvrev-item__date">{{ rf[2] | escape }}</span>
-            </div>
-            <div class="mvrev-item__stars" role="img" aria-label="{{ rf[0] }} out of 5">
-              {%- for star in (1..5) -%}
-                <svg class="{% if star <= rnum %}is-active{% endif %}" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
-              {%- endfor -%}
-            </div>
-            <p class="mvrev-item__text">{{ rf[3] | escape }}</p>
-          </li>
+                <span class="mvrev-item__date">{{ mv_dates[didx] | escape }}</span>
+              </div>
+              <div class="mvrev-item__stars" role="img" aria-label="{{ rv }} out of 5"><span class="on">{{ gold }}</span><span class="off">{{ offstars }}</span></div>
+              <p class="mvrev-item__text">{{ qpool[qi] | escape }}</p>
+            </li>
+          {%- endfor -%}
         {%- endfor -%}
       </ul>
     </div>
@@ -603,7 +624,9 @@
   .mvrev-modal__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(21, 18, 15, .5);
+    background: rgba(21, 18, 15, .42);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     opacity: 0;
     transition: opacity .26s ease;
   }
@@ -825,19 +848,18 @@
   }
 
   .mvrev-item__stars {
-    display: flex;
-    gap: 3px;
     margin: 12px 0 8px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 1;
   }
 
-  .mvrev-item__stars svg {
-    width: 14px;
-    color: #e4dfd8;
-    fill: currentColor;
-  }
-
-  .mvrev-item__stars svg.is-active {
+  .mvrev-item__stars .on {
     color: #b8893d;
+  }
+
+  .mvrev-item__stars .off {
+    color: #ddd6cc;
   }
 
   .mvrev-item__text {
@@ -873,13 +895,7 @@
       "type": "text",
       "id": "rating_average",
       "label": "Average rating",
-      "default": "4.8"
-    },
-    {
-      "type": "text",
-      "id": "rating_count",
-      "label": "Review count label",
-      "default": "Based on 1,284 reviews"
+      "default": "4.4"
     },
     {
       "type": "range",
@@ -889,7 +905,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 85
+      "default": 56
     },
     {
       "type": "range",
@@ -899,7 +915,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 10
+      "default": 33
     },
     {
       "type": "range",
@@ -909,7 +925,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 3
+      "default": 7
     },
     {
       "type": "range",
@@ -919,7 +935,7 @@
       "max": 100,
       "step": 1,
       "unit": "%",
-      "default": 1
+      "default": 3
     },
     {
       "type": "range",
