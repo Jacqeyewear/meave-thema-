@@ -146,6 +146,12 @@
 
           <p class="mlw-ship-note">{{ block.settings.ship_note | default: 'Ships within 24 hours' }}</p>
 
+          {%- comment -%} Upsells — directly under the overview {%- endcomment -%}
+          <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
+            <h4 class="mlw-upsell__title">{{ block.settings.upsell_heading | default: 'Often bought together' }}</h4>
+            <div class="mlw-upsell__grid" data-mlw-upsell></div>
+          </div>
+
           {%- comment -%} USP row — mirrors the cart {%- endcomment -%}
           <ul class="mlw-usps" aria-label="Why shop with us">
             <li>
@@ -161,11 +167,6 @@
               <span>2-year warranty</span>
             </li>
           </ul>
-
-          <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
-            <h4 class="mlw-upsell__title">{{ block.settings.upsell_heading | default: 'Complete the look' }}</h4>
-            <div class="mlw-upsell__grid" data-mlw-upsell></div>
-          </div>
         </section>
       </div>
 

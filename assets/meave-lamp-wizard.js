@@ -264,14 +264,13 @@
         card.className = 'mlw-up' + (self.selectedUpsells.indexOf(String(u.variantId)) >= 0 ? ' is-on' : '');
         card.setAttribute('data-mlw-up', String(u.variantId));
         card.innerHTML =
-          '<span class="mlw-up__media">' + (u.image ? '<img loading="lazy" alt="" src="' + u.image + '">' : '') +
-            '<span class="mlw-up__badge" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>' +
-          '</span>' +
+          '<span class="mlw-up__media">' + (u.image ? '<img loading="lazy" alt="" src="' + u.image + '">' : '') + '</span>' +
           '<span class="mlw-up__info">' +
             (idx === 0 ? '<span class="mlw-up__rec">Recommended</span>' : '') +
             '<span class="mlw-up__name">' + (u.title || '') + '</span>' +
             (u.price ? '<span class="mlw-up__price">' + u.price + '</span>' : '') +
-          '</span>';
+          '</span>' +
+          '<span class="mlw-up__badge" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>';
         card.addEventListener('click', function () {
           var id = String(u.variantId);
           var i = self.selectedUpsells.indexOf(id);
