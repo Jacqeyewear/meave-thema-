@@ -1,0 +1,222 @@
+<section class="meave-afounder{% if section.settings.layout == 'text_first' %} meave-afounder--reverse{% endif %}">
+  <div class="meave-afounder__inner">
+    <figure class="meave-afounder__media">
+      {%- if section.settings.image != blank -%}
+        {{- section.settings.image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            widths: '480,720,960,1200',
+            sizes: '(min-width: 990px) 46vw, 92vw',
+            alt: section.settings.image_alt
+        -}}
+      {%- else -%}
+        {{- 'lifestyle-2' | placeholder_svg_tag: 'meave-afounder__placeholder' -}}
+      {%- endif -%}
+    </figure>
+    <div class="meave-afounder__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="meave-afounder__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="meave-afounder__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="meave-afounder__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.signature != blank or section.settings.signature_role != blank -%}
+        <div class="meave-afounder__sign">
+          {%- if section.settings.signature != blank -%}
+            <span class="meave-afounder__signName">{{ section.settings.signature | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.signature_role != blank -%}
+            <span class="meave-afounder__signRole">{{ section.settings.signature_role | escape }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-afounder {
+    padding: 110px 20px;
+    background: #fff;
+    color: #15120f;
+  }
+
+  .meave-afounder__inner {
+    display: grid;
+    max-width: 1180px;
+    margin: 0 auto;
+    align-items: center;
+    gap: 64px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .meave-afounder--reverse .meave-afounder__media {
+    order: 2;
+  }
+
+  .meave-afounder__media {
+    overflow: hidden;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: 26px;
+    background: #f0ece6;
+    box-shadow: 0 1px 2px rgba(32, 25, 18, .05), 0 26px 60px rgba(32, 25, 18, .1);
+  }
+
+  .meave-afounder__media img,
+  .meave-afounder__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .meave-afounder__eyebrow {
+    margin: 0 0 16px;
+    color: #9a712e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .meave-afounder__heading {
+    margin: 0 0 22px;
+    font-size: clamp(28px, 3.2vw, 44px);
+    letter-spacing: -.04em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .meave-afounder__text {
+    color: #574f47;
+    font-size: 17px;
+    line-height: 1.72;
+  }
+
+  .meave-afounder__text p {
+    margin: 0 0 16px;
+  }
+
+  .meave-afounder__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .meave-afounder__sign {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(21, 18, 15, .1);
+  }
+
+  .meave-afounder__signName {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  .meave-afounder__signRole {
+    color: #8a8178;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .meave-afounder {
+      padding: 64px 16px;
+    }
+
+    .meave-afounder__inner {
+      gap: 32px;
+      grid-template-columns: 1fr;
+    }
+
+    .meave-afounder--reverse .meave-afounder__media {
+      order: 0;
+    }
+
+    .meave-afounder__media {
+      max-width: 460px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave founder story",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alternative text",
+      "default": "Meave London founder"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "Image left"
+        },
+        {
+          "value": "text_first",
+          "label": "Image right"
+        }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The founder"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "It started with one dark hallway"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Meave London began with a problem its founder, Meave Sinclair, could not stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to watch them undone by harsh, badly placed lighting.</p><p>During a long winter at home she sketched a different kind of light: a wall sconce with the warmth of a designer piece, but completely wireless. The first brass prototype went up in her own hallway in 2021, and within weeks friends were asking where to buy one.</p>"
+    },
+    {
+      "type": "text",
+      "id": "signature",
+      "label": "Signature name",
+      "default": "Meave Sinclair"
+    },
+    {
+      "type": "text",
+      "id": "signature_role",
+      "label": "Signature role",
+      "default": "Founder, Meave London"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave founder story"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  }
+}
+{% endschema %}

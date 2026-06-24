@@ -24,559 +24,156 @@
         "rounded": false
       }
     },
-    "image-with-text-overlay": {
-      "type": "image-with-text-overlay",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p><em><strong>Our story</strong></em></p>",
-            "text_size": "subtext-lg",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "text",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Warm light, beautifully made",
-            "heading_size": "title-xl tracking-heading",
-            "heading_tag": "h1",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "text",
-        "heading"
-      ],
+    "hero": {
+      "type": "meave-about-hero",
       "settings": {
-        "transparent_header": true,
         "image": "",
-        "image_height": "750px",
-        "content_width": "large",
-        "content_position": "md:items-end md:justify-start",
-        "text_alignment": "left",
-        "image_height_mobile": "auto",
-        "content_position_mobile": "items-end justify-start",
-        "text_alignment_mobile": "left",
-        "color_text": "#ffffff",
-        "color_highlight": "#e0a580",
-        "gradient_highlight": "",
-        "color_button_text": "#171717",
-        "color_button_background": "#ffffff",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 50,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "full_width": true,
-        "rounded": true,
-        "enable_parallax": true,
-        "parallax_direction": "vertical"
+        "image_alt": "Meave London lighting in a calm interior",
+        "eyebrow": "Our story",
+        "heading": "Warm light, beautifully made",
+        "text": "<p>Wireless wall lighting and warm furniture accents, designed in London for the rooms you actually live in.</p>",
+        "height": 720
       }
     },
-    "images-with-text": {
-      "type": "images-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "It started with one <em>dark hallway</em>",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "highlighted_text": "scribble",
-            "highlighted_scribble": "basic-underline"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Meave London began with a problem its founder, Meave Sinclair, could not stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to watch them undone by one thing: harsh, badly placed lighting. The pieces she loved needed an electrician, a wall chase and a budget most of her clients did not have.</p><p>During a long winter at home, she started sketching a different kind of light: a wall sconce with the warmth and proportions of a designer piece, but completely wireless. No drilling, no rewiring, no permission from a landlord. The first brass prototype went up in her own hallway in 2021. Within weeks, friends and clients were asking where they could buy one.</p><p>So she made more. Today Meave London designs warm, wireless wall lights, shades and furniture accents for people who want a styled, finished home without the renovation.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop the collection",
-            "button_link": "/collections/all",
-            "button_style": "primary",
-            "button_size": "md",
-            "button_external": false,
-            "button_icon": true
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+    "founder": {
+      "type": "meave-about-founder",
       "settings": {
         "image": "",
-        "image_2": "",
-        "image_ratio": "portrait",
-        "image_width": "medium",
+        "image_alt": "Meave Sinclair, founder of Meave London",
         "layout": "image_first",
-        "text_alignment": "left",
-        "text_alignment_mobile": "left",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 120,
-        "padding_bottom": 100,
-        "divider": false,
-        "full_width": false,
-        "rounded": true,
-        "enable_parallax": true
+        "eyebrow": "The founder",
+        "heading": "It started with one dark hallway",
+        "text": "<p>Meave London began with a problem its founder, Meave Sinclair, could not stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to watch them undone by harsh, badly placed lighting that needed an electrician to fix.</p><p>During a long winter at home she sketched a different kind of light: a wall sconce with the warmth and proportions of a designer piece, but completely wireless. No drilling, no rewiring, no permission from a landlord. The first brass prototype went up in her own hallway in 2021, and within weeks friends and clients were asking where to buy one.</p><p>So she made more. Today Meave London designs warm, wireless wall lights, shades and furniture accents for people who want a styled, finished home without the renovation.</p>",
+        "signature": "Meave Sinclair",
+        "signature_role": "Founder, Meave London"
       }
     },
-    "portfolio": {
-      "type": "portfolio",
+    "values": {
+      "type": "meave-about-values",
       "blocks": {
-        "profile-1": {
-          "type": "profile",
+        "value-1": {
+          "type": "value",
           "settings": {
-            "image": "",
             "heading": "Considered by design",
-            "text": "<p>Every piece is drawn to feel like furniture, not a fixture. We obsess over proportion, finish and the way a light sits beside a mirror, a console or a bed, so it looks intentional from the first glance.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#2b2620"
+            "text": "<p>Every piece is drawn to feel like furniture, not a fixture. We obsess over proportion, finish and the way a light sits beside a mirror, a console or a bed.</p>"
           }
         },
-        "profile-2": {
-          "type": "profile",
+        "value-2": {
+          "type": "value",
           "settings": {
-            "image": "",
             "heading": "A warm, layered glow",
-            "text": "<p>Bright, blue-white light makes a room feel like an office. Our shades and bulbs are tuned for a soft, golden glow that makes evenings feel calm and rooms feel complete.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#8a6326"
+            "text": "<p>Bright, blue-white light makes a room feel like an office. Our shades and bulbs are tuned for a soft, golden glow that makes evenings feel calm.</p>"
           }
         },
-        "profile-3": {
-          "type": "profile",
+        "value-3": {
+          "type": "value",
           "settings": {
-            "image": "",
             "heading": "Wireless and renter-friendly",
-            "text": "<p>No drilling, no electrician, no landlord permission. Our lights are rechargeable and mount in minutes, so anyone, renters included, can upgrade a room and take it with them when they move.</p>",
-            "color_text": "#ffffff",
-            "color_background": "#4a443d"
+            "text": "<p>No drilling, no electrician, no landlord permission. Our lights are rechargeable and mount in minutes, so anyone can upgrade a room and take it with them.</p>"
           }
         }
       },
       "block_order": [
-        "profile-1",
-        "profile-2",
-        "profile-3"
+        "value-1",
+        "value-2",
+        "value-3"
       ],
       "settings": {
-        "columns": 4,
-        "layout": "grid",
-        "image_ratio": "portrait",
-        "image_ratio_mobile": "portrait",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "What we <em>stand for</em>",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left justify-start",
-        "heading_tag": "h2",
-        "subheading": "Meave London",
-        "description": "<p>Three ideas guide every light, shade and accent we make.</p>",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "scribble",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "#ccd8b5",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
-    "scrolling-text": {
-      "type": "scrolling-text",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<em><strong>Warm light &middot; Considered design &middot; Made for real homes</strong></em>",
-            "text_size": 160,
-            "text_font": "body",
-            "highlighted_text": "stencil",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "text"
-      ],
-      "settings": {
-        "direction": "left",
-        "speed": 20,
-        "grid_horizontal": 70,
-        "enable_twin": false,
-        "enable_parallax": true,
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "rounded": false
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "testimonial": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "quote",
-            "text": "<p>I wanted lighting that feels like furniture: warm, considered and easy to live with. Every Meave piece has to earn its place in a real home, not just look good in a showroom.</p>",
-            "author": "Meave Sinclair",
-            "author_info": "Founder, Meave London",
-            "author_url": "",
-            "image_ratio": "rounded",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 84,
-        "padding_bottom": 120,
-        "divider": false,
-        "rounded": false
+        "eyebrow": "Meave London",
+        "heading": "What we stand for",
+        "text": "<p>Three ideas guide every light, shade and accent we make.</p>"
       }
     },
     "timeline": {
-      "type": "timeline",
+      "type": "meave-about-timeline",
       "blocks": {
-        "content-1": {
-          "type": "content",
+        "m-1": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2019",
+            "year": "2019",
             "heading": "The idea that would not leave",
-            "heading_tag": "h2",
-            "text": "<p>Styling homes across London, Meave keeps meeting the same wall: beautiful rooms let down by harsh, awkwardly placed lighting that needs an electrician to fix.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>Styling homes across London, Meave keeps meeting the same wall: beautiful rooms let down by harsh, awkwardly placed lighting that needs an electrician to fix.</p>"
           }
         },
-        "content-2": {
-          "type": "content",
+        "m-2": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2020",
+            "year": "2020",
             "heading": "Sketches at the kitchen table",
-            "heading_tag": "h2",
-            "text": "<p>With more time at home, she starts designing a wall light with the warmth of a designer piece but none of the wiring, drawing and re-drawing until the proportions feel right.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>With more time at home, she starts designing a wall light with the warmth of a designer piece but none of the wiring, re-drawing until the proportions feel right.</p>"
           }
         },
-        "content-3": {
-          "type": "content",
+        "m-3": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2021",
+            "year": "2021",
             "heading": "The first prototype goes up",
-            "heading_tag": "h2",
-            "text": "<p>A single brass sconce is mounted in her own hallway, wireless and rechargeable. Friends and clients keep asking the same question: where can I buy one?</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>A single brass sconce is mounted in her own hallway, wireless and rechargeable. Friends keep asking the same question: where can I buy one?</p>"
           }
         },
-        "content-4": {
-          "type": "content",
+        "m-4": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2022",
+            "year": "2022",
             "heading": "Meave London is born",
-            "heading_tag": "h2",
-            "text": "<p>She launches with a small, carefully made collection of wireless wall lights, named after herself and designed for the rooms people actually live in.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>She launches with a small, carefully made collection of wireless wall lights, named after herself and designed for the rooms people actually live in.</p>"
           }
         },
-        "content-5": {
-          "type": "content",
+        "m-5": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2023",
+            "year": "2023",
             "heading": "More than a single light",
-            "heading_tag": "h2",
-            "text": "<p>Shades, finishes and warm furniture accents are added, so a room can be styled as a whole rather than one fitting at a time.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>Shades, finishes and warm furniture accents are added, so a room can be styled as a whole rather than one fitting at a time.</p>"
           }
         },
-        "content-6": {
-          "type": "content",
+        "m-6": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "2024",
+            "year": "2024",
             "heading": "A community of homes",
-            "heading_tag": "h2",
-            "text": "<p>Thousands of customers share photos of their hallways, bedrooms and consoles. Their rooms, and their reviews, become the best part of the job.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>Thousands of customers share photos of their hallways, bedrooms and consoles. Their rooms, and their reviews, become the best part of the job.</p>"
           }
         },
-        "content-7": {
-          "type": "content",
+        "m-7": {
+          "type": "milestone",
           "settings": {
-            "image": "",
-            "subheading": "Today",
+            "year": "Today",
             "heading": "Still designed in London",
-            "heading_tag": "h2",
-            "text": "<p>Meave London keeps growing, but the brief has not changed: warm, considered light that makes a real home feel finished, with no renovation required.</p>",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary",
-            "button_external": false,
-            "button_icon": true,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
+            "text": "<p>Meave London keeps growing, but the brief has not changed: warm, considered light that makes a real home feel finished, with no renovation required.</p>"
           }
         }
       },
       "block_order": [
-        "content-1",
-        "content-2",
-        "content-3",
-        "content-4",
-        "content-5",
-        "content-6",
-        "content-7"
+        "m-1",
+        "m-2",
+        "m-3",
+        "m-4",
+        "m-5",
+        "m-6",
+        "m-7"
       ],
       "settings": {
-        "image_ratio": "portrait",
-        "image_ratio_mobile": "wide",
-        "heading": "From a London flat to thousands of homes",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "Our journey",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "#ffffff",
-        "color_background": "#171717",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "#171717",
-        "color_button_background": "#ffffff",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 72,
-        "divider": false,
-        "full_width": false,
-        "rounded": true
+        "eyebrow": "Our journey",
+        "heading": "From a London flat to thousands of homes"
       }
     },
-    "rich-text": {
-      "type": "rich-text",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>To make warm, beautifully finished lighting that anyone can put up in minutes and feel proud of for years. No renovation, no compromise, just rooms that feel considered and calm.</p>",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_font": "body",
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Our <em>promise</em>",
-            "heading_size": "title-md",
-            "heading_tag": "h2",
-            "highlighted_text": "scribble",
-            "highlighted_scribble": "squiggle-underline"
-          }
-        }
-      },
-      "block_order": [
-        "text",
-        "heading"
-      ],
+    "quote": {
+      "type": "meave-about-quote",
       "settings": {
-        "text_alignment": "center",
-        "text_alignment_mobile": "center",
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "#fafafa",
-        "gradient_background": "",
-        "color_highlight": "#c5e8b8",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 120,
-        "padding_bottom": 20,
-        "divider": false,
-        "narrow": true,
-        "rounded": true
-      }
-    },
-    "logo-list": {
-      "type": "logo-list",
-      "disabled": true,
-      "blocks": {
-        "logo-1": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "logo-1"
-      ],
-      "settings": {
-        "layout": "marquee",
-        "grid_horizontal": 120,
-        "direction": "right",
-        "speed": 5,
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "#fafafa",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 60,
-        "padding_bottom": 120,
-        "divider": false,
-        "full_width": true,
-        "rounded": true
+        "quote": "<p>I wanted lighting that feels like furniture: warm, considered and easy to live with. Every Meave piece has to earn its place in a real home, not just look good in a showroom.</p>",
+        "image": "",
+        "author": "Meave Sinclair",
+        "role": "Founder, Meave London"
       }
     }
   },
   "order": [
     "main",
-    "image-with-text-overlay",
-    "images-with-text",
-    "portfolio",
-    "scrolling-text",
-    "testimonials",
+    "hero",
+    "founder",
+    "values",
     "timeline",
-    "rich-text",
-    "logo-list"
+    "quote"
   ]
 }

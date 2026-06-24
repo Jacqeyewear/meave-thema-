@@ -1,0 +1,165 @@
+<section class="meave-aquote">
+  <div class="meave-aquote__inner">
+    <span class="meave-aquote__mark" aria-hidden="true">&rdquo;</span>
+    {%- if section.settings.quote != blank -%}
+      <blockquote class="meave-aquote__text rte">{{ section.settings.quote }}</blockquote>
+    {%- endif -%}
+    {%- if section.settings.author != blank or section.settings.role != blank -%}
+      <div class="meave-aquote__by">
+        {%- if section.settings.image != blank -%}
+          <span class="meave-aquote__avatar">
+            {{- section.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', widths: '60,120', sizes: '54px', alt: section.settings.author -}}
+          </span>
+        {%- elsif section.settings.author != blank -%}
+          <span class="meave-aquote__avatar meave-aquote__avatar--initial" aria-hidden="true">{{ section.settings.author | strip | slice: 0 | upcase }}</span>
+        {%- endif -%}
+        <span class="meave-aquote__byText">
+          {%- if section.settings.author != blank -%}
+            <span class="meave-aquote__author">{{ section.settings.author | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.role != blank -%}
+            <span class="meave-aquote__role">{{ section.settings.role | escape }}</span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-aquote {
+    padding: 110px 20px;
+    background: #fff;
+    color: #15120f;
+  }
+
+  .meave-aquote__inner {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .meave-aquote__mark {
+    display: block;
+    margin: 0 auto -28px;
+    color: rgba(184, 137, 61, .26);
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .meave-aquote__text {
+    margin: 0;
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  .meave-aquote__text p {
+    margin: 0;
+  }
+
+  .meave-aquote__by {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 36px;
+  }
+
+  .meave-aquote__avatar {
+    display: grid;
+    overflow: hidden;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    place-items: center;
+  }
+
+  .meave-aquote__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .meave-aquote__avatar--initial {
+    background: #f1ece4;
+    color: #9a712e;
+    font-size: 19px;
+    font-weight: 700;
+  }
+
+  .meave-aquote__byText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .meave-aquote__author {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -.01em;
+  }
+
+  .meave-aquote__role {
+    color: #8a8178;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    .meave-aquote {
+      padding: 64px 16px;
+    }
+
+    .meave-aquote__mark {
+      font-size: 90px;
+      margin-bottom: -20px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave quote",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Quote",
+      "default": "<p>I wanted lighting that feels like furniture: warm, considered and easy to live with. Every Meave piece has to earn its place in a real home.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Author photo"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author",
+      "default": "Meave Sinclair"
+    },
+    {
+      "type": "text",
+      "id": "role",
+      "label": "Role",
+      "default": "Founder, Meave London"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave quote"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  }
+}
+{% endschema %}

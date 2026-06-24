@@ -1,0 +1,198 @@
+<section class="meave-avalues">
+  <div class="meave-avalues__inner">
+    <div class="meave-avalues__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="meave-avalues__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="meave-avalues__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="meave-avalues__intro rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="meave-avalues__grid">
+      {%- for block in section.blocks -%}
+        <div class="meave-avalues__item" {{ block.shopify_attributes }}>
+          <span class="meave-avalues__index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          {%- if block.settings.heading != blank -%}
+            <h3 class="meave-avalues__itemHeading">{{ block.settings.heading | escape }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="meave-avalues__itemText rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-avalues {
+    padding: 110px 20px;
+    background: #faf9f7;
+    color: #15120f;
+  }
+
+  .meave-avalues__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .meave-avalues__head {
+    max-width: 680px;
+    margin: 0 0 56px;
+  }
+
+  .meave-avalues__eyebrow {
+    margin: 0 0 16px;
+    color: #9a712e;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .meave-avalues__heading {
+    margin: 0;
+    font-size: clamp(30px, 3.4vw, 48px);
+    letter-spacing: -.04em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+
+  .meave-avalues__intro {
+    margin-top: 18px;
+    color: #6b635a;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .meave-avalues__intro p {
+    margin: 0;
+  }
+
+  .meave-avalues__grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .meave-avalues__item {
+    position: relative;
+    padding-top: 28px;
+    border-top: 1px solid rgba(21, 18, 15, .14);
+  }
+
+  .meave-avalues__index {
+    display: block;
+    margin-bottom: 16px;
+    color: #b8893d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .meave-avalues__itemHeading {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 1.25;
+  }
+
+  .meave-avalues__itemText {
+    color: #6b635a;
+    font-size: 15.5px;
+    line-height: 1.62;
+  }
+
+  .meave-avalues__itemText p {
+    margin: 0;
+  }
+
+  @media (max-width: 820px) {
+    .meave-avalues {
+      padding: 64px 16px;
+    }
+
+    .meave-avalues__head {
+      margin-bottom: 40px;
+    }
+
+    .meave-avalues__grid {
+      gap: 30px;
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave values",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Meave London"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What we stand for"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Three ideas guide every light, shade and accent we make.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Considered by design"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Every piece is drawn to feel like furniture, not a fixture. We obsess over proportion, finish and the way a light sits in a room.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave values",
+      "blocks": [
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        },
+        {
+          "type": "value"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  }
+}
+{% endschema %}

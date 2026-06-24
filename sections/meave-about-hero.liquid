@@ -1,0 +1,173 @@
+{%- liquid
+  assign hero_media = section.settings.image
+-%}
+
+<section class="meave-ahero" style="--meave-ahero-height: {{ section.settings.height }}px;">
+  <div class="meave-ahero__media">
+    {%- if hero_media != blank -%}
+      {{- hero_media
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '750,1100,1500,2000,2400',
+          sizes: '100vw',
+          alt: section.settings.image_alt
+      -}}
+    {%- else -%}
+      {{- 'lifestyle-1' | placeholder_svg_tag: 'meave-ahero__placeholder' -}}
+    {%- endif -%}
+  </div>
+  <div class="meave-ahero__inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="meave-ahero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h1 class="meave-ahero__heading">{{ section.settings.heading | escape }}</h1>
+    {%- endif -%}
+    {%- if section.settings.text != blank -%}
+      <div class="meave-ahero__text rte">{{ section.settings.text }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-ahero {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    min-height: var(--meave-ahero-height);
+    align-items: flex-end;
+    color: #fff;
+    background: #1b1714;
+  }
+
+  .meave-ahero__media,
+  .meave-ahero::after {
+    position: absolute;
+    inset: 0;
+  }
+
+  .meave-ahero__media img,
+  .meave-ahero__placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .meave-ahero::after {
+    content: "";
+    background: linear-gradient(180deg, rgba(15, 13, 10, .12) 0%, rgba(15, 13, 10, .2) 45%, rgba(15, 13, 10, .78) 100%);
+  }
+
+  .meave-ahero__inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 20px 72px;
+  }
+
+  .meave-ahero__eyebrow {
+    margin: 0 0 18px;
+    color: #e8c79a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+  .meave-ahero__heading {
+    max-width: 760px;
+    margin: 0;
+    color: inherit;
+    font-size: clamp(38px, 6vw, 76px);
+    letter-spacing: -.045em;
+    line-height: 1.0;
+    text-wrap: balance;
+  }
+
+  .meave-ahero__text {
+    max-width: 520px;
+    margin-top: 22px;
+    color: rgba(255, 255, 255, .9);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .meave-ahero__text p {
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .meave-ahero {
+      align-items: flex-end;
+    }
+
+    .meave-ahero__inner {
+      padding: 48px 16px 52px;
+    }
+
+    .meave-ahero__text {
+      font-size: 16px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave about hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alternative text",
+      "default": "Meave London styled interior"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our story"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Warm light, beautifully made"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Wireless wall lighting and warm furniture accents, designed in London for the rooms you actually live in.</p>"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height",
+      "min": 480,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 720
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave about hero"
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,213 @@
+<section class="meave-atimeline">
+  <div class="meave-atimeline__inner">
+    <div class="meave-atimeline__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="meave-atimeline__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="meave-atimeline__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    <ol class="meave-atimeline__list">
+      {%- for block in section.blocks -%}
+        <li class="meave-atimeline__item" {{ block.shopify_attributes }}>
+          <div class="meave-atimeline__marker" aria-hidden="true"></div>
+          <div class="meave-atimeline__body">
+            {%- if block.settings.year != blank -%}
+              <span class="meave-atimeline__year">{{ block.settings.year | escape }}</span>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h3 class="meave-atimeline__itemHeading">{{ block.settings.heading | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="meave-atimeline__text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% stylesheet %}
+  .meave-atimeline {
+    padding: 110px 20px;
+    background: #15120f;
+    color: #fff;
+  }
+
+  .meave-atimeline__inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .meave-atimeline__head {
+    margin: 0 0 52px;
+    text-align: center;
+  }
+
+  .meave-atimeline__eyebrow {
+    margin: 0 0 16px;
+    color: #e8c79a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .meave-atimeline__heading {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(28px, 3.4vw, 46px);
+    letter-spacing: -.04em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .meave-atimeline__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .meave-atimeline__item {
+    position: relative;
+    padding: 0 0 38px 38px;
+  }
+
+  .meave-atimeline__item:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Vertical line */
+  .meave-atimeline__item::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    bottom: -6px;
+    left: 5px;
+    width: 1px;
+    background: rgba(255, 255, 255, .16);
+  }
+
+  .meave-atimeline__item:last-child::before {
+    display: none;
+  }
+
+  .meave-atimeline__marker {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(150deg, #c69748, #936024);
+    box-shadow: 0 0 0 4px rgba(184, 137, 61, .16);
+  }
+
+  .meave-atimeline__year {
+    display: block;
+    margin-bottom: 8px;
+    color: #e8c79a;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+  }
+
+  .meave-atimeline__itemHeading {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -.015em;
+    line-height: 1.25;
+  }
+
+  .meave-atimeline__text {
+    color: rgba(255, 255, 255, .68);
+    font-size: 15.5px;
+    line-height: 1.62;
+  }
+
+  .meave-atimeline__text p {
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .meave-atimeline {
+      padding: 64px 16px;
+    }
+
+    .meave-atimeline__head {
+      margin-bottom: 40px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meave timeline",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our journey"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "From a London flat to thousands of homes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2021"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The first prototype goes up"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>A single brass sconce is mounted in her own hallway, wireless and rechargeable. Friends keep asking the same question: where can I buy one?</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meave timeline",
+      "blocks": [
+        {
+          "type": "milestone"
+        },
+        {
+          "type": "milestone"
+        },
+        {
+          "type": "milestone"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  }
+}
+{% endschema %}
