@@ -30,7 +30,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><em><strong>Add a tagline</strong></em></p>",
+            "text": "<p><em><strong>Our story</strong></em></p>",
             "text_size": "subtext-lg",
             "text_max_size": 32,
             "text_font": "body",
@@ -42,7 +42,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text overlay",
+            "heading": "Warm light, beautifully made",
             "heading_size": "title-xl tracking-heading",
             "heading_tag": "h1",
             "highlighted_text": "none",
@@ -87,7 +87,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Example <em>heading</em>",
+            "heading": "It started with one <em>dark hallway</em>",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "scribble",
@@ -97,7 +97,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<br/><br/>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store. Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Meave London began with a problem its founder, Meave Sinclair, could not stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to watch them undone by one thing: harsh, badly placed lighting. The pieces she loved needed an electrician, a wall chase and a budget most of her clients did not have.</p><p>During a long winter at home, she started sketching a different kind of light: a wall sconce with the warmth and proportions of a designer piece, but completely wireless. No drilling, no rewiring, no permission from a landlord. The first brass prototype went up in her own hallway in 2021. Within weeks, friends and clients were asking where they could buy one.</p><p>So she made more. Today Meave London designs warm, wireless wall lights, shades and furniture accents for people who want a styled, finished home without the renovation.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -109,8 +109,8 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Button label",
-            "button_link": "",
+            "button_label": "Shop the collection",
+            "button_link": "/collections/all",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
@@ -154,30 +154,30 @@
           "type": "profile",
           "settings": {
             "image": "",
-            "heading": "Example title",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<br/><br/>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store. Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "heading": "Considered by design",
+            "text": "<p>Every piece is drawn to feel like furniture, not a fixture. We obsess over proportion, finish and the way a light sits beside a mirror, a console or a bed, so it looks intentional from the first glance.</p>",
             "color_text": "#ffffff",
-            "color_background": "#4c5538"
+            "color_background": "#2b2620"
           }
         },
         "profile-2": {
           "type": "profile",
           "settings": {
             "image": "",
-            "heading": "Example title",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<br/><br/>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store. Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "heading": "A warm, layered glow",
+            "text": "<p>Bright, blue-white light makes a room feel like an office. Our shades and bulbs are tuned for a soft, golden glow that makes evenings feel calm and rooms feel complete.</p>",
             "color_text": "#ffffff",
-            "color_background": "#886a51"
+            "color_background": "#8a6326"
           }
         },
         "profile-3": {
           "type": "profile",
           "settings": {
             "image": "",
-            "heading": "Example title",
-            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<br/><br/>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store. Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "heading": "Wireless and renter-friendly",
+            "text": "<p>No drilling, no electrician, no landlord permission. Our lights are rechargeable and mount in minutes, so anyone, renters included, can upgrade a room and take it with them when they move.</p>",
             "color_text": "#ffffff",
-            "color_background": "#2e2d45"
+            "color_background": "#4a443d"
           }
         }
       },
@@ -193,12 +193,12 @@
         "image_ratio_mobile": "portrait",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "heading": "Talk about your <em>brand</em>",
+        "heading": "What we <em>stand for</em>",
         "heading_size": "title-md",
         "heading_alignment": "text-left justify-start",
         "heading_tag": "h2",
-        "subheading": "Add a tagline",
-        "description": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+        "subheading": "Meave London",
+        "description": "<p>Three ideas guide every light, shade and accent we make.</p>",
         "button_label": "",
         "button_link": "",
         "button_external": false,
@@ -226,7 +226,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<em><strong>Free shipping and returns</strong></em>",
+            "text": "<em><strong>Warm light &middot; Considered design &middot; Made for real homes</strong></em>",
             "text_size": 160,
             "text_font": "body",
             "highlighted_text": "stencil",
@@ -261,9 +261,9 @@
           "type": "testimonial",
           "settings": {
             "icon": "quote",
-            "text": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
-            "author": "Author's name",
-            "author_info": "",
+            "text": "<p>I wanted lighting that feels like furniture: warm, considered and easy to live with. Every Meave piece has to earn its place in a real home, not just look good in a showroom.</p>",
+            "author": "Meave Sinclair",
+            "author_info": "Founder, Meave London",
             "author_url": "",
             "image_ratio": "rounded",
             "highlighted_text": "none",
@@ -308,10 +308,10 @@
           "type": "content",
           "settings": {
             "image": "",
-            "subheading": "2017",
-            "heading": "Example title",
+            "subheading": "2019",
+            "heading": "The idea that would not leave",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Styling homes across London, Meave keeps meeting the same wall: beautiful rooms let down by harsh, awkwardly placed lighting that needs an electrician to fix.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -325,10 +325,10 @@
           "type": "content",
           "settings": {
             "image": "",
-            "subheading": "2019",
-            "heading": "Example title",
+            "subheading": "2020",
+            "heading": "Sketches at the kitchen table",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>With more time at home, she starts designing a wall light with the warmth of a designer piece but none of the wiring, drawing and re-drawing until the proportions feel right.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -342,10 +342,10 @@
           "type": "content",
           "settings": {
             "image": "",
-            "subheading": "2020",
-            "heading": "Example title",
+            "subheading": "2021",
+            "heading": "The first prototype goes up",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>A single brass sconce is mounted in her own hallway, wireless and rechargeable. Friends and clients keep asking the same question: where can I buy one?</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -359,10 +359,10 @@
           "type": "content",
           "settings": {
             "image": "",
-            "subheading": "2021",
-            "heading": "Example title",
+            "subheading": "2022",
+            "heading": "Meave London is born",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>She launches with a small, carefully made collection of wireless wall lights, named after herself and designed for the rooms people actually live in.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -377,9 +377,9 @@
           "settings": {
             "image": "",
             "subheading": "2023",
-            "heading": "Example title",
+            "heading": "More than a single light",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Shades, finishes and warm furniture accents are added, so a room can be styled as a whole rather than one fitting at a time.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -394,9 +394,9 @@
           "settings": {
             "image": "",
             "subheading": "2024",
-            "heading": "Example title",
+            "heading": "A community of homes",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Thousands of customers share photos of their hallways, bedrooms and consoles. Their rooms, and their reviews, become the best part of the job.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -410,10 +410,10 @@
           "type": "content",
           "settings": {
             "image": "",
-            "subheading": "2025",
-            "heading": "Example title",
+            "subheading": "Today",
+            "heading": "Still designed in London",
             "heading_tag": "h2",
-            "text": "<p>Share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>",
+            "text": "<p>Meave London keeps growing, but the brief has not changed: warm, considered light that makes a real home feel finished, with no renovation required.</p>",
             "button_label": "",
             "button_link": "",
             "button_style": "primary",
@@ -436,11 +436,11 @@
       "settings": {
         "image_ratio": "portrait",
         "image_ratio_mobile": "wide",
-        "heading": "Example heading",
+        "heading": "From a London flat to thousands of homes",
         "heading_size": "title-md",
         "heading_alignment": "text-left md:items-end md:flex-row",
         "heading_tag": "h2",
-        "subheading": "",
+        "subheading": "Our journey",
         "description": "",
         "highlighted_text": "none",
         "highlighted_scribble": "circle",
@@ -465,7 +465,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Add a tagline</p>",
+            "text": "<p>To make warm, beautifully finished lighting that anyone can put up in minutes and feel proud of for years. No renovation, no compromise, just rooms that feel considered and calm.</p>",
             "text_size": "subtext-md",
             "text_max_size": 32,
             "text_font": "body",
@@ -477,7 +477,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Example <em>heading</em>",
+            "heading": "Our <em>promise</em>",
             "heading_size": "title-md",
             "heading_tag": "h2",
             "highlighted_text": "scribble",
@@ -521,56 +521,9 @@
     },
     "logo-list": {
       "type": "logo-list",
+      "disabled": true,
       "blocks": {
         "logo-1": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-2": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-3": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-4": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-5": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-6": {
-          "type": "logo",
-          "settings": {
-            "image": "",
-            "height": 60,
-            "link": ""
-          }
-        },
-        "logo-7": {
           "type": "logo",
           "settings": {
             "image": "",
@@ -580,13 +533,7 @@
         }
       },
       "block_order": [
-        "logo-1",
-        "logo-2",
-        "logo-3",
-        "logo-4",
-        "logo-5",
-        "logo-6",
-        "logo-7"
+        "logo-1"
       ],
       "settings": {
         "layout": "marquee",
