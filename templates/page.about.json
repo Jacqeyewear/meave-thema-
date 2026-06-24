@@ -27,6 +27,7 @@
     "hero": {
       "type": "meave-about-hero",
       "settings": {
+        "image": "shopify://shop_images/meavegirid.jpg",
         "image_alt": "Meave London lighting in a calm interior",
         "eyebrow": "Our story",
         "heading": "Warm light, beautifully made",
