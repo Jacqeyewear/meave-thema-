@@ -27,7 +27,6 @@
     "hero": {
       "type": "meave-about-hero",
       "settings": {
-        "image": "",
         "image_alt": "Meave London lighting in a calm interior",
         "eyebrow": "Our story",
         "heading": "Warm light, beautifully made",
@@ -38,7 +37,7 @@
     "founder": {
       "type": "meave-about-founder",
       "settings": {
-        "image": "",
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_23_PM_9.png",
         "image_alt": "Meave Sinclair, founder of Meave London",
         "layout": "image_first",
         "eyebrow": "The founder",
@@ -162,7 +161,6 @@
       "type": "meave-about-quote",
       "settings": {
         "quote": "<p>I wanted lighting that feels like furniture: warm, considered and easy to live with. Every Meave piece has to earn its place in a real home, not just look good in a showroom.</p>",
-        "image": "",
         "author": "Meave Sinclair",
         "role": "Founder, Meave London"
       }
