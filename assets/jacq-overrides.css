@@ -485,3 +485,30 @@ button[name="checkout"]:focus-visible,
   outline: none !important;
   outline-offset: 0 !important;
 }
+
+/* ============================================================
+   Product page — align the info column with the lamp wizard:
+   clean accordions, soft hairline dividers, more whitespace,
+   muted body text. Scoped to the product template only.
+   ============================================================ */
+.template-product .product__accordion.details {
+  border-block-end: 1px solid rgba(0, 0, 0, 0.07);
+}
+.template-product .product__accordion .details__summary {
+  padding-block: 18px;
+}
+.template-product .product__accordion .details__summary .text-sm-base {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.template-product .product__accordion .details__summary > .icon {
+  color: #86868b;
+}
+.template-product .product__accordion .details__content {
+  color: #6e6e73;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.template-product .product__accordion .details__content > :first-child { margin-top: 0; }
+.template-product .product__accordion .details__content > :last-child { margin-bottom: 0; }
