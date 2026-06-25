@@ -574,9 +574,20 @@ body.template-product { background: #ffffff !important; }
 .template-product .meave-pdp-rating__num { font-size: 14px; font-weight: 600; color: #1d1d1f; }
 .template-product .meave-pdp-rating__count { font-size: 14px; color: #6e6e73; }
 
-/* Tighter spacing on mobile: title / price / USP */
+/* Mobile: drop the info "card" so content is full-width like JACQ */
 @media (max-width: 749px) {
+  .template-product .product__info {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 6px 16px 24px !important;
+  }
+  /* Tighter, JACQ-like spacing between title / price / USP */
   .template-product .product__title.grid { gap: 6px !important; }
   .template-product .meave-pdp-rating { margin-bottom: 4px !important; }
-  .template-product .meave-pdp-mini-trust { margin: 12px 0 !important; gap: 10px !important; }
+  .template-product .meave-pdp-mini-trust { margin: 14px 0 !important; gap: 11px !important; }
+  /* Full-width, comfortable Build-your-lamp button */
+  .template-product .mlw-trigger { min-height: 54px; font-size: 16px; }
+  /* Accordion headings a touch larger like JACQ tabs */
+  .template-product .product__accordion .details__summary .text-sm-base { font-size: 16px; }
 }
