@@ -9,47 +9,6 @@
  */
 {
   "sections": {
-    "home-founder": {
-      "type": "meave-about-founder",
-      "settings": {
-        "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_23_PM_9.png",
-        "image_alt": "Meave Sinclair, founder of Meave London",
-        "layout": "image_first",
-        "eyebrow": "",
-        "heading": "Designed in London, for real homes",
-        "text": "<p>Meave London started with something its founder, Meave Sinclair, couldn't stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to see them let down by harsh, badly placed lighting.</p><p>So she designed a different kind of light. It has the warmth and proportions of a designer wall sconce, but it's completely wireless, so there's no drilling and no rewiring.</p>",
-        "signature": "Meave Sinclair",
-        "signature_role": "Founder, Meave London"
-      }
-    },
-    "home-gallery": {
-      "type": "meave-pdp-gallery",
-      "blocks": {
-        "image_2": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_21_51_PM.png", "alt": "Wireless wall light styled at home" } },
-        "image_3": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_21_PM_3.png", "alt": "Warm light in a calm interior" } },
-        "image_4": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_22_PM_6.png", "alt": "Finish and shade detail" } },
-        "image_5": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_7.png", "alt": "Meave lighting in a finished room" } }
-      },
-      "block_order": [ "image_2", "image_3", "image_4", "image_5" ],
-      "settings": {
-        "eyebrow": "Styled at home",
-        "heading": "Made for the rooms you actually live in",
-        "text": "<p>See the finish, scale and glow from every angle before choosing the right light for your room.</p>"
-      }
-    },
-    "home-reviews": {
-      "type": "meave-pdp-reviews",
-      "blocks": {
-        "review_1": { "type": "review", "settings": { "rating": 5, "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>", "author": "Charlotte J.", "image": "shopify://shop_images/r10.jpg", "image_alt": "Customer photo of the Meave light" } },
-        "review_2": { "type": "review", "settings": { "rating": 5, "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>", "author": "Isabella E.", "image": "shopify://shop_images/r9.jpg", "image_alt": "Customer photo of the Meave light" } },
-        "review_3": { "type": "review", "settings": { "rating": 5, "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>", "author": "George B.", "image": "shopify://shop_images/r8.jpg", "image_alt": "Customer photo of the Meave light" } }
-      },
-      "block_order": [ "review_1", "review_2", "review_3" ],
-      "settings": {
-        "heading": "Loved for easy lighting upgrades",
-        "extra_reviews": 6
-      }
-    },
     "image_with_text_overlay_CUkRdx": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -568,24 +527,6 @@
         "rounded": false
       }
     },
-    "custom_liquid_CirTBi": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  #meave-trust *, #meave-trust *::before, #meave-trust *::after { box-sizing: border-box; }\n\n  #meave-trust {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    background: #ffffff;\n    color: #1D1D1F;\n    padding: 56px 0;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);\n  }\n  #meave-trust.is-visible { opacity: 1; transform: translateY(0); }\n\n  .mtrust-grid { display: flex; flex-direction: column; gap: 28px; }\n  .mtrust-left { display: flex; flex-direction: column; align-items: center; text-align: center; }\n\n  .mtrust-title {\n    font-size: 28px; font-weight: 700; letter-spacing: -0.035em;\n    line-height: 1.1; color: #1D1D1F; margin: 0 0 28px; text-align: center;\n  }\n  .mtrust-title b { color: #C18C1E; font-weight: 700; }\n\n  .mtrust-reviewer { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }\n  .mtrust-avatar {\n    width: 46px; height: 46px; border-radius: 999px; flex-shrink: 0;\n    display: flex; align-items: center; justify-content: center;\n    font-size: 15px; font-weight: 600; color: #ffffff;\n    background: linear-gradient(135deg, #F7DA8A 0%, #E0A93B 100%);\n    box-shadow: 0 2px 8px rgba(0,113,227,0.28);\n  }\n  .mtrust-reviewer-info { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }\n  .mtrust-reviewer-name {\n    display: inline-flex; align-items: center; gap: 5px;\n    font-size: 14px; font-weight: 600; color: #1D1D1F; letter-spacing: -0.01em;\n  }\n  .mtrust-badge { width: 14px; height: 14px; flex-shrink: 0; }\n  .mtrust-meta { display: flex; align-items: center; gap: 10px; }\n  .mtrust-stars { display: inline-flex; gap: 2px; }\n  .mtrust-stars svg { width: 14px; height: 14px; }\n  .mtrust-date { font-size: 12px; color: #86868b; font-weight: 400; }\n\n  .mtrust-review-title {\n    font-size: 17px; font-weight: 600; letter-spacing: -0.02em;\n    line-height: 1.3; color: #1D1D1F; margin: 0 0 12px;\n  }\n  .mtrust-review-text {\n    font-size: 14.5px; line-height: 1.65; color: #6e6e73;\n    letter-spacing: -0.005em; margin: 0; max-width: 460px;\n  }\n\n  .mtrust-photo {\n    width: 100%; border-radius: 18px; overflow: hidden;\n    box-shadow:\n      0 0.5px 1px rgba(0,0,0,0.03),\n      0 6px 16px -8px rgba(0,0,0,0.08),\n      0 16px 36px -14px rgba(0,0,0,0.08);\n  }\n  .mtrust-photo img { display: block; width: 100%; height: auto; }\n\n  @media (min-width: 768px) {\n    #meave-trust { padding: 80px 0; }\n    .mtrust-grid { flex-direction: row; align-items: center; gap: 48px; }\n    .mtrust-left { flex: 0 0 42%; max-width: 42%; }\n    .mtrust-photo { flex: 1 1 0; }\n    .mtrust-title { font-size: 48px; margin-bottom: 36px; }\n    .mtrust-review-title { font-size: 19px; }\n    .mtrust-review-text { font-size: 15px; }\n    .mtrust-photo { border-radius: 22px; }\n  }\n\n  @media (min-width: 1200px) {\n    .mtrust-grid { gap: 64px; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    *, *::before, *::after { transition: none !important; }\n  }\n</style>\n\n<section id=\"meave-trust\" data-meave-trust>\n  <svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n    <defs>\n      <linearGradient id=\"meaveTrustGold\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#F4CE6A\"/>\n        <stop offset=\"100%\" stop-color=\"#E0A93B\"/>\n      </linearGradient>\n    </defs>\n  </svg>\n\n  <div class=\"mtrust-grid\">\n\n    <div class=\"mtrust-left\">\n      <h2 class=\"mtrust-title\">Made for real<br><b>British</b> homes</h2>\n\n      <div class=\"mtrust-reviewer\">\n        <div class=\"mtrust-avatar\" aria-hidden=\"true\">BM</div>\n        <div class=\"mtrust-reviewer-info\">\n          <span class=\"mtrust-reviewer-name\">Brenda M.\n            <svg class=\"mtrust-badge\" viewBox=\"0 0 24 24\" fill=\"#3897F0\" aria-hidden=\"true\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg>\n          </span>\n          <span class=\"mtrust-meta\">\n            <span class=\"mtrust-stars\" aria-label=\"5 out of 5 stars\">\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n              <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveTrustGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n            </span>\n            <span class=\"mtrust-date\">8 May 2025</span>\n          </span>\n        </div>\n      </div>\n\n      <h3 class=\"mtrust-review-title\">Lovely lights, easy from start to finish</h3>\n      <p class=\"mtrust-review-text\">My lamps arrived safely and were really easy to put up. Once they were on the wall they added a lovely warmth to the entrance way. Very pleased with them.</p>\n    </div>\n\n    <div class=\"mtrust-photo\">\n      <img src=\"{{ 'meavegirid.jpg' | asset_url }}\" alt=\"MEAVE wireless wall lights styled in modern British homes\" loading=\"lazy\" width=\"1200\" height=\"800\">\n    </div>\n\n  </div>\n</section>\n\n<script>\n(function () {\n  var root = document.querySelector('[data-meave-trust]');\n  if (!root) return;\n  if ('IntersectionObserver' in window) {\n    var obs = new IntersectionObserver(function (entries) {\n      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });\n    }, { threshold: 0.1 });\n    obs.observe(root);\n  } else { root.classList.add('is-visible'); }\n})();\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 8,
-        "padding_bottom": 8,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "1775834241b6933450": {
       "type": "_blocks",
       "blocks": {
@@ -646,115 +587,6 @@
         "ai_gen_block_2400851_zmKfJp"
       ],
       "settings": {}
-    },
-    "collection-list": {
-      "type": "collection-list",
-      "blocks": {
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "damesbrillen",
-            "title": "Dames",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#a6a6a6",
-            "overlay_opacity": 0
-          }
-        },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "herenbrillen",
-            "title": "Heren",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#1d1d1d",
-            "overlay_opacity": 0
-          }
-        },
-        "collection-8": {
-          "type": "collection",
-          "settings": {
-            "collection": "sale",
-            "title": "Sale",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#171717",
-            "overlay_opacity": 0
-          }
-        },
-        "collection-3": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": "accesoires",
-            "title": "Accessoires",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#ffffff",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-8",
-        "collection-3"
-      ],
-      "settings": {
-        "columns": 3,
-        "carousel_on_desktop": false,
-        "image_type": "collection",
-        "image_ratio": "portrait",
-        "show_products_count": false,
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "heading": "",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "underline",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 16,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_CdBEt6": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  #meave-reviews *, #meave-reviews *::before, #meave-reviews *::after { box-sizing: border-box; }\n\n  #meave-reviews {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    background: #ffffff;\n    color: #1D1D1F;\n    padding: 56px 0;\n    overflow: hidden;\n    opacity: 0;\n    transform: translateY(20px);\n    transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);\n  }\n  #meave-reviews.is-visible { opacity: 1; transform: translateY(0); }\n\n  .mrev-header { text-align: center; margin-bottom: 32px; padding: 0 20px; }\n  .mrev-title {\n    font-size: 28px; font-weight: 700;\n    letter-spacing: -0.035em; line-height: 1.1; color: #1D1D1F; margin: 0;\n  }\n  .mrev-title b { color: #C18C1E; font-weight: 700; }\n  .mrev-sub {\n    font-size: 15px; color: #86868b; margin: 10px 0 0;\n    font-weight: 400; letter-spacing: -0.01em;\n  }\n\n  .mrev-viewport {\n    width: 100vw;\n    margin-left: calc(50% - 50vw);\n    overflow-x: auto;\n    overflow-y: hidden;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding: 30px 0 34px;\n  }\n  .mrev-viewport::-webkit-scrollbar { display: none; }\n  .mrev-viewport { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .mrev-track {\n    display: flex;\n    gap: 16px;\n    padding: 0 calc(50vw - 165px);\n    align-items: center;\n  }\n\n  .mrev-card {\n    flex: 0 0 330px;\n    scroll-snap-align: center;\n    background: #ffffff;\n    border: 0.5px solid rgba(0,0,0,0.05);\n    border-radius: 22px;\n    padding: 30px 26px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    box-shadow:\n      0 0.5px 1px rgba(0,0,0,0.03),\n      0 6px 16px -8px rgba(0,0,0,0.07),\n      0 12px 28px -12px rgba(0,0,0,0.06);\n    transform: scale(0.94);\n    opacity: 0.78;\n    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);\n  }\n  .mrev-card.is-center {\n    transform: scale(1);\n    opacity: 1;\n    box-shadow:\n      0 1px 2px rgba(0,0,0,0.04),\n      0 10px 24px -8px rgba(0,0,0,0.1),\n      0 24px 48px -16px rgba(0,0,0,0.12);\n  }\n\n  .mrev-stars {\n    display: inline-flex;\n    gap: 3px;\n    margin-bottom: 16px;\n  }\n  .mrev-stars svg { width: 16px; height: 16px; display: block; }\n\n  .mrev-text {\n    font-size: 14.5px;\n    line-height: 1.6;\n    color: #1D1D1F;\n    letter-spacing: -0.01em;\n    margin: 0 0 22px;\n    font-weight: 400;\n  }\n\n  .mrev-person { display: flex; flex-direction: column; align-items: center; gap: 11px; }\n  .mrev-avatar {\n    width: 52px; height: 52px; border-radius: 999px;\n    display: flex; align-items: center; justify-content: center;\n    font-size: 17px; font-weight: 600; letter-spacing: 0.01em;\n    color: #ffffff;\n    background: linear-gradient(135deg, #F7DA8A 0%, #E0A93B 100%);\n    box-shadow: 0 2px 8px rgba(0,113,227,0.28);\n  }\n\n  .mrev-person-info { display: flex; flex-direction: column; align-items: center; gap: 2px; }\n  .mrev-name {\n    display: inline-flex; align-items: center; gap: 5px;\n    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;\n    text-transform: uppercase; color: #1D1D1F;\n  }\n  .mrev-verified-badge {\n    width: 13px; height: 13px; flex-shrink: 0;\n    display: inline-flex; align-items: center; justify-content: center;\n  }\n  .mrev-loc {\n    font-size: 10.5px; font-weight: 500; letter-spacing: 0.02em; color: #C18C1E;\n  }\n\n  .mrev-dots {\n    display: flex; justify-content: center; align-items: center;\n    gap: 7px; margin-top: 22px;\n  }\n  .mrev-dot {\n    width: 7px; height: 7px; border-radius: 999px; border: none; padding: 0;\n    background: #d2d2d7; cursor: pointer;\n    transition: background-color 0.25s ease, transform 0.25s ease, width 0.25s ease;\n  }\n  .mrev-dot.is-active {\n    background: #0071e3;\n    width: 20px;\n  }\n\n  @media (min-width: 768px) {\n    #meave-reviews { padding: 80px 0; }\n    .mrev-header { margin-bottom: 44px; }\n    .mrev-title { font-size: 48px; }\n    .mrev-sub { font-size: 18px; }\n    .mrev-track { padding: 0 calc(50vw - 230px); gap: 22px; }\n    .mrev-card { flex: 0 0 440px; padding: 38px 40px; border-radius: 26px; }\n    .mrev-text { font-size: 16px; line-height: 1.65; }\n    .mrev-stars svg { width: 17px; height: 17px; }\n    .mrev-avatar { width: 58px; height: 58px; font-size: 19px; }\n  }\n\n  @media (prefers-reduced-motion: reduce) {\n    *, *::before, *::after { transition: none !important; }\n  }\n</style>\n\n<section id=\"meave-reviews\" data-meave-reviews>\n  <svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\">\n    <defs>\n      <linearGradient id=\"meaveStarGold\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n        <stop offset=\"0%\" stop-color=\"#F4CE6A\"/>\n        <stop offset=\"100%\" stop-color=\"#E0A93B\"/>\n      </linearGradient>\n    </defs>\n  </svg>\n\n  <div class=\"mrev-header\">\n    <h2 class=\"mrev-title\">Loved in <b>75,000+</b> homes</h2>\n    <p class=\"mrev-sub\">Real reviews from real MEAVE customers.</p>\n  </div>\n\n  <div class=\"mrev-viewport\" id=\"mrevViewport\">\n    <div class=\"mrev-track\" id=\"mrevTrack\">\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Really pleased with these. Warm light and they went up in a few minutes without any fuss. The hallway feels much cosier now.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">SH</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Susan H.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Manchester</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">We rent, so not being able to drill was a problem until I found these. They look fitted but come off cleanly. Handy for us.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">PD</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Paul D.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">London</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"#d2d2d7\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Good for reading in bed and the battery lasts well. Took a little while to arrive but happy with it. Would buy again.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">CW</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Carol W.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Bristol</div>\n          </div>\n        </div>\n      </article>\n\n      <article class=\"mrev-card\">\n        <span class=\"mrev-stars\" aria-label=\"5 out of 5 stars\">\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n          <svg viewBox=\"0 0 24 24\" fill=\"url(#meaveStarGold)\"><path d=\"M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.8 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z\"/></svg>\n        </span>\n        <p class=\"mrev-text\">Put two by the bathroom mirror. Look smart and no electrician needed, which saved a fair bit. Pleased with them.</p>\n        <div class=\"mrev-person\">\n          <div class=\"mrev-avatar\" aria-hidden=\"true\">AM</div>\n          <div class=\"mrev-person-info\">\n            <div class=\"mrev-name\">Andrew M.\n              <span class=\"mrev-verified-badge\"><svg viewBox=\"0 0 24 24\" fill=\"#3897F0\"><path d=\"M12 1l2.4 2.1 3.2-.3 1.3 2.9 2.9 1.3-.3 3.2L23.6 12l-2.1 2.4.3 3.2-2.9 1.3-1.3 2.9-3.2-.3L12 23.6l-2.4-2.1-3.2.3-1.3-2.9-2.9-1.3.3-3.2L.4 12l2.1-2.4-.3-3.2 2.9-1.3 1.3-2.9 3.2.3z\"/><path d=\"M10.3 14.9l-2.5-2.5-1.3 1.3 3.8 3.8 6.7-6.7-1.3-1.3z\" fill=\"#fff\"/></svg></span>\n            </div>\n            <div class=\"mrev-loc\">Leeds</div>\n          </div>\n        </div>\n      </article>\n\n    </div>\n  </div>\n\n  <div class=\"mrev-dots\" id=\"mrevDots\"></div>\n</section>\n\n<script>\n(function () {\n  var root = document.querySelector('[data-meave-reviews]');\n  if (!root) return;\n\n  if ('IntersectionObserver' in window) {\n    var fade = new IntersectionObserver(function (entries) {\n      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); fade.unobserve(e.target); } });\n    }, { threshold: 0.08 });\n    fade.observe(root);\n  } else { root.classList.add('is-visible'); }\n\n  var viewport = root.querySelector('#mrevViewport');\n  var track = root.querySelector('#mrevTrack');\n  var cards = Array.prototype.slice.call(track.querySelectorAll('.mrev-card'));\n  var dotsWrap = root.querySelector('#mrevDots');\n\n  cards.forEach(function (_, i) {\n    var b = document.createElement('button');\n    b.className = 'mrev-dot' + (i === 0 ? ' is-active' : '');\n    b.setAttribute('aria-label', 'Go to review ' + (i + 1));\n    b.addEventListener('click', function () {\n      var c = cards[i];\n      viewport.scrollTo({ left: c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });\n    });\n    dotsWrap.appendChild(b);\n  });\n  var dots = Array.prototype.slice.call(dotsWrap.children);\n\n  function update() {\n    var center = viewport.scrollLeft + viewport.clientWidth / 2;\n    var active = 0, min = Infinity;\n    cards.forEach(function (c, i) {\n      var cc = c.offsetLeft + c.offsetWidth / 2;\n      var d = Math.abs(cc - center);\n      if (d < min) { min = d; active = i; }\n    });\n    cards.forEach(function (c, i) { c.classList.toggle('is-center', i === active); });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === active); });\n  }\n\n  var ticking = false;\n  viewport.addEventListener('scroll', function () {\n    if (!ticking) { window.requestAnimationFrame(function () { update(); ticking = false; }); ticking = true; }\n  }, { passive: true });\n\n  window.addEventListener('resize', update);\n\n  requestAnimationFrame(function () {\n    var startIndex = window.innerWidth >= 768 ? Math.floor(cards.length / 2) : 0;\n    var c = cards[startIndex];\n    viewport.scrollLeft = c.offsetLeft - (viewport.clientWidth - c.offsetWidth) / 2;\n    update();\n  });\n})();\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 8,
-        "padding_bottom": 8,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
     },
     "rich_text_BECLQG": {
       "type": "rich-text",
@@ -1106,50 +938,6 @@
         "rounded": false
       }
     },
-    "featured_collection_aW9Tzt": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.name",
-      "settings": {
-        "collection": "",
-        "products": [
-          "agnes",
-          "elise",
-          "s31237",
-          "roel",
-          "remy",
-          "ben",
-          "senn",
-          "zion"
-        ],
-        "product_limit": 8,
-        "columns": 4,
-        "carousel_on_desktop": false,
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "Onze favorieten voor buiten",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 0,
-        "padding_bottom": 36,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
     "custom_liquid_n4LAEk": {
       "type": "custom-liquid",
       "disabled": true,
@@ -1226,13 +1014,24 @@
     }
   },
   "order": [
+    "image_with_text_overlay_CUkRdx",
     "ss_hero_pro_aMM6Uq",
+    "custom_liquid_hjzNNR",
     "custom_liquid_8xQqzt",
     "featured_collection_btEa6L",
-    "home-founder",
-    "collection-list",
-    "home-gallery",
-    "home-reviews",
-    "custom_liquid_jGLXh7"
+    "custom_liquid_tUhqNw",
+    "highlight_text_wcPQxJ",
+    "1775834241b6933450",
+    "rich_text_BECLQG",
+    "custom_liquid_VUrmXU",
+    "collection_list_iMfN6q",
+    "featured_collection_mk6AFf",
+    "shop-the-look",
+    "collection_list_Tx9JVF",
+    "custom_liquid_9fPeY7",
+    "custom_liquid_n4LAEk",
+    "custom_liquid_Vrnk4k",
+    "custom_liquid_jGLXh7",
+    "custom_liquid_3mhCHU"
   ]
 }
