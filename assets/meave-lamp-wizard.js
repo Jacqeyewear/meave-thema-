@@ -84,6 +84,8 @@
       this.steps     = Array.prototype.slice.call(this.querySelectorAll('[data-mlw-step]'));
 
       this.step = 1;
+      this.mode = this.dataset.mode || 'full';
+      this.totalSteps = this.steps.length || TOTAL_STEPS;
       this.lastFocus = null;
       this.afterAdd = this.dataset.afterAdd || 'cart';
       this.selectedUpsells = [];
@@ -100,8 +102,15 @@
         document.body.appendChild(this.sticky);
       }
 
-      this.products = this.readJSON('[data-mlw-products]', []).filter(hasRealColorOption);
       this.upsells  = this.readJSON('[data-mlw-upsell-data]', []);
+      this.selfProduct = this.readJSON('[data-mlw-self]', null);
+
+      if (this.mode === 'colour' && this.selfProduct) {
+        // Colour-only: the current product IS the single lamp; no shade products.
+        this.products = [this.selfProduct];
+      } else {
+        this.products = this.readJSON('[data-mlw-products]', []).filter(hasRealColorOption);
+      }
       this.productById = {};
       var self = this;
       this.products.forEach(function (p) { self.productById[String(p.id)] = p; });
@@ -110,7 +119,7 @@
 
       this.bind();
       this.renderColorStep(this.currentColorKey());
-      this.renderKapStep(this.dataset.currentProductId);
+      if (this.mode !== 'colour') this.renderKapStep(this.dataset.currentProductId);
       this.renderUpsells();
       this.updatePreview();
       this.updateCombo();
@@ -372,12 +381,12 @@
     }
 
     /* ---------- navigation ---------- */
-    next() { if (this.step < TOTAL_STEPS && this.validate(this.step)) this.goTo(this.step + 1); }
+    next() { if (this.step < this.totalSteps && this.validate(this.step)) this.goTo(this.step + 1); }
     validateUpTo(step) { for (var i = 1; i <= step; i++) { if (!this.validate(i, true)) return false; } return true; }
     goTo(step, silent) {
-      step = Math.min(TOTAL_STEPS, Math.max(1, step));
+      step = Math.min(this.totalSteps, Math.max(1, step));
       this.step = step; this.render();
-      if (step === TOTAL_STEPS) this.updateReview();
+      if (step === this.totalSteps) this.updateReview();
       if (this.body) this.body.scrollTop = 0;
       if (!silent) this.clearError();
     }
@@ -395,7 +404,7 @@
         tab.classList.toggle('is-done', n < self.step);
       });
       if (this.backBtn) this.backBtn.hidden = this.step === 1;
-      var onLast = this.step === TOTAL_STEPS;
+      var onLast = this.step === this.totalSteps;
       if (this.nextBtn) this.nextBtn.hidden = onLast;
       if (this.addBtn)  this.addBtn.hidden = !onLast;
       if (this.continueBtn) this.continueBtn.hidden = !onLast;
@@ -406,7 +415,10 @@
     /* ---------- selection / summary ---------- */
     getColorKey() { var el = this.root.querySelector('[data-mlw-color]:checked'); return el ? el.value : ''; }
     getColorLabel() { var el = this.root.querySelector('[data-mlw-color]:checked'); return el ? (el.getAttribute('data-label') || '') : ''; }
-    getKapId() { var el = this.root.querySelector('[data-mlw-kap]:checked'); return el ? el.value : ''; }
+    getKapId() {
+      if (this.mode === 'colour') return this.selfProduct ? String(this.selfProduct.id) : '';
+      var el = this.root.querySelector('[data-mlw-kap]:checked'); return el ? el.value : '';
+    }
     getKapTitle() { var p = this.productById[String(this.getKapId())]; return p ? p.title : ''; }
     resolvedVariantId() { var p = this.productById[String(this.getKapId())]; var v = this.variantFor(p, this.getColorKey()); return v ? v.id : ''; }
 
@@ -475,7 +487,8 @@
       if (p) {
         var v = this.variantFor(p, this.getColorKey());
         var img = (v && v.image) || p.image || this.colorImage();
-        var sub = this.qty > 1 ? (this.qty + ' × ' + p.price) : '';
+        var colorLabel = this.getColorLabel();
+        var sub = this.qty > 1 ? (this.qty + ' × ' + p.price) : (colorLabel || '');
         html += this.lineHTML(img, p.title, sub, moneyFmt(a.lampSub, sample));
       }
       var self = this;
@@ -491,8 +504,8 @@
 
     validate(step, quiet) {
       var ok = true, msg = '';
-      if (step === 1 && !this.getColorKey()) { ok = false; msg = 'Please choose a colour first.'; }
-      if (step === 2 && !this.getKapId())    { ok = false; msg = 'Please choose a shade first.'; }
+      if (step === 1 && this.colors.length && !this.getColorKey()) { ok = false; msg = 'Please choose a colour first.'; }
+      if (step === 2 && this.mode !== 'colour' && !this.getKapId()) { ok = false; msg = 'Please choose a shade first.'; }
       if (!ok && !quiet) this.showError(msg);
       return ok;
     }
@@ -504,7 +517,7 @@
       opts = opts || {};
       this.clearError();
       if (!this.validate(1)) { this.goTo(1); return; }
-      if (!this.validate(2)) { this.goTo(2); return; }
+      if (this.mode !== 'colour' && !this.validate(2)) { this.goTo(2); return; }
       var variantId = this.resolvedVariantId();
       if (!variantId) { this.showError('This combination is not available. Choose a different colour or shade.'); return; }
 
