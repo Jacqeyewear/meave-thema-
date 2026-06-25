@@ -139,6 +139,12 @@
     grid-column: span 1;
   }
 
+  /* 4 images: no oversized hero — a clean, equal row */
+  .meave-gallery__grid[data-count="4"] .meave-gallery__cell:first-child {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
   @media (max-width: 990px) {
     .meave-gallery__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));

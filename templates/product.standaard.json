@@ -136,16 +136,22 @@
         "rounded": false
       }
     },
+    "meave-founder": {
+      "type": "meave-about-founder",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_23_PM_9.png",
+        "image_alt": "Meave Sinclair, founder of Meave London",
+        "layout": "image_first",
+        "eyebrow": "The founder",
+        "heading": "Designed in London, for real homes",
+        "text": "<p>Meave London began with a problem its founder, Meave Sinclair, couldn't stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished &mdash; only to watch them undone by harsh, badly placed lighting.</p><p>So she designed a different kind of light: the warmth and proportions of a designer wall sconce, but completely wireless. No drilling, no rewiring. The first brass prototype went up in her own hallway in 2021 &mdash; and within weeks, everyone wanted one.</p>",
+        "signature": "Meave Sinclair",
+        "signature_role": "Founder, Meave London"
+      }
+    },
     "meave-gallery": {
       "type": "meave-pdp-gallery",
       "blocks": {
-        "image_1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_5.png",
-            "alt": "Meave light styled at home"
-          }
-        },
         "image_2": {
           "type": "image",
           "settings": {
@@ -176,7 +182,6 @@
         }
       },
       "block_order": [
-        "image_1",
         "image_2",
         "image_3",
         "image_4",
@@ -450,6 +455,7 @@
   },
   "order": [
     "main-product",
+    "meave-founder",
     "meave-gallery",
     "meave-reviews",
     "meave-story",
