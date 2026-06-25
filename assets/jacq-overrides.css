@@ -546,12 +546,28 @@ body.template-product { background: #ffffff !important; }
   color: #0071e3 !important;
 }
 
-/* Rating row above the title (4.4 / 1,000+ reviews) */
+/* Single-line, smaller product title (no 2-line wrap) */
+.template-product .product__title h1 {
+  font-size: clamp(15px, 4.4vw, 28px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.015em !important;
+  white-space: nowrap !important;
+}
+
+/* Rating row above the title (4.4 / 1,000+ reviews) with a divider */
 .template-product .meave-pdp-rating {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 16px;
+  margin: 2px 0 12px;
+}
+.template-product .meave-pdp-rating__verified {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin-left: 2px;
 }
 .template-product .meave-pdp-rating__stars {
   position: relative;
