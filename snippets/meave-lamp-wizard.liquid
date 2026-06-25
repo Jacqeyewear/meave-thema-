@@ -30,15 +30,25 @@
 
 {%- comment -%}
   Wizard mode:
-   - 'full'   : Colour + Shade + Summary  -> only "Wireless ... Sconces" products
-   - 'colour' : Colour + Summary (no Shade step) -> all other "standaard" lamps
+   - 'full'    : Colour + Shade + Summary  -> only "Wireless ... Sconces" products
+   - 'colour'  : Colour + Summary (no Shade step) -> multi-variant "standaard" lamps
+   - 'summary' : Summary only (no steps) -> single-variant lamps; ATC opens the overview
 {%- endcomment -%}
 {%- assign first8 = title_dc | slice: 0, 8 -%}
 {%- assign wizard_mode = 'colour' -%}
 {%- if first8 == 'wireless' and title_dc contains 'sconce' -%}
   {%- assign wizard_mode = 'full' -%}
+{%- elsif product.variants.size <= 1 -%}
+  {%- assign wizard_mode = 'summary' -%}
 {%- endif -%}
-{%- if wizard_mode == 'colour' -%}{%- assign sum_step = 2 -%}{%- else -%}{%- assign sum_step = 3 -%}{%- endif -%}
+{%- if wizard_mode == 'full' -%}
+  {%- assign sum_step = 3 -%}
+{%- elsif wizard_mode == 'colour' -%}
+  {%- assign sum_step = 2 -%}
+{%- else -%}
+  {%- assign sum_step = 1 -%}
+  {%- assign btn_label = 'Add to cart' -%}
+{%- endif -%}
 {%- assign has_options = false -%}
 {%- if kap_col != blank and kap_col.products_count > 0 -%}{%- assign has_options = true -%}{%- endif -%}
 
@@ -101,6 +111,7 @@
         </button>
       </header>
 
+      {%- if wizard_mode != 'summary' -%}
       <nav class="mlw-tabs" aria-label="Steps">
         <button type="button" class="mlw-tab is-active" data-mlw-tab="1">
           <span class="mlw-tab__num">1.</span>
@@ -117,8 +128,10 @@
           <span class="mlw-tab__txt">{{ block.settings.review_step_label | default: 'Summary' }}</span>
         </button>
       </nav>
+      {%- endif -%}
 
       <div class="mlw-body">
+        {%- if wizard_mode != 'summary' -%}
         {%- comment -%} STEP 1: STAAF COLOUR {%- endcomment -%}
         <section class="mlw-step is-active" data-mlw-step="1">
           <div class="mlw-preview" aria-hidden="true"><img data-mlw-preview src="" alt=""></div>
@@ -130,6 +143,7 @@
             <div class="mlw-colors" data-mlw-colors role="radiogroup" aria-label="{{ block.settings.color_heading | default: 'Colour' | escape }}"></div>
           </div>
         </section>
+        {%- endif -%}
 
         {%- if wizard_mode == 'full' -%}
         {%- comment -%} STEP 2: KAP (products in the chosen colour) {%- endcomment -%}

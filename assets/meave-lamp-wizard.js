@@ -105,8 +105,8 @@
       this.upsells  = this.readJSON('[data-mlw-upsell-data]', []);
       this.selfProduct = this.readJSON('[data-mlw-self]', null);
 
-      if (this.mode === 'colour' && this.selfProduct) {
-        // Colour-only: the current product IS the single lamp; no shade products.
+      if ((this.mode === 'colour' || this.mode === 'summary') && this.selfProduct) {
+        // Colour-only / summary-only: the current product IS the single lamp; no shade products.
         this.products = [this.selfProduct];
       } else {
         this.products = this.readJSON('[data-mlw-products]', []).filter(hasRealColorOption);
@@ -118,8 +118,8 @@
       this.colors = this.buildColors();
 
       this.bind();
-      this.renderColorStep(this.currentColorKey());
-      if (this.mode !== 'colour') this.renderKapStep(this.dataset.currentProductId);
+      if (this.mode !== 'summary') this.renderColorStep(this.currentColorKey());
+      if (this.mode === 'full') this.renderKapStep(this.dataset.currentProductId);
       this.renderUpsells();
       this.updatePreview();
       this.updateCombo();
@@ -416,7 +416,7 @@
     getColorKey() { var el = this.root.querySelector('[data-mlw-color]:checked'); return el ? el.value : ''; }
     getColorLabel() { var el = this.root.querySelector('[data-mlw-color]:checked'); return el ? (el.getAttribute('data-label') || '') : ''; }
     getKapId() {
-      if (this.mode === 'colour') return this.selfProduct ? String(this.selfProduct.id) : '';
+      if (this.mode === 'colour' || this.mode === 'summary') return this.selfProduct ? String(this.selfProduct.id) : '';
       var el = this.root.querySelector('[data-mlw-kap]:checked'); return el ? el.value : '';
     }
     getKapTitle() { var p = this.productById[String(this.getKapId())]; return p ? p.title : ''; }
@@ -504,8 +504,8 @@
 
     validate(step, quiet) {
       var ok = true, msg = '';
-      if (step === 1 && this.colors.length && !this.getColorKey()) { ok = false; msg = 'Please choose a colour first.'; }
-      if (step === 2 && this.mode !== 'colour' && !this.getKapId()) { ok = false; msg = 'Please choose a shade first.'; }
+      if (step === 1 && this.mode !== 'summary' && this.colors.length && !this.getColorKey()) { ok = false; msg = 'Please choose a colour first.'; }
+      if (step === 2 && this.mode === 'full' && !this.getKapId()) { ok = false; msg = 'Please choose a shade first.'; }
       if (!ok && !quiet) this.showError(msg);
       return ok;
     }
@@ -517,13 +517,14 @@
       opts = opts || {};
       this.clearError();
       if (!this.validate(1)) { this.goTo(1); return; }
-      if (this.mode !== 'colour' && !this.validate(2)) { this.goTo(2); return; }
+      if (this.mode === 'full' && !this.validate(2)) { this.goTo(2); return; }
       var variantId = this.resolvedVariantId();
       if (!variantId) { this.showError('This combination is not available. Choose a different colour or shade.'); return; }
 
-      // Last-chance: checking out without the recommended bulbs -> offer them at a discount
+      // Last-chance: checking out without the recommended bulbs -> offer them at a discount.
+      // Only on the full sconces funnel; simpler lamps (colour/summary) skip the bulb pop-up.
       var bulb = this.bulbUpsell();
-      if (!opts.skipLastChance && !opts.stay && bulb && this.selectedUpsells.indexOf(String(bulb.variantId)) < 0) {
+      if (this.mode === 'full' && !opts.skipLastChance && !opts.stay && bulb && this.selectedUpsells.indexOf(String(bulb.variantId)) < 0) {
         this._pendingBtn = opts.btn || this.addBtn;
         this.showLastChance(bulb);
         return;
