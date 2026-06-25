@@ -545,3 +545,38 @@ body.template-product { background: #ffffff !important; }
   flex: 0 0 22px !important;
   color: #0071e3 !important;
 }
+
+/* Rating row above the title (4.4 / 1,000+ reviews) */
+.template-product .meave-pdp-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.template-product .meave-pdp-rating__stars {
+  position: relative;
+  display: inline-block;
+  color: #d8d8dd;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.template-product .meave-pdp-rating__stars::before {
+  content: "★★★★★";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--pct, 88%);
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffb400;
+}
+.template-product .meave-pdp-rating__num { font-size: 14px; font-weight: 600; color: #1d1d1f; }
+.template-product .meave-pdp-rating__count { font-size: 14px; color: #6e6e73; }
+
+/* Tighter spacing on mobile: title / price / USP */
+@media (max-width: 749px) {
+  .template-product .product__title.grid { gap: 6px !important; }
+  .template-product .meave-pdp-rating { margin-bottom: 4px !important; }
+  .template-product .meave-pdp-mini-trust { margin: 12px 0 !important; gap: 10px !important; }
+}
