@@ -878,20 +878,44 @@
               {%- endif -%}
 
             {%- when 'collapsible_tab' -%}
+              {%- comment -%} Trust-tab remap: the theme's JSON template isn't syncing from GitHub, so we
+                 convert the old product tabs into JACQ-style trust tabs here in liquid (which does sync). {%- endcomment -%}
+              {%- liquid
+                assign mv_tab_heading = block.settings.heading | default: block.settings.page.title
+                assign mv_tab_content = block.settings.content
+                assign mv_tab_remap = false
+                assign mv_tab_skip = false
+                case block.settings.heading
+                  when 'How does it work?'
+                    assign mv_tab_heading = 'Shipping & returns'
+                    assign mv_tab_content = "<p><strong>Free tracked UK delivery</strong> on every order, dispatched within 24 hours. Most orders arrive within 2 to 4 working days, and you'll get a tracking link by email so you can follow it to your door.</p><p><strong>Not quite right?</strong> You have a full 30 days to send it back. If you're not completely happy, you get your money back, simple as that.</p>"
+                    assign mv_tab_remap = true
+                  when 'What is included?'
+                    assign mv_tab_heading = 'Warranty & service'
+                    assign mv_tab_content = "<p>Every Meave London light comes with a <strong>2-year warranty</strong> against manufacturing faults. If anything isn't right, we'll repair it, replace it or refund you.</p><p>Questions before or after you buy? Our team is here to help by email, Monday to Friday, and we usually reply within 24 hours.</p>"
+                    assign mv_tab_remap = true
+                  when 'Specifications'
+                    assign mv_tab_skip = true
+                endcase
+              -%}
+              {%- unless mv_tab_skip -%}
               <details class="product__accordion details {{ block.settings.style }}" is="accordion-details"{% if block.settings.opened %} open{% endif %} {{ block.shopify_attributes }}>
                 <summary class="details__summary flex items-center justify-between gap-2 cursor-pointer">
                   <div class="flex items-center gap-2d5">
                     {%- render 'icon-accordion', icon: block.settings.icon -%}
-                    <span class="text-sm-base font-medium leading-none">{{ block.settings.heading | default: block.settings.page.title | escape }}</span>
+                    <span class="text-sm-base font-medium leading-none">{{ mv_tab_heading | escape }}</span>
                   </div>
                   {%- render 'icon', icon: 'plus-2', size: 'xs', class: 'shrink-0' -%}
                 </summary>
                 <div class="details__content rte text-sm text-opacity">
-                  {{ block.settings.content }}
-                  {{ block.settings.page.content }}
-                  {{ block.settings.liquid }}
+                  {{ mv_tab_content }}
+                  {%- unless mv_tab_remap -%}
+                    {{ block.settings.page.content }}
+                    {{ block.settings.liquid }}
+                  {%- endunless -%}
                 </div>
               </details>
+              {%- endunless -%}
 
             {%- when 'countdown' -%}
               {%- if product.metafields.theme.countdown.value != blank -%}
