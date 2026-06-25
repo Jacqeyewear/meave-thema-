@@ -94,34 +94,37 @@
           {%- endif -%}
         </article>
       {%- endfor -%}
-
-      {%- comment -%} Extra written reviews so the wall feels full (photos sit on the first row) {%- endcomment -%}
-      {%- assign extra_count = section.settings.extra_reviews | default: 6 -%}
-      {%- for i in (1..extra_count) -%}
-        {%- assign nidx = forloop.index0 | plus: 6 | modulo: mv_names.size -%}
-        {%- assign didx = forloop.index0 | plus: 3 | modulo: mv_dates.size -%}
-        {%- assign qidx = forloop.index0 | plus: 4 | modulo: q5.size -%}
-        {%- assign aname = mv_names[nidx] -%}
-        <article class="meave-review meave-review--text">
-          <div class="meave-review__stars" role="img" aria-label="5 out of 5 stars">
-            {%- for star in (1..5) -%}
-              <svg class="is-active" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
-            {%- endfor -%}
-          </div>
-          <div class="meave-review__quote"><p>{{ q5[qidx] | escape }}</p></div>
-          <div class="meave-review__author">
-            <span class="meave-review__avatar" aria-hidden="true">{{ aname | strip | slice: 0 | upcase }}</span>
-            <span class="meave-review__who">
-              <span class="meave-review__name">{{ aname | escape }}</span>
-              <span class="meave-review__verified">
-                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
-                Verified buyer
-              </span>
-            </span>
-          </div>
-        </article>
-      {%- endfor -%}
     </div>
+
+    {%- comment -%} Written reviews (no photo): compact, stacked below the photo reviews {%- endcomment -%}
+    {%- assign extra_count = section.settings.extra_reviews | default: 6 -%}
+    {%- if extra_count > 0 -%}
+      <div class="meave-reviews__written">
+        {%- for i in (1..extra_count) -%}
+          {%- assign nidx = forloop.index0 | plus: 6 | modulo: mv_names.size -%}
+          {%- assign qidx = forloop.index0 | plus: 4 | modulo: q5.size -%}
+          {%- assign aname = mv_names[nidx] -%}
+          <article class="meave-review meave-review--text">
+            <div class="meave-review__stars" role="img" aria-label="5 out of 5 stars">
+              {%- for star in (1..5) -%}
+                <svg class="is-active" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.5l6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.4 6.3-.9L12 2.8Z"/></svg>
+              {%- endfor -%}
+            </div>
+            <div class="meave-review__quote"><p>{{ q5[qidx] | escape }}</p></div>
+            <div class="meave-review__author">
+              <span class="meave-review__avatar" aria-hidden="true">{{ aname | strip | slice: 0 | upcase }}</span>
+              <span class="meave-review__who">
+                <span class="meave-review__name">{{ aname | escape }}</span>
+                <span class="meave-review__verified">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.3 2.3 4.7-4.9"/></svg>
+                  Verified buyer
+                </span>
+              </span>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
 
     <div class="meave-reviews__actions">
       <button type="button" class="meave-reviews__all" data-mvrev-open aria-haspopup="dialog" aria-controls="{{ mv_modal_id }}">
@@ -409,6 +412,43 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  /* Written reviews (no photo): compact, stacked below the photo reviews */
+  .meave-reviews__written {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 760px;
+    margin: 16px auto 0;
+  }
+
+  .meave-review--text {
+    padding: 18px 22px;
+  }
+
+  .meave-review--text .meave-review__stars {
+    margin-bottom: 10px;
+  }
+
+  .meave-review--text .meave-review__stars svg {
+    width: 13px;
+  }
+
+  .meave-review--text .meave-review__quote {
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+
+  .meave-review--text .meave-review__author {
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+
+  .meave-review--text .meave-review__avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
   .meave-review {
     position: relative;
     display: flex;
@@ -549,31 +589,10 @@
   }
 
   @media (max-width: 900px) {
-    /* Compact swipeable slider — a peek of the next card hints there's more */
+    /* No carousel — photo reviews stack vertically */
     .meave-reviews__grid {
-      display: flex;
-      overflow-x: auto;
-      margin: 0 -20px;
-      padding: 4px 20px 14px;
-      gap: 12px;
-      grid-template-columns: none;
-      scroll-snap-type: x mandatory;
-      scroll-padding-left: 20px;
-      scrollbar-width: none;
-    }
-
-    .meave-reviews__grid::-webkit-scrollbar {
-      display: none;
-    }
-
-    .meave-review {
-      flex: 0 0 78%;
-      scroll-snap-align: start;
-      padding: 22px 22px 20px;
-    }
-
-    .meave-review__photo {
-      margin-top: 16px;
+      grid-template-columns: 1fr;
+      gap: 14px;
     }
   }
 
@@ -604,15 +623,12 @@
       margin-bottom: 36px;
     }
 
-    .meave-reviews__grid {
-      margin: 0 -16px;
-      padding: 4px 16px 14px;
-      scroll-padding-left: 16px;
+    .meave-review {
+      padding: 22px 22px 20px;
     }
 
-    .meave-review {
-      flex-basis: 82%;
-      padding: 20px 20px 18px;
+    .meave-review--text {
+      padding: 16px 18px;
     }
   }
 
