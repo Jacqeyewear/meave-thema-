@@ -676,13 +676,26 @@ body.template-product { background: #ffffff !important; }
    files do). These override the section's inline styles.
    ============================================================ */
 /* FAQ title/sub typography to match Reviews & Gallery sections */
-#meave-faq { font-family: inherit !important; }
-#meave-faq .mfaq-title { font-weight: 500 !important; letter-spacing: -0.025em !important; }
-#meave-faq .mfaq-sub { color: #6e6e73 !important; font-weight: 400 !important; }
-@media (min-width: 768px) {
-  #meave-faq .mfaq-title { font-size: 44px !important; }
-  #meave-faq .mfaq-sub { font-size: 17px !important; }
+/* Constrain width + add side padding so the header can't overflow */
+#meave-faq { padding-left: 20px !important; padding-right: 20px !important; }
+#meave-faq .mfaq-wrap { max-width: 1120px !important; margin: 0 auto !important; }
+/* Body text uses the theme body font; titles use the theme heading font (like every other section) */
+#meave-faq,
+#meave-faq .mfaq-sub,
+#meave-faq .mfaq-q,
+#meave-faq .mfaq-answer-inner,
+#meave-faq .mfaq-cat-desc,
+#meave-faq .mfaq-nav-btn,
+#meave-faq .mfaq-footer-left { font-family: var(--font-body-family, inherit) !important; }
+#meave-faq .mfaq-title,
+#meave-faq .mfaq-cat-title { font-family: var(--font-heading-family, inherit) !important; }
+#meave-faq .mfaq-title {
+  font-size: clamp(28px, 3.4vw, 44px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.08 !important;
 }
+#meave-faq .mfaq-sub { color: #6e6e73 !important; font-weight: 400 !important; font-size: 17px !important; }
 /* FAQ gold accents -> Apple blue */
 #meave-faq .mfaq-trigger:hover .mfaq-q { color: #0071e3 !important; }
 #meave-faq .mfaq-trigger:hover .mfaq-plus { background: rgba(0,113,227,0.10) !important; }
