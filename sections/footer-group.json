@@ -18,7 +18,7 @@
           "type": "menu",
           "settings": {
             "heading": "Products",
-            "menu": ""
+            "menu": "hoofdmenu-footer"
           }
         },
         "menu_Egj3bd": {
@@ -32,7 +32,7 @@
           "type": "menu",
           "settings": {
             "heading": "Contact",
-            "menu": ""
+            "menu": "footer-contact"
           }
         },
         "heading_mJQr4Q": {
