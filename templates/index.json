@@ -9,6 +9,47 @@
  */
 {
   "sections": {
+    "home-founder": {
+      "type": "meave-about-founder",
+      "settings": {
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_23_PM_9.png",
+        "image_alt": "Meave Sinclair, founder of Meave London",
+        "layout": "image_first",
+        "eyebrow": "",
+        "heading": "Designed in London, for real homes",
+        "text": "<p>Meave London started with something its founder, Meave Sinclair, couldn't stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to see them let down by harsh, badly placed lighting.</p><p>So she designed a different kind of light. It has the warmth and proportions of a designer wall sconce, but it's completely wireless, so there's no drilling and no rewiring.</p>",
+        "signature": "Meave Sinclair",
+        "signature_role": "Founder, Meave London"
+      }
+    },
+    "home-gallery": {
+      "type": "meave-pdp-gallery",
+      "blocks": {
+        "image_2": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_21_51_PM.png", "alt": "Wireless wall light styled at home" } },
+        "image_3": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_21_PM_3.png", "alt": "Warm light in a calm interior" } },
+        "image_4": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_22_PM_6.png", "alt": "Finish and shade detail" } },
+        "image_5": { "type": "image", "settings": { "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_7.png", "alt": "Meave lighting in a finished room" } }
+      },
+      "block_order": [ "image_2", "image_3", "image_4", "image_5" ],
+      "settings": {
+        "eyebrow": "Styled at home",
+        "heading": "Made for the rooms you actually live in",
+        "text": "<p>See the finish, scale and glow from every angle before choosing the right light for your room.</p>"
+      }
+    },
+    "home-reviews": {
+      "type": "meave-pdp-reviews",
+      "blocks": {
+        "review_1": { "type": "review", "settings": { "rating": 5, "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>", "author": "Charlotte J.", "image": "shopify://shop_images/r10.jpg", "image_alt": "Customer photo of the Meave light" } },
+        "review_2": { "type": "review", "settings": { "rating": 5, "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>", "author": "Isabella E.", "image": "shopify://shop_images/r9.jpg", "image_alt": "Customer photo of the Meave light" } },
+        "review_3": { "type": "review", "settings": { "rating": 5, "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>", "author": "George B.", "image": "shopify://shop_images/r8.jpg", "image_alt": "Customer photo of the Meave light" } }
+      },
+      "block_order": [ "review_1", "review_2", "review_3" ],
+      "settings": {
+        "heading": "Loved for easy lighting upgrades",
+        "extra_reviews": 6
+      }
+    },
     "image_with_text_overlay_CUkRdx": {
       "type": "image-with-text-overlay",
       "blocks": {
@@ -1185,28 +1226,13 @@
     }
   },
   "order": [
-    "image_with_text_overlay_CUkRdx",
     "ss_hero_pro_aMM6Uq",
-    "custom_liquid_hjzNNR",
     "custom_liquid_8xQqzt",
     "featured_collection_btEa6L",
-    "custom_liquid_tUhqNw",
-    "highlight_text_wcPQxJ",
-    "custom_liquid_CirTBi",
-    "1775834241b6933450",
+    "home-founder",
     "collection-list",
-    "custom_liquid_CdBEt6",
-    "rich_text_BECLQG",
-    "custom_liquid_VUrmXU",
-    "collection_list_iMfN6q",
-    "featured_collection_mk6AFf",
-    "shop-the-look",
-    "collection_list_Tx9JVF",
-    "custom_liquid_9fPeY7",
-    "featured_collection_aW9Tzt",
-    "custom_liquid_n4LAEk",
-    "custom_liquid_Vrnk4k",
-    "custom_liquid_jGLXh7",
-    "custom_liquid_3mhCHU"
+    "home-gallery",
+    "home-reviews",
+    "custom_liquid_jGLXh7"
   ]
 }
