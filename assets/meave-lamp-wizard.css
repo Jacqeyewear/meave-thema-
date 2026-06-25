@@ -833,7 +833,7 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
 }
 .mlw-sticky__now {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: #c8362e;
 }
 .mlw-sticky__was {

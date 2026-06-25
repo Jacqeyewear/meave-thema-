@@ -583,8 +583,8 @@ html.jacq-modal-lock{overflow:hidden !important;}
   --wp-text: #1d1d1f;
   --wp-muted: #6e6e73;
   --wp-subtle: #aeaeb2;
-  --wp-blue: #141414;
-  --wp-blue-hover: #000000;
+  --wp-blue: #0071e3;
+  --wp-blue-hover: #0077ed;
   --wp-border: rgba(0, 0, 0, 0.05);
   --wp-border-soft: rgba(0, 0, 0, 0.04);
   --wp-hairline: 0 0 0 0.5px rgba(0, 0, 0, 0.06);
@@ -852,7 +852,7 @@ body.template-cart .page-container {
   display: none !important;
 }
 .template-cart .cart__item-title {
-  color: var(--wp-blue) !important;
+  color: var(--wp-text) !important;
   font-weight: 500 !important;
   font-size: 17px !important;
   line-height: 1.25 !important;
@@ -1337,13 +1337,16 @@ body.template-cart .page-container {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-  transition: background .18s ease;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 6px 18px rgba(0, 113, 227, 0.30);
+  transition: background .18s ease, box-shadow .2s ease, transform .14s ease;
 }
 .template-cart .cart__sidebar .button.button--primary:hover {
   background: var(--wp-blue-hover);
   border-color: var(--wp-blue-hover);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 8px 22px rgba(0, 113, 227, 0.38);
+  transform: translateY(-1px);
 }
+.template-cart .cart__sidebar .button.button--primary:active { transform: translateY(0) scale(0.99); }
 /* No blue focus ring/border around the checkout button */
 .template-cart button[name="checkout"]:focus,
 .template-cart button[name="checkout"]:focus-visible,
@@ -1351,7 +1354,7 @@ body.template-cart .page-container {
 .template-cart .cart__sidebar .button.button--primary:focus-visible {
   outline: none !important;
   outline-color: transparent !important;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10) !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 6px 18px rgba(0, 113, 227, 0.30) !important;
 }
 
 /* Trust badges row in sidebar (no border, just icons + label) */
@@ -1974,7 +1977,7 @@ body.template-cart .page-container {
 @keyframes jacq-wp-spin { to { transform: rotate(360deg); } }
 
 .template-cart .jacq-wp-cart-savings {
-  color: var(--wp-blue);
+  color: #c8362e;
   font-size: 14px;
   font-weight: 500;
   margin: 0;
@@ -2013,7 +2016,7 @@ body.template-cart .page-container {
 }
 .jacq-wp-summary-line--savings .jacq-wp-summary-line__label,
 .jacq-wp-summary-line--savings .jacq-wp-summary-line__value {
-  color: var(--wp-blue);
+  color: #c8362e;
   font-weight: 400;
 }
 .jacq-wp-summary-line--subtotal {
