@@ -678,7 +678,7 @@ body.template-product { background: #ffffff !important; }
 /* FAQ title/sub typography to match Reviews & Gallery sections */
 /* Constrain width + add side padding so the header can't overflow */
 #meave-faq { padding-left: 20px !important; padding-right: 20px !important; }
-#meave-faq .mfaq-wrap { max-width: 1120px !important; margin: 0 auto !important; }
+#meave-faq .mfaq-wrap { max-width: 1280px !important; margin: 0 auto !important; }
 /* Body text uses the theme body font; titles use the theme heading font (like every other section) */
 #meave-faq,
 #meave-faq .mfaq-sub,
@@ -695,6 +695,9 @@ body.template-product { background: #ffffff !important; }
   letter-spacing: -0.025em !important;
   line-height: 1.08 !important;
 }
+/* Category titles inside panels: same clean weight as the section/title (was bold 600) */
+#meave-faq .mfaq-cat-title { font-weight: 500 !important; letter-spacing: -0.02em !important; }
+#meave-faq .mfaq-q { font-weight: 500 !important; }
 #meave-faq .mfaq-sub { color: #6e6e73 !important; font-weight: 400 !important; font-size: 17px !important; }
 /* FAQ gold accents -> Apple blue */
 #meave-faq .mfaq-trigger:hover .mfaq-q { color: #0071e3 !important; }
