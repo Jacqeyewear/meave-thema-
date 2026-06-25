@@ -49,7 +49,7 @@
         "lamp_wizard": {
           "type": "meave_lamp_wizard",
           "settings": {
-            "button_label": "Build your lamp",
+            "button_label": "Customise yours",
             "kappen_collection": "wall-lights-kopie",
             "color_step_label": "Colour",
             "color_heading": "Choose your colour",
