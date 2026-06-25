@@ -669,3 +669,33 @@ body.template-product { background: #ffffff !important; }
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 22px rgba(0, 113, 227, 0.38) !important;
 }
 .meave-colnav.is-visible .meave-colnav-pill--featured:hover svg { color: #fff !important; }
+
+/* ============================================================
+   FAQ + founder fixes deployed via CSS, because JSON template
+   edits are not syncing from GitHub to the theme (only code
+   files do). These override the section's inline styles.
+   ============================================================ */
+/* FAQ title/sub typography to match Reviews & Gallery sections */
+#meave-faq { font-family: inherit !important; }
+#meave-faq .mfaq-title { font-weight: 500 !important; letter-spacing: -0.025em !important; }
+#meave-faq .mfaq-sub { color: #6e6e73 !important; font-weight: 400 !important; }
+@media (min-width: 768px) {
+  #meave-faq .mfaq-title { font-size: 44px !important; }
+  #meave-faq .mfaq-sub { font-size: 17px !important; }
+}
+/* FAQ gold accents -> Apple blue */
+#meave-faq .mfaq-trigger:hover .mfaq-q { color: #0071e3 !important; }
+#meave-faq .mfaq-trigger:hover .mfaq-plus { background: rgba(0,113,227,0.10) !important; }
+#meave-faq .mfaq-trigger:hover .mfaq-plus svg { stroke: #0071e3 !important; }
+#meave-faq .mfaq-item.is-open .mfaq-plus { background: #0071e3 !important; box-shadow: 0 2px 8px rgba(0,113,227,0.32) !important; }
+#meave-faq .mfaq-item.is-open .mfaq-plus svg { stroke: #ffffff !important; }
+#meave-faq .mfaq-nav-btn.is-active .mfaq-nav-icon { background: rgba(0,113,227,0.12) !important; }
+#meave-faq .mfaq-nav-btn.is-active .mfaq-nav-icon svg { stroke: #0071e3 !important; }
+#meave-faq .mfaq-footer-link--contact { background: #0071e3 !important; color: #ffffff !important; box-shadow: 0 2px 6px rgba(0,113,227,0.28) !important; }
+@media (min-width: 768px) {
+  #meave-faq .mfaq-nav-btn.is-active .mfaq-nav-icon { background: #0071e3 !important; box-shadow: 0 2px 8px rgba(0,113,227,0.28) !important; }
+  #meave-faq .mfaq-nav-btn.is-active .mfaq-nav-icon svg { stroke: #ffffff !important; }
+}
+
+/* Founder section: remove the "The founder" eyebrow above the title on the product page */
+.template-product .meave-afounder__eyebrow { display: none !important; }
