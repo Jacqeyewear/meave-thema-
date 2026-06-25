@@ -22,6 +22,11 @@
 {%- assign sel_variant = product.selected_or_first_available_variant -%}
 {%- assign kap_col = block.settings.kappen_collection -%}
 {%- assign btn_label = block.settings.button_label | default: 'Customise yours' -%}
+{%- comment -%} Sets ("... Set of 2") get a plural CTA; everything else stays universal. {%- endcomment -%}
+{%- assign title_dc = product.title | downcase -%}
+{%- if title_dc contains 'set' -%}
+  {%- assign btn_label = 'Customise your lights' -%}
+{%- endif -%}
 {%- assign has_options = false -%}
 {%- if kap_col != blank and kap_col.products_count > 0 -%}{%- assign has_options = true -%}{%- endif -%}
 
