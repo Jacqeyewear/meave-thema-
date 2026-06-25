@@ -48,7 +48,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>We horen graag van je! Ons team staat klaar om je te helpen. <br/>Vul het <em>formulier</em> hieronder in om contact met ons op te nemen.</p>",
+            "text": "<p>We'd love to hear from you! Our team is here to help. <br/>Fill in the <em>form</em> below to get in touch.</p>",
             "text_font": "subtitle",
             "text_size": "subtext-sm",
             "text_max_size": 32,
@@ -112,8 +112,8 @@
         "contact-2": {
           "type": "contact",
           "settings": {
-            "heading": "Email",
-            "text": "<p>support@jacqeyewear.nl</p><p>Ma–Vr: 09:00–17:00</p>"
+            "heading": "Our working hours",
+            "text": "<p>Mon–Fri: 09:00–17:00</p>"
           }
         },
         "media": {
@@ -128,7 +128,7 @@
           "disabled": true,
           "settings": {
             "type": "text",
-            "title": "Telefoonnummer",
+            "title": "Phone number",
             "required": false,
             "full_width": false,
             "checked_value": "Yes",
@@ -141,13 +141,13 @@
           "type": "custom_field",
           "settings": {
             "type": "select",
-            "title": "Onderwerp",
+            "title": "Subject",
             "required": true,
             "full_width": false,
             "checked_value": "Yes",
             "unchecked_value": "No",
             "radio_options": "",
-            "select_options": "Bestellingen & Leveringen, Retouren & Ruilen, Betaling & Facturatie, Productinformatie & Voorraad, Acties & Kortingen, Klachten & Schade, Overige vragen"
+            "select_options": "Orders & Delivery, Returns & Exchanges, Payment & Billing, Product Info & Stock, Offers & Discounts, Complaints & Damage, Other questions"
           }
         }
       },
