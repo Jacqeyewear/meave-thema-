@@ -642,3 +642,30 @@ body.template-product { background: #ffffff !important; }
   /* Accordion headings a touch larger like JACQ tabs */
   .template-product .product__accordion .details__summary .text-sm-base { font-size: 16px; }
 }
+/* ============================================================
+   Homepage collection pills (meave-colnav) — Apple-clean refresh
+   Overrides the inline section styles: drops the gold "featured"
+   pill for the brand blue, simplifies the heavy multi-layer
+   shadows into one soft Apple shadow, fully-rounded pills.
+   ============================================================ */
+.meave-colnav-pill {
+  border-radius: 999px !important;
+  font-weight: 500 !important;
+  box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+}
+.meave-colnav.is-visible .meave-colnav-pill:hover {
+  box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.06), 0 12px 26px rgba(0, 0, 0, 0.10) !important;
+}
+/* Featured "Shop all" pill — Apple blue instead of gold */
+.meave-colnav-pill--featured {
+  background: #0071e3 !important;
+  color: #fff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 6px 18px rgba(0, 113, 227, 0.30) !important;
+}
+.meave-colnav-pill--featured svg,
+.meave-colnav-pill--featured span { color: #fff !important; }
+.meave-colnav.is-visible .meave-colnav-pill--featured:hover {
+  background: #0077ed !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 8px 22px rgba(0, 113, 227, 0.38) !important;
+}
+.meave-colnav.is-visible .meave-colnav-pill--featured:hover svg { color: #fff !important; }

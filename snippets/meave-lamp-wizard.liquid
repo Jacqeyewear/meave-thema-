@@ -188,8 +188,7 @@
 
           <p class="mlw-ship-note">{{ block.settings.ship_note | default: 'Ships within 24 hours' }}</p>
 
-          {%- comment -%} Bundle quantity tiers — buy more, save more (set-only; auto-discount on lamps) {%- endcomment -%}
-          {%- if wizard_mode == 'full' -%}
+          {%- comment -%} Bundle quantity tiers — buy more, save more (every wizard mode; auto-discount on lamps) {%- endcomment -%}
           <div class="mlw-bundle" data-mlw-bundle role="radiogroup" aria-label="{{ block.settings.bundle_label | default: 'How many?' }}">
             <button type="button" class="mlw-bundle__row is-on" data-mlw-qty="1" data-mlw-disc="0" aria-pressed="true">
               <span class="mlw-bundle__radio" aria-hidden="true"></span>
@@ -207,7 +206,6 @@
               <span class="mlw-bundle__prices"><span class="mlw-bundle__was" data-mlw-bundle-was></span><span class="mlw-bundle__price" data-mlw-bundle-price>—</span></span>
             </button>
           </div>
-          {%- endif -%}
 
           {%- comment -%} Upsells — directly under the overview {%- endcomment -%}
           <div class="mlw-upsell" data-mlw-upsell-wrap hidden>
