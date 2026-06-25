@@ -512,3 +512,16 @@ button[name="checkout"]:focus-visible,
 }
 .template-product .product__accordion .details__content > :first-child { margin-top: 0; }
 .template-product .product__accordion .details__content > :last-child { margin-bottom: 0; }
+
+/* White backgrounds + island trust badges on the product page */
+body.template-product { background: #ffffff !important; }
+.template-product .meave-pdp-mini-trust__item {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 10px 24px -16px rgba(0, 0, 0, 0.20);
+}
+.template-product .product__gallery-container .media,
+.template-product .product__gallery-container .product__media,
+.template-product .product__gallery-container .product__media-item {
+  background: #ffffff !important;
+}
