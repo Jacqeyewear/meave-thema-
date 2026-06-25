@@ -128,263 +128,6 @@
         "parallax_direction": "vertical"
       }
     },
-    "ss_hero_pro_aMM6Uq": {
-      "type": "ss-hero-pro",
-      "blocks": {
-        "caption_VMLE9r": {
-          "type": "caption",
-          "disabled": true,
-          "settings": {
-            "caption": "",
-            "caption_custom": false,
-            "caption_font": "josefin_sans_n4",
-            "caption_size": 12,
-            "caption_size_mobile": 12,
-            "caption_advanced": false,
-            "caption_height": 130,
-            "caption_mt": 0,
-            "caption_mt_mobile": 0,
-            "background": false,
-            "caption_bg_opacity": 0.3,
-            "enable_blur": true,
-            "caption_radius": 100,
-            "caption_border_thickness": 1,
-            "caption_padding_horizontal": 12,
-            "caption_padding_horizontal_mobile": 12,
-            "caption_padding_vertical": 6,
-            "caption_padding_vertical_mobile": 6,
-            "caption_color": "#ffffff",
-            "caption_bg_color": "#ffffff",
-            "caption_border_color": "#ffffff"
-          }
-        },
-        "heading_tHX4Yp": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p><em>Kwaliteit</em> met een <em>eerlijke prijs</em></p>",
-            "heading_custom": false,
-            "heading_font": "josefin_sans_n4",
-            "heading_accent_font": "playfair_n4",
-            "heading_size": 38,
-            "heading_size_mobile": 36,
-            "heading_advanced": false,
-            "heading_height": 130,
-            "heading_mt": 8,
-            "heading_mt_mobile": 8,
-            "heading_color": "#ffffff",
-            "heading_accent_color": "#ffffff"
-          }
-        },
-        "review_yW6gAL": {
-          "type": "review",
-          "settings": {
-            "stars_count": 4.5,
-            "stars_size": 16,
-            "stars_size_mobile": 14,
-            "stars_gap": 2,
-            "review": "<p>Rated 4.1/5 by 5,000+ reviews</p>",
-            "review_custom": false,
-            "review_font": "josefin_sans_n4",
-            "review_size": 14,
-            "review_size_mobile": 12,
-            "review_advanced": false,
-            "review_height": 130,
-            "review_mt": 0,
-            "review_mt_mobile": 0,
-            "background": true,
-            "review_bg_opacity": 0.3,
-            "enable_blur": true,
-            "review_radius": 10,
-            "review_border_thickness": 1,
-            "review_padding_horizontal": 12,
-            "review_padding_horizontal_mobile": 12,
-            "review_padding_vertical": 8,
-            "review_padding_vertical_mobile": 8,
-            "review_color": "#ffffff",
-            "review_bg_color": "#ffffff",
-            "review_border_color": "#ffffff",
-            "stars_color": "#ffffff",
-            "stars_bg_color": "#00b67a",
-            "stars_bg_half_color": "#dddddd"
-          }
-        },
-        "text_VitCMj": {
-          "type": "text",
-          "settings": {
-            "text": "<p><a href=\"/collections/brillen-op-sterkte\" title=\"Brillen\">Brillen</a> vanaf €50, inclusief glazen op sterkte.</p>",
-            "text_custom": false,
-            "text_font": "josefin_sans_n4",
-            "text_size": 17,
-            "text_size_mobile": 14,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_mt": 20,
-            "text_mt_mobile": 20,
-            "text_color": "#ffffff"
-          }
-        },
-        "feature_9Xde9k": {
-          "type": "feature",
-          "settings": {
-            "icon": "pin_tack",
-            "text": "Feature text"
-          }
-        },
-        "feature_B7pnBc": {
-          "type": "feature",
-          "settings": {
-            "icon": "pin_tack",
-            "text": "Feature text"
-          }
-        },
-        "feature_UdFWLe": {
-          "type": "feature",
-          "settings": {
-            "icon": "pin_tack",
-            "text": "Feature text"
-          }
-        },
-        "button_RB9LkT": {
-          "type": "button",
-          "settings": {
-            "button": "Shop now",
-            "url": "",
-            "open_in_new_tab": false,
-            "button_style": "non_outline",
-            "button_custom": false,
-            "button_font": "josefin_sans_n4",
-            "button_size": 14,
-            "button_size_mobile": 14,
-            "button_advanced": false,
-            "button_height": 100,
-            "button_padding_horizontal": 40,
-            "button_padding_horizontal_mobile": 32,
-            "button_padding_vertical": 20,
-            "button_padding_vertical_mobile": 20,
-            "button_radius": 100,
-            "button_border_thickness": 1,
-            "button_mt": 24,
-            "button_mt_mobile": 24,
-            "button_custom_styling": false,
-            "button_full_width_mobile": false,
-            "button_color": "#ffffff",
-            "button_hover_color": "#ffffff",
-            "button_bg_color": "#0071e3",
-            "button_bg_hover_color": "#55a4f4",
-            "button_border_color": "#1a1a1a",
-            "button_border_hover_color": "#1a1a1a",
-            "button_shadow_color": "#cecece"
-          }
-        },
-        "verified_mwRJb9": {
-          "type": "verified",
-          "settings": {
-            "icon_size": 16,
-            "icon_size_mobile": 16,
-            "icon": "shield_check",
-            "text": "<p>100-Dagen gratis proefdragen</p>",
-            "text_custom": false,
-            "text_font": "josefin_sans_n4",
-            "text_size": 14,
-            "text_size_mobile": 14,
-            "text_advanced": false,
-            "text_height": 150,
-            "text_mt": 16,
-            "text_mt_mobile": 16,
-            "icon_color": "#ffffff",
-            "text_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "caption_VMLE9r",
-        "heading_tHX4Yp",
-        "review_yW6gAL",
-        "text_VitCMj",
-        "feature_9Xde9k",
-        "feature_B7pnBc",
-        "feature_UdFWLe",
-        "button_RB9LkT",
-        "verified_mwRJb9"
-      ],
-      "disabled": true,
-      "name": "SS - Hero pro 💎",
-      "settings": {
-        "hero_height": "fixed_height",
-        "hero_fixed_height": 810,
-        "hero_fixed_height_mobile": 630,
-        "content_max_width": 49,
-        "enable_split_layout": false,
-        "content_align": "left",
-        "content_align_mobile": "center",
-        "content_vertical_align": "center",
-        "content_vertical_align_mobile": "end",
-        "features_advanced": false,
-        "features_mt": 20,
-        "features_mt_mobile": 20,
-        "features_gap": 24,
-        "features_gap_mobile": 12,
-        "feature_background": false,
-        "feature_bg_opacity": 0.3,
-        "feature_enable_blur": true,
-        "feature_radius": 100,
-        "feature_border_thickness": 1,
-        "feature_padding_horizontal": 12,
-        "feature_padding_horizontal_mobile": 12,
-        "feature_padding_vertical": 6,
-        "feature_padding_vertical_mobile": 6,
-        "feature_icon_size": 18,
-        "feature_icon_size_mobile": 16,
-        "feature_text_custom": false,
-        "feature_text_font": "josefin_sans_n4",
-        "feature_text_size": 16,
-        "feature_text_size_mobile": 14,
-        "feature_text_height": 150,
-        "feature_icon_color": "#ffffff",
-        "feature_text_color": "#ffffff",
-        "feature_bg_color": "#ffffff",
-        "feature_border_color": "#ffffff",
-        "layout_bg_type": "image",
-        "bg_video_url": "",
-        "bg_overlay": 0.1,
-        "bg_overlay_color": "#121212",
-        "background_style": "solid",
-        "background_color": "#121212",
-        "background_gradient": "radial-gradient(rgba(30, 30, 36, 1), rgba(5, 5, 5, 1) 100%)",
-        "border_color": "#121212",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "margin_horizontal": 0,
-        "margin_horizontal_mobile": 0,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "width": "full",
-        "content_width": 1200,
-        "border_thickness": 0,
-        "section_radius": 0,
-        "lazy": true
-      }
-    },
-    "custom_liquid_hjzNNR": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  .meave-usp-bar {\n    background: #1d1d1f;\n    padding: 0;\n    margin: 0;\n    width: 100vw;\n    margin-left: calc(-50vw + 50%);\n    font-family: 'HelveticaNow-Regular', 'Helvetica Now Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  }\n\n  .meave-usp-inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    max-width: none;\n    margin: 0 auto;\n    padding: 0 40px;\n  }\n\n  .meave-usp-item {\n    flex: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 16px 20px;\n    position: relative;\n  }\n\n  .meave-usp-item + .meave-usp-item::before {\n    content: '';\n    position: absolute;\n    left: 0;\n    top: 50%;\n    transform: translateY(-50%);\n    width: 1px;\n    height: 18px;\n    background: rgba(255,255,255,0.2);\n  }\n\n  .meave-usp-text {\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: rgba(255,255,255,0.88);\n    white-space: nowrap;\n  }\n\n  .meave-usp-mobile {\n    display: none;\n  }\n\n  @media (max-width: 767px) {\n    .meave-usp-inner {\n      display: none;\n    }\n\n    .meave-usp-mobile {\n      display: block;\n      text-align: center;\n      padding: 13px 20px;\n    }\n\n    .meave-usp-mobile-text {\n      font-size: 13px;\n      font-weight: 600;\n      letter-spacing: -0.01em;\n      color: rgba(255,255,255,0.88);\n      white-space: nowrap;\n    }\n  }\n\n  @media (min-width: 1024px) {\n    .meave-usp-item {\n      padding: 18px 24px;\n    }\n\n    .meave-usp-text {\n      font-size: 14px;\n    }\n  }\n</style>\n\n<div class=\"meave-usp-bar\">\n  <div class=\"meave-usp-inner\">\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">Free Delivery</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">30-Day Returns</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">2-Year Warranty</span>\n    </div>\n\n    <div class=\"meave-usp-item\">\n      <span class=\"meave-usp-text\">Tracked Shipping</span>\n    </div>\n  </div>\n\n  <div class=\"meave-usp-mobile\">\n    <span class=\"meave-usp-mobile-text\">Free Delivery · 30-Day Returns · Tracked Shipping</span>\n  </div>\n</div>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
     "custom_liquid_8xQqzt": {
       "type": "custom-liquid",
       "name": "t:sections.custom-liquid.name",
@@ -443,252 +186,78 @@
         "rounded": false
       }
     },
-    "custom_liquid_tUhqNw": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.name",
+    "home-founder": {
+      "type": "meave-about-founder",
       "settings": {
-        "liquid": "<style>\n  #jacq-compare {\n    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    margin: 0 auto;\n    padding: 60px 0;\n    max-width: 1600px;\n    background: #ffffff;\n    width: 100vw;\n    margin-left: calc(-50vw + 50%);\n    box-sizing: border-box;\n  }\n  .jacq-compare-header {\n    text-align: center;\n    margin-bottom: 40px;\n    padding: 0 20px;\n  }\n  .jacq-compare-header h2 {\n    font-size: 24px;\n    font-weight: 700;\n    letter-spacing: -0.035em;\n    line-height: 1.08;\n    color: #1D1D1F;\n    margin: 0;\n    font-family: Helvetica, Arial, sans-serif;\n  }\n  .jacq-compare-sub {\n    font-size: 14px;\n    color: #86868b;\n    margin: 8px 0 0;\n    letter-spacing: -0.01em;\n    line-height: 1.5;\n  }\n\n  /* ── Switch toggle ── */\n  .jacq-compare-switch {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-top: 20px;\n  }\n  .jacq-compare-switch-track {\n    display: inline-flex;\n    background: #F5F5F7;\n    border-radius: 980px;\n    padding: 4px;\n  }\n  .jacq-compare-switch-opt {\n    padding: 8px 20px;\n    font-size: 13px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: #86868b;\n    border: none;\n    background: none;\n    border-radius: 980px;\n    cursor: pointer;\n    transition: color 0.25s, background 0.25s, box-shadow 0.25s;\n    position: relative;\n    z-index: 1;\n    white-space: nowrap;\n    font-family: inherit;\n  }\n  .jacq-compare-switch-opt.is-active {\n    color: #1D1D1F;\n    background: #ffffff;\n    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);\n  }\n\n  /* ── Card grid / slider ── */\n  .jacq-compare-cards {\n    display: flex;\n    flex-direction: row;\n    gap: 10px;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding: 24px 16px 32px;\n    position: relative;\n  }\n  .jacq-compare-cards::-webkit-scrollbar { display: none; }\n  .jacq-compare-cards { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .jacq-compare-card {\n    border-radius: 24px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    overflow: visible;\n    flex: 0 0 85%;\n    scroll-snap-align: center;\n    min-width: 0;\n    background: #ffffff;\n    box-shadow:\n      0 1px 2px rgba(0,0,0,0.04),\n      0 4px 8px rgba(0,0,0,0.04),\n      0 12px 28px rgba(0,0,0,0.06);\n  }\n\n  /* ── Entrance animation ── */\n  .jacq-anim-ready .jacq-compare-card {\n    opacity: 0;\n    transform: translateY(40px);\n    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),\n                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .jacq-anim-ready .jacq-compare-card:nth-child(2) { transition-delay: 0.1s; }\n  .jacq-anim-ready .jacq-compare-card:nth-child(3) { transition-delay: 0.2s; }\n  .jacq-anim-ready .jacq-compare-card:nth-child(4) { transition-delay: 0.3s; }\n  .jacq-anim-ready .jacq-compare-card.is-visible {\n    opacity: 1;\n    transform: translateY(0);\n  }\n\n  /* ── Card parts ── */\n  .jacq-compare-card-band {\n    border-radius: 24px 24px 0 0;\n    padding: 0 24px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 58px;\n    box-sizing: border-box;\n  }\n  .jacq-compare-card-body {\n    border-radius: 0 0 24px 24px;\n    background: #fff;\n    padding: 24px 24px 28px;\n    display: flex;\n    flex-direction: column;\n    flex: 1;\n  }\n\n  .jacq-compare-card--jacq .jacq-compare-card-band { background: #1D1D1F; }\n  .jacq-compare-card--ha .jacq-compare-card-band { background: #C8102E; }\n  .jacq-compare-card--pearle .jacq-compare-card-band { background: #00A77E; }\n  .jacq-compare-card--ss .jacq-compare-card-band { background: #2D8C3C; }\n\n  .jacq-compare-card-name {\n    font-size: 22px;\n    font-weight: 700;\n    letter-spacing: 0.01em;\n    color: #ffffff;\n  }\n  .jacq-compare-card-logo {\n    height: 34px;\n    width: auto;\n    display: block;\n    object-fit: contain;\n    filter: brightness(0) invert(1);\n  }\n\n  /* ── Badge ── */\n  .jacq-compare-badge {\n    position: absolute;\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    background: #0071E3;\n    color: #ffffff;\n    font-size: 10px;\n    font-weight: 700;\n    letter-spacing: 0.06em;\n    text-transform: uppercase;\n    padding: 7px 18px;\n    border-radius: 999px;\n    white-space: nowrap;\n    line-height: 1;\n    z-index: 10;\n    box-shadow:\n      0 0 0 1px rgba(0,113,227,0.08),\n      0 2px 4px rgba(0,113,227,0.12),\n      0 4px 12px rgba(0,113,227,0.1),\n      0 0 24px rgba(0,113,227,0.08);\n    animation: jacqBadgePulse 2.4s ease-in-out 2s infinite;\n  }\n  @keyframes jacqBadgePulse {\n    0%, 100% {\n      box-shadow:\n        0 0 0 1px rgba(0,113,227,0.08),\n        0 2px 4px rgba(0,113,227,0.12),\n        0 4px 12px rgba(0,113,227,0.1),\n        0 0 24px rgba(0,113,227,0.08);\n      transform: translate(-50%, -50%) scale(1);\n    }\n    50% {\n      box-shadow:\n        0 0 0 5px rgba(0,113,227,0.1),\n        0 2px 10px rgba(0,113,227,0.3),\n        0 4px 24px rgba(0,113,227,0.25),\n        0 0 48px rgba(0,113,227,0.18);\n      transform: translate(-50%, -50%) scale(1.05);\n    }\n  }\n\n  /* ── Price ── */\n  .jacq-compare-price {\n    display: flex;\n    align-items: baseline;\n    justify-content: center;\n    gap: 8px;\n    margin-bottom: 4px;\n  }\n  .jacq-compare-price-from {\n    font-size: 16px;\n    font-weight: 500;\n    letter-spacing: -0.01em;\n    color: #86868b;\n  }\n  .jacq-compare-price-amount {\n    font-size: 44px;\n    font-weight: 700;\n    letter-spacing: -0.04em;\n    line-height: 1.05;\n    color: #1D1D1F;\n  }\n  .jacq-compare-included {\n    font-size: 13px;\n    font-weight: 500;\n    margin-bottom: 24px;\n    letter-spacing: -0.01em;\n    text-align: center;\n    min-height: 20px;\n  }\n  .jacq-compare-card--jacq .jacq-compare-included { color: #34C759; }\n  .jacq-compare-card--ha .jacq-compare-included { color: #34C759; }\n  .jacq-compare-card--pearle .jacq-compare-included,\n  .jacq-compare-card--ss .jacq-compare-included { color: #86868b; }\n\n  /* ── Divider ── */\n  .jacq-compare-divider {\n    height: 1px;\n    background: rgba(0,0,0,0.06);\n    margin-bottom: 18px;\n  }\n\n  /* ── Features ── */\n  .jacq-compare-features {\n    display: flex;\n    flex-direction: column;\n    flex: 1;\n  }\n  .jacq-compare-row {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n    padding: 12px 0;\n  }\n  .jacq-compare-row + .jacq-compare-row {\n    border-top: 1px solid rgba(0,0,0,0.05);\n  }\n  .jacq-compare-row-icon {\n    width: 28px;\n    height: 28px;\n    flex-shrink: 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 50%;\n  }\n  .jacq-compare-row-icon svg {\n    width: 14px;\n    height: 14px;\n    stroke-width: 2.2;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n    fill: none;\n  }\n  .jacq-compare-row-icon--check { background: rgba(52,199,89,0.1); }\n  .jacq-compare-row-icon--check svg { stroke: #34C759; }\n  .jacq-compare-row-icon--cross { background: rgba(255,59,48,0.08); }\n  .jacq-compare-row-icon--cross svg { stroke: #FF3B30; }\n  .jacq-compare-row-icon--paid { background: rgba(255,149,0,0.1); }\n  .jacq-compare-row-icon--paid svg { stroke: #FF9500; }\n  .jacq-compare-row-text {\n    font-size: 14px;\n    font-weight: 400;\n    line-height: 1.4;\n    letter-spacing: -0.01em;\n    color: #1D1D1F;\n    flex: 1;\n  }\n  .jacq-compare-row-extra {\n    font-size: 12px;\n    font-weight: 600;\n    color: #FF9500;\n    white-space: nowrap;\n  }\n\n  /* ── Trustpilot ── */\n  .jacq-compare-trustpilot {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 10px;\n    margin-top: 20px;\n    padding-top: 16px;\n    border-top: 1px solid rgba(0,0,0,0.05);\n  }\n  .jacq-compare-tp-stars {\n    display: inline-flex;\n    gap: 2px;\n    line-height: 0;\n  }\n  .jacq-compare-tp-star-box {\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #00B67A;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .jacq-compare-tp-star-box--empty { background: #dcdce6; }\n  .jacq-compare-tp-star-box--half {\n    background: linear-gradient(to right, #00B67A 50%, #dcdce6 50%);\n  }\n  .jacq-compare-tp-star-box svg {\n    width: 12px;\n    height: 12px;\n    display: block;\n  }\n  .jacq-compare-tp-info {\n    display: flex;\n    flex-direction: column;\n    gap: 1px;\n  }\n  .jacq-compare-tp-score {\n    font-size: 14px;\n    font-weight: 700;\n    color: #1D1D1F;\n    letter-spacing: -0.02em;\n    line-height: 1;\n  }\n  .jacq-compare-tp-label {\n    font-size: 10px;\n    font-weight: 500;\n    color: #86868b;\n    letter-spacing: -0.01em;\n    line-height: 1;\n    font-style: italic;\n  }\n\n  /* ── Confetti canvas ── */\n  .jacq-confetti-canvas {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    pointer-events: none;\n    z-index: 9999;\n  }\n\n  /* ── Dots ── */\n  .jacq-compare-dots {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 6px;\n    margin-top: 24px;\n  }\n  .jacq-compare-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background-color 0.2s, width 0.2s;\n    cursor: pointer;\n  }\n  .jacq-compare-dot.is-active {\n    background: #1D1D1F;\n    width: 18px;\n  }\n\n  /* ── Disclaimer ── */\n  .jacq-compare-disclaimer-wrap {\n    text-align: center;\n    margin-top: 20px;\n    padding: 0 12px;\n  }\n  .jacq-compare-disclaimer-toggle {\n    font-size: 12px;\n    color: #9ca3af;\n    background: none;\n    border: none;\n    cursor: pointer;\n    text-decoration: underline;\n    text-underline-offset: 2px;\n    padding: 0;\n    letter-spacing: -0.01em;\n    font-family: inherit;\n  }\n  .jacq-compare-disclaimer-toggle:hover { color: #6b7280; }\n  .jacq-compare-disclaimer-text {\n    display: none;\n    font-size: 11px;\n    color: #9ca3af;\n    line-height: 1.5;\n    margin-top: 8px;\n    letter-spacing: -0.01em;\n  }\n  .jacq-compare-disclaimer-text.is-open { display: block; }\n\n  /* ── Tablet 768+ ── */\n  @media (min-width: 768px) {\n    #jacq-compare { padding: 80px 40px; width: auto; margin-left: auto; margin-right: auto; }\n    .jacq-compare-header { margin-bottom: 48px; }\n    .jacq-compare-header h2 { font-size: 48px; }\n    .jacq-compare-sub { font-size: 19px; }\n    .jacq-compare-switch-opt { padding: 10px 28px; font-size: 14px; }\n    .jacq-compare-cards {\n      overflow-x: visible;\n      scroll-snap-type: none;\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 20px;\n      padding: 20px 0 20px;\n    }\n    .jacq-compare-card {\n      flex: none;\n      width: 100%;\n      box-shadow:\n        0 1px 3px rgba(0,0,0,0.04),\n        0 6px 16px rgba(0,0,0,0.06),\n        0 18px 40px rgba(0,0,0,0.07);\n    }\n    .jacq-compare-card-band { height: 64px; padding: 0 36px; }\n    .jacq-compare-card-body { padding: 28px 36px 36px; }\n    .jacq-compare-price-amount { font-size: 48px; }\n    .jacq-compare-row-text { font-size: 15px; }\n    .jacq-compare-dots { display: none; }\n  }\n\n  /* ── Desktop 1200+ ── */\n  @media (min-width: 1200px) {\n    #jacq-compare { max-width: 1600px; padding: 80px 48px; }\n    .jacq-compare-cards {\n      grid-template-columns: repeat(4, 1fr);\n      gap: 24px;\n      padding: 20px 0 20px;\n    }\n    .jacq-compare-card-band { height: 68px; padding: 0 32px; }\n    .jacq-compare-card-body { padding: 28px 32px 36px; }\n    .jacq-compare-price-amount { font-size: 52px; }\n    .jacq-compare-card {\n      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),\n                  transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),\n                  box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);\n    }\n    .jacq-compare-card.is-visible:hover {\n      transform: translateY(-8px) scale(1.02);\n      box-shadow:\n        0 28px 56px rgba(0,0,0,0.12),\n        0 10px 24px rgba(0,0,0,0.08);\n      z-index: 2;\n    }\n  }\n\n  /* ── Price explanation accordion ── */\n  .jacq-compare-explain {\n    text-align: center;\n    margin-top: 28px;\n    padding: 0 20px;\n    max-width: 680px;\n    margin-left: auto;\n    margin-right: auto;\n  }\n  .jacq-compare-explain-toggle {\n    display: inline-flex;\n    align-items: center;\n    gap: 8px;\n    background: none;\n    border: none;\n    cursor: pointer;\n    font-family: inherit;\n    font-size: 15px;\n    font-weight: 600;\n    letter-spacing: -0.01em;\n    color: #6e6e73;\n    padding: 12px 0;\n    transition: color 0.25s;\n  }\n  .jacq-compare-explain-toggle:hover {\n    color: #1D1D1F;\n  }\n  .jacq-compare-explain-chevron {\n    width: 12px;\n    height: 12px;\n    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);\n    flex-shrink: 0;\n  }\n  .jacq-compare-explain-toggle.is-open .jacq-compare-explain-chevron {\n    transform: rotate(180deg);\n  }\n  .jacq-compare-explain-content {\n    overflow: hidden;\n    max-height: 0;\n    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;\n    opacity: 0;\n  }\n  .jacq-compare-explain-content.is-open {\n    opacity: 1;\n  }\n  .jacq-compare-explain-text {\n    font-size: 15px;\n    font-weight: 400;\n    line-height: 1.6;\n    letter-spacing: -0.01em;\n    color: #6e6e73;\n    padding: 4px 0 16px;\n    max-width: 560px;\n    margin: 0 auto;\n  }\n</style>\n\n<div id=\"jacq-compare\">\n  <div class=\"jacq-compare-header\">\n    <h2>Waarom meer betalen?</h2>\n    <div class=\"jacq-compare-sub\">Dezelfde kwaliteit. Een eerlijke prijs.</div>\n    <div class=\"jacq-compare-switch\">\n      <div class=\"jacq-compare-switch-track\">\n        <button class=\"jacq-compare-switch-opt is-active\" data-mode=\"enkelvoudig\">Enkelvoudig</button>\n        <button class=\"jacq-compare-switch-opt\" data-mode=\"multifocaal\">Multifocaal</button>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"jacq-compare-cards\" id=\"jacqCompareTrack\">\n\n    <!-- ═══ JACQ ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--jacq\">\n      <div class=\"jacq-compare-badge\">Slimste keuze ✦</div>\n      <div class=\"jacq-compare-card-band\">\n        <img src=\"https://jacqeyewear.nl/cdn/shop/files/Logo_01_copy_2.svg?v=1762204480\" alt=\"JACQ\" class=\"jacq-compare-card-logo\" onerror=\"this.style.display='none';this.nextElementSibling.style.display='block'\"><div class=\"jacq-compare-card-name\" style=\"display:none\">JACQ.</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"150\" data-target-enkel=\"50\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Alles gratis inbegrepen\" data-enkel=\"Alles gratis inbegrepen\">Alles gratis inbegrepen</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--half\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">4.3</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Hans Anders ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--ha\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Hans Anders</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"199\" data-target-enkel=\"150\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Alles gratis inbegrepen\" data-enkel=\"Alles gratis inbegrepen\">Alles gratis inbegrepen</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">3.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Pearle ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--pearle\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Pearle</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"259\" data-target-enkel=\"170\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Incl. anti-kras &amp; ontspiegeling\" data-enkel=\"Incl. anti-kras &amp; ontspiegeling\">Incl. anti-kras &amp; ontspiegeling</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--cross\"><svg viewBox=\"0 0 24 24\"><path d=\"M18 6L6 18M6 6l12 12\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">3.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n    <!-- ═══ Specsavers ═══ -->\n    <div class=\"jacq-compare-card jacq-compare-card--ss\">\n      <div class=\"jacq-compare-card-band\">\n        <div class=\"jacq-compare-card-name\">Specsavers</div>\n      </div>\n      <div class=\"jacq-compare-card-body\">\n        <div class=\"jacq-compare-price\">\n          <div class=\"jacq-compare-price-from\">vanaf</div>\n          <div class=\"jacq-compare-price-amount\" data-target=\"329\" data-target-enkel=\"170\">&euro;0</div>\n        </div>\n        <div class=\"jacq-compare-included\" data-multi=\"Incl. anti-kras &amp; ontspiegeling\" data-enkel=\"Incl. anti-kras &amp; ontspiegeling\">Incl. anti-kras &amp; ontspiegeling</div>\n        <div class=\"jacq-compare-divider\"></div>\n        <div class=\"jacq-compare-features\">\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">2 jaar garantie</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Anti-kras coating</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--paid\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Ontspiegeling</div><div class=\"jacq-compare-row-extra\">+&euro;&euro;&euro;</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--check\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12l5 5L20 7\"/></svg></div><div class=\"jacq-compare-row-text\">Niet goed, geld terug</div></div>\n          <div class=\"jacq-compare-row\"><div class=\"jacq-compare-row-icon jacq-compare-row-icon--cross\"><svg viewBox=\"0 0 24 24\"><path d=\"M18 6L6 18M6 6l12 12\"/></svg></div><div class=\"jacq-compare-row-text\">Gratis verzending</div></div>\n        </div>\n        <div class=\"jacq-compare-trustpilot\">\n          <div class=\"jacq-compare-tp-stars\">\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n            <span class=\"jacq-compare-tp-star-box jacq-compare-tp-star-box--empty\"><svg viewBox=\"0 0 24 24\"><path fill=\"#fff\" d=\"M12 17.3 6.2 20.7l1.6-6.7L2.6 9.7l6.9-.6L12 2.8l2.5 6.3 6.9.6-5.2 4.3 1.6 6.7z\"/></svg></span>\n          </div>\n          <div class=\"jacq-compare-tp-info\"><span class=\"jacq-compare-tp-score\">4.0</span><span class=\"jacq-compare-tp-label\">Trustpilot</span></div>\n        </div>\n      </div>\n    </div>\n\n  </div>\n\n  <div class=\"jacq-compare-dots\" id=\"jacqCompareDots\">\n    <span class=\"jacq-compare-dot is-active\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n    <span class=\"jacq-compare-dot\"></span>\n  </div>\n\n  <div class=\"jacq-compare-disclaimer-wrap\">\n    <button class=\"jacq-compare-disclaimer-toggle\" id=\"jacqDisclaimerToggle\">Prijsverantwoording *</button>\n    <div class=\"jacq-compare-disclaimer-text\" id=\"jacqDisclaimerText\">Vergelijking op basis van een complete enkelvoudige bril met dunne glazen (index 1.56–1.6), inclusief anti-kras coating en ontspiegeling. Bij alle opticiens is een montuur van &euro;50 gekozen. Hans Anders prijs is inclusief de huidige kortingsactie (geldig t/m 31 maart 2026). Prijzen zijn indicatief en gebaseerd op openbaar beschikbare prijsinformatie per februari 2026. Werkelijke prijzen kunnen afwijken per winkel en configuratie.</div>\n  </div>\n\n  <div class=\"jacq-compare-explain\">\n    <button class=\"jacq-compare-explain-toggle\" id=\"jacqExplainToggle\">\n      Hoe kan JACQ. zo scherp geprijsd zijn?\n      <svg class=\"jacq-compare-explain-chevron\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path d=\"M2.5 4.5L6 8L9.5 4.5\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      </svg>\n    </button>\n    <div class=\"jacq-compare-explain-content\" id=\"jacqExplainContent\">\n      <p class=\"jacq-compare-explain-text\">Wij hebben geen fysieke winkels en geen dure winkelmedewerkers. Daardoor besparen we flink op kosten en dat voordeel geven we direct aan jou door. Je betaalt dus puur voor je bril, niets meer.</p>\n    </div>\n  </div>\n\n</div>\n\n<!-- canvas-confetti CDN -->\n<script src=\"https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js\"></script>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function () {\n  var track = document.getElementById('jacqCompareTrack');\n  var dotsWrap = document.getElementById('jacqCompareDots');\n  if (!track || !dotsWrap) return;\n\n  var cards = Array.prototype.slice.call(track.querySelectorAll('.jacq-compare-card'));\n  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.jacq-compare-dot'));\n  var isMobile = window.innerWidth < 768;\n  var counterDone = false;\n  var currentMode = 'enkelvoudig';\n\n  /* ── Animated counter (initial entrance) ── */\n  function animateCounters() {\n    if (counterDone) return;\n    counterDone = true;\n    var els = track.querySelectorAll('[data-target]');\n    var attr = currentMode === 'enkelvoudig' ? 'data-target-enkel' : 'data-target';\n    els.forEach(function (el) {\n      var target = parseInt(el.getAttribute(attr), 10);\n      /* Reset to €0 to guarantee visible animation */\n      el.textContent = '\\u20AC0';\n      var duration = 1200;\n      var start = performance.now();\n      function tick(now) {\n        var progress = Math.min((now - start) / duration, 1);\n        var ease = 1 - Math.pow(1 - progress, 3);\n        var current = Math.round(ease * target);\n        el.textContent = '\\u20AC' + current;\n        if (progress < 1) requestAnimationFrame(tick);\n      }\n      requestAnimationFrame(tick);\n    });\n  }\n\n  /* ── Animate price from current to new value ── */\n  function animateTo(el, target) {\n    var current = parseInt(el.textContent.replace(/[^\\d]/g, ''), 10) || 0;\n    var duration = 600;\n    var start = performance.now();\n    var from = current;\n    function tick(now) {\n      var progress = Math.min((now - start) / duration, 1);\n      var ease = 1 - Math.pow(1 - progress, 3);\n      var val = Math.round(from + (target - from) * ease);\n      el.textContent = '\\u20AC' + val;\n      if (progress < 1) requestAnimationFrame(tick);\n    }\n    requestAnimationFrame(tick);\n  }\n\n  /* ── Confetti celebration (canvas-confetti) ── */\n  function fireConfetti() {\n    if (typeof confetti === 'undefined') return;\n\n    var jacqCard = document.querySelector('.jacq-compare-card--jacq');\n    if (!jacqCard) return;\n    var rect = jacqCard.getBoundingClientRect();\n    var originX = (rect.left + rect.width / 2) / window.innerWidth;\n    var originY = (rect.top + rect.height / 2) / window.innerHeight;\n\n    var defaults = {\n      origin: { x: originX, y: originY },\n      colors: ['#0071E3', '#34C759', '#FFD60A', '#FF9500', '#AF52DE', '#FF375F'],\n      zIndex: 9999,\n      spread: 360,\n      ticks: 100,\n      gravity: 0.6,\n      decay: 0.94,\n      startVelocity: 25,\n      scalar: 1,\n    };\n\n    confetti({ ...defaults, particleCount: 50 });\n    confetti({ ...defaults, particleCount: 20, scalar: 0.6 });\n\n    setTimeout(function () {\n      confetti({ ...defaults, particleCount: 35, startVelocity: 20 });\n      confetti({ ...defaults, particleCount: 15, scalar: 0.5 });\n    }, 200);\n\n    setTimeout(function () {\n      confetti({ ...defaults, particleCount: 20, startVelocity: 15, scalar: 0.8 });\n    }, 400);\n  }\n\n  /* ── Scroll-triggered entrance ── */\n  if ('IntersectionObserver' in window) {\n    track.classList.add('jacq-anim-ready');\n    var observer = new IntersectionObserver(function (entries) {\n      entries.forEach(function (entry) {\n        if (entry.isIntersecting) {\n          var innerCards = entry.target.querySelectorAll('.jacq-compare-card');\n          innerCards.forEach(function (c) { c.classList.add('is-visible'); });\n          observer.unobserve(entry.target);\n          setTimeout(animateCounters, 300);\n          setTimeout(fireConfetti, 1400);\n          if (isMobile) {\n            setTimeout(function () {\n              var cardWidth = cards[0].offsetWidth;\n              var peekAmount = Math.round(cardWidth * 0.3);\n              track.scrollTo({ left: peekAmount, behavior: 'smooth' });\n              setTimeout(function () {\n                track.scrollTo({ left: 0, behavior: 'smooth' });\n              }, 700);\n            }, 1000);\n          }\n        }\n      });\n    }, { threshold: 0.1 });\n    observer.observe(track);\n    setTimeout(function () {\n      cards.forEach(function (c) { c.classList.add('is-visible'); });\n      animateCounters();\n    }, 2000);\n  }\n\n  /* ── Dots / scroll tracking ── */\n  function updateDots() {\n    var center = track.scrollLeft + track.clientWidth / 2;\n    var active = 0, min = Infinity;\n    cards.forEach(function (c, i) {\n      var d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - center);\n      if (d < min) { min = d; active = i; }\n    });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === active); });\n  }\n  var scrollTick = false;\n  track.addEventListener('scroll', function () {\n    if (!scrollTick) { requestAnimationFrame(function () { updateDots(); scrollTick = false; }); scrollTick = true; }\n  });\n  dots.forEach(function (d, i) {\n    d.addEventListener('click', function () {\n      var c = cards[i];\n      if (c) track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });\n    });\n  });\n  updateDots();\n\n  /* ── Switch toggle ── */\n  var switchBtns = document.querySelectorAll('.jacq-compare-switch-opt');\n\n  function switchPrices(mode) {\n    if (mode === currentMode) return;\n    currentMode = mode;\n\n    switchBtns.forEach(function (b) {\n      b.classList.toggle('is-active', b.getAttribute('data-mode') === mode);\n    });\n\n    var els = track.querySelectorAll('[data-target]');\n    els.forEach(function (el) {\n      var target = mode === 'enkelvoudig'\n        ? parseInt(el.getAttribute('data-target-enkel'), 10)\n        : parseInt(el.getAttribute('data-target'), 10);\n      animateTo(el, target);\n    });\n\n    var inclEls = track.querySelectorAll('.jacq-compare-included');\n    inclEls.forEach(function (el) {\n      var txt = mode === 'enkelvoudig' ? el.getAttribute('data-enkel') : el.getAttribute('data-multi');\n      if (txt) el.innerHTML = txt;\n    });\n\n    var disclaimerText = document.getElementById('jacqDisclaimerText');\n    if (disclaimerText) {\n      var type = mode === 'enkelvoudig' ? 'enkelvoudige' : 'multifocale';\n      disclaimerText.textContent = 'Vergelijking op basis van een complete ' + type + ' bril met dunne glazen (index 1.56\\u20131.6), inclusief anti-kras coating en ontspiegeling. Bij alle opticiens is een montuur van \\u20AC50 gekozen. Hans Anders prijs is inclusief de huidige kortingsactie (geldig t/m 31 maart 2026). Prijzen zijn indicatief en gebaseerd op openbaar beschikbare prijsinformatie per februari 2026. Werkelijke prijzen kunnen afwijken per winkel en configuratie.';\n    }\n  }\n\n  switchBtns.forEach(function (btn) {\n    btn.addEventListener('click', function () {\n      switchPrices(btn.getAttribute('data-mode'));\n    });\n  });\n\n  /* ── Disclaimer toggle ── */\n  var toggle = document.getElementById('jacqDisclaimerToggle');\n  var text = document.getElementById('jacqDisclaimerText');\n  if (toggle && text) {\n    toggle.addEventListener('click', function () {\n      text.classList.toggle('is-open');\n      toggle.textContent = text.classList.contains('is-open') ? 'Sluiten' : 'Prijsverantwoording *';\n    });\n  }\n\n  /* ── Price explanation toggle ── */\n  var explainToggle = document.getElementById('jacqExplainToggle');\n  var explainContent = document.getElementById('jacqExplainContent');\n  if (explainToggle && explainContent) {\n    explainToggle.addEventListener('click', function () {\n      var isOpen = explainToggle.classList.toggle('is-open');\n      if (isOpen) {\n        explainContent.style.maxHeight = explainContent.scrollHeight + 'px';\n        explainContent.classList.add('is-open');\n      } else {\n        explainContent.style.maxHeight = '0';\n        explainContent.classList.remove('is-open');\n      }\n    });\n  }\n\n});\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
+        "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_23_PM_9.png",
+        "image_alt": "Meave Sinclair, founder of Meave London",
+        "layout": "image_first",
+        "eyebrow": "",
+        "heading": "Designed in London, for real homes",
+        "text": "<p>Meave London started with something its founder, Meave Sinclair, couldn't stop thinking about. As an interior stylist in London, she spent her days making rooms feel calm and finished, only to see them let down by harsh, badly placed lighting.</p><p>So she designed a different kind of light. It has the warmth and proportions of a designer wall sconce, but it's completely wireless, so there's no drilling and no rewiring.</p>",
+        "signature": "Meave Sinclair",
+        "signature_role": "Founder, Meave London"
       }
     },
-    "highlight_text_wcPQxJ": {
-      "type": "highlight-text",
-      "blocks": {
-        "heading_gTq3Tb": {
-          "type": "heading",
-          "settings": {
-            "heading": "Niet goed? Geld terug!",
-            "heading_size": "title-sm",
-            "heading_tag": "h2",
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        },
-        "text_YX94zL": {
-          "type": "text",
-          "settings": {
-            "text": "<p></p><p></p>",
-            "text_font": "body",
-            "text_size": "subtext-md",
-            "text_max_size": 32,
-            "text_line_height": 1.6,
-            "text_letter_spacing": 0,
-            "text_capitalize": false,
-            "secondary_color": false,
-            "highlighted_text": "none",
-            "highlighted_scribble": "circle"
-          }
-        }
-      },
-      "block_order": [
-        "heading_gTq3Tb",
-        "text_YX94zL"
-      ],
-      "disabled": true,
-      "name": "t:sections.highlight-text.name",
-      "settings": {
-        "text_alignment": "center",
-        "text_alignment_mobile": "center",
-        "heading": "",
-        "heading_size": "title-md",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "#ffffff",
-        "color_background": "#0071e3",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
-      }
-    },
-    "1775834241b6933450": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_2400851_zmKfJp": {
-          "type": "ai_gen_block_2400851",
-          "settings": {
-            "desktop_width_percent": 100,
-            "columns_desktop": 3,
-            "columns_mobile": "2",
-            "grid_gap": 20,
-            "image_ratio": "1/1",
-            "border_radius": 8,
-            "overlay_opacity": 40,
-            "content_padding": 30,
-            "content_gap": 15,
-            "show_title": true,
-            "title_size": 24,
-            "text_color": "#ffffff",
-            "button_font_size": 16,
-            "button_padding_vertical": 12,
-            "button_padding_horizontal": 24,
-            "button_border_radius": 8,
-            "button_border_width": 0,
-            "button_background": "#0071e3",
-            "button_text_color": "#ffffff",
-            "button_border_color": "#0071e3",
-            "button_hover_background": "#005bb5",
-            "button_hover_text_color": "#ffffff",
-            "collection_1": "",
-            "show_button_1": true,
-            "button_text_1": "Bekijk collectie",
-            "button_url_1": "",
-            "collection_2": "",
-            "show_button_2": true,
-            "button_text_2": "Bekijk collectie",
-            "button_url_2": "",
-            "collection_3": "",
-            "show_button_3": true,
-            "button_text_3": "Bekijk collectie",
-            "button_url_3": "",
-            "collection_4": "",
-            "show_button_4": true,
-            "button_text_4": "Bekijk collectie",
-            "button_url_4": "",
-            "collection_5": "",
-            "show_button_5": true,
-            "button_text_5": "Bekijk collectie",
-            "button_url_5": "",
-            "collection_6": "",
-            "show_button_6": true,
-            "button_text_6": "Bekijk collectie",
-            "button_url_6": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_2400851_zmKfJp"
-      ],
-      "settings": {}
-    },
-    "rich_text_BECLQG": {
-      "type": "rich-text",
-      "disabled": true,
-      "name": "t:sections.rich-text.name",
-      "settings": {
-        "text_alignment": "center",
-        "text_alignment_mobile": "center",
-        "heading": "Waarom meer betalen?",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-center md:items-center",
-        "heading_width": "large",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "none",
-        "highlighted_scribble": "circle",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
-        "padding_bottom": 12,
-        "divider": false,
-        "narrow": true,
-        "rounded": false
-      }
-    },
-    "custom_liquid_VUrmXU": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  /* ===== JACQ USP Section ===== */\n  #jacq-usp {\n    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;\n    -webkit-font-smoothing: antialiased;\n    margin: 16px 0;\n  }\n\n  /* Container */\n  .jacq-usp-inner {\n    border-radius: 24px;\n    background: #ffffff;\n    box-shadow: 0 18px 40px rgba(0,0,0,0.06);\n    border: none;\n    overflow: hidden;\n  }\n\n  /* Mobile: horizontal slider */\n  .jacq-usp-items {\n    display: flex;\n    gap: 0;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n  }\n  .jacq-usp-items::-webkit-scrollbar { display: none; }\n  .jacq-usp-items { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .jacq-usp-item {\n    flex: 0 0 100%;\n    scroll-snap-align: center;\n    padding: 28px 24px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 10px;\n    position: relative;\n  }\n\n  .jacq-usp-icon {\n    width: 44px;\n    height: 44px;\n    border-radius: 50%;\n    background: rgba(0, 113, 227, 0.06);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n  }\n\n  .jacq-usp-icon svg {\n    width: 20px;\n    height: 20px;\n    color: #0071E3;\n    stroke: #0071E3;\n    fill: none;\n    stroke-width: 1.8;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .jacq-usp-name {\n    font-size: 15px;\n    font-weight: 600;\n    color: #111827;\n    letter-spacing: -0.01em;\n    line-height: 1.25;\n  }\n\n  .jacq-usp-desc {\n    font-size: 13px;\n    color: #6b7280;\n    line-height: 1.5;\n    max-width: 26ch;\n  }\n\n  /* Dots */\n  .jacq-usp-dots {\n    display: flex;\n    justify-content: center;\n    gap: 6px;\n    padding: 4px 0 16px;\n  }\n\n  .jacq-usp-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background .2s, width .3s cubic-bezier(.2,.9,.3,1);\n    cursor: pointer;\n  }\n\n  .jacq-usp-dot.is-active {\n    background: #111827;\n    width: 18px;\n  }\n\n  /* ===== Desktop: 2x2 grid with dividers ===== */\n  @media (min-width: 768px) {\n    .jacq-usp-inner {\n      padding: 0;\n    }\n\n    .jacq-usp-items {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n      gap: 0;\n      overflow: visible;\n      scroll-snap-type: none;\n    }\n\n    .jacq-usp-item {\n      flex: initial;\n      scroll-snap-align: unset;\n      padding: 32px 28px;\n      align-items: center;\n      text-align: center;\n      flex-direction: column;\n      gap: 10px;\n    }\n\n    /* Vertical divider: right column items */\n    .jacq-usp-item:nth-child(2),\n    .jacq-usp-item:nth-child(4) {\n      border-left: 1px solid rgba(0,0,0,0.05);\n    }\n\n    /* Horizontal divider: bottom row */\n    .jacq-usp-item:nth-child(3),\n    .jacq-usp-item:nth-child(4) {\n      border-top: 1px solid rgba(0,0,0,0.05);\n    }\n\n    .jacq-usp-text-wrap {\n      display: flex;\n      flex-direction: column;\n      gap: 4px;\n    }\n\n    .jacq-usp-desc {\n      max-width: none;\n    }\n\n    .jacq-usp-name {\n      font-size: 16px;\n    }\n\n    .jacq-usp-desc {\n      font-size: 14px;\n    }\n\n    .jacq-usp-dots {\n      display: none;\n    }\n\n    /* Hover */\n    .jacq-usp-item {\n      transition: background .3s;\n    }\n\n    .jacq-usp-item:hover {\n      background: rgba(0,0,0,0.012);\n    }\n  }\n</style>\n\n<div id=\"jacq-usp\">\n\n  <div class=\"jacq-usp-inner\">\n    <div class=\"jacq-usp-items\">\n\n      <!-- 1: Gratis verzending -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M5 18h1a2 2 0 1 0 4 0h4a2 2 0 1 0 4 0h1\"/><path d=\"M16 8h4l2 4v4h-4\"/><rect x=\"1\" y=\"4\" width=\"15\" height=\"12\" rx=\"1\"/><circle cx=\"8\" cy=\"18\" r=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">Gratis verzending</div>\n          <div class=\"jacq-usp-desc\">Op maat gemaakt en binnen 7–10 werkdagen bezorgd. Met track & trace.</div>\n        </div>\n      </div>\n\n      <!-- 2: 100 dagen proefdragen -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" ry=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">100 dagen proefdragen</div>\n          <div class=\"jacq-usp-desc\">100 dagen om je bril uit te proberen. Niet tevreden? Geld terug.</div>\n        </div>\n      </div>\n\n      <!-- 3: 2 jaar garantie -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">2 jaar garantie</div>\n          <div class=\"jacq-usp-desc\">Fabricagefout? Geld terug of gratis vervanging. Geen gedoe.</div>\n        </div>\n      </div>\n\n      <!-- 4: Veilig betalen -->\n      <div class=\"jacq-usp-item\">\n        <div class=\"jacq-usp-icon\">\n          <svg viewBox=\"0 0 24 24\"><rect x=\"1\" y=\"4\" width=\"22\" height=\"16\" rx=\"2\" ry=\"2\"/><path d=\"M1 10h22\"/></svg>\n        </div>\n        <div class=\"jacq-usp-text-wrap\">\n          <div class=\"jacq-usp-name\">Veilig betalen</div>\n          <div class=\"jacq-usp-desc\">iDEAL, Klarna, creditcard. Kies wat bij je past.</div>\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"jacq-usp-dots\">\n      <span class=\"jacq-usp-dot is-active\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n      <span class=\"jacq-usp-dot\"></span>\n    </div>\n  </div>\n</div>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function () {\n  var root = document.getElementById('jacq-usp');\n  if (!root) return;\n  var track = root.querySelector('.jacq-usp-items');\n  var slides = Array.prototype.slice.call(root.querySelectorAll('.jacq-usp-item'));\n  var dots = Array.prototype.slice.call(root.querySelectorAll('.jacq-usp-dot'));\n  if (!track || !slides.length || dots.length !== slides.length) return;\n\n  function update() {\n    var center = track.scrollLeft + track.clientWidth / 2;\n    var idx = 0, min = Infinity;\n    slides.forEach(function (s, i) {\n      var d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center);\n      if (d < min) { min = d; idx = i; }\n    });\n    dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });\n  }\n\n  var t = false;\n  track.addEventListener('scroll', function () {\n    if (!t) { window.requestAnimationFrame(function () { update(); t = false; }); t = true; }\n  });\n  dots.forEach(function (d, i) {\n    d.addEventListener('click', function () {\n      if (slides[i]) track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });\n    });\n  });\n  update();\n});\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "collection_list_iMfN6q": {
+    "collection-list": {
       "type": "collection-list",
       "blocks": {
-        "collection_qbqPwF": {
+        "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "sale-zonnebrillen",
-            "title": "SALE",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#4f4f4f",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_ADmhQF": {
-          "type": "collection",
-          "settings": {
-            "collection": "dames-zonnebrillen",
+            "collection": "damesbrillen",
             "title": "Dames",
             "description": "",
             "overlay_content": true,
             "color_text": "#ffffff",
-            "color_overlay": "#000000",
+            "color_overlay": "#a6a6a6",
             "overlay_opacity": 0
           }
         },
-        "collection_ArVD3b": {
+        "collection-2": {
           "type": "collection",
           "settings": {
-            "collection": "heren-zonnebrillen",
+            "collection": "herenbrillen",
             "title": "Heren",
             "description": "",
             "overlay_content": true,
             "color_text": "#ffffff",
-            "color_overlay": "#000000",
+            "color_overlay": "#1d1d1d",
+            "overlay_opacity": 0
+          }
+        },
+        "collection-8": {
+          "type": "collection",
+          "settings": {
+            "collection": "sale",
+            "title": "Sale",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#171717",
+            "overlay_opacity": 0
+          }
+        },
+        "collection-3": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "accesoires",
+            "title": "Accessoires",
+            "description": "",
+            "overlay_content": true,
+            "color_text": "#ffffff",
+            "color_overlay": "#ffffff",
             "overlay_opacity": 0
           }
         }
       },
       "block_order": [
-        "collection_qbqPwF",
-        "collection_ADmhQF",
-        "collection_ArVD3b"
+        "collection-1",
+        "collection-2",
+        "collection-8",
+        "collection-3"
       ],
-      "disabled": true,
-      "name": "t:sections.collection-list.name",
       "settings": {
         "columns": 3,
         "carousel_on_desktop": false,
@@ -698,12 +267,12 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "heading": "ZONNEBRILLEN",
+        "heading": "",
         "heading_size": "title-sm",
         "heading_alignment": "text-center md:items-center",
         "heading_tag": "h2",
         "subheading": "",
-        "description": "<p>Van felle zon tot terraslicht, jij zit goed.</p>",
+        "description": "",
         "highlighted_text": "underline",
         "highlighted_scribble": "circle",
         "color_text": "",
@@ -715,265 +284,98 @@
         "color_button_background": "",
         "color_button_gradient": "",
         "padding_top": 32,
-        "padding_bottom": 8,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
-    "featured_collection_mk6AFf": {
-      "type": "featured-collection",
-      "disabled": true,
-      "name": "t:sections.featured-collection.name",
-      "settings": {
-        "collection": "brillen-op-sterkte",
-        "products": [
-          "rio",
-          "rose",
-          "job",
-          "melle",
-          "nathan",
-          "paris",
-          "benlys",
-          "annabelle"
-        ],
-        "product_limit": 12,
-        "columns": 5,
-        "carousel_on_desktop": true,
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "ONZE BESTSELLERS",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-left md:items-end md:flex-row",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "scribble",
-        "highlighted_scribble": "sketch-underline",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 72,
         "padding_bottom": 16,
         "divider": false,
         "full_width": false,
         "rounded": false
       }
     },
-    "shop-the-look": {
-      "type": "shop-the-look",
+    "home-gallery": {
+      "type": "meave-pdp-gallery",
       "blocks": {
-        "product-1": {
-          "type": "product",
+        "image_2": {
+          "type": "image",
           "settings": {
-            "product": "job",
-            "color_text": "#ffa816",
-            "vertical": 61,
-            "horizontal": 25,
-            "vertical_mobile": 25,
-            "horizontal_mobile": 25
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_21_51_PM.png",
+            "alt": "Wireless wall light styled at home"
           }
         },
-        "product-2": {
-          "type": "product",
-          "disabled": true,
+        "image_3": {
+          "type": "image",
           "settings": {
-            "product": "nathan",
-            "color_text": "#ffa816",
-            "vertical": 45,
-            "horizontal": 60,
-            "vertical_mobile": 50,
-            "horizontal_mobile": 65
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_21_PM_3.png",
+            "alt": "Warm light in a calm interior"
+          }
+        },
+        "image_4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_22_PM_6.png",
+            "alt": "Finish and shade detail"
+          }
+        },
+        "image_5": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_11_2026_02_12_04_PM_7.png",
+            "alt": "Meave lighting in a finished room"
           }
         }
       },
       "block_order": [
-        "product-1",
-        "product-2"
+        "image_2",
+        "image_3",
+        "image_4",
+        "image_5"
       ],
-      "disabled": true,
       "settings": {
-        "heading": "Welke bril past bij <em>jou?</em>",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "button_label": "",
-        "button_link": "",
-        "button_external": false,
-        "button_icon": true,
-        "highlighted_text": "scribble",
-        "highlighted_scribble": "basic-underline",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "color_overlay": "#171717",
-        "overlay_opacity": 24,
-        "padding_top": 12,
-        "padding_bottom": 80,
-        "divider": false,
-        "full_width": false,
-        "rounded": true
+        "eyebrow": "Styled at home",
+        "heading": "Made for the rooms you actually live in",
+        "text": "<p>See the finish, scale and glow from every angle before choosing the right light for your room.</p>"
       }
     },
-    "collection_list_Tx9JVF": {
-      "type": "collection-list",
+    "home-reviews": {
+      "type": "meave-pdp-reviews",
       "blocks": {
-        "collection_tgMQmi": {
-          "type": "collection",
+        "review_1": {
+          "type": "review",
           "settings": {
-            "collection": "damesbrillen",
-            "title": "Brillen op sterkte",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#4f4f4f",
-            "overlay_opacity": 0
+            "rating": 5,
+            "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>",
+            "author": "Charlotte J.",
+            "image": "shopify://shop_images/r10.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         },
-        "collection_jmBVex": {
-          "type": "collection",
+        "review_2": {
+          "type": "review",
           "settings": {
-            "collection": "herenbrillen",
-            "title": "Multifocale brillen",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#4f4f4f",
-            "overlay_opacity": 0
+            "rating": 5,
+            "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>",
+            "author": "Isabella E.",
+            "image": "shopify://shop_images/r9.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         },
-        "collection_KWgnyX": {
-          "type": "collection",
+        "review_3": {
+          "type": "review",
           "settings": {
-            "collection": "brillen-op-sterkte",
-            "title": "Zonnebrillen op sterkte",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#4f4f4f",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_zrqw3h": {
-          "type": "collection",
-          "settings": {
-            "collection": "herenbrillen",
-            "title": "Beeldschermbrillen",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#000000",
-            "overlay_opacity": 0
+            "rating": 5,
+            "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>",
+            "author": "George B.",
+            "image": "shopify://shop_images/r8.jpg",
+            "image_alt": "Customer photo of the Meave light"
           }
         }
       },
       "block_order": [
-        "collection_tgMQmi",
-        "collection_jmBVex",
-        "collection_KWgnyX",
-        "collection_zrqw3h"
+        "review_1",
+        "review_2",
+        "review_3"
       ],
-      "disabled": true,
-      "name": "t:sections.collection-list.name",
       "settings": {
-        "columns": 4,
-        "carousel_on_desktop": false,
-        "image_type": "collection",
-        "image_ratio": "square",
-        "show_products_count": false,
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "heading": "",
-        "heading_size": "title-sm",
-        "heading_alignment": "text-center md:items-center",
-        "heading_tag": "h2",
-        "subheading": "",
-        "description": "",
-        "highlighted_text": "scribble",
-        "highlighted_scribble": "squiggle-underline-2",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_highlight": "",
-        "gradient_highlight": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 16,
-        "padding_bottom": 32,
-        "divider": false,
-        "full_width": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_9fPeY7": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<valued-widget layout=\"reviews\" size=\"medium\" align=\"center\" theme=\"dark\" amount=\"6\" height=\"default\"></valued-widget>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 16,
-        "padding_bottom": 40,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_n4LAEk": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  /* ===== JACQ – Handige info (accordion, \"origineel\" look) ===== */\n  .jacq-info{\n    width: 100%;\n    color: #1D1D1D;\n    font-family: inherit;\n  }\n\n  .jacq-info__wrap{\n    width: 100%;\n    margin: 0;\n    padding: 0;\n  }\n\n  .jacq-info__title{\n    margin: 0 0 32px;\n    text-align: center;\n    font-weight: 700;\n    letter-spacing: -0.02em;\n    color: #1D1D1D;\n    font-size: clamp(24px, 5.6vw, 48px);\n    line-height: 1.05;\n  }\n\n  .jacq-info__list{\n    border-top: 0;\n  }\n\n  .jacq-info-item{\n    border-bottom: 1px solid rgba(29,29,29,0.14);\n  }\n  .jacq-info-item:last-child{\n    border-bottom: 0;\n  }\n\n  .jacq-info-trigger{\n    width: 100%;\n    border: 0;\n    background: transparent;\n    cursor: pointer;\n\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    padding: 28px 0;\n    text-align: left;\n  }\n\n  .jacq-info-label{\n    font-size: 18px;\n    font-weight: 500;\n    line-height: 1.15;\n    color: #1D1D1D;\n  }\n  @media (min-width: 768px){\n    .jacq-info-label{ font-size: 22px; }\n  }\n\n  .jacq-info-icon{\n    width: 22px;\n    height: 22px;\n    flex: 0 0 22px;\n    position: relative;\n    transform: rotate(0deg);\n    transition: transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n  .jacq-info-icon::before,\n  .jacq-info-icon::after{\n    content:\"\";\n    position:absolute;\n    left:50%;\n    top:50%;\n    width: 16px;\n    height: 2px;\n    background: #1D1D1D;\n    transform: translate(-50%, -50%);\n    border-radius: 999px;\n  }\n  .jacq-info-icon::after{\n    width: 2px;\n    height: 16px;\n  }\n\n  .jacq-info-item.is-open .jacq-info-icon{\n    transform: rotate(45deg);\n  }\n\n  .jacq-info-panel{\n    height: 0;\n    overflow: hidden;\n    transition: height 280ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n\n  .jacq-info-panel-inner{\n    padding: 0 0 28px;\n    color: #1D1D1D;\n    font-size: 15px;\n    line-height: 1.6;\n\n    opacity: 0;\n    transform: translateY(-6px);\n    transition:\n      opacity 200ms ease,\n      transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);\n  }\n\n  .jacq-info-item.is-open .jacq-info-panel-inner{\n    opacity: 1;\n    transform: translateY(0);\n  }\n\n  .jacq-info-panel-inner a{\n    color: inherit;\n    text-decoration: underline;\n    text-underline-offset: 2px;\n  }\n\n  @media (max-width: 767px){\n    .jacq-info-trigger{ padding: 24px 0; }\n    .jacq-info-panel-inner{\n      font-size: 14px;\n      padding-bottom: 24px;\n      max-width: 300px;\n    }\n  }\n\n  @media (prefers-reduced-motion: reduce){\n    .jacq-info-icon,\n    .jacq-info-panel,\n    .jacq-info-panel-inner{\n      transition: none !important;\n    }\n  }\n</style>\n\n<div class=\"jacq-info\" data-jacq-info>\n  <div class=\"jacq-info__wrap\">\n    <h2 class=\"jacq-info__title\">Handige info</h2>\n\n    <div class=\"jacq-info__list\">\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Verzendtijd</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Onze brillen worden op maat gemaakt en bijna altijd binnen 7–10 werkdagen bezorgd.<br>\n            Zodra je bestelling is verzonden, ontvang je per e-mail de track &amp; trace.<br>\n            Meer weten? Bekijk <a href=\"https://jacqeyewear.nl/pages/verzending-levertijd\">verzending &amp; levertijd</a>.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Retourneren</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Niet goed? Geld terug.<br>\n            Je hebt 100 dagen bedenktijd. Geen haast dus.<br>\n            Bekijk hoe het werkt bij <a href=\"https://jacqeyewear.nl/pages/retour-ruil-garantie\">retour, ruilen &amp; garantie</a>.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Betalingen</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Je kunt veilig betalen met onder andere iDEAL, Klarna en je creditcard.<br>\n            Zo kies je altijd de manier die bij jou past.\n          </div>\n        </div>\n      </div>\n\n      <div class=\"jacq-info-item\">\n        <button class=\"jacq-info-trigger\" type=\"button\" aria-expanded=\"false\">\n          <span class=\"jacq-info-label\">Garantie</span>\n          <span class=\"jacq-info-icon\" aria-hidden=\"true\"></span>\n        </button>\n        <div class=\"jacq-info-panel\" aria-hidden=\"true\">\n          <div class=\"jacq-info-panel-inner\">\n            Je krijgt 2 jaar garantie op je bril.<br>\n            Fabricagefout? Dan krijg je je geld terug of een gratis vervanging.<br>\n            Meer weten? Bekijk <a href=\"https://jacqeyewear.nl/pages/retour-ruil-garantie\">retour, ruilen &amp; garantie</a>.\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<script>\n  (function(){\n    var roots = document.querySelectorAll('[data-jacq-info]');\n    if (!roots.length) return;\n\n    roots.forEach(function(root){\n      var items = Array.prototype.slice.call(root.querySelectorAll('.jacq-info-item'));\n\n      items.forEach(function(item){\n        var btn = item.querySelector('.jacq-info-trigger');\n        var panel = item.querySelector('.jacq-info-panel');\n        if (!btn || !panel) return;\n\n        panel.style.height = '0px';\n        panel.setAttribute('aria-hidden','true');\n        btn.setAttribute('aria-expanded','false');\n\n        panel.addEventListener('transitionend', function(e){\n          if (e.propertyName !== 'height') return;\n          if (item.classList.contains('is-open')) panel.style.height = 'auto';\n          else panel.style.height = '0px';\n        });\n\n        btn.addEventListener('click', function(){\n          var isOpen = item.classList.contains('is-open');\n\n          items.forEach(function(other){\n            if (other !== item) closeItem(other);\n          });\n\n          if (isOpen) closeItem(item);\n          else openItem(item);\n        });\n\n        function openItem(it){\n          var b = it.querySelector('.jacq-info-trigger');\n          var p = it.querySelector('.jacq-info-panel');\n          if (!b || !p) return;\n\n          it.classList.add('is-open');\n          b.setAttribute('aria-expanded','true');\n          p.setAttribute('aria-hidden','false');\n\n          p.style.height = '0px';\n          p.offsetHeight;\n          p.style.height = p.scrollHeight + 'px';\n        }\n\n        function closeItem(it){\n          var b = it.querySelector('.jacq-info-trigger');\n          var p = it.querySelector('.jacq-info-panel');\n          if (!b || !p) return;\n\n          it.classList.remove('is-open');\n          b.setAttribute('aria-expanded','false');\n          p.setAttribute('aria-hidden','true');\n\n          p.style.height = (p.style.height === 'auto' ? p.scrollHeight : p.scrollHeight) + 'px';\n          p.offsetHeight;\n          p.style.height = '0px';\n        }\n      });\n    });\n  })();\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
-    },
-    "custom_liquid_Vrnk4k": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  .jacq-cta-band {\n    margin: 16px 0;\n  }\n  .jacq-cta-inner {\n    display: flex;\n    align-items: stretch;\n    border-radius: 24px;\n    background: #1D1D1F;\n    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);\n    font-family: inherit;\n    border: none;\n    overflow: hidden;\n    position: relative;\n    min-height: 260px;\n  }\n\n  /* ── Gradient glow behind content ── */\n  .jacq-cta-inner::before {\n    content: '';\n    position: absolute;\n    bottom: -30%;\n    left: -10%;\n    width: 60%;\n    height: 80%;\n    background: radial-gradient(ellipse at center, rgba(0,113,227,0.15) 0%, transparent 70%);\n    pointer-events: none;\n    z-index: 0;\n  }\n\n  /* Left — text */\n  .jacq-cta-left {\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    padding: 44px 40px;\n    position: relative;\n    z-index: 1;\n  }\n  .jacq-cta-title {\n    font-size: 22px;\n    font-weight: 700;\n    letter-spacing: -0.035em;\n    line-height: 1.06;\n    color: #ffffff;\n    margin: 0 0 12px;\n  }\n  .jacq-cta-sub {\n    font-size: 15px;\n    color: rgba(255, 255, 255, 0.5);\n    line-height: 1.5;\n    margin: 0 0 26px;\n    max-width: none;\n    font-weight: 400;\n    letter-spacing: -0.01em;\n  }\n  .jacq-mobile-br {\n    display: inline;\n  }\n  .jacq-desktop-br {\n    display: none;\n  }\n  .jacq-cta-btn {\n    display: inline-flex;\n    align-items: center;\n    align-self: flex-start;\n    padding: 14px 30px;\n    border-radius: 999px;\n    border: none;\n    background: #0071E3;\n    color: #ffffff;\n    font-size: 15px;\n    font-weight: 400;\n    font-family: inherit;\n    cursor: pointer;\n    text-decoration: none;\n    letter-spacing: -0.01em;\n    transition: transform 0.35s cubic-bezier(0, 0, .15, 1), box-shadow 0.35s, background 0.3s;\n  }\n  .jacq-cta-btn:hover {\n    background: #0077ED;\n    transform: scale(1.04);\n    box-shadow: 0 6px 24px rgba(0, 113, 227, 0.3);\n  }\n  .jacq-cta-btn:active {\n    transform: scale(0.98);\n  }\n  /* Right — huge horizontal logo (desktop) */\n  .jacq-cta-right {\n    flex: 0 0 45%;\n    position: relative;\n    overflow: hidden;\n    display: none;\n  }\n  .jacq-cta-logo {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    width: 130%;\n    max-width: none;\n    height: auto;\n    filter: brightness(0) invert(1);\n    opacity: 1;\n    pointer-events: none;\n  }\n\n  /* ── Mobile ── */\n  @media (max-width: 767px) {\n    .jacq-cta-inner {\n      min-height: auto;\n      flex-direction: column;\n    }\n    .jacq-cta-inner::before {\n      bottom: -20%;\n      left: -20%;\n      width: 80%;\n      height: 70%;\n      background: radial-gradient(ellipse at center, rgba(0,113,227,0.12) 0%, transparent 70%);\n    }\n    .jacq-cta-left {\n      padding: 36px 28px 40px;\n      align-items: flex-start;\n      text-align: left;\n    }\n    .jacq-cta-title {\n      font-size: 28px;\n      line-height: 1.08;\n      margin-bottom: 10px;\n    }\n    .jacq-cta-sub {\n      font-size: 14px;\n      max-width: none;\n      margin-bottom: 24px;\n      line-height: 1.55;\n    }\n    .jacq-cta-btn {\n      padding: 13px 28px;\n      font-size: 14px;\n      align-self: flex-start;\n    }\n  }\n\n  /* ── Large desktop ── */\n  @media (min-width: 1024px) {\n    .jacq-mobile-br {\n      display: none;\n    }\n    .jacq-desktop-br {\n      display: inline;\n    }\n    .jacq-cta-inner {\n      min-height: 300px;\n    }\n    .jacq-cta-left {\n      padding: 56px 56px;\n    }\n    .jacq-cta-right {\n      display: block;\n      flex: 0 0 50%;\n    }\n    .jacq-cta-logo {\n      width: 110%;\n    }\n    .jacq-cta-title {\n      font-size: 52px;\n    }\n    .jacq-cta-sub {\n      font-size: 17px;\n    }\n    .jacq-cta-inner::before {\n      display: none;\n    }\n  }\n</style>\n<div class=\"jacq-cta-band\">\n  <div class=\"jacq-cta-inner\">\n    <div class=\"jacq-cta-left\">\n      <div class=\"jacq-cta-title\">Jouw nieuwe bril<br class=\"jacq-desktop-br\"> begint hier.</div>\n      <div class=\"jacq-cta-sub\">Brillen op sterkte vanaf €50.<br>Duurzame materialen en 100 dagen<br class=\"jacq-mobile-br\"> om verliefd te worden.</div>\n      <a href=\"https://jacqeyewear.nl/collections/brillen-op-sterkte\" class=\"jacq-cta-btn\">Bekijk de collectie</a>\n    </div>\n    <div class=\"jacq-cta-right\">\n      <img class=\"jacq-cta-logo\" src=\"https://jacqeyewear.nl/cdn/shop/files/Logo_01_copy_2.svg?v=1762204480\" alt=\"\" aria-hidden=\"true\" loading=\"lazy\">\n    </div>\n  </div>\n</div>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 40,
-        "padding_bottom": 32,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
+        "heading": "Loved for easy lighting upgrades",
+        "extra_reviews": 6
       }
     },
     "custom_liquid_jGLXh7": {
@@ -993,45 +395,16 @@
         "narrow": false,
         "rounded": false
       }
-    },
-    "custom_liquid_3mhCHU": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.name",
-      "settings": {
-        "liquid": "<style>\n  .cart__sidebar .meave-cart-guarantee {\n    margin: -8px 0 16px;\n  }\n\n  /* Force section wrapper achtergrond gelijk aan pagina */\n  .meave-cart-guarantee {\n    background: transparent !important;\n  }\n\n  .meave-cart-guarantee-inner {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    padding: 14px 18px;\n    border-radius: 24px;\n    background: #ffffff;\n    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);\n    font-family: inherit;\n    border: none;\n  }\n\n  .meave-cart-guarantee-items {\n    display: flex;\n    flex-direction: row;\n    gap: 14px;\n    overflow-x: auto;\n    scroll-snap-type: x mandatory;\n    -webkit-overflow-scrolling: touch;\n    padding-bottom: 4px;\n  }\n  .meave-cart-guarantee-items::-webkit-scrollbar { display: none; }\n  .meave-cart-guarantee-items { -ms-overflow-style: none; scrollbar-width: none; }\n\n  .meave-cart-guarantee-item {\n    flex: 0 0 100%;\n    scroll-snap-align: center;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 8px;\n  }\n\n  .meave-cart-guarantee-icon {\n    flex-shrink: 0;\n    color: #E0A93B;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .meave-cart-guarantee-icon svg {\n    width: 22px;\n    height: 22px;\n    display: block;\n  }\n\n  .meave-cart-guarantee-text-main {\n    font-size: 15px;\n    font-weight: 500;\n    color: #111827;\n  }\n\n  .meave-cart-guarantee-text-sub {\n    font-size: 13px;\n    color: #6b7280;\n    line-height: 1.45;\n  }\n\n  .meave-cart-guarantee-dots {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 6px;\n    margin-top: 2px;\n  }\n\n  .meave-cart-guarantee-dot {\n    width: 6px;\n    height: 6px;\n    border-radius: 999px;\n    background: #d1d5db;\n    transition: background-color 0.18s ease, transform 0.18s ease;\n  }\n\n  .meave-cart-guarantee-dot.is-active {\n    background: #111827;\n    transform: scale(1.1);\n  }\n\n  @media (min-width: 768px) {\n    .meave-cart-guarantee-inner {\n      padding: 18px 22px;\n    }\n\n    .meave-cart-guarantee-items {\n      overflow-x: visible;\n      scroll-snap-type: none;\n      gap: 24px;\n      justify-content: space-between;\n    }\n\n    .meave-cart-guarantee-item {\n      flex: 1 1 0;\n      gap: 6px;\n    }\n\n    .meave-cart-guarantee-item:nth-child(1) { order: 2; }\n    .meave-cart-guarantee-item:nth-child(2) { order: 1; }\n    .meave-cart-guarantee-item:nth-child(3) { order: 3; }\n\n    .meave-cart-guarantee-dots { display: none; }\n  }\n</style>\n\n<div class=\"meave-cart-guarantee\">\n  <div class=\"meave-cart-guarantee-inner\">\n    <div class=\"meave-cart-guarantee-items\">\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 13.2 9.2 17.5 19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">Money-back guarantee</div>\n          <div class=\"meave-cart-guarantee-text-sub\">Not satisfied? Full refund.</div>\n        </div>\n      </div>\n\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2\" ry=\"2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"/><path d=\"M8 3.5v3M16 3.5v3M4 9h16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">30-day trial</div>\n          <div class=\"meave-cart-guarantee-text-sub\">30 days to try it at home.</div>\n        </div>\n      </div>\n\n      <div class=\"meave-cart-guarantee-item\">\n        <div class=\"meave-cart-guarantee-icon\">\n          <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6.5 4.5 9 4a1 1 0 0 1 1 .6l1.1 2.6a1 1 0 0 1-.2 1.1l-1.4 1.4a9.5 9.5 0 0 0 4.8 4.8l1.4-1.4a1 1 0 0 1 1.1-.2l2.6 1.1a1 1 0 0 1 .6 1l-.5 2.5a1 1 0 0 1-1 .8A15.5 15.5 0 0 1 4 6.5a1 1 0 0 1 .8-1z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n        </div>\n        <div>\n          <div class=\"meave-cart-guarantee-text-main\">Customer service</div>\n          <div class=\"meave-cart-guarantee-text-sub\">Available Monday to Friday, 9am–5pm.</div>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"meave-cart-guarantee-dots\">\n      <span class=\"meave-cart-guarantee-dot is-active\"></span>\n      <span class=\"meave-cart-guarantee-dot\"></span>\n      <span class=\"meave-cart-guarantee-dot\"></span>\n    </div>\n  </div>\n</div>\n\n<script>\n  document.addEventListener('DOMContentLoaded', function () {\n    var root = document.querySelector('.meave-cart-guarantee');\n    if (!root) return;\n    var track = root.querySelector('.meave-cart-guarantee-items');\n    var slides = Array.prototype.slice.call(root.querySelectorAll('.meave-cart-guarantee-item'));\n    var dots = Array.prototype.slice.call(root.querySelectorAll('.meave-cart-guarantee-dot'));\n    if (!track || !slides.length || dots.length !== slides.length) return;\n\n    function updateDots() {\n      var center = track.scrollLeft + track.clientWidth / 2;\n      var activeIndex = 0;\n      var minDist = Infinity;\n      slides.forEach(function (slide, index) {\n        var slideCenter = slide.offsetLeft + slide.offsetWidth / 2;\n        var dist = Math.abs(slideCenter - center);\n        if (dist < minDist) { minDist = dist; activeIndex = index; }\n      });\n      dots.forEach(function (dot, index) {\n        dot.classList.toggle('is-active', index === activeIndex);\n      });\n    }\n\n    var ticking = false;\n    track.addEventListener('scroll', function () {\n      if (!ticking) {\n        window.requestAnimationFrame(function () { updateDots(); ticking = false; });\n        ticking = true;\n      }\n    });\n    dots.forEach(function (dot, index) {\n      dot.addEventListener('click', function () {\n        var slide = slides[index];\n        if (!slide) return;\n        track.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });\n      });\n    });\n    updateDots();\n  });\n</script>",
-        "color_text": "",
-        "color_background": "",
-        "gradient_background": "",
-        "color_button_text": "",
-        "color_button_background": "",
-        "color_button_gradient": "",
-        "padding_top": 4,
-        "padding_bottom": 56,
-        "divider": false,
-        "narrow": false,
-        "rounded": false
-      }
     }
   },
   "order": [
     "image_with_text_overlay_CUkRdx",
-    "ss_hero_pro_aMM6Uq",
-    "custom_liquid_hjzNNR",
     "custom_liquid_8xQqzt",
     "featured_collection_btEa6L",
-    "custom_liquid_tUhqNw",
-    "highlight_text_wcPQxJ",
-    "1775834241b6933450",
-    "rich_text_BECLQG",
-    "custom_liquid_VUrmXU",
-    "collection_list_iMfN6q",
-    "featured_collection_mk6AFf",
-    "shop-the-look",
-    "collection_list_Tx9JVF",
-    "custom_liquid_9fPeY7",
-    "custom_liquid_n4LAEk",
-    "custom_liquid_Vrnk4k",
-    "custom_liquid_jGLXh7",
-    "custom_liquid_3mhCHU"
+    "home-founder",
+    "collection-list",
+    "home-gallery",
+    "home-reviews",
+    "custom_liquid_jGLXh7"
   ]
 }
