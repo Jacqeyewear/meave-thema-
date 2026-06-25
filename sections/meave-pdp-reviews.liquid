@@ -549,15 +549,16 @@
   }
 
   @media (max-width: 900px) {
-    /* Swipeable carousel keeps reviews compact on phones/tablets */
+    /* Compact swipeable slider — a peek of the next card hints there's more */
     .meave-reviews__grid {
       display: flex;
       overflow-x: auto;
       margin: 0 -20px;
-      padding: 4px 20px 12px;
-      gap: 14px;
+      padding: 4px 20px 14px;
+      gap: 12px;
       grid-template-columns: none;
       scroll-snap-type: x mandatory;
+      scroll-padding-left: 20px;
       scrollbar-width: none;
     }
 
@@ -566,8 +567,13 @@
     }
 
     .meave-review {
-      flex: 0 0 84%;
-      scroll-snap-align: center;
+      flex: 0 0 78%;
+      scroll-snap-align: start;
+      padding: 22px 22px 20px;
+    }
+
+    .meave-review__photo {
+      margin-top: 16px;
     }
   }
 
@@ -600,12 +606,13 @@
 
     .meave-reviews__grid {
       margin: 0 -16px;
-      padding: 4px 16px 12px;
+      padding: 4px 16px 14px;
+      scroll-padding-left: 16px;
     }
 
     .meave-review {
-      flex-basis: 86%;
-      padding: 30px 26px 26px;
+      flex-basis: 82%;
+      padding: 20px 20px 18px;
     }
   }
 
