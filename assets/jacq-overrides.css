@@ -526,7 +526,7 @@ body.template-product { background: #ffffff !important; }
   display: grid !important;
   grid-template-columns: 1fr !important;
   gap: 13px !important;
-  margin: 18px 0 !important;
+  margin: 6px 0 18px !important;
 }
 .template-product .meave-pdp-mini-trust__item {
   background: transparent !important;
@@ -554,14 +554,22 @@ body.template-product { background: #ffffff !important; }
   white-space: nowrap !important;
 }
 
-/* Rating row above the title (4.4 / 1,000+ reviews) with a divider */
+/* Rating row above the title (4.4 | 1,000+ reviews) */
 .template-product .meave-pdp-rating {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding-top: 16px;
   margin: 2px 0 12px;
+}
+/* Divider between the rating number (4.4) and the review count */
+.template-product .meave-pdp-rating__count::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin-right: 9px;
+  vertical-align: -1px;
+  background: rgba(0, 0, 0, 0.18);
 }
 .template-product .meave-pdp-rating__verified {
   width: 17px;
@@ -601,7 +609,7 @@ body.template-product { background: #ffffff !important; }
   /* Tighter, JACQ-like spacing between title / price / USP */
   .template-product .product__title.grid { gap: 6px !important; }
   .template-product .meave-pdp-rating { margin-bottom: 4px !important; }
-  .template-product .meave-pdp-mini-trust { margin: 14px 0 !important; gap: 11px !important; }
+  .template-product .meave-pdp-mini-trust { margin: 4px 0 14px !important; gap: 11px !important; }
   /* Full-width, comfortable Build-your-lamp button */
   .template-product .mlw-trigger { min-height: 54px; font-size: 16px; }
   /* Accordion headings a touch larger like JACQ tabs */
