@@ -782,10 +782,11 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   bottom: 0;
   z-index: 60;
   padding: 11px 16px calc(11px + env(safe-area-inset-bottom, 0px));
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.86);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
   transform: translateY(115%);
   opacity: 0;
   visibility: hidden;
@@ -846,7 +847,7 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0 32px;
+  padding: 0 30px;
   border: none;
   border-radius: 980px;
   background: var(--mlw-blue, #0071e3);
@@ -854,7 +855,9 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
   font: inherit;
   font-size: 15px;
   font-weight: 600;
+  line-height: 1;
   letter-spacing: 0.01em;
+  white-space: nowrap;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.14s ease;
 }
@@ -870,9 +873,13 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
 }
 
 @media (max-width: 749px) {
+  .mlw-sticky { padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); }
   .mlw-sticky__inner { gap: 12px; }
-  .mlw-sticky__btn { flex: 1 1 auto; margin-left: 12px; padding: 0 18px; min-height: 50px; }
+  .mlw-sticky__info { flex: 1 1 auto; }
+  .mlw-sticky__btn { flex: 0 0 auto; margin-left: auto; padding: 0 24px; min-height: 50px; }
   .mlw-sticky__name { font-size: 13px; }
+  .mlw-sticky__now { font-size: 15px; }
+  .mlw-sticky__was { font-size: 12px; }
 }
 @media (min-width: 750px) {
   .mlw-sticky { padding: 12px 24px; }

@@ -96,6 +96,9 @@
       if (this.root && this.root.parentNode !== document.body) {
         document.body.appendChild(this.root);
       }
+      if (this.sticky && this.sticky.parentNode !== document.body) {
+        document.body.appendChild(this.sticky);
+      }
 
       this.products = this.readJSON('[data-mlw-products]', []).filter(hasRealColorOption);
       this.upsells  = this.readJSON('[data-mlw-upsell-data]', []);
