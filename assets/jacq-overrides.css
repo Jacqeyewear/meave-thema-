@@ -598,6 +598,31 @@ body.template-product { background: #ffffff !important; }
 .template-product .meave-pdp-rating__num { font-size: 14px; font-weight: 600; color: #1d1d1f; }
 .template-product .meave-pdp-rating__count { font-size: 14px; color: #6e6e73; }
 
+/* Desktop: price sits to the RIGHT of the title (JACQ-style), rating spans full */
+@media (min-width: 750px) {
+  .template-product .product__title.grid {
+    grid-template-columns: 1fr auto !important;
+    align-items: baseline;
+    column-gap: 22px !important;
+    row-gap: 10px !important;
+  }
+  .template-product .product__title .meave-pdp-rating { grid-column: 1 / -1; }
+  .template-product .product__title h1 {
+    grid-column: 1 !important;
+    align-self: baseline;
+  }
+  .template-product .product__title .product__price {
+    grid-column: 2;
+    justify-self: end;
+    align-self: baseline;
+  }
+  .template-product .product__title .product__price .price {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    white-space: nowrap;
+  }
+}
+
 /* Mobile: drop the info "card" so content is full-width like JACQ */
 @media (max-width: 749px) {
   .template-product .product__info {
@@ -607,9 +632,11 @@ body.template-product { background: #ffffff !important; }
     padding: 6px 16px 24px !important;
   }
   /* Tighter, JACQ-like spacing between title / price / USP */
-  .template-product .product__title.grid { gap: 6px !important; }
+  .template-product .product__title.grid { gap: 5px !important; }
   .template-product .meave-pdp-rating { margin-bottom: 4px !important; }
-  .template-product .meave-pdp-mini-trust { margin: 4px 0 14px !important; gap: 11px !important; }
+  /* Price a touch bigger on mobile, sitting between title and USP */
+  .template-product .product__title .product__price .price { font-size: 19px !important; }
+  .template-product .meave-pdp-mini-trust { margin: 2px 0 12px !important; gap: 11px !important; }
   /* Full-width, comfortable Build-your-lamp button */
   .template-product .mlw-trigger { min-height: 54px; font-size: 16px; }
   /* Accordion headings a touch larger like JACQ tabs */

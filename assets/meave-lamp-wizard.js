@@ -72,6 +72,8 @@
       this.lcNow = this.querySelector('[data-mlw-lc-now]');
       this.lcAddBtn = this.querySelector('[data-mlw-lc-add]');
       this.lcSkipBtn = this.querySelector('[data-mlw-lc-skip]');
+      this.sticky = this.querySelector('[data-mlw-sticky]');
+      this.stickyBtn = this.querySelector('[data-mlw-sticky-open]');
       this.bulbDisc = this.lcEl ? (parseFloat(this.lcEl.getAttribute('data-bulb-disc')) || 0.5) : 0.5;
       this.bulbCode = this.lcEl ? (this.lcEl.getAttribute('data-bulb-code') || '') : '';
       this.sumColor  = this.querySelector('[data-mlw-sum-color]');
@@ -161,6 +163,9 @@
 
       if (this.lcAddBtn) this.lcAddBtn.addEventListener('click', function () { self.acceptBulbOffer(); });
       if (this.lcSkipBtn) this.lcSkipBtn.addEventListener('click', function () { self.declineBulbOffer(); });
+
+      if (this.stickyBtn) this.stickyBtn.addEventListener('click', function () { self.open(); });
+      this.setupSticky();
 
       this.bundleOpts.forEach(function (opt) {
         opt.addEventListener('click', function () {
@@ -327,6 +332,7 @@
       void this.root.offsetWidth;
       this.root.classList.add('is-open');
       document.documentElement.classList.add('mlw-no-scroll');
+      if (this.sticky) this.sticky.classList.add('mlw-sticky--suppressed');
       this.goTo(1, true);
       var self = this;
       window.setTimeout(function () { var f = self.panel && self.panel.querySelector('.mlw-close'); if (f) f.focus(); }, 60);
@@ -335,12 +341,31 @@
       if (!this.root) return;
       this.root.classList.remove('is-open');
       document.documentElement.classList.remove('mlw-no-scroll');
+      if (this.sticky) this.sticky.classList.remove('mlw-sticky--suppressed');
       var self = this;
       var done = function () { self.root.hidden = true; self.root.setAttribute('aria-hidden', 'true'); if (self.panel) self.panel.removeEventListener('transitionend', onEnd); };
       var onEnd = function (e) { if (e.target === self.panel && e.propertyName === 'transform') done(); };
       if (this.panel) this.panel.addEventListener('transitionend', onEnd);
       window.setTimeout(done, 380);
       if (this.lastFocus && this.lastFocus.focus) this.lastFocus.focus();
+    }
+
+    /* ---------- sticky CTA (shows once the main button scrolls away) ---------- */
+    setupSticky() {
+      var self = this;
+      if (!this.trigger || !this.sticky) return;
+      function toggle(show) {
+        self.sticky.classList.toggle('is-visible', show);
+        self.sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+      }
+      if ('IntersectionObserver' in window) {
+        this._stickyObs = new IntersectionObserver(function (entries) {
+          var e = entries[0];
+          // Reveal only after the real button has scrolled up past the top.
+          toggle(!e.isIntersecting && e.boundingClientRect.top < 0);
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+        this._stickyObs.observe(this.trigger);
+      }
     }
 
     /* ---------- navigation ---------- */
@@ -564,7 +589,10 @@
       if (opener && typeof opener.click === 'function') opener.click();
     }
 
-    disconnectedCallback() { if (this._onKey) document.removeEventListener('keydown', this._onKey); }
+    disconnectedCallback() {
+      if (this._onKey) document.removeEventListener('keydown', this._onKey);
+      if (this._stickyObs) this._stickyObs.disconnect();
+    }
   }
 
   customElements.define('meave-lamp-wizard', MeaveLampWizard);

@@ -44,6 +44,23 @@
     </span>
   </button>
 
+  {%- if product.available -%}
+    <div class="mlw-sticky" data-mlw-sticky aria-hidden="true">
+      <div class="mlw-sticky__inner">
+        <div class="mlw-sticky__info">
+          <span class="mlw-sticky__name">{{ product.title }}</span>
+          <span class="mlw-sticky__price">
+            <span class="mlw-sticky__now">{{ sel_variant.price | money }}</span>
+            {%- if sel_variant.compare_at_price > sel_variant.price -%}
+              <span class="mlw-sticky__was">{{ sel_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </span>
+        </div>
+        <button type="button" class="mlw-sticky__btn" data-mlw-sticky-open>{{ btn_label }}</button>
+      </div>
+    </div>
+  {%- endif -%}
+
   <div class="mlw-root" data-mlw-root hidden aria-hidden="true">
     <div class="mlw-overlay" data-mlw-close tabindex="-1"></div>
 
