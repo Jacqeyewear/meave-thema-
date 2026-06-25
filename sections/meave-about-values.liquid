@@ -30,43 +30,46 @@
 
 {% stylesheet %}
   .meave-avalues {
-    padding: 110px 20px;
+    padding: 110px 24px;
     background: #f5f5f7;
-    color: #1d1d1f;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
   }
 
   .meave-avalues__inner {
-    max-width: 1180px;
+    max-width: 1080px;
     margin: 0 auto;
   }
 
   .meave-avalues__head {
     max-width: 680px;
-    margin: 0 0 56px;
+    margin: 0 0 48px;
   }
 
   .meave-avalues__eyebrow {
     margin: 0 0 16px;
-    color: #0071e3;
+    color: #767676;
     font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .14em;
+    font-weight: 500;
+    letter-spacing: .16em;
     text-transform: uppercase;
   }
 
   .meave-avalues__heading {
     margin: 0;
-    font-size: clamp(30px, 3.4vw, 48px);
-    letter-spacing: -.04em;
-    line-height: 1.06;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    line-height: 1.08;
     text-wrap: balance;
   }
 
   .meave-avalues__intro {
     margin-top: 18px;
-    color: #6e6e73;
+    color: #555;
     font-size: 17px;
-    line-height: 1.6;
+    font-weight: 400;
+    line-height: 1.65;
   }
 
   .meave-avalues__intro p {
@@ -75,38 +78,41 @@
 
   .meave-avalues__grid {
     display: grid;
-    gap: 40px;
+    gap: 20px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .meave-avalues__item {
     position: relative;
-    padding-top: 28px;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+    padding: 30px 28px;
+    border: 1px solid rgba(20, 20, 20, .10);
+    border-radius: 18px;
+    background: #fff;
   }
 
   .meave-avalues__index {
     display: block;
     margin-bottom: 16px;
-    color: #0071e3;
+    color: #767676;
     font-size: 13px;
-    font-weight: 600;
-    letter-spacing: .14em;
+    font-weight: 500;
+    letter-spacing: .12em;
     font-variant-numeric: tabular-nums;
   }
 
   .meave-avalues__itemHeading {
-    margin: 0 0 12px;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -.015em;
-    line-height: 1.25;
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    line-height: 1.3;
   }
 
   .meave-avalues__itemText {
-    color: #6e6e73;
-    font-size: 15.5px;
-    line-height: 1.62;
+    color: #767676;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
   .meave-avalues__itemText p {
@@ -115,15 +121,15 @@
 
   @media (max-width: 820px) {
     .meave-avalues {
-      padding: 64px 16px;
+      padding: 72px 20px;
     }
 
     .meave-avalues__head {
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
     .meave-avalues__grid {
-      gap: 30px;
+      gap: 14px;
       grid-template-columns: 1fr;
     }
   }

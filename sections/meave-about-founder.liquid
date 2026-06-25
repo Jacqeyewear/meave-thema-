@@ -40,9 +40,10 @@
 
 {% stylesheet %}
   .meave-afounder {
-    padding: 110px 20px;
+    padding: 110px 24px;
     background: #fff;
-    color: #1d1d1f;
+    color: #111;
+    -webkit-font-smoothing: antialiased;
   }
 
   .meave-afounder__inner {
@@ -76,25 +77,27 @@
 
   .meave-afounder__eyebrow {
     margin: 0 0 16px;
-    color: #0071e3;
+    color: #767676;
     font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .14em;
+    font-weight: 500;
+    letter-spacing: .16em;
     text-transform: uppercase;
   }
 
   .meave-afounder__heading {
     margin: 0 0 22px;
     font-size: clamp(28px, 3.2vw, 44px);
-    letter-spacing: -.04em;
+    font-weight: 500;
+    letter-spacing: -.025em;
     line-height: 1.08;
     text-wrap: balance;
   }
 
   .meave-afounder__text {
-    color: #6e6e73;
+    color: #555;
     font-size: 17px;
-    line-height: 1.72;
+    font-weight: 400;
+    line-height: 1.7;
   }
 
   .meave-afounder__text p {
@@ -111,24 +114,24 @@
     gap: 2px;
     margin-top: 28px;
     padding-top: 22px;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(20, 20, 20, .10);
   }
 
   .meave-afounder__signName {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: -.01em;
   }
 
   .meave-afounder__signRole {
-    color: #6e6e73;
+    color: #767676;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   @media (max-width: 900px) {
     .meave-afounder {
-      padding: 64px 16px;
+      padding: 72px 20px;
     }
 
     .meave-afounder__inner {
