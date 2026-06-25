@@ -412,17 +412,27 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  /* Written reviews (no photo): compact, stacked below the photo reviews */
+  /* Written reviews (no photo): compact, side-by-side masonry below the photo reviews */
   .meave-reviews__written {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 760px;
+    column-count: 3;
+    column-gap: 14px;
+    max-width: 1120px;
     margin: 16px auto 0;
   }
 
   .meave-review--text {
     padding: 18px 22px;
+    margin: 0 0 14px;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+  }
+
+  @media (max-width: 900px) {
+    .meave-reviews__written { column-count: 2; }
+  }
+
+  @media (max-width: 600px) {
+    .meave-reviews__written { column-count: 1; }
   }
 
   .meave-review--text .meave-review__stars {

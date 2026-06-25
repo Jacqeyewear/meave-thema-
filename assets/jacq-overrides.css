@@ -699,3 +699,18 @@ body.template-product { background: #ffffff !important; }
 
 /* Founder section: remove the "The founder" eyebrow above the title on the product page */
 .template-product .meave-afounder__eyebrow { display: none !important; }
+
+/* ============================================================
+   Product page section order via CSS (JSON template order does
+   not sync to the theme). Desired: product, founder, gallery,
+   story, FAQ, reviews — comparison ("us vs them") removed.
+   ============================================================ */
+.template-product #MainContent { display: flex; flex-direction: column; }
+.template-product #MainContent > .shopify-section { order: 50; }
+.template-product #MainContent > .shopify-section:has(.product__info) { order: 1; }
+.template-product #MainContent > .shopify-section:has(.meave-afounder) { order: 2; }
+.template-product #MainContent > .shopify-section:has(.meave-gallery) { order: 3; }
+.template-product #MainContent > .shopify-section:has(.meave-story) { order: 4; }
+.template-product #MainContent > .shopify-section:has(#meave-faq) { order: 5; }
+.template-product #MainContent > .shopify-section:has(.meave-reviews) { order: 6; }
+.template-product #MainContent > .shopify-section:has(.meave-comparison) { display: none !important; }
