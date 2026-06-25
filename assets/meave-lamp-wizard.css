@@ -870,6 +870,15 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
 }
 .mlw-sticky__btn:active { transform: translateY(0) scale(0.985); }
 
+/* Price inside the button — only used on mobile (desktop shows the info block) */
+.mlw-sticky__btn-price { display: none; }
+.mlw-sticky__btn-was {
+  margin-left: 7px;
+  font-weight: 400;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
 /* Hidden while the wizard panel is open */
 .mlw-sticky.mlw-sticky--suppressed {
   transform: translateY(115%);
@@ -879,13 +888,22 @@ html.mlw-no-scroll, html.mlw-no-scroll body { overflow: hidden; }
 }
 
 @media (max-width: 749px) {
-  .mlw-sticky { padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); }
-  .mlw-sticky__inner { gap: 12px; }
-  .mlw-sticky__info { flex: 1 1 auto; }
-  .mlw-sticky__btn { flex: 0 0 auto; margin-left: auto; padding: 0 24px; min-height: 50px; }
-  .mlw-sticky__name { font-size: 13px; }
-  .mlw-sticky__now { font-size: 15px; }
-  .mlw-sticky__was { font-size: 12px; }
+  .mlw-sticky { padding: 9px 14px calc(9px + env(safe-area-inset-bottom, 0px)); }
+  /* Mobile: a single full-width button with the price inside (wizard-style) */
+  .mlw-sticky__info { display: none; }
+  .mlw-sticky__inner { gap: 0; }
+  .mlw-sticky__btn {
+    width: 100%;
+    flex: 1 1 auto;
+    margin-left: 0;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 22px;
+    min-height: 52px;
+    font-size: 16px;
+  }
+  .mlw-sticky__btn-price { display: inline-flex; align-items: baseline; }
+  .mlw-sticky__btn-now { font-weight: 600; }
 }
 @media (min-width: 750px) {
   .mlw-sticky { padding: 12px 24px; }

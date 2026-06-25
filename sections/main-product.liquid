@@ -194,6 +194,46 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* Collapse the large gap between price and the trust USP
+     (the empty Shop-Pay installment form was adding a --sp-6 row) */
+  #shopify-section-{{ section.id }} .product__info > .installment {
+    margin-block-start: 0 !important;
+  }
+  #shopify-section-{{ section.id }} .product__info > .meave-pdp-mini-trust {
+    margin-block-start: 8px !important;
+  }
+
+  /* Desktop: price sits to the RIGHT of the title (rating spans full width) */
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .product__title.with-price,
+    #shopify-section-{{ section.id }} .product__title.grid {
+      grid-template-columns: 1fr auto !important;
+      align-items: baseline !important;
+      column-gap: 22px !important;
+      row-gap: 6px !important;
+    }
+    #shopify-section-{{ section.id }} .product__title .meave-pdp-rating {
+      grid-column: 1 / -1 !important;
+    }
+    #shopify-section-{{ section.id }} .product__title h1 {
+      grid-column: 1 !important;
+      align-self: baseline !important;
+    }
+    #shopify-section-{{ section.id }} .product__title .product__price {
+      grid-column: 2 !important;
+      place-self: baseline end !important;
+    }
+    #shopify-section-{{ section.id }} .product__title .product__price .price {
+      flex-direction: row !important;
+      align-items: baseline !important;
+      white-space: nowrap !important;
+    }
+    /* hide the theme's empty duplicate rating widget so it can't add a stray cell */
+    #shopify-section-{{ section.id }} .product__title .product__rating {
+      display: none !important;
+    }
+  }
 </style>
 
 {%- liquid

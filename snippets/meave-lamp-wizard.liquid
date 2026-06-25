@@ -56,7 +56,15 @@
             {%- endif -%}
           </span>
         </div>
-        <button type="button" class="mlw-sticky__btn" data-mlw-sticky-open>{{ btn_label }}</button>
+        <button type="button" class="mlw-sticky__btn" data-mlw-sticky-open>
+          <span class="mlw-sticky__btn-label">{{ btn_label }}</span>
+          <span class="mlw-sticky__btn-price" aria-hidden="true">
+            <span class="mlw-sticky__btn-now">{{ sel_variant.price | money }}</span>
+            {%- if sel_variant.compare_at_price > sel_variant.price -%}
+              <span class="mlw-sticky__btn-was">{{ sel_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </span>
+        </button>
       </div>
     </div>
   {%- endif -%}
