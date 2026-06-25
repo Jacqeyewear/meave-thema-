@@ -205,8 +205,9 @@
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "damesbrillen",
-            "title": "Dames",
+            "collection": "wall-lights",
+            "image": "shopify://shop_images/ChatGPT_Image_Jun_18_2026_03_16_22_PM_6.png",
+            "title": "Wall Lights",
             "description": "",
             "overlay_content": true,
             "color_text": "#ffffff",
@@ -214,23 +215,12 @@
             "overlay_opacity": 0
           }
         },
-        "collection-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "herenbrillen",
-            "title": "Heren",
-            "description": "",
-            "overlay_content": true,
-            "color_text": "#ffffff",
-            "color_overlay": "#1d1d1d",
-            "overlay_opacity": 0
-          }
-        },
         "collection-8": {
           "type": "collection",
           "settings": {
-            "collection": "sale",
-            "title": "Sale",
+            "collection": "table-lamps",
+            "image": "shopify://shop_images/Image_11_two_lamps_table.jpg",
+            "title": "Table Lights",
             "description": "",
             "overlay_content": true,
             "color_text": "#ffffff",
@@ -238,25 +228,24 @@
             "overlay_opacity": 0
           }
         },
-        "collection-3": {
+        "collection-2": {
           "type": "collection",
-          "disabled": true,
           "settings": {
-            "collection": "accesoires",
-            "title": "Accessoires",
+            "collection": "outdoor-lights",
+            "image": "shopify://shop_images/Image11flowersv2.jpg",
+            "title": "Outdoor Lights",
             "description": "",
             "overlay_content": true,
             "color_text": "#ffffff",
-            "color_overlay": "#ffffff",
+            "color_overlay": "#1d1d1d",
             "overlay_opacity": 0
           }
         }
       },
       "block_order": [
         "collection-1",
-        "collection-2",
         "collection-8",
-        "collection-3"
+        "collection-2"
       ],
       "settings": {
         "columns": 3,
@@ -358,6 +347,7 @@
         "review_1": {
           "type": "review",
           "settings": {
+            "verified": true,
             "rating": 5,
             "quote": "<p>The finish adds a quiet, elegant touch and the shade gives the room a warm evening glow.</p>",
             "author": "Charlotte J.",
@@ -368,6 +358,7 @@
         "review_2": {
           "type": "review",
           "settings": {
+            "verified": true,
             "rating": 5,
             "quote": "<p>Exactly the light I wanted above my console table. It looks more expensive than expected and makes the hallway feel complete.</p>",
             "author": "Isabella E.",
@@ -378,6 +369,7 @@
         "review_3": {
           "type": "review",
           "settings": {
+            "verified": true,
             "rating": 5,
             "quote": "<p>A simple change that made the bedroom feel considered. The proportions work beautifully next to framed art.</p>",
             "author": "George B.",
@@ -393,7 +385,15 @@
       ],
       "settings": {
         "heading": "Loved for easy lighting upgrades",
-        "extra_reviews": 6
+        "extra_reviews": 6,
+        "show_summary": true,
+        "rating_average": "4.4",
+        "rating_count": "Based on 1,000+ reviews",
+        "pct_5": 56,
+        "pct_4": 33,
+        "pct_3": 7,
+        "pct_2": 3,
+        "pct_1": 1
       }
     }
   },
