@@ -751,3 +751,20 @@ body.template-product { background: #ffffff !important; }
     padding-bottom: 36px !important;
   }
 }
+
+/* ============================================================
+   Home (index) native section titles — featured collections
+   ("Our Bestsellers", "Different styles") and the collection
+   list ("Find your light") — restyled to match the Apple-clean
+   custom headings (founder / gallery / reviews / FAQ):
+   theme heading font, weight 500, tight tracking, no caps.
+   ============================================================ */
+.template-index .title-wrapper .heading,
+.template-index .title-wrapper .heading split-words {
+  font-family: var(--font-heading-family, inherit) !important;
+  font-size: clamp(28px, 3.2vw, 44px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.1 !important;
+  text-transform: none !important;
+}
