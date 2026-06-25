@@ -167,6 +167,15 @@
                       break
                     endif
                   endfor
+
+                  comment
+                    Fallback: if the matching variant has no image of its own,
+                    show the product's featured image so the swatch is never empty.
+                  endcomment
+                  if swatch_image == blank and product.featured_image != blank
+                    assign swatch_image = product.featured_image | image_url: width: 200
+                    assign swatch_fallback_override = false
+                  endif
                 -%}
                 <label
                   for="{{ section_id }}-{{ product_id }}-{{ option.name | handle }}-{{ forloop.index0 }}"
