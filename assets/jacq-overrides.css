@@ -727,3 +727,24 @@ body.template-product { background: #ffffff !important; }
 .template-product #MainContent > .shopify-section:has(#meave-faq) { order: 5; }
 .template-product #MainContent > .shopify-section:has(.meave-reviews) { order: 6; }
 .template-product #MainContent > .shopify-section:has(.meave-comparison) { display: none !important; }
+
+/* ============================================================
+   Tighter spacing between product-page sections (the per-section
+   top/bottom padding stacked up into big gaps, esp. on mobile).
+   ============================================================ */
+.template-product .meave-afounder,
+.template-product .meave-gallery,
+.template-product .meave-reviews,
+.template-product #meave-faq {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+@media (max-width: 749px) {
+  .template-product .meave-afounder,
+  .template-product .meave-gallery,
+  .template-product .meave-reviews,
+  .template-product #meave-faq {
+    padding-top: 36px !important;
+    padding-bottom: 36px !important;
+  }
+}
