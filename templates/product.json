@@ -118,8 +118,8 @@
           "type": "collapsible_tab",
           "settings": {
             "icon": "none",
-            "heading": "How does it work?",
-            "content": "<p>Meave wireless lights are designed for quick room upgrades. Place them beside a mirror, bed, console or artwork to add a soft layer of warm light without a heavy renovation.</p>",
+            "heading": "Shipping & returns",
+            "content": "<p><strong>Free tracked UK delivery</strong> on every order, dispatched within 24 hours. Most orders arrive within 2 to 4 working days, and you'll get a tracking link by email so you can follow it to your door.</p><p><strong>Not quite right?</strong> You have a full 30 days to send it back. If you're not completely happy, you get your money back, simple as that.</p>",
             "page": "",
             "liquid": "",
             "opened": false
@@ -129,8 +129,8 @@
           "type": "collapsible_tab",
           "settings": {
             "icon": "none",
-            "heading": "What is included?",
-            "content": "<p>Your order includes the light, shade, setup accessories, care guidance and protective Meave London packaging. Exact contents can be adjusted per product.</p>",
+            "heading": "Warranty & service",
+            "content": "<p>Every Meave London light comes with a <strong>2-year warranty</strong> against manufacturing faults. If anything isn't right, we'll repair it, replace it or refund you.</p><p>Questions before or after you buy? Our team is here to help by email, Monday to Friday, and we usually reply within 24 hours.</p>",
             "page": "",
             "liquid": "",
             "opened": false
@@ -169,8 +169,7 @@
         "text_warranty",
         "text_setup",
         "tab_how",
-        "tab_included",
-        "tab_specs"
+        "tab_included"
       ],
       "settings": {
         "enable_sticky_info": true,
