@@ -92,6 +92,7 @@
       this.selectedUpsells = [];
       this.qty = 1;
       this.disc = 0;
+      this.discCode = '';
       this._bulbOfferTaken = false;
       this._pendingBtn = null;
       this.addLabelBase = this.addLabelEl ? this.addLabelEl.textContent.trim() : 'Checkout';
@@ -184,6 +185,7 @@
         opt.addEventListener('click', function () {
           self.qty = parseInt(opt.getAttribute('data-mlw-qty'), 10) || 1;
           self.disc = parseFloat(opt.getAttribute('data-mlw-disc')) || 0;
+          self.discCode = (opt.getAttribute('data-mlw-code') || '').trim();
           self.bundleOpts.forEach(function (o) { o.classList.remove('is-on'); o.setAttribute('aria-pressed', 'false'); });
           opt.classList.add('is-on'); opt.setAttribute('aria-pressed', 'true');
           self.updateReview();
@@ -587,9 +589,12 @@
     }
     onAdded(mode) {
       mode = mode || this.afterAdd;
-      var disc = (this._bulbOfferTaken && this.bulbCode) ? ('?discount=' + encodeURIComponent(this.bulbCode)) : '';
-      if (mode === 'checkout') { window.location.assign('/checkout' + disc); return; }
-      if (mode === 'cart') { window.location.assign('/cart' + disc); return; }
+      // Collect discount codes to apply: bundle tier (2/3 sets) + optional bulb offer.
+      var codes = [];
+      if (this.disc > 0 && this.discCode) codes.push(this.discCode);
+      if (this._bulbOfferTaken && this.bulbCode) codes.push(this.bulbCode);
+      if (mode === 'checkout') { window.location.assign(this.discountUrl(codes, '/checkout')); return; }
+      if (mode === 'cart') { window.location.assign(this.discountUrl(codes, '/cart')); return; }
       var self = this;
       if (this.addBtn) this.addBtn.classList.remove('is-loading');
       if (this.continueBtn) this.continueBtn.classList.remove('is-loading');
@@ -602,6 +607,18 @@
           self.tryOpenCartDrawer();
         })
         .catch(function () { window.location.assign('/cart'); });
+    }
+    // Build a URL that applies one or more discount codes, then lands on `target`.
+    // Shopify's /discount/CODE?redirect=… applies the code; nesting redirects stacks
+    // multiple codes (each must be set to combine in Shopify for both to hold).
+    discountUrl(codes, target) {
+      codes = (codes || []).filter(Boolean);
+      if (!codes.length) return target;
+      var url = target;
+      for (var i = codes.length - 1; i >= 0; i--) {
+        url = '/discount/' + encodeURIComponent(codes[i]) + '?redirect=' + encodeURIComponent(url);
+      }
+      return url;
     }
     tryOpenCartDrawer() {
       var opener = document.querySelector('[aria-controls="cart-drawer"], [aria-controls="CartDrawer"], .header__cart-toggle');
