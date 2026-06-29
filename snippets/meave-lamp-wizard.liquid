@@ -253,7 +253,7 @@
       {%- comment -%} Last-chance offer when checking out without the bulbs {%- endcomment -%}
       <div class="mlw-lc" data-mlw-lc hidden
         data-bulb-disc="{{ block.settings.bulb_offer_disc | default: '0.5' }}"
-        data-bulb-code="{{ block.settings.bulb_offer_code | default: 'BULB50' }}">
+        data-bulb-code="{{ block.settings.bulb_offer_code }}">
         <div class="mlw-lc__card" role="dialog" aria-modal="true" aria-label="{{ block.settings.bulb_offer_heading | default: 'Add rechargeable bulbs?' }}">
           <h3 class="mlw-lc__title">{{ block.settings.bulb_offer_heading | default: 'Add rechargeable bulbs?' }}</h3>
           <p class="mlw-lc__text">{{ block.settings.bulb_offer_text | default: 'Your wireless lamp needs rechargeable bulbs to light up. Add them now for 50% off.' }}</p>
