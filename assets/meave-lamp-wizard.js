@@ -47,6 +47,7 @@
       this.backBtn   = this.querySelector('[data-mlw-back]');
       this.nextBtn   = this.querySelector('[data-mlw-next]');
       this.addBtn    = this.querySelector('[data-mlw-add]');
+      this.paypalEl  = this.querySelector('[data-mlw-paypal]');
       this.errorEl   = this.querySelector('[data-mlw-error]');
       this.colorsEl  = this.querySelector('[data-mlw-colors]');
       this.kapsEl    = this.querySelector('[data-mlw-kaps]');
@@ -410,6 +411,7 @@
       if (this.continueBtn) this.continueBtn.hidden = !onLast;
       if (this.summaryEl) this.summaryEl.style.display = onLast ? 'none' : '';
       if (this.trustEl) this.trustEl.hidden = onLast;
+      if (this.paypalEl) this.paypalEl.hidden = !onLast;
     }
 
     /* ---------- selection / summary ---------- */

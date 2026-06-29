@@ -652,6 +652,15 @@
 .mlw-error { margin: 0; color: #c0392b; font-size: 13px; font-weight: 500; text-align: center; }
 .mlw-error[hidden] { display: none; }
 
+.mlw-paypal { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 2px 0 0; color: var(--mlw-muted); font-size: 12.5px; font-weight: 500; letter-spacing: -0.01em; }
+.mlw-paypal[hidden] { display: none; }
+.mlw-paypal__lock { width: 13px; height: 13px; flex: 0 0 13px; }
+.mlw-paypal__brand { display: inline-flex; align-items: center; gap: 4px; }
+.mlw-paypal__logo { width: 15px; height: 15px; }
+.mlw-paypal__word { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13.5px; font-style: italic; font-weight: 700; letter-spacing: -0.02em; }
+.mlw-paypal__word .a { color: #003087; }
+.mlw-paypal__word .b { color: #0070e0; }
+
 /* ---- Last-chance bulb offer (bottom sheet) ---- */
 .mlw-lc {
   position: absolute;
