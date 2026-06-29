@@ -80,7 +80,7 @@
           "disabled": true,
           "settings": {
             "button_label": "Shop nu",
-            "button_link": "shopify://collections/brillen-op-sterkte",
+            "button_link": "shopify://collections/wall-lights",
             "button_style": "primary",
             "button_size": "md",
             "button_external": false,
