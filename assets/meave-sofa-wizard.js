@@ -17,6 +17,19 @@
   }
   function escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
 
+  // "3-Seater (190–230 cm)" -> { main: "3-Seater", meta: "190–230 cm" }
+  function splitSize(s) {
+    var str = String(s == null ? '' : s);
+    var m = str.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+    if (m) return { main: m[1].trim(), meta: m[2].trim() };
+    return { main: str, meta: '' };
+  }
+  function sizeText(s) {
+    var t = splitSize(s);
+    return '<span class="msw-size__text"><span class="msw-size__name">' + esc(t.main) + '</span>' +
+      (t.meta ? '<span class="msw-size__meta">' + esc(t.meta) + '</span>' : '') + '</span>';
+  }
+
   class MeaveSofaWizard extends HTMLElement {
     connectedCallback() {
       if (this.dataset.mswInit === '1') return;
@@ -339,9 +352,9 @@
       row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
       if (!v.av) row.disabled = true;
       row.innerHTML =
-        '<span class="msw-size__radio" aria-hidden="true"></span>' +
-        '<span class="msw-size__name">' + esc(v.s) + '</span>' +
-        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>';
+        sizeText(v.s) +
+        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' +
+        '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
       if (v.av) row.addEventListener('click', function () { self.selectMain(v); });
       return row;
     }
@@ -364,7 +377,7 @@
           '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
           '<button type="button" class="msw-size__add" data-add><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>';
       }
-      row.innerHTML = '<span class="msw-size__name">' + esc(v.s) + '</span>' + right;
+      row.innerHTML = sizeText(v.s) + right;
       if (v.av) {
         var add = row.querySelector('[data-add]');
         if (add) add.addEventListener('click', function () { self.addItem(v); });

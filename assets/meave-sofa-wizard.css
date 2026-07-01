@@ -47,135 +47,66 @@ meave-sofa-wizard[data-mode="bundle"] .msw-guide--parts { display: block; }
 .msw-sizes-sub:not(:first-child) { margin-top: 18px; }
 .msw-sizes-sub span { font-size: 11px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--mlw-muted, #6e6e73); }
 
-/* Single-select size rows (whole-sofa covers) */
-.msw-size--pick { width: 100%; text-align: left; cursor: pointer; font: inherit; transition: box-shadow .15s ease, transform .1s ease; }
-.msw-size--pick:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 10px 24px rgba(0,0,0,.08); }
-.msw-size--pick.is-on { box-shadow: 0 0 0 2px var(--mlw-blue, #0071e3), 0 6px 18px rgba(0,0,0,.05); }
-.msw-size--pick.is-out { cursor: default; }
-.msw-size--pick:disabled { cursor: default; }
-.msw-size__radio { flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%; border: 1.5px solid #cfcfd4; position: relative; transition: border-color .15s ease; }
-.msw-size--pick.is-on .msw-size__radio { border-color: var(--mlw-blue, #0071e3); }
-.msw-size--pick.is-on .msw-size__radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--mlw-blue, #0071e3); }
-.msw-size--pick .msw-size__price { margin-left: auto; }
+/* ---- Size options (step 2) — clean, clear rows ---- */
 .msw-size {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 16px;
-  border: none; border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 6px 18px rgba(0,0,0,.05);
+  display: flex; align-items: center; gap: 14px;
+  width: 100%; padding: 15px 18px;
+  border: 1px solid var(--mlw-line, #e7e7e7);
+  border-radius: 16px; background: #fff;
+  text-align: left; font: inherit;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .1s ease;
 }
-.msw-size.is-out { opacity: .5; }
-.msw-size__name { font-size: 15px; font-weight: 500; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); }
-.msw-size__price { color: var(--mlw-muted, #6e6e73); font-size: 14px; margin-left: auto; }
+.msw-size.is-out { opacity: .55; }
+.msw-size__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.msw-size__name { font-size: 15.5px; font-weight: 600; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); }
+.msw-size__meta { font-size: 12.5px; color: var(--mlw-muted, #6e6e73); }
+.msw-size__price { margin-left: auto; font-size: 15px; font-weight: 500; color: var(--mlw-ink, #1d1d1f); white-space: nowrap; }
+
+/* Single-select rows (whole-sofa / hybrid main size) */
+.msw-size--pick { cursor: pointer; }
+.msw-size--pick:hover { border-color: #d6d4cf; transform: translateY(-1px); box-shadow: 0 10px 22px -16px rgba(0,0,0,.3); }
+.msw-size--pick.is-out, .msw-size--pick:disabled { cursor: default; transform: none; box-shadow: none; }
+.msw-size--pick.is-on { border-color: var(--mlw-blue, #0071e3); box-shadow: inset 0 0 0 1px var(--mlw-blue, #0071e3); }
+.msw-size__check {
+  flex: 0 0 auto; display: grid; place-items: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1.6px solid #cfcfd4; background: #fff; color: transparent;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.msw-size__check svg { width: 13px; height: 13px; }
+.msw-size--pick.is-on .msw-size__check { border-color: var(--mlw-blue, #0071e3); background: var(--mlw-blue, #0071e3); color: #fff; }
+
+/* Add-to-bundle rows (bundle mode + hybrid cushion extras) */
 .msw-size__add {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 16px; border: none; border-radius: 999px;
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 17px; border: none; border-radius: 999px;
   background: var(--mlw-blue, #0071e3); color: #fff;
-  font: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer;
-  transition: background 160ms ease, transform 140ms ease;
+  font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer;
+  transition: background .16s ease, transform .12s ease;
 }
 .msw-size__add:hover { background: var(--mlw-blue-hover, #0077ed); }
 .msw-size__add:active { transform: scale(.98); }
-.msw-size__add svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-.msw-size__qty { display: inline-flex; align-items: center; gap: 10px; }
-.msw-size__qtybtn { display: grid; place-items: center; width: 30px; height: 30px; border: 1.5px solid var(--mlw-line, #e7e7e7); border-radius: 50%; background: #fff; color: var(--mlw-ink, #1d1d1f); font-size: 17px; line-height: 1; cursor: pointer; transition: border-color 150ms ease; }
+.msw-size__add svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+.msw-size__qty { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 12px; }
+.msw-size__qtybtn { display: grid; place-items: center; width: 32px; height: 32px; border: 1.5px solid var(--mlw-line, #e7e7e7); border-radius: 50%; background: #fff; color: var(--mlw-ink, #1d1d1f); font-size: 18px; line-height: 1; cursor: pointer; transition: border-color .15s ease; }
 .msw-size__qtybtn:hover { border-color: var(--mlw-blue, #0071e3); }
-.msw-size__qtynum { min-width: 18px; text-align: center; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.msw-size__qtynum { min-width: 16px; text-align: center; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* ---- Overview line remove link (extends .mlw-line) ---- */
 .mlw-line__rm { border: 0; background: none; color: var(--mlw-muted, #6e6e73); font-size: 12px; cursor: pointer; text-decoration: underline; padding: 0; letter-spacing: 0; text-transform: none; }
 .mlw-line__rm:hover { color: var(--mlw-ink, #1d1d1f); }
 .msw-cart-empty { padding: 22px 18px; text-align: center; color: var(--mlw-muted, #6e6e73); font-size: 14px; }
 
+/* ---- Sofa-specific tweaks on the shared shell (wizard stays white) ---- */
+/* Colour preview: full-bleed lifestyle photo that fills the whole tile */
+.mlw-root .mlw-preview { padding: 0; background: #f5f5f7; border-radius: 20px; }
+.mlw-root .mlw-preview img { max-width: 100%; max-height: 100%; width: 100%; height: 100%; object-fit: cover; }
+/* Colour swatches: larger images that fill their cell edge-to-edge */
+.mlw-root .mlw-colors { gap: 18px 14px; }
+.mlw-root .mlw-color__media { max-width: none; border-radius: 14px; }
+.mlw-root .mlw-color__img { width: 100%; height: 100%; object-fit: cover; }
+
 @media (max-width: 600px) {
-  .msw-size { padding: 12px 14px; }
-  .msw-size__name { font-size: 14px; }
+  .msw-size { padding: 13px 15px; }
+  .msw-size__name { font-size: 14.5px; }
 }
-
-/* ============================================================
-   MOLLIE-INSPIRED SKIN
-   Cream canvas · white rounded cards · flat black pills ·
-   big bold headings · soft shadows. Loads only on sofa pages,
-   overriding the shared lamp shell (later stylesheet wins).
-   ============================================================ */
-
-/* Design tokens — flip accent to near-black, canvas to warm cream.
-   Set on every place the shell reads them (element, portaled modal, sticky). */
-meave-sofa-wizard.mlw,
-.mlw-root,
-.mlw-sticky {
-  --mlw-bg: #f7f4ef;
-  --mlw-ink: #191713;
-  --mlw-muted: #6f6a63;
-  --mlw-line: #e8e2d8;
-  --mlw-line-soft: rgba(25, 23, 19, 0.06);
-  --mlw-soft: #efe9df;
-  --mlw-blue: #191713;
-  --mlw-blue-hover: #000000;
-  --mlw-radius: 16px;
-  --mlw-radius-card: 22px;
-}
-
-/* Trigger — flat black pill (Mollie CTA), no gradient wave */
-meave-sofa-wizard .mlw-trigger {
-  background: #191713;
-  box-shadow: none;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-meave-sofa-wizard .mlw-trigger:hover { background: #000; transform: none; box-shadow: 0 10px 26px -12px rgba(0, 0, 0, 0.45); }
-meave-sofa-wizard .mlw-trigger:active { transform: scale(0.99); }
-meave-sofa-wizard .mlw-trigger__wave { display: none; }
-
-/* Panel — rounded left edge on desktop, roomier body */
-@media (min-width: 601px) {
-  .mlw-root .mlw-panel { border-radius: 26px 0 0 26px; overflow: hidden; }
-  .mlw-root .mlw-body { padding: 28px 26px 14px; }
-}
-
-/* Headings — larger, tighter, bolder */
-.mlw-root .mlw-step__title { font-size: 26px; font-weight: 600; letter-spacing: -0.03em; }
-.mlw-root .mlw-head__title { font-weight: 600; letter-spacing: -0.02em; }
-.mlw-root .mlw-step__sub { font-size: 14.5px; }
-@media (max-width: 600px) { .mlw-root .mlw-step__title { font-size: 22px; } }
-
-/* Body / footer share the cream canvas */
-.mlw-root .mlw-foot { background: #f7f4ef; box-shadow: 0 -8px 20px rgba(25, 23, 19, 0.04); }
-
-/* Stepper — black active underline, a touch bolder */
-.mlw-root .mlw-tab { font-weight: 500; }
-.mlw-root .mlw-tab.is-active::after { height: 2.5px; background: #191713; }
-
-/* Preview — soft cream tile, flatter */
-.mlw-root .mlw-preview { background: #efe9df; box-shadow: none; border-radius: 22px; }
-
-/* Colour swatches — softer card, black selected ring */
-.mlw-root .mlw-color__media { border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 6px 16px rgba(25,23,19,.06); }
-.mlw-root .mlw-color__input:checked + .mlw-color__media { box-shadow: 0 0 0 2px #191713, 0 6px 16px rgba(25,23,19,.08); }
-
-/* Summary card — white, big radius, soft depth */
-.mlw-root .mlw-summary-card { border-radius: 22px; box-shadow: 0 1px 3px rgba(25,23,19,.04), 0 22px 48px -22px rgba(25,23,19,.18); }
-.mlw-root .mlw-totals__row--total strong { font-weight: 600; }
-
-/* Primary actions — flat black pills */
-.mlw-root .mlw-next,
-.mlw-root .mlw-add { background: #191713; box-shadow: none; font-weight: 600; }
-.mlw-root .mlw-next:hover,
-.mlw-root .mlw-add:hover { background: #000; }
-.mlw-root .mlw-continue { background: #efe9df; color: #191713; font-weight: 600; }
-.mlw-root .mlw-continue:hover { background: #e7e0d4; }
-
-/* Size rows — white rounded cards, black accents */
-.mlw-root .msw-size { border-radius: 18px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.16); }
-.mlw-root .msw-size--pick.is-on { box-shadow: 0 0 0 2px #191713, 0 10px 24px -16px rgba(25,23,19,.18); }
-.mlw-root .msw-size__add { font-weight: 600; }
-
-/* Size guide + upsell cards — match the rounded, soft look */
-.mlw-root .msw-guide { border-radius: 20px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.12); }
-.mlw-root .mlw-up { border-radius: 20px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.12); }
-.mlw-root .mlw-up__rec { color: #191713; }
-
-/* Sticky CTA — flat black pill */
-.mlw-sticky .mlw-sticky__btn { background: #191713; box-shadow: 0 8px 22px -10px rgba(0,0,0,.4); }
-.mlw-sticky .mlw-sticky__btn:hover { background: #000; }
-.mlw-sticky .mlw-sticky__now { color: #191713; }
