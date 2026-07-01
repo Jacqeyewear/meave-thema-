@@ -1,13 +1,18 @@
 {% comment %}
-  Meave sofa-cover wizard – colour -> size -> overview, with bundling.
+  Meave sofa-cover wizard – same look & feel as the lamp wizard (right-hand
+  slide-out, numbered step tabs, colour swatches, cart-style summary), but
+  driven by the CURRENT sofa-cover product's own colour + size variants.
 
-  Uses the CURRENT product's own variants (colour option + size option).
-  Colours are de-duplicated. The shopper picks a colour, adds one or more
-  sizes (each size = a part of the sofa) to a bundle, then checks out. All
-  chosen sizes are added to the cart as separate line items.
+  Flow: 1 Colour → 2 Size (bundle a cover per part of the sofa) → 3 Overview.
+  Colours are de-duplicated. Each size the shopper adds becomes its own line
+  item, so a full sofa can be covered in one go. Variant ids come straight
+  from Shopify — no codes by hand.
+
+  Reuses meave-lamp-wizard.css for the shell so it matches the lamp wizard
+  exactly; meave-sofa-wizard.css only adds the size rows + size guide.
 
   @param {object} block   - meave_sofa_wizard block settings
-  @param {object} product - Current product
+  @param {object} product - Current sofa-cover product
 {% endcomment %}
 
 {%- liquid
@@ -50,19 +55,31 @@
   assign si = size_pos | minus: 1
   assign size_values = product.options_with_values[si].values
   assign btn_label = block.settings.button_label | default: 'Customise yours'
+  assign after_add = block.settings.after_add | default: 'checkout'
 -%}
 
-<meave-sofa-wizard class="msw" data-after-add="{{ block.settings.after_add | default: 'checkout' }}" {{ block.shopify_attributes }}>
+<meave-sofa-wizard
+  class="mlw"
+  data-after-add="{{ after_add }}"
+  data-title="{{ btn_label | escape }}"
+  {{ block.shopify_attributes }}
+>
   <script type="application/json" data-msw-variants>
     [
       {%- for v in product.variants -%}
-        {%- if v.image -%}{%- assign vimg = v.image | image_url: width: 240 -%}{%- else -%}{%- assign vimg = '' -%}{%- endif -%}
+        {%- if v.image -%}{%- assign vimg = v.image | image_url: width: 300 -%}{%- else -%}{%- assign vimg = product.featured_image | image_url: width: 300 -%}{%- endif -%}
         {"id":{{ v.id }},"c":{{ v.options[ci] | default: '' | json }},"s":{{ v.options[si] | default: '' | json }},"price":{{ v.price }},"pf":{{ v.price | money | strip_html | json }},"av":{{ v.available }},"img":{{ vimg | json }}}{%- unless forloop.last -%},{%- endunless -%}
       {%- endfor -%}
     ]
   </script>
 
-  <button type="button" class="msw-trigger" data-msw-open>{{ btn_label | escape }}</button>
+  <button type="button" class="mlw-trigger{% unless product.available %} mlw-trigger--soldout{% endunless %}"
+    {% if product.available %}data-msw-open aria-haspopup="dialog"{% else %}disabled aria-disabled="true"{% endif %}>
+    {%- if product.available -%}<span class="mlw-trigger__wave" aria-hidden="true"></span>{%- endif -%}
+    <span class="mlw-trigger__label">
+      {%- if product.available -%}{{ btn_label }}{%- else -%}{{ 'products.product.sold_out' | t | default: 'Sold out' }}{%- endif -%}
+    </span>
+  </button>
 
   {%- if size_values.size > 0 -%}
     <details class="msw-sizes">
@@ -78,29 +95,50 @@
     </details>
   {%- endif -%}
 
-  <div class="msw-modal" data-msw-modal hidden>
-    <div class="msw-modal__overlay" data-msw-close></div>
-    <div class="msw-modal__panel" role="dialog" aria-modal="true" aria-label="Customise your sofa cover">
-      <div class="msw-head">
-        <div class="msw-steps" data-msw-steps>
-          <button type="button" class="msw-step is-active" data-msw-step-tab="1"><span>1</span> Colour</button>
-          <button type="button" class="msw-step" data-msw-step-tab="2"><span>2</span> Size</button>
-          <button type="button" class="msw-step" data-msw-step-tab="3"><span>3</span> Overview</button>
-        </div>
-        <button type="button" class="msw-close" data-msw-close aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
-        </button>
-      </div>
+  <div class="mlw-root" data-msw-root hidden aria-hidden="true">
+    <div class="mlw-overlay" data-msw-close tabindex="-1"></div>
 
-      <div class="msw-body">
-        <section class="msw-panel is-active" data-msw-panel="1">
-          <h3 class="msw-panel__title">Choose your colour</h3>
-          <div class="msw-colours" data-msw-colours></div>
+    <aside class="mlw-panel" role="dialog" aria-modal="true" aria-label="{{ btn_label | escape }}">
+      <header class="mlw-head">
+        <button type="button" class="mlw-back" data-msw-back aria-label="Back" hidden>
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span class="mlw-head__title">{{ btn_label }}</span>
+        <button type="button" class="mlw-close" data-msw-close aria-label="Close">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
+
+      <nav class="mlw-tabs" aria-label="Steps">
+        <button type="button" class="mlw-tab is-active" data-msw-tab="1">
+          <span class="mlw-tab__num">1.</span><span class="mlw-tab__txt">Colour</span>
+        </button>
+        <button type="button" class="mlw-tab" data-msw-tab="2">
+          <span class="mlw-tab__num">2.</span><span class="mlw-tab__txt">Size</span>
+        </button>
+        <button type="button" class="mlw-tab" data-msw-tab="3">
+          <span class="mlw-tab__num">3.</span><span class="mlw-tab__txt">Overview</span>
+        </button>
+      </nav>
+
+      <div class="mlw-body">
+        {%- comment -%} STEP 1: COLOUR {%- endcomment -%}
+        <section class="mlw-step is-active" data-msw-step="1">
+          <div class="mlw-preview" aria-hidden="true"><img data-msw-preview src="" alt=""></div>
+          <div class="mlw-picker">
+            <div class="mlw-step__intro">
+              <h3 class="mlw-step__title">Choose your colour</h3>
+            </div>
+            <div class="mlw-colors" data-msw-colors role="radiogroup" aria-label="Colour"></div>
+          </div>
         </section>
 
-        <section class="msw-panel" data-msw-panel="2">
-          <h3 class="msw-panel__title">Choose your size<span class="msw-panel__sub" data-msw-colour-label></span></h3>
-          <p class="msw-hint">A cover set is made up per part. Add a size for each part of your sofa you want to cover.</p>
+        {%- comment -%} STEP 2: SIZE (bundle a cover per part) {%- endcomment -%}
+        <section class="mlw-step" data-msw-step="2" hidden>
+          <div class="mlw-step__intro">
+            <h3 class="mlw-step__title">Choose your size<span class="msw-colour-tag" data-msw-colour-label></span></h3>
+            <p class="mlw-step__sub">A cover is made per part. Add a size for each part of your sofa you want to cover — they’re bundled together.</p>
+          </div>
 
           <details class="msw-guide" open>
             <summary>
@@ -147,30 +185,69 @@
             </div>
           </details>
 
-          <div class="msw-sizesgrid" data-msw-sizesgrid></div>
+          <div class="msw-sizes-grid" data-msw-sizes></div>
         </section>
 
-        <section class="msw-panel" data-msw-panel="3">
-          <h3 class="msw-panel__title">Your bundle</h3>
-          <div class="msw-cart" data-msw-cart></div>
-          <div class="msw-totals">
-            <span>Total</span>
-            <strong data-msw-total>—</strong>
+        {%- comment -%} STEP 3: OVERVIEW — cart-style summary {%- endcomment -%}
+        <section class="mlw-step" data-msw-step="3" hidden>
+          <div class="mlw-step__intro">
+            <h3 class="mlw-step__title">Your bundle</h3>
           </div>
+
+          <div class="mlw-summary-card">
+            <div class="mlw-lines" data-msw-lines></div>
+            <div class="mlw-totals">
+              <div class="mlw-totals__row mlw-totals__row--minor">
+                <span>Shipping</span>
+                <strong class="mlw-free">Free</strong>
+              </div>
+              <div class="mlw-totals__row mlw-totals__row--total">
+                <span>Total</span>
+                <strong data-msw-total>—</strong>
+              </div>
+            </div>
+          </div>
+
+          <p class="mlw-ship-note">Ships within 24 hours</p>
+
+          <ul class="mlw-usps" aria-label="Why shop with us">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4.5L21 8v8.5L12 21l-9-4.5z"/><path d="M3 8l9 4.5L21 8"/><path d="M12 12.5V21"/></svg>
+              <span>Free UK delivery</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M8 3.5v3M16 3.5v3M3.5 10h17"/></svg>
+              <span>30-day returns</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg>
+              <span>Machine washable</span>
+            </li>
+          </ul>
         </section>
       </div>
 
-      <footer class="msw-foot">
-        <button type="button" class="msw-back" data-msw-back hidden>Back</button>
-        <button type="button" class="msw-next" data-msw-next hidden>Next</button>
-        <button type="button" class="msw-checkout" data-msw-checkout hidden>
-          <span data-msw-checkout-label>Checkout</span>
+      <footer class="mlw-foot">
+        <p class="mlw-trust" data-msw-trust>Free UK delivery · 30-day returns · Machine washable</p>
+        <button type="button" class="mlw-next" data-msw-next>Next</button>
+        <button type="button" class="mlw-add" data-msw-add hidden>
+          <span class="mlw-add__label">Checkout</span>
+          <span class="mlw-add__spinner" aria-hidden="true"></span>
         </button>
-        <p class="msw-error" data-msw-error hidden></p>
+        <p class="mlw-paypal" data-msw-paypal hidden>
+          <svg class="mlw-paypal__lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          <span>Secure checkout with</span>
+          <span class="mlw-paypal__brand">
+            <svg class="mlw-paypal__logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#003087" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106z"/><path fill="#0070e0" d="M21.222 6.917a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527-.336 2.133a.563.563 0 0 0 .556.647h3.882c.46 0 .85-.334.922-.788l.038-.207.731-4.632.047-.255a.932.932 0 0 1 .922-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/></svg>
+            <span class="mlw-paypal__word"><span class="a">Pay</span><span class="b">Pal</span></span>
+          </span>
+        </p>
+        <p class="mlw-error" data-msw-error hidden></p>
       </footer>
-    </div>
+    </aside>
   </div>
-</meave-sofa-wizard>
 
-{{ 'meave-sofa-wizard.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'meave-sofa-wizard.js' | asset_url }}" defer></script>
+  {{ 'meave-lamp-wizard.css' | asset_url | stylesheet_tag }}
+  {{ 'meave-sofa-wizard.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'meave-sofa-wizard.js' | asset_url }}" defer></script>
+</meave-sofa-wizard>

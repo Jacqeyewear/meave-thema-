@@ -1,128 +1,208 @@
-/* Meave sofa-cover wizard: colour -> size -> overview, with bundling. */
+/* ============================================================
+   Meave Sofa-cover Wizard — same shell as the lamp wizard.
+   1 Colour  : pick the cover colour (a de-duplicated colour option)
+   2 Size    : add a cover per part of the sofa (bundle multiple sizes)
+   3 Overview: cart-style summary, then checkout
+   Every chosen size is added to the cart as its own line item.
+   ============================================================ */
 (function () {
+  'use strict';
+
+  if (window.customElements && customElements.get('meave-sofa-wizard')) return;
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function escAttr(s) { return String(s == null ? '' : s).replace(/"/g, '&quot;'); }
+
   class MeaveSofaWizard extends HTMLElement {
     connectedCallback() {
-      if (this._init) return;
-      this._init = true;
-      try {
-        this.variants = JSON.parse(this.querySelector('[data-msw-variants]').textContent);
-      } catch (e) { this.variants = []; }
-      this.variants = this.variants.filter(function (v) { return v && v.id; });
+      if (this.dataset.mswInit === '1') return;
+      this.dataset.mswInit = '1';
+
+      try { this.variants = JSON.parse(this.querySelector('[data-msw-variants]').textContent); }
+      catch (e) { this.variants = []; }
+      this.variants = (this.variants || []).filter(function (v) { return v && v.id; });
 
       this.afterAdd = this.getAttribute('data-after-add') || 'checkout';
-      this.modal = this.querySelector('[data-msw-modal]');
-      this.panels = Array.prototype.slice.call(this.querySelectorAll('[data-msw-panel]'));
-      this.stepTabs = Array.prototype.slice.call(this.querySelectorAll('[data-msw-step-tab]'));
-      this.coloursEl = this.querySelector('[data-msw-colours]');
-      this.sizesEl = this.querySelector('[data-msw-sizesgrid]');
-      this.colourLabel = this.querySelector('[data-msw-colour-label]');
-      this.cartEl = this.querySelector('[data-msw-cart]');
-      this.totalEl = this.querySelector('[data-msw-total]');
-      this.backBtn = this.querySelector('[data-msw-back]');
-      this.nextBtn = this.querySelector('[data-msw-next]');
-      this.checkoutBtn = this.querySelector('[data-msw-checkout]');
-      this.errorEl = this.querySelector('[data-msw-error]');
 
-      // Money format from a sample price
+      this.root       = this.querySelector('[data-msw-root]');
+      this.panel      = this.querySelector('.mlw-panel');
+      this.trigger    = this.querySelector('[data-msw-open]');
+      this.body       = this.querySelector('.mlw-body');
+      this.backBtn    = this.querySelector('[data-msw-back]');
+      this.nextBtn    = this.querySelector('[data-msw-next]');
+      this.addBtn     = this.querySelector('[data-msw-add]');
+      this.trustEl    = this.querySelector('[data-msw-trust]');
+      this.paypalEl   = this.querySelector('[data-msw-paypal]');
+      this.errorEl    = this.querySelector('[data-msw-error]');
+      this.previewImg = this.querySelector('[data-msw-preview]');
+      this.coloursEl  = this.querySelector('[data-msw-colors]');
+      this.sizesEl    = this.querySelector('[data-msw-sizes]');
+      this.colourLbl  = this.querySelector('[data-msw-colour-label]');
+      this.linesEl    = this.querySelector('[data-msw-lines]');
+      this.totalEl    = this.querySelector('[data-msw-total]');
+      this.addLabelEl = this.querySelector('.mlw-add__label');
+      this.tabs       = Array.prototype.slice.call(this.querySelectorAll('[data-msw-tab]'));
+      this.steps      = Array.prototype.slice.call(this.querySelectorAll('[data-msw-step]'));
+
+      this.step = 1;
+      this.totalSteps = this.steps.length || 3;
+      this.lastFocus = null;
+      this.addLabelBase = this.addLabelEl ? this.addLabelEl.textContent.trim() : 'Checkout';
+
+      // Money format from a sample price.
       var sample = (this.variants[0] && this.variants[0].pf) || '£0.00';
       this.moneySymbol = (sample.match(/^[^\d\-]+/) || ['£'])[0];
+      this.useComma = sample.lastIndexOf(',') > sample.lastIndexOf('.');
 
-      // Unique colours, in first-seen order, with a representative image
+      // De-duplicated colours, in first-seen order, with a representative image.
       this.colours = [];
-      var seen = {};
-      var self = this;
+      var seen = {}, self = this;
       this.variants.forEach(function (v) {
-        if (!seen[v.c]) { seen[v.c] = { name: v.c, img: v.img || '' }; self.colours.push(seen[v.c]); }
-        if (!seen[v.c].img && v.img) seen[v.c].img = v.img;
+        var key = v.c || '';
+        if (!seen[key]) { seen[key] = { name: key, img: v.img || '' }; self.colours.push(seen[key]); }
+        if (!seen[key].img && v.img) seen[key].img = v.img;
       });
 
-      this.selColour = null;
+      this.selColour = this.colours.length ? this.colours[0].name : null;
       this.bundle = [];
-      this.step = 1;
+
+      if (this.root && this.root.parentNode !== document.body) document.body.appendChild(this.root);
 
       this.renderColours();
       this.bind();
       this.render();
     }
 
-    money(pence) { return this.moneySymbol + (pence / 100).toFixed(2); }
+    money(pence) {
+      var val = (pence / 100).toFixed(2);
+      if (this.useComma) val = val.replace('.', ',');
+      return this.moneySymbol + val;
+    }
 
     bind() {
       var self = this;
-      this.querySelectorAll('[data-msw-open]').forEach(function (b) { b.addEventListener('click', function () { self.open(); }); });
+      if (this.trigger) this.trigger.addEventListener('click', function () { self.open(); });
       this.querySelectorAll('[data-msw-close]').forEach(function (b) { b.addEventListener('click', function () { self.close(); }); });
-      this.stepTabs.forEach(function (t) {
-        t.addEventListener('click', function () {
-          var n = parseInt(t.getAttribute('data-msw-step-tab'), 10);
+      if (this.backBtn) this.backBtn.addEventListener('click', function () { self.goTo(self.step - 1); });
+      if (this.nextBtn) this.nextBtn.addEventListener('click', function () { self.next(); });
+      if (this.addBtn) this.addBtn.addEventListener('click', function () { self.checkout(); });
+
+      this.tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var n = parseInt(tab.getAttribute('data-msw-tab'), 10);
           if (n === 2 && !self.selColour) return;
           if (n === 3 && !self.bundle.length) return;
-          self.go(n);
+          self.goTo(n);
         });
       });
-      if (this.backBtn) this.backBtn.addEventListener('click', function () { self.go(Math.max(1, self.step - 1)); });
-      if (this.nextBtn) this.nextBtn.addEventListener('click', function () { if (self.step === 2 && self.bundle.length) self.go(3); });
-      if (this.checkoutBtn) this.checkoutBtn.addEventListener('click', function () { self.checkout(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && self.modal && !self.modal.hidden) self.close(); });
+
+      this._onKey = function (e) { if (e.key === 'Escape' && self.root && self.root.classList.contains('is-open')) self.close(); };
+      document.addEventListener('keydown', this._onKey);
     }
 
+    /* ---------- open / close ---------- */
     open() {
-      if (this.modal.parentNode !== document.body) { this.modal.classList.add('msw-portal'); document.body.appendChild(this.modal); }
-      this.modal.hidden = false;
-      document.documentElement.style.overflow = 'hidden';
-      document.body.classList.add('msw-open');
+      if (!this.root) return;
+      this.lastFocus = document.activeElement;
+      this.root.hidden = false;
+      this.root.setAttribute('aria-hidden', 'false');
+      void this.root.offsetWidth;
+      this.root.classList.add('is-open');
+      document.documentElement.classList.add('mlw-no-scroll');
+      this.goTo(1, true);
       var self = this;
-      requestAnimationFrame(function () { self.modal.classList.add('is-open'); });
+      window.setTimeout(function () { var f = self.panel && self.panel.querySelector('.mlw-close'); if (f) f.focus(); }, 60);
     }
     close() {
-      this.modal.classList.remove('is-open');
-      document.documentElement.style.overflow = '';
-      document.body.classList.remove('msw-open');
-      var m = this.modal;
-      setTimeout(function () { m.hidden = true; }, 260);
+      if (!this.root) return;
+      this.root.classList.remove('is-open');
+      document.documentElement.classList.remove('mlw-no-scroll');
+      var self = this;
+      var done = function () { self.root.hidden = true; self.root.setAttribute('aria-hidden', 'true'); if (self.panel) self.panel.removeEventListener('transitionend', onEnd); };
+      var onEnd = function (e) { if (e.target === self.panel && e.propertyName === 'transform') done(); };
+      if (this.panel) this.panel.addEventListener('transitionend', onEnd);
+      window.setTimeout(done, 400);
+      if (this.lastFocus && this.lastFocus.focus) this.lastFocus.focus();
     }
 
-    go(n) { this.step = n; this.render(); var b = this.querySelector('.msw-body'); if (b) b.scrollTop = 0; }
-
+    /* ---------- navigation ---------- */
+    next() {
+      if (this.step === 1) { if (!this.selColour) { this.showError('Please choose a colour first.'); return; } this.goTo(2); return; }
+      if (this.step === 2) { if (!this.bundle.length) { this.showError('Add at least one size to continue.'); return; } this.goTo(3); return; }
+    }
+    goTo(step, silent) {
+      step = Math.min(this.totalSteps, Math.max(1, step));
+      this.step = step;
+      this.render();
+      if (this.body) this.body.scrollTop = 0;
+      if (!silent) this.clearError();
+    }
     render() {
       var self = this;
-      this.panels.forEach(function (p) { p.classList.toggle('is-active', parseInt(p.getAttribute('data-msw-panel'), 10) === self.step); });
-      this.stepTabs.forEach(function (t) {
-        var n = parseInt(t.getAttribute('data-msw-step-tab'), 10);
-        t.classList.toggle('is-active', n === self.step);
-        t.classList.toggle('is-done', n < self.step);
+      this.steps.forEach(function (sec) {
+        var n = parseInt(sec.getAttribute('data-msw-step'), 10);
+        var active = n === self.step;
+        sec.classList.toggle('is-active', active);
+        sec.hidden = !active;
       });
+      this.tabs.forEach(function (tab) {
+        var n = parseInt(tab.getAttribute('data-msw-tab'), 10);
+        tab.classList.toggle('is-active', n === self.step);
+        tab.classList.toggle('is-done', n < self.step);
+      });
+
       if (this.step === 2) this.renderSizes();
       if (this.step === 3) this.renderOverview();
-      if (this.colourLabel) this.colourLabel.textContent = this.selColour || '';
+      if (this.colourLbl) this.colourLbl.textContent = this.selColour || '';
+      this.updatePreview();
 
+      var onLast = this.step === this.totalSteps;
       if (this.backBtn) this.backBtn.hidden = this.step === 1;
-      if (this.nextBtn) {
-        this.nextBtn.hidden = this.step !== 2;
-        this.nextBtn.textContent = 'To overview';
-        this.nextBtn.disabled = !this.bundle.length;
-      }
-      if (this.checkoutBtn) {
-        this.checkoutBtn.hidden = this.step !== 3;
-        this.checkoutBtn.disabled = !this.bundle.length;
-      }
+      if (this.nextBtn) this.nextBtn.hidden = onLast;
+      if (this.addBtn) { this.addBtn.hidden = !onLast; this.addBtn.disabled = !this.bundle.length; }
+      if (this.trustEl) this.trustEl.hidden = onLast;
+      if (this.paypalEl) this.paypalEl.hidden = !onLast;
       this.clearError();
     }
 
+    /* ---------- step 1: colours ---------- */
     renderColours() {
+      if (!this.coloursEl) return;
       var self = this;
       this.coloursEl.innerHTML = '';
+      var frag = document.createDocumentFragment();
       this.colours.forEach(function (c) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'msw-colour' + (self.selColour === c.name ? ' is-on' : '');
-        b.innerHTML =
-          (c.img ? '<img class="msw-colour__img" src="' + c.img + '" alt="" loading="lazy">' : '<span class="msw-colour__img"></span>') +
-          '<span class="msw-colour__name">' + esc(c.name) + '</span>';
-        b.addEventListener('click', function () { self.selColour = c.name; self.renderColours(); self.go(2); });
-        self.coloursEl.appendChild(b);
+        var label = document.createElement('label');
+        label.className = 'mlw-color';
+        var input = document.createElement('input');
+        input.type = 'radio'; input.className = 'mlw-color__input'; input.name = 'msw-color';
+        input.value = c.name;
+        if (c.name === self.selColour) input.checked = true;
+        input.addEventListener('change', function () { self.selColour = c.name; self.updatePreview(); });
+        var media = document.createElement('span'); media.className = 'mlw-color__media';
+        if (c.img) { var img = document.createElement('img'); img.className = 'mlw-color__img'; img.loading = 'lazy'; img.alt = c.name; img.src = c.img; media.appendChild(img); }
+        var name = document.createElement('span'); name.className = 'mlw-color__name'; name.textContent = c.name;
+        label.appendChild(input); label.appendChild(media); label.appendChild(name);
+        frag.appendChild(label);
       });
+      this.coloursEl.appendChild(frag);
+    }
+    colourImage(name) {
+      for (var i = 0; i < this.colours.length; i++) if (this.colours[i].name === name) return this.colours[i].img;
+      return this.colours[0] ? this.colours[0].img : '';
+    }
+    updatePreview() {
+      if (!this.previewImg) return;
+      var src = this.colourImage(this.selColour);
+      if (src) { this.previewImg.src = src; this.previewImg.style.visibility = 'visible'; }
+      else { this.previewImg.removeAttribute('src'); this.previewImg.style.visibility = 'hidden'; }
     }
 
+    /* ---------- step 2: sizes ---------- */
     sizesForColour(c) {
       var out = [], seen = {};
       this.variants.forEach(function (v) {
@@ -135,6 +215,7 @@
     inBundle(id) { for (var i = 0; i < this.bundle.length; i++) if (this.bundle[i].id === id) return this.bundle[i]; return null; }
 
     renderSizes() {
+      if (!this.sizesEl) return;
       var self = this;
       this.sizesEl.innerHTML = '';
       var sizes = this.sizesForColour(this.selColour);
@@ -147,13 +228,13 @@
           right = '<span class="msw-size__price">Sold out</span>';
         } else if (line) {
           right =
-            '<span class="msw-size__price">' + v.pf + '</span>' +
-            '<span class="msw-size__qty"><button type="button" class="msw-size__qtybtn" data-dec>−</button>' +
+            '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
+            '<span class="msw-size__qty"><button type="button" class="msw-size__qtybtn" data-dec aria-label="Remove one">−</button>' +
             '<span class="msw-size__qtynum">' + line.qty + '</span>' +
-            '<button type="button" class="msw-size__qtybtn" data-inc>+</button></span>';
+            '<button type="button" class="msw-size__qtybtn" data-inc aria-label="Add one">+</button></span>';
         } else {
           right =
-            '<span class="msw-size__price">' + v.pf + '</span>' +
+            '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
             '<button type="button" class="msw-size__add" data-add><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>';
         }
         row.innerHTML = '<span class="msw-size__name">' + esc(v.s) + '</span>' + right;
@@ -173,40 +254,66 @@
       var line = this.inBundle(v.id);
       if (line) line.qty += 1;
       else this.bundle.push({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1 });
-      this.render();
+      this.renderSizes();
+      this.syncFooter();
     }
     setQty(id, delta) {
       var line = this.inBundle(id);
       if (!line) return;
       line.qty += delta;
       if (line.qty <= 0) this.bundle = this.bundle.filter(function (b) { return b.id !== id; });
-      this.render();
+      if (this.step === 2) this.renderSizes();
+      if (this.step === 3) this.renderOverview();
+      this.syncFooter();
+    }
+    syncFooter() {
+      var onLast = this.step === this.totalSteps;
+      if (this.addBtn && onLast) this.addBtn.disabled = !this.bundle.length;
     }
 
+    /* ---------- step 3: overview ---------- */
     renderOverview() {
+      if (!this.linesEl) return;
       var self = this;
-      this.cartEl.innerHTML = '';
-      var total = 0;
+      if (!this.bundle.length) {
+        this.linesEl.innerHTML = '<div class="msw-cart-empty">No parts added yet. Go back to add a size.</div>';
+        if (this.totalEl) this.totalEl.textContent = this.money(0);
+        if (this.addLabelEl) this.addLabelEl.textContent = this.addLabelBase;
+        return;
+      }
+      var total = 0, html = '';
       this.bundle.forEach(function (b) {
         total += b.price * b.qty;
-        var row = document.createElement('div');
-        row.className = 'msw-line';
-        row.innerHTML =
-          (b.img ? '<img class="msw-line__img" src="' + b.img + '" alt="" loading="lazy">' : '<span class="msw-line__img"></span>') +
-          '<span class="msw-line__meta"><span class="msw-line__name">' + esc(b.c) + ' · ' + esc(b.s) + '</span>' +
-          '<button type="button" class="msw-line__rm" data-rm>Remove</button></span>' +
-          '<span class="msw-line__price">' + (b.qty > 1 ? b.qty + ' × ' : '') + b.pf + '</span>';
-        row.querySelector('[data-rm]').addEventListener('click', function () { self.setQty(b.id, -b.qty); });
-        self.cartEl.appendChild(row);
+        var sub = esc(b.c) + (b.qty > 1 ? ' · ' + b.qty + ' ×' : '');
+        html +=
+          '<div class="mlw-line">' +
+            '<span class="mlw-line__media">' + (b.img ? '<img loading="lazy" alt="" src="' + escAttr(b.img) + '">' : '') + '</span>' +
+            '<span class="mlw-line__info">' +
+              '<span class="mlw-line__name">' + esc(b.s) + '</span>' +
+              '<span class="mlw-line__sub">' + sub + '</span>' +
+              '<button type="button" class="mlw-line__rm" data-rm="' + b.id + '">Remove</button>' +
+            '</span>' +
+            '<span class="mlw-line__price">' + self.money(b.price * b.qty) + '</span>' +
+          '</div>';
+      });
+      this.linesEl.innerHTML = html;
+      this.linesEl.querySelectorAll('[data-rm]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = parseInt(btn.getAttribute('data-rm'), 10);
+          var line = self.inBundle(id);
+          if (line) self.setQty(id, -line.qty);
+        });
       });
       if (this.totalEl) this.totalEl.textContent = this.money(total);
+      if (this.addLabelEl) this.addLabelEl.textContent = this.addLabelBase + ' · ' + this.money(total);
     }
 
+    /* ---------- checkout ---------- */
     checkout() {
       var self = this;
       if (!this.bundle.length) return;
       this.clearError();
-      this.checkoutBtn.classList.add('is-loading');
+      this.addBtn.classList.add('is-loading');
       var items = this.bundle.map(function (b) { return { id: b.id, quantity: b.qty }; });
       fetch('/cart/add.js', {
         method: 'POST',
@@ -215,14 +322,14 @@
       })
         .then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d && d.description ? d.description : 'Could not add to cart.'); return d; }); })
         .then(function () { window.location.assign(self.afterAdd === 'cart' ? '/cart' : '/checkout'); })
-        .catch(function (err) { self.checkoutBtn.classList.remove('is-loading'); self.showError(err && err.message ? err.message : 'Something went wrong. Please try again.'); });
+        .catch(function (err) { self.addBtn.classList.remove('is-loading'); self.showError(err && err.message ? err.message : 'Something went wrong. Please try again.'); });
     }
 
     showError(m) { if (this.errorEl) { this.errorEl.textContent = m; this.errorEl.hidden = false; } }
     clearError() { if (this.errorEl) { this.errorEl.hidden = true; this.errorEl.textContent = ''; } }
+
+    disconnectedCallback() { if (this._onKey) document.removeEventListener('keydown', this._onKey); }
   }
 
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-
-  if (!customElements.get('meave-sofa-wizard')) customElements.define('meave-sofa-wizard', MeaveSofaWizard);
+  customElements.define('meave-sofa-wizard', MeaveSofaWizard);
 })();
