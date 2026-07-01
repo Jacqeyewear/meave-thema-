@@ -30,39 +30,6 @@
       (t.meta ? '<span class="msw-size__meta">' + esc(t.meta) + '</span>' : '') + '</span>';
   }
 
-  // Number of seats from a size like "3-Seater (…)" -> 3 (0 if not a seat-count size)
-  function seatCount(s) {
-    var m = String(s == null ? '' : s).match(/(\d+)\s*-?\s*seater/i);
-    return m ? parseInt(m[1], 10) : 0;
-  }
-
-  // Clean front-view sofa illustration with N seat cushions.
-  function sofaSVG(n) {
-    n = Math.max(1, Math.min(5, n | 0));
-    var pad = 12, aw = 26, ah = 82, armY = 46;
-    var sw = 62, g = 8, seatY = 88, seatH = 34, seatRx = 11;
-    var sx = pad + aw + 8;
-    var seatsW = n * sw + (n - 1) * g;
-    var rx = sx + seatsW + 8;
-    var W = rx + aw + pad, H = 150;
-    var stroke = '#b3aaa0', fill = '#f2efe9';
-    var body = '<rect x="' + (sx - 6) + '" y="34" width="' + (seatsW + 12) + '" height="42" rx="15"/>' +
-      '<rect x="' + pad + '" y="' + armY + '" width="' + aw + '" height="' + ah + '" rx="13"/>' +
-      '<rect x="' + rx + '" y="' + armY + '" width="' + aw + '" height="' + ah + '" rx="13"/>' +
-      '<rect x="' + (pad + aw - 2) + '" y="86" width="' + (rx + 2 - (pad + aw - 2)) + '" height="46" rx="16"/>';
-    var cushions = '';
-    for (var i = 0; i < n; i++) {
-      var cx = sx + i * (sw + g);
-      cushions += '<rect x="' + cx + '" y="' + seatY + '" width="' + sw + '" height="' + seatH + '" rx="' + seatRx + '"/>' +
-        '<rect x="' + (cx + 3) + '" y="40" width="' + (sw - 6) + '" height="30" rx="9"/>';
-    }
-    var legs = '<line x1="' + (pad + aw / 2) + '" y1="132" x2="' + (pad + aw / 2) + '" y2="144"/>' +
-      '<line x1="' + (rx + aw / 2) + '" y1="132" x2="' + (rx + aw / 2) + '" y2="144"/>';
-    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-hidden="true">' +
-      '<g fill="' + fill + '" stroke="' + stroke + '" stroke-width="2.4" stroke-linejoin="round">' + body + '</g>' +
-      '<g fill="#ffffff" stroke="' + stroke + '" stroke-width="2.4" stroke-linejoin="round">' + cushions + '</g>' +
-      '<g stroke="' + stroke + '" stroke-width="2.4" stroke-linecap="round">' + legs + '</g></svg>';
-  }
 
   class MeaveSofaWizard extends HTMLElement {
     connectedCallback() {
@@ -90,7 +57,6 @@
       this.previewImg = this.querySelector('[data-msw-preview]');
       this.coloursEl  = this.querySelector('[data-msw-colors]');
       this.sizesEl    = this.querySelector('[data-msw-sizes]');
-      this.sizePrevEl = this.querySelector('[data-msw-sizeprev]');
       this.colourLbl  = this.querySelector('[data-msw-colour-label]');
       this.subEl      = this.querySelector('[data-msw-sub]');
       this.linesEl    = this.querySelector('[data-msw-lines]');
@@ -379,19 +345,29 @@
       d.innerHTML = esc(label) + (tag ? '<span>' + esc(tag) + '</span>' : '');
       return d;
     }
-    pickRow(v) {
+    // One clear dropdown for the whole-sofa size — simple, low-doubt.
+    sizeDropdown(mains) {
       var self = this;
-      var on = this.isMainSelected(v.id);
-      var row = document.createElement('button');
-      row.type = 'button';
-      row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
-      if (!v.av) row.disabled = true;
-      row.innerHTML =
-        sizeText(v.s) +
-        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' +
-        '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
-      if (v.av) row.addEventListener('click', function () { self.selectMain(v); });
-      return row;
+      var main = this.bundle.filter(function (b) { return b.main; })[0];
+      var selId = main ? String(main.id) : '';
+      var opts = mains.map(function (v) {
+        var t = splitSize(v.s);
+        var label = t.main + (t.meta ? ' (' + t.meta + ')' : '') + ' — ' + v.pf + (v.av ? '' : ' · sold out');
+        return '<option value="' + v.id + '"' + (String(v.id) === selId ? ' selected' : '') + (v.av ? '' : ' disabled') + '>' + esc(label) + '</option>';
+      }).join('');
+      var wrap = document.createElement('div');
+      wrap.className = 'msw-picker';
+      wrap.innerHTML =
+        '<span class="msw-picker__label">' + (this.mode === 'hybrid' ? 'Your sofa size' : 'Choose your size') + '</span>' +
+        '<div class="msw-select"><select data-msw-size-select aria-label="Sofa size">' + opts + '</select>' +
+        '<svg class="msw-select__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>' +
+        '<p class="msw-picker__hint">Measure across your sofa, <b>arm to arm</b>, and pick the closest size. Between sizes? Size up. Free 30-day returns.</p>';
+      var sel = wrap.querySelector('[data-msw-size-select]');
+      sel.addEventListener('change', function () {
+        var v = mains.filter(function (x) { return String(x.id) === sel.value; })[0];
+        if (v) self.selectMain(v);
+      });
+      return wrap;
     }
     addRow(v) {
       var self = this;
@@ -431,58 +407,31 @@
       var sizes = this.sizesForColour(this.selColour);
       var mains = sizes.filter(function (v) { return !self.isExtra(v); });
 
-      // Whole-sofa modes: pre-select the first available size so the preview
-      // shows something and checkout is one tap away.
+      // Whole-sofa modes: pre-select the first available size so the price
+      // shows and checkout is one tap away.
       if (this.mode !== 'bundle' && !this.hasMain()) {
         var firstAv = mains.filter(function (v) { return v.av; })[0];
         if (firstAv) this.bundle.unshift({ id: firstAv.id, c: firstAv.c, s: firstAv.s, price: firstAv.price, pf: firstAv.pf, img: firstAv.img || '', qty: 1, main: true });
       }
 
       if (this.mode === 'single') {
-        mains.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
+        this.sizesEl.appendChild(this.sizeDropdown(mains));
       } else if (this.mode === 'hybrid') {
         var extras = sizes.filter(function (v) { return self.isExtra(v); });
-        if (mains.length) {
-          self.sizesEl.appendChild(self.subHead('Your sofa size'));
-          mains.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
-        }
+        if (mains.length) this.sizesEl.appendChild(this.sizeDropdown(mains));
         if (extras.length) {
           self.sizesEl.appendChild(self.subHead('Add cushion covers', 'Optional'));
           extras.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
         }
       } else {
-        // bundle
+        // bundle — build a set from the parts
         sizes.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
       }
-
-      this.updateSizePreview();
-    }
-
-    updateSizePreview() {
-      if (!this.sizePrevEl) return;
-      if (this.mode === 'bundle') { this.sizePrevEl.hidden = true; return; }
-      var self = this;
-      var main = this.bundle.filter(function (b) { return b.main; })[0];
-      var sizeStr = '';
-      if (main) sizeStr = main.s;
-      else {
-        var mains = this.sizesForColour(this.selColour).filter(function (v) { return !self.isExtra(v); });
-        var fa = mains.filter(function (v) { return v.av; })[0] || mains[0];
-        if (fa) sizeStr = fa.s;
-      }
-      var n = seatCount(sizeStr);
-      if (!n) { this.sizePrevEl.hidden = true; return; }
-      var t = splitSize(sizeStr);
-      this.sizePrevEl.hidden = false;
-      this.sizePrevEl.innerHTML =
-        '<div class="msw-sizeprev__art">' + sofaSVG(n) + '</div>' +
-        '<div class="msw-sizeprev__cap"><b>' + esc(t.main) + '</b>' + (t.meta ? ' · ' + esc(t.meta) : '') + '</div>';
     }
 
     selectMain(v) {
       this.bundle = this.bundle.filter(function (b) { return !b.main; });
       this.bundle.unshift({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1, main: true });
-      this.renderSizes();
       this.syncFooter();
     }
     addItem(v) {
