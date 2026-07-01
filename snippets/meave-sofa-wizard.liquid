@@ -85,6 +85,8 @@
   data-after-add="{{ after_add }}"
   data-title="{{ btn_label | escape }}"
   data-mode="{{ size_mode }}"
+  data-set2-code="{{ block.settings.set2_discount_code | default: 'SOFA-SET-10' | escape }}"
+  data-set3-code="{{ block.settings.set3_discount_code | default: 'SOFA-SET-15' | escape }}"
   {{ block.shopify_attributes }}
 >
   <script type="application/json" data-msw-variants>
@@ -95,6 +97,23 @@
       {%- endfor -%}
     ]
   </script>
+
+  {%- assign upsell_items = block.settings.upsell_products -%}
+  {%- if upsell_items and upsell_items.size > 0 -%}
+    <script type="application/json" data-msw-upsell>
+      [
+        {%- assign u = 0 -%}
+        {%- for up in upsell_items -%}
+          {%- if up == blank or up.available == false -%}{%- continue -%}{%- endif -%}
+          {%- assign uv = up.selected_or_first_available_variant | default: up.variants.first -%}
+          {%- if uv == blank -%}{%- continue -%}{%- endif -%}
+          {%- if u > 0 -%},{%- endif -%}
+          {"id":{{ uv.id }},"title":{{ up.title | json }},"pf":{{ up.price | money | strip_html | json }},"price":{{ up.price }},"img":{{ up.featured_image | image_url: width: 200 | json }}}
+          {%- assign u = u | plus: 1 -%}
+        {%- endfor -%}
+      ]
+    </script>
+  {%- endif -%}
 
   <button type="button" class="mlw-trigger{% unless product.available %} mlw-trigger--soldout{% endunless %}"
     {% if product.available %}data-msw-open aria-haspopup="dialog"{% else %}disabled aria-disabled="true"{% endif %}>
@@ -119,6 +138,21 @@
             {%- endfor -%}
           </div>
         </div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if product.available -%}
+    <div class="mlw-sticky" data-msw-sticky aria-hidden="true">
+      <div class="mlw-sticky__inner">
+        <div class="mlw-sticky__info">
+          <span class="mlw-sticky__name">{{ product.title }}</span>
+          <span class="mlw-sticky__price"><span class="mlw-sticky__now">From {{ product.price | money }}</span></span>
+        </div>
+        <button type="button" class="mlw-sticky__btn" data-msw-sticky-open>
+          <span class="mlw-sticky__btn-label">{{ btn_label }}</span>
+          <span class="mlw-sticky__btn-price" aria-hidden="true"><span class="mlw-sticky__btn-now">From {{ product.price | money }}</span></span>
+        </button>
       </div>
     </div>
   {%- endif -%}
@@ -222,6 +256,10 @@
           <div class="mlw-summary-card">
             <div class="mlw-lines" data-msw-lines></div>
             <div class="mlw-totals">
+              <div class="mlw-totals__row mlw-totals__row--minor" data-msw-disc-row hidden>
+                <span data-msw-disc-label>Bundle saving</span>
+                <strong class="mlw-totals__save" data-msw-disc>—</strong>
+              </div>
               <div class="mlw-totals__row mlw-totals__row--minor">
                 <span>Shipping</span>
                 <strong class="mlw-free">Free</strong>
@@ -231,6 +269,11 @@
                 <strong data-msw-total>—</strong>
               </div>
             </div>
+          </div>
+
+          <div class="mlw-upsell" data-msw-upsell-wrap hidden>
+            <h4 class="mlw-upsell__title">Often bought together</h4>
+            <div class="mlw-upsell__grid" data-msw-upsell-grid></div>
           </div>
 
           <p class="mlw-ship-note">Ships within 24 hours</p>

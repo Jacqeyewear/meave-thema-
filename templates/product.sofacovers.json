@@ -25,7 +25,12 @@
           "type": "meave_sofa_wizard",
           "settings": {
             "button_label": "Customise yours",
-            "after_add": "checkout"
+            "after_add": "checkout",
+            "upsell_products": [
+              "gid://shopify/Product/10925501317462"
+            ],
+            "set2_discount_code": "SOFA-SET-10",
+            "set3_discount_code": "SOFA-SET-15"
           }
         },
         "tab_how": {

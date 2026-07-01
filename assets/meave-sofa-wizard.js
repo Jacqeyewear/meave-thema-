@@ -73,6 +73,18 @@
       this.selColour = this.colours.length ? this.colours[0].name : null;
       this.bundle = [];
 
+      // Upsells (overview step) + bundle-discount tiers + sticky CTA
+      this.upsells = this.readJSON('[data-msw-upsell]', []) || [];
+      this.selectedUpsells = [];
+      this.upsellWrap = this.querySelector('[data-msw-upsell-wrap]');
+      this.upsellGrid = this.querySelector('[data-msw-upsell-grid]');
+      this.discRow = this.querySelector('[data-msw-disc-row]');
+      this.discEl = this.querySelector('[data-msw-disc]');
+      this.set2Code = (this.getAttribute('data-set2-code') || '').trim();
+      this.set3Code = (this.getAttribute('data-set3-code') || '').trim();
+      this.sticky = this.querySelector('[data-msw-sticky]');
+      this.stickyBtn = this.querySelector('[data-msw-sticky-open]');
+
       if (this.subEl) {
         this.subEl.textContent =
           this.mode === 'bundle' ? 'Add a cover for each part you want — they’re bundled together and checked out in one go.' :
@@ -85,10 +97,19 @@
         this.mode === 'hybrid' ? 'Your set' : 'Your cover';
 
       if (this.root && this.root.parentNode !== document.body) document.body.appendChild(this.root);
+      if (this.sticky && this.sticky.parentNode !== document.body) document.body.appendChild(this.sticky);
 
       this.renderColours();
+      this.renderUpsells();
       this.bind();
+      this.setupSticky();
       this.render();
+    }
+
+    readJSON(sel, fb) {
+      var el = this.querySelector(sel);
+      if (!el) return fb;
+      try { return JSON.parse(el.textContent); } catch (e) { return fb; }
     }
 
     money(pence) {
@@ -104,6 +125,7 @@
       if (this.backBtn) this.backBtn.addEventListener('click', function () { self.goTo(self.step - 1); });
       if (this.nextBtn) this.nextBtn.addEventListener('click', function () { self.next(); });
       if (this.addBtn) this.addBtn.addEventListener('click', function () { self.checkout(); });
+      if (this.stickyBtn) this.stickyBtn.addEventListener('click', function () { self.open(); });
 
       this.tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
@@ -136,6 +158,7 @@
       void this.root.offsetWidth;
       this.root.classList.add('is-open');
       document.documentElement.classList.add('mlw-no-scroll');
+      if (this.sticky) this.sticky.classList.add('mlw-sticky--suppressed');
       this.goTo(1, true);
       var self = this;
       window.setTimeout(function () { var f = self.panel && self.panel.querySelector('.mlw-close'); if (f) f.focus(); }, 60);
@@ -144,12 +167,75 @@
       if (!this.root) return;
       this.root.classList.remove('is-open');
       document.documentElement.classList.remove('mlw-no-scroll');
+      if (this.sticky) this.sticky.classList.remove('mlw-sticky--suppressed');
       var self = this;
       var done = function () { self.root.hidden = true; self.root.setAttribute('aria-hidden', 'true'); if (self.panel) self.panel.removeEventListener('transitionend', onEnd); };
       var onEnd = function (e) { if (e.target === self.panel && e.propertyName === 'transform') done(); };
       if (this.panel) this.panel.addEventListener('transitionend', onEnd);
       window.setTimeout(done, 400);
       if (this.lastFocus && this.lastFocus.focus) this.lastFocus.focus();
+    }
+
+    /* ---------- sticky CTA (appears once the main button scrolls away) ---------- */
+    setupSticky() {
+      var self = this;
+      if (!this.trigger || !this.sticky) return;
+      function toggle(show) {
+        self.sticky.classList.toggle('is-visible', show);
+        self.sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+      }
+      if ('IntersectionObserver' in window) {
+        this._stickyObs = new IntersectionObserver(function (entries) {
+          var e = entries[0];
+          toggle(!e.isIntersecting && e.boundingClientRect.top < 0);
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+        this._stickyObs.observe(this.trigger);
+      }
+    }
+
+    /* ---------- upsells (overview step) ---------- */
+    renderUpsells() {
+      if (!this.upsellGrid) return;
+      if (!this.upsells.length) { if (this.upsellWrap) this.upsellWrap.hidden = true; return; }
+      if (this.upsellWrap) this.upsellWrap.hidden = false;
+      var self = this;
+      this.upsellGrid.innerHTML = '';
+      this.upsells.forEach(function (u, i) {
+        var on = self.selectedUpsells.indexOf(String(u.id)) >= 0;
+        var card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'mlw-up' + (on ? ' is-on' : '');
+        card.innerHTML =
+          '<span class="mlw-up__media">' + (u.img ? '<img loading="lazy" alt="" src="' + escAttr(u.img) + '">' : '') + '</span>' +
+          '<span class="mlw-up__info">' +
+            (i === 0 ? '<span class="mlw-up__rec">Recommended</span>' : '') +
+            '<span class="mlw-up__name">' + esc(u.title) + '</span>' +
+            (u.pf ? '<span class="mlw-up__price">' + esc(u.pf) + '</span>' : '') +
+          '</span>' +
+          '<span class="mlw-up__badge" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>';
+        card.addEventListener('click', function () {
+          var id = String(u.id);
+          var idx = self.selectedUpsells.indexOf(id);
+          if (idx >= 0) self.selectedUpsells.splice(idx, 1); else self.selectedUpsells.push(id);
+          card.classList.toggle('is-on');
+          self.renderOverview();
+        });
+        self.upsellGrid.appendChild(card);
+      });
+    }
+
+    /* ---------- bundle discount tiers (bundle mode only) ---------- */
+    bundleParts() {
+      var n = 0;
+      this.bundle.forEach(function (b) { n += b.qty; });
+      return n;
+    }
+    discountInfo() {
+      if (this.mode !== 'bundle') return null;
+      var parts = this.bundleParts();
+      if (parts >= 3 && this.set3Code) return { code: this.set3Code, rate: 0.15, label: 'Bundle saving (15%)' };
+      if (parts >= 2 && this.set2Code) return { code: this.set2Code, rate: 0.10, label: 'Bundle saving (10%)' };
+      return null;
     }
 
     /* ---------- navigation ---------- */
@@ -367,9 +453,9 @@
         if (this.addLabelEl) this.addLabelEl.textContent = this.addLabelBase;
         return;
       }
-      var total = 0, html = '';
+      var bundleSub = 0, html = '';
       this.bundle.forEach(function (b) {
-        total += b.price * b.qty;
+        bundleSub += b.price * b.qty;
         var sub = esc(b.c) + (b.qty > 1 ? ' · ' + b.qty + ' ×' : '');
         html +=
           '<div class="mlw-line">' +
@@ -382,6 +468,21 @@
             '<span class="mlw-line__price">' + self.money(b.price * b.qty) + '</span>' +
           '</div>';
       });
+      // Selected upsells as their own lines
+      var upsellSub = 0;
+      this.upsells.forEach(function (u) {
+        if (self.selectedUpsells.indexOf(String(u.id)) < 0) return;
+        upsellSub += u.price;
+        html +=
+          '<div class="mlw-line">' +
+            '<span class="mlw-line__media">' + (u.img ? '<img loading="lazy" alt="" src="' + escAttr(u.img) + '">' : '') + '</span>' +
+            '<span class="mlw-line__info">' +
+              '<span class="mlw-line__name">' + esc(u.title) + '</span>' +
+              '<span class="mlw-line__sub">Add-on</span>' +
+            '</span>' +
+            '<span class="mlw-line__price">' + self.money(u.price) + '</span>' +
+          '</div>';
+      });
       this.linesEl.innerHTML = html;
       this.linesEl.querySelectorAll('[data-rm]').forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -390,8 +491,28 @@
           if (line) self.setQty(id, -line.qty);
         });
       });
+
+      var disc = this.discountInfo();
+      var discAmt = disc ? Math.round(bundleSub * disc.rate) : 0;
+      if (this.discRow) this.discRow.hidden = discAmt <= 0;
+      if (this.discEl) this.discEl.textContent = '−' + this.money(discAmt);
+      var discLabelEl = this.querySelector('[data-msw-disc-label]');
+      if (discLabelEl && disc) discLabelEl.textContent = disc.label;
+
+      var total = bundleSub + upsellSub - discAmt;
       if (this.totalEl) this.totalEl.textContent = this.money(total);
       if (this.addLabelEl) this.addLabelEl.textContent = this.addLabelBase + ' · ' + this.money(total);
+    }
+
+    // Chain /discount/CODE?redirect=… so codes apply before landing on target.
+    discountUrl(codes, target) {
+      codes = (codes || []).filter(Boolean);
+      if (!codes.length) return target;
+      var url = target;
+      for (var i = codes.length - 1; i >= 0; i--) {
+        url = '/discount/' + encodeURIComponent(codes[i]) + '?redirect=' + encodeURIComponent(url);
+      }
+      return url;
     }
 
     /* ---------- checkout ---------- */
@@ -401,20 +522,29 @@
       this.clearError();
       this.addBtn.classList.add('is-loading');
       var items = this.bundle.map(function (b) { return { id: b.id, quantity: b.qty }; });
+      this.upsells.forEach(function (u) {
+        if (self.selectedUpsells.indexOf(String(u.id)) >= 0) items.push({ id: u.id, quantity: 1 });
+      });
+      var disc = this.discountInfo();
+      var codes = disc ? [disc.code] : [];
+      var target = this.afterAdd === 'cart' ? '/cart' : '/checkout';
       fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ items: items })
       })
         .then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d && d.description ? d.description : 'Could not add to cart.'); return d; }); })
-        .then(function () { window.location.assign(self.afterAdd === 'cart' ? '/cart' : '/checkout'); })
+        .then(function () { window.location.assign(self.discountUrl(codes, target)); })
         .catch(function (err) { self.addBtn.classList.remove('is-loading'); self.showError(err && err.message ? err.message : 'Something went wrong. Please try again.'); });
     }
 
     showError(m) { if (this.errorEl) { this.errorEl.textContent = m; this.errorEl.hidden = false; } }
     clearError() { if (this.errorEl) { this.errorEl.hidden = true; this.errorEl.textContent = ''; } }
 
-    disconnectedCallback() { if (this._onKey) document.removeEventListener('keydown', this._onKey); }
+    disconnectedCallback() {
+      if (this._onKey) document.removeEventListener('keydown', this._onKey);
+      if (this._stickyObs) this._stickyObs.disconnect();
+    }
   }
 
   customElements.define('meave-sofa-wizard', MeaveSofaWizard);
