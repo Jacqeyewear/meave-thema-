@@ -388,27 +388,69 @@
       d.innerHTML = esc(label) + (tag ? '<span>' + esc(tag) + '</span>' : '');
       return d;
     }
-    // One clear dropdown for the whole-sofa size — simple, low-doubt.
+    // Custom dropdown for the whole-sofa size — styled to match the wizard.
     sizeDropdown(mains) {
       var self = this;
+      var CHEV = '<svg class="msw-dd__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
       var main = this.bundle.filter(function (b) { return b.main; })[0];
       var selId = main ? String(main.id) : '';
-      var opts = mains.map(function (v) {
+      var sel = mains.filter(function (v) { return String(v.id) === selId; })[0] || mains.filter(function (v) { return v.av; })[0] || mains[0];
+
+      function curHTML(v) {
         var t = splitSize(v.s);
-        var label = t.main + (t.meta ? ' (' + t.meta + ')' : '') + ' — ' + v.pf + (v.av ? '' : ' · sold out');
-        return '<option value="' + v.id + '"' + (String(v.id) === selId ? ' selected' : '') + (v.av ? '' : ' disabled') + '>' + esc(label) + '</option>';
+        return '<span class="msw-dd__cur"><span class="msw-dd__name">' + esc(t.main) + '</span>' +
+          (t.meta ? '<span class="msw-dd__meta">' + esc(t.meta) + '</span>' : '') + '</span>' +
+          '<span class="msw-dd__price">' + esc(v.pf) + '</span>';
+      }
+      var rows = mains.map(function (v) {
+        var t = splitSize(v.s);
+        return '<button type="button" class="msw-dd__opt' + (v.av ? '' : ' is-out') + (String(v.id) === selId ? ' is-on' : '') + '" data-id="' + v.id + '"' + (v.av ? '' : ' disabled') + ' role="option">' +
+          '<span class="msw-dd__cur"><span class="msw-dd__name">' + esc(t.main) + '</span>' +
+          (t.meta ? '<span class="msw-dd__meta">' + esc(t.meta) + '</span>' : '') + '</span>' +
+          '<span class="msw-dd__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' +
+          '<span class="msw-dd__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
+          '</button>';
       }).join('');
+
       var wrap = document.createElement('div');
       wrap.className = 'msw-picker';
       wrap.innerHTML =
         '<span class="msw-picker__label">' + (this.mode === 'hybrid' ? 'Your sofa size' : 'Choose your size') + '</span>' +
-        '<div class="msw-select"><select data-msw-size-select aria-label="Sofa size">' + opts + '</select>' +
-        '<svg class="msw-select__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>' +
+        '<div class="msw-dd" data-dd>' +
+          '<button type="button" class="msw-dd__trigger" data-dd-trigger aria-haspopup="listbox" aria-expanded="false">' + (sel ? curHTML(sel) : '') + CHEV + '</button>' +
+          '<div class="msw-dd__panel" data-dd-panel role="listbox">' + rows + '</div>' +
+        '</div>' +
         '<p class="msw-picker__hint">Measure across your sofa, <b>arm to arm</b>, and pick the closest size. Between sizes? Size up. Free 30-day returns.</p>';
-      var sel = wrap.querySelector('[data-msw-size-select]');
-      sel.addEventListener('change', function () {
-        var v = mains.filter(function (x) { return String(x.id) === sel.value; })[0];
-        if (v) self.selectMain(v);
+
+      var dd = wrap.querySelector('[data-dd]');
+      var trigger = wrap.querySelector('[data-dd-trigger]');
+      var panel = wrap.querySelector('[data-dd-panel]');
+      function outside(e) { if (!dd.contains(e.target)) closeDD(); }
+      function onKey(e) { if (e.key === 'Escape') { e.stopPropagation(); closeDD(); } }
+      function openDD() {
+        dd.classList.add('is-open'); trigger.setAttribute('aria-expanded', 'true');
+        document.addEventListener('click', outside, true);
+        document.addEventListener('keydown', onKey, true);
+        var on = panel.querySelector('.msw-dd__opt.is-on');
+        if (on) panel.scrollTop = Math.max(0, on.offsetTop - 8);
+      }
+      function closeDD() {
+        dd.classList.remove('is-open'); trigger.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', outside, true);
+        document.removeEventListener('keydown', onKey, true);
+      }
+      trigger.addEventListener('click', function (e) { e.stopPropagation(); dd.classList.contains('is-open') ? closeDD() : openDD(); });
+      panel.querySelectorAll('.msw-dd__opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          var id = opt.getAttribute('data-id');
+          var v = mains.filter(function (x) { return String(x.id) === id; })[0];
+          if (!v || !v.av) return;
+          self.selectMain(v);
+          selId = id;
+          trigger.innerHTML = curHTML(v) + CHEV;
+          panel.querySelectorAll('.msw-dd__opt').forEach(function (o) { o.classList.toggle('is-on', o === opt); });
+          closeDD();
+        });
       });
       return wrap;
     }

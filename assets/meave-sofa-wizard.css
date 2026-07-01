@@ -119,21 +119,57 @@ meave-sofa-wizard[data-mode="bundle"] .msw-guide--parts { display: block; }
 .msw-inline-size { margin-top: 24px; }
 .msw-inline-size[hidden] { display: none; }
 
-/* Size dropdown — one clear choice, low doubt (whole-sofa covers) */
+/* Custom size dropdown — matches the wizard's cards (whole-sofa covers) */
 .msw-picker { margin: 0 0 6px; }
 .msw-picker__label { display: block; font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); margin: 0 0 8px; }
-.msw-select { position: relative; }
-.msw-select select {
-  -webkit-appearance: none; -moz-appearance: none; appearance: none;
-  width: 100%; min-height: 58px; padding: 16px 48px 16px 18px;
+.msw-dd { position: relative; }
+
+.msw-dd__trigger {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  min-height: 60px; padding: 12px 16px 12px 18px;
   border: 1.5px solid var(--mlw-line, #e7e7e7); border-radius: 16px;
-  background: #fff; font: inherit; font-size: 16px; font-weight: 600;
-  letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); cursor: pointer;
+  background: #fff; font: inherit; text-align: left; cursor: pointer;
   transition: border-color .15s ease, box-shadow .15s ease;
 }
-.msw-select select:hover { border-color: #cfcdc7; }
-.msw-select select:focus-visible { outline: none; border-color: var(--mlw-blue, #0071e3); box-shadow: 0 0 0 3px rgba(0,113,227,.15); }
-.msw-select__chev { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; pointer-events: none; color: var(--mlw-muted, #6e6e73); }
+.msw-dd__trigger:hover { border-color: #cfcdc7; }
+.msw-dd.is-open .msw-dd__trigger { border-color: var(--mlw-blue, #0071e3); box-shadow: 0 0 0 3px rgba(0,113,227,.15); }
+.msw-dd__chev { flex: 0 0 auto; width: 20px; height: 20px; color: var(--mlw-muted, #6e6e73); transition: transform .22s ease; }
+.msw-dd.is-open .msw-dd__chev { transform: rotate(180deg); }
+
+.msw-dd__cur { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.msw-dd__name { font-size: 16px; font-weight: 600; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); }
+.msw-dd__meta { font-size: 12.5px; color: var(--mlw-muted, #6e6e73); }
+.msw-dd__price { margin-left: auto; font-size: 15px; font-weight: 600; color: var(--mlw-ink, #1d1d1f); white-space: nowrap; }
+
+.msw-dd__panel {
+  display: none; position: relative; margin-top: 8px; max-height: 300px; overflow: hidden auto;
+  border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 16px; background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 22px 46px -20px rgba(0,0,0,.24);
+  -webkit-overflow-scrolling: touch;
+}
+.msw-dd.is-open .msw-dd__panel { display: block; animation: mswDDin .16s ease; }
+@keyframes mswDDin { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.msw-dd__panel::-webkit-scrollbar { width: 10px; }
+.msw-dd__panel::-webkit-scrollbar-thumb { background: #dcd9d3; border-radius: 999px; border: 3px solid #fff; }
+
+.msw-dd__opt {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 13px 16px; border: 0; background: #fff; font: inherit; text-align: left; cursor: pointer;
+  transition: background .12s ease;
+}
+.msw-dd__opt + .msw-dd__opt { border-top: 1px solid var(--mlw-line-soft, rgba(0,0,0,.06)); }
+.msw-dd__opt:hover { background: var(--mlw-soft, #f5f5f7); }
+.msw-dd__opt.is-on { background: rgba(0,113,227,.06); }
+.msw-dd__opt.is-out { opacity: .5; cursor: default; }
+.msw-dd__opt .msw-dd__price { margin-left: auto; }
+.msw-dd__check {
+  flex: 0 0 auto; margin-left: 4px; width: 22px; height: 22px; display: grid; place-items: center;
+  border-radius: 50%; border: 1.6px solid #cfcfd4; background: #fff; color: transparent;
+  transition: background .12s ease, border-color .12s ease, color .12s ease;
+}
+.msw-dd__check svg { width: 12px; height: 12px; }
+.msw-dd__opt.is-on .msw-dd__check { border-color: var(--mlw-blue, #0071e3); background: var(--mlw-blue, #0071e3); color: #fff; }
+
 .msw-picker__hint { margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: var(--mlw-muted, #6e6e73); }
 .msw-picker__hint b { color: var(--mlw-ink, #1d1d1f); font-weight: 600; }
 
