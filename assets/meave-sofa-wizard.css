@@ -52,13 +52,21 @@
 .msw-guide__svg .msw-pill rect { fill: #2b2620; }
 .msw-guide__note { margin: 12px 4px 0; color: var(--mlw-muted, #6e6e73); font-size: 12.5px; line-height: 1.5; text-align: center; }
 
-/* Show the guide that matches the product's sizing type */
+/* Show the guide that matches the product's sizing type.
+   parts diagram for per-part covers; measure diagram for whole-sofa + hybrid. */
 .msw-guide--whole { display: none; }
-meave-sofa-wizard[data-mode="single"] .msw-guide--parts { display: none; }
-meave-sofa-wizard[data-mode="single"] .msw-guide--whole { display: block; }
+meave-sofa-wizard[data-mode="single"] .msw-guide--parts,
+meave-sofa-wizard[data-mode="hybrid"] .msw-guide--parts { display: none; }
+meave-sofa-wizard[data-mode="single"] .msw-guide--whole,
+meave-sofa-wizard[data-mode="hybrid"] .msw-guide--whole { display: block; }
 
 /* ---- Size rows (step 2) ---- */
 .msw-sizes-grid { display: flex; flex-direction: column; gap: 10px; }
+
+/* Section sub-heading inside the size step (hybrid mode) */
+.msw-sizes-sub { display: flex; align-items: baseline; gap: 8px; margin: 6px 2px 2px; font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); }
+.msw-sizes-sub:not(:first-child) { margin-top: 18px; }
+.msw-sizes-sub span { font-size: 11px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--mlw-muted, #6e6e73); }
 
 /* Single-select size rows (whole-sofa covers) */
 .msw-size--pick { width: 100%; text-align: left; cursor: pointer; font: inherit; transition: box-shadow .15s ease, transform .1s ease; }

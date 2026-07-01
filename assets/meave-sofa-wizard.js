@@ -27,7 +27,8 @@
       this.variants = (this.variants || []).filter(function (v) { return v && v.id; });
 
       this.afterAdd = this.getAttribute('data-after-add') || 'checkout';
-      this.mode = this.getAttribute('data-mode') === 'bundle' ? 'bundle' : 'single';
+      var m = this.getAttribute('data-mode');
+      this.mode = (m === 'bundle' || m === 'hybrid') ? m : 'single';
 
       this.root       = this.querySelector('[data-msw-root]');
       this.panel      = this.querySelector('.mlw-panel');
@@ -73,12 +74,15 @@
       this.bundle = [];
 
       if (this.subEl) {
-        this.subEl.textContent = this.mode === 'bundle'
-          ? 'Add a cover for each part you want — they’re bundled together and checked out in one go.'
-          : 'Choose the size that fits your sofa. Not sure? Use the guide above to measure.';
+        this.subEl.textContent =
+          this.mode === 'bundle' ? 'Add a cover for each part you want — they’re bundled together and checked out in one go.' :
+          this.mode === 'hybrid' ? 'Pick the size that fits your sofa, then add matching cushion covers if you like.' :
+          'Choose the size that fits your sofa. Not sure? Use the guide above to measure.';
       }
       var ovTitle = this.querySelector('[data-msw-ovtitle]');
-      if (ovTitle) ovTitle.textContent = this.mode === 'bundle' ? 'Your bundle' : 'Your cover';
+      if (ovTitle) ovTitle.textContent =
+        this.mode === 'bundle' ? 'Your bundle' :
+        this.mode === 'hybrid' ? 'Your set' : 'Your cover';
 
       if (this.root && this.root.parentNode !== document.body) document.body.appendChild(this.root);
 
@@ -143,7 +147,10 @@
     next() {
       if (this.step === 1) { if (!this.selColour) { this.showError('Please choose a colour first.'); return; } this.goTo(2); return; }
       if (this.step === 2) {
-        if (!this.bundle.length) { this.showError(this.mode === 'bundle' ? 'Add at least one size to continue.' : 'Please choose a size first.'); return; }
+        if (!this.canProceed()) {
+          this.showError(this.mode === 'bundle' ? 'Add at least one size to continue.' : 'Please choose your sofa size first.');
+          return;
+        }
         this.goTo(3); return;
       }
     }
@@ -176,7 +183,7 @@
       var onLast = this.step === this.totalSteps;
       if (this.backBtn) this.backBtn.hidden = this.step === 1;
       if (this.nextBtn) this.nextBtn.hidden = onLast;
-      if (this.addBtn) { this.addBtn.hidden = !onLast; this.addBtn.disabled = !this.bundle.length; }
+      if (this.addBtn) { this.addBtn.hidden = !onLast; this.addBtn.disabled = !this.canProceed(); }
       if (this.trustEl) this.trustEl.hidden = onLast;
       if (this.paypalEl) this.paypalEl.hidden = !onLast;
       this.clearError();
@@ -227,6 +234,62 @@
     }
     inBundle(id) { for (var i = 0; i < this.bundle.length; i++) if (this.bundle[i].id === id) return this.bundle[i]; return null; }
 
+    isExtra(v) { return /cushion/i.test(v.s); }
+    hasMain() { return this.bundle.some(function (b) { return b.main; }); }
+    isMainSelected(id) { return this.bundle.some(function (b) { return b.main && b.id === id; }); }
+    canProceed() { return this.mode === 'bundle' ? this.bundle.length > 0 : this.hasMain(); }
+
+    subHead(label, tag) {
+      var d = document.createElement('div');
+      d.className = 'msw-sizes-sub';
+      d.innerHTML = esc(label) + (tag ? '<span>' + esc(tag) + '</span>' : '');
+      return d;
+    }
+    pickRow(v) {
+      var self = this;
+      var on = this.isMainSelected(v.id);
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
+      if (!v.av) row.disabled = true;
+      row.innerHTML =
+        '<span class="msw-size__radio" aria-hidden="true"></span>' +
+        '<span class="msw-size__name">' + esc(v.s) + '</span>' +
+        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>';
+      if (v.av) row.addEventListener('click', function () { self.selectMain(v); });
+      return row;
+    }
+    addRow(v) {
+      var self = this;
+      var row = document.createElement('div');
+      row.className = 'msw-size' + (v.av ? '' : ' is-out');
+      var line = this.inBundle(v.id);
+      var right;
+      if (!v.av) {
+        right = '<span class="msw-size__price">Sold out</span>';
+      } else if (line) {
+        right =
+          '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
+          '<span class="msw-size__qty"><button type="button" class="msw-size__qtybtn" data-dec aria-label="Remove one">−</button>' +
+          '<span class="msw-size__qtynum">' + line.qty + '</span>' +
+          '<button type="button" class="msw-size__qtybtn" data-inc aria-label="Add one">+</button></span>';
+      } else {
+        right =
+          '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
+          '<button type="button" class="msw-size__add" data-add><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>';
+      }
+      row.innerHTML = '<span class="msw-size__name">' + esc(v.s) + '</span>' + right;
+      if (v.av) {
+        var add = row.querySelector('[data-add]');
+        if (add) add.addEventListener('click', function () { self.addItem(v); });
+        var inc = row.querySelector('[data-inc]');
+        if (inc) inc.addEventListener('click', function () { self.setQty(v.id, 1); });
+        var dec = row.querySelector('[data-dec]');
+        if (dec) dec.addEventListener('click', function () { self.setQty(v.id, -1); });
+      }
+      return row;
+    }
+
     renderSizes() {
       if (!this.sizesEl) return;
       var self = this;
@@ -234,62 +297,38 @@
       var sizes = this.sizesForColour(this.selColour);
 
       if (this.mode === 'single') {
-        sizes.forEach(function (v) {
-          var on = self.bundle.length && self.bundle[0].id === v.id;
-          var row = document.createElement('button');
-          row.type = 'button';
-          row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
-          if (!v.av) row.disabled = true;
-          row.innerHTML =
-            '<span class="msw-size__radio" aria-hidden="true"></span>' +
-            '<span class="msw-size__name">' + esc(v.s) + '</span>' +
-            '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>';
-          if (v.av) row.addEventListener('click', function () { self.selectSingle(v); });
-          self.sizesEl.appendChild(row);
-        });
+        sizes.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
         return;
       }
 
-      sizes.forEach(function (v) {
-        var row = document.createElement('div');
-        row.className = 'msw-size' + (v.av ? '' : ' is-out');
-        var line = self.inBundle(v.id);
-        var right;
-        if (!v.av) {
-          right = '<span class="msw-size__price">Sold out</span>';
-        } else if (line) {
-          right =
-            '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
-            '<span class="msw-size__qty"><button type="button" class="msw-size__qtybtn" data-dec aria-label="Remove one">−</button>' +
-            '<span class="msw-size__qtynum">' + line.qty + '</span>' +
-            '<button type="button" class="msw-size__qtybtn" data-inc aria-label="Add one">+</button></span>';
-        } else {
-          right =
-            '<span class="msw-size__price">' + esc(v.pf) + '</span>' +
-            '<button type="button" class="msw-size__add" data-add><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add</button>';
+      if (this.mode === 'hybrid') {
+        var mains = sizes.filter(function (v) { return !self.isExtra(v); });
+        var extras = sizes.filter(function (v) { return self.isExtra(v); });
+        if (mains.length) {
+          self.sizesEl.appendChild(self.subHead('Your sofa size'));
+          mains.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
         }
-        row.innerHTML = '<span class="msw-size__name">' + esc(v.s) + '</span>' + right;
-        if (v.av) {
-          var add = row.querySelector('[data-add]');
-          if (add) add.addEventListener('click', function () { self.addItem(v); });
-          var inc = row.querySelector('[data-inc]');
-          if (inc) inc.addEventListener('click', function () { self.setQty(v.id, 1); });
-          var dec = row.querySelector('[data-dec]');
-          if (dec) dec.addEventListener('click', function () { self.setQty(v.id, -1); });
+        if (extras.length) {
+          self.sizesEl.appendChild(self.subHead('Add cushion covers', 'Optional'));
+          extras.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
         }
-        self.sizesEl.appendChild(row);
-      });
+        return;
+      }
+
+      // bundle
+      sizes.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
     }
 
-    selectSingle(v) {
-      this.bundle = [{ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1 }];
+    selectMain(v) {
+      this.bundle = this.bundle.filter(function (b) { return !b.main; });
+      this.bundle.unshift({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1, main: true });
       this.renderSizes();
       this.syncFooter();
     }
     addItem(v) {
       var line = this.inBundle(v.id);
       if (line) line.qty += 1;
-      else this.bundle.push({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1 });
+      else this.bundle.push({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1, main: false });
       this.renderSizes();
       this.syncFooter();
     }
@@ -304,7 +343,7 @@
     }
     syncFooter() {
       var onLast = this.step === this.totalSteps;
-      if (this.addBtn && onLast) this.addBtn.disabled = !this.bundle.length;
+      if (this.addBtn && onLast) this.addBtn.disabled = !this.canProceed();
     }
 
     /* ---------- step 3: overview ---------- */
@@ -329,7 +368,7 @@
             '<span class="mlw-line__info">' +
               '<span class="mlw-line__name">' + esc(b.s) + '</span>' +
               '<span class="mlw-line__sub">' + sub + '</span>' +
-              (self.mode === 'bundle' ? '<button type="button" class="mlw-line__rm" data-rm="' + b.id + '">Remove</button>' : '') +
+              (b.main ? '' : '<button type="button" class="mlw-line__rm" data-rm="' + b.id + '">Remove</button>') +
             '</span>' +
             '<span class="mlw-line__price">' + self.money(b.price * b.qty) + '</span>' +
           '</div>';

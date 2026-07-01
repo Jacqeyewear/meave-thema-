@@ -58,17 +58,26 @@
   assign after_add = block.settings.after_add | default: 'checkout'
 
   comment
-    Whole-sofa covers (seat-count or dimensions) => pick ONE size.
-    Per-part covers (seat cushion / backrest / headrest / chaise) => bundle several.
+    single : whole-sofa cover, pick ONE size (seat-count or plain dimensions)
+    hybrid : whole-sofa cover sized by dimensions + optional cushion covers
+    bundle : per-part cover (seat cushion / backrest / headrest / chaise)
   endcomment
-  assign size_mode = 'single'
+  assign has_part = false
+  assign has_cushion = false
   for sv in size_values
     assign svd = sv | downcase
     if svd contains 'backrest' or svd contains 'headrest' or svd contains 'chaise' or svd contains 'longue' or svd contains 'seat cushion'
-      assign size_mode = 'bundle'
-      break
+      assign has_part = true
+    elsif svd contains 'cushion'
+      assign has_cushion = true
     endif
   endfor
+  assign size_mode = 'single'
+  if has_part
+    assign size_mode = 'bundle'
+  elsif has_cushion
+    assign size_mode = 'hybrid'
+  endif
 -%}
 
 <meave-sofa-wizard
