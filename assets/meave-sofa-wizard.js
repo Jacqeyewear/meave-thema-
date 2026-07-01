@@ -27,6 +27,7 @@
       this.variants = (this.variants || []).filter(function (v) { return v && v.id; });
 
       this.afterAdd = this.getAttribute('data-after-add') || 'checkout';
+      this.mode = this.getAttribute('data-mode') === 'bundle' ? 'bundle' : 'single';
 
       this.root       = this.querySelector('[data-msw-root]');
       this.panel      = this.querySelector('.mlw-panel');
@@ -42,6 +43,7 @@
       this.coloursEl  = this.querySelector('[data-msw-colors]');
       this.sizesEl    = this.querySelector('[data-msw-sizes]');
       this.colourLbl  = this.querySelector('[data-msw-colour-label]');
+      this.subEl      = this.querySelector('[data-msw-sub]');
       this.linesEl    = this.querySelector('[data-msw-lines]');
       this.totalEl    = this.querySelector('[data-msw-total]');
       this.addLabelEl = this.querySelector('.mlw-add__label');
@@ -69,6 +71,14 @@
 
       this.selColour = this.colours.length ? this.colours[0].name : null;
       this.bundle = [];
+
+      if (this.subEl) {
+        this.subEl.textContent = this.mode === 'bundle'
+          ? 'Add a cover for each part you want — they’re bundled together and checked out in one go.'
+          : 'Choose the size that fits your sofa. Not sure? Use the guide above to measure.';
+      }
+      var ovTitle = this.querySelector('[data-msw-ovtitle]');
+      if (ovTitle) ovTitle.textContent = this.mode === 'bundle' ? 'Your bundle' : 'Your cover';
 
       if (this.root && this.root.parentNode !== document.body) document.body.appendChild(this.root);
 
@@ -132,7 +142,10 @@
     /* ---------- navigation ---------- */
     next() {
       if (this.step === 1) { if (!this.selColour) { this.showError('Please choose a colour first.'); return; } this.goTo(2); return; }
-      if (this.step === 2) { if (!this.bundle.length) { this.showError('Add at least one size to continue.'); return; } this.goTo(3); return; }
+      if (this.step === 2) {
+        if (!this.bundle.length) { this.showError(this.mode === 'bundle' ? 'Add at least one size to continue.' : 'Please choose a size first.'); return; }
+        this.goTo(3); return;
+      }
     }
     goTo(step, silent) {
       step = Math.min(this.totalSteps, Math.max(1, step));
@@ -219,6 +232,24 @@
       var self = this;
       this.sizesEl.innerHTML = '';
       var sizes = this.sizesForColour(this.selColour);
+
+      if (this.mode === 'single') {
+        sizes.forEach(function (v) {
+          var on = self.bundle.length && self.bundle[0].id === v.id;
+          var row = document.createElement('button');
+          row.type = 'button';
+          row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
+          if (!v.av) row.disabled = true;
+          row.innerHTML =
+            '<span class="msw-size__radio" aria-hidden="true"></span>' +
+            '<span class="msw-size__name">' + esc(v.s) + '</span>' +
+            '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>';
+          if (v.av) row.addEventListener('click', function () { self.selectSingle(v); });
+          self.sizesEl.appendChild(row);
+        });
+        return;
+      }
+
       sizes.forEach(function (v) {
         var row = document.createElement('div');
         row.className = 'msw-size' + (v.av ? '' : ' is-out');
@@ -250,6 +281,11 @@
       });
     }
 
+    selectSingle(v) {
+      this.bundle = [{ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1 }];
+      this.renderSizes();
+      this.syncFooter();
+    }
     addItem(v) {
       var line = this.inBundle(v.id);
       if (line) line.qty += 1;
@@ -276,7 +312,9 @@
       if (!this.linesEl) return;
       var self = this;
       if (!this.bundle.length) {
-        this.linesEl.innerHTML = '<div class="msw-cart-empty">No parts added yet. Go back to add a size.</div>';
+        this.linesEl.innerHTML = '<div class="msw-cart-empty">' +
+          (this.mode === 'bundle' ? 'No parts added yet. Go back to add a size.' : 'No size selected yet. Go back to choose one.') +
+          '</div>';
         if (this.totalEl) this.totalEl.textContent = this.money(0);
         if (this.addLabelEl) this.addLabelEl.textContent = this.addLabelBase;
         return;
@@ -291,7 +329,7 @@
             '<span class="mlw-line__info">' +
               '<span class="mlw-line__name">' + esc(b.s) + '</span>' +
               '<span class="mlw-line__sub">' + sub + '</span>' +
-              '<button type="button" class="mlw-line__rm" data-rm="' + b.id + '">Remove</button>' +
+              (self.mode === 'bundle' ? '<button type="button" class="mlw-line__rm" data-rm="' + b.id + '">Remove</button>' : '') +
             '</span>' +
             '<span class="mlw-line__price">' + self.money(b.price * b.qty) + '</span>' +
           '</div>';

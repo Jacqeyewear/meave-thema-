@@ -56,12 +56,26 @@
   assign size_values = product.options_with_values[si].values
   assign btn_label = block.settings.button_label | default: 'Customise yours'
   assign after_add = block.settings.after_add | default: 'checkout'
+
+  comment
+    Whole-sofa covers (seat-count or dimensions) => pick ONE size.
+    Per-part covers (seat cushion / backrest / headrest / chaise) => bundle several.
+  endcomment
+  assign size_mode = 'single'
+  for sv in size_values
+    assign svd = sv | downcase
+    if svd contains 'backrest' or svd contains 'headrest' or svd contains 'chaise' or svd contains 'longue' or svd contains 'seat cushion'
+      assign size_mode = 'bundle'
+      break
+    endif
+  endfor
 -%}
 
 <meave-sofa-wizard
   class="mlw"
   data-after-add="{{ after_add }}"
   data-title="{{ btn_label | escape }}"
+  data-mode="{{ size_mode }}"
   {{ block.shopify_attributes }}
 >
   <script type="application/json" data-msw-variants>
@@ -137,10 +151,44 @@
         <section class="mlw-step" data-msw-step="2" hidden>
           <div class="mlw-step__intro">
             <h3 class="mlw-step__title">Choose your size<span class="msw-colour-tag" data-msw-colour-label></span></h3>
-            <p class="mlw-step__sub">Pick the size that matches your sofa. Covering more than one part? Add each size you need and check out together.</p>
+            <p class="mlw-step__sub" data-msw-sub></p>
           </div>
 
-          <details class="msw-guide" open>
+          {%- comment -%} Whole-sofa guide: measure the sofa and pick one size {%- endcomment -%}
+          <details class="msw-guide msw-guide--whole" open>
+            <summary>
+              <span>Size guide — measure your sofa</span>
+              <svg class="msw-guide__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="msw-guide__body">
+              <svg class="msw-guide__svg" viewBox="0 0 500 320" role="img" aria-label="Sofa diagram showing where to measure the total width">
+                <g class="msw-sofa" fill="#f2efe9" stroke="#b3aaa0" stroke-width="2.4" stroke-linejoin="round">
+                  <rect x="126" y="92" width="248" height="64" rx="22"/>
+                  <rect x="98" y="120" width="44" height="104" rx="20"/>
+                  <rect x="358" y="120" width="44" height="104" rx="20"/>
+                  <rect x="128" y="146" width="244" height="82" rx="24"/>
+                  <rect x="142" y="152" width="108" height="32" rx="12"/>
+                  <rect x="250" y="152" width="108" height="32" rx="12"/>
+                  <line x1="150" y1="228" x2="150" y2="248"/>
+                  <line x1="350" y1="228" x2="350" y2="248"/>
+                </g>
+                <g class="msw-measure" stroke="#8a8178" stroke-width="1.8" fill="none" stroke-linecap="round">
+                  <path d="M100 286 L400 286"/>
+                  <path d="M100 278 L100 294"/>
+                  <path d="M400 278 L400 294"/>
+                  <path d="M100 286 L112 280 M100 286 L112 292"/>
+                  <path d="M400 286 L388 280 M400 286 L388 292"/>
+                </g>
+                <g class="msw-pill" font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
+                  <g transform="translate(250 286)"><rect x="-64" y="-16" width="128" height="32" rx="16"/><text>Total width</text></g>
+                </g>
+              </svg>
+              <p class="msw-guide__note">Measure the total width of your sofa (across the seat, arm to arm) and choose the size that fits from the list below.</p>
+            </div>
+          </details>
+
+          {%- comment -%} Per-part guide: which cover goes where {%- endcomment -%}
+          <details class="msw-guide msw-guide--parts" open>
             <summary>
               <span>Size guide — which cover goes where</span>
               <svg class="msw-guide__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
@@ -187,7 +235,7 @@
         {%- comment -%} STEP 3: OVERVIEW — cart-style summary {%- endcomment -%}
         <section class="mlw-step" data-msw-step="3" hidden>
           <div class="mlw-step__intro">
-            <h3 class="mlw-step__title">Your bundle</h3>
+            <h3 class="mlw-step__title" data-msw-ovtitle>Your selection</h3>
           </div>
 
           <div class="mlw-summary-card">

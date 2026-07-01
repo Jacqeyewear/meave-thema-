@@ -52,8 +52,24 @@
 .msw-guide__svg .msw-pill rect { fill: #2b2620; }
 .msw-guide__note { margin: 12px 4px 0; color: var(--mlw-muted, #6e6e73); font-size: 12.5px; line-height: 1.5; text-align: center; }
 
+/* Show the guide that matches the product's sizing type */
+.msw-guide--whole { display: none; }
+meave-sofa-wizard[data-mode="single"] .msw-guide--parts { display: none; }
+meave-sofa-wizard[data-mode="single"] .msw-guide--whole { display: block; }
+
 /* ---- Size rows (step 2) ---- */
 .msw-sizes-grid { display: flex; flex-direction: column; gap: 10px; }
+
+/* Single-select size rows (whole-sofa covers) */
+.msw-size--pick { width: 100%; text-align: left; cursor: pointer; font: inherit; transition: box-shadow .15s ease, transform .1s ease; }
+.msw-size--pick:hover { transform: translateY(-1px); box-shadow: 0 2px 4px rgba(0,0,0,.04), 0 10px 24px rgba(0,0,0,.08); }
+.msw-size--pick.is-on { box-shadow: 0 0 0 2px var(--mlw-blue, #0071e3), 0 6px 18px rgba(0,0,0,.05); }
+.msw-size--pick.is-out { cursor: default; }
+.msw-size--pick:disabled { cursor: default; }
+.msw-size__radio { flex: 0 0 auto; width: 19px; height: 19px; border-radius: 50%; border: 1.5px solid #cfcfd4; position: relative; transition: border-color .15s ease; }
+.msw-size--pick.is-on .msw-size__radio { border-color: var(--mlw-blue, #0071e3); }
+.msw-size--pick.is-on .msw-size__radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--mlw-blue, #0071e3); }
+.msw-size--pick .msw-size__price { margin-left: auto; }
 .msw-size {
   display: flex; align-items: center; gap: 12px;
   padding: 14px 16px;
