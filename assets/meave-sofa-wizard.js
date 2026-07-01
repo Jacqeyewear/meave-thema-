@@ -57,6 +57,7 @@
       this.previewImg = this.querySelector('[data-msw-preview]');
       this.coloursEl  = this.querySelector('[data-msw-colors]');
       this.sizesEl    = this.querySelector('[data-msw-sizes]');
+      this.sizesInlineEl = this.querySelector('[data-msw-sizes-inline]');
       this.colourLbl  = this.querySelector('[data-msw-colour-label]');
       this.subEl      = this.querySelector('[data-msw-sub]');
       this.linesEl    = this.querySelector('[data-msw-lines]');
@@ -65,8 +66,12 @@
       this.tabs       = Array.prototype.slice.call(this.querySelectorAll('[data-msw-tab]'));
       this.steps      = Array.prototype.slice.call(this.querySelectorAll('[data-msw-step]'));
 
+      // Whole-sofa covers (one size) merge colour + size into a single step;
+      // hybrid/bundle keep them separate — more room to build a set + upsell.
+      this.merged = this.mode === 'single';
+      this.sections = this.merged ? [1, 3] : [1, 2, 3];
       this.step = 1;
-      this.totalSteps = this.steps.length || 3;
+      this.totalSteps = this.sections.length;
       this.lastFocus = null;
       this.addLabelBase = this.addLabelEl ? this.addLabelEl.textContent.trim() : 'Checkout';
 
@@ -116,8 +121,30 @@
       this.renderColours();
       this.renderUpsells();
       this.bind();
+      this.setupTabs();
       this.setupSticky();
       this.render();
+    }
+
+    // Relabel/hide tabs for the current mode (2 steps when merged, else 3).
+    setupTabs() {
+      var self = this;
+      this.tabs.forEach(function (tab) {
+        var sec = parseInt(tab.getAttribute('data-msw-tab'), 10);
+        var idx = self.sections.indexOf(sec);
+        if (idx < 0) { tab.hidden = true; tab.style.display = 'none'; return; }
+        tab.hidden = false; tab.style.display = '';
+        var num = tab.querySelector('.mlw-tab__num');
+        var txt = tab.querySelector('.mlw-tab__txt');
+        if (num) num.textContent = (idx + 1) + '.';
+        if (self.merged && sec === 1 && txt) txt.textContent = 'Colour & size';
+      });
+    }
+    canReach(logical) {
+      if (logical >= 2 && !this.selColour) return false;
+      var overviewLogical = this.sections.indexOf(3) + 1;
+      if (logical >= overviewLogical && !this.canProceed()) return false;
+      return true;
     }
 
     readJSON(sel, fb) {
@@ -143,10 +170,11 @@
 
       this.tabs.forEach(function (tab) {
         tab.addEventListener('click', function () {
-          var n = parseInt(tab.getAttribute('data-msw-tab'), 10);
-          if (n === 2 && !self.selColour) return;
-          if (n === 3 && !self.bundle.length) return;
-          self.goTo(n);
+          var sec = parseInt(tab.getAttribute('data-msw-tab'), 10);
+          var logical = self.sections.indexOf(sec) + 1;
+          if (logical < 1) return;
+          if (logical > self.step && !self.canReach(logical)) return;
+          self.goTo(logical);
         });
       });
 
@@ -244,14 +272,20 @@
     }
 
     /* ---------- navigation ---------- */
+    sectionForStep(step) { return this.sections[step - 1]; }
     next() {
-      if (this.step === 1) { if (!this.selColour) { this.showError('Please choose a colour first.'); return; } this.goTo(2); return; }
-      if (this.step === 2) {
+      var sec = this.sectionForStep(this.step);
+      if (sec === 1) {
+        if (!this.selColour) { this.showError('Please choose a colour first.'); return; }
+        if (this.merged && !this.canProceed()) { this.showError('Please choose a size.'); return; }
+        this.goTo(this.step + 1); return;
+      }
+      if (sec === 2) {
         if (!this.canProceed()) {
           this.showError(this.mode === 'bundle' ? 'Add at least one size to continue.' : 'Please choose your sofa size first.');
           return;
         }
-        this.goTo(3); return;
+        this.goTo(this.step + 1); return;
       }
     }
     goTo(step, silent) {
@@ -263,20 +297,24 @@
     }
     render() {
       var self = this;
+      var curSec = this.sectionForStep(this.step);
       this.steps.forEach(function (sec) {
         var n = parseInt(sec.getAttribute('data-msw-step'), 10);
-        var active = n === self.step;
+        var active = n === curSec;
         sec.classList.toggle('is-active', active);
         sec.hidden = !active;
       });
       this.tabs.forEach(function (tab) {
-        var n = parseInt(tab.getAttribute('data-msw-tab'), 10);
-        tab.classList.toggle('is-active', n === self.step);
-        tab.classList.toggle('is-done', n < self.step);
+        var sec = parseInt(tab.getAttribute('data-msw-tab'), 10);
+        var li = self.sections.indexOf(sec);
+        if (li < 0) return;
+        tab.classList.toggle('is-active', sec === curSec);
+        tab.classList.toggle('is-done', li < self.step - 1);
       });
 
-      if (this.step === 2) this.renderSizes();
-      if (this.step === 3) this.renderOverview();
+      if (curSec === 1 && this.merged) this.renderSizes();
+      if (curSec === 2) this.renderSizes();
+      if (curSec === 3) this.renderOverview();
       if (this.colourLbl) this.colourLbl.textContent = this.selColour || '';
       this.updatePreview();
 
@@ -302,7 +340,12 @@
         input.type = 'radio'; input.className = 'mlw-color__input'; input.name = 'msw-color';
         input.value = c.name;
         if (c.name === self.selColour) input.checked = true;
-        input.addEventListener('change', function () { self.selColour = c.name; self.bundle = []; self.updatePreview(); });
+        input.addEventListener('change', function () {
+          self.selColour = c.name; self.bundle = [];
+          self.updatePreview();
+          if (self.merged) self.renderSizes();
+          self.syncFooter();
+        });
         var media = document.createElement('span'); media.className = 'mlw-color__media';
         if (c.img) { var img = document.createElement('img'); img.className = 'mlw-color__img'; img.loading = 'lazy'; img.alt = c.name; img.src = c.img; media.appendChild(img); }
         var name = document.createElement('span'); name.className = 'mlw-color__name'; name.textContent = c.name;
@@ -401,9 +444,11 @@
     }
 
     renderSizes() {
-      if (!this.sizesEl) return;
+      var el = this.merged ? this.sizesInlineEl : this.sizesEl;
+      if (!el) return;
       var self = this;
-      this.sizesEl.innerHTML = '';
+      el.innerHTML = '';
+      if (this.merged && this.sizesInlineEl) this.sizesInlineEl.hidden = false;
       var sizes = this.sizesForColour(this.selColour);
       var mains = sizes.filter(function (v) { return !self.isExtra(v); });
 
@@ -415,17 +460,17 @@
       }
 
       if (this.mode === 'single') {
-        this.sizesEl.appendChild(this.sizeDropdown(mains));
+        el.appendChild(this.sizeDropdown(mains));
       } else if (this.mode === 'hybrid') {
         var extras = sizes.filter(function (v) { return self.isExtra(v); });
-        if (mains.length) this.sizesEl.appendChild(this.sizeDropdown(mains));
+        if (mains.length) el.appendChild(this.sizeDropdown(mains));
         if (extras.length) {
-          self.sizesEl.appendChild(self.subHead('Add cushion covers', 'Optional'));
-          extras.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
+          el.appendChild(self.subHead('Add cushion covers', 'Optional'));
+          extras.forEach(function (v) { el.appendChild(self.addRow(v)); });
         }
       } else {
         // bundle — build a set from the parts
-        sizes.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
+        sizes.forEach(function (v) { el.appendChild(self.addRow(v)); });
       }
     }
 

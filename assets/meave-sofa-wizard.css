@@ -115,6 +115,10 @@ meave-sofa-wizard[data-mode="bundle"] .msw-guide--parts { display: block; }
 .mlw-root .mlw-color__media { max-width: none; border-radius: 14px; }
 .mlw-root .mlw-color__img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Inline size block on the combined colour+size step (whole-sofa covers) */
+.msw-inline-size { margin-top: 24px; }
+.msw-inline-size[hidden] { display: none; }
+
 /* Size dropdown — one clear choice, low doubt (whole-sofa covers) */
 .msw-picker { margin: 0 0 6px; }
 .msw-picker__label { display: block; font-size: 13px; font-weight: 600; letter-spacing: -.01em; color: var(--mlw-ink, #1d1d1f); margin: 0 0 8px; }
