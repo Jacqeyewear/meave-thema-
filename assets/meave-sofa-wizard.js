@@ -30,6 +30,40 @@
       (t.meta ? '<span class="msw-size__meta">' + esc(t.meta) + '</span>' : '') + '</span>';
   }
 
+  // Number of seats from a size like "3-Seater (…)" -> 3 (0 if not a seat-count size)
+  function seatCount(s) {
+    var m = String(s == null ? '' : s).match(/(\d+)\s*-?\s*seater/i);
+    return m ? parseInt(m[1], 10) : 0;
+  }
+
+  // Clean front-view sofa illustration with N seat cushions.
+  function sofaSVG(n) {
+    n = Math.max(1, Math.min(5, n | 0));
+    var pad = 12, aw = 26, ah = 82, armY = 46;
+    var sw = 62, g = 8, seatY = 88, seatH = 34, seatRx = 11;
+    var sx = pad + aw + 8;
+    var seatsW = n * sw + (n - 1) * g;
+    var rx = sx + seatsW + 8;
+    var W = rx + aw + pad, H = 150;
+    var stroke = '#b3aaa0', fill = '#f2efe9';
+    var body = '<rect x="' + (sx - 6) + '" y="34" width="' + (seatsW + 12) + '" height="42" rx="15"/>' +
+      '<rect x="' + pad + '" y="' + armY + '" width="' + aw + '" height="' + ah + '" rx="13"/>' +
+      '<rect x="' + rx + '" y="' + armY + '" width="' + aw + '" height="' + ah + '" rx="13"/>' +
+      '<rect x="' + (pad + aw - 2) + '" y="86" width="' + (rx + 2 - (pad + aw - 2)) + '" height="46" rx="16"/>';
+    var cushions = '';
+    for (var i = 0; i < n; i++) {
+      var cx = sx + i * (sw + g);
+      cushions += '<rect x="' + cx + '" y="' + seatY + '" width="' + sw + '" height="' + seatH + '" rx="' + seatRx + '"/>' +
+        '<rect x="' + (cx + 3) + '" y="40" width="' + (sw - 6) + '" height="30" rx="9"/>';
+    }
+    var legs = '<line x1="' + (pad + aw / 2) + '" y1="132" x2="' + (pad + aw / 2) + '" y2="144"/>' +
+      '<line x1="' + (rx + aw / 2) + '" y1="132" x2="' + (rx + aw / 2) + '" y2="144"/>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-hidden="true">' +
+      '<g fill="' + fill + '" stroke="' + stroke + '" stroke-width="2.4" stroke-linejoin="round">' + body + '</g>' +
+      '<g fill="#ffffff" stroke="' + stroke + '" stroke-width="2.4" stroke-linejoin="round">' + cushions + '</g>' +
+      '<g stroke="' + stroke + '" stroke-width="2.4" stroke-linecap="round">' + legs + '</g></svg>';
+  }
+
   class MeaveSofaWizard extends HTMLElement {
     connectedCallback() {
       if (this.dataset.mswInit === '1') return;
@@ -56,6 +90,7 @@
       this.previewImg = this.querySelector('[data-msw-preview]');
       this.coloursEl  = this.querySelector('[data-msw-colors]');
       this.sizesEl    = this.querySelector('[data-msw-sizes]');
+      this.sizePrevEl = this.querySelector('[data-msw-sizeprev]');
       this.colourLbl  = this.querySelector('[data-msw-colour-label]');
       this.subEl      = this.querySelector('[data-msw-sub]');
       this.linesEl    = this.querySelector('[data-msw-lines]');
@@ -102,7 +137,7 @@
         this.subEl.textContent =
           this.mode === 'bundle' ? 'Add a cover for each part you want — checked out together in one go.' :
           this.mode === 'hybrid' ? 'Pick your sofa size, then add matching cushion covers if you like.' :
-          'Tap the size that fits your sofa.';
+          'Choose the size that fits your sofa — the preview updates as you go.';
       }
       var ovTitle = this.querySelector('[data-msw-ovtitle]');
       if (ovTitle) ovTitle.textContent =
@@ -301,7 +336,7 @@
         input.type = 'radio'; input.className = 'mlw-color__input'; input.name = 'msw-color';
         input.value = c.name;
         if (c.name === self.selColour) input.checked = true;
-        input.addEventListener('change', function () { self.selColour = c.name; self.updatePreview(); });
+        input.addEventListener('change', function () { self.selColour = c.name; self.bundle = []; self.updatePreview(); });
         var media = document.createElement('span'); media.className = 'mlw-color__media';
         if (c.img) { var img = document.createElement('img'); img.className = 'mlw-color__img'; img.loading = 'lazy'; img.alt = c.name; img.src = c.img; media.appendChild(img); }
         var name = document.createElement('span'); name.className = 'mlw-color__name'; name.textContent = c.name;
@@ -346,18 +381,15 @@
     }
     pickRow(v) {
       var self = this;
-      var single = this.mode === 'single';
       var on = this.isMainSelected(v.id);
       var row = document.createElement('button');
       row.type = 'button';
-      row.className = 'msw-size msw-size--pick' + (single ? ' msw-size--go' : '') + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
+      row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
       if (!v.av) row.disabled = true;
-      var end = single
-        ? '<span class="msw-size__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>'
-        : '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
       row.innerHTML =
         sizeText(v.s) +
-        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' + end;
+        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' +
+        '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
       if (v.av) row.addEventListener('click', function () { self.selectMain(v); });
       return row;
     }
@@ -397,14 +429,18 @@
       var self = this;
       this.sizesEl.innerHTML = '';
       var sizes = this.sizesForColour(this.selColour);
+      var mains = sizes.filter(function (v) { return !self.isExtra(v); });
 
-      if (this.mode === 'single') {
-        sizes.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
-        return;
+      // Whole-sofa modes: pre-select the first available size so the preview
+      // shows something and checkout is one tap away.
+      if (this.mode !== 'bundle' && !this.hasMain()) {
+        var firstAv = mains.filter(function (v) { return v.av; })[0];
+        if (firstAv) this.bundle.unshift({ id: firstAv.id, c: firstAv.c, s: firstAv.s, price: firstAv.price, pf: firstAv.pf, img: firstAv.img || '', qty: 1, main: true });
       }
 
-      if (this.mode === 'hybrid') {
-        var mains = sizes.filter(function (v) { return !self.isExtra(v); });
+      if (this.mode === 'single') {
+        mains.forEach(function (v) { self.sizesEl.appendChild(self.pickRow(v)); });
+      } else if (this.mode === 'hybrid') {
         var extras = sizes.filter(function (v) { return self.isExtra(v); });
         if (mains.length) {
           self.sizesEl.appendChild(self.subHead('Your sofa size'));
@@ -414,18 +450,38 @@
           self.sizesEl.appendChild(self.subHead('Add cushion covers', 'Optional'));
           extras.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
         }
-        return;
+      } else {
+        // bundle
+        sizes.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
       }
 
-      // bundle
-      sizes.forEach(function (v) { self.sizesEl.appendChild(self.addRow(v)); });
+      this.updateSizePreview();
+    }
+
+    updateSizePreview() {
+      if (!this.sizePrevEl) return;
+      if (this.mode === 'bundle') { this.sizePrevEl.hidden = true; return; }
+      var self = this;
+      var main = this.bundle.filter(function (b) { return b.main; })[0];
+      var sizeStr = '';
+      if (main) sizeStr = main.s;
+      else {
+        var mains = this.sizesForColour(this.selColour).filter(function (v) { return !self.isExtra(v); });
+        var fa = mains.filter(function (v) { return v.av; })[0] || mains[0];
+        if (fa) sizeStr = fa.s;
+      }
+      var n = seatCount(sizeStr);
+      if (!n) { this.sizePrevEl.hidden = true; return; }
+      var t = splitSize(sizeStr);
+      this.sizePrevEl.hidden = false;
+      this.sizePrevEl.innerHTML =
+        '<div class="msw-sizeprev__art">' + sofaSVG(n) + '</div>' +
+        '<div class="msw-sizeprev__cap"><b>' + esc(t.main) + '</b>' + (t.meta ? ' · ' + esc(t.meta) : '') + '</div>';
     }
 
     selectMain(v) {
       this.bundle = this.bundle.filter(function (b) { return !b.main; });
       this.bundle.unshift({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1, main: true });
-      // Whole-sofa covers: one size = done → jump straight to the overview.
-      if (this.mode === 'single') { this.syncFooter(); this.goTo(3); return; }
       this.renderSizes();
       this.syncFooter();
     }
