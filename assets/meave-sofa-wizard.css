@@ -1,37 +1,11 @@
 /* ============================================================
-   Meave sofa-cover wizard — additive styles only.
-   The shell (panel, tabs, colours, summary, footer) is shared
-   with the lamp wizard via meave-lamp-wizard.css. This file only
-   adds the pieces the lamp wizard doesn't have: the "Available
-   sizes" tab, the size guide diagram and the size rows.
+   Meave sofa-cover wizard.
+   Built on the shared lamp-wizard shell (meave-lamp-wizard.css),
+   then given a Mollie-inspired skin below: warm cream canvas,
+   white rounded cards, flat black pill buttons, big bold headings
+   and soft shadows. These styles load ONLY on sofa-cover pages,
+   so the lamp wizard keeps its own look.
    ============================================================ */
-
-/* ---- "Available sizes" drawer — reads as a pull-tab under the CTA ---- */
-.msw-drawer { margin-top: 8px; }
-.msw-drawer__tab {
-  position: relative;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  width: 100%; min-height: 46px; padding: 15px 18px 13px;
-  border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 16px;
-  background: #fff; font: inherit; font-size: 14px; font-weight: 500;
-  color: var(--mlw-ink, #1d1d1f); cursor: pointer;
-  transition: background .16s ease, border-radius .28s ease, border-color .16s ease;
-}
-.msw-drawer__tab:hover { background: var(--mlw-soft, #f5f5f7); }
-.msw-drawer.is-open .msw-drawer__tab { border-radius: 16px 16px 0 0; border-bottom-color: transparent; background: var(--mlw-soft, #f5f5f7); }
-/* grip handle at the top, hints you can pull it open */
-.msw-drawer__grip { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 34px; height: 4px; border-radius: 999px; background: #e0ddd8; transition: background .16s ease; }
-.msw-drawer__tab:hover .msw-drawer__grip { background: #cfc9c1; }
-.msw-drawer__chev { width: 17px; height: 17px; fill: none; stroke: var(--mlw-muted, #6e6e73); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: transform .28s ease; }
-.msw-drawer.is-open .msw-drawer__chev { transform: rotate(180deg); }
-.msw-drawer__reveal { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s cubic-bezier(.22,1,.36,1); }
-.msw-drawer.is-open .msw-drawer__reveal { grid-template-rows: 1fr; }
-.msw-drawer__inner { min-height: 0; overflow: hidden; border: 1px solid var(--mlw-line, #e7e7e7); border-top: none; border-radius: 0 0 16px 16px; background: #fff; }
-.msw-drawer__list { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px 16px; }
-.msw-drawer__chip { padding: 6px 12px; border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 999px; background: var(--mlw-soft, #f5f5f7); font-size: 12.5px; font-weight: 500; color: var(--mlw-ink, #1d1d1f); }
-@media (prefers-reduced-motion: reduce) {
-  .msw-drawer__reveal, .msw-drawer__chev, .msw-drawer__tab { transition: none; }
-}
 
 /* Chosen-colour tag next to the step 2 title */
 .msw-colour-tag:not(:empty) { color: var(--mlw-muted, #6e6e73); font-weight: 500; }
@@ -117,3 +91,91 @@ meave-sofa-wizard[data-mode="bundle"] .msw-guide--parts { display: block; }
   .msw-size { padding: 12px 14px; }
   .msw-size__name { font-size: 14px; }
 }
+
+/* ============================================================
+   MOLLIE-INSPIRED SKIN
+   Cream canvas · white rounded cards · flat black pills ·
+   big bold headings · soft shadows. Loads only on sofa pages,
+   overriding the shared lamp shell (later stylesheet wins).
+   ============================================================ */
+
+/* Design tokens — flip accent to near-black, canvas to warm cream.
+   Set on every place the shell reads them (element, portaled modal, sticky). */
+meave-sofa-wizard.mlw,
+.mlw-root,
+.mlw-sticky {
+  --mlw-bg: #f7f4ef;
+  --mlw-ink: #191713;
+  --mlw-muted: #6f6a63;
+  --mlw-line: #e8e2d8;
+  --mlw-line-soft: rgba(25, 23, 19, 0.06);
+  --mlw-soft: #efe9df;
+  --mlw-blue: #191713;
+  --mlw-blue-hover: #000000;
+  --mlw-radius: 16px;
+  --mlw-radius-card: 22px;
+}
+
+/* Trigger — flat black pill (Mollie CTA), no gradient wave */
+meave-sofa-wizard .mlw-trigger {
+  background: #191713;
+  box-shadow: none;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+meave-sofa-wizard .mlw-trigger:hover { background: #000; transform: none; box-shadow: 0 10px 26px -12px rgba(0, 0, 0, 0.45); }
+meave-sofa-wizard .mlw-trigger:active { transform: scale(0.99); }
+meave-sofa-wizard .mlw-trigger__wave { display: none; }
+
+/* Panel — rounded left edge on desktop, roomier body */
+@media (min-width: 601px) {
+  .mlw-root .mlw-panel { border-radius: 26px 0 0 26px; overflow: hidden; }
+  .mlw-root .mlw-body { padding: 28px 26px 14px; }
+}
+
+/* Headings — larger, tighter, bolder */
+.mlw-root .mlw-step__title { font-size: 26px; font-weight: 600; letter-spacing: -0.03em; }
+.mlw-root .mlw-head__title { font-weight: 600; letter-spacing: -0.02em; }
+.mlw-root .mlw-step__sub { font-size: 14.5px; }
+@media (max-width: 600px) { .mlw-root .mlw-step__title { font-size: 22px; } }
+
+/* Body / footer share the cream canvas */
+.mlw-root .mlw-foot { background: #f7f4ef; box-shadow: 0 -8px 20px rgba(25, 23, 19, 0.04); }
+
+/* Stepper — black active underline, a touch bolder */
+.mlw-root .mlw-tab { font-weight: 500; }
+.mlw-root .mlw-tab.is-active::after { height: 2.5px; background: #191713; }
+
+/* Preview — soft cream tile, flatter */
+.mlw-root .mlw-preview { background: #efe9df; box-shadow: none; border-radius: 22px; }
+
+/* Colour swatches — softer card, black selected ring */
+.mlw-root .mlw-color__media { border-radius: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03), 0 6px 16px rgba(25,23,19,.06); }
+.mlw-root .mlw-color__input:checked + .mlw-color__media { box-shadow: 0 0 0 2px #191713, 0 6px 16px rgba(25,23,19,.08); }
+
+/* Summary card — white, big radius, soft depth */
+.mlw-root .mlw-summary-card { border-radius: 22px; box-shadow: 0 1px 3px rgba(25,23,19,.04), 0 22px 48px -22px rgba(25,23,19,.18); }
+.mlw-root .mlw-totals__row--total strong { font-weight: 600; }
+
+/* Primary actions — flat black pills */
+.mlw-root .mlw-next,
+.mlw-root .mlw-add { background: #191713; box-shadow: none; font-weight: 600; }
+.mlw-root .mlw-next:hover,
+.mlw-root .mlw-add:hover { background: #000; }
+.mlw-root .mlw-continue { background: #efe9df; color: #191713; font-weight: 600; }
+.mlw-root .mlw-continue:hover { background: #e7e0d4; }
+
+/* Size rows — white rounded cards, black accents */
+.mlw-root .msw-size { border-radius: 18px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.16); }
+.mlw-root .msw-size--pick.is-on { box-shadow: 0 0 0 2px #191713, 0 10px 24px -16px rgba(25,23,19,.18); }
+.mlw-root .msw-size__add { font-weight: 600; }
+
+/* Size guide + upsell cards — match the rounded, soft look */
+.mlw-root .msw-guide { border-radius: 20px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.12); }
+.mlw-root .mlw-up { border-radius: 20px; box-shadow: 0 1px 2px rgba(25,23,19,.03), 0 12px 28px -18px rgba(25,23,19,.12); }
+.mlw-root .mlw-up__rec { color: #191713; }
+
+/* Sticky CTA — flat black pill */
+.mlw-sticky .mlw-sticky__btn { background: #191713; box-shadow: 0 8px 22px -10px rgba(0,0,0,.4); }
+.mlw-sticky .mlw-sticky__btn:hover { background: #000; }
+.mlw-sticky .mlw-sticky__now { color: #191713; }

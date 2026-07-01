@@ -123,25 +123,6 @@
     </span>
   </button>
 
-  {%- if size_values.size > 0 -%}
-    <div class="msw-drawer" data-msw-drawer>
-      <button type="button" class="msw-drawer__tab" data-msw-drawer-tab aria-expanded="false">
-        <span class="msw-drawer__grip" aria-hidden="true"></span>
-        <span class="msw-drawer__label">Available sizes</span>
-        <svg class="msw-drawer__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-      <div class="msw-drawer__reveal">
-        <div class="msw-drawer__inner">
-          <div class="msw-drawer__list">
-            {%- for sv in size_values -%}
-              <span class="msw-drawer__chip">{{ sv | escape }}</span>
-            {%- endfor -%}
-          </div>
-        </div>
-      </div>
-    </div>
-  {%- endif -%}
-
   {%- if product.available -%}
     <div class="mlw-sticky" data-msw-sticky aria-hidden="true">
       <div class="mlw-sticky__inner">
