@@ -833,6 +833,13 @@
               -%}
               {{ meave_paypal_trust }}
 
+            {%- when 'meave_sofa_wizard' -%}
+              {%- render 'meave-sofa-wizard',
+                block: block,
+                product: product
+              -%}
+              {{ meave_paypal_trust }}
+
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons',
                 block: block,
@@ -1994,6 +2001,29 @@
           "id": "set3_discount_code",
           "label": "Kortingscode 3 sets (25%)",
           "default": "MEAVE-3SETS"
+        }
+      ]
+    },
+    {
+      "type": "meave_sofa_wizard",
+      "name": "Meave – Sofa wizard",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Knoptekst",
+          "default": "Customise yours"
+        },
+        {
+          "type": "select",
+          "id": "after_add",
+          "label": "Na afronden",
+          "default": "checkout",
+          "options": [
+            { "value": "checkout", "label": "Direct naar afrekenen" },
+            { "value": "cart", "label": "Naar winkelwagen" }
+          ]
         }
       ]
     },

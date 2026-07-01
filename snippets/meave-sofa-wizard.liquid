@@ -1,0 +1,176 @@
+{% comment %}
+  Meave sofa-cover wizard – colour -> size -> overview, with bundling.
+
+  Uses the CURRENT product's own variants (colour option + size option).
+  Colours are de-duplicated. The shopper picks a colour, adds one or more
+  sizes (each size = a part of the sofa) to a bundle, then checks out. All
+  chosen sizes are added to the cart as separate line items.
+
+  @param {object} block   - meave_sofa_wizard block settings
+  @param {object} product - Current product
+{% endcomment %}
+
+{%- liquid
+  assign colour_pos = 0
+  assign size_pos = 0
+  for opt in product.options_with_values
+    assign on = opt.name | downcase
+    if colour_pos == 0
+      if on contains 'kleur'
+        assign colour_pos = forloop.index
+      elsif on contains 'colour'
+        assign colour_pos = forloop.index
+      elsif on contains 'color'
+        assign colour_pos = forloop.index
+      endif
+    endif
+    if size_pos == 0
+      if on contains 'maat'
+        assign size_pos = forloop.index
+      elsif on contains 'afmeting'
+        assign size_pos = forloop.index
+      elsif on contains 'size'
+        assign size_pos = forloop.index
+      elsif on contains 'zit'
+        assign size_pos = forloop.index
+      endif
+    endif
+  endfor
+  if colour_pos == 0
+    assign colour_pos = 1
+  endif
+  if size_pos == 0
+    if product.options.size > 1
+      assign size_pos = 2
+    else
+      assign size_pos = 1
+    endif
+  endif
+  assign ci = colour_pos | minus: 1
+  assign si = size_pos | minus: 1
+  assign size_values = product.options_with_values[si].values
+  assign btn_label = block.settings.button_label | default: 'Customise yours'
+-%}
+
+<meave-sofa-wizard class="msw" data-after-add="{{ block.settings.after_add | default: 'checkout' }}" {{ block.shopify_attributes }}>
+  <script type="application/json" data-msw-variants>
+    [
+      {%- for v in product.variants -%}
+        {%- if v.image -%}{%- assign vimg = v.image | image_url: width: 240 -%}{%- else -%}{%- assign vimg = '' -%}{%- endif -%}
+        {"id":{{ v.id }},"c":{{ v.options[ci] | default: '' | json }},"s":{{ v.options[si] | default: '' | json }},"price":{{ v.price }},"pf":{{ v.price | money | strip_html | json }},"av":{{ v.available }},"img":{{ vimg | json }}}{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  </script>
+
+  <button type="button" class="msw-trigger" data-msw-open>{{ btn_label | escape }}</button>
+
+  {%- if size_values.size > 0 -%}
+    <details class="msw-sizes">
+      <summary>
+        <span>Available sizes</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="msw-sizes__list">
+        {%- for sv in size_values -%}
+          <span class="msw-sizes__chip">{{ sv | escape }}</span>
+        {%- endfor -%}
+      </div>
+    </details>
+  {%- endif -%}
+
+  <div class="msw-modal" data-msw-modal hidden>
+    <div class="msw-modal__overlay" data-msw-close></div>
+    <div class="msw-modal__panel" role="dialog" aria-modal="true" aria-label="Customise your sofa cover">
+      <div class="msw-head">
+        <div class="msw-steps" data-msw-steps>
+          <button type="button" class="msw-step is-active" data-msw-step-tab="1"><span>1</span> Colour</button>
+          <button type="button" class="msw-step" data-msw-step-tab="2"><span>2</span> Size</button>
+          <button type="button" class="msw-step" data-msw-step-tab="3"><span>3</span> Overview</button>
+        </div>
+        <button type="button" class="msw-close" data-msw-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="msw-body">
+        <section class="msw-panel is-active" data-msw-panel="1">
+          <h3 class="msw-panel__title">Choose your colour</h3>
+          <div class="msw-colours" data-msw-colours></div>
+        </section>
+
+        <section class="msw-panel" data-msw-panel="2">
+          <h3 class="msw-panel__title">Choose your size<span class="msw-panel__sub" data-msw-colour-label></span></h3>
+          <p class="msw-hint">A cover set is made up per part. Add a size for each part of your sofa you want to cover.</p>
+
+          <details class="msw-guide" open>
+            <summary>
+              <span>Size guide — which size fits where</span>
+              <svg class="msw-guide__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="msw-guide__body">
+              <svg class="msw-guide__svg" viewBox="0 0 500 410" role="img" aria-label="Sofa size guide showing which cover size fits which part">
+                <g class="msw-sofa" fill="#f6f3ef" stroke="#b3aaa0" stroke-width="2.4" stroke-linejoin="round">
+                  <rect x="140" y="150" width="220" height="86" rx="24"/>
+                  <rect x="112" y="182" width="48" height="112" rx="22"/>
+                  <rect x="340" y="182" width="48" height="112" rx="22"/>
+                  <rect x="122" y="210" width="256" height="86" rx="26"/>
+                  <rect x="162" y="214" width="86" height="36" rx="13"/>
+                  <rect x="252" y="214" width="86" height="36" rx="13"/>
+                  <rect x="178" y="162" width="58" height="58" rx="13" transform="rotate(-8 207 191)"/>
+                  <rect x="250" y="176" width="46" height="46" rx="11" transform="rotate(7 273 199)"/>
+                  <line x1="150" y1="296" x2="150" y2="316"/>
+                  <line x1="350" y1="296" x2="350" y2="316"/>
+                </g>
+                <g class="msw-lead" stroke="#b3aaa0" stroke-width="1.6" stroke-dasharray="3 4" fill="none">
+                  <path d="M150 60 L150 150"/>
+                  <path d="M360 52 L300 214"/>
+                  <path d="M92 356 L200 196"/>
+                  <path d="M250 384 L273 200"/>
+                  <path d="M410 356 L340 258"/>
+                </g>
+                <g class="msw-dot" fill="#2b2620">
+                  <circle cx="150" cy="150" r="3.5"/>
+                  <circle cx="300" cy="214" r="3.5"/>
+                  <circle cx="200" cy="196" r="3.5"/>
+                  <circle cx="273" cy="200" r="3.5"/>
+                  <circle cx="340" cy="258" r="3.5"/>
+                </g>
+                <g class="msw-pill" font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
+                  <g transform="translate(58 44)"><rect x="-58" y="-17" width="116" height="34" rx="17"/><text>Backrest · 70×70</text></g>
+                  <g transform="translate(390 36)"><rect x="-52" y="-17" width="104" height="34" rx="17"/><text>Seat · 90×90</text></g>
+                  <g transform="translate(74 372)"><rect x="-66" y="-17" width="132" height="34" rx="17"/><text>Cushion · 45×45</text></g>
+                  <g transform="translate(250 396)"><rect x="-66" y="-16" width="132" height="32" rx="16"/><text>Cushion · 30×50</text></g>
+                  <g transform="translate(410 372)"><rect x="-62" y="-17" width="124" height="34" rx="17"/><text>Seat · 90×180</text></g>
+                </g>
+              </svg>
+              <p class="msw-guide__note">The sizes above are a guide. Check the exact sizes for this cover in the list below and add one per part.</p>
+            </div>
+          </details>
+
+          <div class="msw-sizesgrid" data-msw-sizesgrid></div>
+        </section>
+
+        <section class="msw-panel" data-msw-panel="3">
+          <h3 class="msw-panel__title">Your bundle</h3>
+          <div class="msw-cart" data-msw-cart></div>
+          <div class="msw-totals">
+            <span>Total</span>
+            <strong data-msw-total>—</strong>
+          </div>
+        </section>
+      </div>
+
+      <footer class="msw-foot">
+        <button type="button" class="msw-back" data-msw-back hidden>Back</button>
+        <button type="button" class="msw-next" data-msw-next hidden>Next</button>
+        <button type="button" class="msw-checkout" data-msw-checkout hidden>
+          <span data-msw-checkout-label>Checkout</span>
+        </button>
+        <p class="msw-error" data-msw-error hidden></p>
+      </footer>
+    </div>
+  </div>
+</meave-sofa-wizard>
+
+{{ 'meave-sofa-wizard.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'meave-sofa-wizard.js' | asset_url }}" defer></script>

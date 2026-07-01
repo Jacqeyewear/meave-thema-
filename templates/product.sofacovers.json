@@ -12,16 +12,6 @@
             "show_rating": true
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "show_variant_labels": true,
-            "picker_type": "button",
-            "enable_color_swatches": true,
-            "color_swatch_type": "variant",
-            "size_chart": ""
-          }
-        },
         "inventory": {
           "type": "inventory",
           "settings": {
@@ -31,26 +21,10 @@
             "color_scheme": "accent-1"
           }
         },
-        "lamp_wizard": {
-          "type": "meave_lamp_wizard",
+        "sofa_wizard": {
+          "type": "meave_sofa_wizard",
           "settings": {
             "button_label": "Customise yours",
-            "kappen_collection": "wall-lights-kopie",
-            "color_step_label": "Colour",
-            "color_heading": "Choose your colour",
-            "color_sub": "",
-            "kap_step_label": "Shade",
-            "kap_heading": "Choose your shade",
-            "kap_sub": "",
-            "review_step_label": "Summary",
-            "review_heading": "Your order",
-            "total_label": "Total",
-            "upsell_collection": "accessories",
-            "upsell_heading": "Often bought together",
-            "upsell_limit": 4,
-            "next_label": "Next",
-            "add_label": "Checkout",
-            "continue_label": "Continue shopping",
             "after_add": "checkout"
           }
         },
@@ -93,9 +67,8 @@
       },
       "block_order": [
         "title",
-        "variant_picker",
         "inventory",
-        "lamp_wizard",
+        "sofa_wizard",
         "tab_how",
         "tab_included",
         "tab_specs"
