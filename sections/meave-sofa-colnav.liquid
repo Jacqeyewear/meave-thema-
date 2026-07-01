@@ -1,0 +1,241 @@
+{% comment %}
+  Meave — Sofa covers pill nav. Horizontal, scrollable category pills for the
+  sofa-cover collections, in the same Apple-clean style as the lighting nav.
+{% endcomment %}
+
+{%- assign cur = collection.handle -%}
+
+<div class="msofa-nav" id="MsofaNav-{{ section.id }}">
+  <div class="msofa-nav__track" id="MsofaNavTrack-{{ section.id }}">
+
+    <a href="/collections/sofa-covers" class="msofa-nav__pill msofa-nav__pill--featured{% if cur == 'sofa-covers' %} is-current{% endif %}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/><path d="M2 13a2 2 0 0 1 2 2v2h16v-2a2 2 0 0 1 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v1H6v-1a2 2 0 0 0-2-2 2 2 0 0 0-2 2z"/><path d="M6 17v2M18 17v2"/></svg>
+      <span>Shop all</span>
+    </a>
+
+    <a href="/collections/full-sofa-covers" class="msofa-nav__pill{% if cur == 'full-sofa-covers' %} is-current{% endif %}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/><path d="M2 13a2 2 0 0 1 2 2v2h16v-2a2 2 0 0 1 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2v1H6v-1a2 2 0 0 0-2-2 2 2 0 0 0-2 2z"/><path d="M6 17v2M18 17v2"/></svg>
+      Full covers
+    </a>
+
+    <a href="/collections/loose-cushion-covers" class="msofa-nav__pill{% if cur == 'loose-cushion-covers' %} is-current{% endif %}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5c4.7-1 9.3-1 14 0 1 4.7 1 9.3 0 14-4.7 1-9.3 1-14 0-1-4.7-1-9.3 0-14z"/><path d="M8 6c1 2 1 10 0 12M16 6c-1 2-1 10 0 12"/></svg>
+      Loose cushion covers
+    </a>
+
+    <a href="/collections/chair-covers" class="msofa-nav__pill{% if cur == 'chair-covers' %} is-current{% endif %}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v7M17 4v7"/><path d="M7 8h10"/><path d="M6 11h12l-1.2 6H7.2z"/><path d="M8 17v3M16 17v3"/></svg>
+      Chair covers
+    </a>
+
+  </div>
+</div>
+
+{% stylesheet %}
+  .msofa-nav {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  .msofa-nav::before,
+  .msofa-nav::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 32px;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+  .msofa-nav::before { left: 0; background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%); opacity: 0; }
+  .msofa-nav::after { right: 0; background: linear-gradient(to left, #fff 0%, rgba(255,255,255,0) 100%); opacity: 1; }
+  .msofa-nav.is-scrolled::before { opacity: 1; }
+  .msofa-nav.is-end::after { opacity: 0; }
+
+  .msofa-nav__track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 22px 20px;
+  }
+  .msofa-nav__track::-webkit-scrollbar { display: none; }
+  .msofa-nav__track { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .msofa-nav__pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      0 1px 2px rgba(0,0,0,0.06),
+      0 4px 12px -2px rgba(0,0,0,0.08),
+      0 10px 24px -8px rgba(0,0,0,0.06);
+    color: #1D1D1F;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+                transform 0.45s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.45s cubic-bezier(0.22,1,0.36,1),
+                color 0.35s ease;
+  }
+  .msofa-nav__pill svg {
+    width: 16px; height: 16px;
+    flex-shrink: 0;
+    color: #86868b;
+    transition: color 0.35s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+  .msofa-nav.is-visible .msofa-nav__pill { opacity: 1; transform: translateY(0); }
+  .msofa-nav__pill:nth-child(1) { transition-delay: 0s; }
+  .msofa-nav__pill:nth-child(2) { transition-delay: 0.05s; }
+  .msofa-nav__pill:nth-child(3) { transition-delay: 0.10s; }
+  .msofa-nav__pill:nth-child(4) { transition-delay: 0.15s; }
+
+  @keyframes msofaSwipeHint {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-12px); }
+    40% { transform: translateX(0); }
+    60% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+  }
+  .msofa-nav.is-visible:not(.is-scrolled) .msofa-nav__track {
+    animation: msofaSwipeHint 1.6s ease-in-out 0.9s 1;
+  }
+
+  .msofa-nav.is-visible .msofa-nav__pill:hover {
+    color: #1D1D1F;
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.9),
+      0 2px 6px rgba(0,0,0,0.08),
+      0 10px 22px -6px rgba(0,0,0,0.12),
+      0 20px 40px -12px rgba(0,0,0,0.12);
+  }
+  .msofa-nav.is-visible .msofa-nav__pill:hover svg { color: #1D1D1F; transform: scale(1.12) rotate(-4deg); }
+  .msofa-nav.is-visible .msofa-nav__pill:active { transform: translateY(-1px) scale(0.97); transition-duration: 0.12s; }
+
+  .msofa-nav__pill.is-current {
+    background: #1d1d1f;
+    color: #fff;
+  }
+  .msofa-nav__pill.is-current svg { color: #fff; }
+
+  .msofa-nav__pill--featured {
+    background: #0071e3;
+    color: #ffffff;
+    padding: 9px 17px 9px 14px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.45),
+      0 2px 6px rgba(0,113,227,0.28),
+      0 8px 20px -4px rgba(0,113,227,0.32);
+    position: relative;
+    overflow: hidden;
+  }
+  .msofa-nav__pill--featured svg { color: #ffffff; position: relative; z-index: 1; }
+  .msofa-nav__pill--featured span { position: relative; z-index: 1; }
+  .msofa-nav__pill--featured.is-current { background: #0071e3; }
+  .msofa-nav.is-visible .msofa-nav__pill--featured:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 2px 6px rgba(0,113,227,0.32),
+      0 14px 30px -6px rgba(0,113,227,0.42);
+  }
+  .msofa-nav__pill--featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%; height: 100%;
+    background: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%, transparent 100%);
+    pointer-events: none;
+  }
+  @keyframes msofaShimmer { 0% { left: -75%; } 100% { left: 175%; } }
+  .msofa-nav.is-visible .msofa-nav__pill--featured::before {
+    animation: msofaShimmer 2.4s cubic-bezier(0.4,0,0.2,1) 1.4s infinite;
+  }
+
+  @media (min-width: 768px) {
+    .msofa-nav { width: auto; margin-left: 0; margin-right: 0; }
+    .msofa-nav::before, .msofa-nav::after { display: none; }
+    .msofa-nav.is-visible:not(.is-scrolled) .msofa-nav__track { animation: none; }
+    .msofa-nav__track {
+      justify-content: center;
+      overflow-x: visible;
+      padding: 24px 0;
+      gap: 10px;
+      width: 100%;
+    }
+    .msofa-nav__pill {
+      font-size: clamp(12px, 0.9vw, 15px);
+      padding: clamp(9px, 0.7vw, 13px) clamp(14px, 1.3vw, 24px);
+    }
+    .msofa-nav__pill svg { width: clamp(15px, 1vw, 18px); height: clamp(15px, 1vw, 18px); }
+    .msofa-nav__pill--featured { padding: clamp(9px, 0.7vw, 13px) clamp(14px, 1.3vw, 24px); padding-left: clamp(12px, 1.1vw, 20px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .msofa-nav__pill { opacity: 1; transform: none; transition: none; }
+    .msofa-nav.is-visible:not(.is-scrolled) .msofa-nav__track { animation: none; }
+    .msofa-nav__pill--featured::before { animation: none; }
+  }
+{% endstylesheet %}
+
+<script>
+(function(){
+  var nav = document.getElementById('MsofaNav-{{ section.id }}');
+  var track = document.getElementById('MsofaNavTrack-{{ section.id }}');
+  if (!nav || !track) return;
+
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { nav.classList.add('is-visible'); obs.unobserve(nav); } });
+    }, { threshold: 0.15 });
+    obs.observe(nav);
+  } else {
+    nav.classList.add('is-visible');
+  }
+
+  function updateFades(){
+    var maxScroll = track.scrollWidth - track.clientWidth;
+    track.scrollLeft > 4 ? nav.classList.add('is-scrolled') : nav.classList.remove('is-scrolled');
+    track.scrollLeft >= maxScroll - 4 ? nav.classList.add('is-end') : nav.classList.remove('is-end');
+  }
+  track.addEventListener('scroll', updateFades, { passive: true });
+  window.addEventListener('resize', updateFades);
+  updateFades();
+
+  // Centre the active pill on load
+  var current = track.querySelector('.is-current');
+  if (current) { track.scrollLeft = Math.max(0, current.offsetLeft - (track.clientWidth - current.offsetWidth) / 2); }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Meave – Sofa covers nav",
+  "tag": "section",
+  "class": "meave-sofa-colnav-section",
+  "settings": [],
+  "presets": [
+    { "name": "Meave – Sofa covers nav" }
+  ]
+}
+{% endschema %}

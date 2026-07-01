@@ -1,0 +1,155 @@
+{
+  "sections": {
+    "main-collection-banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "spacing": {
+          "type": "spacing",
+          "disabled": true,
+          "settings": {
+            "height": 48,
+            "height_mobile": 0
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "title-md"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "text_font": "heading",
+            "text_size": "subtext-sm",
+            "text_max_size": 22,
+            "text_line_height": 1,
+            "text_letter_spacing": 190,
+            "text_capitalize": false,
+            "secondary_color": false
+          }
+        }
+      },
+      "block_order": [
+        "spacing",
+        "title",
+        "description"
+      ],
+      "settings": {
+        "transparent_header": true,
+        "show_image": false,
+        "image_height": "750px",
+        "content_position": "md:items-center md:justify-start",
+        "text_alignment": "left",
+        "image_height_mobile": "auto",
+        "content_position_mobile": "items-center justify-start",
+        "text_alignment_mobile": "left",
+        "color_text": "#ffffff",
+        "color_overlay": "#171717",
+        "overlay_opacity": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true,
+        "enable_parallax": true,
+        "parallax_direction": "vertical"
+      }
+    },
+    "sofa_nav": {
+      "type": "meave-sofa-colnav",
+      "settings": {}
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "settings": {
+            "menu": "",
+            "show_count": true
+          }
+        }
+      },
+      "block_order": [
+        "subcollections"
+      ],
+      "settings": {
+        "products_per_page": 24,
+        "columns": 4,
+        "columns_mobile": "2",
+        "pagination": "infinite",
+        "enable_filtering": false,
+        "filter_collapsed": true,
+        "filter_type": "drawer",
+        "filter_color_swatches": true,
+        "enable_sorting": true,
+        "padding_top": 4,
+        "padding_bottom": 0,
+        "divider": false,
+        "full_width": true,
+        "rounded": true
+      }
+    },
+    "rich_text_sofa": {
+      "type": "rich-text",
+      "blocks": {
+        "text_sofa": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Sofa covers that fit, protect and refresh</strong></p><p>A well-made cover gives a tired sofa a second life. Meave covers are cut from a soft, durable stretch fabric that hugs the shape of your sofa and guards it from pets, kids, scratches and daily wear. Choose a full cover sized to your sofa, build a set from loose-cushion covers, or dress an armchair or dining chair.</p><p><strong>Easy to fit, easy to wash</strong></p><p>Pull the cover over the seat and back, tuck the excess into the gaps and secure it with the included anti-slip sticks. Most people have it on in a few minutes, with no tools needed. When it needs a refresh, machine wash on a cool, gentle cycle and it goes straight back on, keeping its shape wash after wash.</p><p><strong>Not sure which size?</strong></p><p>Measure the total width of your sofa, or the part you want to cover, and match it to the size guide on each product. If you are between sizes, size up for a more relaxed fit.</p>",
+            "text_font": "body",
+            "text_size": "subtext-sm",
+            "text_max_size": 12,
+            "text_line_height": 1.5,
+            "text_letter_spacing": 0,
+            "text_capitalize": false,
+            "secondary_color": false,
+            "highlighted_text": "none",
+            "highlighted_scribble": "circle"
+          }
+        }
+      },
+      "block_order": [
+        "text_sofa"
+      ],
+      "name": "Sofa covers intro text",
+      "settings": {
+        "text_alignment": "left",
+        "text_alignment_mobile": "left",
+        "heading": "",
+        "heading_size": "title-sm",
+        "heading_alignment": "text-left md:items-end md:flex-row",
+        "heading_width": "small",
+        "heading_tag": "h2",
+        "subheading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "button_external": false,
+        "button_icon": true,
+        "highlighted_text": "none",
+        "highlighted_scribble": "circle",
+        "color_text": "",
+        "color_background": "#ffffff",
+        "gradient_background": "",
+        "color_highlight": "",
+        "gradient_highlight": "",
+        "color_button_text": "",
+        "color_button_background": "",
+        "color_button_gradient": "",
+        "padding_top": 72,
+        "padding_bottom": 100,
+        "divider": false,
+        "narrow": false,
+        "rounded": false
+      }
+    }
+  },
+  "order": [
+    "main-collection-banner",
+    "sofa_nav",
+    "main-collection",
+    "rich_text_sofa"
+  ]
+}
