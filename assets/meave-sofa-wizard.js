@@ -100,9 +100,9 @@
 
       if (this.subEl) {
         this.subEl.textContent =
-          this.mode === 'bundle' ? 'Add a cover for each part you want — they’re bundled together and checked out in one go.' :
-          this.mode === 'hybrid' ? 'Pick the size that fits your sofa, then add matching cushion covers if you like.' :
-          'Choose the size that fits your sofa. Not sure? Use the guide above to measure.';
+          this.mode === 'bundle' ? 'Add a cover for each part you want — checked out together in one go.' :
+          this.mode === 'hybrid' ? 'Pick your sofa size, then add matching cushion covers if you like.' :
+          'Tap the size that fits your sofa.';
       }
       var ovTitle = this.querySelector('[data-msw-ovtitle]');
       if (ovTitle) ovTitle.textContent =
@@ -346,15 +346,18 @@
     }
     pickRow(v) {
       var self = this;
+      var single = this.mode === 'single';
       var on = this.isMainSelected(v.id);
       var row = document.createElement('button');
       row.type = 'button';
-      row.className = 'msw-size msw-size--pick' + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
+      row.className = 'msw-size msw-size--pick' + (single ? ' msw-size--go' : '') + (v.av ? '' : ' is-out') + (on ? ' is-on' : '');
       if (!v.av) row.disabled = true;
+      var end = single
+        ? '<span class="msw-size__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>'
+        : '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
       row.innerHTML =
         sizeText(v.s) +
-        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' +
-        '<span class="msw-size__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m5.2 10.4 3 3 6.6-6.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+        '<span class="msw-size__price">' + (v.av ? esc(v.pf) : 'Sold out') + '</span>' + end;
       if (v.av) row.addEventListener('click', function () { self.selectMain(v); });
       return row;
     }
@@ -421,6 +424,8 @@
     selectMain(v) {
       this.bundle = this.bundle.filter(function (b) { return !b.main; });
       this.bundle.unshift({ id: v.id, c: v.c, s: v.s, price: v.price, pf: v.pf, img: v.img || '', qty: 1, main: true });
+      // Whole-sofa covers: one size = done → jump straight to the overview.
+      if (this.mode === 'single') { this.syncFooter(); this.goTo(3); return; }
       this.renderSizes();
       this.syncFooter();
     }
