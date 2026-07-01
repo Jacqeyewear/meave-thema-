@@ -114,6 +114,15 @@
         });
       });
 
+      var drawer = this.querySelector('[data-msw-drawer]');
+      var drawerTab = this.querySelector('[data-msw-drawer-tab]');
+      if (drawer && drawerTab) {
+        drawerTab.addEventListener('click', function () {
+          var open = drawer.classList.toggle('is-open');
+          drawerTab.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
       this._onKey = function (e) { if (e.key === 'Escape' && self.root && self.root.classList.contains('is-open')) self.close(); };
       document.addEventListener('keydown', this._onKey);
     }

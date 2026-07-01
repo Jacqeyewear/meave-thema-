@@ -6,24 +6,32 @@
    sizes" tab, the size guide diagram and the size rows.
    ============================================================ */
 
-/* ---- Available-sizes tab (under the trigger button) ---- */
-.msw-sizes {
-  margin-top: 12px;
-  border: 1px solid var(--mlw-line, #e7e7e7);
-  border-radius: 14px;
-  background: #fff;
-  overflow: hidden;
+/* ---- "Available sizes" drawer — reads as a pull-tab under the CTA ---- */
+.msw-drawer { margin-top: 8px; }
+.msw-drawer__tab {
+  position: relative;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; min-height: 46px; padding: 15px 18px 13px;
+  border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 16px;
+  background: #fff; font: inherit; font-size: 14px; font-weight: 500;
+  color: var(--mlw-ink, #1d1d1f); cursor: pointer;
+  transition: background .16s ease, border-radius .28s ease, border-color .16s ease;
 }
-.msw-sizes > summary {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 13px 16px; cursor: pointer; list-style: none;
-  font-size: 14px; font-weight: 500; color: var(--mlw-ink, #1d1d1f);
+.msw-drawer__tab:hover { background: var(--mlw-soft, #f5f5f7); }
+.msw-drawer.is-open .msw-drawer__tab { border-radius: 16px 16px 0 0; border-bottom-color: transparent; background: var(--mlw-soft, #f5f5f7); }
+/* grip handle at the top, hints you can pull it open */
+.msw-drawer__grip { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 34px; height: 4px; border-radius: 999px; background: #e0ddd8; transition: background .16s ease; }
+.msw-drawer__tab:hover .msw-drawer__grip { background: #cfc9c1; }
+.msw-drawer__chev { width: 17px; height: 17px; fill: none; stroke: var(--mlw-muted, #6e6e73); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: transform .28s ease; }
+.msw-drawer.is-open .msw-drawer__chev { transform: rotate(180deg); }
+.msw-drawer__reveal { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s cubic-bezier(.22,1,.36,1); }
+.msw-drawer.is-open .msw-drawer__reveal { grid-template-rows: 1fr; }
+.msw-drawer__inner { min-height: 0; overflow: hidden; border: 1px solid var(--mlw-line, #e7e7e7); border-top: none; border-radius: 0 0 16px 16px; background: #fff; }
+.msw-drawer__list { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 16px 16px; }
+.msw-drawer__chip { padding: 6px 12px; border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 999px; background: var(--mlw-soft, #f5f5f7); font-size: 12.5px; font-weight: 500; color: var(--mlw-ink, #1d1d1f); }
+@media (prefers-reduced-motion: reduce) {
+  .msw-drawer__reveal, .msw-drawer__chev, .msw-drawer__tab { transition: none; }
 }
-.msw-sizes > summary::-webkit-details-marker { display: none; }
-.msw-sizes > summary svg { width: 18px; height: 18px; fill: none; stroke: var(--mlw-muted, #6e6e73); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .3s ease; }
-.msw-sizes[open] > summary svg { transform: rotate(180deg); }
-.msw-sizes__list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 16px; }
-.msw-sizes__chip { padding: 6px 12px; border: 1px solid var(--mlw-line, #e7e7e7); border-radius: 999px; background: var(--mlw-soft, #f5f5f7); font-size: 12.5px; font-weight: 500; color: var(--mlw-ink, #1d1d1f); }
 
 /* Chosen-colour tag next to the step 2 title */
 .msw-colour-tag:not(:empty) { color: var(--mlw-muted, #6e6e73); font-weight: 500; }
@@ -52,13 +60,10 @@
 .msw-guide__svg .msw-pill rect { fill: #2b2620; }
 .msw-guide__note { margin: 12px 4px 0; color: var(--mlw-muted, #6e6e73); font-size: 12.5px; line-height: 1.5; text-align: center; }
 
-/* Show the guide that matches the product's sizing type.
-   parts diagram for per-part covers; measure diagram for whole-sofa + hybrid. */
-.msw-guide--whole { display: none; }
-meave-sofa-wizard[data-mode="single"] .msw-guide--parts,
-meave-sofa-wizard[data-mode="hybrid"] .msw-guide--parts { display: none; }
-meave-sofa-wizard[data-mode="single"] .msw-guide--whole,
-meave-sofa-wizard[data-mode="hybrid"] .msw-guide--whole { display: block; }
+/* The size guide diagram is only useful for per-part covers.
+   Whole-sofa (single) and hybrid covers don't show it. */
+.msw-guide--parts { display: none; }
+meave-sofa-wizard[data-mode="bundle"] .msw-guide--parts { display: block; }
 
 /* ---- Size rows (step 2) ---- */
 .msw-sizes-grid { display: flex; flex-direction: column; gap: 10px; }

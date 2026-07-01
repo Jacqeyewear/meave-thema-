@@ -105,17 +105,22 @@
   </button>
 
   {%- if size_values.size > 0 -%}
-    <details class="msw-sizes">
-      <summary>
-        <span>Available sizes</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-      </summary>
-      <div class="msw-sizes__list">
-        {%- for sv in size_values -%}
-          <span class="msw-sizes__chip">{{ sv | escape }}</span>
-        {%- endfor -%}
+    <div class="msw-drawer" data-msw-drawer>
+      <button type="button" class="msw-drawer__tab" data-msw-drawer-tab aria-expanded="false">
+        <span class="msw-drawer__grip" aria-hidden="true"></span>
+        <span class="msw-drawer__label">Available sizes</span>
+        <svg class="msw-drawer__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="msw-drawer__reveal">
+        <div class="msw-drawer__inner">
+          <div class="msw-drawer__list">
+            {%- for sv in size_values -%}
+              <span class="msw-drawer__chip">{{ sv | escape }}</span>
+            {%- endfor -%}
+          </div>
+        </div>
       </div>
-    </details>
+    </div>
   {%- endif -%}
 
   <div class="mlw-root" data-msw-root hidden aria-hidden="true">
@@ -163,41 +168,8 @@
             <p class="mlw-step__sub" data-msw-sub></p>
           </div>
 
-          {%- comment -%} Whole-sofa guide: measure the sofa and pick one size {%- endcomment -%}
-          <details class="msw-guide msw-guide--whole" open>
-            <summary>
-              <span>Size guide — measure your sofa</span>
-              <svg class="msw-guide__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="msw-guide__body">
-              <svg class="msw-guide__svg" viewBox="0 0 500 320" role="img" aria-label="Sofa diagram showing where to measure the total width">
-                <g class="msw-sofa" fill="#f2efe9" stroke="#b3aaa0" stroke-width="2.4" stroke-linejoin="round">
-                  <rect x="126" y="92" width="248" height="64" rx="22"/>
-                  <rect x="98" y="120" width="44" height="104" rx="20"/>
-                  <rect x="358" y="120" width="44" height="104" rx="20"/>
-                  <rect x="128" y="146" width="244" height="82" rx="24"/>
-                  <rect x="142" y="152" width="108" height="32" rx="12"/>
-                  <rect x="250" y="152" width="108" height="32" rx="12"/>
-                  <line x1="150" y1="228" x2="150" y2="248"/>
-                  <line x1="350" y1="228" x2="350" y2="248"/>
-                </g>
-                <g class="msw-measure" stroke="#8a8178" stroke-width="1.8" fill="none" stroke-linecap="round">
-                  <path d="M100 286 L400 286"/>
-                  <path d="M100 278 L100 294"/>
-                  <path d="M400 278 L400 294"/>
-                  <path d="M100 286 L112 280 M100 286 L112 292"/>
-                  <path d="M400 286 L388 280 M400 286 L388 292"/>
-                </g>
-                <g class="msw-pill" font-family="-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif">
-                  <g transform="translate(250 286)"><rect x="-64" y="-16" width="128" height="32" rx="16"/><text>Total width</text></g>
-                </g>
-              </svg>
-              <p class="msw-guide__note">Measure the total width of your sofa (across the seat, arm to arm) and choose the size that fits from the list below.</p>
-            </div>
-          </details>
-
-          {%- comment -%} Per-part guide: which cover goes where {%- endcomment -%}
-          <details class="msw-guide msw-guide--parts" open>
+          {%- comment -%} Size guide — only shown for per-part covers, collapsed by default {%- endcomment -%}
+          <details class="msw-guide msw-guide--parts">
             <summary>
               <span>Size guide — which cover goes where</span>
               <svg class="msw-guide__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
